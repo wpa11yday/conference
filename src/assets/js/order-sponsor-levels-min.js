@@ -1,0 +1,1 @@
+jQuery((function(o){o(".sponsor-order").sortable()}));

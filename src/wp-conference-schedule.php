@@ -378,7 +378,7 @@ class WPAD_Conference_Schedule {
 		switch ( $column ) {
 
 			case 'conference_session_time':
-				$session_time = absint( get_post_meta( get_the_ID(), '_wpcs_session_time', true ) );
+				$session_time = absint( get_post_meta( $post_id, '_wpcs_session_time', true ) );
 				$session_time = ( $session_time ) ? date( 'H:i', $session_time ) : '&mdash;';
 				echo esc_html( $session_time );
 				break;
@@ -405,6 +405,9 @@ class WPAD_Conference_Schedule {
 	 */
 	function wpcs_display_post_states( $states ) {
 		$post = get_post();
+		if ( ! get_post_type( $post ) ) {
+			return;
+		}
 
 		if ( 'wpcs_session' != $post->post_type ) {
 			return $states;

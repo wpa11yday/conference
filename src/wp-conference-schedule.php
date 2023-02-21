@@ -211,7 +211,16 @@ class WPAD_Conference_Schedule {
 
 		// filter speaker meta field
 		if(has_filter('wpcs_filter_session_speaker_meta_field')) {
-			$cmb = apply_filters('wpcs_filter_session_speaker_meta_field', $cmb);
+			/**
+			 * Filter session speaker meta field.
+			 *
+			 * @hook wpcs_filter_session_speaker_meta_field
+			 *
+			 * @param {object} CMB2 generated metabox for speaker meta fields.
+			 *
+			 * @return {object}
+			 */
+			$cmb = apply_filters( 'wpcs_filter_session_speaker_meta_field', $cmb );
 		}else{
 			// Speaker Name(s)
 			$cmb->add_field( array(

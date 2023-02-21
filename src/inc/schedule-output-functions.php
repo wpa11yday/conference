@@ -384,8 +384,17 @@ function wpcs_scheduleOutput( $props ) {
 				$content .= '<div class="wpcs-session-cell-content">';
 
 				// Session Content Header Filter
-				$wpcs_session_content_header = apply_filters( 'wpcs_session_content_header', $session->ID);
-				$content .= ($wpcs_session_content_header != $session->ID) ? $wpcs_session_content_header : '';
+				/**
+				 * Filter session content header content.
+				 *
+				 * @hook wpcs_session_content_header
+				 *
+				 * @param {string} Empty string to use default header. HTML string to replace.
+				 *
+				 * @return {string}
+				 */
+				$wpcs_session_content_header = apply_filters( 'wpcs_session_content_header', '', $session->ID );
+				$content                    .= ( '' !== $wpcs_session_content_header ) ? $wpcs_session_content_header : '';
 
 				// Determine the session title
 				if ( 'permalink' == $attr['session_link'] && ('session' == $session_type || 'mainstage' == $session_type) )

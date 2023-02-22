@@ -865,7 +865,7 @@ function wpcs_resources( $session_ID ) {
 		foreach ( $resources as $resource ) {
 			$output .= '<li>' . $resource . '</li>';
 		}
-		echo wp_kses_post( '<div class="wpcs-resources-wrapper"><h3>Resources</h3><ul class="wpcs-resources">' . $output . '</ul></div>' );
+		echo wp_kses_post( '<div class="wpcs-resources-wrapper"><h3>' . __( 'Resources', 'wpa-conference' ) . '</h3><ul class="wpcs-resources">' . $output . '</ul></div>' );
 	}
 }
 

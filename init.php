@@ -1,8 +1,9 @@
 <?php
 /**
+ * WP Accessibility Day - Conference Schedule
+ *
  * @link              https://wpconferenceschedule.com
  * @since             1.0.0
- * @package           wp_conference_schedule
  *
  * @wordpress-plugin
  * Plugin Name:       WP Accessibility Day - Conference Schedule
@@ -13,7 +14,9 @@
  * Author URI:        https://wpaccessibility.day
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       wp-conference-schedule
+ * Text Domain:       wpa-conference
+ *
+ * @package           wpcsp
  */
 
 // If this file is called directly, abort.

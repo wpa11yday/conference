@@ -1,19 +1,28 @@
 <?php
+/**
+ * Register the taxonomies.
+ *
+ * @package wpcsp
+ */
 
-// Registers custom taxonomies to post types.
+/**
+ * Registers custom taxonomies to post types.
+ *
+ * @return void
+ */
 function wpcs_register_taxonomies() {
 
 	// Labels for tracks.
 	$track_labels = array(
-		'name'          => __( 'Tracks', 'wp-conference-schedule' ),
-		'singular_name' => __( 'Track', 'wp-conference-schedule' ),
-		'search_items'  => __( 'Search Tracks', 'wp-conference-schedule' ),
-		'popular_items' => __( 'Popular Tracks', 'wp-conference-schedule' ),
-		'all_items'     => __( 'All Tracks', 'wp-conference-schedule' ),
-		'edit_item'     => __( 'Edit Track', 'wp-conference-schedule' ),
-		'update_item'   => __( 'Update Track', 'wp-conference-schedule' ),
-		'add_new_item'  => __( 'Add Track', 'wp-conference-schedule' ),
-		'new_item_name' => __( 'New Track', 'wp-conference-schedule' ),
+		'name'          => __( 'Tracks', 'wpa-conference' ),
+		'singular_name' => __( 'Track', 'wpa-conference' ),
+		'search_items'  => __( 'Search Tracks', 'wpa-conference' ),
+		'popular_items' => __( 'Popular Tracks', 'wpa-conference' ),
+		'all_items'     => __( 'All Tracks', 'wpa-conference' ),
+		'edit_item'     => __( 'Edit Track', 'wpa-conference' ),
+		'update_item'   => __( 'Update Track', 'wpa-conference' ),
+		'add_new_item'  => __( 'Add Track', 'wpa-conference' ),
+		'new_item_name' => __( 'New Track', 'wpa-conference' ),
 	);
 
 	// Register the Tracks taxonomy.
@@ -34,15 +43,15 @@ function wpcs_register_taxonomies() {
 
 	// Labels for locations.
 	$location_labels = array(
-		'name'          => __( 'Locations', 'wp-conference-schedule' ),
-		'singular_name' => __( 'Location', 'wp-conference-schedule' ),
-		'search_items'  => __( 'Search Locations', 'wp-conference-schedule' ),
-		'popular_items' => __( 'Popular Locations', 'wp-conference-schedule' ),
-		'all_items'     => __( 'All Locations', 'wp-conference-schedule' ),
-		'edit_item'     => __( 'Edit Location', 'wp-conference-schedule' ),
-		'update_item'   => __( 'Update Location', 'wp-conference-schedule' ),
-		'add_new_item'  => __( 'Add Location', 'wp-conference-schedule' ),
-		'new_item_name' => __( 'New Location', 'wp-conference-schedule' ),
+		'name'          => __( 'Locations', 'wpa-conference' ),
+		'singular_name' => __( 'Location', 'wpa-conference' ),
+		'search_items'  => __( 'Search Locations', 'wpa-conference' ),
+		'popular_items' => __( 'Popular Locations', 'wpa-conference' ),
+		'all_items'     => __( 'All Locations', 'wpa-conference' ),
+		'edit_item'     => __( 'Edit Location', 'wpa-conference' ),
+		'update_item'   => __( 'Update Location', 'wpa-conference' ),
+		'add_new_item'  => __( 'Add Location', 'wpa-conference' ),
+		'new_item_name' => __( 'New Location', 'wpa-conference' ),
 	);
 
 	// Register the Locations taxonomy.
@@ -65,23 +74,27 @@ function wpcs_register_taxonomies() {
 
 add_action( 'init', 'wpcs_register_taxonomies' );
 
-
+/**
+ * Register conference taxonomies.
+ *
+ * @return void
+ */
 function wpcsp_register_conference_taxonomies() {
 
 	// Labels for speaker groups.
 	$speakergrouplabels = array(
-		'name'          => __( 'Groups', 'wpcsp' ),
-		'singular_name' => __( 'Group', 'wpcsp' ),
-		'search_items'  => __( 'Search Groups', 'wpcsp' ),
-		'popular_items' => __( 'Popular Groups', 'wpcsp' ),
-		'all_items'     => __( 'All Groups', 'wpcsp' ),
-		'edit_item'     => __( 'Edit Group', 'wpcsp' ),
-		'update_item'   => __( 'Update Group', 'wpcsp' ),
-		'add_new_item'  => __( 'Add Group', 'wpcsp' ),
-		'new_item_name' => __( 'New Group', 'wpcsp' ),
+		'name'          => __( 'Groups', 'wpa-conference' ),
+		'singular_name' => __( 'Group', 'wpa-conference' ),
+		'search_items'  => __( 'Search Groups', 'wpa-conference' ),
+		'popular_items' => __( 'Popular Groups', 'wpa-conference' ),
+		'all_items'     => __( 'All Groups', 'wpa-conference' ),
+		'edit_item'     => __( 'Edit Group', 'wpa-conference' ),
+		'update_item'   => __( 'Update Group', 'wpa-conference' ),
+		'add_new_item'  => __( 'Add Group', 'wpa-conference' ),
+		'new_item_name' => __( 'New Group', 'wpa-conference' ),
 	);
 
-	// Register speaker groups taxonomy
+	// Register speaker groups taxonomy.
 	register_taxonomy(
 		'wpcsp_speaker_level',
 		'wpcsp_speaker',
@@ -99,18 +112,18 @@ function wpcsp_register_conference_taxonomies() {
 
 	// Labels for sponsor levels.
 	$sponsorlevellabels = array(
-		'name'          => __( 'Sponsor Levels', 'rwc-conference-schedule' ),
-		'singular_name' => __( 'Sponsor Level', 'rwc-conference-schedule' ),
-		'search_items'  => __( 'Search Sponsor Levels', 'rwc-conference-schedule' ),
-		'popular_items' => __( 'Popular Sponsor Levels', 'rwc-conference-schedule' ),
-		'all_items'     => __( 'All Sponsor Levels', 'rwc-conference-schedule' ),
-		'edit_item'     => __( 'Edit Sponsor Level', 'rwc-conference-schedule' ),
-		'update_item'   => __( 'Update Sponsor Level', 'rwc-conference-schedule' ),
-		'add_new_item'  => __( 'Add Sponsor Level', 'rwc-conference-schedule' ),
-		'new_item_name' => __( 'New Sponsor Level', 'rwc-conference-schedule' ),
+		'name'          => __( 'Sponsor Levels', 'wpa-conference' ),
+		'singular_name' => __( 'Sponsor Level', 'wpa-conference' ),
+		'search_items'  => __( 'Search Sponsor Levels', 'wpa-conference' ),
+		'popular_items' => __( 'Popular Sponsor Levels', 'wpa-conference' ),
+		'all_items'     => __( 'All Sponsor Levels', 'wpa-conference' ),
+		'edit_item'     => __( 'Edit Sponsor Level', 'wpa-conference' ),
+		'update_item'   => __( 'Update Sponsor Level', 'wpa-conference' ),
+		'add_new_item'  => __( 'Add Sponsor Level', 'wpa-conference' ),
+		'new_item_name' => __( 'New Sponsor Level', 'wpa-conference' ),
 	);
 
-	// Register sponsor level taxonomy
+	// Register sponsor level taxonomy.
 	register_taxonomy(
 		'wpcsp_sponsor_level',
 		'wpcsp_sponsor',
@@ -128,18 +141,18 @@ function wpcsp_register_conference_taxonomies() {
 
 	// Labels for session tags.
 	$sponsorlevellabels = array(
-		'name'          => __( 'Tags', 'rwc-conference-schedule' ),
-		'singular_name' => __( 'Tag', 'rwc-conference-schedule' ),
-		'search_items'  => __( 'Search Tags', 'rwc-conference-schedule' ),
-		'popular_items' => __( 'Popular Tags', 'rwc-conference-schedule' ),
-		'all_items'     => __( 'All Tags', 'rwc-conference-schedule' ),
-		'edit_item'     => __( 'Edit Tag', 'rwc-conference-schedule' ),
-		'update_item'   => __( 'Update Tag', 'rwc-conference-schedule' ),
-		'add_new_item'  => __( 'Add Tag', 'rwc-conference-schedule' ),
-		'new_item_name' => __( 'New Tag', 'rwc-conference-schedule' ),
+		'name'          => __( 'Tags', 'wpa-conference' ),
+		'singular_name' => __( 'Tag', 'wpa-conference' ),
+		'search_items'  => __( 'Search Tags', 'wpa-conference' ),
+		'popular_items' => __( 'Popular Tags', 'wpa-conference' ),
+		'all_items'     => __( 'All Tags', 'wpa-conference' ),
+		'edit_item'     => __( 'Edit Tag', 'wpa-conference' ),
+		'update_item'   => __( 'Update Tag', 'wpa-conference' ),
+		'add_new_item'  => __( 'Add Tag', 'wpa-conference' ),
+		'new_item_name' => __( 'New Tag', 'wpa-conference' ),
 	);
 
-	// Register session tagstaxonomy
+	// Register session tagstaxonomy.
 	register_taxonomy(
 		'wpcs_session_tag',
 		'wpcs_session',

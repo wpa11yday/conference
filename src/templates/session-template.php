@@ -21,6 +21,7 @@ get_header(); ?>
 				$session_date          = ( $session_time ) ? gmdate( 'F j, Y', $session_time ) : '';
 				$session_type          = get_post_meta( $session_post->ID, '_wpcs_session_type', true );
 				$session_speakers_text = get_post_meta( $session_post->ID, '_wpcs_session_speakers', true );
+				// translators: speaker information for this session.
 				$session_speakers_i18n = sprintf( __( '<strong>Speaker:</strong> %s', 'wpa-conference' ), $session_speakers_text );
 				$session_speakers_html = ( $session_speakers_text ) ? '<div class="wpsc-single-session-speakers">' . $session_speakers_i18n . '</div>' : null;
 				$session_speakers      = apply_filters( 'wpcs_filter_single_session_speakers', $session_speakers_html, $session_post->ID );

@@ -16,13 +16,13 @@ get_header(); ?>
 			while ( have_posts() ) :
 				the_post();
 				$time_format           = 'H:i';
-				$post                  = get_post();
-				$session_time          = absint( get_post_meta( $post->ID, '_wpcs_session_time', true ) );
-				$session_date          = ( $session_time ) ? date( 'F j, Y', $session_time ) : '';
-				$session_type          = get_post_meta( $post->ID, '_wpcs_session_type', true );
-				$session_speakers_text = get_post_meta( $post->ID, '_wpcs_session_speakers', true );
+				$session_post          = get_post();
+				$session_time          = absint( get_post_meta( $session_post->ID, '_wpcs_session_time', true ) );
+				$session_date          = ( $session_time ) ? gmdate( 'F j, Y', $session_time ) : '';
+				$session_type          = get_post_meta( $session_post->ID, '_wpcs_session_type', true );
+				$session_speakers_text = get_post_meta( $session_post->ID, '_wpcs_session_speakers', true );
 				$session_speakers_html = ( $session_speakers_text ) ? '<div class="wpsc-single-session-speakers"><strong>Speaker:</strong> ' . $session_speakers_text . '</div>' : null;
-				$session_speakers      = apply_filters( 'wpcs_filter_single_session_speakers', $session_speakers_html, $post->ID );
+				$session_speakers      = apply_filters( 'wpcs_filter_single_session_speakers', $session_speakers_html, $session_post->ID );
 				?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class( 'wpsc-single-session' ); ?>>
@@ -36,14 +36,14 @@ get_header(); ?>
 							$datatime = gmdate( 'Y-m-d\TH:i:s\Z', $session_time );
 							echo '<h2 class="wpsc-single-session-time talk-time" data-time="' . $datatime . '"> ' . $session_date . ' at <span class="time-wrapper">' . gmdate( $time_format, $session_time ) . ' UTC</span></h2>';
 						} else {
-							$parent_session = get_post_meta( $post->ID, '_wpad_session', true );
+							$parent_session = get_post_meta( $session_post->ID, '_wpad_session', true );
 							$session_time   = absint( get_post_meta( $parent_session, '_wpcs_session_time', true ) );
 							$session_date   = ( $session_time ) ? gmdate( 'F j, Y', $session_time ) : '';
 							$datatime       = gmdate( 'Y-m-d\TH:i:s\Z', $session_time );
 							echo '<h2 class="wpsc-single-session-time talk-time" data-time="' . $datatime . '"> ' . $session_date . ' at <span class="time-wrapper">' . gmdate( $time_format, $session_time ) . '</span></h2>';
 						}
 						?>
-						
+
 						<div class="entry-meta wpsc-single-session-meta">
 							<ul class="wpsc-single-session-taxonomies">
 								<?php
@@ -75,7 +75,7 @@ get_header(); ?>
 					</header>
 					<div class="entry-content">
 						<?php
-						$sponsor_list = get_post_meta( $post->ID, 'wpcsp_session_sponsors', true );
+						$sponsor_list = get_post_meta( $session_post->ID, 'wpcsp_session_sponsors', true );
 						if ( ! empty( $sponsor_list ) ) {
 							?>
 							<div class="wpcsp-sponsor-single">
@@ -90,7 +90,7 @@ get_header(); ?>
 											$sponsor_url       = get_option( 'wpcsp_field_sponsor_page_url' );
 											$wpcsp_website_url = get_post_meta( $sponser_li, 'wpcsp_website_url', true );
 
-											if ( $sponsor_url == 'sponsor_site' ) {
+											if ( 'sponsor_site' === $sponsor_url ) {
 												if ( ! empty( $wpcsp_website_url ) ) {
 													$sponser_url = $wpcsp_website_url;
 													$target      = '_blank';

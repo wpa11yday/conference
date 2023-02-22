@@ -1,8 +1,9 @@
 <?php
 /**
+ * Forked from WP Conference Schedule by Road Warrior Creative.
+ *
  * @link              https://wpconferenceschedule.com
  * @since             1.0.0
- * @package           wp_conference_schedule
  *
  * @wordpress-plugin
  * Plugin Name:       WP Accessibility Day - Conference Schedule
@@ -13,7 +14,9 @@
  * Author URI:        https://wpaccessibility.day
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       wp-conference-schedule
+ * Text Domain:       wpcsp
+ *
+ * @package           wpcsp
  */
 
 // If this file is called directly, abort.
@@ -21,16 +24,16 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// Plugin directory
+// Plugin directory.
 define( 'WPCS_DIR', plugin_dir_path( __FILE__ ) );
 
-// Version
+// Version.
 define( 'WPCS_VERSION', '1.0.5.1' );
 
-// Plugin File URL
+// Plugin File URL.
 define( 'PLUGIN_FILE_URL', __FILE__ );
 
-// Includes
+// Includes.
 require_once( WPCS_DIR . 'inc/post-types.php' );
 require_once( WPCS_DIR . 'inc/taxonomies.php' );
 require_once( WPCS_DIR . 'inc/schedule-output-functions.php' );
@@ -43,12 +46,15 @@ require_once( WPCS_DIR . '/inc/cmb2/init.php' );
 require_once( WPCS_DIR . '/inc/cmb-field-select2/cmb-field-select2.php' );
 require_once( WPCS_DIR . '/inc/cmb2-conditional-logic/cmb2-conditional-logic.php' );
 
+/**
+ * The Conference Schedule output and meta.
+ */
 class WPAD_Conference_Schedule {
 
 	/**
 	 * Fired when plugin file is loaded.
 	 */
-	function __construct() {
+	public function __construct() {
 
 		add_action( 'admin_init', array( $this, 'wpcs_admin_init' ) );
 		add_action( 'admin_print_styles', array( $this, 'wpcs_admin_css' ) );
@@ -98,7 +104,7 @@ class WPAD_Conference_Schedule {
 	/**
 	 * Runs during admin_init.
 	 */
-	function wpcs_admin_init() {
+	public function wpcs_admin_init() {
 		add_action( 'pre_get_posts', array( $this, 'wpcs_admin_pre_get_posts' ) );
 		register_setting( 'conference_sponsor_options', 'conference_sponsor_level_order', array( $this, 'validate_sponsor_options' ) );
 		register_setting( 'speaker_options', 'speaker_level_order', array( $this, 'validate_sponsor_options' ) );
@@ -107,26 +113,34 @@ class WPAD_Conference_Schedule {
 	/**
 	 * Runs during pre_get_posts in admin.
 	 *
-	 * @param WP_Query $query
+	 * @param WP_Query $query The query.
 	 */
-	function wpcs_admin_pre_get_posts( $query ) {
+	public function wpcs_admin_pre_get_posts( $query ) {
 		if ( ! is_admin() || ! $query->is_main_query() ) {
 			return;
 		}
 		$current_screen = get_current_screen();
 
-		// Order by session time
-		if ( 'edit-wpcs_session' == $current_screen->id && $query->get( 'orderby' ) == '_wpcs_session_time' ) {
+		// Order by session time.
+		if ( 'edit-wpcs_session' === $current_screen->id && $query->get( 'orderby' ) === '_wpcs_session_time' ) {
 			$query->set( 'meta_key', '_wpcs_session_time' );
 			$query->set( 'orderby', 'meta_value_num' );
 		}
 	}
 
-	function wpcs_admin_enqueue_scripts() {
+	/**
+	 * Enqueue admin scripts and styles.
+	 *
+	 * @uses wp_enqueue_style()
+	 * @uses wp_enqueue_script()
+	 *
+	 * @return void
+	 */
+	public function wpcs_admin_enqueue_scripts() {
 		global $post_type;
 
-		// Enqueues scripts and styles for session admin page
-		if ( 'wpcs_session' == $post_type ) {
+		// Enqueues scripts and styles for session admin page.
+		if ( 'wpcs_session' === $post_type ) {
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 			wp_register_style( 'jquery-ui', plugins_url( '/assets/css/jquery-ui.css', __FILE__ ) );
 
@@ -135,14 +149,14 @@ class WPAD_Conference_Schedule {
 
 	}
 
-	/*
-	 * Print JavaScript
+	/**
+	 * Print JavaScript.
 	 */
-	function wpcs_admin_print_scripts() {
+	public function wpcs_admin_print_scripts() {
 		global $post_type;
 
-		// DatePicker for Session posts
-		if ( 'wpcs_session' == $post_type ) :
+		// DatePicker for Session posts.
+		if ( 'wpcs_session' === $post_type ) :
 			?>
 
 			<script type="text/javascript">
@@ -159,7 +173,13 @@ class WPAD_Conference_Schedule {
 		endif;
 	}
 
-	function wpcs_enqueue_scripts() {
+	/**
+	 * Enqueue the scripts and styles.
+	 *
+	 * @uses wp_enqueue_style()
+	 * @uses wp_enqueue_script()
+	 */
+	public function wpcs_enqueue_scripts() {
 		wp_enqueue_style( 'wpcs_styles', plugins_url( '/assets/css/style.css', __FILE__ ), array(), 2 );
 
 		wp_enqueue_style(
@@ -175,21 +195,29 @@ class WPAD_Conference_Schedule {
 	 *
 	 * @uses wp_enqueue_style()
 	 */
-	function wpcs_admin_css() {
+	public function wpcs_admin_css() {
 		wp_enqueue_style( 'wpcs-admin', plugins_url( '/assets/css/admin.css', __FILE__ ), array(), 1 );
 	}
 
 	/**
 	 * The [schedule] shortcode callback
+	 *
+	 * @param  array $attr The shortcode attributes.
+	 * @return string
 	 */
-	function wpcs_shortcode_schedule( $attr, $content ) {
+	public function wpcs_shortcode_schedule( $attr ) {
 		return wpcs_scheduleOutput( $attr );
 	}
 
+	/**
+	 * Update the session metadata.
+	 *
+	 * @return void
+	 */
 	public function wpcs_update_session_date_meta() {
 		$post_id = null;
-		if ( isset( $_REQUEST['post'] ) || isset( $_REQUEST['post_ID'] ) ) {
-			$post_id = empty( $_REQUEST['post_ID'] ) ? absint( $_REQUEST['post'] ) : absint( $_REQUEST['post_ID'] );
+		if ( isset( $_REQUEST['post'] ) || isset( $_REQUEST['post_ID'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			$post_id = empty( $_REQUEST['post_ID'] ) ? absint( $_REQUEST['post'] ) : absint( $_REQUEST['post_ID'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		}
 		$session_date = get_post_meta( $post_id, '_wpcs_session_date', true );
 		$session_time = get_post_meta( $post_id, '_wpcs_session_time', true );
@@ -199,22 +227,25 @@ class WPAD_Conference_Schedule {
 		}
 	}
 
+	/**
+	 * Session CMB metabox.
+	 *
+	 * @return void
+	 */
 	public function wpcs_session_metabox() {
 
 		$cmb = new_cmb2_box(
 			array(
 				'id'           => 'wpcs_session_metabox',
-				'title'        => __( 'Session Information', 'wpcsp' ),
-				'object_types' => array( 'wpcs_session' ), // Post type
+				'title'        => __( 'Session Information', 'wpa-conference' ),
+				'object_types' => array( 'wpcs_session' ), // Post type.
 				'context'      => 'normal',
 				'priority'     => 'high',
-				'show_names'   => true, // Show field names on the left
-			// 'cmb_styles' => false, // false to disable the CMB stylesheet
-			// 'closed'     => true, // Keep the metabox closed by default
+				'show_names'   => true, // Show field names on the left.
 			)
 		);
 
-		// filter speaker meta field
+		// filter speaker meta field.
 		if ( has_filter( 'wpcs_filter_session_speaker_meta_field' ) ) {
 			/**
 			 * Filter session speaker meta field.
@@ -227,11 +258,10 @@ class WPAD_Conference_Schedule {
 			 */
 			$cmb = apply_filters( 'wpcs_filter_session_speaker_meta_field', $cmb );
 		} else {
-			// Speaker Name(s)
+			// Speaker Name(s).
 			$cmb->add_field(
 				array(
-					'name' => __( 'Speaker Name(s)', 'wpcsp' ),
-					// 'desc'       => __( 'field description (optional)', 'wpcsp' ),
+					'name' => __( 'Speaker Name(s)', 'wpa-conference' ),
 					'id'   => '_wpcs_session_speakers',
 					'type' => 'text',
 				)
@@ -243,17 +273,22 @@ class WPAD_Conference_Schedule {
 	/**
 	 * Fired during add_meta_boxes, adds extra meta boxes to our custom post types.
 	 */
-	function wpcs_add_meta_boxes() {
-		add_meta_box( 'session-info', __( 'Session Info', 'wp-conference-schedule' ), array( $this, 'wpcs_metabox_session_info' ), 'wpcs_session', 'normal' );
+	public function wpcs_add_meta_boxes() {
+		add_meta_box( 'session-info', __( 'Session Info', 'wpa-conference' ), array( $this, 'wpcs_metabox_session_info' ), 'wpcs_session', 'normal' );
 	}
 
-	function wpcs_metabox_session_info() {
+	/**
+	 * Session info metabox.
+	 *
+	 * @return void
+	 */
+	public function wpcs_metabox_session_info() {
 		$post             = get_post();
 		$session_time     = absint( get_post_meta( $post->ID, '_wpcs_session_time', true ) );
-		$session_date     = ( $session_time ) ? date( 'Y-m-d', $session_time ) : '2022-11-03';
-		$session_hours    = ( $session_time ) ? date( 'g', $session_time ) : '';
-		$session_minutes  = ( $session_time ) ? date( 'i', $session_time ) : '00';
-		$session_meridiem = ( $session_time ) ? date( 'a', $session_time ) : 'am';
+		$session_date     = ( $session_time ) ? gmdate( 'Y-m-d', $session_time ) : '2022-11-03';
+		$session_hours    = ( $session_time ) ? gmdate( 'g', $session_time ) : '';
+		$session_minutes  = ( $session_time ) ? gmdate( 'i', $session_time ) : '00';
+		$session_meridiem = ( $session_time ) ? gmdate( 'a', $session_time ) : 'am';
 		$session_type     = get_post_meta( $post->ID, '_wpcs_session_type', true );
 		$session_speakers = get_post_meta( $post->ID, '_wpcs_session_speakers', true );
 		$session_captions = get_post_meta( $post->ID, '_wpcs_caption_url', true );
@@ -263,11 +298,11 @@ class WPAD_Conference_Schedule {
 		?>
 
 		<p>
-			<label for="wpcs-session-date"><?php _e( 'Date:', 'wp-conference-schedule' ); ?></label>
+			<label for="wpcs-session-date"><?php esc_html_e( 'Date:', 'wpa-conference' ); ?></label>
 			<input type="text" id="wpcs-session-date" data-date="<?php echo esc_attr( $session_date ); ?>" name="wpcs-session-date" value="<?php echo esc_attr( $session_date ); ?>" /><br />
-			<label><?php _e( 'Time:', 'wp-conference-schedule' ); ?></label>
+			<label><?php esc_html_e( 'Time:', 'wpa-conference' ); ?></label>
 
-			<select name="wpcs-session-hour" aria-label="<?php _e( 'Session Start Hour', 'wp-conference-schedule' ); ?>">
+			<select name="wpcs-session-hour" aria-label="<?php esc_attr_e( 'Session Start Hour', 'wpa-conference' ); ?>">
 					<option value="">Not assigned</option>
 				<?php for ( $i = 1; $i <= 12; $i++ ) : ?>
 					<option value="<?php echo esc_attr( $i ); ?>" <?php selected( $i, $session_hours ); ?>>
@@ -276,7 +311,7 @@ class WPAD_Conference_Schedule {
 				<?php endfor; ?>
 			</select> :
 
-			<select name="wpcs-session-minutes" aria-label="<?php _e( 'Session Start Minutes', 'wp-conference-schedule' ); ?>">
+			<select name="wpcs-session-minutes" aria-label="<?php esc_attr_e( 'Session Start Minutes', 'wpa-conference' ); ?>">
 				<?php for ( $i = '00'; (int) $i <= 55; $i = sprintf( '%02d', (int) $i + 5 ) ) : ?>
 					<option value="<?php echo esc_attr( $i ); ?>" <?php selected( $i, $session_minutes ); ?>>
 						<?php echo esc_html( $i ); ?>
@@ -284,26 +319,26 @@ class WPAD_Conference_Schedule {
 				<?php endfor; ?>
 			</select>
 
-			<select name="wpcs-session-meridiem" aria-label="<?php _e( 'Session Meridiem', 'wp-conference-schedule' ); ?>">
+			<select name="wpcs-session-meridiem" aria-label="<?php esc_attr_e( 'Session Meridiem', 'wpa-conference' ); ?>">
 				<option value="am" <?php selected( 'am', $session_meridiem ); ?>>am</option>
 				<option value="pm" <?php selected( 'pm', $session_meridiem ); ?>>pm</option>
 			</select>
 		</p>
 		<p>
-			<label for="wpcs-session-type"><?php _e( 'Type:', 'wp-conference-schedule' ); ?></label>
+			<label for="wpcs-session-type"><?php esc_html_e( 'Type:', 'wpa-conference' ); ?></label>
 			<select id="wpcs-session-type" name="wpcs-session-type">
-				<option value="session" <?php selected( $session_type, 'session' ); ?>><?php _e( 'Regular Session', 'wp-conference-schedule' ); ?></option>
-				<option value="panel" <?php selected( $session_type, 'panel' ); ?>><?php _e( 'Panel', 'wp-conference-schedule' ); ?></option>
-				<option value="lightning" <?php selected( $session_type, 'lightning' ); ?>><?php _e( 'Lightning Talks', 'wp-conference-schedule' ); ?></option>
-				<option value="custom" <?php selected( $session_type, 'custom' ); ?>><?php _e( 'Custom', 'wp-conference-schedule' ); ?></option>
+				<option value="session" <?php selected( $session_type, 'session' ); ?>><?php esc_html_e( 'Regular Session', 'wpa-conference' ); ?></option>
+				<option value="panel" <?php selected( $session_type, 'panel' ); ?>><?php esc_html_e( 'Panel', 'wpa-conference' ); ?></option>
+				<option value="lightning" <?php selected( $session_type, 'lightning' ); ?>><?php esc_html_e( 'Lightning Talks', 'wpa-conference' ); ?></option>
+				<option value="custom" <?php selected( $session_type, 'custom' ); ?>><?php esc_html_e( 'Custom', 'wpa-conference' ); ?></option>
 			</select>
 		</p>
 		<p>
-			<label for="wpcs-session-youtube"><?php _e( 'YouTube ID', 'wp-conference-schedule' ); ?></label>
+			<label for="wpcs-session-youtube"><?php esc_html_e( 'YouTube ID', 'wpa-conference' ); ?></label>
 			<input type="text" id="wpcs-session-youtube" name="wpcs-session-youtube" value="<?php echo esc_attr( $session_youtube ); ?>" />
 		</p>
 		<p>
-			<label for="wpcs-session-caption"><?php _e( 'Caption URL:', 'wp-conference-schedule' ); ?></label>
+			<label for="wpcs-session-caption"><?php esc_html_e( 'Caption URL:', 'wpa-conference' ); ?></label>
 			<input type="text" id="wpcs-session-caption" name="wpcs-session-caption" value="<?php echo esc_attr( $session_captions ); ?>" />
 		</p>
 
@@ -312,30 +347,34 @@ class WPAD_Conference_Schedule {
 
 	/**
 	 * Fired when a post is saved, updates additional sessions metadada.
+	 *
+	 * @param  int      $post_id The post ID.
+	 * @param  \WP_POST $post    The post.
+	 * @return void
 	 */
-	function wpcs_save_post_session( $post_id, $post ) {
-		if ( wp_is_post_revision( $post_id ) || $post->post_type != 'wpcs_session' ) {
+	public function wpcs_save_post_session( $post_id, $post ) {
+		if ( wp_is_post_revision( $post_id ) || 'wpcs_session' !== $post->post_type ) {
 			return;
 		}
 
-		if ( isset( $_POST['wpcs-meta-speakers-list-nonce'] ) && wp_verify_nonce( $_POST['wpcs-meta-speakers-list-nonce'], 'edit-speakers-list' ) && current_user_can( 'edit_post', $post_id ) ) {
+		if ( isset( $_POST['wpcs-meta-speakers-list-nonce'] ) && wp_verify_nonce( sanitize_text_field( $_POST['wpcs-meta-speakers-list-nonce'] ), 'edit-speakers-list' ) && current_user_can( 'edit_post', $post_id ) ) {
 
 			// Update the text box as is for backwards compatibility.
-			$speakers = sanitize_text_field( $_POST['wpcs-speakers-list'] );
+			$speakers = sanitize_text_field( $_POST['wpcs-speakers-list'] ?? '' );
 			update_post_meta( $post_id, '_conference_session_speakers', $speakers );
 		}
 
-		if ( isset( $_POST['wpcs-meta-session-info'] ) && wp_verify_nonce( $_POST['wpcs-meta-session-info'], 'edit-session-info' ) ) {
+		if ( isset( $_POST['wpcs-meta-session-info'] ) && wp_verify_nonce( sanitize_text_field( $_POST['wpcs-meta-session-info'] ), 'edit-session-info' ) ) {
 
-			// Update session time
-			if ( '' !== $_POST['wpcs-session-hour'] ) {
+			// Update session time.
+			if ( ! empty( $_POST['wpcs-session-hour'] ) ) {
 				$session_time = strtotime(
 					sprintf(
 						'%s %d:%02d %s',
-						sanitize_text_field( $_POST['wpcs-session-date'] ),
-						absint( $_POST['wpcs-session-hour'] ),
-						absint( $_POST['wpcs-session-minutes'] ),
-						'am' == $_POST['wpcs-session-meridiem'] ? 'am' : 'pm'
+						sanitize_text_field( $_POST['wpcs-session-date'] ?? '' ),
+						absint( $_POST['wpcs-session-hour'] ?? 0 ),
+						absint( $_POST['wpcs-session-minutes'] ?? 0 ),
+						isset( $_POST['wpcs-session-meridiem'] ) && 'am' === $_POST['wpcs-session-meridiem'] ? 'am' : 'pm'
 					)
 				);
 			} else {
@@ -343,23 +382,23 @@ class WPAD_Conference_Schedule {
 			}
 			update_post_meta( $post_id, '_wpcs_session_time', $session_time );
 
-			// Update session type
-			$session_type = sanitize_text_field( $_POST['wpcs-session-type'] );
-			if ( ! in_array( $session_type, array( 'session', 'lightning', 'panel', 'custom' ) ) ) {
+			// Update session type.
+			$session_type = sanitize_text_field( $_POST['wpcs-session-type'] ?? '' );
+			if ( ! in_array( $session_type, array( 'session', 'lightning', 'panel', 'custom' ), true ) ) {
 				$session_type = 'session';
 			}
 			update_post_meta( $post_id, '_wpcs_session_type', $session_type );
 
-			// Update session speakers
-			$session_speakers = sanitize_text_field( $_POST['wpcs-session-speakers'] );
+			// Update session speakers.
+			$session_speakers = sanitize_text_field( $_POST['wpcs-session-speakers'] ?? '' );
 			update_post_meta( $post_id, '_wpcs_session_speakers', $session_speakers );
 
-			// Update session YouTube ID
-			$session_youtube = sanitize_text_field( $_POST['wpcs-session-youtube'] );
+			// Update session YouTube ID.
+			$session_youtube = sanitize_text_field( $_POST['wpcs-session-youtube'] ?? '' );
 			update_post_meta( $post_id, '_wpcs_youtube_id', $session_youtube );
 
-			// Update session caption URL
-			$session_caption = sanitize_text_field( $_POST['wpcs-session-caption'] );
+			// Update session caption URL.
+			$session_caption = sanitize_text_field( $_POST['wpcs-session-caption'] ?? '' );
 			update_post_meta( $post_id, '_wpcs_caption_url', $session_caption );
 
 		}
@@ -371,13 +410,16 @@ class WPAD_Conference_Schedule {
 	 *
 	 * @uses current_filter()
 	 * @see __construct()
+	 *
+	 * @param  array $columns The columns.
+	 * @return array
 	 */
-	function wpcs_manage_post_types_columns( $columns ) {
+	public function wpcs_manage_post_types_columns( $columns ) {
 		$current_filter = current_filter();
 
 		switch ( $current_filter ) {
 			case 'manage_wpcs_session_posts_columns':
-				$columns = array_slice( $columns, 0, 1, true ) + array( 'conference_session_time' => __( 'Time', 'wp-conference-schedule' ) ) + array_slice( $columns, 1, null, true );
+				$columns = array_slice( $columns, 0, 1, true ) + array( 'conference_session_time' => __( 'Time', 'wpa-conference' ) ) + array_slice( $columns, 1, null, true );
 				break;
 			default:
 		}
@@ -391,13 +433,17 @@ class WPAD_Conference_Schedule {
 	 * This generates the output to the extra columns added to the posts lists in the admin.
 	 *
 	 * @see wpcs_manage_post_types_columns()
+	 *
+	 * @param  string $column  The columns.
+	 * @param  int    $post_id The post ID.
+	 * @return void
 	 */
-	function wpcs_manage_post_types_columns_output( $column, $post_id ) {
+	public function wpcs_manage_post_types_columns_output( $column, $post_id ) {
 		switch ( $column ) {
 
 			case 'conference_session_time':
 				$session_time = absint( get_post_meta( $post_id, '_wpcs_session_time', true ) );
-				$session_time = ( $session_time ) ? date( 'H:i', $session_time ) : '&mdash;';
+				$session_time = ( $session_time ) ? gmdate( 'H:i', $session_time ) : '&mdash;';
 				echo esc_html( $session_time );
 				break;
 
@@ -406,12 +452,15 @@ class WPAD_Conference_Schedule {
 	}
 
 	/**
-	 * Additional sortable columns for WP_Posts_List_Table
+	 * Additional sortable columns for WP_Posts_List_Table.
+	 *
+	 * @param  array $sortable The sortable columns.
+	 * @return array
 	 */
-	function wpcs_manage_sortable_columns( $sortable ) {
+	public function wpcs_manage_sortable_columns( $sortable ) {
 		$current_filter = current_filter();
 
-		if ( 'manage_edit-wpcs_session_sortable_columns' == $current_filter ) {
+		if ( 'manage_edit-wpcs_session_sortable_columns' === $current_filter ) {
 			$sortable['conference_session_time'] = '_wpcs_session_time';
 		}
 
@@ -420,28 +469,31 @@ class WPAD_Conference_Schedule {
 
 	/**
 	 * Display an additional post label if needed.
+	 *
+	 * @param  mixed $states The post states.
+	 * @return mixed
 	 */
-	function wpcs_display_post_states( $states ) {
+	public function wpcs_display_post_states( $states ) {
 		$post = get_post();
 		if ( ! get_post_type( $post ) ) {
-			return;
+			return null;
 		}
 
-		if ( 'wpcs_session' != $post->post_type ) {
+		if ( 'wpcs_session' !== $post->post_type ) {
 			return $states;
 		}
 
 		$session_type = get_post_meta( $post->ID, '_wpcs_session_type', true );
-		if ( ! in_array( $session_type, array( 'session', 'lightning', 'panel', 'custom' ) ) ) {
+		if ( ! in_array( $session_type, array( 'session', 'lightning', 'panel', 'custom' ), true ) ) {
 			$session_type = 'session';
 		}
 
-		if ( 'session' == $session_type ) {
-			$states['wpcs-session-type'] = __( 'Session', 'wp-conference-schedule' );
-		} elseif ( 'lightning' == $session_type ) {
-			$states['wpcs-session-type'] = __( 'Lightning Talks', 'wp-conference-schedule' );
-		} elseif ( 'panel' == $session_type ) {
-			$states['wpcs-session-type'] = __( 'Panel', 'wp-conference-schedule' );
+		if ( 'session' === $session_type ) {
+			$states['wpcs-session-type'] = __( 'Session', 'wpa-conference' );
+		} elseif ( 'lightning' === $session_type ) {
+			$states['wpcs-session-type'] = __( 'Lightning Talks', 'wpa-conference' );
+		} elseif ( 'panel' === $session_type ) {
+			$states['wpcs-session-type'] = __( 'Panel', 'wpa-conference' );
 		}
 
 		return $states;
@@ -450,7 +502,7 @@ class WPAD_Conference_Schedule {
 	/**
 	 * Enqueue blocks
 	 */
-	function wpcs_loadBlockFiles() {
+	public function wpcs_loadBlockFiles() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid
 		wp_enqueue_script(
 			'schedule-block',
 			plugin_dir_url( __FILE__ ) . 'assets/js/schedule-block.js',
@@ -461,8 +513,11 @@ class WPAD_Conference_Schedule {
 
 	/**
 	 * Schedule Block Dynamic content Output.
+	 *
+	 * @param  mixed $props The props.
+	 * @return mixed
 	 */
-	function wpcs_scheduleBlockOutput( $props ) {
+	public function wpcs_scheduleBlockOutput( $props ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid
 		return wpcs_scheduleOutput( $props );
 	}
 
@@ -470,18 +525,18 @@ class WPAD_Conference_Schedule {
 	/**
 	 * Runs during admin_menu
 	 */
-	function admin_menu() {
-		$page = add_submenu_page( 'edit.php?post_type=wpcsp_sponsor', __( 'Order Sponsor Levels', 'wpcsp' ), __( 'Order Sponsor Levels', 'wpcsp' ), 'edit_posts', 'sponsor_levels', array( $this, 'render_order_sponsor_levels' ) );
+	public function admin_menu() {
+		$page = add_submenu_page( 'edit.php?post_type=wpcsp_sponsor', __( 'Order Sponsor Levels', 'wpa-conference' ), __( 'Order Sponsor Levels', 'wpa-conference' ), 'edit_posts', 'sponsor_levels', array( $this, 'render_order_sponsor_levels' ) );
 		add_action( "admin_print_scripts-$page", array( $this, 'enqueue_order_sponsor_levels_scripts' ) );
 
-		$page = add_submenu_page( 'edit.php?post_type=wpcsp_speaker', __( 'Order People Groups', 'wpcsp' ), __( 'Order People Groups', 'wpcsp' ), 'edit_posts', 'speaker_levels', array( $this, 'render_order_speaker_levels' ) );
+		$page = add_submenu_page( 'edit.php?post_type=wpcsp_speaker', __( 'Order People Groups', 'wpa-conference' ), __( 'Order People Groups', 'wpa-conference' ), 'edit_posts', 'speaker_levels', array( $this, 'render_order_speaker_levels' ) );
 		add_action( "admin_print_scripts-$page", array( $this, 'enqueue_order_sponsor_levels_scripts' ) );
 	}
 
 	/**
 	 * Enqueues scripts and styles for the render_order_sponsors_level admin page.
 	 */
-	function enqueue_order_sponsor_levels_scripts() {
+	public function enqueue_order_sponsor_levels_scripts() {
 		wp_enqueue_script( 'wpcsp-sponsor-order', plugins_url( 'assets/js/order-sponsor-levels.js', __FILE__ ), array( 'jquery-ui-sortable' ), '20110212' );
 		wp_enqueue_style( 'wpcsp-sponsor-order', plugins_url( 'assets/css/order-sponsor-levels.css', __FILE__ ), array(), '20110212' );
 	}
@@ -489,24 +544,24 @@ class WPAD_Conference_Schedule {
 	/**
 	 * Renders the Order Sponsor Levels admin page.
 	 */
-	function render_order_sponsor_levels() {
-		if ( ! isset( $_REQUEST['updated'] ) ) {
+	public function render_order_sponsor_levels() {
+		if ( ! isset( $_REQUEST['updated'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended 
 			$_REQUEST['updated'] = false;
 		}
 
 		$levels = $this->get_sponsor_levels( 'conference_sponsor_level_order', 'wpcsp_sponsor_level' );
 		?>
 		<div class="wrap">
-			<h1><?php _e( 'Order Sponsor Levels', 'wpcsp' ); ?></h1>
+			<h1><?php esc_html_e( 'Order Sponsor Levels', 'wpa-conference' ); ?></h1>
 
-			<?php if ( false !== $_REQUEST['updated'] ) : ?>
-				<div class="updated fade"><p><strong><?php _e( 'Options saved', 'wpcsp' ); ?></strong></p></div>
+			<?php if ( false !== $_REQUEST['updated'] ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
+				<div class="updated fade"><p><strong><?php esc_html_e( 'Options saved', 'wpa-conference' ); ?></strong></p></div>
 			<?php endif; ?>
 
 			<form method="post" action="options.php">
 				<?php settings_fields( 'conference_sponsor_options' ); ?>
 				<div class="description sponsor-order-instructions">
-					<?php _e( 'Change the order of sponsor levels are displayed in the sponsors page template.', 'wpcsp' ); ?>
+					<?php esc_html_e( 'Change the order of sponsor levels are displayed in the sponsors page template.', 'wpa-conference' ); ?>
 				</div>
 				<ul class="sponsor-order">
 				<?php foreach ( $levels as $term ) : ?>
@@ -517,7 +572,7 @@ class WPAD_Conference_Schedule {
 				<?php endforeach; ?>
 				</ul>
 				<p class="submit">
-					<input type="submit" class="button-primary" value="<?php _e( 'Save Options', 'wpcsp' ); ?>" />
+					<input type="submit" class="button-primary" value="<?php esc_attr_e( 'Save Options', 'wpa-conference' ); ?>" />
 				</p>
 			</form>
 		</div>
@@ -527,24 +582,24 @@ class WPAD_Conference_Schedule {
 	/**
 	 * Renders the Order Speaker Levels admin page.
 	 */
-	function render_order_speaker_levels() {
-		if ( ! isset( $_REQUEST['updated'] ) ) {
+	public function render_order_speaker_levels() {
+		if ( ! isset( $_REQUEST['updated'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended 
 			$_REQUEST['updated'] = false;
 		}
 
 		$levels = $this->get_sponsor_levels( 'speaker_level_order', 'wpcsp_speaker_level' );
 		?>
 		<div class="wrap">
-			<h1><?php _e( 'Order Speaker Groups', 'wpcsp' ); ?></h1>
+			<h1><?php _e( 'Order Speaker Groups', 'wpa-conference' ); ?></h1>
 
-			<?php if ( false !== $_REQUEST['updated'] ) : ?>
-				<div class="updated fade"><p><strong><?php _e( 'Options saved', 'wpcsp' ); ?></strong></p></div>
+			<?php if ( false !== $_REQUEST['updated'] ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?> 
+				<div class="updated fade"><p><strong><?php esc_html_e( 'Options saved', 'wpa-conference' ); ?></strong></p></div>
 			<?php endif; ?>
 
 			<form method="post" action="options.php">
 				<?php settings_fields( 'speaker_options' ); ?>
 				<div class="description sponsor-order-instructions">
-					<?php _e( 'Change the order of speaker groups are displayed in the speaker page template.', 'wpcsp' ); ?>
+					<?php esc_html_e( 'Change the order of speaker groups are displayed in the speaker page template.', 'wpa-conference' ); ?>
 				</div>
 				<ul class="sponsor-order">
 				<?php foreach ( $levels as $term ) : ?>
@@ -555,7 +610,7 @@ class WPAD_Conference_Schedule {
 				<?php endforeach; ?>
 				</ul>
 				<p class="submit">
-					<input type="submit" class="button-primary" value="<?php _e( 'Save Options', 'wpcsp' ); ?>" />
+					<input type="submit" class="button-primary" value="<?php esc_attr_e( 'Save Options', 'wpa-conference' ); ?>" />
 				</p>
 			</form>
 		</div>
@@ -564,12 +619,15 @@ class WPAD_Conference_Schedule {
 
 	/**
 	 * Runs when settings are updated for the sponsor level order page.
+	 *
+	 * @param  mixed $input The input.
+	 * @return mixed
 	 */
-	function validate_sponsor_options( $input ) {
+	public function validate_sponsor_options( $input ) {
 		if ( ! is_array( $input ) ) {
 			$input = null;
 		} else {
-			foreach ( $input as $key => $value ) {
+			foreach ( array_keys( $input ) as $key ) {
 				$input[ $key ] = (int) $input[ $key ];
 			}
 			$input = array_values( $input );
@@ -580,8 +638,12 @@ class WPAD_Conference_Schedule {
 
 	/**
 	 * Returns the sponsor level terms in set order.
+	 *
+	 * @param  string $option   The option key.
+	 * @param  string $taxonomy The taxonomy.
+	 * @return array
 	 */
-	function get_sponsor_levels( $option, $taxonomy ) {
+	public function get_sponsor_levels( $option, $taxonomy ) {
 		$option        = get_option( $option );
 		$term_objects  = get_terms( $taxonomy, array( 'get' => 'all' ) );
 		$terms         = array();
@@ -607,8 +669,12 @@ class WPAD_Conference_Schedule {
 
 	/**
 	 * The [wpcs_sponsors] shortcode handler.
+	 *
+	 * @param  array  $attr    The shortcode attributes.
+	 * @param  string $content The shortcode content.
+	 * @return string
 	 */
-	function shortcode_sponsors( $attr, $content ) {
+	public function shortcode_sponsors( $attr, $content ) {
 		global $post;
 
 		$attr = shortcode_atts(
@@ -646,14 +712,14 @@ class WPAD_Conference_Schedule {
 					continue;
 				}
 
-				// temporarily hide elements
+				// temporarily hide elements.
 				$attr['title']   = 'hidden';
 				$attr['content'] = 'hidden';
 				?>
 
 				<div class="wpcsp-sponsor-level wpcsp-sponsor-level-<?php echo sanitize_html_class( $term->slug ); ?>">
 					<?php $heading_level = ( $attr['heading_level'] ) ? $attr['heading_level'] : 'h2'; ?>
-					<<?php echo $heading_level; ?> class="wpcsp-sponsor-level-heading"><span><?php echo esc_html( $term->name ); ?></span></<?php echo $heading_level; ?>>
+					<<?php echo esc_html( $heading_level ); ?> class="wpcsp-sponsor-level-heading"><span><?php echo esc_html( $term->name ); ?></span></<?php echo esc_html( $heading_level ); ?>>
 
 					<ul class="wpcsp-sponsor-list">
 						<?php
@@ -668,13 +734,13 @@ class WPAD_Conference_Schedule {
 								<?php if ( 'visible' === $attr['title'] ) : ?>
 									<?php if ( 'website' === $attr['link'] && $website ) : ?>
 										<h3>
-											<a href="<?php echo esc_attr( esc_url( $website ) ); ?>">
+											<a href="<?php echo esc_url( $website ); ?>">
 												<?php the_title(); ?>
 											</a>
 										</h3>
 									<?php elseif ( 'post' === $attr['link'] ) : ?>
 										<h3>
-											<a href="<?php echo esc_attr( esc_url( get_permalink() ) ); ?>">
+											<a href="<?php echo esc_url( get_permalink() ); ?>">
 												<?php the_title(); ?>
 											</a>
 										</h3>
@@ -686,27 +752,29 @@ class WPAD_Conference_Schedule {
 								<?php endif; ?>
 
 								<div class="wpcsp-sponsor-description">
-									<?php if ( 'website' == $attr['link'] && $website ) : ?>
-										<a href="<?php echo esc_attr( esc_url( $website ) ); ?>">
-											<?php echo $image; ?>
+									<?php if ( 'website' === $attr['link'] && $website ) : ?>
+										<a href="<?php echo esc_url( $website ); ?>">
+											<?php echo wp_kses_post( $image ); ?>
 										</a>
-									<?php elseif ( 'post' == $attr['link'] ) : ?>
-										<a href="<?php echo esc_attr( esc_url( get_permalink() ) ); ?>">
-											<?php echo $image; ?>
+									<?php elseif ( 'post' === $attr['link'] ) : ?>
+										<a href="<?php echo esc_url( get_permalink() ); ?>">
+											<?php echo wp_kses_post( $image ); ?>
 										</a>
 									<?php else : ?>
-										<?php echo $image; ?>
+										<?php echo wp_kses_post( $image ); ?>
 									<?php endif; ?>
 
 									<?php if ( 'full' === $attr['content'] ) : ?>
 										<?php the_content(); ?>
 									<?php elseif ( 'excerpt' === $attr['content'] ) : ?>
 										<?php
-										echo wpautop(
-											wp_trim_words(
-												get_the_content(),
-												absint( $attr['excerpt_length'] ),
-												apply_filters( 'excerpt_more', ' ' . '&hellip;' )
+										echo wp_kses_post(
+											wpautop(
+												wp_trim_words(
+													get_the_content(),
+													absint( $attr['excerpt_length'] ),
+													apply_filters( 'excerpt_more', ' ' . '&hellip;' )
+												)
 											)
 										);
 										?>
@@ -729,11 +797,14 @@ class WPAD_Conference_Schedule {
 
 	/**
 	 * The [wpcs_speakers] shortcode handler.
+	 *
+	 * @param  array $attr The shortcode attributes.
+	 * @return string
 	 */
-	function shortcode_speakers( $attr, $content ) {
+	public function shortcode_speakers( $attr ) {
 		global $post;
 
-		// Prepare the shortcodes arguments
+		// Prepare the shortcodes arguments.
 		$attr = shortcode_atts(
 			array(
 				'show_image'     => true,
@@ -759,20 +830,20 @@ class WPAD_Conference_Schedule {
 
 		$attr['show_image']   = $this->str_to_bool( $attr['show_image'] );
 		$attr['show_content'] = $this->str_to_bool( $attr['show_content'] );
-		$attr['orderby']      = in_array( $attr['orderby'], array( 'date', 'title', 'rand' ) ) ? $attr['orderby'] : 'date';
-		$attr['order']        = in_array( $attr['order'], array( 'asc', 'desc' ) ) ? $attr['order'] : 'desc';
-		$attr['speaker_link'] = in_array( $attr['speaker_link'], array( 'permalink' ) ) ? $attr['speaker_link'] : '';
+		$attr['orderby']      = in_array( $attr['orderby'], array( 'date', 'title', 'rand' ), true ) ? $attr['orderby'] : 'date';
+		$attr['order']        = in_array( $attr['order'], array( 'asc', 'desc' ), true ) ? $attr['order'] : 'desc';
+		$attr['speaker_link'] = in_array( $attr['speaker_link'], array( 'permalink' ), true ) ? $attr['speaker_link'] : '';
 		$attr['track']        = array_filter( explode( ',', $attr['track'] ) );
 		$attr['groups']       = array_filter( explode( ',', $attr['groups'] ) );
 
-		// Fetch all the relevant sessions
+		// Fetch all the relevant sessions.
 		$session_args = array(
 			'post_type'      => 'wpcs_session',
 			'posts_per_page' => -1,
 		);
 
 		if ( ! empty( $attr['track'] ) ) {
-			$session_args['tax_query'] = array(
+			$session_args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 				array(
 					'taxonomy' => 'wpcs_track',
 					'field'    => 'slug',
@@ -783,14 +854,15 @@ class WPAD_Conference_Schedule {
 
 		$sessions = get_posts( $session_args );
 
-		// Parse the sessions
-		$speaker_ids = $speakers_tracks = array();
+		// Parse the sessions.
+		$speaker_ids     = array();
+		$speakers_tracks = array();
 		foreach ( $sessions as $session ) {
-			// Get the speaker IDs for all the sessions in the requested tracks
+			// Get the speaker IDs for all the sessions in the requested tracks.
 			$session_speaker_ids = get_post_meta( $session->ID, '_rwc_cs_speaker_id' );
 			$speaker_ids         = array_merge( $speaker_ids, $session_speaker_ids );
 
-			// Map speaker IDs to their corresponding tracks
+			// Map speaker IDs to their corresponding tracks.
 			$session_terms = wp_get_object_terms( $session->ID, 'RWC_track' );
 			foreach ( $session_speaker_ids as $speaker_id ) {
 				if ( isset( $speakers_tracks[ $speaker_id ] ) ) {
@@ -801,13 +873,13 @@ class WPAD_Conference_Schedule {
 			}
 		}
 
-		// Remove duplicate entries
+		// Remove duplicate entries.
 		$speaker_ids = array_unique( $speaker_ids );
 		foreach ( $speakers_tracks as $speaker_id => $tracks ) {
 			$speakers_tracks[ $speaker_id ] = array_unique( $tracks );
 		}
 
-		// Fetch all specified speakers
+		// Fetch all specified speakers.
 		$speaker_args = array(
 			'post_type'      => 'wpcsp_speaker',
 			'posts_per_page' => intval( $attr['posts_per_page'] ),
@@ -820,7 +892,7 @@ class WPAD_Conference_Schedule {
 		}
 
 		if ( ! empty( $attr['groups'] ) ) {
-			$speaker_args['tax_query'] = array(
+			$speaker_args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 				array(
 					'taxonomy' => 'wpcsp_speaker_level',
 					'field'    => 'slug',
@@ -835,11 +907,11 @@ class WPAD_Conference_Schedule {
 			return '';
 		}
 		$heading_level = ( in_array( $attr['heading_level'], array( 'h2', 'h3', 'h4', 'h5', 'h6', 'p' ), true ) ) ? $attr['heading_level'] : 'h2';
-		// Render the HTML for the shortcode
+		// Render the HTML for the shortcode.
 		ob_start();
 		?>
 
-		<div class="wpcsp-speakers" style="text-align: <?php echo $attr['align']; ?>; display: grid; grid-template-columns: repeat(<?php echo $attr['columns']; ?>, 1fr); grid-gap: <?php echo $attr['gap']; ?>px;">
+		<div class="wpcsp-speakers" style="text-align: <?php echo esc_attr( $attr['align'] ); ?>; display: grid; grid-template-columns: repeat(<?php echo esc_attr( $attr['columns'] ); ?>, 1fr); grid-gap: <?php echo esc_attr( $attr['gap'] ); ?>px;">
 
 			<?php
 			while ( $speakers->have_posts() ) :
@@ -863,36 +935,36 @@ class WPAD_Conference_Schedule {
 				?>
 
 				<!-- Organizers note: The id attribute is deprecated and only remains for backwards compatibility, please use the corresponding class to target individual speakers -->
-				<div class="wpcsp-speaker" id="wpcsp-speaker-<?php echo sanitize_html_class( $post->post_name ); ?>" class="<?php echo implode( ' ', $speaker_classes ); ?>">
+				<div class="wpcsp-speaker" id="wpcsp-speaker-<?php echo sanitize_html_class( $post->post_name ); ?>" class="<?php echo esc_attr( implode( ' ', $speaker_classes ) ); ?>">
 
 					<?php
-					if ( has_post_thumbnail( $post_id ) && $attr['show_image'] == true ) {
+					if ( has_post_thumbnail( $post_id ) && true === $attr['show_image'] ) {
 						echo get_the_post_thumbnail( $post_id, array( $attr['image_size'], $attr['image_size'] ), array( 'class' => 'wpcsp-speaker-image' ) );}
 					?>
 
-					<<?php echo $heading_level; ?> class="wpcsp-speaker-name">
+					<<?php echo esc_html( $heading_level ); ?> class="wpcsp-speaker-name">
 						<?php if ( 'permalink' === $attr['speaker_link'] ) : ?>
 
 							<a href="<?php the_permalink(); ?>">
-								<?php echo $full_name; ?>
+								<?php echo wp_kses_post( $full_name ); ?>
 							</a>
 
 						<?php else : ?>
 
-							<?php echo $full_name; ?>
+							<?php echo wp_kses_post( $full_name ); ?>
 
 						<?php endif; ?>
-					</<?php echo $heading_level; ?>>
+					</<?php echo esc_html( $heading_level ); ?>>
 
 					<?php if ( $title_organization ) { ?>
 						<p class="wpcsp-speaker-title-organization">
-							<?php echo implode( ', ', $title_organization ); ?>
+							<?php echo wp_kses_post( implode( ', ', $title_organization ) ); ?>
 						</p>
 					<?php } ?>
 
 					<div class="wpcsp-speaker-description">
 						<?php
-						if ( $attr['show_content'] == true ) {
+						if ( true === $attr['show_content'] ) {
 							the_content();}
 						?>
 					</div>
@@ -911,16 +983,16 @@ class WPAD_Conference_Schedule {
 	/**
 	 * Convert a string representation of a boolean to an actual boolean
 	 *
-	 * @param string|bool
+	 * @param string|bool $value The value to convert.
 	 *
 	 * @return bool
 	 */
-	function str_to_bool( $value ) {
+	public function str_to_bool( $value ) {
 		if ( true === $value ) {
 			return true;
 		}
 
-		if ( in_array( strtolower( trim( $value ) ), array( 'yes', 'true', '1' ) ) ) {
+		if ( in_array( strtolower( (string) trim( $value ) ), array( 'yes', 'true', '1' ), true ) ) {
 			return true;
 		}
 
@@ -930,10 +1002,10 @@ class WPAD_Conference_Schedule {
 	/**
 	 * Filter session speaker meta field
 	 *
-	 * @param array $cmb
-	 * @return void
+	 * @param \CMB2_Base $cmb The CMB2 object.
+	 * @return \CMB2_Base
 	 */
-	function filter_session_speaker_meta_field( $cmb ) {
+	public function filter_session_speaker_meta_field( $cmb ) {
 
 		$cmb->add_field(
 			array(
@@ -942,14 +1014,14 @@ class WPAD_Conference_Schedule {
 				'type'             => 'radio',
 				'show_option_none' => false,
 				'options'          => array(
-					'typed' => __( 'Speaker Names (Typed)', 'wpcsp' ),
-					'cpt'   => __( 'Speaker Select (from Speakers CPT)', 'wpcsp' ),
+					'typed' => __( 'Speaker Names (Typed)', 'wpa-conference' ),
+					'cpt'   => __( 'Speaker Select (from Speakers CPT)', 'wpa-conference' ),
 				),
 				'default'          => 'cpt',
 			)
 		);
 
-		// get speakers
+		// Get speakers.
 		$args     = array(
 			'numberposts' => -1,
 			'post_type'   => 'wpcsp_speaker',
@@ -968,27 +1040,24 @@ class WPAD_Conference_Schedule {
 				'attributes' => array(
 					'data-conditional-id'    => 'wpcsp_session_speaker_display',
 					'data-conditional-value' => 'cpt',
-				// 'data-conditional-invert' => true
 				),
 			)
 		);
 
-		// Speaker Name(s)
+		// Speaker Name(s).
 		$cmb->add_field(
 			array(
-				'name'       => __( 'Speaker Name(s)', 'wpcsp' ),
-				// 'desc'       => __( 'field description (optional)', 'wpcsp' ),
+				'name'       => __( 'Speaker Name(s)', 'wpa-conference' ),
 				'id'         => '_wpcs_session_speakers',
 				'type'       => 'text',
 				'attributes' => array(
 					'data-conditional-id'    => 'wpcsp_session_speaker_display',
 					'data-conditional-value' => 'typed',
-				// 'data-conditional-invert' => true
 				),
 			)
 		);
 
-		// get sponsors
+		// Get sponsors.
 		$args    = array(
 			'numberposts' => -1,
 			'post_type'   => 'wpcsp_sponsor',
@@ -1024,13 +1093,21 @@ class WPAD_Conference_Schedule {
 			)
 		);
 
+		return $cmb;
 	}
 
+	/**
+	 * Get the session speakers HTML.
+	 *
+	 * @param  string $speakers_typed The manually created speaker HTML.
+	 * @param  int    $session_id     The session ID.
+	 * @return string
+	 */
 	public function filter_session_speakers( $speakers_typed, $session_id ) {
 
 		$speaker_display = get_post_meta( $session_id, 'wpcsp_session_speaker_display', true );
 
-		if ( $speaker_display == 'typed' ) {
+		if ( 'typed' === $speaker_display ) {
 			return $speakers_typed;
 		}
 
@@ -1052,13 +1129,13 @@ class WPAD_Conference_Schedule {
 
 					<?php if ( $full_name ) { ?>
 						<div class="wpcsp-session-speaker-name">
-							<?php echo $full_name; ?>
+							<?php echo wp_kses_post( $full_name ); ?>
 						</div>
 					<?php } ?>
 
 					<?php if ( $title_organization ) { ?>
 						<div class="wpcsp-session-speaker-title-organization">
-							<?php echo implode( ', ', $title_organization ); ?>
+							<?php echo wp_kses_post( implode( ', ', $title_organization ) ); ?>
 						</div>
 					<?php } ?>
 
@@ -1071,11 +1148,18 @@ class WPAD_Conference_Schedule {
 		return $html;
 	}
 
+	/**
+	 * Get single session speaker HTML.
+	 *
+	 * @param  string $speakers_typed The manually typed speaker HTML.
+	 * @param  int    $session_id     The session ID.
+	 * @return string
+	 */
 	public function filter_single_session_speakers( $speakers_typed, $session_id ) {
 
 		$speaker_display = get_post_meta( $session_id, 'wpcsp_session_speaker_display', true );
 
-		if ( $speaker_display == 'typed' ) {
+		if ( 'typed' === $speaker_display ) {
 			return $speakers_typed;
 		}
 
@@ -1101,18 +1185,21 @@ class WPAD_Conference_Schedule {
 
 						<?php
 						if ( has_post_thumbnail( $post_id ) ) {
-							echo get_the_post_thumbnail( $post_id, 'thumbnail', array( 'class' => 'wpcsp-single-session-speakers-speaker-image' ) );}
+							echo get_the_post_thumbnail( $post_id, 'thumbnail', array( 'class' => 'wpcsp-single-session-speakers-speaker-image' ) );
+						}
 						?>
 
 						<?php if ( $full_name ) { ?>
 							<h3 class="wpcsp-single-session-speakers-speaker-name">
-								<a href="<?php echo get_the_permalink( $post_id ); ?>"><?php echo $full_name; ?></a>
+								<a href="<?php the_permalink( $post_id ); ?>">
+									<?php echo wp_kses_post( $full_name ); ?>
+								</a>
 							</h3>
 						<?php } ?>
 
 						<?php if ( $title_organization ) { ?>
 							<div class="wpcsp-single-session-speakers-speaker-title-organization">
-								<?php echo implode( ', ', $title_organization ); ?>
+								<?php echo wp_kses_post( implode( ', ', $title_organization ) ); ?>
 							</div>
 						<?php } ?>
 
@@ -1128,6 +1215,12 @@ class WPAD_Conference_Schedule {
 		return $html;
 	}
 
+	/**
+	 * Get the session content header.
+	 *
+	 * @param  int $session_id The session ID.
+	 * @return string
+	 */
 	public function session_content_header( $session_id ) {
 		$html         = '';
 		$session_tags = get_the_terms( $session_id, 'wpcs_session_tag' );
@@ -1136,8 +1229,17 @@ class WPAD_Conference_Schedule {
 			?>
 			<ul class="wpcsp-session-tags">
 				<?php foreach ( $session_tags as $session_tag ) { ?>
+					<?php
+					$term_url = get_term_link( $session_tag->term_id, 'wpcs_session_tag' );
+
+					if ( is_wp_error( $term_url ) ) {
+						$term_url = '';
+					}
+					?>
 					<li class="wpcsp-session-tags-tag">
-						<a href="<?php echo get_term_link( $session_tag->term_id, 'wpcs_session_tag' ); ?>" class="wpcsp-session-tags-tag-link"><?php echo $session_tag->name; ?></a>
+						<a href="<?php echo esc_url( $term_url ); ?>" class="wpcsp-session-tags-tag-link">
+							<?php echo wp_kses_post( $session_tag->name ); ?>
+						</a>
 					</li>
 				<?php } ?>
 			</ul>
@@ -1147,29 +1249,33 @@ class WPAD_Conference_Schedule {
 		return $html;
 	}
 
+	/**
+	 * Output single session tags.
+	 *
+	 * @return void
+	 */
 	public function single_session_tags() {
-		// $tags = get_the_term_list( get_the_ID(), 'wpcs_session_tag', '<li class="wpsc-single-session-meta-item wpsc-single-session-location"><i class="fas fa-tag"></i>', ', ', '</li>');
 		$terms = get_the_terms( get_the_ID(), 'wpcs_session_tag' );
 		if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
 			$term_names = wp_list_pluck( $terms, 'name' );
 			$terms      = implode( ', ', $term_names );
 			if ( $terms ) {
-				echo '<li class="wpsc-single-session-taxonomies-taxonomy wpsc-single-session-location"><i class="fas fa-tag"></i>' . $terms . '</li>';
+				echo '<li class="wpsc-single-session-taxonomies-taxonomy wpsc-single-session-location"><i class="fas fa-tag"></i>' . wp_kses_post( $terms ) . '</li>';
 			}
 		}
 	}
 
 	/**
-	 * Output Session Sponsors
+	 * Output Session Sponsors.
 	 *
-	 * @param int $session_id
+	 * @param int $session_id The session ID.
 	 * @return mixed
 	 */
 	public function session_sponsors( $session_id ) {
 
 		$session_sponsors = get_post_meta( $session_id, 'wpcsp_session_sponsors', true );
 		if ( ! $session_sponsors ) {
-			return;
+			return '';
 		}
 
 		$sponsors = array();
@@ -1180,7 +1286,7 @@ class WPAD_Conference_Schedule {
 		ob_start();
 
 		if ( $sponsors ) {
-			echo '<div class="wpcs-session-sponsor"><span class="wpcs-session-sponsor-label">Presented by: </span>' . implode( ', ', $sponsors ) . '</div>';
+			echo '<div class="wpcs-session-sponsor"><span class="wpcs-session-sponsor-label">Presented by: </span>' . wp_kses_post( implode( ', ', $sponsors ) ) . '</div>';
 		}
 
 		$html = ob_get_clean();
@@ -1213,237 +1319,231 @@ add_action( 'cmb2_admin_init', 'wpcsp_speaker_metabox' );
 add_action( 'cmb2_admin_init', 'wpcsp_sponsor_metabox' );
 add_action( 'cmb2_admin_init', 'wpcsp_sponsor_level_metabox' );
 
+/**
+ * Generate speaker metaboxes.
+ *
+ * @return void
+ */
 function wpcsp_speaker_metabox() {
 
 	$cmb = new_cmb2_box(
 		array(
 			'id'           => 'wpcsp_speaker_metabox',
-			'title'        => __( 'Speaker Information', 'wpcsp' ),
-			'object_types' => array( 'wpcsp_speaker' ), // Post type
+			'title'        => __( 'Speaker Information', 'wpa-conference' ),
+			'object_types' => array( 'wpcsp_speaker' ), // Post type.
 			'context'      => 'normal',
 			'priority'     => 'high',
-			'show_names'   => true, // Show field names on the left
-		// 'cmb_styles' => false, // false to disable the CMB stylesheet
-		// 'closed'     => true, // Keep the metabox closed by default
+			'show_names'   => true, // Show field names on the left.
 		)
 	);
 
-	// first name
+	// First name.
 	$cmb->add_field(
 		array(
-			'name' => __( 'First Name', 'wpcsp' ),
-			// 'desc'       => __( 'field description (optional)', 'wpcsp' ),
+			'name' => __( 'First Name', 'wpa-conference' ),
 			'id'   => 'wpcsp_first_name',
 			'type' => 'text',
 		)
 	);
 
-	// last name
+	// Last name.
 	$cmb->add_field(
 		array(
-			'name' => __( 'Last Name', 'wpcsp' ),
-			// 'desc'       => __( '', 'wpcsp' ),
+			'name' => __( 'Last Name', 'wpa-conference' ),
 			'id'   => 'wpcsp_last_name',
 			'type' => 'text',
 		)
 	);
 
-	// title
+	// Title.
 	$cmb->add_field(
 		array(
-			'name' => __( 'Title', 'wpcsp' ),
-			// 'desc'       => __( '', 'wpcsp' ),
+			'name' => __( 'Title', 'wpa-conference' ),
 			'id'   => 'wpcsp_title',
 			'type' => 'text',
 		)
 	);
 
-	// organization
+	// Organization.
 	$cmb->add_field(
 		array(
-			'name' => __( 'Organization', 'wpcsp' ),
-			// 'desc'       => __( '', 'wpcsp' ),
+			'name' => __( 'Organization', 'wpa-conference' ),
 			'id'   => 'wpcsp_organization',
 			'type' => 'text',
 		)
 	);
 
-	// Facebook URL
+	// Facebook URL.
 	$cmb->add_field(
 		array(
-			'name'      => __( 'Facebook URL', 'wpcsp' ),
-			// 'desc'       => __( '', 'wpcsp' ),
+			'name'      => __( 'Facebook URL', 'wpa-conference' ),
 			'id'        => 'wpcsp_facebook_url',
 			'type'      => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
 		)
 	);
 
-	// Twitter URL
+	// Twitter URL.
 	$cmb->add_field(
 		array(
-			'name'      => __( 'Twitter URL', 'wpcsp' ),
-			// 'desc'       => __( '', 'wpcsp' ),
+			'name'      => __( 'Twitter URL', 'wpa-conference' ),
 			'id'        => 'wpcsp_twitter_url',
 			'type'      => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
 		)
 	);
 
-	// Github URL
+	// Github URL.
 	$cmb->add_field(
 		array(
-			'name'      => __( 'Github URL', 'wpcsp' ),
-			// 'desc'       => __( '', 'wpcsp' ),
+			'name'      => __( 'Github URL', 'wpa-conference' ),
 			'id'        => 'wpcsp_github_url',
 			'type'      => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
 		)
 	);
 
-	// WordPress Profile URL
+	// WordPress Profile URL.
 	$cmb->add_field(
 		array(
-			'name'      => __( 'WordPress Profile URL', 'wpcsp' ),
-			// 'desc'       => __( '', 'wpcsp' ),
+			'name'      => __( 'WordPress Profile URL', 'wpa-conference' ),
 			'id'        => 'wpcsp_wordpress_url',
 			'type'      => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
 		)
 	);
 
-	// Instagram URL
+	// Instagram URL.
 	$cmb->add_field(
 		array(
-			'name'      => __( 'Instagram URL', 'wpcsp' ),
-			// 'desc'       => __( '', 'wpcsp' ),
+			'name'      => __( 'Instagram URL', 'wpa-conference' ),
 			'id'        => 'wpcsp_instagram_url',
 			'type'      => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
 		)
 	);
 
-	// Linkedin URL
+	// Linkedin URL.
 	$cmb->add_field(
 		array(
-			'name'      => __( 'Linkedin URL', 'wpcsp' ),
-			// 'desc'       => __( '', 'wpcsp' ),
+			'name'      => __( 'Linkedin URL', 'wpa-conference' ),
 			'id'        => 'wpcsp_linkedin_url',
 			'type'      => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
 		)
 	);
 
-	// YouTube URL
+	// YouTube URL.
 	$cmb->add_field(
 		array(
-			'name'      => __( 'YouTube URL', 'wpcsp' ),
-			// 'desc'       => __( '', 'wpcsp' ),
+			'name'      => __( 'YouTube URL', 'wpa-conference' ),
 			'id'        => 'wpcsp_youtube_url',
 			'type'      => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
 		)
 	);
 
-	// Website URL
+	// Website URL.
 	$cmb->add_field(
 		array(
-			'name'      => __( 'Website URL', 'wpcsp' ),
-			// 'desc'       => __( '', 'wpcsp' ),
+			'name'      => __( 'Website URL', 'wpa-conference' ),
 			'id'        => 'wpcsp_website_url',
 			'type'      => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
 		)
 	);
 }
 
+/**
+ * Generate sponsor metaboxes.
+ *
+ * @return void
+ */
 function wpcsp_sponsor_metabox() {
 
 	$cmb = new_cmb2_box(
 		array(
 			'id'           => 'wpcsp_sponsor_metabox',
-			'title'        => __( 'Sponsor Information', 'wpcsp' ),
-			'object_types' => array( 'wpcsp_sponsor' ), // Post type
+			'title'        => __( 'Sponsor Information', 'wpa-conference' ),
+			'object_types' => array( 'wpcsp_sponsor' ), // Post type.
 			'context'      => 'normal',
 			'priority'     => 'high',
-			'show_names'   => true, // Show field names on the left
-		// 'cmb_styles' => false, // false to disable the CMB stylesheet
-		// 'closed'     => true, // Keep the metabox closed by default
+			'show_names'   => true, // Show field names on the left.
 		)
 	);
 
-	// Website URL
+	// Website URL.
 	$cmb->add_field(
 		array(
-			'name'      => __( 'Website URL', 'wpcsp' ),
-			// 'desc'       => __( '', 'wpcsp' ),
+			'name'      => __( 'Website URL', 'wpa-conference' ),
 			'id'        => 'wpcsp_website_url',
 			'type'      => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
 		)
 	);
 
-	// Instagram URL
+	// Instagram URL.
 	$cmb->add_field(
 		array(
-			'name'      => __( 'Instagram URL', 'wpcsp' ),
-			// 'desc'       => __( '', 'wpcsp' ),
+			'name'      => __( 'Instagram URL', 'wpa-conference' ),
 			'id'        => 'wpcsp_instagram_url',
 			'type'      => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
 		)
 	);
 
-	// Linkedin URL
+	// Linkedin URL.
 	$cmb->add_field(
 		array(
-			'name'      => __( 'Linkedin URL', 'wpcsp' ),
-			// 'desc'       => __( '', 'wpcsp' ),
+			'name'      => __( 'Linkedin URL', 'wpa-conference' ),
 			'id'        => 'wpcsp_linkedin_url',
 			'type'      => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
 		)
 	);
 
-	// YouTube URL
+	// YouTube URL.
 	$cmb->add_field(
 		array(
-			'name'      => __( 'YouTube URL', 'wpcsp' ),
-			// 'desc'       => __( '', 'wpcsp' ),
+			'name'      => __( 'YouTube URL', 'wpa-conference' ),
 			'id'        => 'wpcsp_youtube_url',
 			'type'      => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
 		)
 	);
 
-	// Sponsor Swag
+	// Sponsor Swag.
 	$cmb->add_field(
 		array(
-			'name' => __( 'Digital Swag', 'wpcsp' ),
-			'desc' => __( 'Use this field to add swag for attendees.', 'wpcsp' ),
+			'name' => __( 'Digital Swag', 'wpa-conference' ),
+			'desc' => __( 'Use this field to add swag for attendees.', 'wpa-conference' ),
 			'id'   => 'wpcsp_sponsor_swag',
 			'type' => 'wysiwyg',
 		)
 	);
 }
 
+/**
+ * Generate the sponsor level metabox.
+ *
+ * @return void
+ */
 function wpcsp_sponsor_level_metabox() {
 
 	$cmb = new_cmb2_box(
 		array(
 			'id'           => 'wpcsp_sponsor_level_metabox',
-			'title'        => esc_html__( 'Category Metabox', 'cmb2' ), // Doesn't output for term boxes
-			'object_types' => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
-			'taxonomies'   => array( 'wpcsp_sponsor_level' ), // Tells CMB2 which taxonomies should have these fields
-		// 'new_term_section' => true, // Will display in the "Add New Category" section
+			'title'        => esc_html__( 'Category Metabox', 'wpa-conference' ), // Doesn't output for term boxes.
+			'object_types' => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta.
+			'taxonomies'   => array( 'wpcsp_sponsor_level' ), // Tells CMB2 which taxonomies should have these fields.
 		)
 	);
 
-	// Logo Height
+	// Logo Height.
 	$cmb->add_field(
 		array(
-			'name'       => __( 'Logo Height', 'wpcsp' ),
-			'desc'       => __( 'Pixels', 'wpcsp' ),
+			'name'       => __( 'Logo Height', 'wpa-conference' ),
+			'desc'       => __( 'Pixels', 'wpa-conference' ),
 			'id'         => 'wpcsp_logo_height',
 			'type'       => 'text_small',
 			'attributes' => array(
@@ -1460,6 +1560,11 @@ $GLOBALS['wpcs_plugin'] = new WPAD_Conference_Schedule();
 
 add_shortcode( 'able', 'wpad_get_video' );
 
+/**
+ * Get video HTML.
+ *
+ * @return string
+ */
 function wpad_get_video() {
 	return '
 	<div class="wp-block-group alignwide wpad-video-player">
@@ -1471,12 +1576,22 @@ function wpad_get_video() {
 	</div>';
 }
 
+/**
+ * Get video poster (the post thumbnail URL).
+ *
+ * @return string
+ */
 function wpad_get_poster() {
 	$poster = get_the_post_thumbnail_url();
 
 	return $poster;
 }
 
+/**
+ * Get captions URL.
+ *
+ * @return string
+ */
 function wpad_get_captions() {
 	$post_id          = get_the_ID();
 	$session_captions = get_post_meta( $post_id, '_wpcs_caption_url', true );
@@ -1484,6 +1599,11 @@ function wpad_get_captions() {
 	return $session_captions;
 }
 
+/**
+ * Get youtube ID from meta.
+ *
+ * @return string
+ */
 function wpad_get_youtube() {
 	$post_id         = get_the_ID();
 	$session_youtube = get_post_meta( $post_id, '_wpcs_youtube_id', true );

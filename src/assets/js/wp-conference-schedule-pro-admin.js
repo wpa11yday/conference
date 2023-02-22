@@ -29,32 +29,27 @@
    * practising this, we should strive to set a better example in our own work.
    */
 
-  $(function () {
+  $(() => {});
 
-  });
-
-  $(window).on('load',function () {
-
-  });
-  
+  $(window).on("load", () => {});
 })(jQuery);
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll('[role="tab"]');
   const tabList = document.querySelector('[role="tablist"]');
 
   // Add a click event handler to each tab
-  tabs.forEach(tab => {
-    tab.addEventListener('click', wpcsp_changeTabs);
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", wpcsp_changeTabs);
   });
 
   // Enable arrow navigation between tabs in the tab list
   let tabFocus = 0;
 
-  tabList.addEventListener('keydown', e => {
+  tabList.addEventListener("keydown", (e) => {
     // Move right
     if (e.keyCode === 39 || e.keyCode === 37) {
-      tabs[tabFocus].setAttribute('tabindex', -1);
+      tabs[tabFocus].setAttribute("tabindex", -1);
       if (e.keyCode === 39) {
         tabFocus++;
         // If we're at the end, go to the start
@@ -70,7 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      tabs[tabFocus].setAttribute('tabindex', 0);
+      tabs[tabFocus].setAttribute("tabindex", 0);
       tabs[tabFocus].focus();
     }
   });
@@ -84,27 +79,27 @@ function wpcsp_changeTabs(e) {
   // Remove all current selected tabs
   parent
     .querySelectorAll('[aria-selected="true"]')
-    .forEach(t => t.setAttribute('aria-selected', false));
+    .forEach((t) => t.setAttribute("aria-selected", false));
 
   // Set this tab as selected
-  target.setAttribute('aria-selected', true);
+  target.setAttribute("aria-selected", true);
 
   // Hide all tab panels
   grandparent
     .querySelectorAll('[role="tabpanel"]')
-    .forEach(p => p.setAttribute('hidden', true));
+    .forEach((p) => p.setAttribute("hidden", true));
 
   // Show the selected panel
   grandparent.parentNode
-    .querySelector(`#${target.getAttribute('aria-controls')}`)
-    .removeAttribute('hidden');
+    .querySelector(`#${target.getAttribute("aria-controls")}`)
+    .removeAttribute("hidden");
 
   // Set query parameter
-  if ('URLSearchParams' in window) {
-    var searchParams = new URLSearchParams(window.location.search)
-    searchParams.set("wpcs-tab", target.getAttribute('data-id'));
-    var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
-    history.pushState(null, '', newRelativePathQuery);
+  if ("URLSearchParams" in window) {
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.set("wpcs-tab", target.getAttribute("data-id"));
+    const newRelativePathQuery =
+      window.location.pathname + "?" + searchParams.toString();
+    history.pushState(null, "", newRelativePathQuery);
   }
-
 }

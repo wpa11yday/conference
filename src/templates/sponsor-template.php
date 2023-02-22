@@ -11,41 +11,47 @@ get_header(); ?>
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-			<?php while ( have_posts() ) : the_post(); 
-			$post_id      = get_the_ID();
-			$website_url  = get_post_meta( $post_id, 'wpcsp_website_url', true );
-			$swag         = wpautop( get_post_meta( $post_id, 'wpcsp_sponsor_swag', true ));
-			$terms        = get_the_terms($post_id, 'wpcsp_sponsor_level');
-			$register_url = get_option( 'wpcs_field_registration' );
-			if( !is_wp_error($terms)){
-				$levels = wp_list_pluck($terms,'name');
-				$levels_label = ' Level Sponsor';
-				$levels = implode(', ',$levels);
-			}
-			?>
+			<?php
+			while ( have_posts() ) :
+				the_post();
+				$post_id      = get_the_ID();
+				$website_url  = get_post_meta( $post_id, 'wpcsp_website_url', true );
+				$swag         = wpautop( get_post_meta( $post_id, 'wpcsp_sponsor_swag', true ) );
+				$terms        = get_the_terms( $post_id, 'wpcsp_sponsor_level' );
+				$register_url = get_option( 'wpcs_field_registration' );
+				if ( ! is_wp_error( $terms ) ) {
+					$levels       = wp_list_pluck( $terms, 'name' );
+					$levels_label = ' Level Sponsor';
+					$levels       = implode( ', ', $levels );
+				}
+				?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				
 					<div class="entry-content">
-						<?php the_title('<h1 class="entry-title sr-only">','</h1>'); ?>
+						<?php the_title( '<h1 class="entry-title sr-only">', '</h1>' ); ?>
 						<div class="wpcsp-sponsor-grid">
 							<div class="wpcsp-media">
-								<?php if(has_post_thumbnail()) the_post_thumbnail( 'full', array( 'alt' => get_the_title() ) ); ?>
+								<?php
+								if ( has_post_thumbnail() ) {
+									the_post_thumbnail( 'full', array( 'alt' => get_the_title() ) );}
+								?>
 
 								<?php
 								$social_icons = wpcsp_get_social_links( get_the_ID() );
-								if($social_icons){ ?>
+								if ( $social_icons ) {
+									?>
 									<ul class="wpcsp-sponsor-social">
-										<?php foreach ($social_icons as $social_icon) { ?>
+										<?php foreach ( $social_icons as $social_icon ) { ?>
 											<li class="wpcsp-sponsor-social-icon"><?php echo $social_icon; ?></li>
 										<?php } ?>
 									</ul>
 								<?php } ?>
 
-								<?php if($website_url){ ?>
+								<?php if ( $website_url ) { ?>
 									<p class="wpcsp-sponsor-website-link"><a rel="sponsored nofollow" href="<?php echo esc_url( $website_url ); ?>">Visit the <?php echo get_the_title(); ?> Website</a></p>
 								<?php } ?>
-								<?php if($swag){ ?>
+								<?php if ( $swag ) { ?>
 									<div class="wpcsp-sponsor-swag">
 										<h2>Attendee Swag</h2> 
 										<?php
@@ -60,12 +66,12 @@ get_header(); ?>
 								
 							</div>
 							<div>
-								<?php the_title('<h2>About ','</h1>'); ?>
-								<?php if($levels){ ?>
-									<p class="wpcsp-sponsor-level"><?php echo $levels.$levels_label; ?></p>
+								<?php the_title( '<h2>About ', '</h1>' ); ?>
+								<?php if ( $levels ) { ?>
+									<p class="wpcsp-sponsor-level"><?php echo $levels . $levels_label; ?></p>
 								<?php } ?>
 						
-								<?php the_content();?>
+								<?php the_content(); ?>
 
 							</div>
 
@@ -83,4 +89,5 @@ get_header(); ?>
 		</main><!-- #main -->
 	</section><!-- #primary -->
 
-<?php get_footer();
+<?php
+get_footer();

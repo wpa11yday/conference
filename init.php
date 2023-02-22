@@ -26,6 +26,6 @@ include( dirname( __FILE__ ) . '/src/wp-conference-schedule.php' );
 /**
  * Plugin Activation & Deactivation
  */
-register_activation_hook( __FILE__, 'wpcsp_pro_activation');
-register_deactivation_hook( __FILE__, 'wpcsp_pro_deactivation');
-register_uninstall_hook( __FILE__, 'wpcsp_pro_uninstall');
+register_activation_hook( __FILE__, 'wpcsp_pro_activation' );
+register_deactivation_hook( __FILE__, 'wpcsp_pro_deactivation' );
+register_uninstall_hook( __FILE__, 'wpcsp_pro_uninstall' );

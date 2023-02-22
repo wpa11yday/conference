@@ -22,26 +22,26 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 // Plugin directory
-define( 'WPCS_DIR' , plugin_dir_path( __FILE__ ) );
+define( 'WPCS_DIR', plugin_dir_path( __FILE__ ) );
 
 // Version
 define( 'WPCS_VERSION', '1.0.5.1' );
 
 // Plugin File URL
-define( 'PLUGIN_FILE_URL' , __FILE__);
+define( 'PLUGIN_FILE_URL', __FILE__ );
 
 // Includes
 require_once( WPCS_DIR . 'inc/post-types.php' );
 require_once( WPCS_DIR . 'inc/taxonomies.php' );
 require_once( WPCS_DIR . 'inc/schedule-output-functions.php' );
 require_once( WPCS_DIR . 'inc/settings.php' );
-require_once( WPCS_DIR . '/inc/activation.php');
-require_once( WPCS_DIR . '/inc/deactivation.php');
-require_once( WPCS_DIR . '/inc/uninstall.php');
-require_once( WPCS_DIR . '/inc/enqueue-scripts.php');
-require_once( WPCS_DIR . '/inc/cmb2/init.php');
-require_once( WPCS_DIR . '/inc/cmb-field-select2/cmb-field-select2.php');
-require_once( WPCS_DIR . '/inc/cmb2-conditional-logic/cmb2-conditional-logic.php');
+require_once( WPCS_DIR . '/inc/activation.php' );
+require_once( WPCS_DIR . '/inc/deactivation.php' );
+require_once( WPCS_DIR . '/inc/uninstall.php' );
+require_once( WPCS_DIR . '/inc/enqueue-scripts.php' );
+require_once( WPCS_DIR . '/inc/cmb2/init.php' );
+require_once( WPCS_DIR . '/inc/cmb-field-select2/cmb-field-select2.php' );
+require_once( WPCS_DIR . '/inc/cmb2-conditional-logic/cmb2-conditional-logic.php' );
 
 class WPAD_Conference_Schedule {
 
@@ -57,33 +57,36 @@ class WPAD_Conference_Schedule {
 		add_action( 'wp_enqueue_scripts', array( $this, 'wpcs_enqueue_scripts' ) );
 		add_action( 'save_post', array( $this, 'wpcs_save_post_session' ), 10, 2 );
 		add_action( 'manage_posts_custom_column', array( $this, 'wpcs_manage_post_types_columns_output' ), 10, 2 );
-		add_action( 'cmb2_admin_init', array($this, 'wpcs_session_metabox' ) );
+		add_action( 'cmb2_admin_init', array( $this, 'wpcs_session_metabox' ) );
 		add_action( 'add_meta_boxes', array( $this, 'wpcs_add_meta_boxes' ) );
-		add_action('enqueue_block_editor_assets', array( $this, 'wpcs_loadBlockFiles' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'wpcs_loadBlockFiles' ) );
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-		add_filter( 'wpcs_filter_session_speaker_meta_field', [$this, 'filter_session_speaker_meta_field'], 11, 1 );
+		add_filter( 'wpcs_filter_session_speaker_meta_field', array( $this, 'filter_session_speaker_meta_field' ), 11, 1 );
 		add_shortcode( 'wpcs_sponsors', array( $this, 'shortcode_sponsors' ) );
 		add_shortcode( 'wpcs_speakers', array( $this, 'shortcode_speakers' ) );
-		add_filter( 'wpcs_filter_session_speakers', [$this, 'filter_session_speakers'], 11, 2 );
-		add_filter( 'wpcs_session_content_header', [$this, 'session_content_header'], 11, 1 );
+		add_filter( 'wpcs_filter_session_speakers', array( $this, 'filter_session_speakers' ), 11, 2 );
+		add_filter( 'wpcs_session_content_header', array( $this, 'session_content_header' ), 11, 1 );
 		add_action( 'wpsc_single_taxonomies', array( $this, 'single_session_tags' ) );
-		add_filter( 'wpcs_filter_single_session_speakers', [$this, 'filter_single_session_speakers'], 11, 2 );
-		add_filter( 'wpcs_session_content_footer', [$this, 'session_sponsors'], 11, 1);
+		add_filter( 'wpcs_filter_single_session_speakers', array( $this, 'filter_single_session_speakers' ), 11, 2 );
+		add_filter( 'wpcs_session_content_footer', array( $this, 'session_sponsors' ), 11, 1 );
 
-		register_block_type('wpcs/schedule-block', array(
-			'editor_script' => 'schedule-block',
-			'attributes' => array(
-				'date' => array('type' => 'string'),
-				'color_scheme' => array('type' => 'string'),
-				'layout' => array('type' => 'string'),
-				'row_height' => array('type' => 'string'),
-				'session_link' => array('type' => 'string'),
-				'tracks' => array('type' => 'string'),
-				'align' => array('type' => 'string'),
-			),
-			'render_callback' => array( $this, 'wpcs_scheduleBlockOutput')
-		));
+		register_block_type(
+			'wpcs/schedule-block',
+			array(
+				'editor_script'   => 'schedule-block',
+				'attributes'      => array(
+					'date'         => array( 'type' => 'string' ),
+					'color_scheme' => array( 'type' => 'string' ),
+					'layout'       => array( 'type' => 'string' ),
+					'row_height'   => array( 'type' => 'string' ),
+					'session_link' => array( 'type' => 'string' ),
+					'tracks'       => array( 'type' => 'string' ),
+					'align'        => array( 'type' => 'string' ),
+				),
+				'render_callback' => array( $this, 'wpcs_scheduleBlockOutput' ),
+			)
+		);
 
 		add_filter( 'manage_wpcs_session_posts_columns', array( $this, 'wpcs_manage_post_types_columns' ) );
 		add_filter( 'manage_edit-wpcs_session_sortable_columns', array( $this, 'wpcs_manage_sortable_columns' ) );
@@ -183,34 +186,36 @@ class WPAD_Conference_Schedule {
 		return wpcs_scheduleOutput( $attr );
 	}
 
-	public function wpcs_update_session_date_meta(){
+	public function wpcs_update_session_date_meta() {
 		$post_id = null;
-		if(isset($_REQUEST['post']) || isset($_REQUEST['post_ID'])){
-			$post_id = empty($_REQUEST['post_ID']) ? absint( $_REQUEST['post'] ) : absint( $_REQUEST['post_ID'] );
+		if ( isset( $_REQUEST['post'] ) || isset( $_REQUEST['post_ID'] ) ) {
+			$post_id = empty( $_REQUEST['post_ID'] ) ? absint( $_REQUEST['post'] ) : absint( $_REQUEST['post_ID'] );
 		}
-		$session_date = get_post_meta($post_id, '_wpcs_session_date',true);
-		$session_time = get_post_meta($post_id, '_wpcs_session_time',true);
+		$session_date = get_post_meta( $post_id, '_wpcs_session_date', true );
+		$session_time = get_post_meta( $post_id, '_wpcs_session_time', true );
 
-		if($post_id && !$session_date && $session_time){
-			update_post_meta($post_id, '_wpcs_session_date', $session_time);
+		if ( $post_id && ! $session_date && $session_time ) {
+			update_post_meta( $post_id, '_wpcs_session_date', $session_time );
 		}
 	}
 
 	public function wpcs_session_metabox() {
 
-		$cmb = new_cmb2_box( array(
-			'id'            => 'wpcs_session_metabox',
-			'title'         => __( 'Session Information', 'wpcsp' ),
-			'object_types'  => array( 'wpcs_session', ), // Post type
-			'context'       => 'normal',
-			'priority'      => 'high',
-			'show_names'    => true, // Show field names on the left
+		$cmb = new_cmb2_box(
+			array(
+				'id'           => 'wpcs_session_metabox',
+				'title'        => __( 'Session Information', 'wpcsp' ),
+				'object_types' => array( 'wpcs_session' ), // Post type
+				'context'      => 'normal',
+				'priority'     => 'high',
+				'show_names'   => true, // Show field names on the left
 			// 'cmb_styles' => false, // false to disable the CMB stylesheet
 			// 'closed'     => true, // Keep the metabox closed by default
-		) );
+			)
+		);
 
 		// filter speaker meta field
-		if(has_filter('wpcs_filter_session_speaker_meta_field')) {
+		if ( has_filter( 'wpcs_filter_session_speaker_meta_field' ) ) {
 			/**
 			 * Filter session speaker meta field.
 			 *
@@ -221,14 +226,16 @@ class WPAD_Conference_Schedule {
 			 * @return {object}
 			 */
 			$cmb = apply_filters( 'wpcs_filter_session_speaker_meta_field', $cmb );
-		}else{
+		} else {
 			// Speaker Name(s)
-			$cmb->add_field( array(
-				'name'       => __( 'Speaker Name(s)', 'wpcsp' ),
-				//'desc'       => __( 'field description (optional)', 'wpcsp' ),
-				'id'         => '_wpcs_session_speakers',
-				'type'       => 'text',
-			) );
+			$cmb->add_field(
+				array(
+					'name' => __( 'Speaker Name(s)', 'wpcsp' ),
+					// 'desc'       => __( 'field description (optional)', 'wpcsp' ),
+					'id'   => '_wpcs_session_speakers',
+					'type' => 'text',
+				)
+			);
 		}
 
 	}
@@ -237,20 +244,20 @@ class WPAD_Conference_Schedule {
 	 * Fired during add_meta_boxes, adds extra meta boxes to our custom post types.
 	 */
 	function wpcs_add_meta_boxes() {
-		add_meta_box( 'session-info', __( 'Session Info', 'wp-conference-schedule'  ), array( $this, 'wpcs_metabox_session_info' ), 'wpcs_session',   'normal' );
+		add_meta_box( 'session-info', __( 'Session Info', 'wp-conference-schedule' ), array( $this, 'wpcs_metabox_session_info' ), 'wpcs_session', 'normal' );
 	}
 
 	function wpcs_metabox_session_info() {
 		$post             = get_post();
 		$session_time     = absint( get_post_meta( $post->ID, '_wpcs_session_time', true ) );
 		$session_date     = ( $session_time ) ? date( 'Y-m-d', $session_time ) : '2022-11-03';
-		$session_hours    = ( $session_time ) ? date( 'g', $session_time )     : '';
-		$session_minutes  = ( $session_time ) ? date( 'i', $session_time )     : '00';
-		$session_meridiem = ( $session_time ) ? date( 'a', $session_time )     : 'am';
+		$session_hours    = ( $session_time ) ? date( 'g', $session_time ) : '';
+		$session_minutes  = ( $session_time ) ? date( 'i', $session_time ) : '00';
+		$session_meridiem = ( $session_time ) ? date( 'a', $session_time ) : 'am';
 		$session_type     = get_post_meta( $post->ID, '_wpcs_session_type', true );
-		$session_speakers = get_post_meta( $post->ID, '_wpcs_session_speakers',  true );
-		$session_captions = get_post_meta( $post->ID, '_wpcs_caption_url',  true );
-		$session_youtube  = get_post_meta( $post->ID, '_wpcs_youtube_id',  true );
+		$session_speakers = get_post_meta( $post->ID, '_wpcs_session_speakers', true );
+		$session_captions = get_post_meta( $post->ID, '_wpcs_caption_url', true );
+		$session_youtube  = get_post_meta( $post->ID, '_wpcs_youtube_id', true );
 
 		wp_nonce_field( 'edit-session-info', 'wpcs-meta-session-info' );
 		?>
@@ -322,13 +329,15 @@ class WPAD_Conference_Schedule {
 
 			// Update session time
 			if ( '' !== $_POST['wpcs-session-hour'] ) {
-				$session_time = strtotime( sprintf(
-					'%s %d:%02d %s',
-					sanitize_text_field( $_POST['wpcs-session-date'] ),
-					absint( $_POST['wpcs-session-hour'] ),
-					absint( $_POST['wpcs-session-minutes'] ),
-					'am' == $_POST['wpcs-session-meridiem'] ? 'am' : 'pm'
-				) );
+				$session_time = strtotime(
+					sprintf(
+						'%s %d:%02d %s',
+						sanitize_text_field( $_POST['wpcs-session-date'] ),
+						absint( $_POST['wpcs-session-hour'] ),
+						absint( $_POST['wpcs-session-minutes'] ),
+						'am' == $_POST['wpcs-session-meridiem'] ? 'am' : 'pm'
+					)
+				);
 			} else {
 				$session_time = '';
 			}
@@ -342,16 +351,16 @@ class WPAD_Conference_Schedule {
 			update_post_meta( $post_id, '_wpcs_session_type', $session_type );
 
 			// Update session speakers
-			$session_speakers = sanitize_text_field($_POST['wpcs-session-speakers']);
-			update_post_meta( $post_id, '_wpcs_session_speakers', $session_speakers);
+			$session_speakers = sanitize_text_field( $_POST['wpcs-session-speakers'] );
+			update_post_meta( $post_id, '_wpcs_session_speakers', $session_speakers );
 
 			// Update session YouTube ID
-			$session_youtube = sanitize_text_field($_POST['wpcs-session-youtube']);
-			update_post_meta( $post_id, '_wpcs_youtube_id', $session_youtube);
-			
+			$session_youtube = sanitize_text_field( $_POST['wpcs-session-youtube'] );
+			update_post_meta( $post_id, '_wpcs_youtube_id', $session_youtube );
+
 			// Update session caption URL
-			$session_caption = sanitize_text_field($_POST['wpcs-session-caption']);
-			update_post_meta( $post_id, '_wpcs_caption_url', $session_caption);
+			$session_caption = sanitize_text_field( $_POST['wpcs-session-caption'] );
+			update_post_meta( $post_id, '_wpcs_caption_url', $session_caption );
 
 		}
 
@@ -368,7 +377,7 @@ class WPAD_Conference_Schedule {
 
 		switch ( $current_filter ) {
 			case 'manage_wpcs_session_posts_columns':
-				$columns = array_slice( $columns, 0, 1, true ) + array( 'conference_session_time'     => __( 'Time',     'wp-conference-schedule' ) ) + array_slice( $columns, 1, null, true );
+				$columns = array_slice( $columns, 0, 1, true ) + array( 'conference_session_time' => __( 'Time', 'wp-conference-schedule' ) ) + array_slice( $columns, 1, null, true );
 				break;
 			default:
 		}
@@ -444,8 +453,8 @@ class WPAD_Conference_Schedule {
 	function wpcs_loadBlockFiles() {
 		wp_enqueue_script(
 			'schedule-block',
-			plugin_dir_url(__FILE__) . 'assets/js/schedule-block.js',
-			array('wp-blocks', 'wp-i18n', 'wp-editor'),
+			plugin_dir_url( __FILE__ ) . 'assets/js/schedule-block.js',
+			array( 'wp-blocks', 'wp-i18n', 'wp-editor' ),
 			true
 		);
 	}
@@ -453,7 +462,7 @@ class WPAD_Conference_Schedule {
 	/**
 	 * Schedule Block Dynamic content Output.
 	 */
-	function wpcs_scheduleBlockOutput($props) {
+	function wpcs_scheduleBlockOutput( $props ) {
 		return wpcs_scheduleOutput( $props );
 	}
 
@@ -485,7 +494,7 @@ class WPAD_Conference_Schedule {
 			$_REQUEST['updated'] = false;
 		}
 
-		$levels = $this->get_sponsor_levels('conference_sponsor_level_order','wpcsp_sponsor_level');
+		$levels = $this->get_sponsor_levels( 'conference_sponsor_level_order', 'wpcsp_sponsor_level' );
 		?>
 		<div class="wrap">
 			<h1><?php _e( 'Order Sponsor Levels', 'wpcsp' ); ?></h1>
@@ -523,7 +532,7 @@ class WPAD_Conference_Schedule {
 			$_REQUEST['updated'] = false;
 		}
 
-		$levels = $this->get_sponsor_levels('speaker_level_order','wpcsp_speaker_level');
+		$levels = $this->get_sponsor_levels( 'speaker_level_order', 'wpcsp_speaker_level' );
 		?>
 		<div class="wrap">
 			<h1><?php _e( 'Order Speaker Groups', 'wpcsp' ); ?></h1>
@@ -572,7 +581,7 @@ class WPAD_Conference_Schedule {
 	/**
 	 * Returns the sponsor level terms in set order.
 	 */
-	function get_sponsor_levels($option, $taxonomy) {
+	function get_sponsor_levels( $option, $taxonomy ) {
 		$option        = get_option( $option );
 		$term_objects  = get_terms( $taxonomy, array( 'get' => 'all' ) );
 		$terms         = array();
@@ -602,51 +611,57 @@ class WPAD_Conference_Schedule {
 	function shortcode_sponsors( $attr, $content ) {
 		global $post;
 
-		$attr = shortcode_atts( array(
-			'link'           => 'none',
-			'title'          => 'visible',
-			'content'        => 'full',
-			'excerpt_length' => 55,
-			'heading_level'  => 'h2',
-		), $attr );
+		$attr = shortcode_atts(
+			array(
+				'link'           => 'none',
+				'title'          => 'visible',
+				'content'        => 'full',
+				'excerpt_length' => 55,
+				'heading_level'  => 'h2',
+			),
+			$attr
+		);
 
 		$attr['link'] = strtolower( $attr['link'] );
-		$terms        = $this->get_sponsor_levels('conference_sponsor_level_order','wpcsp_sponsor_level');
+		$terms        = $this->get_sponsor_levels( 'conference_sponsor_level_order', 'wpcsp_sponsor_level' );
 
 		ob_start();
 		?>
 
 		<div class="wpcsp-sponsors">
-			<?php foreach ( $terms as $term ) :
-				$sponsors = new WP_Query( array(
-					'post_type'      => 'wpcsp_sponsor',
-					'order'          => 'ASC',
-					'orderby'        =>  'title',
-					'posts_per_page' => -1,
-					'taxonomy'       => $term->taxonomy,
-					'term'           => $term->slug,
-				) );
+			<?php
+			foreach ( $terms as $term ) :
+				$sponsors = new WP_Query(
+					array(
+						'post_type'      => 'wpcsp_sponsor',
+						'order'          => 'ASC',
+						'orderby'        => 'title',
+						'posts_per_page' => -1,
+						'taxonomy'       => $term->taxonomy,
+						'term'           => $term->slug,
+					)
+				);
 
 				if ( ! $sponsors->have_posts() ) {
 					continue;
 				}
 
 				// temporarily hide elements
-				$attr['title'] = 'hidden';
+				$attr['title']   = 'hidden';
 				$attr['content'] = 'hidden';
 				?>
 
 				<div class="wpcsp-sponsor-level wpcsp-sponsor-level-<?php echo sanitize_html_class( $term->slug ); ?>">
-					<?php $heading_level = ($attr['heading_level']) ? $attr['heading_level'] : 'h2'; ?>
+					<?php $heading_level = ( $attr['heading_level'] ) ? $attr['heading_level'] : 'h2'; ?>
 					<<?php echo $heading_level; ?> class="wpcsp-sponsor-level-heading"><span><?php echo esc_html( $term->name ); ?></span></<?php echo $heading_level; ?>>
 
 					<ul class="wpcsp-sponsor-list">
-						<?php while ( $sponsors->have_posts() ) :
+						<?php
+						while ( $sponsors->have_posts() ) :
 							$sponsors->the_post();
-							$website = get_post_meta( get_the_ID(), 'wpcsp_website_url', true );
-							$logo_height = (get_term_meta($term->term_id,'wpcsp_logo_height',true)) ? get_term_meta($term->term_id,'wpcsp_logo_height',true).'px' : 'auto';
-							$image = (has_post_thumbnail()) ? '<img class="wpcsp-sponsor-image" src="'.get_the_post_thumbnail_url(get_the_ID(),'full').'" alt="'.get_the_title(get_the_ID()).'" style="width: auto; max-height: '.$logo_height.';"  />' : null;
-							//
+							$website     = get_post_meta( get_the_ID(), 'wpcsp_website_url', true );
+							$logo_height = ( get_term_meta( $term->term_id, 'wpcsp_logo_height', true ) ) ? get_term_meta( $term->term_id, 'wpcsp_logo_height', true ) . 'px' : 'auto';
+							$image       = ( has_post_thumbnail() ) ? '<img class="wpcsp-sponsor-image" src="' . get_the_post_thumbnail_url( get_the_ID(), 'full' ) . '" alt="' . get_the_title( get_the_ID() ) . '" style="width: auto; max-height: ' . $logo_height . ';"  />' : null;
 							?>
 
 							<li id="wpcsp-sponsor-<?php the_ID(); ?>" class="wpcsp-sponsor">
@@ -686,13 +701,15 @@ class WPAD_Conference_Schedule {
 									<?php if ( 'full' === $attr['content'] ) : ?>
 										<?php the_content(); ?>
 									<?php elseif ( 'excerpt' === $attr['content'] ) : ?>
-										<?php echo wpautop(
+										<?php
+										echo wpautop(
 											wp_trim_words(
 												get_the_content(),
 												absint( $attr['excerpt_length'] ),
 												apply_filters( 'excerpt_more', ' ' . '&hellip;' )
 											)
-										); ?>
+										);
+										?>
 									<?php endif; ?>
 								</div>
 							</li>
@@ -717,31 +734,34 @@ class WPAD_Conference_Schedule {
 		global $post;
 
 		// Prepare the shortcodes arguments
-		$attr = shortcode_atts( array(
-			'show_image'     => true,
-			'image_size'     => 150,
-			'show_content'	 => true,
-			'posts_per_page' => -1,
-			'orderby'        => 'date',
-			'order'          => 'desc',
-			'speaker_link'   => '',
-			'track'          => '',
-			'groups'         => '',
-			'columns'		 => 1,
-			'gap'			 => 30,
-			'align'			 => 'left',
-			'heading_level'  => 'h2',
-		), $attr );
+		$attr = shortcode_atts(
+			array(
+				'show_image'     => true,
+				'image_size'     => 150,
+				'show_content'   => true,
+				'posts_per_page' => -1,
+				'orderby'        => 'date',
+				'order'          => 'desc',
+				'speaker_link'   => '',
+				'track'          => '',
+				'groups'         => '',
+				'columns'        => 1,
+				'gap'            => 30,
+				'align'          => 'left',
+				'heading_level'  => 'h2',
+			),
+			$attr
+		);
 
 		foreach ( array( 'orderby', 'order', 'speaker_link' ) as $key_for_case_sensitive_value ) {
 			$attr[ $key_for_case_sensitive_value ] = strtolower( $attr[ $key_for_case_sensitive_value ] );
 		}
 
-		$attr['show_image'] = $this->str_to_bool( $attr['show_image'] );
+		$attr['show_image']   = $this->str_to_bool( $attr['show_image'] );
 		$attr['show_content'] = $this->str_to_bool( $attr['show_content'] );
-		$attr['orderby']      = in_array( $attr['orderby'],      array( 'date', 'title', 'rand' ) ) ? $attr['orderby']      : 'date';
-		$attr['order']        = in_array( $attr['order'],        array( 'asc', 'desc'           ) ) ? $attr['order']        : 'desc';
-		$attr['speaker_link'] = in_array( $attr['speaker_link'], array( 'permalink'             ) ) ? $attr['speaker_link'] : '';
+		$attr['orderby']      = in_array( $attr['orderby'], array( 'date', 'title', 'rand' ) ) ? $attr['orderby'] : 'date';
+		$attr['order']        = in_array( $attr['order'], array( 'asc', 'desc' ) ) ? $attr['order'] : 'desc';
+		$attr['speaker_link'] = in_array( $attr['speaker_link'], array( 'permalink' ) ) ? $attr['speaker_link'] : '';
 		$attr['track']        = array_filter( explode( ',', $attr['track'] ) );
 		$attr['groups']       = array_filter( explode( ',', $attr['groups'] ) );
 
@@ -821,16 +841,17 @@ class WPAD_Conference_Schedule {
 
 		<div class="wpcsp-speakers" style="text-align: <?php echo $attr['align']; ?>; display: grid; grid-template-columns: repeat(<?php echo $attr['columns']; ?>, 1fr); grid-gap: <?php echo $attr['gap']; ?>px;">
 
-			<?php while ( $speakers->have_posts() ) :
+			<?php
+			while ( $speakers->have_posts() ) :
 				$speakers->the_post();
 
-				$post_id = get_the_ID();
-				$first_name = get_post_meta( $post_id, 'wpcsp_first_name', true );
-				$last_name = get_post_meta( $post_id, 'wpcsp_last_name', true );
-				$full_name = $first_name.' '.$last_name;
-				$title_organization = [];
-				$title = (get_post_meta( $post_id, 'wpcsp_title', true )) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_title', true ) : null;
-				$organization = (get_post_meta( $post_id, 'wpcsp_organization', true )) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_organization', true ) : null;
+				$post_id            = get_the_ID();
+				$first_name         = get_post_meta( $post_id, 'wpcsp_first_name', true );
+				$last_name          = get_post_meta( $post_id, 'wpcsp_last_name', true );
+				$full_name          = $first_name . ' ' . $last_name;
+				$title_organization = array();
+				$title              = ( get_post_meta( $post_id, 'wpcsp_title', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_title', true ) : null;
+				$organization       = ( get_post_meta( $post_id, 'wpcsp_organization', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_organization', true ) : null;
 
 				$speaker_classes = array( 'wpcsp-speaker', 'wpcsp-speaker-' . sanitize_html_class( $post->post_name ) );
 
@@ -844,7 +865,10 @@ class WPAD_Conference_Schedule {
 				<!-- Organizers note: The id attribute is deprecated and only remains for backwards compatibility, please use the corresponding class to target individual speakers -->
 				<div class="wpcsp-speaker" id="wpcsp-speaker-<?php echo sanitize_html_class( $post->post_name ); ?>" class="<?php echo implode( ' ', $speaker_classes ); ?>">
 
-					<?php if(has_post_thumbnail($post_id) && $attr['show_image'] == true) echo get_the_post_thumbnail($post_id, [$attr['image_size'], $attr['image_size']], array( 'class' => 'wpcsp-speaker-image' ) ); ?>
+					<?php
+					if ( has_post_thumbnail( $post_id ) && $attr['show_image'] == true ) {
+						echo get_the_post_thumbnail( $post_id, array( $attr['image_size'], $attr['image_size'] ), array( 'class' => 'wpcsp-speaker-image' ) );}
+					?>
 
 					<<?php echo $heading_level; ?> class="wpcsp-speaker-name">
 						<?php if ( 'permalink' === $attr['speaker_link'] ) : ?>
@@ -860,14 +884,17 @@ class WPAD_Conference_Schedule {
 						<?php endif; ?>
 					</<?php echo $heading_level; ?>>
 
-					<?php if($title_organization){ ?>
+					<?php if ( $title_organization ) { ?>
 						<p class="wpcsp-speaker-title-organization">
-							<?php echo implode(', ',$title_organization); ?>
+							<?php echo implode( ', ', $title_organization ); ?>
 						</p>
 					<?php } ?>
 
 					<div class="wpcsp-speaker-description">
-						<?php if($attr['show_content'] == true) the_content(); ?>
+						<?php
+						if ( $attr['show_content'] == true ) {
+							the_content();}
+						?>
 					</div>
 				</div>
 
@@ -906,70 +933,78 @@ class WPAD_Conference_Schedule {
 	 * @param array $cmb
 	 * @return void
 	 */
-	function filter_session_speaker_meta_field($cmb){
+	function filter_session_speaker_meta_field( $cmb ) {
 
-		$cmb->add_field( array(
-			'name'             => 'Speaker Display',
-			'id'               => 'wpcsp_session_speaker_display',
-			'type'             => 'radio',
-			'show_option_none' => false,
-			'options'          => array(
-				'typed' => __( 'Speaker Names (Typed)', 'wpcsp' ),
-				'cpt'   => __( 'Speaker Select (from Speakers CPT)', 'wpcsp' ),
-			),
-			'default' => 'cpt'
-		) );
+		$cmb->add_field(
+			array(
+				'name'             => 'Speaker Display',
+				'id'               => 'wpcsp_session_speaker_display',
+				'type'             => 'radio',
+				'show_option_none' => false,
+				'options'          => array(
+					'typed' => __( 'Speaker Names (Typed)', 'wpcsp' ),
+					'cpt'   => __( 'Speaker Select (from Speakers CPT)', 'wpcsp' ),
+				),
+				'default'          => 'cpt',
+			)
+		);
 
 		// get speakers
-		$args = [
+		$args     = array(
 			'numberposts' => -1,
 			'post_type'   => 'wpcsp_speaker',
 			'post_status' => array( 'pending', 'publish' ),
-		];
-		$speakers = get_posts($args);
-		$speakers = wp_list_pluck( $speakers, 'post_title','ID' );
+		);
+		$speakers = get_posts( $args );
+		$speakers = wp_list_pluck( $speakers, 'post_title', 'ID' );
 
-		$cmb->add_field( array(
-			'name'    => 'Speakers',
-			'id'      => 'wpcsp_session_speakers',
-			'desc'    => 'Select speakers. Drag to reorder.',
-			'type'    => 'pw_multiselect',
-			'options' => $speakers,
-			'attributes'    => array(
-				'data-conditional-id'     => 'wpcsp_session_speaker_display',
-				'data-conditional-value'  => 'cpt',
+		$cmb->add_field(
+			array(
+				'name'       => 'Speakers',
+				'id'         => 'wpcsp_session_speakers',
+				'desc'       => 'Select speakers. Drag to reorder.',
+				'type'       => 'pw_multiselect',
+				'options'    => $speakers,
+				'attributes' => array(
+					'data-conditional-id'    => 'wpcsp_session_speaker_display',
+					'data-conditional-value' => 'cpt',
 				// 'data-conditional-invert' => true
-			),
-		));
+				),
+			)
+		);
 
 		// Speaker Name(s)
-		$cmb->add_field( array(
-			'name'       => __( 'Speaker Name(s)', 'wpcsp' ),
-			//'desc'       => __( 'field description (optional)', 'wpcsp' ),
-			'id'         => '_wpcs_session_speakers',
-			'type'       => 'text',
-			'attributes'    => array(
-				'data-conditional-id'     => 'wpcsp_session_speaker_display',
-				'data-conditional-value'  => 'typed',
+		$cmb->add_field(
+			array(
+				'name'       => __( 'Speaker Name(s)', 'wpcsp' ),
+				// 'desc'       => __( 'field description (optional)', 'wpcsp' ),
+				'id'         => '_wpcs_session_speakers',
+				'type'       => 'text',
+				'attributes' => array(
+					'data-conditional-id'    => 'wpcsp_session_speaker_display',
+					'data-conditional-value' => 'typed',
 				// 'data-conditional-invert' => true
-			),
-		) );
+				),
+			)
+		);
 
 		// get sponsors
-		$args = [
+		$args    = array(
 			'numberposts' => -1,
 			'post_type'   => 'wpcsp_sponsor',
-		];
-		$sponsor = get_posts($args);
-		$sponsor = wp_list_pluck( $sponsor, 'post_title','ID' );
+		);
+		$sponsor = get_posts( $args );
+		$sponsor = wp_list_pluck( $sponsor, 'post_title', 'ID' );
 
-		$cmb->add_field( array(
-			'name'    => 'Sponsors',
-			'id'      => 'wpcsp_session_sponsors',
-			'desc'    => 'Select sponsor. Drag to reorder.',
-			'type'    => 'pw_multiselect',
-			'options' => $sponsor,
-		));
+		$cmb->add_field(
+			array(
+				'name'    => 'Sponsors',
+				'id'      => 'wpcsp_session_sponsors',
+				'desc'    => 'Select sponsor. Drag to reorder.',
+				'type'    => 'pw_multiselect',
+				'options' => $sponsor,
+			)
+		);
 
 		$cmb->add_field(
 			array(
@@ -989,40 +1024,41 @@ class WPAD_Conference_Schedule {
 			)
 		);
 
-
 	}
 
-	public function filter_session_speakers($speakers_typed, $session_id){
+	public function filter_session_speakers( $speakers_typed, $session_id ) {
 
-		$speaker_display = get_post_meta($session_id,'wpcsp_session_speaker_display',true);
+		$speaker_display = get_post_meta( $session_id, 'wpcsp_session_speaker_display', true );
 
-		if($speaker_display == 'typed') return $speakers_typed;
+		if ( $speaker_display == 'typed' ) {
+			return $speakers_typed;
+		}
 
-		$html = '';
-		$speakers_cpt = get_post_meta($session_id,'wpcsp_session_speakers',true);
+		$html         = '';
+		$speakers_cpt = get_post_meta( $session_id, 'wpcsp_session_speakers', true );
 
-		if($speakers_cpt){
+		if ( $speakers_cpt ) {
 			ob_start();
-			foreach ($speakers_cpt as $post_id) {
-				$first_name = get_post_meta( $post_id, 'wpcsp_first_name', true );
-				$last_name = get_post_meta( $post_id, 'wpcsp_last_name', true );
-				$full_name = $first_name.' '.$last_name;
-				$title_organization = [];
-				$title = (get_post_meta( $post_id, 'wpcsp_title', true )) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_title', true ) : null;
-				$organization = (get_post_meta( $post_id, 'wpcsp_organization', true )) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_organization', true ) : null;
+			foreach ( $speakers_cpt as $post_id ) {
+				$first_name         = get_post_meta( $post_id, 'wpcsp_first_name', true );
+				$last_name          = get_post_meta( $post_id, 'wpcsp_last_name', true );
+				$full_name          = $first_name . ' ' . $last_name;
+				$title_organization = array();
+				$title              = ( get_post_meta( $post_id, 'wpcsp_title', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_title', true ) : null;
+				$organization       = ( get_post_meta( $post_id, 'wpcsp_organization', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_organization', true ) : null;
 
 				?>
 				<div class="wpcsp-session-speaker">
 
-					<?php if($full_name){ ?>
+					<?php if ( $full_name ) { ?>
 						<div class="wpcsp-session-speaker-name">
 							<?php echo $full_name; ?>
 						</div>
 					<?php } ?>
 
-					<?php if($title_organization){ ?>
+					<?php if ( $title_organization ) { ?>
 						<div class="wpcsp-session-speaker-title-organization">
-							<?php echo implode(', ',$title_organization); ?>
+							<?php echo implode( ', ', $title_organization ); ?>
 						</div>
 					<?php } ?>
 
@@ -1035,42 +1071,48 @@ class WPAD_Conference_Schedule {
 		return $html;
 	}
 
-	public function filter_single_session_speakers($speakers_typed, $session_id){
+	public function filter_single_session_speakers( $speakers_typed, $session_id ) {
 
-		$speaker_display = get_post_meta($session_id,'wpcsp_session_speaker_display',true);
+		$speaker_display = get_post_meta( $session_id, 'wpcsp_session_speaker_display', true );
 
-		if($speaker_display == 'typed') return $speakers_typed;
+		if ( $speaker_display == 'typed' ) {
+			return $speakers_typed;
+		}
 
-		$html = '';
-		$speakers_cpt = get_post_meta($session_id,'wpcsp_session_speakers',true);
+		$html         = '';
+		$speakers_cpt = get_post_meta( $session_id, 'wpcsp_session_speakers', true );
 
-		if($speakers_cpt){
+		if ( $speakers_cpt ) {
 			ob_start();
 			?>
 			<div class="wpcsp-single-session-speakers">
 				<h2 class="wpcsp-single-session-speakers-title">Speakers</h2>
-				<?php foreach ($speakers_cpt as $post_id) {
-					$first_name = get_post_meta( $post_id, 'wpcsp_first_name', true );
-					$last_name = get_post_meta( $post_id, 'wpcsp_last_name', true );
-					$full_name = $first_name.' '.$last_name;
-					$title_organization = [];
-					$title = (get_post_meta( $post_id, 'wpcsp_title', true )) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_title', true ) : null;
-					$organization = (get_post_meta( $post_id, 'wpcsp_organization', true )) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_organization', true ) : null;
+				<?php
+				foreach ( $speakers_cpt as $post_id ) {
+					$first_name         = get_post_meta( $post_id, 'wpcsp_first_name', true );
+					$last_name          = get_post_meta( $post_id, 'wpcsp_last_name', true );
+					$full_name          = $first_name . ' ' . $last_name;
+					$title_organization = array();
+					$title              = ( get_post_meta( $post_id, 'wpcsp_title', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_title', true ) : null;
+					$organization       = ( get_post_meta( $post_id, 'wpcsp_organization', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_organization', true ) : null;
 
 					?>
 					<div class="wpcsp-single-session-speakers-speaker">
 
-						<?php if(has_post_thumbnail($post_id)) echo get_the_post_thumbnail($post_id, 'thumbnail', array( 'class' => 'wpcsp-single-session-speakers-speaker-image' ) ); ?>
+						<?php
+						if ( has_post_thumbnail( $post_id ) ) {
+							echo get_the_post_thumbnail( $post_id, 'thumbnail', array( 'class' => 'wpcsp-single-session-speakers-speaker-image' ) );}
+						?>
 
-						<?php if($full_name){ ?>
+						<?php if ( $full_name ) { ?>
 							<h3 class="wpcsp-single-session-speakers-speaker-name">
-								<a href="<?php echo get_the_permalink($post_id); ?>"><?php echo $full_name; ?></a>
+								<a href="<?php echo get_the_permalink( $post_id ); ?>"><?php echo $full_name; ?></a>
 							</h3>
 						<?php } ?>
 
-						<?php if($title_organization){ ?>
+						<?php if ( $title_organization ) { ?>
 							<div class="wpcsp-single-session-speakers-speaker-title-organization">
-								<?php echo implode(', ',$title_organization); ?>
+								<?php echo implode( ', ', $title_organization ); ?>
 							</div>
 						<?php } ?>
 
@@ -1086,16 +1128,16 @@ class WPAD_Conference_Schedule {
 		return $html;
 	}
 
-	public function session_content_header($session_id){
-		$html = '';
+	public function session_content_header( $session_id ) {
+		$html         = '';
 		$session_tags = get_the_terms( $session_id, 'wpcs_session_tag' );
-		if($session_tags){
+		if ( $session_tags ) {
 			ob_start();
 			?>
 			<ul class="wpcsp-session-tags">
-				<?php foreach ($session_tags as $session_tag) { ?>
+				<?php foreach ( $session_tags as $session_tag ) { ?>
 					<li class="wpcsp-session-tags-tag">
-						<a href="<?php echo get_term_link($session_tag->term_id, 'wpcs_session_tag'); ?>" class="wpcsp-session-tags-tag-link"><?php echo $session_tag->name;  ?></a>
+						<a href="<?php echo get_term_link( $session_tag->term_id, 'wpcs_session_tag' ); ?>" class="wpcsp-session-tags-tag-link"><?php echo $session_tag->name; ?></a>
 					</li>
 				<?php } ?>
 			</ul>
@@ -1105,14 +1147,15 @@ class WPAD_Conference_Schedule {
 		return $html;
 	}
 
-	public function single_session_tags(){
-		//$tags = get_the_term_list( get_the_ID(), 'wpcs_session_tag', '<li class="wpsc-single-session-meta-item wpsc-single-session-location"><i class="fas fa-tag"></i>', ', ', '</li>');
-		$terms = get_the_terms(get_the_ID(), 'wpcs_session_tag');
-		if ( !is_wp_error($terms) && !empty($terms)){
-			$term_names = wp_list_pluck($terms, 'name');
-			$terms = implode(", ", $term_names);
-			if($terms)
-				echo '<li class="wpsc-single-session-taxonomies-taxonomy wpsc-single-session-location"><i class="fas fa-tag"></i>'.$terms.'</li>';
+	public function single_session_tags() {
+		// $tags = get_the_term_list( get_the_ID(), 'wpcs_session_tag', '<li class="wpsc-single-session-meta-item wpsc-single-session-location"><i class="fas fa-tag"></i>', ', ', '</li>');
+		$terms = get_the_terms( get_the_ID(), 'wpcs_session_tag' );
+		if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+			$term_names = wp_list_pluck( $terms, 'name' );
+			$terms      = implode( ', ', $term_names );
+			if ( $terms ) {
+				echo '<li class="wpsc-single-session-taxonomies-taxonomy wpsc-single-session-location"><i class="fas fa-tag"></i>' . $terms . '</li>';
+			}
 		}
 	}
 
@@ -1122,20 +1165,22 @@ class WPAD_Conference_Schedule {
 	 * @param int $session_id
 	 * @return mixed
 	 */
-	public function session_sponsors($session_id){
+	public function session_sponsors( $session_id ) {
 
 		$session_sponsors = get_post_meta( $session_id, 'wpcsp_session_sponsors', true );
-		if(!$session_sponsors) return;
+		if ( ! $session_sponsors ) {
+			return;
+		}
 
-		$sponsors = [];
-		foreach($session_sponsors as $sponser_li){
-			$sponsors[] .= get_the_title($sponser_li);
+		$sponsors = array();
+		foreach ( $session_sponsors as $sponser_li ) {
+			$sponsors[] .= get_the_title( $sponser_li );
 		}
 
 		ob_start();
 
-		if($sponsors){
-			echo '<div class="wpcs-session-sponsor"><span class="wpcs-session-sponsor-label">Presented by: </span>'.implode(', ', $sponsors).'</div>';
+		if ( $sponsors ) {
+			echo '<div class="wpcs-session-sponsor"><span class="wpcs-session-sponsor-label">Presented by: </span>' . implode( ', ', $sponsors ) . '</div>';
 		}
 
 		$html = ob_get_clean();
@@ -1148,15 +1193,15 @@ class WPAD_Conference_Schedule {
 /**
  * Plugin Activation & Deactivation
  */
-register_activation_hook( __FILE__, 'wpcsp_pro_activation');
-register_deactivation_hook( __FILE__, 'wpcsp_pro_deactivation');
-register_uninstall_hook( __FILE__, 'wpcsp_pro_uninstall');
+register_activation_hook( __FILE__, 'wpcsp_pro_activation' );
+register_deactivation_hook( __FILE__, 'wpcsp_pro_deactivation' );
+register_uninstall_hook( __FILE__, 'wpcsp_pro_uninstall' );
 
 /**
  * Define file path and basename
  */
 $ac_pro_plugin_directory = __FILE__;
-$ac_pro_plugin_basename = plugin_basename( __FILE__ );
+$ac_pro_plugin_basename  = plugin_basename( __FILE__ );
 
 /**
  * Filters and Actions
@@ -1170,201 +1215,243 @@ add_action( 'cmb2_admin_init', 'wpcsp_sponsor_level_metabox' );
 
 function wpcsp_speaker_metabox() {
 
-	$cmb = new_cmb2_box( array(
-		'id'            => 'wpcsp_speaker_metabox',
-		'title'         => __( 'Speaker Information', 'wpcsp' ),
-		'object_types'  => array( 'wpcsp_speaker', ), // Post type
-		'context'       => 'normal',
-		'priority'      => 'high',
-		'show_names'    => true, // Show field names on the left
+	$cmb = new_cmb2_box(
+		array(
+			'id'           => 'wpcsp_speaker_metabox',
+			'title'        => __( 'Speaker Information', 'wpcsp' ),
+			'object_types' => array( 'wpcsp_speaker' ), // Post type
+			'context'      => 'normal',
+			'priority'     => 'high',
+			'show_names'   => true, // Show field names on the left
 		// 'cmb_styles' => false, // false to disable the CMB stylesheet
 		// 'closed'     => true, // Keep the metabox closed by default
-	) );
+		)
+	);
 
 	// first name
-	$cmb->add_field( array(
-		'name'       => __( 'First Name', 'wpcsp' ),
-		//'desc'       => __( 'field description (optional)', 'wpcsp' ),
-		'id'         => 'wpcsp_first_name',
-		'type'       => 'text',
-	) );
+	$cmb->add_field(
+		array(
+			'name' => __( 'First Name', 'wpcsp' ),
+			// 'desc'       => __( 'field description (optional)', 'wpcsp' ),
+			'id'   => 'wpcsp_first_name',
+			'type' => 'text',
+		)
+	);
 
 	// last name
-	$cmb->add_field( array(
-		'name'       => __( 'Last Name', 'wpcsp' ),
-		//'desc'       => __( '', 'wpcsp' ),
-		'id'         => 'wpcsp_last_name',
-		'type'       => 'text',
-	) );
+	$cmb->add_field(
+		array(
+			'name' => __( 'Last Name', 'wpcsp' ),
+			// 'desc'       => __( '', 'wpcsp' ),
+			'id'   => 'wpcsp_last_name',
+			'type' => 'text',
+		)
+	);
 
 	// title
-	$cmb->add_field( array(
-		'name'       => __( 'Title', 'wpcsp' ),
-		//'desc'       => __( '', 'wpcsp' ),
-		'id'         => 'wpcsp_title',
-		'type'       => 'text',
-	) );
+	$cmb->add_field(
+		array(
+			'name' => __( 'Title', 'wpcsp' ),
+			// 'desc'       => __( '', 'wpcsp' ),
+			'id'   => 'wpcsp_title',
+			'type' => 'text',
+		)
+	);
 
 	// organization
-	$cmb->add_field( array(
-		'name'       => __( 'Organization', 'wpcsp' ),
-		//'desc'       => __( '', 'wpcsp' ),
-		'id'         => 'wpcsp_organization',
-		'type'       => 'text',
-	) );
+	$cmb->add_field(
+		array(
+			'name' => __( 'Organization', 'wpcsp' ),
+			// 'desc'       => __( '', 'wpcsp' ),
+			'id'   => 'wpcsp_organization',
+			'type' => 'text',
+		)
+	);
 
 	// Facebook URL
-	$cmb->add_field( array(
-		'name'       => __( 'Facebook URL', 'wpcsp' ),
-		//'desc'       => __( '', 'wpcsp' ),
-		'id'         => 'wpcsp_facebook_url',
-		'type'       => 'text_url',
-		'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-	) );
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Facebook URL', 'wpcsp' ),
+			// 'desc'       => __( '', 'wpcsp' ),
+			'id'        => 'wpcsp_facebook_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+		)
+	);
 
 	// Twitter URL
-	$cmb->add_field( array(
-		'name'       => __( 'Twitter URL', 'wpcsp' ),
-		//'desc'       => __( '', 'wpcsp' ),
-		'id'         => 'wpcsp_twitter_url',
-		'type'       => 'text_url',
-		'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-	) );
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Twitter URL', 'wpcsp' ),
+			// 'desc'       => __( '', 'wpcsp' ),
+			'id'        => 'wpcsp_twitter_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+		)
+	);
 
 	// Github URL
-	$cmb->add_field( array(
-		'name'       => __( 'Github URL', 'wpcsp' ),
-		//'desc'       => __( '', 'wpcsp' ),
-		'id'         => 'wpcsp_github_url',
-		'type'       => 'text_url',
-		'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-	) );
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Github URL', 'wpcsp' ),
+			// 'desc'       => __( '', 'wpcsp' ),
+			'id'        => 'wpcsp_github_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+		)
+	);
 
 	// WordPress Profile URL
-	$cmb->add_field( array(
-		'name'       => __( 'WordPress Profile URL', 'wpcsp' ),
-		//'desc'       => __( '', 'wpcsp' ),
-		'id'         => 'wpcsp_wordpress_url',
-		'type'       => 'text_url',
-		'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-	) );
+	$cmb->add_field(
+		array(
+			'name'      => __( 'WordPress Profile URL', 'wpcsp' ),
+			// 'desc'       => __( '', 'wpcsp' ),
+			'id'        => 'wpcsp_wordpress_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+		)
+	);
 
 	// Instagram URL
-	$cmb->add_field( array(
-		'name'       => __( 'Instagram URL', 'wpcsp' ),
-		//'desc'       => __( '', 'wpcsp' ),
-		'id'         => 'wpcsp_instagram_url',
-		'type'       => 'text_url',
-		'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-	) );
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Instagram URL', 'wpcsp' ),
+			// 'desc'       => __( '', 'wpcsp' ),
+			'id'        => 'wpcsp_instagram_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+		)
+	);
 
 	// Linkedin URL
-	$cmb->add_field( array(
-		'name'       => __( 'Linkedin URL', 'wpcsp' ),
-		//'desc'       => __( '', 'wpcsp' ),
-		'id'         => 'wpcsp_linkedin_url',
-		'type'       => 'text_url',
-		'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-	) );
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Linkedin URL', 'wpcsp' ),
+			// 'desc'       => __( '', 'wpcsp' ),
+			'id'        => 'wpcsp_linkedin_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+		)
+	);
 
 	// YouTube URL
-	$cmb->add_field( array(
-		'name'       => __( 'YouTube URL', 'wpcsp' ),
-		//'desc'       => __( '', 'wpcsp' ),
-		'id'         => 'wpcsp_youtube_url',
-		'type'       => 'text_url',
-		'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-	) );
+	$cmb->add_field(
+		array(
+			'name'      => __( 'YouTube URL', 'wpcsp' ),
+			// 'desc'       => __( '', 'wpcsp' ),
+			'id'        => 'wpcsp_youtube_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+		)
+	);
 
 	// Website URL
-	$cmb->add_field( array(
-		'name'       => __( 'Website URL', 'wpcsp' ),
-		//'desc'       => __( '', 'wpcsp' ),
-		'id'         => 'wpcsp_website_url',
-		'type'       => 'text_url',
-		'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-	) );
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Website URL', 'wpcsp' ),
+			// 'desc'       => __( '', 'wpcsp' ),
+			'id'        => 'wpcsp_website_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+		)
+	);
 }
 
 function wpcsp_sponsor_metabox() {
 
-	$cmb = new_cmb2_box( array(
-		'id'            => 'wpcsp_sponsor_metabox',
-		'title'         => __( 'Sponsor Information', 'wpcsp' ),
-		'object_types'  => array( 'wpcsp_sponsor', ), // Post type
-		'context'       => 'normal',
-		'priority'      => 'high',
-		'show_names'    => true, // Show field names on the left
+	$cmb = new_cmb2_box(
+		array(
+			'id'           => 'wpcsp_sponsor_metabox',
+			'title'        => __( 'Sponsor Information', 'wpcsp' ),
+			'object_types' => array( 'wpcsp_sponsor' ), // Post type
+			'context'      => 'normal',
+			'priority'     => 'high',
+			'show_names'   => true, // Show field names on the left
 		// 'cmb_styles' => false, // false to disable the CMB stylesheet
 		// 'closed'     => true, // Keep the metabox closed by default
-	) );
+		)
+	);
 
 	// Website URL
-	$cmb->add_field( array(
-		'name'       => __( 'Website URL', 'wpcsp' ),
-		//'desc'       => __( '', 'wpcsp' ),
-		'id'         => 'wpcsp_website_url',
-		'type'       => 'text_url',
-		'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-	) );
-	
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Website URL', 'wpcsp' ),
+			// 'desc'       => __( '', 'wpcsp' ),
+			'id'        => 'wpcsp_website_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+		)
+	);
+
 	// Instagram URL
-	$cmb->add_field( array(
-		'name'       => __( 'Instagram URL', 'wpcsp' ),
-		//'desc'       => __( '', 'wpcsp' ),
-		'id'         => 'wpcsp_instagram_url',
-		'type'       => 'text_url',
-		'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-	) );
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Instagram URL', 'wpcsp' ),
+			// 'desc'       => __( '', 'wpcsp' ),
+			'id'        => 'wpcsp_instagram_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+		)
+	);
 
 	// Linkedin URL
-	$cmb->add_field( array(
-		'name'       => __( 'Linkedin URL', 'wpcsp' ),
-		//'desc'       => __( '', 'wpcsp' ),
-		'id'         => 'wpcsp_linkedin_url',
-		'type'       => 'text_url',
-		'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-	) );
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Linkedin URL', 'wpcsp' ),
+			// 'desc'       => __( '', 'wpcsp' ),
+			'id'        => 'wpcsp_linkedin_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+		)
+	);
 
 	// YouTube URL
-	$cmb->add_field( array(
-		'name'       => __( 'YouTube URL', 'wpcsp' ),
-		//'desc'       => __( '', 'wpcsp' ),
-		'id'         => 'wpcsp_youtube_url',
-		'type'       => 'text_url',
-		'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-	) );
-		
+	$cmb->add_field(
+		array(
+			'name'      => __( 'YouTube URL', 'wpcsp' ),
+			// 'desc'       => __( '', 'wpcsp' ),
+			'id'        => 'wpcsp_youtube_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
+		)
+	);
+
 	// Sponsor Swag
-	$cmb->add_field( array(
-		'name'       => __( 'Digital Swag', 'wpcsp' ),
-		'desc'       => __( 'Use this field to add swag for attendees.', 'wpcsp' ),
-		'id'         => 'wpcsp_sponsor_swag',
-		'type'       => 'wysiwyg',
-	) );
+	$cmb->add_field(
+		array(
+			'name' => __( 'Digital Swag', 'wpcsp' ),
+			'desc' => __( 'Use this field to add swag for attendees.', 'wpcsp' ),
+			'id'   => 'wpcsp_sponsor_swag',
+			'type' => 'wysiwyg',
+		)
+	);
 }
 
 function wpcsp_sponsor_level_metabox() {
 
-	$cmb = new_cmb2_box( array(
-		'id'               => 'wpcsp_sponsor_level_metabox',
-		'title'            => esc_html__( 'Category Metabox', 'cmb2' ), // Doesn't output for term boxes
-		'object_types'     => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
-		'taxonomies'       => array( 'wpcsp_sponsor_level' ), // Tells CMB2 which taxonomies should have these fields
+	$cmb = new_cmb2_box(
+		array(
+			'id'           => 'wpcsp_sponsor_level_metabox',
+			'title'        => esc_html__( 'Category Metabox', 'cmb2' ), // Doesn't output for term boxes
+			'object_types' => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
+			'taxonomies'   => array( 'wpcsp_sponsor_level' ), // Tells CMB2 which taxonomies should have these fields
 		// 'new_term_section' => true, // Will display in the "Add New Category" section
-	) );
+		)
+	);
 
 	// Logo Height
-	$cmb->add_field( array(
-		'name' => __( 'Logo Height', 'wpcsp' ),
-		'desc' => __( 'Pixels', 'wpcsp' ),
-		'id'   => 'wpcsp_logo_height',
-		'type' => 'text_small',
-		'attributes' => array(
-			'type' => 'number',
-			'pattern' => '\d*',
-		),
-	) );
+	$cmb->add_field(
+		array(
+			'name'       => __( 'Logo Height', 'wpcsp' ),
+			'desc'       => __( 'Pixels', 'wpcsp' ),
+			'id'         => 'wpcsp_logo_height',
+			'type'       => 'text_small',
+			'attributes' => array(
+				'type'    => 'number',
+				'pattern' => '\d*',
+			),
+		)
+	);
 
 }
 
@@ -1385,7 +1472,7 @@ function wpad_get_video() {
 }
 
 function wpad_get_poster() {
-	$poster  = get_the_post_thumbnail_url();
+	$poster = get_the_post_thumbnail_url();
 
 	return $poster;
 }

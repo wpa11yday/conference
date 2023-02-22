@@ -152,7 +152,7 @@ function wpcsp_register_conference_taxonomies() {
 		'new_item_name' => __( 'New Tag', 'wpa-conference' ),
 	);
 
-	// Register session tagstaxonomy.
+	// Register session tags taxonomy.
 	register_taxonomy(
 		'wpcs_session_tag',
 		'wpcs_session',

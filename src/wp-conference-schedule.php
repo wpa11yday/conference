@@ -14,7 +14,7 @@
  * Author URI:        https://wpaccessibility.day
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       wpcsp
+ * Text Domain:       wpa-conference
  *
  * @package           wpcsp
  */

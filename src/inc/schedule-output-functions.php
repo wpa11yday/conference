@@ -807,7 +807,7 @@ function wpcs_slides( $session_ID ) {
 		foreach ( $slides as $slide ) {
 			$output .= '<li>' . $slide . '</li>';
 		}
-		echo wp_kses_post( '<div class="wpcs-slides-wrapper"><h3>Slides</h3><ul class="wpcs-slides">' . $output . '</ul></div>' );
+		echo wp_kses_post( '<div class="wpcs-slides-wrapper"><h3>' . __( 'Slides', 'wpa-conference' ) . '</h3><ul class="wpcs-slides">' . $output . '</ul></div>' );
 	}
 }
 

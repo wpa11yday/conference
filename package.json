@@ -21,7 +21,13 @@
   "devDependencies": {
     "@wordpress/env": "^5.7",
     "jsdoc": "~3.6.3",
-    "wp-hookdoc": "^0.2.0"
+    "wp-hookdoc": "^0.2.0",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.8.4"
   },
   "scripts": {
     "build:docs": "rm -rf docs/ && jsdoc -c hookdoc-conf.json",
@@ -30,6 +36,8 @@
     "lint-php": "wp-env run composer run-script lint",
     "pretest-php": "wp-env run composer 'install --no-interaction'",
     "test-php": "wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/conference/phpunit.xml.dist --verbose'",
+    "lint-js": "eslint --fix './src/assets/js'",
     "wp-env": "wp-env"
-  }
+  },
+  "dependencies": {}
 }

@@ -30,6 +30,8 @@
     "prettier": "^2.8.4"
   },
   "scripts": {
+    "presetup": "find .scripts -type f -exec chmod +x {} \\;",
+		"prepare": "./.scripts/prepare.sh",
     "build:docs": "rm -rf docs/ && jsdoc -c hookdoc-conf.json",
     "format-php": "wp-env run composer run-script format",
     "prelint-php": "wp-env run composer 'install --no-interaction'",
@@ -39,5 +41,9 @@
     "lint-js": "eslint --fix './src/assets/js'",
     "wp-env": "wp-env"
   },
+	"lint-staged": {
+		"./src/assets/js/!(*min).js": "eslint --fix",
+		"./src/assets/**/!(*min).{css,html,js,json,scss}": "prettier --write"
+	},
   "dependencies": {}
 }

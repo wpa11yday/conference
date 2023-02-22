@@ -71,7 +71,12 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function wpcsp_changeTabs(e) {
+/**
+ * Changes tabs.
+ *
+ * @param {*} e The target element.
+ */
+const wpcsp_changeTabs = (e) => {
   const target = e.target;
   const parent = target.parentNode;
   const grandparent = parent.parentNode;
@@ -102,4 +107,4 @@ function wpcsp_changeTabs(e) {
       window.location.pathname + "?" + searchParams.toString();
     history.pushState(null, "", newRelativePathQuery);
   }
-}
+};

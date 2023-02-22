@@ -1,35 +1,34 @@
 (function (wp) {
   const registerBlockType = wp.blocks.registerBlockType;
   const InspectorControls = wp.editor.InspectorControls;
-  const TextControl = wp.components.TextControl;
   const SelectControl = wp.components.SelectControl;
   const CheckboxControl = wp.components.CheckboxControl;
-  const withState = wp.compose.withState;
   const el = wp.element.createElement;
   const ServerSideRender = wp.components.ServerSideRender;
   const DatePicker = wp.components.DateTimePicker;
-  const __ = wp.i18n.__;
-  //var RichText = wp.editor.RichText;
-  //var AlignmentToolbar = wp.editor.AlignmentToolbar;
-  //var BlockControls = wp.editor.BlockControls;
 
-  function wpcs_dateFormatted(date) {
-    if (date == null) {
-      var date = new Date();
+  /**
+   * Get the formatted date.
+   *
+   * @param {String} date The date string.
+   * @returns {String} Formatted date string.
+   */
+  const wpcs_dateFormatted = (date) => {
+    if (date) {
+      date = new Date(date);
     } else {
-      var date = new Date(date);
+      date = new Date();
     }
     const dd = String(date.getDate()).padStart(2, "0");
     const mm = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
     const yyyy = date.getFullYear();
 
-    date = yyyy + "-" + mm + "-" + dd;
-    return date;
-  }
+    return yyyy + "-" + mm + "-" + dd;
+  };
 
   const trackTermsArray = [];
   wp.apiFetch({ path: "/wp/v2/session_track" }).then((posts) => {
-    posts.forEach((val, key) => {
+    posts.forEach((val) => {
       trackTermsArray.push({ id: val.id, name: val.name, slug: val.slug });
     });
   });
@@ -39,7 +38,6 @@
     icon: "schedule",
     category: "common",
     supports: {
-      align: true,
       align: ["wide", "full"],
     },
     attributes: {
@@ -52,10 +50,7 @@
     },
 
     edit: function (props) {
-      const attributes = props.attributes;
       const setAttributes = props.setAttributes;
-      //var setState = props.setState;
-      //var status = props.status;
 
       const date = props.attributes.date;
       const color_scheme = props.attributes.color_scheme;
@@ -63,19 +58,19 @@
       const row_height = props.attributes.row_height;
       const session_link = props.attributes.session_link;
       const tracks = props.attributes.tracks;
+
+      let tracksArray = [];
       if (tracks != null) {
-        var tracksArray = tracks.split(",");
-      } else {
-        var tracksArray = [];
+        tracksArray = tracks.split(",");
       }
 
-      trackCheckboxes = [];
-      for (i = 0; i < trackTermsArray.length; i++) {
+      const trackCheckboxes = [];
+      for (let i = 0; i < trackTermsArray.length; i++) {
+        let heading = null;
         if (i == 0) {
-          var heading = "Tracks";
-        } else {
-          var heading = null;
+          heading = "Tracks";
         }
+
         trackCheckboxes.push(
           el(CheckboxControl, {
             key: trackTermsArray[i].slug,
@@ -84,7 +79,7 @@
             value: trackTermsArray[i].slug,
             checked: tracksArray.includes(trackTermsArray[i].slug),
             heading: heading,
-            onChange: function (e) {
+            onChange: function () {
               const track = event.target.value;
               const index = tracksArray.indexOf(track);
               if (index > -1) {
@@ -164,7 +159,7 @@
       ];
     },
 
-    save: function (props) {
+    save: function () {
       return null;
     },
   });

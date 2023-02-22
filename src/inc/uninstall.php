@@ -1,7 +1,7 @@
 <?php
 
-function wpcsp_pro_uninstall(){
-	
-	delete_transient('wpcsp_license_valid');
+function wpcsp_pro_uninstall() {
+
+	delete_transient( 'wpcsp_license_valid' );
 
 }

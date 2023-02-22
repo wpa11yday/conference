@@ -27,7 +27,7 @@ get_header(); ?>
 				?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				
+
 					<div class="entry-content">
 						<?php the_title( '<h1 class="entry-title sr-only">', '</h1>' ); ?>
 						<div class="wpcsp-sponsor-grid">
@@ -63,14 +63,14 @@ get_header(); ?>
 										?>
 									</div>
 								<?php } ?>
-								
+
 							</div>
 							<div>
 								<?php the_title( '<h2>About ', '</h1>' ); ?>
 								<?php if ( $levels ) { ?>
 									<p class="wpcsp-sponsor-level"><?php echo $levels . $levels_label; ?></p>
 								<?php } ?>
-						
+
 								<?php the_content(); ?>
 
 							</div>
@@ -78,7 +78,7 @@ get_header(); ?>
 						</div>
 
 					</div><!-- .entry-content -->
-						
+
 				</article><!-- #post-${ID} -->
 
 				<?php

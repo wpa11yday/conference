@@ -450,7 +450,7 @@ function wpcs_scheduleOutput( $props ) { // phpcs:ignore WordPress.NamingConvent
 						$columns_clone = $columns;
 
 						// If the next element in the table is the same as the current one, use colspan.
-						if ( key( array_slice( $columns, -1, 1, true ) ) === $key ) {
+						if ( key( array_slice( $columns, -1, 1, true ) ) !== $key ) {
 							foreach ( $columns_clone as $pair['key'] => $pair['value'] ) {
 								if ( $pair['key'] === $key ) {
 									continue;

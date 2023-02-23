@@ -1,5 +1,11 @@
 <?php
 /**
+ * Enqueue the scripts.
+ *
+ * @package wpcsp
+ */
+
+/**
  * Enqueue Admin Styles
  */
 function wpcsp_pro_admin_enqueue_styles() {

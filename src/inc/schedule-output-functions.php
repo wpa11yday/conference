@@ -1,7 +1,8 @@
 <?php
-
 /**
  * [schedule] shortcode and block functions.
+ *
+ * @package wpcsp
  */
 
 defined( 'WPINC' ) || die();
@@ -23,14 +24,16 @@ function wpcsp_get_social_links( $post_id ) {
 		$url          = get_post_meta( get_the_ID(), 'wpcsp_' . $social_icon . '_url', true );
 		if ( $url ) {
 
-			if ( $social_icon == 'website' ) {
-				$social_icon = 'admin-site-alt3';
-			}
-			if ( $social_icon == 'facebook' ) {
-				$social_icon = 'facebook-alt';
-			}
-			if ( $social_icon == 'github' ) {
-				$social_icon = ' fa-brands fa-github';
+			switch ( $social_icon ) {
+				case 'website':
+					$social_icon = 'admin-site-alt3';
+					break;
+				case 'facebook':
+					$social_icon = 'facebook-alt';
+					break;
+				case 'github':
+					$social_icon = ' fa-brands fa-github';
+					break;
 			}
 
 			$social_icons[] = '<a class="wpcsp-' . $post_type . '-social-icon-link" href="' . esc_url( $url ) . '"><span class="dashicons dashicons-' . $social_icon . '" aria-hidden="true"></span><span class="screen-reader-text">' . $social_label . '</a>';
@@ -115,8 +118,8 @@ function wpcs_get_schedule_sessions( $schedule_date, $tracks_explicitly_specifie
 		}
 	}
 
-	// Loop through all sessions and assign them into the formatted
-	// $sessions array: $sessions[ $time ][ $track ] = $session_id
+	// Loop through all sessions and assign them into the formatted.
+	// $sessions array: $sessions[ $time ][ $track ] = $session_id.
 	// Use 0 as the track ID if no tracks exist.
 	$sessions       = array();
 	$sessions_query = new WP_Query( $query_args );
@@ -188,28 +191,28 @@ function wpcs_get_schedule_columns( $tracks, $sessions, $tracks_explicitly_speci
 /**
  * Update and preprocess input attributes for [schedule] shortcode.
  *
- * @param array $attr Array of attributes from shortcode.
+ * @param array $props Array of attributes from shortcode.
  *
  * @return array Array of attributes, after preprocessing.
  */
 function wpcs_preprocess_schedule_attributes( $props ) {
 
-	// Set Defaults
+	// Set Defaults.
 	$attr = array(
 		'date'         => null,
 		'tracks'       => 'all',
-		'session_link' => 'permalink', // permalink|anchor|none
-		'color_scheme' => 'light', // light/dark
-		'align'        => '', // alignwide|alignfull
+		'session_link' => 'permalink', // permalink|anchor|none.
+		'color_scheme' => 'light', // light/dark.
+		'align'        => '', // alignwide|alignfull.
 		'layout'       => 'table',
 		'row_height'   => 'match',
-		'content'      => 'none', // none|excerpt|full
+		'content'      => 'none', // none|excerpt|full.
 	);
 
 	// Check if props exist. Fixes PHP errors when shortcode doesn't have any attributes.
 	if ( $props ) :
 
-		// Set Attribute values base on props
+		// Set Attribute values base on props.
 		if ( isset( $props['date'] ) ) {
 			$attr['date'] = $props['date'];
 		}
@@ -234,9 +237,9 @@ function wpcs_preprocess_schedule_attributes( $props ) {
 			$attr['session_link'] = $props['session_link'];
 		}
 
-		if ( isset( $props['align'] ) && $props['align'] == 'wide' ) {
+		if ( isset( $props['align'] ) && 'wide' === $props['align'] ) {
 			$attr['align'] = 'alignwide';
-		} elseif ( isset( $props['align'] ) && $props['align'] == 'full' ) {
+		} elseif ( isset( $props['align'] ) && 'full' === $props['align'] ) {
 			$attr['align'] = 'alignfull';
 		}
 
@@ -260,18 +263,18 @@ function wpcs_preprocess_schedule_attributes( $props ) {
 /**
  * Schedule Block and Shortcode Dynamic content Output.
  *
- * @param array $attr Array of attributes from shortcode.
+ * @param array $props Array of attributes from shortcode.
  *
  * @return array Array of attributes, after preprocessing.
  */
-function wpcs_scheduleOutput( $props ) {
+function wpcs_scheduleOutput( $props ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 
 	$output = '';
 
 	$dates = explode( ',', $props['date'] );
 	if ( $dates ) {
 
-		$current_tab = ( isset( $_GET['wpcs-tab'] ) && ! empty( $_GET['wpcs-tab'] ) ) ? intval( $_GET['wpcs-tab'] ) : null;
+		$current_tab = ( isset( $_GET['wpcs-tab'] ) && ! empty( $_GET['wpcs-tab'] ) ) ? intval( $_GET['wpcs-tab'] ) : null; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 		if ( count( $dates ) > 1 ) {
 
@@ -282,14 +285,14 @@ function wpcs_scheduleOutput( $props ) {
 			foreach ( $dates as $date ) {
 
 				if ( $current_tab ) {
-					$tabindex = ( $tab_count == $current_tab ) ? 0 : -1;
-					$selected = ( $tab_count == $current_tab ) ? 'true' : 'false';
+					$tabindex = ( $tab_count === $current_tab ) ? 0 : -1;
+					$selected = ( $tab_count === $current_tab ) ? 'true' : 'false';
 				} else {
-					$tabindex = ( $tab_count == 1 ) ? 0 : -1;
-					$selected = ( $tab_count == 1 ) ? 'true' : 'false';
+					$tabindex = ( 1 === $tab_count ) ? 0 : -1;
+					$selected = ( 1 === $tab_count ) ? 'true' : 'false';
 				}
 
-				$output .= '<button class="wpcsp-tabs-list-button" role="tab" aria-selected="' . $selected . '" aria-controls="wpcsp-panel-' . $tab_count . '" id="tab-' . $tab_count . '" data-id="' . $tab_count . '" tabindex="' . $tabindex . '">' . date( 'l, F j', strtotime( $date ) ) . '</button>';
+				$output .= '<button class="wpcsp-tabs-list-button" role="tab" aria-selected="' . $selected . '" aria-controls="wpcsp-panel-' . $tab_count . '" id="tab-' . $tab_count . '" data-id="' . $tab_count . '" tabindex="' . $tabindex . '">' . gmdate( 'l, F j', strtotime( $date ) ) . '</button>';
 				$tab_count++;
 			}
 			$output .= '</div>';
@@ -303,9 +306,9 @@ function wpcs_scheduleOutput( $props ) {
 				$props['date'] = $date;
 
 				if ( $current_tab ) {
-					$hidden = ( $panel_count == $current_tab ) ? '' : 'hidden';
+					$hidden = ( $panel_count === $current_tab ) ? '' : 'hidden';
 				} else {
-					$hidden = ( $panel_count == 1 ) ? '' : 'hidden';
+					$hidden = ( 1 === $panel_count ) ? '' : 'hidden';
 				}
 
 				$output .= '<div class="wpcsp-tabs-panel" id="wpcsp-panel-' . $panel_count . '" role="tabpanel" tabindex="0" aria-labelledby="tab-' . $panel_count . '" ' . $hidden . '>';
@@ -318,7 +321,7 @@ function wpcs_scheduleOutput( $props ) {
 			$sessions                    = wpcs_get_schedule_sessions( $attr['date'], $tracks_explicitly_specified, $tracks );
 			$columns                     = wpcs_get_schedule_columns( $tracks, $sessions, $tracks_explicitly_specified );
 
-			if ( $attr['layout'] == 'table' ) {
+			if ( 'table' === $attr['layout'] ) {
 
 				$html  = '<div class="wpcs-schedule-wrapper ' . $attr['align'] . '">';
 				$html .= '<table class="wpcs-schedule wpcs-color-scheme-' . $attr['color_scheme'] . ' wpcs-layout-' . $attr['layout'] . '" border="0">';
@@ -326,7 +329,7 @@ function wpcs_scheduleOutput( $props ) {
 				$html .= '<tr>';
 
 				// Table headings.
-				$html .= '<th class="wpcs-col-time">' . esc_html__( 'Time', 'wp-conference-schedule' ) . '</th>';
+				$html .= '<th class="wpcs-col-time">' . esc_html__( 'Time', 'wpa-conference' ) . '</th>';
 				foreach ( $columns as $term_id ) {
 					$track = get_term( $term_id, 'wpcs_track' );
 					$html .= sprintf(
@@ -345,7 +348,8 @@ function wpcs_scheduleOutput( $props ) {
 
 				foreach ( $sessions as $time => $entry ) {
 
-					$skip_next = $colspan = 0;
+					$skip_next = 0;
+					$colspan   = 0;
 
 					$columns_html = '';
 					foreach ( $columns as $key => $term_id ) {
@@ -368,7 +372,7 @@ function wpcs_scheduleOutput( $props ) {
 							break;
 						}
 
-						// Gather relevant data about the session
+						// Gather relevant data about the session.
 						$colspan              = 1;
 						$classes              = array();
 						$session              = get_post( $entry[ $term_id ] );
@@ -378,11 +382,11 @@ function wpcs_scheduleOutput( $props ) {
 						$session_type         = get_post_meta( $session->ID, '_wpcs_session_type', true );
 						$speakers             = get_post_meta( $session->ID, '_wpcs_session_speakers', true );
 
-						if ( ! in_array( $session_type, array( 'session', 'custom', 'mainstage' ) ) ) {
+						if ( ! in_array( $session_type, array( 'session', 'custom', 'mainstage' ), true ) ) {
 							$session_type = 'session';
 						}
 
-						// Add CSS classes to help with custom styles
+						// Add CSS classes to help with custom styles.
 						if ( is_array( $session_tracks ) ) {
 							foreach ( $session_tracks as $session_track ) {
 								$classes[] = 'wpcs-track-' . $session_track->slug;
@@ -395,7 +399,7 @@ function wpcs_scheduleOutput( $props ) {
 						$content  = '';
 						$content .= '<div class="wpcs-session-cell-content">';
 
-						// Session Content Header Filter
+						// Session Content Header Filter.
 						/**
 						 * Filter session content header content.
 						 *
@@ -408,10 +412,10 @@ function wpcs_scheduleOutput( $props ) {
 						$wpcs_session_content_header = apply_filters( 'wpcs_session_content_header', '', $session->ID );
 						$content                    .= ( '' !== $wpcs_session_content_header ) ? $wpcs_session_content_header : '';
 
-						// Determine the session title
-						if ( 'permalink' == $attr['session_link'] && ( 'session' == $session_type || 'mainstage' == $session_type ) ) {
+						// Determine the session title.
+						if ( 'permalink' === $attr['session_link'] && ( 'session' === $session_type || 'mainstage' === $session_type ) ) {
 							$session_title_html = sprintf( '<h3><a class="wpcs-session-title" href="%s">%s</a></h3>', esc_url( get_permalink( $session->ID ) ), $session_title );
-						} elseif ( 'anchor' == $attr['session_link'] && ( 'session' == $session_type || 'mainstage' == $session_type ) ) {
+						} elseif ( 'anchor' === $attr['session_link'] && ( 'session' === $session_type || 'mainstage' === $session_type ) ) {
 							$session_title_html = sprintf( '<h3><a class="wpcs-session-title" href="%s">%s</a></h3>', esc_url( '#' . get_post_field( 'post_name', $session->ID ) ), $session_title );
 						} else {
 							$session_title_html = sprintf( '<h3><span class="wpcs-session-title">%s</span></h3>', $session_title );
@@ -419,12 +423,12 @@ function wpcs_scheduleOutput( $props ) {
 
 						$content .= $session_title_html;
 
-						if ( $attr['content'] == 'full' ) {
+						if ( 'full' === $attr['content'] ) {
 							$session_content = get_post_field( 'post_content', $session->ID );
 							if ( $session_content ) {
 								$content .= $session_content;
 							}
-						} elseif ( $attr['content'] == 'excerpt' ) {
+						} elseif ( 'excerpt' === $attr['content'] ) {
 							$session_excerpt = get_the_excerpt( $session->ID );
 							if ( $session_excerpt ) {
 								$content .= '<p>' . $session_excerpt . '</p>';
@@ -436,25 +440,23 @@ function wpcs_scheduleOutput( $props ) {
 							$content .= sprintf( ' <span class="wpcs-session-speakers">%s</span>', esc_html( $speakers ) );
 						}
 
-						// Session Content Footer Filter
+						// Session Content Footer Filter.
 						$wpcs_session_content_footer = apply_filters( 'wpcs_session_content_footer', $session->ID );
-						$content                    .= ( $wpcs_session_content_footer != $session->ID ) ? $wpcs_session_content_footer : '';
+						$content                    .= ( $wpcs_session_content_footer !== $session->ID ) ? $wpcs_session_content_footer : '';
 
 						// End of cell-content.
 						$content .= '</div>';
 
 						$columns_clone = $columns;
 
-						// If the next element in the table is the same as the current one, use colspan
-						if ( $key != key( array_slice( $columns, -1, 1, true ) ) ) {
-							// while ( $pair = each( $columns_clone ) ) {
-							// foreach($columns_clone as $pair) {
+						// If the next element in the table is the same as the current one, use colspan.
+						if ( key( array_slice( $columns, -1, 1, true ) ) !== $key ) {
 							foreach ( $columns_clone as $pair['key'] => $pair['value'] ) {
-								if ( $pair['key'] == $key ) {
+								if ( $pair['key'] === $key ) {
 									continue;
 								}
 
-								if ( ! empty( $entry[ $pair['value'] ] ) && $entry[ $pair['value'] ] == $session->ID ) {
+								if ( ! empty( $entry[ $pair['value'] ] ) && $entry[ $pair['value'] ] === $session->ID ) {
 									$colspan++;
 									$skip_next++;
 								} else {
@@ -466,11 +468,11 @@ function wpcs_scheduleOutput( $props ) {
 						$columns_html .= sprintf( '<td colspan="%d" class="%s" data-track-title="%s" data-session-id="%s">%s</td>', $colspan, esc_attr( implode( ' ', $classes ) ), $session_track_titles, esc_attr( $session->ID ), $content );
 					}
 
-					$global_session      = $colspan == count( $columns ) ? ' wpcs-global-session' . ' wpcs-global-session-' . esc_html( $session_type ) : '';
+					$global_session      = count( $columns ) === $colspan ? ' wpcs-global-session' . ' wpcs-global-session-' . esc_html( $session_type ) : '';
 					$global_session_slug = $global_session ? ' ' . sanitize_html_class( sanitize_title_with_dashes( $session->post_title ) ) : '';
 
-					$html .= sprintf( '<tr class="%s">', sanitize_html_class( 'wpcs-time-' . date( $time_format, $time ) ) . $global_session . $global_session_slug );
-					$html .= sprintf( '<td class="wpcs-time">%s</td>', str_replace( ' ', '&nbsp;', esc_html( date( $time_format, $time ) ) ) );
+					$html .= sprintf( '<tr class="%s">', sanitize_html_class( 'wpcs-time-' . gmdate( $time_format, $time ) ) . $global_session . $global_session_slug );
+					$html .= sprintf( '<td class="wpcs-time">%s</td>', str_replace( ' ', '&nbsp;', esc_html( gmdate( $time_format, $time ) ) ) );
 					$html .= $columns_html;
 					$html .= '</tr>';
 				}
@@ -480,7 +482,7 @@ function wpcs_scheduleOutput( $props ) {
 				$html   .= '</div>';
 				$output .= $html;
 
-			} elseif ( $attr['layout'] == 'grid' ) {
+			} elseif ( 'grid' === $attr['layout'] ) {
 
 				$html          = '';
 				$schedule_date = $attr['date'];
@@ -492,7 +494,7 @@ function wpcs_scheduleOutput( $props ) {
 					'meta_key'       => '_wpcs_session_time',
 					'orderby'        => 'meta_value_num',
 					'order'          => 'ASC',
-					'meta_query'     => array(
+					'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 						'relation' => 'AND',
 						array(
 							'key'     => '_wpcs_session_time',
@@ -528,26 +530,28 @@ function wpcs_scheduleOutput( $props ) {
 				foreach ( $sessions_query->posts as $session ) {
 					$time     = absint( get_post_meta( $session->ID, '_wpcs_session_time', true ) );
 					$end_time = absint( get_post_meta( $session->ID, '_wpcs_session_end_time', true ) );
-					$terms    = get_the_terms( $session->ID, 'wpcs_track' );
 
-					if ( ! in_array( $end_time, $array_times ) ) {
+					if ( ! in_array( $end_time, $array_times, true ) ) {
 						array_push( $array_times, $end_time );
 					}
 
-					if ( ! in_array( $time, $array_times ) ) {
+					if ( ! in_array( $time, $array_times, true ) ) {
 						array_push( $array_times, $time );
 					}
 				}
 				asort( $array_times );
-				// Reset PHP Array Index
+				// Reset PHP Array Index.
 				$array_times = array_values( $array_times );
-				// Remove last time item
+				// Remove last time item.
 				unset( $array_times[ count( $array_times ) - 1 ] );
 
-				if ( $attr['row_height'] == 'match' ) {
-					$row_height = '1fr';
-				} elseif ( $attr['row_height'] == 'auto' ) {
-					$row_height = 'auto';
+				switch ( $attr['row_height'] ) {
+					case 'match':
+						$row_height = '1fr';
+						break;
+					case 'auto':
+						$row_height = 'auto';
+						break;
 				}
 
 				$html .= '<style>
@@ -566,16 +570,16 @@ function wpcs_scheduleOutput( $props ) {
 
 				$html .= 'grid-template-columns: [times] 4em';
 
-					// Reset PHP Array Index
+					// Reset PHP Array Index.
 					$tracks = array_values( $tracks );
 
 					$len = count( $tracks );
 
-					// Check the above var dump for issue
+					// Check the above var dump for issue.
 				for ( $i = 0; $i < ( $len ); $i++ ) {
-					if ( $i == 0 ) {
+					if ( 0 === $i ) {
 						$html .= '[' . $tracks[ $i ]->slug . '-start] 1fr';
-					} elseif ( $i == ( $len - 1 ) ) {
+					} elseif ( ( $len - 1 ) === $i ) {
 						$html .= '[' . $tracks[ ( $i - 1 ) ]->slug . '-end ' . $tracks[ $i ]->slug . '-start] 1fr';
 						$html .= '[' . $tracks[ $i ]->slug . '-end];';
 					} else {
@@ -590,10 +594,10 @@ function wpcs_scheduleOutput( $props ) {
 		}
 		</style>';
 
-				// Schedule Wrapper
+				// Schedule Wrapper.
 				$html .= '<div id="wpcs_' . $array_times[0] . '" class="schedule wpcs-schedule wpcs-color-scheme-' . $attr['color_scheme'] . ' wpcs-layout-' . $attr['layout'] . ' wpcs-row-height-' . $attr['row_height'] . '" aria-labelledby="schedule-heading">';
 
-					// Track Titles
+					// Track Titles.
 				if ( $tracks ) {
 					foreach ( $tracks as $track ) {
 						$html .= sprintf(
@@ -604,14 +608,14 @@ function wpcs_scheduleOutput( $props ) {
 					}
 				}
 
-				// Time Slots
+				// Time Slots.
 				if ( $array_times ) {
 					foreach ( $array_times as $array_time ) {
-						$html .= '<h2 class="wpcs-time" style="grid-row: time-' . $array_time . ';">' . date( $time_format, $array_time ) . '</h2>';
+						$html .= '<h2 class="wpcs-time" style="grid-row: time-' . $array_time . ';">' . gmdate( $time_format, $array_time ) . '</h2>';
 					}
 				}
 
-				// Sessions
+				// Sessions.
 				$query_args['meta_query'][] = array(
 					'key'     => '_wpcs_session_time',
 					'value'   => array(
@@ -632,14 +636,13 @@ function wpcs_scheduleOutput( $props ) {
 					$session_tracks       = get_the_terms( $session->ID, 'wpcs_track' );
 					$session_track_titles = is_array( $session_tracks ) ? implode( ', ', wp_list_pluck( $session_tracks, 'name' ) ) : '';
 					$session_type         = get_post_meta( $session->ID, '_wpcs_session_type', true );
-					// $speakers               = get_post_meta( $session->ID, '_wpcs_session_speakers', true );
-					$speakers = apply_filters( 'wpcs_filter_session_speakers', get_post_meta( $session->ID, '_wpcs_session_speakers', true ), $session->ID );
+					$speakers             = apply_filters( 'wpcs_filter_session_speakers', get_post_meta( $session->ID, '_wpcs_session_speakers', true ), $session->ID );
 
 					$start_time = get_post_meta( $session->ID, '_wpcs_session_time', true );
 					$end_time   = get_post_meta( $session->ID, '_wpcs_session_end_time', true );
 					$minutes    = ( $end_time - $start_time ) / 60;
 
-					if ( ! in_array( $session_type, array( 'session', 'custom', 'mainstage' ) ) ) {
+					if ( ! in_array( $session_type, array( 'session', 'custom', 'mainstage' ), true ) ) {
 						$session_type = 'session';
 					}
 
@@ -652,24 +655,22 @@ function wpcs_scheduleOutput( $props ) {
 							if ( $track ) {
 								$remove_track = false;
 								foreach ( $tracks as $track ) {
-									if ( $track->slug == $session_track->slug ) {
+									if ( $track->slug === $session_track->slug ) {
 										$remove_track = true;
 									}
 								}
 							}
 
 							// Don't save session track if track doesn't exist.
-							if ( $remove_track == true ) {
-								// $tracks_array.array_push($tracks_array, $session_track->slug);
-								$tracks_array[] = $session_track->slug;
-								// $tracks_names_array.array_push($tracks_names_array, $session_track->name);
+							if ( true === $remove_track ) {
+								$tracks_array[]       = $session_track->slug;
 								$tracks_names_array[] = $session_track->name;
 							}
 						}
 					}
 					$tracks_classes = implode( ' ', $tracks_array );
 
-					// Add CSS classes to help with custom styles
+					// Add CSS classes to help with custom styles.
 					if ( is_array( $session_tracks ) ) {
 						foreach ( $session_tracks as $session_track ) {
 							$classes[] = 'wpcs-track-' . $session_track->slug;
@@ -681,7 +682,7 @@ function wpcs_scheduleOutput( $props ) {
 					$tracks_array_length = esc_attr( count( $tracks_array ) );
 
 					$grid_column_end = '';
-					if ( $tracks_array_length != 1 ) {
+					if ( 1 !== (int) $tracks_array_length ) {
 						$grid_column_end = ' / ' . $tracks_array[ $tracks_array_length - 1 ];
 					}
 
@@ -689,36 +690,36 @@ function wpcs_scheduleOutput( $props ) {
 
 					$html .= '<div class="wpcs-session-cell-content">';
 
-						// Session Content Header Filter
+						// Session Content Header Filter.
 						$wpcs_session_content_header = apply_filters( 'wpcs_session_content_header', $session->ID );
-						$html                       .= ( $wpcs_session_content_header != $session->ID ) ? $wpcs_session_content_header : '';
+						$html                       .= ( $wpcs_session_content_header !== $session->ID ) ? $wpcs_session_content_header : '';
 
-						// Determine the session title
-					if ( 'permalink' == $attr['session_link'] && ( 'session' == $session_type || 'mainstage' == $session_type ) ) {
+						// Determine the session title.
+					if ( 'permalink' === $attr['session_link'] && ( 'session' === $session_type || 'mainstage' === $session_type ) ) {
 						$html .= sprintf( '<h3><a class="wpcs-session-title" href="%s">%s</a></h3>', esc_url( get_permalink( $session->ID ) ), $session_title );
-					} elseif ( 'anchor' == $attr['session_link'] && ( 'session' == $session_type || 'mainstage' == $session_type ) ) {
+					} elseif ( 'anchor' === $attr['session_link'] && ( 'session' === $session_type || 'mainstage' === $session_type ) ) {
 						$html .= sprintf( '<h3><a class="wpcs-session-title" href="%s">%s</a></h3>', esc_url( '#' . get_post_field( 'post_name', $session->ID ) ), $session_title );
 					} else {
 						$html .= sprintf( '<h3><span class="wpcs-session-title">%s</span></h3>', $session_title );
 					}
 
-						// Add time to the output string
+						// Add time to the output string.
 						$html     .= '<div class="wpcs-session-time">';
-							$html .= date( $time_format, $start_time ) . ' - ' . date( $time_format, $end_time );
+							$html .= gmdate( $time_format, $start_time ) . ' - ' . gmdate( $time_format, $end_time );
 					if ( $minutes ) {
 						$html .= '<span class="wpcs-session-time-duration"> (' . $minutes . ' min)</span>';
 					}
 						$html .= '</div>';
 
-						// Add tracks to the output string
+						// Add tracks to the output string.
 						$html .= '<div class="wpcs-session-track">' . implode( ', ', $tracks_names_array ) . '</div>';
 
-					if ( $attr['content'] == 'full' ) {
+					if ( 'full' === $attr['content'] ) {
 						$content = get_post_field( 'post_content', $session->ID );
 						if ( $content ) {
 							$html .= $content;
 						}
-					} elseif ( $attr['content'] == 'excerpt' ) {
+					} elseif ( 'excerpt' === $attr['content'] ) {
 						$excerpt = get_the_excerpt( $session->ID );
 						if ( $excerpt ) {
 							$html .= '<p>' . $excerpt . '</p>';
@@ -730,9 +731,9 @@ function wpcs_scheduleOutput( $props ) {
 						$html .= sprintf( ' <div class="wpcs-session-speakers">%s</div>', wp_specialchars_decode( $speakers ) );
 					}
 
-						// Session Content Footer Filter
+						// Session Content Footer Filter.
 						$wpcs_session_content_footer = apply_filters( 'wpcs_session_content_footer', $session->ID );
-						$html                       .= ( $wpcs_session_content_footer != $session->ID ) ? $wpcs_session_content_footer : '';
+						$html                       .= ( $wpcs_session_content_footer !== $session->ID ) ? $wpcs_session_content_footer : '';
 
 					$html .= '</div>';
 
@@ -806,7 +807,7 @@ function wpcs_slides( $session_ID ) {
 		foreach ( $slides as $slide ) {
 			$output .= '<li>' . $slide . '</li>';
 		}
-		echo '<div class="wpcs-slides-wrapper"><h3>Slides</h3><ul class="wpcs-slides">' . $output . '</ul></div>';
+		echo wp_kses_post( '<div class="wpcs-slides-wrapper"><h3>' . __( 'Slides', 'wpa-conference' ) . '</h3><ul class="wpcs-slides">' . $output . '</ul></div>' );
 	}
 }
 
@@ -835,7 +836,7 @@ function wpcs_get_resources( $session_ID ) {
 			if ( 'url' !== $extension ) {
 				$name = '';
 				if ( current_user_can( 'manage_options' ) ) {
-					$parts = parse_url( $resource );
+					$parts = wp_parse_url( $resource );
 					$path  = $parts['path'];
 					$split = explode( '/', $path );
 					$name  = end( $split );
@@ -860,10 +861,11 @@ function wpcs_get_resources( $session_ID ) {
 function wpcs_resources( $session_ID ) {
 	$resources = wpcs_get_resources( $session_ID );
 	if ( is_array( $resources ) && ! empty( $resources ) ) {
+		$output = '';
 		foreach ( $resources as $resource ) {
 			$output .= '<li>' . $resource . '</li>';
 		}
-		echo '<div class="wpcs-resources-wrapper"><h3>Resources</h3><ul class="wpcs-resources">' . $output . '</ul></div>';
+		echo wp_kses_post( '<div class="wpcs-resources-wrapper"><h3>' . __( 'Resources', 'wpa-conference' ) . '</h3><ul class="wpcs-resources">' . $output . '</ul></div>' );
 	}
 }
 
@@ -877,7 +879,7 @@ function wpcs_resources( $session_ID ) {
  */
 function wpad_ends_with( $source, $ext ) {
 	$length = strlen( $ext );
-	if ( $length === 0 ) {
+	if ( 0 === $length ) {
 		return true;
 	}
 

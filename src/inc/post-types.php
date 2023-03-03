@@ -46,7 +46,7 @@ function wpcs_register_post_types() {
 		'wpcsp_speaker',
 		array(
 			'labels'             => $speakerlabels,
-			'rewrite'            => array( 'slug' => 'speakers' ),
+			'rewrite'            => array( 'slug' => 'people' ),
 			'supports'           => array( 'title', 'editor', 'revisions', 'thumbnail', 'page-attributes', 'excerpt' ),
 			'menu_position'      => 20,
 			'public'             => true,
@@ -58,7 +58,7 @@ function wpcs_register_post_types() {
 			'query_var'          => true,
 			'menu_icon'          => 'dashicons-groups',
 			'show_in_rest'       => true,
-			'rest_base'          => 'speakers',
+			'rest_base'          => 'people',
 			'has_archive'        => false,
 		)
 	);

@@ -769,9 +769,12 @@ function wpcs_scheduleOutput( $props ) { // phpcs:ignore WordPress.NamingConvent
  * @return string
  */
 function wpad_shortcode_people( $atts ) {
-	$atts = shortcode_atts( array(
-		'id' => '',
-	), $atts );
+	$atts = shortcode_atts(
+		array(
+			'id' => '',
+		),
+		$atts
+	);
 
 	$args = array(
 		'orderby'    => 'meta_value',
@@ -792,7 +795,7 @@ function wpad_shortcode_people( $atts ) {
 	} else {
 		$output = '';
 	}
-	$users  = get_users( $args );
+	$users = get_users( $args );
 	foreach ( $users as $user ) {
 		$name      = $user->display_name;
 		$gravatar  = get_avatar( $user->user_email );
@@ -807,7 +810,7 @@ function wpad_shortcode_people( $atts ) {
 		if ( $city === $state ) {
 			$loc = $city;
 		} else {
-			$loc = ( '' == $state ) ? $city : $city . ', ' . $state;
+			$loc = ( '' === $state ) ? $city : $city . ', ' . $state;
 		}
 		$location = ( '' === $country ) ? $loc : $loc . ', ' . $country;
 		$location = ( '' === $loc ) ? str_replace( ', ', '', $location ) : $location;
@@ -824,7 +827,7 @@ function wpad_shortcode_people( $atts ) {
 		if ( $linked ) {
 			$icons[] = '<a href="' . esc_url( $linked ) . '"><span class="dashicons dashicons-linkedin" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html( $name ) . ' on LinkedIn</span></a>';
 		}
-		$social = ( ! empty( $icons ) ) ? '<div class="attendee-social">' . implode( ' ', $icons ) . '</div>' : '';
+		$social  = ( ! empty( $icons ) ) ? '<div class="attendee-social">' . implode( ' ', $icons ) . '</div>' : '';
 		$output .= '<li>' . $gravatar . '<div class="attendee-info"><h2 class="attendee-name">' . $name . '</h2>' . $company . $location . $social . '</div></li>';
 	}
 	$output = '<ul class="wpad-attendees alignwide">' . $output . '</ul>';
@@ -858,7 +861,7 @@ function wpad_get_sessions() {
 			),
 		),
 	);
-	$posts    = get_posts( $query );
+	$posts = get_posts( $query );
 
 	return $posts;
 }
@@ -884,7 +887,7 @@ function wpaccessibilityday_schedule( $atts, $content ) {
 	$end   = strtotime( '2022-11-03 15:00 UTC' );
 	$args  = shortcode_atts(
 		array(
-			'start'     => '15',
+			'start' => '15',
 		),
 		$atts,
 		'wpaccessibilityday_schedule'
@@ -892,20 +895,23 @@ function wpaccessibilityday_schedule( $atts, $content ) {
 
 	$posts    = wpad_get_sessions();
 	$schedule = array();
-	foreach( $posts as $post_ID ) {
+	foreach ( $posts as $post_ID ) {
 		$time              = gmdate( 'H', get_post_meta( $post_ID, '_wpcs_session_time', true ) );
 		$datatime          = gmdate( 'Y-m-d\TH:i:s\Z', get_post_meta( $post_ID, '_wpcs_session_time', true ) );
-		$schedule[ $time ] = array( 'id' => $post_ID, 'ts' => $datatime );
+		$schedule[ $time ] = array(
+			'id' => $post_ID,
+			'ts' => $datatime,
+		);
 	}
 	$start = $args['start'] - 24;
 	$n     = 1;
-	for( $i = $start; $i < $args['start']; $i++ ) {
-		$number = ( isset( $_GET['buttonsoff'] ) ) ? str_pad( $n, 2, '0', STR_PAD_LEFT ) : '';
+	for ( $i = $start; $i < $args['start']; $i++ ) {
+		$number   = ( isset( $_GET['buttonsoff'] ) ) ? str_pad( $n, 2, '0', STR_PAD_LEFT ) : '';
 		$is_first = false;
 		if ( $i === $start ) {
 			$is_first = true;
 		}
-		if ( absint( $i ) != $i ) {
+		if ( absint( $i ) !== $i ) {
 			$base = 24 - absint( $i );
 		} else {
 			$base = $i;
@@ -917,20 +923,20 @@ function wpaccessibilityday_schedule( $atts, $content ) {
 		$text    = '';
 		$is_next = false;
 		if ( ( time() > $begin - HOUR_IN_SECONDS ) && ( time() < $end ) ) {
-			if ( ( $begin < time() && time() < $end ) && date( 'H' ) == $time && (int) date( 'i' ) < 50 || date( 'G' ) == (int) $time - 1 && (int) date( 'i' ) > 50 ) {
+			if ( ( $begin < time() && time() < $end ) && date( 'H' ) === $time && (int) date( 'i' ) < 50 || date( 'G' ) === (int) $time - 1 && (int) date( 'i' ) > 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date 
 				$is_current = true;
 			}
 			if ( (int) date( 'i' ) < 50 ) {
-				$text = "Now speaking: ";
+				$text = 'Now speaking: ';
 			} else {
 				$is_next = true;
-				$text    = "Up next: ";
+				$text    = 'Up next: ';
 			}
-		} else if ( ! ( time() > $end ) ) {
+		} elseif ( ! ( time() > $end ) ) {
 			$is_next = true;
 			$text    = false;
 		}
-		
+
 		$datatime  = $schedule[ $time ]['ts'];
 		$time_html = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':00 UTC<span class="screen-reader-text">,&nbsp;</span></span>' . ' </div></h2><div class="talk-wrapper">%s</div></div>';
 		$talk_ID   = $schedule[ $time ]['id'];
@@ -940,11 +946,11 @@ function wpaccessibilityday_schedule( $atts, $content ) {
 			$sponsors  = wpad_session_sponsors( $talk_ID );
 			$talk      = get_post( $talk_ID );
 
-			$talk_attr_id  = sanitize_title( $talk->post_title );
-			$talk_title    = '<a href="' . esc_url( get_the_permalink( $talk_ID ) ) . '" id="talk-' . $talk_attr_id . '">' . $talk->post_title . '</a>' . " <span class='session_id'>$number</span>";
-			$talk_label    = ( 'panel' === $talk_type ) ? '<strong>Panel:</strong> ' : '';
-			$talk_title   .= '<div class="talk-speakers">' . $talk_label . implode( ', ', $speakers['list'] ) . '</div>';
-			$talk_heading  = sprintf( $time_html, ' ' . $talk_title );
+			$talk_attr_id = sanitize_title( $talk->post_title );
+			$talk_title   = '<a href="' . esc_url( get_the_permalink( $talk_ID ) ) . '" id="talk-' . $talk_attr_id . '">' . $talk->post_title . '</a>' . " <span class='session_id'>$number</span>";
+			$talk_label   = ( 'panel' === $talk_type ) ? '<strong>Panel:</strong> ' : '';
+			$talk_title  .= '<div class="talk-speakers">' . $talk_label . implode( ', ', $speakers['list'] ) . '</div>';
+			$talk_heading = sprintf( $time_html, ' ' . $talk_title );
 			if ( 'lightning' !== $talk_type ) {
 				$wrap   = '<div class="wp-block-column">';
 				$unwrap = '</div>';
@@ -953,18 +959,18 @@ function wpaccessibilityday_schedule( $atts, $content ) {
 				$unwrap = '';
 			}
 			$talk_output  = $wrap . $sponsors;
-			$talk_output .= ( 'lightning' != $talk_type ) ? '<div class="talk-description">' . wp_trim_words( $talk->post_content ) . '</div>' : '';
+			$talk_output .= ( 'lightning' !== $talk_type ) ? '<div class="talk-description">' . wp_trim_words( $talk->post_content ) . '</div>' : '';
 			$talk_output .= $slides . $unwrap;
 			$talk_output .= $wrap . $speakers['html'] . $unwrap;
 
 			$session_id = sanitize_title( $talk->post_title );
-			$hidden     =  ( isset( $_GET['buttonsoff'] ) ) ? '' : 'hidden';
+			$hidden     = ( isset( $_GET['buttonsoff'] ) ) ? '' : 'hidden';
 			$control    = ( isset( $_GET['buttonsoff'] ) ) ? '' : '<button type="button" class="toggle-details" aria-expanded="false"><span class="dashicons-plus dashicons" aria-hidden="true"></span> View Details<span class="screen-reader-text">: ' . $talk->post_title . '</span></button>';
 
 			if ( $is_current || ( $is_first && $is_next ) ) {
-				$hidden       = '';
-				$control      = str_replace( '"false"', '"true"', $control );
-				$control      = str_replace( '-plus', '-minus', $control );
+				$hidden  = '';
+				$control = str_replace( '"false"', '"true"', $control );
+				$control = str_replace( '-plus', '-minus', $control );
 				if ( false !== $text ) {
 					$current_talk = "<p class='current-talk'><strong>$text</strong> <a href='#$session_id'>$time:00 UTC - $talk->post_title</a></p>";
 				}
@@ -1020,7 +1026,8 @@ function wpaccessibilityday_schedule( $atts, $content ) {
 /**
  * Get speakers for schedule.
  *
- * @param int $session_id Talk post ID.
+ * @param int    $session_id Talk post ID.
+ * @param string $talk_type Type of session to display.
  *
  * @return string Output HTML
  */
@@ -1037,22 +1044,22 @@ function wpad_session_speakers( $session_id, $talk_type = 'session' ) {
 		}
 		ob_start();
 		foreach ( $speakers_cpt as $post_id ) {
-			$first_name           = get_post_meta( $post_id, 'wpcsp_first_name', true );
-			$last_name            = get_post_meta( $post_id, 'wpcsp_last_name', true );
-			$full_name            = '<a href="' . get_permalink( $post_id ) . '">' . $first_name . ' ' . $last_name . '</a>';
-			$list[]               = $first_name . ' ' . $last_name;
-			$title_organization   = array();
-			$title                = ( get_post_meta( $post_id, 'wpcsp_title', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_title', true ) : null;
-			$organization         = ( get_post_meta( $post_id, 'wpcsp_organization', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_organization', true ) : null;
-			$headshot             = get_the_post_thumbnail( $post_id, 'thumbnail' );
-			$talk_html            = '';
-			$wrap                 = '';
-			$unwrap               = '';
+			$first_name         = get_post_meta( $post_id, 'wpcsp_first_name', true );
+			$last_name          = get_post_meta( $post_id, 'wpcsp_last_name', true );
+			$full_name          = '<a href="' . get_permalink( $post_id ) . '">' . $first_name . ' ' . $last_name . '</a>';
+			$list[]             = $first_name . ' ' . $last_name;
+			$title_organization = array();
+			$title              = ( get_post_meta( $post_id, 'wpcsp_title', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_title', true ) : null;
+			$organization       = ( get_post_meta( $post_id, 'wpcsp_organization', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_organization', true ) : null;
+			$headshot           = get_the_post_thumbnail( $post_id, 'thumbnail' );
+			$talk_html          = '';
+			$wrap               = '';
+			$unwrap             = '';
 			if ( 'lightning' === $talk_type ) {
 				global $wpdb;
-				$wrap      = '<div class="wp-block-column">';
-				$unwrap    = '</div>';
-				$result    = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->postmeta WHERE meta_key = '_wpcs_session_speakers' AND meta_value = %d LIMIT 1", $post_id ) );
+				$wrap   = '<div class="wp-block-column">';
+				$unwrap = '</div>';
+				$result = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->postmeta WHERE meta_key = '_wpcs_session_speakers' AND meta_value = %d LIMIT 1", $post_id ) );
 
 				$talk_html = '
 				<div class="lightning-talk">
@@ -1084,7 +1091,7 @@ function wpad_session_speakers( $session_id, $talk_type = 'session' ) {
 					<div class="wpcsp-session-speaker-name">
 						<?php echo $full_name; ?>
 					</div>
-					<?php 
+					<?php
 				}
 				if ( $title_organization ) {
 					?>
@@ -1142,16 +1149,17 @@ function wpad_session_sponsors( $session_id ) {
 
 /**
  * Fetch Gravity Forms donors.
+ *
+ * @return array
  */
 function wpad_get_donors() {
 	global $wpdb;
 	$donors  = array();
-	$query   = "SELECT * FROM wp_gf_entry WHERE form_id = 6";
-	$entries = $wpdb->get_results( $query );
+	$query   = 'SELECT * FROM wp_gf_entry WHERE form_id = 6';
+	$entries = $wpdb->get_results( $query ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	foreach ( $entries as $entry ) {
-		$meta_query = "SELECT * FROM wp_gf_entry_meta WHERE entry_id = $entry->id";
-		$meta       = $wpdb->get_results( $meta_query );
-		$data       = array();
+		$meta = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM wp_gf_entry_meta WHERE entry_id = %d', $entry->id ) );
+		$data = array();
 		foreach ( $meta as $value ) {
 			$data['payment_date'] = $entry->payment_date;
 			$data['paid']         = $entry->payment_status;
@@ -1215,8 +1223,8 @@ function wpad_display_donors( $atts = array(), $content = '' ) {
 	$donors    = array_merge( $donors, $attendees );
 	$output    = '';
 	foreach ( $donors as $donor ) {
-		$name     = $donor['first_name'] . ' ' . $donor['last_name'];
-		$company  = $donor['company'];
+		$name    = $donor['first_name'] . ' ' . $donor['last_name'];
+		$company = $donor['company'];
 		if ( $donor['city'] === $donor['state'] ) {
 			$loc = $donor['city'];
 		} else {
@@ -1225,14 +1233,13 @@ function wpad_display_donors( $atts = array(), $content = '' ) {
 		$location = $loc . ', ' . $donor['country'];
 		$location = ( $company ) ? ', ' . $location : $location;
 		$date     = gmdate( 'F, Y', strtotime( $donor['payment_date'] ) );
-		$output .= '<li><strong>' . esc_html( $name ) . '</strong> <span class="date">' . $date . '</span><br /><span class="info">' . esc_html( $company . $location ) . '</span></li>';
+		$output  .= '<li><strong>' . esc_html( $name ) . '</strong> <span class="date">' . $date . '</span><br /><span class="info">' . esc_html( $company . $location ) . '</span></li>';
 	}
 	$output = '<ul class="wpad-donors"' . $output . '</ul>';
 	set_transient( 'wpad_donors', $output, 300 );
 
 	return $output;
 }
-
 /**
  * Add donor shortcode.
  */
@@ -1240,15 +1247,18 @@ add_shortcode( 'donors', 'wpad_display_donors', 10, 2 );
 
 /**
  * Fetch Gravity Forms microsponsors.
+ *
+ * @param bool $low_donors Fetching microsponsors or donors list.
+ *
+ * @return array
  */
 function wpad_get_microsponsors( $low_donors = false ) {
 	global $wpdb;
 	$sponsors = array();
-	$query    = "SELECT * FROM wp_gf_entry WHERE form_id = 13";
-	$entries  = $wpdb->get_results( $query );
+	$query    = 'SELECT * FROM wp_gf_entry WHERE form_id = 13';
+	$entries  = $wpdb->get_results( $query ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	foreach ( $entries as $entry ) {
-		$meta_query = "SELECT * FROM wp_gf_entry_meta WHERE entry_id = $entry->id";
-		$meta       = $wpdb->get_results( $meta_query );
+		$meta       = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM wp_gf_entry_meta WHERE entry_id = %d', $entry->id ) );
 		$data       = array();
 		foreach ( $meta as $value ) {
 			$data['payment_date'] = $entry->payment_date;
@@ -1301,7 +1311,7 @@ function wpad_get_microsponsors( $low_donors = false ) {
 		}
 		// If we're fetching low donors, use their attendee status & values not equal to 10.
 		// If we're fetching microsponsors, use their sponsor status & values <= 10.
-		$skip = ( $low_donors ) ? ( $data['attendee'] !== 'Yes' || (int) $data['amount'] != 10 ) : ( $data['public'] !== 'Yes' || (int) $data['amount'] <= 10 );
+		$skip = ( $low_donors ) ? ( 'Yes' !== $data['attendee'] || 10 !== (int) $data['amount'] ) : ( 'Yes' !== $data['public'] || (int) $data['amount'] <= 10 );
 		if ( $skip ) {
 			continue;
 		} else {
@@ -1321,7 +1331,7 @@ function wpad_get_microsponsors( $low_donors = false ) {
  * @return string
  */
 function wpad_display_microsponsors( $atts = array(), $content = '' ) {
-	$args = shortcode_atts(
+	$args   = shortcode_atts(
 		array(
 			'maxheight' => '80px',
 		),
@@ -1338,17 +1348,16 @@ function wpad_display_microsponsors( $atts = array(), $content = '' ) {
 	$sponsors = wpad_get_microsponsors();
 	if ( is_array( $sponsors ) && count( $sponsors ) > 0 ) {
 		foreach ( $sponsors as $sponsor ) {
-			$name     = $sponsor['first_name'] . ' ' . $sponsor['last_name'];
-			$company  = $sponsor['company'];
-			$link     = $sponsor['link'];
-			$image    = $sponsor['image'];
+			$name    = $sponsor['first_name'] . ' ' . $sponsor['last_name'];
+			$company = $sponsor['company'];
+			$link    = $sponsor['link'];
+			$image   = $sponsor['image'];
 			if ( ! $image ) {
 				continue;
 			}
-			$wrap     = ( wp_http_validate_url( $link ) ) ? '<a href="' . esc_url( $link ) . '">' : '';
-			$unwrap   = ( '' !== $wrap ) ? '</a>' : '';
-
-			$label = ( $company ) ? $company : $name;
+			$wrap    = ( wp_http_validate_url( $link ) ) ? '<a href="' . esc_url( $link ) . '">' : '';
+			$unwrap  = ( '' !== $wrap ) ? '</a>' : '';
+			$label   = ( $company ) ? $company : $name;
 			$output .= '<li class="wpcsp-sponsor"><div class="wpcsp-sponsor-description">' . $wrap . '<img class="wpcsp-sponsor-image" src="' . esc_url( $image ) . '" alt="' . esc_html( $label ) . '" style="width: auto; max-height: ' . esc_attr( $mh ) . '" />' . $unwrap . '</div></li>';
 		}
 	}

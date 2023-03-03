@@ -926,7 +926,7 @@ function wpaccessibilityday_schedule( $atts, $content ) {
 			if ( ( $begin < time() && time() < $end ) && date( 'H' ) === $time && (int) date( 'i' ) < 50 || date( 'G' ) === (int) $time - 1 && (int) date( 'i' ) > 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date 
 				$is_current = true;
 			}
-			if ( (int) date( 'i' ) < 50 ) {
+			if ( (int) date( 'i' ) < 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date 
 				$text = 'Now speaking: ';
 			} else {
 				$is_next = true;
@@ -1193,7 +1193,7 @@ function wpad_get_donors() {
 					break;
 			}
 		}
-		if ( $data['public'] !== 'Yes, you can list my name, company, and location on the WP Accessibility Day list of donors.' || $data['paid'] !== 'Paid' ) {
+		if ( 'Yes, you can list my name, company, and location on the WP Accessibility Day list of donors.' !== $data['public'] || 'Paid' !== $data['paid'] ) {
 			continue;
 		} else {
 			$donors[] = $data;
@@ -1258,8 +1258,8 @@ function wpad_get_microsponsors( $low_donors = false ) {
 	$query    = 'SELECT * FROM wp_gf_entry WHERE form_id = 13';
 	$entries  = $wpdb->get_results( $query ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	foreach ( $entries as $entry ) {
-		$meta       = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM wp_gf_entry_meta WHERE entry_id = %d', $entry->id ) );
-		$data       = array();
+		$meta = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM wp_gf_entry_meta WHERE entry_id = %d', $entry->id ) );
+		$data = array();
 		foreach ( $meta as $value ) {
 			$data['payment_date'] = $entry->payment_date;
 			$data['paid']         = $entry->payment_status;

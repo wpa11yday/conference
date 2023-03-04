@@ -72,6 +72,11 @@ require_once( WPCS_DIR . '/inc/cmb2/init.php' );
 require_once( WPCS_DIR . '/inc/cmb-field-select2/cmb-field-select2.php' );
 require_once( WPCS_DIR . '/inc/cmb2-conditional-logic/cmb2-conditional-logic.php' );
 
+add_shortcode( 'schedule', 'wpaccessibilityday_schedule' );
+add_shortcode( 'donors', 'wpad_display_donors', 10, 2 );
+add_shortcode( 'microsponsors', 'wpad_display_microsponsors', 10, 2 );
+add_shortcode( 'attendees', 'wpad_shortcode_people' );
+
 /**
  * The Conference Schedule output and meta.
  */
@@ -91,8 +96,6 @@ class WPAD_Conference_Schedule {
 		add_action( 'manage_posts_custom_column', array( $this, 'wpcs_manage_post_types_columns_output' ), 10, 2 );
 		add_action( 'cmb2_admin_init', array( $this, 'wpcs_session_metabox' ) );
 		add_action( 'add_meta_boxes', array( $this, 'wpcs_add_meta_boxes' ) );
-		add_action( 'enqueue_block_editor_assets', array( $this, 'wpcs_loadBlockFiles' ) );
-
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_filter( 'wpcs_filter_session_speaker_meta_field', array( $this, 'filter_session_speaker_meta_field' ), 11, 1 );
 		add_shortcode( 'wpcs_sponsors', array( $this, 'shortcode_sponsors' ) );
@@ -102,29 +105,9 @@ class WPAD_Conference_Schedule {
 		add_action( 'wpsc_single_taxonomies', array( $this, 'single_session_tags' ) );
 		add_filter( 'wpcs_filter_single_session_speakers', array( $this, 'filter_single_session_speakers' ), 11, 2 );
 		add_filter( 'wpcs_session_content_footer', array( $this, 'session_sponsors' ), 11, 1 );
-
-		register_block_type(
-			'wpcs/schedule-block',
-			array(
-				'editor_script'   => 'schedule-block',
-				'attributes'      => array(
-					'date'         => array( 'type' => 'string' ),
-					'color_scheme' => array( 'type' => 'string' ),
-					'layout'       => array( 'type' => 'string' ),
-					'row_height'   => array( 'type' => 'string' ),
-					'session_link' => array( 'type' => 'string' ),
-					'tracks'       => array( 'type' => 'string' ),
-					'align'        => array( 'type' => 'string' ),
-				),
-				'render_callback' => array( $this, 'wpcs_scheduleBlockOutput' ),
-			)
-		);
-
 		add_filter( 'manage_wpcs_session_posts_columns', array( $this, 'wpcs_manage_post_types_columns' ) );
 		add_filter( 'manage_edit-wpcs_session_sortable_columns', array( $this, 'wpcs_manage_sortable_columns' ) );
 		add_filter( 'display_post_states', array( $this, 'wpcs_display_post_states' ) );
-
-		add_shortcode( 'wpcs_schedule', array( $this, 'wpcs_shortcode_schedule' ) );
 	}
 
 	/**
@@ -223,16 +206,6 @@ class WPAD_Conference_Schedule {
 	 */
 	public function wpcs_admin_css() {
 		wp_enqueue_style( 'wpcs-admin', plugins_url( '/assets/css/admin.css', __FILE__ ), array(), 1 );
-	}
-
-	/**
-	 * The [schedule] shortcode callback
-	 *
-	 * @param  array $attr The shortcode attributes.
-	 * @return string
-	 */
-	public function wpcs_shortcode_schedule( $attr ) {
-		return wpcs_scheduleOutput( $attr );
 	}
 
 	/**
@@ -524,29 +497,6 @@ class WPAD_Conference_Schedule {
 
 		return $states;
 	}
-
-	/**
-	 * Enqueue blocks
-	 */
-	public function wpcs_loadBlockFiles() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid
-		wp_enqueue_script(
-			'schedule-block',
-			plugin_dir_url( __FILE__ ) . 'assets/js/schedule-block.js',
-			array( 'wp-blocks', 'wp-i18n', 'wp-editor' ),
-			true
-		);
-	}
-
-	/**
-	 * Schedule Block Dynamic content Output.
-	 *
-	 * @param  mixed $props The props.
-	 * @return mixed
-	 */
-	public function wpcs_scheduleBlockOutput( $props ) { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid
-		return wpcs_scheduleOutput( $props );
-	}
-
 
 	/**
 	 * Runs during admin_menu

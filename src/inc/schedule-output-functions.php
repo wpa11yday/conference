@@ -147,7 +147,6 @@ function wpad_get_sessions() {
 	return $posts;
 }
 
-add_shortcode( 'schedule', 'wpaccessibilityday_schedule' );
 /**
  * Generate schedule for WP Accessibility Day.
  *

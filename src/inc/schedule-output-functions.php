@@ -312,8 +312,8 @@ function wpcs_banner() {
 	$output = '';
 	if ( $time < strtotime( '2022-11-02 14:50 UTC' ) ) {
 		if ( $time < strtotime( '2022-11-02 15:00 UTC' ) ) {
-			$start = gmdate( 'F j, Y', strtotime( '2022-11-02 15:00 UTC' ) );
-			$until = human_time_diff( $time, strtotime( '2022-11-02 15:00 UTC' ) );
+			$start  = gmdate( 'F j, Y', strtotime( '2022-11-02 15:00 UTC' ) );
+			$until  = human_time_diff( $time, strtotime( '2022-11-02 15:00 UTC' ) );
 			$append = " - in just <strong>$until</strong>!";
 		}
 		$output = "<div class='wpad-callout'><p>WP Accessibility Day starts $start $append <a href='" . esc_url( get_option( 'wpcs_field_registration' ) ) . "'>Register today!</a> </p></div>";

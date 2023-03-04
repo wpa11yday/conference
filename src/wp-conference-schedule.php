@@ -46,15 +46,16 @@ require_once( WPCS_DIR . '/inc/cmb2/init.php' );
 require_once( WPCS_DIR . '/inc/cmb-field-select2/cmb-field-select2.php' );
 require_once( WPCS_DIR . '/inc/cmb2-conditional-logic/cmb2-conditional-logic.php' );
 
-add_shortcode( 'schedule', 'wpaccessibilityday_schedule' );
-add_shortcode( 'donors', 'wpad_display_donors', 10, 2 );
-add_shortcode( 'microsponsors', 'wpad_display_microsponsors', 10, 2 );
-add_shortcode( 'attendees', 'wpad_shortcode_people' );
+add_shortcode( 'schedule', 'wpcs_schedule' );
+add_shortcode( 'donors', 'wpcs_display_donors', 10, 2 );
+add_shortcode( 'microsponsors', 'wpcs_display_microsponsors', 10, 2 );
+add_shortcode( 'attendees', 'wpcs_people' );
+add_shortcode( 'able', 'wpcs_get_video' );
 
 /**
  * The Conference Schedule output and meta.
  */
-class WPAD_Conference_Schedule {
+class WPCS_Conference_Schedule {
 
 	/**
 	 * Fired when plugin file is loaded.
@@ -1506,21 +1507,19 @@ function wpcsp_sponsor_level_metabox() {
 }
 
 // Load the plugin class.
-$GLOBALS['wpcs_plugin'] = new WPAD_Conference_Schedule();
-
-add_shortcode( 'able', 'wpad_get_video' );
+$GLOBALS['wpcs_plugin'] = new WPCS_Conference_Schedule();
 
 /**
  * Get video HTML.
  *
  * @return string
  */
-function wpad_get_video() {
+function wpcs_get_video() {
 	return '
 	<div class="wp-block-group alignwide wpad-video-player">
 		<h2>Session Video</h2>
-		<video id="able-player-' . get_the_ID() . '" data-skin="2020" data-able-player data-transcript-div="able-player-transcript-' . get_the_ID() . '" preload="auto" poster="' . wpad_get_poster() . '" data-youtube-id="' . wpad_get_youtube() . '">
-			<track kind="captions" src="' . wpad_get_captions() . '" srclang="en" label="English">
+		<video id="able-player-' . get_the_ID() . '" data-skin="2020" data-able-player data-transcript-div="able-player-transcript-' . get_the_ID() . '" preload="auto" poster="' . wpcs_get_poster() . '" data-youtube-id="' . wpcs_get_youtube() . '">
+			<track kind="captions" src="' . wpcs_get_captions() . '" srclang="en" label="English">
 		</video>
 		<div id="able-player-transcript-' . get_the_ID() . '"></div>
 	</div>';
@@ -1531,7 +1530,7 @@ function wpad_get_video() {
  *
  * @return string
  */
-function wpad_get_poster() {
+function wpcs_get_poster() {
 	$poster = get_the_post_thumbnail_url();
 
 	return $poster;
@@ -1542,7 +1541,7 @@ function wpad_get_poster() {
  *
  * @return string
  */
-function wpad_get_captions() {
+function wpcs_get_captions() {
 	$post_id          = get_the_ID();
 	$session_captions = get_post_meta( $post_id, '_wpcs_caption_url', true );
 
@@ -1554,7 +1553,7 @@ function wpad_get_captions() {
  *
  * @return string
  */
-function wpad_get_youtube() {
+function wpcs_get_youtube() {
 	$post_id         = get_the_ID();
 	$session_youtube = get_post_meta( $post_id, '_wpcs_youtube_id', true );
 

@@ -125,7 +125,7 @@ get_header(); ?>
 								?>
 							</div>
 							<?php
-							$speakers = wpad_session_speakers( get_the_ID(), $session_type );
+							$speakers = wpcs_session_speakers( get_the_ID(), $session_type );
 							echo $speakers['html'];
 							?>
 					</div><!-- .entry-content -->

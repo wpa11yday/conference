@@ -49,7 +49,7 @@ function wpcsp_get_social_links( $post_id ) {
  *
  * @return string
  */
-function wpad_shortcode_people( $atts ) {
+function wpcs_shortcode_people( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'id' => '',
@@ -70,7 +70,7 @@ function wpad_shortcode_people( $atts ) {
 		'fields'     => array( 'ID', 'display_name', 'user_email' ),
 	);
 	// get all authorized users.
-	$output = get_transient( 'wpad_attendees' );
+	$output = get_transient( 'wpcs_attendees' );
 	if ( $output ) {
 		return $output;
 	} else {
@@ -112,18 +112,17 @@ function wpad_shortcode_people( $atts ) {
 		$output .= '<li>' . $gravatar . '<div class="attendee-info"><h2 class="attendee-name">' . $name . '</h2>' . $company . $location . $social . '</div></li>';
 	}
 	$output = '<ul class="wpad-attendees alignwide">' . $output . '</ul>';
-	set_transient( 'wpad_attendees', $output, 300 );
+	set_transient( 'wpcs_attendees', $output, 300 );
 
 	return $output;
 }
-add_shortcode( 'attendees', 'wpad_shortcode_people' );
 
 /**
  * Get sessions scheduled for conference.
  *
  * @return array
  */
-function wpad_get_sessions() {
+function wpcs_get_sessions() {
 	$query = array(
 		'post_type'      => 'wpcs_session',
 		'post_status'    => 'publish',
@@ -155,8 +154,8 @@ function wpad_get_sessions() {
  *
  * @return string
  */
-function wpaccessibilityday_schedule( $atts, $content ) {
-	$return       = get_transient( 'wpad_schedule' );
+function wpcs_schedule( $atts, $content ) {
+	$return       = get_transient( 'wpcs_schedule' );
 	$current_talk = '';
 	if ( $return && ! isset( $_GET['reset_cache'] ) ) {
 		return $return;
@@ -170,10 +169,10 @@ function wpaccessibilityday_schedule( $atts, $content ) {
 			'start' => '15',
 		),
 		$atts,
-		'wpaccessibilityday_schedule'
+		'wpcs_schedule'
 	);
 
-	$posts    = wpad_get_sessions();
+	$posts    = wpcs_get_sessions();
 	$schedule = array();
 	foreach ( $posts as $post_ID ) {
 		$time              = gmdate( 'H', get_post_meta( $post_ID, '_wpcs_session_time', true ) );
@@ -222,8 +221,8 @@ function wpaccessibilityday_schedule( $atts, $content ) {
 		$talk_ID   = $schedule[ $time ]['id'];
 		if ( $talk_ID ) {
 			$talk_type = sanitize_html_class( get_post_meta( $talk_ID, '_wpcs_session_type', true ) );
-			$speakers  = wpad_session_speakers( $talk_ID, $talk_type );
-			$sponsors  = wpad_session_sponsors( $talk_ID );
+			$speakers  = wpcs_session_speakers( $talk_ID, $talk_type );
+			$sponsors  = wpcs_session_sponsors( $talk_ID );
 			$talk      = get_post( $talk_ID );
 
 			$talk_attr_id = sanitize_title( $talk->post_title );
@@ -240,7 +239,7 @@ function wpaccessibilityday_schedule( $atts, $content ) {
 			}
 			$talk_output  = $wrap . $sponsors;
 			$talk_output .= ( 'lightning' !== $talk_type ) ? '<div class="talk-description">' . wp_trim_words( $talk->post_content ) . '</div>' : '';
-			$talk_output .= $slides . $unwrap;
+			$talk_output .= $unwrap;
 			$talk_output .= $wrap . $speakers['html'] . $unwrap;
 
 			$session_id = sanitize_title( $talk->post_title );
@@ -296,11 +295,31 @@ function wpaccessibilityday_schedule( $atts, $content ) {
 				</div>
 			</div>";
 
-	$links  = wpad_banner();
+	$links  = wpcs_banner();
 	$return = $links . $current_talk . $opening_remarks . implode( PHP_EOL, $output );
-	set_transient( 'wpad_schedule', $return, 150 );
+	set_transient( 'wpcs_schedule', $return, 150 );
 
 	return $return;
+}
+
+/**
+ * Show the event start time banner.
+ *
+ * @return string
+ */
+function wpcs_banner() {
+	$time   = time();
+	$output = '';
+	if ( $time < strtotime( '2022-11-02 14:50 UTC' ) ) {
+		if ( $time < strtotime( '2022-11-02 15:00 UTC' ) ) {
+			$start = gmdate( 'F j, Y', strtotime( '2022-11-02 15:00 UTC' ) );
+			$until = human_time_diff( $time, strtotime( '2022-11-02 15:00 UTC' ) );
+			$append = " - in just <strong>$until</strong>!";
+		}
+		$output = "<div class='wpad-callout'><p>WP Accessibility Day starts $start $append <a href='" . esc_url( get_option( 'wpcs_field_registration' ) ) . "'>Register today!</a> </p></div>";
+	}
+
+	return $output;
 }
 
 /**
@@ -311,7 +330,7 @@ function wpaccessibilityday_schedule( $atts, $content ) {
  *
  * @return string Output HTML
  */
-function wpad_session_speakers( $session_id, $talk_type = 'session' ) {
+function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 	$html         = '';
 	$list         = array();
 	$speakers_cpt = get_post_meta( $session_id, 'wpcsp_session_speakers', true );
@@ -407,7 +426,7 @@ function wpad_session_speakers( $session_id, $talk_type = 'session' ) {
  *
  * @return string Output HTML
  */
-function wpad_session_sponsors( $session_id ) {
+function wpcs_session_sponsors( $session_id ) {
 	$session_sponsors = get_post_meta( $session_id, 'wpcsp_session_sponsors', true );
 	if ( ! $session_sponsors ) {
 		return '';
@@ -432,7 +451,7 @@ function wpad_session_sponsors( $session_id ) {
  *
  * @return array
  */
-function wpad_get_donors() {
+function wpcs_get_donors() {
 	global $wpdb;
 	$donors  = array();
 	$query   = 'SELECT * FROM wp_gf_entry WHERE form_id = 6';
@@ -491,15 +510,15 @@ function wpad_get_donors() {
  *
  * @return string
  */
-function wpad_display_donors( $atts = array(), $content = '' ) {
-	$output = get_transient( 'wpad_donors' );
+function wpcs_display_donors( $atts = array(), $content = '' ) {
+	$output = get_transient( 'wpcs_donors' );
 	if ( $output ) {
 		return $output;
 	} else {
 		$output = '';
 	}
-	$donors    = wpad_get_donors();
-	$attendees = wpad_get_microsponsors( true );
+	$donors    = wpcs_get_donors();
+	$attendees = wpcs_get_microsponsors( true );
 	$donors    = array_merge( $donors, $attendees );
 	$output    = '';
 	foreach ( $donors as $donor ) {
@@ -516,14 +535,10 @@ function wpad_display_donors( $atts = array(), $content = '' ) {
 		$output  .= '<li><strong>' . esc_html( $name ) . '</strong> <span class="date">' . $date . '</span><br /><span class="info">' . esc_html( $company . $location ) . '</span></li>';
 	}
 	$output = '<ul class="wpad-donors"' . $output . '</ul>';
-	set_transient( 'wpad_donors', $output, 300 );
+	set_transient( 'wpcs_donors', $output, 300 );
 
 	return $output;
 }
-/**
- * Add donor shortcode.
- */
-add_shortcode( 'donors', 'wpad_display_donors', 10, 2 );
 
 /**
  * Fetch Gravity Forms microsponsors.
@@ -532,7 +547,7 @@ add_shortcode( 'donors', 'wpad_display_donors', 10, 2 );
  *
  * @return array
  */
-function wpad_get_microsponsors( $low_donors = false ) {
+function wpcs_get_microsponsors( $low_donors = false ) {
 	global $wpdb;
 	$sponsors = array();
 	$query    = 'SELECT * FROM wp_gf_entry WHERE form_id = 13';
@@ -610,7 +625,7 @@ function wpad_get_microsponsors( $low_donors = false ) {
  *
  * @return string
  */
-function wpad_display_microsponsors( $atts = array(), $content = '' ) {
+function wpcs_display_microsponsors( $atts = array(), $content = '' ) {
 	$args   = shortcode_atts(
 		array(
 			'maxheight' => '80px',
@@ -619,13 +634,13 @@ function wpad_display_microsponsors( $atts = array(), $content = '' ) {
 		'microsponsors'
 	);
 	$mh     = $args['maxheight'];
-	$output = get_transient( 'wpad_microsponsors' );
+	$output = get_transient( 'wpcs_microsponsors' );
 	if ( $output ) {
 		return $output;
 	} else {
 		$output = '';
 	}
-	$sponsors = wpad_get_microsponsors();
+	$sponsors = wpcs_get_microsponsors();
 	if ( is_array( $sponsors ) && count( $sponsors ) > 0 ) {
 		foreach ( $sponsors as $sponsor ) {
 			$name    = $sponsor['first_name'] . ' ' . $sponsor['last_name'];
@@ -642,14 +657,11 @@ function wpad_display_microsponsors( $atts = array(), $content = '' ) {
 		}
 	}
 	$output = '<ul class="wpcsp-sponsor-list wpad-microsponsors">' . $output . '</ul>';
-	set_transient( 'wpad_microsponsors', $output, 300 );
+	set_transient( 'wpcs_microsponsors', $output, 300 );
 
 	return $output;
 }
-/**
- * Add microsponsor shortcode.
- */
-add_shortcode( 'microsponsors', 'wpad_display_microsponsors', 10, 2 );
+
 
 /**
  * Get an array of links to slide data.
@@ -667,7 +679,7 @@ function wpcs_get_slides( $session_ID ) {
 		foreach ( $slides as $slide ) {
 			foreach ( $filetypes as $ext ) {
 				$extension = 'url';
-				$ends_with = wpad_ends_with( $slide, $ext );
+				$ends_with = wpcs_ends_with( $slide, $ext );
 				if ( $ends_with ) {
 					$extension = $ext;
 					break;
@@ -717,7 +729,7 @@ function wpcs_get_resources( $session_ID ) {
 		foreach ( $resources as $resource ) {
 			foreach ( $filetypes as $ext ) {
 				$extension = 'url';
-				$ends_with = wpad_ends_with( $resource, $ext );
+				$ends_with = wpcs_ends_with( $resource, $ext );
 				if ( $ends_with ) {
 					$extension = $ext;
 					break;
@@ -767,7 +779,7 @@ function wpcs_resources( $session_ID ) {
  *
  * @return bool
  */
-function wpad_ends_with( $source, $ext ) {
+function wpcs_ends_with( $source, $ext ) {
 	$length = strlen( $ext );
 	if ( 0 === $length ) {
 		return true;

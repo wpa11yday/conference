@@ -185,8 +185,9 @@ function wpcs_schedule( $atts, $content ) {
 	$start = $args['start'] - 24;
 	$n     = 1;
 	for ( $i = $start; $i < $args['start']; $i++ ) {
-		$number   = ( isset( $_GET['buttonsoff'] ) ) ? str_pad( $n, 2, '0', STR_PAD_LEFT ) : '';
-		$is_first = false;
+		$number     = ( isset( $_GET['buttonsoff'] ) ) ? str_pad( $n, 2, '0', STR_PAD_LEFT ) : '';
+		$session_id = ( isset( $_GET['buttonsoff'] ) ) ? " <span class='session_id'>$number</span>" : '';
+		$is_first   = false;
 		if ( $i === $start ) {
 			$is_first = true;
 		}
@@ -226,7 +227,7 @@ function wpcs_schedule( $atts, $content ) {
 			$talk      = get_post( $talk_ID );
 
 			$talk_attr_id = sanitize_title( $talk->post_title );
-			$talk_title   = '<a href="' . esc_url( get_the_permalink( $talk_ID ) ) . '" id="talk-' . $talk_attr_id . '">' . $talk->post_title . '</a>' . " <span class='session_id'>$number</span>";
+			$talk_title   = '<a href="' . esc_url( get_the_permalink( $talk_ID ) ) . '" id="talk-' . $talk_attr_id . '">' . $talk->post_title . '</a>' . $session_id;
 			$talk_label   = ( 'panel' === $talk_type ) ? '<strong>Panel:</strong> ' : '';
 			$talk_title  .= '<div class="talk-speakers">' . $talk_label . implode( ', ', $speakers['list'] ) . '</div>';
 			$talk_heading = sprintf( $time_html, ' ' . $talk_title );

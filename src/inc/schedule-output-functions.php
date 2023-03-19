@@ -280,22 +280,6 @@ function wpcs_schedule( $atts, $content ) {
 		$n++;
 	}
 
-	$opening_remarks = "<div class='wp-block-group schedule'>
-				<div class='wp-block-group__inner-container'>
-					<div class='wp-block-columns'>
-						<div class='wp-block-column'>
-							<div class='talk-header'>
-								<h2 class='talk-time' data-time='2022-11-02T14:45:00Z'><div class='time-wrapper'><span>14:45 UTC<span class='screen-reader-text'>,&nbsp;</span></span></div></h2>
-								<div class='talk-wrapper'>Opening Remarks</div>
-							</div>
-							<div class='talk-description'>
-								<p>Joe Dolson, co-lead organizer of WP Accessibility Day will kick off the event with brief opening comments.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>";
-
 	$links  = wpcs_banner();
 	$return = $links . $current_talk . $opening_remarks . implode( PHP_EOL, $output );
 	set_transient( 'wpcs_schedule', $return, 150 );

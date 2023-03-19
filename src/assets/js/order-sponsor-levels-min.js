@@ -1,1 +1,1 @@
-jQuery((function(o){o(".sponsor-order").sortable()}));
+(()=>{jQuery(r=>{r(".sponsor-order").sortable()});})();

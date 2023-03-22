@@ -36,26 +36,6 @@ function wpcs_settings_init() {
 add_action( 'admin_init', 'wpcs_settings_init' );
 
 /**
- * Custom option and settings:
- * callback functions
- */
-
-
-/**
- * Section callbacks can accept an $args parameter, which is an array.
- *
- * The values are defined at the add_settings_section() function.
- *
- * @param  array $args The args have the following keys defined: title, id, callback.
- * @return void
- */
-function wpcs_section_info_cb( $args ) {
-	?>
-	<p id="<?php echo esc_attr( $args['id'] ?? '' ); ?>"><?php esc_html_e( 'Show your thanks to WP Conference Schedule for creating an amazing free plugin by giving them recognition with a small text-only link at the bottom of your conference schedule.', 'wpa-conference' ); ?></p>
-	<?php
-}
-
-/**
  * Section settings callback.
  *
  * @param  array $args The args.

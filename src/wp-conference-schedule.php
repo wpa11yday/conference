@@ -71,7 +71,6 @@ class WPCS_Conference_Schedule {
 		add_action( 'manage_posts_custom_column', array( $this, 'wpcs_manage_post_types_columns_output' ), 10, 2 );
 		add_action( 'cmb2_admin_init', array( $this, 'wpcs_session_metabox' ) );
 		add_action( 'add_meta_boxes', array( $this, 'wpcs_add_meta_boxes' ) );
-		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_filter( 'wpcs_filter_session_speaker_meta_field', array( $this, 'filter_session_speaker_meta_field' ), 11, 1 );
 		add_shortcode( 'wpcs_sponsors', array( $this, 'shortcode_sponsors' ) );
 		add_shortcode( 'wpcs_speakers', array( $this, 'shortcode_speakers' ) );
@@ -476,151 +475,6 @@ class WPCS_Conference_Schedule {
 	}
 
 	/**
-	 * Runs during admin_menu
-	 */
-	public function admin_menu() {
-		$page = add_submenu_page( 'edit.php?post_type=wpcsp_sponsor', __( 'Order Sponsor Levels', 'wpa-conference' ), __( 'Order Sponsor Levels', 'wpa-conference' ), 'edit_posts', 'sponsor_levels', array( $this, 'render_order_sponsor_levels' ) );
-		add_action( "admin_print_scripts-$page", array( $this, 'enqueue_order_sponsor_levels_scripts' ) );
-
-		$page = add_submenu_page( 'edit.php?post_type=wpcsp_speaker', __( 'Order People Groups', 'wpa-conference' ), __( 'Order People Groups', 'wpa-conference' ), 'edit_posts', 'speaker_levels', array( $this, 'render_order_speaker_levels' ) );
-		add_action( "admin_print_scripts-$page", array( $this, 'enqueue_order_sponsor_levels_scripts' ) );
-	}
-
-	/**
-	 * Enqueues scripts and styles for the render_order_sponsors_level admin page.
-	 */
-	public function enqueue_order_sponsor_levels_scripts() {
-		wp_enqueue_script( 'wpcsp-sponsor-order', plugins_url( 'assets/js/order-sponsor-levels.js', __FILE__ ), array( 'jquery-ui-sortable' ), '20110212' );
-		wp_enqueue_style( 'wpcsp-sponsor-order', plugins_url( 'assets/css/order-sponsor-levels.css', __FILE__ ), array(), '20110212' );
-	}
-
-	/**
-	 * Renders the Order Sponsor Levels admin page.
-	 */
-	public function render_order_sponsor_levels() {
-		if ( ! isset( $_REQUEST['updated'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended 
-			$_REQUEST['updated'] = false;
-		}
-
-		$levels = $this->get_sponsor_levels( 'conference_sponsor_level_order', 'wpcsp_sponsor_level' );
-		?>
-		<div class="wrap">
-			<h1><?php esc_html_e( 'Order Sponsor Levels', 'wpa-conference' ); ?></h1>
-
-			<?php if ( false !== $_REQUEST['updated'] ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
-				<div class="updated fade"><p><strong><?php esc_html_e( 'Options saved', 'wpa-conference' ); ?></strong></p></div>
-			<?php endif; ?>
-
-			<form method="post" action="options.php">
-				<?php settings_fields( 'conference_sponsor_options' ); ?>
-				<div class="description sponsor-order-instructions">
-					<?php esc_html_e( 'Change the order of sponsor levels are displayed in the sponsors page template.', 'wpa-conference' ); ?>
-				</div>
-				<ul class="sponsor-order">
-				<?php foreach ( $levels as $term ) : ?>
-					<li class="level">
-						<input type="hidden" class="level-id" name="conference_sponsor_level_order[]" value="<?php echo esc_attr( $term->term_id ); ?>" />
-						<?php echo esc_html( $term->name ); ?>
-					</li>
-				<?php endforeach; ?>
-				</ul>
-				<p class="submit">
-					<input type="submit" class="button-primary" value="<?php esc_attr_e( 'Save Options', 'wpa-conference' ); ?>" />
-				</p>
-			</form>
-		</div>
-		<?php
-	}
-
-	/**
-	 * Renders the Order Speaker Levels admin page.
-	 */
-	public function render_order_speaker_levels() {
-		if ( ! isset( $_REQUEST['updated'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended 
-			$_REQUEST['updated'] = false;
-		}
-
-		$levels = $this->get_sponsor_levels( 'speaker_level_order', 'wpcsp_speaker_level' );
-		?>
-		<div class="wrap">
-			<h1><?php _e( 'Order Speaker Groups', 'wpa-conference' ); ?></h1>
-
-			<?php if ( false !== $_REQUEST['updated'] ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?> 
-				<div class="updated fade"><p><strong><?php esc_html_e( 'Options saved', 'wpa-conference' ); ?></strong></p></div>
-			<?php endif; ?>
-
-			<form method="post" action="options.php">
-				<?php settings_fields( 'speaker_options' ); ?>
-				<div class="description sponsor-order-instructions">
-					<?php esc_html_e( 'Change the order of speaker groups are displayed in the speaker page template.', 'wpa-conference' ); ?>
-				</div>
-				<ul class="sponsor-order">
-				<?php foreach ( $levels as $term ) : ?>
-					<li class="level">
-						<input type="hidden" class="level-id" name="speaker_level_order[]" value="<?php echo esc_attr( $term->term_id ); ?>" />
-						<?php echo esc_html( $term->name ); ?>
-					</li>
-				<?php endforeach; ?>
-				</ul>
-				<p class="submit">
-					<input type="submit" class="button-primary" value="<?php esc_attr_e( 'Save Options', 'wpa-conference' ); ?>" />
-				</p>
-			</form>
-		</div>
-		<?php
-	}
-
-	/**
-	 * Runs when settings are updated for the sponsor level order page.
-	 *
-	 * @param  mixed $input The input.
-	 * @return mixed
-	 */
-	public function validate_sponsor_options( $input ) {
-		if ( ! is_array( $input ) ) {
-			$input = null;
-		} else {
-			foreach ( array_keys( $input ) as $key ) {
-				$input[ $key ] = (int) $input[ $key ];
-			}
-			$input = array_values( $input );
-		}
-
-		return $input;
-	}
-
-	/**
-	 * Returns the sponsor level terms in set order.
-	 *
-	 * @param  string $option   The option key.
-	 * @param  string $taxonomy The taxonomy.
-	 * @return array
-	 */
-	public function get_sponsor_levels( $option, $taxonomy ) {
-		$option        = get_option( $option );
-		$term_objects  = get_terms( $taxonomy, array( 'get' => 'all' ) );
-		$terms         = array();
-		$ordered_terms = array();
-
-		foreach ( $term_objects as $term ) {
-			$terms[ $term->term_id ] = $term;
-		}
-
-		if ( empty( $option ) ) {
-			$option = array();
-		}
-
-		foreach ( $option as $term_id ) {
-			if ( isset( $terms[ $term_id ] ) ) {
-				$ordered_terms[] = $terms[ $term_id ];
-				unset( $terms[ $term_id ] );
-			}
-		}
-
-		return array_merge( $ordered_terms, array_values( $terms ) );
-	}
-
-	/**
 	 * The [wpcs_sponsors] shortcode handler.
 	 *
 	 * @param  array  $attr    The shortcode attributes.
@@ -632,7 +486,7 @@ class WPCS_Conference_Schedule {
 
 		$attr = shortcode_atts(
 			array(
-				'link'           => 'none',
+				'link'           => 'none', // 'website' or 'post'.
 				'title'          => 'visible',
 				'content'        => 'full',
 				'excerpt_length' => 55,
@@ -1265,8 +1119,6 @@ $ac_pro_plugin_basename  = plugin_basename( __FILE__ );
 /**
  * Filters and Actions
  */
-add_action( 'admin_enqueue_scripts', 'wpcsp_pro_admin_enqueue_scripts' );
-add_action( 'admin_enqueue_scripts', 'wpcsp_pro_admin_enqueue_styles' );
 add_action( 'wp_enqueue_scripts', 'wpcsp_pro_enqueue_styles' );
 add_action( 'cmb2_admin_init', 'wpcsp_speaker_metabox' );
 add_action( 'cmb2_admin_init', 'wpcsp_sponsor_metabox' );

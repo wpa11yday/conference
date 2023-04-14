@@ -23,13 +23,13 @@ function wpcs_settings_init() {
 	// register registration URL field in the "wpcs_section_info" section, inside the "wpcs" page.
 	add_settings_field( 'wpcs_field_registration', 'Registration URL', 'wpcs_field_registration_cb', 'wpa-conference', 'wpcs_section_settings' );
 
-	// register event start time
+	// register event start time.
 	register_setting( 'wpa-conference', 'wpad_start_time' );
 
 	// register start time field "wpcs_section_info" section, inside the "wpcs" page.
 	add_settings_field( 'wpad_start_time', 'Event Start Time', 'wpad_start_time_cb', 'wpa-conference', 'wpcs_section_settings' );
-	
-	// register event end time
+
+	// register event end time.
 	register_setting( 'wpa-conference', 'wpad_end_time' );
 
 	// register event end field in the "wpcs_section_info" section, inside the "wpcs" page.
@@ -37,7 +37,7 @@ function wpcs_settings_init() {
 
 	// register schedule page URL setting for "wpcs" page.
 	register_setting( 'wpa-conference', 'wpcs_field_schedule_page_url' );
-	
+
 	// register schedule page URL field in the "wpcs_section_info" section, inside the "wpcs" page.
 	add_settings_field( 'wpcs_field_schedule_page_url', 'Schedule Page URL', 'wpcs_field_schedule_page_url_cb', 'wpa-conference', 'wpcs_section_settings' );
 }

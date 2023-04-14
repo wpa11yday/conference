@@ -162,8 +162,8 @@ function wpcs_schedule( $atts, $content ) {
 	} else {
 		$return = '';
 	}
-	$begin = strtotime( '2022-11-02 14:45 UTC' );
-	$end   = strtotime( '2022-11-03 15:00 UTC' );
+	$begin = get_option( 'wpad_start_time' );
+	$end   = get_option( 'wpad_end_time' );
 	$args  = shortcode_atts(
 		array(
 			'start' => '15',
@@ -288,6 +288,40 @@ function wpcs_schedule( $atts, $content ) {
 }
 
 /**
+ * Inline shortcode to generate event start time.
+ *
+ * @param array $atts Array of shortcode attributes include date/time format (string) and dashicon identifier (string), and a fallback value if no time set.
+ *
+ * @return string
+ */
+function wpcs_event_start( $atts = array() ) {
+	$args     = shortcode_atts(
+		array(
+			'format'   => 'H:i',
+			'dashicon' => '',
+			'fallback' => 'Fall 2024',
+		),
+		$atts,
+		'wpad'
+	);
+	$dashicon = '';
+	if ( '' !== $args['dashicon'] ) {
+		$dashicon = '<span class="dashicons dashicons-' . esc_attr( $args['dashicon'] ) . '" aria-hidden="true"></span> ';
+	}
+	if ( get_option( 'wpad_start_time', '' ) ) {
+		$start = gmdate( 'Y-m-d\TH:i:00', strtotime( get_option( 'wpad_start_time', '' ) ) ) . 'Z';
+		$time  = gmdate( $args['format'], strtotime( get_option( 'wpad_start_time', '' ) ) );
+		if ( 'H:i' === $args['format'] ) {
+			$time .= ' UTC';
+		}
+	} else {
+		return '<span class="event-time">' . esc_html( $args['fallback'] ) . '</span>';
+	}
+
+	return '<time class="event-time" datetime="' . esc_attr( $start ) . '" data-time="' . esc_attr( $start ) . '">' . $dashicon . esc_html( $time ) . '</span>';
+}
+
+/**
  * Show the event start time banner.
  *
  * @return string
@@ -295,10 +329,12 @@ function wpcs_schedule( $atts, $content ) {
 function wpcs_banner() {
 	$time   = time();
 	$output = '';
-	if ( $time < strtotime( '2022-11-02 14:50 UTC' ) ) {
-		if ( $time < strtotime( '2022-11-02 15:00 UTC' ) ) {
-			$start  = gmdate( 'F j, Y', strtotime( '2022-11-02 15:00 UTC' ) );
-			$until  = human_time_diff( $time, strtotime( '2022-11-02 15:00 UTC' ) );
+	// 10 minutes before start time.
+	if ( $time < ( strtotime( get_option( 'wpad_start_time', '' ) ) - 600 ) ) {
+		// Actual start time.
+		if ( $time < strtotime( get_option( 'wpad_start_time', '' ) ) ) {
+			$start  = gmdate( 'F j, Y', strtotime( get_option( 'wpad_start_time', '' ) ) );
+			$until  = human_time_diff( $time, strtotime( get_option( 'wpad_start_time', '' ) ) );
 			$append = " - in just <strong>$until</strong>!";
 		}
 		$output = "<div class='wpad-callout'><p>WP Accessibility Day starts $start $append <a href='" . esc_url( get_option( 'wpcs_field_registration' ) ) . "'>Register today!</a> </p></div>";

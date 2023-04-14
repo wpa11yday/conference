@@ -17,15 +17,27 @@ function wpcs_settings_init() {
 		'wpa-conference'
 	);
 
-	// register byline setting for "wpcs" page.
+	// register registration URL setting for "wpcs" page.
 	register_setting( 'wpa-conference', 'wpcs_field_registration' );
 
-	// register byline field in the "wpcs_section_info" section, inside the "wpcs" page.
+	// register registration URL field in the "wpcs_section_info" section, inside the "wpcs" page.
 	add_settings_field( 'wpcs_field_registration', 'Registration URL', 'wpcs_field_registration_cb', 'wpa-conference', 'wpcs_section_settings' );
+
+	// register event start time
+	register_setting( 'wpa-conference', 'wpad_start_time' );
+
+	// register start time field "wpcs_section_info" section, inside the "wpcs" page.
+	add_settings_field( 'wpad_start_time', 'Event Start Time', 'wpad_start_time_cb', 'wpa-conference', 'wpcs_section_settings' );
+	
+	// register event end time
+	register_setting( 'wpa-conference', 'wpad_end_time' );
+
+	// register event end field in the "wpcs_section_info" section, inside the "wpcs" page.
+	add_settings_field( 'wpad_end_time', 'Event End Time', 'wpad_end_time_cb', 'wpa-conference', 'wpcs_section_settings' );
 
 	// register schedule page URL setting for "wpcs" page.
 	register_setting( 'wpa-conference', 'wpcs_field_schedule_page_url' );
-
+	
 	// register schedule page URL field in the "wpcs_section_info" section, inside the "wpcs" page.
 	add_settings_field( 'wpcs_field_schedule_page_url', 'Schedule Page URL', 'wpcs_field_schedule_page_url_cb', 'wpa-conference', 'wpcs_section_settings' );
 }
@@ -58,6 +70,30 @@ function wpcs_field_registration_cb() {
 	?>
 	<input type="url" name="wpcs_field_registration" value="<?php echo esc_url( get_option( 'wpcs_field_registration' ) ); ?>" style="width:100%;max-width: 450px;" aria-describedby="wpcs_field_registration_description" />
 	<p class="description" id="wpcs_field_registration_description">The URL of your registration form.</p>
+	<?php
+}
+
+/**
+ * Field start time callback.
+ *
+ * @return void
+ */
+function wpad_start_time_cb() {
+	?>
+	<input type="text" name="wpad_start_time" value="<?php echo esc_attr( get_option( 'wpad_start_time', '' ) ); ?>" style="width:100%;max-width: 450px;" aria-describedby="wpad_start_time_description" />
+	<p class="description" id="wpad_start_time_description">Start date and time in UTC, e.g. <code>2022-11-02 15:00 UTC</code></p>
+	<?php
+}
+
+/**
+ * Field end time callback.
+ *
+ * @return void
+ */
+function wpad_end_time_cb() {
+	?>
+	<input type="text" name="wpad_end_time" value="<?php echo esc_attr( get_option( 'wpad_end_time', '' ) ); ?>" style="width:100%;max-width: 450px;" aria-describedby="wpad_end_time_description" />
+	<p class="description" id="wpad_end_time_description">End date and time in UTC, e.g. <code>2022-11-02 15:00 UTC</code></p>
 	<?php
 }
 

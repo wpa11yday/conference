@@ -162,8 +162,8 @@ function wpcs_schedule( $atts, $content ) {
 	} else {
 		$return = '';
 	}
-	$begin = get_option( 'wpad_start_time' );
-	$end   = get_option( 'wpad_end_time' );
+	$begin = strtotime( get_option( 'wpad_start_time' ) );
+	$end   = strtotime( get_option( 'wpad_end_time' ) );
 	$args  = shortcode_atts(
 		array(
 			'start' => '15',

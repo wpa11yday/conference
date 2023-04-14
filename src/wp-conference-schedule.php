@@ -90,8 +90,6 @@ class WPCS_Conference_Schedule {
 	 */
 	public function wpcs_admin_init() {
 		add_action( 'pre_get_posts', array( $this, 'wpcs_admin_pre_get_posts' ) );
-		register_setting( 'conference_sponsor_options', 'conference_sponsor_level_order', array( $this, 'validate_sponsor_options' ) );
-		register_setting( 'speaker_options', 'speaker_level_order', array( $this, 'validate_sponsor_options' ) );
 	}
 
 	/**
@@ -492,19 +490,40 @@ class WPCS_Conference_Schedule {
 				'content'        => 'full',
 				'excerpt_length' => 55,
 				'heading_level'  => 'h2',
+				'level'          => 'platinum,gold,silver,bronze,microsponsor,donor',
+				'exclude'        => '',
 			),
 			$attr
 		);
+	
+		$levels  = ( '' !== $attr['level'] ) ? explode( ',', $attr['level'] ) : array();
+		$exclude = ( '' !== $attr['exclude'] ) ? explode( ',', $attr['exclude'] ) : array();
 
 		$attr['link'] = strtolower( $attr['link'] );
-		$terms        = $this->get_sponsor_levels( 'conference_sponsor_level_order', 'wpcsp_sponsor_level' );
+		$terms        = get_terms( 'wpcsp_sponsor_level', array( 'get' => 'all' ) );
+		$sortable     = array();
+		foreach ( $terms as $term ) {
+			$sortable[ $term->slug ] = $term;
+		}
 
 		ob_start();
 		?>
 
 		<div class="wpcsp-sponsors">
 			<?php
+			if ( is_array( $levels ) && ! empty( $levels ) ) {
+				$terms = array();
+				foreach ( $levels as $level ) {
+					$terms[] = ( isset( $sortable[ $level ] ) ) ? $sortable[ $level ] : array();
+				}
+			}
 			foreach ( $terms as $term ) :
+				if ( empty( $term ) ) {
+					continue;
+				}
+				if ( '' !== $attr['level'] && ( ! in_array( $term->slug, $levels, true ) || in_array( $term->slug, $exclude, true ) ) ) {
+					continue;
+				}
 				$sponsors = new WP_Query(
 					array(
 						'post_type'      => 'wpcsp_sponsor',

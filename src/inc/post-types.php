@@ -143,6 +143,45 @@ function wpcs_register_post_types() {
 		)
 	);
 
+	$contentlabels = array(
+		'name'               => __( 'Content Drafts', 'wpa-conference' ),
+		'singular_name'      => __( 'Content Draft', 'wpa-conference' ),
+		'add_new'            => __( 'Add New', 'wpa-conference' ),
+		'add_new_item'       => __( 'Create New Content Draft', 'wpa-conference' ),
+		'edit'               => __( 'Edit Draft', 'wpa-conference' ),
+		'edit_item'          => __( 'Edit Content Draft', 'wpa-conference' ),
+		'new_item'           => __( 'New Draft', 'wpa-conference' ),
+		'view'               => __( 'View Draft', 'wpa-conference' ),
+		'view_item'          => __( 'View Draft', 'wpa-conference' ),
+		'search_items'       => __( 'Search Content Drafts', 'wpa-conference' ),
+		'not_found'          => __( 'No drafts found', 'wpa-conference' ),
+		'not_found_in_trash' => __( 'No drafts found in Trash', 'wpa-conference' ),
+		'parent_item_colon'  => __( 'Parent Draft:', 'wpa-conference' ),
+	);
+
+	// Register session post type.
+	register_post_type(
+		'wpcs_drafts',
+		array(
+			'labels'          => $contentlabels,
+			'rewrite'         => array(
+				'slug'       => 'drafts',
+				'with_front' => false,
+			),
+			'supports'        => array( 'title', 'editor', 'author', 'revisions', 'thumbnail', 'custom-fields' ),
+			'menu_position'   => 22,
+			'public'          => false,
+			'show_ui'         => true,
+			'can_export'      => true,
+			'capability_type' => 'post',
+			'hierarchical'    => false,
+			'query_var'       => true,
+			'menu_icon'       => 'dashicons-edit',
+			'show_in_rest'    => true,
+			'rest_base'       => 'sessions',
+		)
+	);
+
 }
 
 add_action( 'gettext', 'wpcs_change_title_text' );

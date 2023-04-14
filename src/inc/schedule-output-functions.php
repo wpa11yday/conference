@@ -281,7 +281,7 @@ function wpcs_schedule( $atts, $content ) {
 	}
 
 	$links  = wpcs_banner();
-	$return = $links . $current_talk . $opening_remarks . implode( PHP_EOL, $output );
+	$return = $links . $current_talk . implode( PHP_EOL, $output );
 	set_transient( 'wpcs_schedule', $return, 150 );
 
 	return $return;

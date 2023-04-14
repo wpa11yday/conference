@@ -54,6 +54,21 @@ add_shortcode( 'able', 'wpcs_get_video' );
 add_shortcode( 'wpad', 'wpcs_event_start' );
 
 /**
+ * Redirect low level sponsors singular pages.
+ *
+ * @return void 
+ */
+function wpcs_redirect_sponsors() {
+	if ( is_singular( 'wpcsp_sponsor' ) ) {
+		if ( has_term( 'microsponsor', 'wpcsp_sponsor_level' ) || has_term( 'donor', 'wpcsp_sponsor_level' ) ) {
+			wp_redirect( get_option( 'wpcsp_field_sponsors_page_url', home_url() ) );
+			exit;
+		}
+	}
+}
+add_action( 'template_redirect', 'wpcs_redirect_sponsors' );
+
+/**
  * The Conference Schedule output and meta.
  */
 class WPCS_Conference_Schedule {

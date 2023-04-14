@@ -179,6 +179,12 @@ function wpcsp_settings_init() {
 	// register schedule page URL field in the "wpcs_section_info" section, inside the "wpcs" page.
 	add_settings_field( 'wpcsp_field_speakers_page_url', 'Speakers Page URL', 'wpcsp_field_speakers_page_url_cb', 'wpa-conference', 'wpcs_section_settings' );
 
+	// register sponsors page URL setting for "wpcs" page.
+	register_setting( 'wpa-conference', 'wpcsp_field_sponsors_page_url', 'wpcsp_sanitize_field_speakers_page_url' );
+
+	// register sponsors page URL field in the "wpcs_section_info" section, inside the "wpcs" page.
+	add_settings_field( 'wpcsp_field_sponsors_page_url', 'Sponsors Page URL', 'wpcsp_field_sponsors_page_url_cb', 'wpa-conference', 'wpcs_section_settings' );
+
 	// register schedule page URL setting for "wpcs" page.
 	register_setting( 'wpa-conference', 'wpcsp_field_sponsor_page_url', 'wpcsp_sanitize_field_sponsor_page_url' );
 
@@ -208,6 +214,18 @@ function wpcsp_field_speakers_page_url_cb() {
  */
 function wpcsp_sanitize_field_speakers_page_url( $speakers_page_url ) {
 	return sanitize_text_field( $speakers_page_url );
+}
+
+/**
+ * Sponsors page url callback
+ *
+ * @return void
+ */
+function wpcsp_field_sponsors_page_url_cb() {
+	?>
+	<input type="text" name="wpcsp_field_sponsors_page_url" value="<?php echo esc_attr( get_option( 'wpcsp_field_sponsors_page_url' ) ); ?>" style="width: 450px;" aria-describedby="wpcsp_field_sponsors_page_url">
+	<p class="description" id="wpcsp_field_sponsors_page_url">The URL of the page that your sponsors are embedded on.</p>
+	<?php
 }
 
 /**

@@ -56,7 +56,7 @@ add_shortcode( 'wpad', 'wpcs_event_start' );
 /**
  * Redirect low level sponsors singular pages.
  *
- * @return void 
+ * @return void
  */
 function wpcs_redirect_sponsors() {
 	if ( is_singular( 'wpcsp_sponsor' ) ) {
@@ -510,7 +510,7 @@ class WPCS_Conference_Schedule {
 			),
 			$attr
 		);
-	
+
 		$levels  = ( '' !== $attr['level'] ) ? explode( ',', $attr['level'] ) : array();
 		$exclude = ( '' !== $attr['exclude'] ) ? explode( ',', $attr['exclude'] ) : array();
 

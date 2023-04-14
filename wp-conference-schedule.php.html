@@ -77,6 +77,7 @@ add_shortcode( 'donors', 'wpcs_display_donors', 10, 2 );
 add_shortcode( 'microsponsors', 'wpcs_display_microsponsors', 10, 2 );
 add_shortcode( 'attendees', 'wpcs_people' );
 add_shortcode( 'able', 'wpcs_get_video' );
+add_shortcode( 'wpad', 'wpcs_event_start' );
 
 /**
  * The Conference Schedule output and meta.
@@ -286,7 +287,7 @@ class WPCS_Conference_Schedule {
 	public function wpcs_metabox_session_info() {
 		$post             = get_post();
 		$session_time     = absint( get_post_meta( $post->ID, '_wpcs_session_time', true ) );
-		$session_date     = ( $session_time ) ? gmdate( 'Y-m-d', $session_time ) : '2022-11-03';
+		$session_date     = ( $session_time ) ? gmdate( 'Y-m-d', $session_time ) : gmdate( 'Y-m-d', get_option( 'wpad_start_time' ) );
 		$session_hours    = ( $session_time ) ? gmdate( 'g', $session_time ) : '';
 		$session_minutes  = ( $session_time ) ? gmdate( 'i', $session_time ) : '00';
 		$session_meridiem = ( $session_time ) ? gmdate( 'a', $session_time ) : 'am';

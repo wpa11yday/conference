@@ -349,7 +349,7 @@ function wpcs_banner() {
  * @param int    $session_id Talk post ID.
  * @param string $talk_type Type of session to display.
  *
- * @return string Output HTML
+ * @return array Array containing output HTML and a list of names. [html=>'',list=>'']
  */
 function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 	$html         = '';

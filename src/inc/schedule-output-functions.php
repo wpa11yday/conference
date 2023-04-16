@@ -369,8 +369,6 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 			$full_name          = '<a href="' . get_permalink( $post_id ) . '">' . $first_name . ' ' . $last_name . '</a>';
 			$list[]             = $first_name . ' ' . $last_name;
 			$title_organization = array();
-			$title              = ( get_post_meta( $post_id, 'wpcsp_title', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_title', true ) : null;
-			$organization       = ( get_post_meta( $post_id, 'wpcsp_organization', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_organization', true ) : null;
 			$headshot           = get_the_post_thumbnail( $post_id, 'thumbnail' );
 			$talk_html          = '';
 			$wrap               = '';

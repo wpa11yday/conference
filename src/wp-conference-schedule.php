@@ -6,9 +6,9 @@
  * @since             1.0.0
  *
  * @wordpress-plugin
- * Plugin Name:       WP Accessibility Day - Conference Schedule
- * Plugin URI:        https://wpconferenceschedule.com
- * Description:       Forked from WP Conference Schedule by Road Warrior Creative.
+ * Plugin Name:       Conference Schedule
+ * Plugin URI:        https://wpaccessibility.day
+ * Description:       Generates people, sponsor, session post types & displays schedule information.
  * Version:           1.0.5.2
  * Author:            WP Accessibility Day
  * Author URI:        https://wpaccessibility.day

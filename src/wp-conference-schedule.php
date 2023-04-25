@@ -274,10 +274,15 @@ class WPCS_Conference_Schedule {
 	public function wpcs_metabox_session_info() {
 		$post             = get_post();
 		$session_time     = absint( get_post_meta( $post->ID, '_wpcs_session_time', true ) );
-		$session_date     = ( $session_time ) ? gmdate( 'Y-m-d', $session_time ) : gmdate( 'Y-m-d', strtotime( get_option( 'wpad_start_time' ) ) );
-		$session_hours    = ( $session_time ) ? gmdate( 'g', $session_time ) : '';
-		$session_minutes  = ( $session_time ) ? gmdate( 'i', $session_time ) : '00';
-		$session_meridiem = ( $session_time ) ? gmdate( 'a', $session_time ) : 'am';
+		$default_date     = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'Y-m-d', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'Y-m-d', strtotime( get_option( 'wpad_start_time' ) ) );
+		$default_hours    = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'g', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'g', strtotime( get_option( 'wpad_start_time' ) ) );
+		$default_minutes  = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'i', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'i', strtotime( get_option( 'wpad_start_time' ) ) );
+		$default_meridiem = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'a', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'a', strtotime( get_option( 'wpad_start_time' ) ) );
+
+		$session_date     = ( $session_time ) ? gmdate( 'Y-m-d', $session_time ) : $default_date;
+		$session_hours    = ( $session_time ) ? gmdate( 'g', $session_time ) : $default_hours;
+		$session_minutes  = ( $session_time ) ? gmdate( 'i', $session_time ) : $default_minutes;
+		$session_meridiem = ( $session_time ) ? gmdate( 'a', $session_time ) : $default_meridiem;
 		$session_type     = get_post_meta( $post->ID, '_wpcs_session_type', true );
 		$session_speakers = get_post_meta( $post->ID, '_wpcs_session_speakers', true );
 		$session_captions = get_post_meta( $post->ID, '_wpcs_caption_url', true );
@@ -370,6 +375,7 @@ class WPCS_Conference_Schedule {
 				$session_time = '';
 			}
 			update_post_meta( $post_id, '_wpcs_session_time', $session_time );
+			update_user_meta( wp_get_current_user()->ID, '_last_entered', $session_time );
 
 			// Update session type.
 			$session_type = sanitize_text_field( $_POST['wpcs-session-type'] ?? '' );

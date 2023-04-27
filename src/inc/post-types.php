@@ -245,8 +245,9 @@ function wpcs_set_single_session_template( $single_template ) {
 	global $post;
 
 	if ( 'wpcs_session' === $post->post_type ) {
-			$single_template = WPCS_DIR . '/templates/session-template.php';
+		$single_template = WPCS_DIR . '/templates/session-template.php';
 	}
+
 	return $single_template;
 }
 

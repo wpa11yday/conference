@@ -969,8 +969,6 @@ class WPCS_Conference_Schedule {
 				$last_name          = get_post_meta( $post_id, 'wpcsp_last_name', true );
 				$full_name          = $first_name . ' ' . $last_name;
 				$title_organization = array();
-				$title              = ( get_post_meta( $post_id, 'wpcsp_title', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_title', true ) : null;
-				$organization       = ( get_post_meta( $post_id, 'wpcsp_organization', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_organization', true ) : null;
 
 				?>
 				<div class="wpcsp-session-speaker">
@@ -1006,7 +1004,6 @@ class WPCS_Conference_Schedule {
 	public function filter_single_session_speakers( $speakers_typed, $session_id ) {
 
 		$speaker_display = get_post_meta( $session_id, 'wpcsp_session_speaker_display', true );
-
 		if ( 'typed' === $speaker_display ) {
 			return $speakers_typed;
 		}
@@ -1025,8 +1022,6 @@ class WPCS_Conference_Schedule {
 					$last_name          = get_post_meta( $post_id, 'wpcsp_last_name', true );
 					$full_name          = $first_name . ' ' . $last_name;
 					$title_organization = array();
-					$title              = ( get_post_meta( $post_id, 'wpcsp_title', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_title', true ) : null;
-					$organization       = ( get_post_meta( $post_id, 'wpcsp_organization', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_organization', true ) : null;
 
 					?>
 					<div class="wpcsp-single-session-speakers-speaker">

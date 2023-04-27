@@ -372,7 +372,7 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 				$first_name = get_post_meta( $post_id, 'wpcsp_first_name', true );
 				$last_name  = get_post_meta( $post_id, 'wpcsp_last_name', true );
 				$concat     = $first_name . ' ' . $last_name;
-				$full_name  = '<a href="' . get_permalink( $post_id ) . '">' . $concat  . '</a>';
+				$full_name  = '<a href="' . get_permalink( $post_id ) . '">' . $concat . '</a>';
 				$headshot   = get_the_post_thumbnail( $post_id, 'thumbnail' );
 			}
 			$list[]             = $concat;

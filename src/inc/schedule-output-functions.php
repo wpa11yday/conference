@@ -364,12 +364,19 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 		}
 		ob_start();
 		foreach ( $speakers_cpt as $post_id ) {
-			$first_name         = get_post_meta( $post_id, 'wpcsp_first_name', true );
-			$last_name          = get_post_meta( $post_id, 'wpcsp_last_name', true );
-			$full_name          = '<a href="' . get_permalink( $post_id ) . '">' . $first_name . ' ' . $last_name . '</a>';
-			$list[]             = $first_name . ' ' . $last_name;
+			if ( ! is_numeric( $post_id ) ) {
+				$concat    = $post_id;
+				$full_name = $concat;
+				$headshot  = '';
+			} else {
+				$first_name = get_post_meta( $post_id, 'wpcsp_first_name', true );
+				$last_name  = get_post_meta( $post_id, 'wpcsp_last_name', true );
+				$concat     = $first_name . ' ' . $last_name;
+				$full_name  = '<a href="' . get_permalink( $post_id ) . '">' . $concat  . '</a>';
+				$headshot   = get_the_post_thumbnail( $post_id, 'thumbnail' );
+			}
+			$list[]             = $concat;
 			$title_organization = array();
-			$headshot           = get_the_post_thumbnail( $post_id, 'thumbnail' );
 			$talk_html          = '';
 			$wrap               = '';
 			$unwrap             = '';

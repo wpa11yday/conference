@@ -533,8 +533,8 @@ class WPCS_Conference_Schedule {
 		$attr = shortcode_atts(
 			array(
 				'link'           => 'none', // 'website' or 'post'.
-				'title'          => 'visible',
-				'content'        => 'full',
+				'title'          => 'hidden',
+				'content'        => 'hidden',
 				'excerpt_length' => 55,
 				'heading_level'  => 'h2',
 				'level'          => 'platinum,gold,silver,bronze,microsponsor,donor',
@@ -585,10 +585,6 @@ class WPCS_Conference_Schedule {
 				if ( ! $sponsors->have_posts() ) {
 					continue;
 				}
-
-				// temporarily hide elements.
-				$attr['title']   = 'hidden';
-				$attr['content'] = 'hidden';
 				?>
 
 				&lt;div class="wpcsp-sponsor-level wpcsp-sponsor-level-&lt;?php echo sanitize_html_class( $term->slug ); ?>">
@@ -626,11 +622,11 @@ class WPCS_Conference_Schedule {
 								&lt;?php endif; ?>
 
 								&lt;div class="wpcsp-sponsor-description">
-									&lt;?php if ( 'website' === $attr['link'] &amp;&amp; $website ) : ?>
+									&lt;?php if ( 'website' === $attr['link'] &amp;&amp; $website &amp;&amp; $image ) : ?>
 										&lt;a href="&lt;?php echo esc_url( $website ); ?>">
 											&lt;?php echo wp_kses_post( $image ); ?>
 										&lt;/a>
-									&lt;?php elseif ( 'post' === $attr['link'] ) : ?>
+									&lt;?php elseif ( 'post' === $attr['link'] &amp;&amp; $image ) : ?>
 										&lt;a href="&lt;?php echo esc_url( get_permalink() ); ?>">
 											&lt;?php echo wp_kses_post( $image ); ?>
 										&lt;/a>

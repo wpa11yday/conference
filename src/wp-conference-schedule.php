@@ -507,8 +507,8 @@ class WPCS_Conference_Schedule {
 		$attr = shortcode_atts(
 			array(
 				'link'           => 'none', // 'website' or 'post'.
-				'title'          => 'visible',
-				'content'        => 'full',
+				'title'          => 'hidden',
+				'content'        => 'hidden',
 				'excerpt_length' => 55,
 				'heading_level'  => 'h2',
 				'level'          => 'platinum,gold,silver,bronze,microsponsor,donor',
@@ -559,10 +559,6 @@ class WPCS_Conference_Schedule {
 				if ( ! $sponsors->have_posts() ) {
 					continue;
 				}
-
-				// temporarily hide elements.
-				$attr['title']   = 'hidden';
-				$attr['content'] = 'hidden';
 				?>
 
 				<div class="wpcsp-sponsor-level wpcsp-sponsor-level-<?php echo sanitize_html_class( $term->slug ); ?>">
@@ -600,11 +596,11 @@ class WPCS_Conference_Schedule {
 								<?php endif; ?>
 
 								<div class="wpcsp-sponsor-description">
-									<?php if ( 'website' === $attr['link'] && $website ) : ?>
+									<?php if ( 'website' === $attr['link'] && $website && $image ) : ?>
 										<a href="<?php echo esc_url( $website ); ?>">
 											<?php echo wp_kses_post( $image ); ?>
 										</a>
-									<?php elseif ( 'post' === $attr['link'] ) : ?>
+									<?php elseif ( 'post' === $attr['link'] && $image ) : ?>
 										<a href="<?php echo esc_url( get_permalink() ); ?>">
 											<?php echo wp_kses_post( $image ); ?>
 										</a>

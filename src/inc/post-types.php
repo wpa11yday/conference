@@ -228,7 +228,7 @@ function wpcs_cpt_at_glance() {
 			$output = '<a href="edit.php?post_type=' . esc_attr( $post_type->name ) . '">' . esc_html( $num ) . ' ' . esc_html( $text ) . '</a>';
 			echo '<li class="post-count ' . esc_attr( $post_type->name ) . '-count">' . $output . '</li>';
 		} else {
-			$output = '<span>' . $num . ' ' . $text . '</span>';
+			$output = '<span>' . esc_html( $num ) . ' ' . esc_html( $text ) . '</span>';
 			echo '<li class="post-count ' . esc_attr( $post_type->name ) . '-count">' . $output . '</li>';
 		}
 	}

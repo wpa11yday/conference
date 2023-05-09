@@ -226,10 +226,10 @@ function wpcs_cpt_at_glance() {
 		$text      = intval( $num_posts->publish ) > 1 ? $post_type->labels->name : $post_type->labels->singular_name;
 		if ( current_user_can( 'edit_posts' ) ) {
 			$output = '<a href="edit.php?post_type=' . esc_attr( $post_type->name ) . '">' . esc_html( $num ) . ' ' . esc_html( $text ) . '</a>';
-			echo '<li class="post-count ' . esc_attr( $post_type->name ) . '-count">' . esc_html( $output ) . '</li>';
+			echo '<li class="post-count ' . esc_attr( $post_type->name ) . '-count">' . $output . '</li>';
 		} else {
 			$output = '<span>' . $num . ' ' . $text . '</span>';
-			echo '<li class="post-count ' . esc_attr( $post_type->name ) . '-count">' . esc_html( $output ) . '</li>';
+			echo '<li class="post-count ' . esc_attr( $post_type->name ) . '-count">' . $output . '</li>';
 		}
 	}
 }

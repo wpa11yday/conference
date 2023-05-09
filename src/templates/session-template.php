@@ -54,7 +54,7 @@ get_header(); ?>
 									$term_names = wp_list_pluck( $terms, 'name' );
 									$terms      = implode( ', ', $term_names );
 									if ( $terms ) {
-										echo '<li class="wpsc-single-session-taxonomies-taxonomy wpsc-single-session-tracks"><i class="fas fa-columns"></i>' . $terms . '</li>';
+										echo '<li class="wpsc-single-session-taxonomies-taxonomy wpsc-single-session-tracks"><i class="fas fa-columns" aria-hidden="true"></i>' . $terms . '</li>';
 									}
 								}
 
@@ -63,7 +63,7 @@ get_header(); ?>
 									$term_names = wp_list_pluck( $terms, 'name' );
 									$terms      = implode( ', ', $term_names );
 									if ( $terms ) {
-										echo '<li class="wpsc-single-session-taxonomies-taxonomy  wpsc-single-session-location"><i class="fas fa-map-marker-alt"></i>' . $terms . '</li>';
+										echo '<li class="wpsc-single-session-taxonomies-taxonomy  wpsc-single-session-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>' . $terms . '</li>';
 									}
 								}
 

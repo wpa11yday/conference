@@ -1099,7 +1099,7 @@ class WPCS_Conference_Schedule {
 			$term_names = wp_list_pluck( $terms, 'name' );
 			$terms      = implode( ', ', $term_names );
 			if ( $terms ) {
-				echo '<li class="wpsc-single-session-taxonomies-taxonomy wpsc-single-session-location"><i class="fas fa-tag"></i>' . wp_kses_post( $terms ) . '</li>';
+				echo '<li class="wpsc-single-session-taxonomies-taxonomy wpsc-single-session-location"><i class="fas fa-tag" aria-hidden="true"></i>' . wp_kses_post( $terms ) . '</li>';
 			}
 		}
 	}

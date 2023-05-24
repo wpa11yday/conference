@@ -605,8 +605,8 @@ function wpcs_get_donors() {
 	$donors  = array();
 	$entries = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM wp_gf_entry WHERE form_id = %d', 6 ) );
 	foreach ( $entries as $entry ) {
-		$meta       = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM wp_gf_entry_meta WHERE entry_id = %d', $entry->id ) );
-		$data       = array();
+		$meta = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM wp_gf_entry_meta WHERE entry_id = %d', $entry->id ) );
+		$data = array();
 		foreach ( $meta as $value ) {
 			$data['payment_date'] = $entry->payment_date;
 			$data['paid']         = $entry->payment_status;
@@ -690,7 +690,7 @@ function wpcs_display_donors( $atts = array(), $content = '' ) {
 
 /**
  * Fetch Gravity Forms microsponsors.
- * 
+ *
  * @param bool $low_donors Indicate if low donors should be returned.
  * @return array
  */
@@ -699,8 +699,8 @@ function wpcs_get_microsponsors( $low_donors = false ) {
 	$sponsors = array();
 	$entries  = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM wp_gf_entry WHERE form_id = %d', 13 ) );
 	foreach ( $entries as $entry ) {
-		$meta       = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM wp_gf_entry_meta WHERE entry_id = %d', $entry->id ) );
-		$data       = array();
+		$meta = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM wp_gf_entry_meta WHERE entry_id = %d', $entry->id ) );
+		$data = array();
 		foreach ( $meta as $value ) {
 			$data['payment_date'] = $entry->payment_date;
 			$data['paid']         = $entry->payment_status;

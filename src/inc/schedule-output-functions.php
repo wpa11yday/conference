@@ -659,14 +659,14 @@ function wpcs_get_donors() {
  * @return string
  */
 function wpcs_display_donors( $atts = array(), $content = '' ) {
-	$output = get_transient( 'wpad_donors' );
+	$output = get_transient( 'wpcs_donors' );
 	if ( $output ) {
 		return $output;
 	} else {
 		$output = '';
 	}
-	$donors    = wpad_get_donors();
-	$attendees = wpad_get_microsponsors( true );
+	$donors    = wpcs_get_donors();
+	$attendees = wpcs_get_microsponsors( true );
 	$donors    = array_merge( $donors, $attendees );
 	$output    = '';
 	foreach ( $donors as $donor ) {
@@ -682,8 +682,8 @@ function wpcs_display_donors( $atts = array(), $content = '' ) {
 		$date     = gmdate( 'F, Y', strtotime( $donor['payment_date'] ) );
 		$output  .= '<li><strong>' . esc_html( $name ) . '</strong> <span class="date">' . $date . '</span><br /><span class="info">' . esc_html( $company . $location ) . '</span></li>';
 	}
-	$output = '<ul class="wpad-donors"' . $output . '</ul>';
-	set_transient( 'wpad_donors', $output, 300 );
+	$output = '<ul class="wpcs-donors wpad-donors"' . $output . '</ul>';
+	set_transient( 'wpcs_donors', $output, 300 );
 
 	return $output;
 }
@@ -780,13 +780,13 @@ function wpcs_display_microsponsors( $atts = array(), $content = '' ) {
 		'microsponsors'
 	);
 	$mh     = $args['maxheight'];
-	$output = get_transient( 'wpad_microsponsors' );
+	$output = get_transient( 'wpcs_microsponsors' );
 	if ( $output ) {
 		return $output;
 	} else {
 		$output = '';
 	}
-	$sponsors = wpad_get_microsponsors();
+	$sponsors = wpcs_get_microsponsors();
 	if ( is_array( $sponsors ) && count( $sponsors ) > 0 ) {
 		foreach ( $sponsors as $sponsor ) {
 			$name    = $sponsor['first_name'] . ' ' . $sponsor['last_name'];
@@ -803,8 +803,8 @@ function wpcs_display_microsponsors( $atts = array(), $content = '' ) {
 			$output .= '<li class="wpcsp-sponsor"><div class="wpcsp-sponsor-description">' . $wrap . '<img class="wpcsp-sponsor-image" src="' . esc_url( $image ) . '" alt="' . esc_html( $label ) . '" style="width: auto; max-height: ' . esc_attr( $mh ) . '" />' . $unwrap . '</div></li>';
 		}
 	}
-	$output = '<ul class="wpcsp-sponsor-list wpad-microsponsors">' . $output . '</ul>';
-	set_transient( 'wpad_microsponsors', $output, 300 );
+	$output = '<ul class="wpcsp-sponsor-list wpcs-microsponsors wpad-microsponsors">' . $output . '</ul>';
+	set_transient( 'wpcs_microsponsors', $output, 300 );
 
 	return $output;
 }

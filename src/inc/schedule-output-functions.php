@@ -603,11 +603,9 @@ function wpcs_ends_with( $source, $ext ) {
 function wpcs_get_donors() {
 	global $wpdb;
 	$donors  = array();
-	$query   = "SELECT * FROM wp_gf_entry WHERE form_id = 6";
-	$entries = $wpdb->get_results( $query );
+	$entries = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM wp_gf_entry WHERE form_id = %d', 6 ) );
 	foreach ( $entries as $entry ) {
-		$meta_query = "SELECT * FROM wp_gf_entry_meta WHERE entry_id = $entry->id";
-		$meta       = $wpdb->get_results( $meta_query );
+		$meta       = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM wp_gf_entry_meta WHERE entry_id = %d', $entry->id ) );
 		$data       = array();
 		foreach ( $meta as $value ) {
 			$data['payment_date'] = $entry->payment_date;
@@ -642,7 +640,7 @@ function wpcs_get_donors() {
 					break;
 			}
 		}
-		if ( $data['public'] !== 'Yes, you can list my name, company, and location on the WP Accessibility Day list of donors.' || $data['paid'] !== 'Paid' ) {
+		if ( 'Yes, you can list my name, company, and location on the WP Accessibility Day list of donors.' !== $data['public'] || 'Paid' !== $data['paid'] ) {
 			continue;
 		} else {
 			$donors[] = $data;
@@ -672,8 +670,8 @@ function wpcs_display_donors( $atts = array(), $content = '' ) {
 	$donors    = array_merge( $donors, $attendees );
 	$output    = '';
 	foreach ( $donors as $donor ) {
-		$name     = $donor['first_name'] . ' ' . $donor['last_name'];
-		$company  = $donor['company'];
+		$name    = $donor['first_name'] . ' ' . $donor['last_name'];
+		$company = $donor['company'];
 		if ( $donor['city'] === $donor['state'] ) {
 			$loc = $donor['city'];
 		} else {
@@ -682,7 +680,7 @@ function wpcs_display_donors( $atts = array(), $content = '' ) {
 		$location = $loc . ', ' . $donor['country'];
 		$location = ( $company ) ? ', ' . $location : $location;
 		$date     = gmdate( 'F, Y', strtotime( $donor['payment_date'] ) );
-		$output .= '<li><strong>' . esc_html( $name ) . '</strong> <span class="date">' . $date . '</span><br /><span class="info">' . esc_html( $company . $location ) . '</span></li>';
+		$output  .= '<li><strong>' . esc_html( $name ) . '</strong> <span class="date">' . $date . '</span><br /><span class="info">' . esc_html( $company . $location ) . '</span></li>';
 	}
 	$output = '<ul class="wpad-donors"' . $output . '</ul>';
 	set_transient( 'wpad_donors', $output, 300 );
@@ -691,21 +689,17 @@ function wpcs_display_donors( $atts = array(), $content = '' ) {
 }
 
 /**
- * Add donor shortcode.
- */
-add_shortcode( 'donors', 'wpad_display_donors', 10, 2 );
-
-/**
  * Fetch Gravity Forms microsponsors.
+ * 
+ * @param bool $low_donors Indicate if low donors should be returned.
+ * @return array
  */
 function wpcs_get_microsponsors( $low_donors = false ) {
 	global $wpdb;
 	$sponsors = array();
-	$query    = "SELECT * FROM wp_gf_entry WHERE form_id = 13";
-	$entries  = $wpdb->get_results( $query );
+	$entries  = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM wp_gf_entry WHERE form_id = %d', 13 ) );
 	foreach ( $entries as $entry ) {
-		$meta_query = "SELECT * FROM wp_gf_entry_meta WHERE entry_id = $entry->id";
-		$meta       = $wpdb->get_results( $meta_query );
+		$meta       = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM wp_gf_entry_meta WHERE entry_id = %d', $entry->id ) );
 		$data       = array();
 		foreach ( $meta as $value ) {
 			$data['payment_date'] = $entry->payment_date;
@@ -758,7 +752,7 @@ function wpcs_get_microsponsors( $low_donors = false ) {
 		}
 		// If we're fetching low donors, use their attendee status & values not equal to 10.
 		// If we're fetching microsponsors, use their sponsor status & values <= 10.
-		$skip = ( $low_donors ) ? ( $data['attendee'] !== 'Yes' || (int) $data['amount'] != 10 ) : ( $data['public'] !== 'Yes' || (int) $data['amount'] <= 10 );
+		$skip = ( $low_donors ) ? ( 'Yes' !== $data['attendee'] || 10 !== (int) $data['amount'] ) : ( 'Yes' !== $data['public'] || (int) $data['amount'] <= 10 );
 		if ( $skip ) {
 			continue;
 		} else {
@@ -778,7 +772,7 @@ function wpcs_get_microsponsors( $low_donors = false ) {
  * @return string
  */
 function wpcs_display_microsponsors( $atts = array(), $content = '' ) {
-	$args = shortcode_atts(
+	$args   = shortcode_atts(
 		array(
 			'maxheight' => '80px',
 		),
@@ -795,17 +789,17 @@ function wpcs_display_microsponsors( $atts = array(), $content = '' ) {
 	$sponsors = wpad_get_microsponsors();
 	if ( is_array( $sponsors ) && count( $sponsors ) > 0 ) {
 		foreach ( $sponsors as $sponsor ) {
-			$name     = $sponsor['first_name'] . ' ' . $sponsor['last_name'];
-			$company  = $sponsor['company'];
-			$link     = $sponsor['link'];
-			$image    = $sponsor['image'];
+			$name    = $sponsor['first_name'] . ' ' . $sponsor['last_name'];
+			$company = $sponsor['company'];
+			$link    = $sponsor['link'];
+			$image   = $sponsor['image'];
 			if ( ! $image ) {
 				continue;
 			}
-			$wrap     = ( wp_http_validate_url( $link ) ) ? '<a href="' . esc_url( $link ) . '">' : '';
-			$unwrap   = ( '' !== $wrap ) ? '</a>' : '';
+			$wrap   = ( wp_http_validate_url( $link ) ) ? '<a href="' . esc_url( $link ) . '">' : '';
+			$unwrap = ( '' !== $wrap ) ? '</a>' : '';
 
-			$label = ( $company ) ? $company : $name;
+			$label   = ( $company ) ? $company : $name;
 			$output .= '<li class="wpcsp-sponsor"><div class="wpcsp-sponsor-description">' . $wrap . '<img class="wpcsp-sponsor-image" src="' . esc_url( $image ) . '" alt="' . esc_html( $label ) . '" style="width: auto; max-height: ' . esc_attr( $mh ) . '" />' . $unwrap . '</div></li>';
 		}
 	}

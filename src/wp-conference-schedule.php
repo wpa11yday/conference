@@ -502,8 +502,6 @@ class WPCS_Conference_Schedule {
 	 * @return string
 	 */
 	public function shortcode_sponsors( $attr, $content ) {
-		global $post;
-
 		$attr = shortcode_atts(
 			array(
 				'link'           => 'none', // 'website' or 'post'.

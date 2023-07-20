@@ -1308,7 +1308,7 @@ function wpcsp_donor_metabox() {
 		)
 	);
 
-	// Donor Company
+	// Donor Company.
 	$cmb->add_field(
 		array(
 			'name' => __( 'Company', 'wpa-conference' ),
@@ -1317,7 +1317,7 @@ function wpcsp_donor_metabox() {
 		)
 	);
 
-	// Donor City
+	// Donor City.
 	$cmb->add_field(
 		array(
 			'name' => __( 'City', 'wpa-conference' ),
@@ -1326,7 +1326,7 @@ function wpcsp_donor_metabox() {
 		)
 	);
 
-	// Donor State/Province/Region
+	// Donor State/Province/Region.
 	$cmb->add_field(
 		array(
 			'name' => __( 'State / Province / Region', 'wpa-conference' ),
@@ -1335,7 +1335,7 @@ function wpcsp_donor_metabox() {
 		)
 	);
 
-	// Donor Country
+	// Donor Country.
 	$cmb->add_field(
 		array(
 			'name' => __( 'Country', 'wpa-conference' ),
@@ -1507,54 +1507,53 @@ function wpcs_get_youtube() {
  * @return string
  */
 function wpcsp_donors_shortcode() {
-    ob_start();
-    wpcsp_donors_list();
-    return ob_get_clean();
+	ob_start();
+	wpcsp_donors_list();
+	return ob_get_clean();
 }
 
 /**
  * Function to retrieve and display the list of donors
  */
 function wpcsp_donors_list() {
-    $args = array(
-        'post_type'      => 'wpcsp_donor',
-        'post_status'    => 'publish',
-        'posts_per_page' => -1,
-        'orderby'        => 'date',
-        'order'          => 'DESC',
-    );
+	$args = array(
+		'post_type'      => 'wpcsp_donor',
+		'post_status'    => 'publish',
+		'posts_per_page' => -1,
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+	);
 
-    $donors_query = new WP_Query( $args );
+	$donors_query = new WP_Query( $args );
 
-    if ( $donors_query->have_posts() ) {
-        echo '<div class="wpcsp-donors"><ul>';
-        while ( $donors_query->have_posts() ) {
-            $donors_query->the_post();
+	if ( $donors_query->have_posts() ) {
+	echo '<div class="wpcsp-donors"><ul>';
+	        while ( $donors_query->have_posts() ) {
+			$donors_query->the_post();
 
-            $donor_company = get_post_meta( get_the_ID(), 'wpcsp_donor_company', true );
-            $donor_city    = get_post_meta( get_the_ID(), 'wpcsp_donor_city', true );
-            $donor_state   = get_post_meta( get_the_ID(), 'wpcsp_donor_state', true );
-            $donor_country = get_post_meta( get_the_ID(), 'wpcsp_donor_country', true );
+			$donor_company = get_post_meta( get_the_ID(), 'wpcsp_donor_company', true );
+			$donor_city    = get_post_meta( get_the_ID(), 'wpcsp_donor_city', true );
+			$donor_state   = get_post_meta( get_the_ID(), 'wpcsp_donor_state', true );
+			$donor_country = get_post_meta( get_the_ID(), 'wpcsp_donor_country', true );
 
-            echo '<li>';
-            echo '<span class="donor-name">' . get_the_title();
-            if ( ! empty( $donor_company ) ) {
-                echo ', ' . esc_html( $donor_company );
-            }
-            echo '</span>';
+			echo '<li>';
+			echo '<span class="donor-name">' . get_the_title();
+			if ( ! empty( $donor_company ) ) {
+				echo ', ' . esc_html( $donor_company );
+			}
+			echo '</span>';
 
-            if ( ! empty( $donor_city ) || ! empty( $donor_state ) || ! empty( $donor_country ) ) {
-                echo '<span class="donor-location">';
-                $location_parts = array_filter( array( $donor_city, $donor_state, $donor_country ) );
-                echo implode( ', ', array_map( 'esc_html', $location_parts ) );
-                echo '</span>';
-            }
-
-            echo '</li>';
-        }
-        echo '</ul></div>';
-        wp_reset_postdata();
-    } else {
-        echo '<p>No donors found. You can be the first to donate! <a href="' . esc_url( $donate_url ) . '">Donate Now</a></p>';
-    }
+			if ( ! empty( $donor_city ) || ! empty( $donor_state ) || ! empty( $donor_country ) ) {
+				echo '<span class="donor-location">';
+				$location_parts = array_filter( array( $donor_city, $donor_state, $donor_country ) );
+				echo implode( ', ', array_map( 'esc_html', $location_parts ) );
+				echo '</span>';
+			}
+			echo '</li>';
+		}
+		echo '</ul></div>';
+		wp_reset_postdata();
+	} else {
+		echo '<p>No donors found. You can be the first to donate! <a href="' . esc_url( $donate_url ) . '">Donate Now</a></p>';
+	}
 }

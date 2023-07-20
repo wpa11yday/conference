@@ -103,6 +103,48 @@ function wpcs_register_post_types() {
 		)
 	);
 
+	// Donor post type labels.
+	$donorlabels = array(
+		'name'               => __( 'Donors', 'wpa-conference' ),
+		'singular_name'      => __( 'Donor', 'wpa-conference' ),
+		'add_new'            => __( 'Add New', 'wpa-conference' ),
+		'add_new_item'       => __( 'Create New Donor', 'wpa-conference' ),
+		'edit'               => __( 'Edit', 'wpa-conference' ),
+		'edit_item'          => __( 'Edit Donor', 'wpa-conference' ),
+		'new_item'           => __( 'New Donor', 'wpa-conference' ),
+		'view'               => __( 'View Donor', 'wpa-conference' ),
+		'view_item'          => __( 'View Donor', 'wpa-conference' ),
+		'search_items'       => __( 'Search Donors', 'wpa-conference' ),
+		'not_found'          => __( 'No Donors found', 'wpa-conference' ),
+		'not_found_in_trash' => __( 'No Donors found in Trash', 'wpa-conference' ),
+		'parent_item_colon'  => __( 'Parent Donor:', 'wpa-conference' ),
+	);
+
+	// Register donor post type.
+	register_post_type(
+		'wpcsp_donor',
+		array(
+			'labels'             => $donorlabels,
+			'rewrite'            => array(
+				'slug'       => 'donors',
+				'with_front' => false,
+			),
+			'supports'           => array( 'title' ),
+			'menu_position'      => 21,
+			'public'             => true,
+			'show_ui'            => true,
+			'can_export'         => true,
+			'capability_type'    => 'post',
+			'hierarchical'       => false,
+			'query_var'          => true,
+			'menu_icon'          => 'dashicons-money',
+			'show_in_rest'       => true,
+			'rest_base'          => 'donors',
+			'publicly_queryable' => false,
+			'has_archive'        => false,
+		)
+	);
+
 	// Session post type labels.
 	$sessionlabels = array(
 		'name'               => __( 'Sessions', 'wpa-conference' ),

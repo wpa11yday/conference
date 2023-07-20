@@ -34,7 +34,7 @@
  * @wordpress-plugin
  * Plugin Name:       Conference Schedule
  * Plugin URI:        https://wpaccessibility.day
- * Description:       Generates people, sponsor, session post types &amp; displays schedule information.
+ * Description:       Generates people, sponsor, donor, and session post types &amp; displays schedule information.
  * Version:           1.0.5.2
  * Author:            WP Accessibility Day
  * Author URI:        https://wpaccessibility.day
@@ -73,7 +73,7 @@ require_once( WPCS_DIR . '/inc/cmb-field-select2/cmb-field-select2.php' );
 require_once( WPCS_DIR . '/inc/cmb2-conditional-logic/cmb2-conditional-logic.php' );
 
 add_shortcode( 'schedule', 'wpcs_schedule' );
-add_shortcode( 'donors', 'wpcs_display_donors', 10, 2 );
+add_shortcode( 'donors', 'wpcsp_donors_shortcode', 10, 2 );
 add_shortcode( 'microsponsors', 'wpcs_display_microsponsors', 10, 2 );
 add_shortcode( 'attendees', 'wpcs_people' );
 add_shortcode( 'able', 'wpcs_get_video' );
@@ -86,7 +86,7 @@ add_shortcode( 'wpad', 'wpcs_event_start' );
  */
 function wpcs_redirect_sponsors() {
 	if ( is_singular( 'wpcsp_sponsor' ) ) {
-		if ( has_term( 'microsponsor', 'wpcsp_sponsor_level' ) || has_term( 'donor', 'wpcsp_sponsor_level' ) ) {
+		if ( has_term( 'microsponsor', 'wpcsp_sponsor_level' ) ) {
 			wp_redirect( get_option( 'wpcsp_field_sponsors_page_url', home_url() ) );
 			exit;
 		}
@@ -1177,6 +1177,7 @@ $ac_pro_plugin_basename  = plugin_basename( __FILE__ );
  */
 add_action( 'wp_enqueue_scripts', 'wpcsp_pro_enqueue_styles' );
 add_action( 'cmb2_admin_init', 'wpcsp_speaker_metabox' );
+add_action( 'cmb2_admin_init', 'wpcsp_donor_metabox' );
 add_action( 'cmb2_admin_init', 'wpcsp_sponsor_metabox' );
 add_action( 'cmb2_admin_init', 'wpcsp_sponsor_level_metabox' );
 
@@ -1314,6 +1315,62 @@ function wpcsp_speaker_metabox() {
 		)
 	);
 }
+
+/**
+ * Generate donor metabox.
+ *
+ * @return void
+ */
+function wpcsp_donor_metabox() {
+
+	$cmb = new_cmb2_box(
+		array(
+			'id'           => 'wpcsp_donor_metabox',
+			'title'        => __( 'Donor Information', 'wpa-conference' ),
+			'object_types' => array( 'wpcsp_donor' ), // Post type.
+			'context'      => 'normal',
+			'priority'     => 'high',
+			'show_names'   => true, // Show field names on the left.
+		)
+	);
+
+	// Donor Company.
+	$cmb->add_field(
+		array(
+			'name' => __( 'Company', 'wpa-conference' ),
+			'id'   => 'wpcsp_donor_company',
+			'type' => 'text',
+		)
+	);
+
+	// Donor City.
+	$cmb->add_field(
+		array(
+			'name' => __( 'City', 'wpa-conference' ),
+			'id'   => 'wpcsp_donor_city',
+			'type' => 'text',
+		)
+	);
+
+	// Donor State/Province/Region.
+	$cmb->add_field(
+		array(
+			'name' => __( 'State / Province / Region', 'wpa-conference' ),
+			'id'   => 'wpcsp_donor_state',
+			'type' => 'text',
+		)
+	);
+
+	// Donor Country.
+	$cmb->add_field(
+		array(
+			'name' => __( 'Country', 'wpa-conference' ),
+			'id'   => 'wpcsp_donor_country',
+			'type' => 'text',
+		)
+	);
+}
+
 
 /**
  * Generate sponsor metaboxes.
@@ -1468,6 +1525,63 @@ function wpcs_get_youtube() {
 	$session_youtube = get_post_meta( $post_id, '_wpcs_youtube_id', true );
 
 	return $session_youtube;
+}
+
+/**
+ * Register the donors shortcode
+ *
+ * @return string
+ */
+function wpcsp_donors_shortcode() {
+	ob_start();
+	wpcsp_donors_list();
+	return ob_get_clean();
+}
+
+/**
+ * Function to retrieve and display the list of donors
+ */
+function wpcsp_donors_list() {
+	$args = array(
+		'post_type'      => 'wpcsp_donor',
+		'post_status'    => 'publish',
+		'posts_per_page' => -1,
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+	);
+
+	$donors_query = new WP_Query( $args );
+
+	if ( $donors_query->have_posts() ) {
+		echo '&lt;div class="wpcsp-donors">&lt;ul>';
+		while ( $donors_query->have_posts() ) {
+			$donors_query->the_post();
+
+			$donor_company = get_post_meta( get_the_ID(), 'wpcsp_donor_company', true );
+			$donor_city    = get_post_meta( get_the_ID(), 'wpcsp_donor_city', true );
+			$donor_state   = get_post_meta( get_the_ID(), 'wpcsp_donor_state', true );
+			$donor_country = get_post_meta( get_the_ID(), 'wpcsp_donor_country', true );
+
+			echo '&lt;li>';
+			echo '&lt;span class="donor-name">' . get_the_title();
+			if ( ! empty( $donor_company ) ) {
+				echo ', ' . esc_html( $donor_company );
+			}
+			echo '&lt;/span>';
+
+			if ( ! empty( $donor_city ) || ! empty( $donor_state ) || ! empty( $donor_country ) ) {
+				echo '&lt;span class="donor-location">';
+				$location_parts = array_filter( array( $donor_city, $donor_state, $donor_country ) );
+				echo implode( ', ', array_map( 'esc_html', $location_parts ) );
+				echo '&lt;/span>';
+			}
+			echo '&lt;/li>';
+		}
+		echo '&lt;/ul>&lt;/div>';
+		wp_reset_postdata();
+	} else {
+		echo '&lt;p>No donors found. You can be the first to donate! &lt;a href="' . esc_url( $donate_url ) . '">Donate Now&lt;/a>&lt;/p>';
+	}
 }
 </code></pre>
         </article>

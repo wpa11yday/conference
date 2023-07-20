@@ -1527,8 +1527,8 @@ function wpcsp_donors_list() {
 	$donors_query = new WP_Query( $args );
 
 	if ( $donors_query->have_posts() ) {
-	echo '<div class="wpcsp-donors"><ul>';
-	        while ( $donors_query->have_posts() ) {
+		echo '<div class="wpcsp-donors"><ul>';
+		while ( $donors_query->have_posts() ) {
 			$donors_query->the_post();
 
 			$donor_company = get_post_meta( get_the_ID(), 'wpcsp_donor_company', true );

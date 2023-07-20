@@ -131,7 +131,7 @@ function wpcs_register_post_types() {
 			),
 			'supports'        => array( 'title' ),
 			'menu_position'   => 21,
-			'public'          => false,
+			'public'          => true,
 			'show_ui'         => true,
 			'can_export'      => true,
 			'capability_type' => 'post',
@@ -140,6 +140,8 @@ function wpcs_register_post_types() {
 			'menu_icon'       => 'dashicons-money',
 			'show_in_rest'    => true,
 			'rest_base'       => 'donors',
+			'publicly_queryable' => false,
+			'has_archive'        => false,
 		)
 	);
 

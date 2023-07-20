@@ -8,7 +8,7 @@
  * @wordpress-plugin
  * Plugin Name:       Conference Schedule
  * Plugin URI:        https://wpaccessibility.day
- * Description:       Generates people, sponsor, session post types & displays schedule information.
+ * Description:       Generates people, sponsor, donor, and session post types & displays schedule information.
  * Version:           1.0.5.2
  * Author:            WP Accessibility Day
  * Author URI:        https://wpaccessibility.day

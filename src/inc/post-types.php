@@ -102,7 +102,7 @@ function wpcs_register_post_types() {
 			'rest_base'       => 'sponsors',
 		)
 	);
-	
+
 	// Donor post type labels.
 	$donorlabels = array(
 		'name'               => __( 'Donors', 'wpa-conference' ),
@@ -124,22 +124,22 @@ function wpcs_register_post_types() {
 	register_post_type(
 		'wpcsp_donor',
 		array(
-			'labels'          => $donorlabels,
-			'rewrite'         => array(
+			'labels'             => $donorlabels,
+			'rewrite'            => array(
 				'slug'       => 'donors',
 				'with_front' => false,
 			),
-			'supports'        => array( 'title' ),
-			'menu_position'   => 21,
-			'public'          => true,
-			'show_ui'         => true,
-			'can_export'      => true,
-			'capability_type' => 'post',
-			'hierarchical'    => false,
-			'query_var'       => true,
-			'menu_icon'       => 'dashicons-money',
-			'show_in_rest'    => true,
-			'rest_base'       => 'donors',
+			'supports'           => array( 'title' ),
+			'menu_position'      => 21,
+			'public'             => true,
+			'show_ui'            => true,
+			'can_export'         => true,
+			'capability_type'    => 'post',
+			'hierarchical'       => false,
+			'query_var'          => true,
+			'menu_icon'          => 'dashicons-money',
+			'show_in_rest'       => true,
+			'rest_base'          => 'donors',
 			'publicly_queryable' => false,
 			'has_archive'        => false,
 		)

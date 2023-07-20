@@ -1151,6 +1151,7 @@ $ac_pro_plugin_basename  = plugin_basename( __FILE__ );
  */
 add_action( 'wp_enqueue_scripts', 'wpcsp_pro_enqueue_styles' );
 add_action( 'cmb2_admin_init', 'wpcsp_speaker_metabox' );
+add_action( 'cmb2_admin_init', 'wpcsp_donor_metabox' );
 add_action( 'cmb2_admin_init', 'wpcsp_sponsor_metabox' );
 add_action( 'cmb2_admin_init', 'wpcsp_sponsor_level_metabox' );
 
@@ -1288,6 +1289,62 @@ function wpcsp_speaker_metabox() {
 		)
 	);
 }
+
+/**
+ * Generate donor metabox.
+ *
+ * @return void
+ */
+function wpcsp_donor_metabox() {
+
+	$cmb = new_cmb2_box(
+		array(
+			'id'           => 'wpcsp_donor_metabox',
+			'title'        => __( 'Donor Information', 'wpa-conference' ),
+			'object_types' => array( 'wpcsp_donor' ), // Post type.
+			'context'      => 'normal',
+			'priority'     => 'high',
+			'show_names'   => true, // Show field names on the left.
+		)
+	);
+
+	// Donor Company
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Company', 'wpa-conference' ),
+			'id'        => 'wpcsp_donor_company',
+			'type'      => 'text',
+		)
+	);
+
+	// Donor City
+	$cmb->add_field(
+		array(
+			'name'      => __( 'City', 'wpa-conference' ),
+			'id'        => 'wpcsp_donor_city',
+			'type'      => 'text',
+		)
+	);
+
+	// Donor State/Province/Region
+	$cmb->add_field(
+		array(
+			'name'      => __( 'State / Province / Region', 'wpa-conference' ),
+			'id'        => 'wpcsp_donor_state',
+			'type'      => 'text',
+		)
+	);
+
+	// Donor Country
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Country', 'wpa-conference' ),
+			'id'        => 'wpcsp_donor_country',
+			'type'      => 'text',
+		)
+	);
+}
+
 
 /**
  * Generate sponsor metaboxes.

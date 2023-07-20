@@ -1311,36 +1311,36 @@ function wpcsp_donor_metabox() {
 	// Donor Company
 	$cmb->add_field(
 		array(
-			'name'      => __( 'Company', 'wpa-conference' ),
-			'id'        => 'wpcsp_donor_company',
-			'type'      => 'text',
+			'name' => __( 'Company', 'wpa-conference' ),
+			'id'   => 'wpcsp_donor_company',
+			'type' => 'text',
 		)
 	);
 
 	// Donor City
 	$cmb->add_field(
 		array(
-			'name'      => __( 'City', 'wpa-conference' ),
-			'id'        => 'wpcsp_donor_city',
-			'type'      => 'text',
+			'name' => __( 'City', 'wpa-conference' ),
+			'id'   => 'wpcsp_donor_city',
+			'type' => 'text',
 		)
 	);
 
 	// Donor State/Province/Region
 	$cmb->add_field(
 		array(
-			'name'      => __( 'State / Province / Region', 'wpa-conference' ),
-			'id'        => 'wpcsp_donor_state',
-			'type'      => 'text',
+			'name' => __( 'State / Province / Region', 'wpa-conference' ),
+			'id'   => 'wpcsp_donor_state',
+			'type' => 'text',
 		)
 	);
 
 	// Donor Country
 	$cmb->add_field(
 		array(
-			'name'      => __( 'Country', 'wpa-conference' ),
-			'id'        => 'wpcsp_donor_country',
-			'type'      => 'text',
+			'name' => __( 'Country', 'wpa-conference' ),
+			'id'   => 'wpcsp_donor_country',
+			'type' => 'text',
 		)
 	);
 }

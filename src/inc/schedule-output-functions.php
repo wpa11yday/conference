@@ -123,9 +123,13 @@ function wpcs_shortcode_people( $atts ) {
  * @return array
  */
 function wpcs_get_sessions() {
+	$post_status = 'publish';
+	if ( isset( $_GET['preview'] ) && current_user_can( 'publish_posts' ) ) {
+		$post_status = 'draft';
+	}
 	$query = array(
 		'post_type'      => 'wpcs_session',
-		'post_status'    => 'publish',
+		'post_status'    => $post_status,
 		'posts_per_page' => -1,
 		'fields'         => 'ids',
 		'meta_query'     => array(
@@ -199,7 +203,9 @@ function wpcs_schedule( $atts, $content ) {
 
 		$time       = str_pad( $base, 2, '0', STR_PAD_LEFT );
 		$is_current = false;
-
+		if ( ! isset( $schedule[ $time ] ) ) {
+			continue;
+		}
 		$text    = '';
 		$is_next = false;
 		if ( ( time() > $begin - HOUR_IN_SECONDS ) && ( time() < $end ) ) {

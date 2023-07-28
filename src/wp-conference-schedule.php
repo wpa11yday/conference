@@ -776,9 +776,7 @@ class WPCS_Conference_Schedule {
 				}
 				?>
 
-				<!-- Organizers note: The id attribute is deprecated and only remains for backwards compatibility, please use the corresponding class to target individual speakers -->
 				<div class="wpcsp-speaker" id="wpcsp-speaker-<?php echo sanitize_html_class( $post->post_name ); ?>" class="<?php echo esc_attr( implode( ' ', $speaker_classes ) ); ?>">
-
 					<?php
 					if ( has_post_thumbnail( $post_id ) && true === $attr['show_image'] ) {
 						echo get_the_post_thumbnail( $post_id, array( $attr['image_size'], $attr['image_size'] ), array( 'class' => 'wpcsp-speaker-image' ) );}

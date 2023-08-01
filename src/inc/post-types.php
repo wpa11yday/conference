@@ -57,7 +57,7 @@ function wpcs_register_post_types() {
 			'hierarchical'       => false,
 			'query_var'          => true,
 			'menu_icon'          => 'dashicons-groups',
-			'show_in_rest'       => true,
+			'show_in_rest'       => false,
 			'rest_base'          => 'people',
 			'has_archive'        => false,
 		)
@@ -180,7 +180,7 @@ function wpcs_register_post_types() {
 			'hierarchical'    => false,
 			'query_var'       => true,
 			'menu_icon'       => 'dashicons-schedule',
-			'show_in_rest'    => true,
+			'show_in_rest'    => false,
 			'rest_base'       => 'sessions',
 		)
 	);

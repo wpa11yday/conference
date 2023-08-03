@@ -111,6 +111,9 @@ add_action( 'display_post_states', 'wpcs_display_post_states' );
  */
 function wpcs_display_post_states( $states ) {
 	global $post;
+	if ( ! is_object( $post ) ) {
+		return;
+	}
 
 	$label = __( 'Approved', 'wpa-conference' );
 	$val   = 'approved';

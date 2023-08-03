@@ -274,7 +274,7 @@ class WPCS_Conference_Schedule {
 	 * @return void
 	 */
 	public function wpcs_metabox_session_info() {
-		$post             = get_post();
+		$post = get_post();
 		if ( ! $post ) {
 			return;
 		}

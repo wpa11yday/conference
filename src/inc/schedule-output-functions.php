@@ -159,6 +159,7 @@ function wpcs_get_sessions() {
  * @return string
  */
 function wpcs_schedule( $atts, $content ) {
+	$output       = array();
 	$return       = get_transient( 'wpcs_schedule' );
 	$current_talk = '';
 	if ( $return && ! isset( $_GET['reset_cache'] ) ) {

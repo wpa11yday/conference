@@ -225,7 +225,7 @@ function wpcs_schedule( $atts, $content ) {
 		}
 
 		$datatime  = $schedule[ $time ]['ts'];
-		$time_html = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':00 UTC<span class="screen-reader-text">,&nbsp;</span></span>' . ' </div></h2><div class="talk-wrapper">%s</div></div>';
+		$time_html = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':00 UTC<span class="screen-reader-text">,&nbsp;</span></span>' . ' </div></h2><div class="talk-wrapper">%s[control]</div></div>';
 		$talk_ID   = $schedule[ $time ]['id'];
 		if ( $talk_ID ) {
 			$talk_type = sanitize_html_class( get_post_meta( $talk_ID, '_wpcs_session_type', true ) );
@@ -237,6 +237,7 @@ function wpcs_schedule( $atts, $content ) {
 			$talk_title   = '<a href="' . esc_url( get_the_permalink( $talk_ID ) ) . '" id="talk-' . $talk_attr_id . '">' . $talk->post_title . '</a>' . $session_id;
 			$talk_label   = ( 'panel' === $talk_type ) ? '<strong>Panel:</strong> ' : '';
 			$talk_title  .= '<div class="talk-speakers">' . $talk_label . implode( ', ', $speakers['list'] ) . '</div>';
+			$talk_title   = '<div class="talk-title-wrapper">' . $talk_title . '</div>';
 			$talk_heading = sprintf( $time_html, ' ' . $talk_title );
 			if ( 'lightning' !== $talk_type ) {
 				$wrap   = '<div class="wp-block-column">';
@@ -266,8 +267,7 @@ function wpcs_schedule( $atts, $content ) {
 			$output[] = "
 			<div class='wp-block-group schedule $talk_type' id='$session_id'>
 				<div class='wp-block-group__inner-container'>
-					$talk_heading
-					$control
+					" . str_replace( '[control]', '<div>' . $control . '</div>', $talk_heading ) . "
 					<div class='wp-block-columns inside $hidden'>
 						$talk_output
 					</div>

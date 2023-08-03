@@ -301,6 +301,9 @@ class WPCS_Conference_Schedule {
 	 */
 	public function wpcs_metabox_session_info() {
 		$post             = get_post();
+		if ( ! $post ) {
+			return;
+		}
 		$session_time     = absint( get_post_meta( $post->ID, '_wpcs_session_time', true ) );
 		$default_date     = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'Y-m-d', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'Y-m-d', strtotime( get_option( 'wpad_start_time' ) ) );
 		$default_hours    = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'g', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'g', strtotime( get_option( 'wpad_start_time' ) ) );

@@ -766,8 +766,14 @@ class WPCS_Conference_Schedule {
 				$last_name          = get_post_meta( $post_id, 'wpcsp_last_name', true );
 				$full_name          = $first_name . ' ' . $last_name;
 				$title_organization = array();
-				$title              = ( get_post_meta( $post_id, 'wpcsp_title', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_title', true ) : null;
-				$organization       = ( get_post_meta( $post_id, 'wpcsp_organization', true ) ) ? $title_organization[] = get_post_meta( $post_id, 'wpcsp_organization', true ) : null;
+				$title              = get_post_meta( $post_id, 'wpcsp_title', true );
+				$organization       = get_post_meta( $post_id, 'wpcsp_organization', true );
+				if ( $title ) {
+					$title_organization[] = $title;
+				}
+				if ( $organization ) {
+					$title_organization[] = $organization;
+				}
 
 				$speaker_classes = array( 'wpcsp-speaker', 'wpcsp-speaker-' . sanitize_html_class( $post->post_name ) );
 
@@ -781,7 +787,11 @@ class WPCS_Conference_Schedule {
 				<div class="wpcsp-speaker" id="wpcsp-speaker-<?php echo sanitize_html_class( $post->post_name ); ?>" class="<?php echo esc_attr( implode( ' ', $speaker_classes ) ); ?>">
 					<?php
 					if ( has_post_thumbnail( $post_id ) && true === $attr['show_image'] ) {
-						echo get_the_post_thumbnail( $post_id, array( $attr['image_size'], $attr['image_size'] ), array( 'class' => 'wpcsp-speaker-image' ) );}
+						if ( ! has_image_size( $image_size) && ! is_numeric( $image_size ) ) {
+							$image_size = 'thumbnail';
+						}
+						$image_size = ( is_numeric( $image_size ) ) ? array( $image_size, $image_size ) : $image_size;
+						echo get_the_post_thumbnail( $post_id, $image_size, array( 'class' => 'wpcsp-speaker-image' ) );}
 					?>
 
 					<<?php echo esc_html( $heading_level ); ?> class="wpcsp-speaker-name">

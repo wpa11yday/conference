@@ -790,6 +790,7 @@ class WPCS_Conference_Schedule {
 				<div class="wpcsp-speaker" id="wpcsp-speaker-<?php echo sanitize_html_class( $post->post_name ); ?>" class="<?php echo esc_attr( implode( ' ', $speaker_classes ) ); ?>">
 					<?php
 					if ( has_post_thumbnail( $post_id ) && true === $attr['show_image'] ) {
+						$image_size = $attr['image_size'];
 						if ( ! has_image_size( $image_size ) && ! is_numeric( $image_size ) ) {
 							$image_size = 'thumbnail';
 						}

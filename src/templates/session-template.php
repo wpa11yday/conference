@@ -101,7 +101,7 @@ get_header(); ?>
 											} else {
 
 												$sponsor_url = get_the_permalink( $sponsor_li );
-												$rel = '';
+												$rel         = '';
 											}
 											?>
 												<div class="wpcsp-sponsor-single-image">

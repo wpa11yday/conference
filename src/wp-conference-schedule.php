@@ -62,7 +62,7 @@ add_shortcode( 'wpad', 'wpcs_event_start' );
  */
 function wpcs_redirect_sponsors() {
 	if ( is_singular( 'wpcsp_sponsor' ) ) {
-		if ( has_term( 'microsponsor', 'wpcsp_sponsor_level' ) ) {
+		if ( has_term( 'micro', 'wpcsp_sponsor_level' ) ) {
 			wp_redirect( get_option( 'wpcsp_field_sponsors_page_url', home_url() ) );
 			exit;
 		}

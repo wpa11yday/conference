@@ -607,7 +607,7 @@ class WPCS_Conference_Schedule {
 								&lt;?php if ( 'visible' === $attr['title'] ) : ?>
 									&lt;?php if ( 'website' === $attr['link'] &amp;&amp; $website ) : ?>
 										&lt;h3>
-											&lt;a href="&lt;?php echo esc_url( $website ); ?>">
+											&lt;a href="&lt;?php echo esc_url( $website ); ?>" rel="sponsored">
 												&lt;?php the_title(); ?>
 											&lt;/a>
 										&lt;/h3>
@@ -626,7 +626,7 @@ class WPCS_Conference_Schedule {
 
 								&lt;div class="wpcsp-sponsor-description">
 									&lt;?php if ( 'website' === $attr['link'] &amp;&amp; $website &amp;&amp; $image ) : ?>
-										&lt;a href="&lt;?php echo esc_url( $website ); ?>">
+										&lt;a href="&lt;?php echo esc_url( $website ); ?>" rel="sponsored">
 											&lt;?php echo wp_kses_post( $image ); ?>
 										&lt;/a>
 									&lt;?php elseif ( 'post' === $attr['link'] &amp;&amp; $image ) : ?>
@@ -1156,8 +1156,8 @@ class WPCS_Conference_Schedule {
 		}
 
 		$sponsors = array();
-		foreach ( $session_sponsors as $sponser_li ) {
-			$sponsors[] .= get_the_title( $sponser_li );
+		foreach ( $session_sponsors as $sponsor_li ) {
+			$sponsors[] .= get_the_title( $sponsor_li );
 		}
 
 		ob_start();
@@ -1593,8 +1593,6 @@ function wpcsp_donors_list() {
 		}
 		echo '&lt;/ul>&lt;/div>';
 		wp_reset_postdata();
-	} else {
-		echo '&lt;p>No donors found. You can be the first to donate! &lt;a href="' . esc_url( $donate_url ) . '">Donate Now&lt;/a>&lt;/p>';
 	}
 }
 </code></pre>

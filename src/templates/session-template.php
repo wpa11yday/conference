@@ -84,29 +84,28 @@ get_header(); ?>
 								<h2>Presented by</h2>
 								<div class="wpcsp-sponsor-single-row">
 									<?php
-										$sponser_url = '';
-										$target      = '';
-									foreach ( $sponsor_list as $sponser_li ) {
-										$sponsor_img = get_the_post_thumbnail( $sponser_li, 'full', array( 'alt' => get_the_title( $sponser_li ) ) );
+									$sponsor_url = '';
+									$rel         = '';
+									foreach ( $sponsor_list as $sponsor_li ) {
+										$sponsor_img = get_the_post_thumbnail( $sponsor_li, 'full', array( 'alt' => get_the_title( $sponsor_li ) ) );
 										if ( ! empty( $sponsor_img ) ) {
-											$sponsor_url       = get_option( 'wpcsp_field_sponsor_page_url' );
-											$wpcsp_website_url = get_post_meta( $sponser_li, 'wpcsp_website_url', true );
+											$wpcsp_website_url = get_post_meta( $sponsor_li, 'wpcsp_website_url', true );
 
 											if ( 'sponsor_site' === $sponsor_url ) {
 												if ( ! empty( $wpcsp_website_url ) ) {
-													$sponser_url = $wpcsp_website_url;
-													$target      = '_blank';
+													$sponsor_url = $wpcsp_website_url;
 												} else {
-													$sponser_url = '#';
-													$target      = '';
+													$sponsor_url = '#';
 												}
+												$rel = ' rel="sponsored"';
 											} else {
 
-												$sponser_url = get_the_permalink( $sponser_li );
+												$sponsor_url = get_the_permalink( $sponsor_li );
+												$rel = '';
 											}
 											?>
 												<div class="wpcsp-sponsor-single-image">
-													<a href="<?php echo $sponser_url; ?>"><?php echo $sponsor_img; ?></a>
+													<a href="<?php echo $sponsor_url; ?>"<?php echo $rel; ?>><?php echo $sponsor_img; ?></a>
 												</div>
 											<?php
 										}

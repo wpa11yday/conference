@@ -581,7 +581,7 @@ class WPCS_Conference_Schedule {
 								<?php if ( 'visible' === $attr['title'] ) : ?>
 									<?php if ( 'website' === $attr['link'] && $website ) : ?>
 										<h3>
-											<a href="<?php echo esc_url( $website ); ?>">
+											<a href="<?php echo esc_url( $website ); ?>" rel="sponsored">
 												<?php the_title(); ?>
 											</a>
 										</h3>
@@ -600,7 +600,7 @@ class WPCS_Conference_Schedule {
 
 								<div class="wpcsp-sponsor-description">
 									<?php if ( 'website' === $attr['link'] && $website && $image ) : ?>
-										<a href="<?php echo esc_url( $website ); ?>">
+										<a href="<?php echo esc_url( $website ); ?>" rel="sponsored">
 											<?php echo wp_kses_post( $image ); ?>
 										</a>
 									<?php elseif ( 'post' === $attr['link'] && $image ) : ?>
@@ -1130,8 +1130,8 @@ class WPCS_Conference_Schedule {
 		}
 
 		$sponsors = array();
-		foreach ( $session_sponsors as $sponser_li ) {
-			$sponsors[] .= get_the_title( $sponser_li );
+		foreach ( $session_sponsors as $sponsor_li ) {
+			$sponsors[] .= get_the_title( $sponsor_li );
 		}
 
 		ob_start();
@@ -1567,7 +1567,5 @@ function wpcsp_donors_list() {
 		}
 		echo '</ul></div>';
 		wp_reset_postdata();
-	} else {
-		echo '<p>No donors found. You can be the first to donate! <a href="' . esc_url( $donate_url ) . '">Donate Now</a></p>';
 	}
 }

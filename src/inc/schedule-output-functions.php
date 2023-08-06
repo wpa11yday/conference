@@ -377,12 +377,13 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 				$full_name = $concat;
 				$headshot  = '';
 			} else {
-				$first_name   = get_post_meta( $post_id, 'wpcsp_first_name', true );
-				$last_name    = get_post_meta( $post_id, 'wpcsp_last_name', true );
-				$concat       = $first_name . ' ' . $last_name;
-				$full_name    = '<a href="' . get_permalink( $post_id ) . '">' . $concat . '</a>';
-				$title        = get_post_meta( $post_id, 'wpcsp_title', true );
-				$organization = get_post_meta( $post_id, 'wpcsp_organization', true );
+				$first_name         = get_post_meta( $post_id, 'wpcsp_first_name', true );
+				$last_name          = get_post_meta( $post_id, 'wpcsp_last_name', true );
+				$concat             = $first_name . ' ' . $last_name;
+				$full_name          = '<a href="' . get_permalink( $post_id ) . '">' . $concat . '</a>';
+				$title_organization = array();
+				$title              = get_post_meta( $post_id, 'wpcsp_title', true );
+				$organization       = get_post_meta( $post_id, 'wpcsp_organization', true );
 				if ( $title ) {
 					$title_organization[] = $title;
 				}
@@ -391,10 +392,10 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 				}
 				$headshot = get_the_post_thumbnail( $post_id, 'thumbnail' );
 			}
-			$list[]             = $concat;
-			$talk_html          = '';
-			$wrap               = '';
-			$unwrap             = '';
+			$list[]    = $concat;
+			$talk_html = '';
+			$wrap      = '';
+			$unwrap    = '';
 			if ( 'lightning' === $talk_type ) {
 				global $wpdb;
 				$wrap   = '<div class="wp-block-column">';

@@ -369,6 +369,7 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 		if ( ! is_page( 'schedule' ) ) {
 			$speakers_heading = ( count( $speakers_cpt ) > 1 ) ? '<h3>Speakers</h3>' : '<h3>Speaker</h3>';
 		}
+		$title_organization = array();
 		ob_start();
 		foreach ( $speakers_cpt as $post_id ) {
 			if ( ! is_numeric( $post_id ) ) {
@@ -376,14 +377,21 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 				$full_name = $concat;
 				$headshot  = '';
 			} else {
-				$first_name = get_post_meta( $post_id, 'wpcsp_first_name', true );
-				$last_name  = get_post_meta( $post_id, 'wpcsp_last_name', true );
-				$concat     = $first_name . ' ' . $last_name;
-				$full_name  = '<a href="' . get_permalink( $post_id ) . '">' . $concat . '</a>';
-				$headshot   = get_the_post_thumbnail( $post_id, 'thumbnail' );
+				$first_name   = get_post_meta( $post_id, 'wpcsp_first_name', true );
+				$last_name    = get_post_meta( $post_id, 'wpcsp_last_name', true );
+				$concat       = $first_name . ' ' . $last_name;
+				$full_name    = '<a href="' . get_permalink( $post_id ) . '">' . $concat . '</a>';
+				$title        = get_post_meta( $post_id, 'wpcsp_title', true );
+				$organization = get_post_meta( $post_id, 'wpcsp_organization', true );
+				if ( $title ) {
+					$title_organization[] = $title;
+				}
+				if ( $organization ) {
+					$title_organization[] = $organization;
+				}
+				$headshot = get_the_post_thumbnail( $post_id, 'thumbnail' );
 			}
 			$list[]             = $concat;
-			$title_organization = array();
 			$talk_html          = '';
 			$wrap               = '';
 			$unwrap             = '';

@@ -12,7 +12,7 @@ defined( 'WPINC' ) || die();
  *
  * @param int $post_id Post ID.
  *
- * @return string
+ * @return array
  */
 function wpcsp_get_social_links( $post_id ) {
 	$social_icons = array();
@@ -39,6 +39,7 @@ function wpcsp_get_social_links( $post_id ) {
 			$social_icons[] = '<a class="wpcsp-' . $post_type . '-social-icon-link" href="' . esc_url( $url ) . '"><span class="dashicons dashicons-' . $social_icon . '" aria-hidden="true"></span><span class="screen-reader-text">' . $social_label . '</a>';
 		}
 	}
+
 	return $social_icons;
 }
 

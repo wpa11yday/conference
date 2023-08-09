@@ -372,85 +372,111 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 		}
 		$title_organization = array();
 		ob_start();
-		foreach ( $speakers_cpt as $post_id ) {
-			if ( ! is_numeric( $post_id ) ) {
-				$concat    = $post_id;
-				$full_name = $concat;
-				$headshot  = '';
-			} else {
-				$first_name         = get_post_meta( $post_id, 'wpcsp_first_name', true );
-				$last_name          = get_post_meta( $post_id, 'wpcsp_last_name', true );
-				$concat             = $first_name . ' ' . $last_name;
-				$full_name          = '<a href="' . get_permalink( $post_id ) . '">' . $concat . '</a>';
-				$title_organization = array();
-				$title              = get_post_meta( $post_id, 'wpcsp_title', true );
-				$organization       = get_post_meta( $post_id, 'wpcsp_organization', true );
-				if ( $title ) {
-					$title_organization[] = $title;
+		if ( 'lightning' === $talk_type ) {
+			$wrap   = '<div class="wp-block-column">';
+			$unwrap = '</div>';
+			$ltalks = get_post_meta( $session_id, 'wpad_lightning_talks', true );
+			if ( $ltalks ) {
+				$ltalks = explode( ',', $ltalks );
+				foreach ( $ltalks as $lt ) {
+					$speaker      = '';
+					$speakers_cpt = get_post_meta( $lt, 'wpcsp_session_speakers', true );
+					$speakers_cpt = ( is_array( $speakers_cpt ) ) ? array_reverse( $speakers_cpt ) : array( get_post_meta( $lt, '_wpcs_session_speakers', true ) );
+					foreach ( $speakers_cpt as $st ) {
+						$first_name         = get_post_meta( $st, 'wpcsp_first_name', true );
+						$last_name          = get_post_meta( $st, 'wpcsp_last_name', true );
+						$concat             = $first_name . ' ' . $last_name;
+						$full_name          = '<a href="' . get_permalink( $st ) . '">' . $concat . '</a>';
+						$title_organization = array();
+						$title              = get_post_meta( $st, 'wpcsp_title', true );
+						$organization       = get_post_meta( $st, 'wpcsp_organization', true );
+						if ( $title ) {
+							$title_organization[] = $title;
+						}
+						if ( $organization ) {
+							$title_organization[] = $organization;
+						}
+						$headshot = get_the_post_thumbnail( $st, 'thumbnail' );
+						$speaker .= '<div class="wpcsp-session-speaker">
+							' . $headshot . '
+							<div class="wpcsp-session-speaker-data">
+								<div class="wpcsp-session-speaker-name">
+									' . $full_name . '
+								</div>
+								<div class="wpcsp-session-speaker-title-organization">
+									' . implode( ', ', $title_organization ) . '
+								</div>
+							</div>
+						</div>';
+					}
+					$html    .= '<div class="lightning-talk">
+						<h3><a href="' . get_the_permalink( $lt ) . '">' . get_post_field( 'post_title', $lt ) . '</a></h3>
+						<div class="talk-description">
+							' . wp_trim_words( get_post_field( 'post_content', $lt ) ) . '
+						</div>
+					</div>' . $speaker;
 				}
-				if ( $organization ) {
-					$title_organization[] = $organization;
-				}
-				$headshot = get_the_post_thumbnail( $post_id, 'thumbnail' );
 			}
-			$list[]    = $concat;
-			$talk_html = '';
-			$wrap      = '';
-			$unwrap    = '';
-			if ( 'lightning' === $talk_type ) {
-				global $wpdb;
-				$wrap   = '<div class="wp-block-column">';
-				$unwrap = '</div>';
-				$result = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->postmeta WHERE meta_key = '_wpcs_session_speakers' AND meta_value = %d LIMIT 1", $post_id ) );
+		} else {
+			foreach ( $speakers_cpt as $post_id ) {
+				if ( ! is_numeric( $post_id ) ) {
+					$concat    = $post_id;
+					$full_name = $concat;
+					$headshot  = '';
+				} else {
+					$first_name         = get_post_meta( $post_id, 'wpcsp_first_name', true );
+					$last_name          = get_post_meta( $post_id, 'wpcsp_last_name', true );
+					$concat             = $first_name . ' ' . $last_name;
+					$full_name          = '<a href="' . get_permalink( $post_id ) . '">' . $concat . '</a>';
+					$title_organization = array();
+					$title              = get_post_meta( $post_id, 'wpcsp_title', true );
+					$organization       = get_post_meta( $post_id, 'wpcsp_organization', true );
+					if ( $title ) {
+						$title_organization[] = $title;
+					}
+					if ( $organization ) {
+						$title_organization[] = $organization;
+					}
+					$headshot = get_the_post_thumbnail( $post_id, 'thumbnail' );
+				}
+				$list[]    = $concat;
+				$talk_html = '';
 
-				$talk_html = '
-				<div class="lightning-talk">
-					<h3><a href="' . get_the_permalink( $result[0]->post_id ) . '">' . get_post_field( 'post_title', $result[0]->post_id ) . '</a></h3>
-					<div class="talk-description">
-						' . wp_trim_words( get_post_field( 'post_content', $result[0]->post_id ) ) . '
-					</div>
-				</div>';
-				$meta      = get_post_meta( $result[0]->post_id, '_wpad_session', true );
-				if ( ! $meta ) {
-					update_post_meta( $result[0]->post_id, '_wpad_session', $session_id );
-				}
-			}
-			echo $wrap;
-			echo $talk_html;
-			?>
-			<div class="wpcsp-session-speaker">
-				<?php
-				if ( $headshot ) {
-					echo $headshot;
-				}
-				if ( $full_name || $title_organization ) {
-					?>
-					<div class="wpcsp-session-speaker-data">
-					<?php
-				}
-				if ( $full_name ) {
-					?>
-					<div class="wpcsp-session-speaker-name">
-						<?php echo $full_name; ?>
-					</div>
-					<?php
-				}
-				if ( $title_organization ) {
-					?>
-					<div class="wpcsp-session-speaker-title-organization">
-						<?php echo implode( ', ', $title_organization ); ?>
-					</div>
-					<?php
-				}
-				if ( $full_name || $title_organization ) {
-					?>
-					</div>
-					<?php
-				}
+				echo $talk_html;
 				?>
-			</div>
-			<?php
-			echo $unwrap;
+				<div class="wpcsp-session-speaker">
+					<?php
+					if ( $headshot ) {
+						echo $headshot;
+					}
+					if ( $full_name || $title_organization ) {
+						?>
+						<div class="wpcsp-session-speaker-data">
+						<?php
+					}
+					if ( $full_name ) {
+						?>
+						<div class="wpcsp-session-speaker-name">
+							<?php echo $full_name; ?>
+						</div>
+						<?php
+					}
+					if ( $title_organization ) {
+						?>
+						<div class="wpcsp-session-speaker-title-organization">
+							<?php echo implode( ', ', $title_organization ); ?>
+						</div>
+						<?php
+					}
+					if ( $full_name || $title_organization ) {
+						?>
+						</div>
+						<?php
+					}
+					?>
+				</div>
+				<?php
+			}
 		}
 		$html .= ob_get_clean();
 	}

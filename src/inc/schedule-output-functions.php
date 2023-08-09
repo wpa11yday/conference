@@ -409,7 +409,7 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 							</div>
 						</div>';
 					}
-					$html    .= '<div class="lightning-talk">
+					$html .= '<div class="lightning-talk">
 						<h3><a href="' . get_the_permalink( $lt ) . '">' . get_post_field( 'post_title', $lt ) . '</a></h3>
 						<div class="talk-description">
 							' . wp_trim_words( get_post_field( 'post_content', $lt ) ) . '

@@ -414,7 +414,7 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 						<div class="talk-description">
 							' . wp_trim_words( get_post_field( 'post_content', $lt ) ) . '
 						</div>
-					</div>' . $speaker;
+					</div><div class="lightning-talk-speakers">' . $speaker . '</div>';
 				}
 			}
 		} else {

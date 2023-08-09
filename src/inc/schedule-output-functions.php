@@ -126,7 +126,7 @@ function wpcs_shortcode_people( $atts ) {
 function wpcs_get_sessions() {
 	$post_status = 'publish';
 	if ( isset( $_GET['preview'] ) && current_user_can( 'publish_posts' ) ) {
-		$post_status = 'draft';
+		$post_status = array( 'draft', 'approved' );
 	}
 	$query = array(
 		'post_type'      => 'wpcs_session',

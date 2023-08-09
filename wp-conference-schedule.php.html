@@ -907,7 +907,7 @@ class WPCS_Conference_Schedule {
 		$args     = array(
 			'numberposts' => -1,
 			'post_type'   => 'wpcsp_speaker',
-			'post_status' => array( 'pending', 'publish' ),
+			'post_status' => array( 'pending', 'publish', 'approved' ),
 		);
 		$speakers = get_posts( $args );
 		$speakers = wp_list_pluck( $speakers, 'post_title', 'ID' );

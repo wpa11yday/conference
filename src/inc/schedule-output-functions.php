@@ -225,74 +225,94 @@ function wpcs_schedule( $atts, $content ) {
 			$text    = false;
 		}
 
-		$datatime  = $schedule[ $time ]['ts'];
-		$time_html = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':00 UTC<span class="screen-reader-text">,&nbsp;</span></span>' . ' </div></h2><div class="talk-wrapper">%s[control]</div></div>';
 		$talk_ID   = $schedule[ $time ]['id'];
 		if ( $talk_ID ) {
-			$talk_type = sanitize_html_class( get_post_meta( $talk_ID, '_wpcs_session_type', true ) );
-			$speakers  = wpcs_session_speakers( $talk_ID, $talk_type );
-			$sponsors  = wpcs_session_sponsors( $talk_ID );
-			$talk      = get_post( $talk_ID );
-
-			$talk_attr_id = sanitize_title( $talk->post_title );
-			$talk_title   = '<a href="' . esc_url( get_the_permalink( $talk_ID ) ) . '" id="talk-' . $talk_attr_id . '">' . $talk->post_title . '</a>' . $session_id;
-			$talk_label   = ( 'panel' === $talk_type ) ? '<strong>Panel:</strong> ' : '';
-			$talk_title  .= '<div class="talk-speakers">' . $talk_label . implode( ', ', $speakers['list'] ) . '</div>';
-			$talk_title   = '<div class="talk-title-wrapper">' . $talk_title . '</div>';
-			$talk_heading = sprintf( $time_html, ' ' . $talk_title );
-			if ( 'lightning' !== $talk_type ) {
-				$wrap   = '<div class="wp-block-column">';
-				$unwrap = '</div>';
-			} else {
-				$wrap   = '';
-				$unwrap = '';
-			}
-			$talk_output  = $wrap . $sponsors;
-			$talk_output .= ( 'lightning' !== $talk_type ) ? '<div class="talk-description">' . wp_trim_words( $talk->post_content ) . '</div>' : '';
-			$talk_output .= $unwrap;
-			$talk_output .= $wrap . $speakers['html'] . $unwrap;
-
-			$session_id = sanitize_title( $talk->post_title );
-			$hidden     = ( isset( $_GET['buttonsoff'] ) ) ? '' : 'hidden';
-			$control    = ( isset( $_GET['buttonsoff'] ) ) ? '' : '<button type="button" class="toggle-details" aria-expanded="false"><span class="dashicons-plus dashicons" aria-hidden="true"></span> View Details<span class="screen-reader-text">: ' . $talk->post_title . '</span></button>';
-
-			if ( $is_current || ( $is_first && $is_next ) ) {
-				$hidden  = '';
-				$control = str_replace( '"false"', '"true"', $control );
-				$control = str_replace( '-plus', '-minus', $control );
-				if ( false !== $text ) {
-					$current_talk = "<p class='current-talk'><strong>$text</strong> <a href='#$session_id'>$time:00 UTC - $talk->post_title</a></p>";
-				}
-			}
-
-			$output[] = "
-			<div class='wp-block-group schedule $talk_type' id='$session_id'>
-				<div class='wp-block-group__inner-container'>
-					" . str_replace( '[control]', '<div>' . $control . '</div>', $talk_heading ) . "
-					<div class='wp-block-columns inside $hidden'>
-						$talk_output
-					</div>
-				</div>
-			</div>";
-		} else {
-			$talk_heading = sprintf( $time_html, '<span class="unannounced">Watch this spot!</span>' );
-			$output[]     = "
-			<div class='wp-block-group schedule unset' id='unset'>
-				<div class='wp-block-group__inner-container'>
-					$talk_heading
-					<div class='wp-block-columns inside'>
-					</div>
-				</div>
-			</div>";
+			$is_current   = ( $is_current || ( $is_first && $is_next ) ) ? true : false;
+			$session      = wpad_draw_session( $schedule[ $time ], $is_current, $text, $session_id );
+			$output[]     = $session[0];
+			$current_talk = $session[1];
 		}
 		$n++;
 	}
+	$opening_id      = 3395;
+	$opening_remarks = array(
+		'id' => $opening_id,
+		'ts' => gmdate( 'Y-m-d\TH:i:s\Z', get_post_meta( $opening_id, '_wpcs_session_time', true ) ),
+	);
+
+	$opening = wpad_draw_session( $opening_remarks, true, 'Up next: ', '' );
+	array_unshift( $output, $opening[0] );
 
 	$links  = wpcs_banner();
 	$return = $links . $current_talk . implode( PHP_EOL, $output );
 	set_transient( 'wpcs_schedule', $return, 150 );
 
 	return $return;
+}
+
+/**
+ * Draw a single session in the schedule.
+ *
+ * @param int    $talk_ID ID for session to format.
+ * @param bool   $is_current Is the current session or next if event not started.
+ * @param string $text Label for current status.
+ * @param string $session_id Visible session ID.
+ *
+ * @return array
+ */
+function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
+	$talk_ID   = $talk['id'];
+	$datatime  = $talk['ts'];
+	$mins      = gmdate( 'i', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
+	$time      = gmdate( 'H', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
+	$time_html = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':' . $mins . ' UTC<span class="screen-reader-text">,&nbsp;</span></span>' . ' </div></h2><div class="talk-wrapper">%s[control]</div></div>';
+	$talk_type = sanitize_html_class( get_post_meta( $talk_ID, '_wpcs_session_type', true ) );
+	$speakers  = wpcs_session_speakers( $talk_ID, $talk_type );
+	$sponsors  = wpcs_session_sponsors( $talk_ID );
+	$talk      = get_post( $talk_ID );
+
+	$talk_attr_id = sanitize_title( $talk->post_title );
+	$talk_title   = '<a href="' . esc_url( get_the_permalink( $talk_ID ) ) . '" id="talk-' . $talk_attr_id . '">' . $talk->post_title . '</a>' . $session_id;
+	$talk_label   = ( 'panel' === $talk_type ) ? '<strong>Panel:</strong> ' : '';
+	$talk_title  .= '<div class="talk-speakers">' . $talk_label . implode( ', ', $speakers['list'] ) . '</div>';
+	$talk_title   = '<div class="talk-title-wrapper">' . $talk_title . '</div>';
+	$talk_heading = sprintf( $time_html, ' ' . $talk_title );
+	if ( 'lightning' !== $talk_type ) {
+		$wrap   = '<div class="wp-block-column">';
+		$unwrap = '</div>';
+	} else {
+		$wrap   = '';
+		$unwrap = '';
+	}
+	$talk_output  = $wrap . $sponsors;
+	$talk_output .= ( 'lightning' !== $talk_type ) ? '<div class="talk-description">' . wp_trim_words( $talk->post_content ) . '</div>' : '';
+	$talk_output .= $unwrap;
+	$talk_output .= $wrap . $speakers['html'] . $unwrap;
+
+	$session_id   = sanitize_title( $talk->post_title );
+	$hidden       = ( isset( $_GET['buttonsoff'] ) ) ? '' : 'hidden';
+	$control      = ( isset( $_GET['buttonsoff'] ) ) ? '' : '<button type="button" class="toggle-details" aria-expanded="false"><span class="dashicons-plus dashicons" aria-hidden="true"></span> View Details<span class="screen-reader-text">: ' . $talk->post_title . '</span></button>';
+	$current_talk = '';
+	if ( $is_current ) {
+		$hidden  = '';
+		$control = str_replace( '"false"', '"true"', $control );
+		$control = str_replace( '-plus', '-minus', $control );
+		if ( false !== $text ) {
+			$current_talk = "<p class='current-talk'><strong>$text</strong> <a href='#$session_id'>$time:$mins UTC - $talk->post_title</a></p>";
+		}
+	}
+
+	$output = "
+	<div class='wp-block-group schedule $talk_type' id='$session_id'>
+		<div class='wp-block-group__inner-container'>
+			" . str_replace( '[control]', '<div>' . $control . '</div>', $talk_heading ) . "
+			<div class='wp-block-columns inside $hidden'>
+				$talk_output
+			</div>
+		</div>
+	</div>";
+
+	return array( $output, $current_talk );
 }
 
 /**

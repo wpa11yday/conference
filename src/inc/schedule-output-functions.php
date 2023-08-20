@@ -225,7 +225,7 @@ function wpcs_schedule( $atts, $content ) {
 			$text    = false;
 		}
 
-		$talk_ID   = $schedule[ $time ]['id'];
+		$talk_ID = $schedule[ $time ]['id'];
 		if ( $talk_ID ) {
 			$is_current   = ( $is_current || ( $is_first && $is_next ) ) ? true : false;
 			$session      = wpad_draw_session( $schedule[ $time ], $is_current, $text, $session_id );
@@ -253,7 +253,7 @@ function wpcs_schedule( $atts, $content ) {
 /**
  * Draw a single session in the schedule.
  *
- * @param int    $talk_ID ID for session to format.
+ * @param int    $talk Array with ID and timestamp for session to format.
  * @param bool   $is_current Is the current session or next if event not started.
  * @param string $text Label for current status.
  * @param string $session_id Visible session ID.

@@ -342,17 +342,17 @@ function wpcsp_set_single_template( $single_template ) {
 /**
  * Disable Gutenberg for simple content types.
  *
- * @param bool   $current_status 
- * @param string $post_type 
+ * @param bool   $current_status Existing editor status.
+ * @param string $post_type Post type being tested.
  *
  * @return bool
  */
 function wpcs_disable_gutenberg( $current_status, $post_type ) {
-    $post_types = array( 'wpcsp_speaker', 'wpcsp_sponsor', 'wpcsp_donor' );
-    if ( in_array( $post_type, $post_types, true ) ) {
+	$post_types = array( 'wpcsp_speaker', 'wpcsp_sponsor', 'wpcsp_donor' );
+	if ( in_array( $post_type, $post_types, true ) ) {
 		return false;
 	}
 
-    return $current_status;
+	return $current_status;
 }
 add_filter( 'use_block_editor_for_post_type', 'wpcs_disable_gutenberg', 10, 2 );

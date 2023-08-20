@@ -51,7 +51,7 @@ require_once( WPCS_DIR . '/inc/cmb2-conditional-logic/cmb2-conditional-logic.php
 add_shortcode( 'schedule', 'wpcs_schedule' );
 add_shortcode( 'donors', 'wpcsp_donors_shortcode', 10, 2 );
 add_shortcode( 'microsponsors', 'wpcs_display_microsponsors', 10, 2 );
-add_shortcode( 'attendees', 'wpcs_people' );
+add_shortcode( 'attendees', 'wpcs_shortcode_people' );
 add_shortcode( 'able', 'wpcs_get_video' );
 add_shortcode( 'wpad', 'wpcs_event_start' );
 

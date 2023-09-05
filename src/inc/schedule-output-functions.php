@@ -120,15 +120,15 @@ function wpcs_shortcode_people( $atts ) {
 
 /**
  * Filter the default avatar fallback to use the WPAD logomark.
- * 
+ *
  * @param string     $avatar The HTML avatar returned by gravatar.
  * @param string|int $id_or_email User info used to fetch gravatar.
  * @param int        $size Size requested.
- * @param string     $default Type of return. 
+ * @param string     $default Type of return.
  * @param string     $alt Expected alt text.
  * @param array      $args Misc. extra arguments.
  *
- * @return string 
+ * @return string
  */
 function wpad_avatar( $avatar, $id_or_email, $size, $default, $alt, $args ) {
 	if ( is_admin() ) {
@@ -136,13 +136,14 @@ function wpad_avatar( $avatar, $id_or_email, $size, $default, $alt, $args ) {
 	}
 	// Set default response to 404, if no gravatar is found.
 	$avatar_url = str_replace( 'd=' . $args['default'], 'd=404', $args['url'] );
+
 	// Request the image url.
 	$response = wp_remote_head( $avatar_url );
-	// If there's no avatar, the default will be used, which results in 404 response
+	// If there's no avatar, the default will be used, which results in 404 response.
 	if ( 404 === wp_remote_retrieve_response_code( $response ) ) {
 		$avatar = '<img src="https://2023.wpaccessibility.day/wp-content/uploads/2023/08/cropped-cropped-WPAD_logomark-192x192.png" alt="" width="96" height="96">';
 	}
-	// Return img html
+	// Return img html.
 	return $avatar;
 }
 add_filter( 'get_avatar', 'wpad_avatar', 10, 6 );

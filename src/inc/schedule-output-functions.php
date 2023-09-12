@@ -234,7 +234,7 @@ function wpcs_schedule( $atts, $content ) {
 		}
 		$n++;
 	}
-	$opening_id      = 3395;
+	$opening_id      = get_option( 'wpcs_opening_remarks' );
 	$opening_remarks = array(
 		'id' => $opening_id,
 		'ts' => gmdate( 'Y-m-d\TH:i:s\Z', get_post_meta( $opening_id, '_wpcs_session_time', true ) ),
@@ -393,8 +393,6 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 		$title_organization = array();
 		ob_start();
 		if ( 'lightning' === $talk_type ) {
-			$wrap   = '<div class="wp-block-column">';
-			$unwrap = '</div>';
 			$ltalks = get_post_meta( $session_id, 'wpad_lightning_talks', true );
 			if ( $ltalks ) {
 				$ltalks = explode( ',', $ltalks );

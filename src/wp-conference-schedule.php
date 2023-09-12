@@ -285,19 +285,20 @@ class WPCS_Conference_Schedule {
 		$default_meridiem = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'a', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'a', strtotime( get_option( 'wpad_start_time' ) ) );
 
 		$session_type     = get_post_meta( $post->ID, '_wpcs_session_type', true );
-		if ( 'lightning' !== $session_type ) {
+		$opening_remarks  = get_option( 'wpcs_opening_remarks', false );
+		if ( 'lightning' !== $session_type && ! $opening_remarks ) {
 			$session_date     = ( $session_time ) ? gmdate( 'Y-m-d', $session_time ) : $default_date;
 			$session_hours    = ( $session_time ) ? gmdate( 'g', $session_time ) : $default_hours;
 			$session_minutes  = ( $session_time ) ? gmdate( 'i', $session_time ) : $default_minutes;
 			$session_meridiem = ( $session_time ) ? gmdate( 'a', $session_time ) : $default_meridiem;
 		} else {
-			// Lightning talks are assigned to a slot; they don't have their own times.
+			// Lightning talks & opening remarks don't have their own times.
 			$session_date     = '';
 			$session_hours    = '';
 			$session_minutes  = '';
 			$session_meridiem = '';
-
 		}
+		$opening_remarks  = ( $post->ID === (int) $opening_remarks ) ? 'true' : 'false';
 		$session_captions = get_post_meta( $post->ID, '_wpcs_caption_url', true );
 		$session_youtube  = get_post_meta( $post->ID, '_wpcs_youtube_id', true );
 
@@ -348,6 +349,9 @@ class WPCS_Conference_Schedule {
 			<label for="wpcs-session-caption"><?php esc_html_e( 'Caption URL:', 'wpa-conference' ); ?></label>
 			<input type="text" id="wpcs-session-caption" name="wpcs-session-caption" value="<?php echo esc_attr( $session_captions ); ?>" />
 		</p>
+		<p>
+			<input type="checkbox" id="wpcs-session-is-opening-remarks" name="wpcs-opening-remarks" value="true" <?php checked( 'true', $opening_remarks ); ?> /> <label for="wpcs-session-is-opening-remarks"><?php esc_html_e( 'Opening Remarks', 'wpa-conference' ); ?></label>
+		</p>
 
 		<?php
 	}
@@ -396,6 +400,10 @@ class WPCS_Conference_Schedule {
 				$session_type = 'session';
 			}
 			update_post_meta( $post_id, '_wpcs_session_type', $session_type );
+
+			if ( isset( $_POST['wpcs-opening-remarks'] ) ) {
+				update_option( 'wpcs_opening_remarks', $post_id );
+			}
 
 			// Update session speakers.
 			$session_speakers = sanitize_text_field( $_POST['wpcs-session-speakers'] ?? '' );

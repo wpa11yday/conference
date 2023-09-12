@@ -284,12 +284,20 @@ class WPCS_Conference_Schedule {
 		$default_minutes  = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'i', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'i', strtotime( get_option( 'wpad_start_time' ) ) );
 		$default_meridiem = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'a', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'a', strtotime( get_option( 'wpad_start_time' ) ) );
 
-		$session_date     = ( $session_time ) ? gmdate( 'Y-m-d', $session_time ) : $default_date;
-		$session_hours    = ( $session_time ) ? gmdate( 'g', $session_time ) : $default_hours;
-		$session_minutes  = ( $session_time ) ? gmdate( 'i', $session_time ) : $default_minutes;
-		$session_meridiem = ( $session_time ) ? gmdate( 'a', $session_time ) : $default_meridiem;
 		$session_type     = get_post_meta( $post->ID, '_wpcs_session_type', true );
-		$session_speakers = get_post_meta( $post->ID, '_wpcs_session_speakers', true );
+		if ( 'lightning' !== $session_type ) {
+			$session_date     = ( $session_time ) ? gmdate( 'Y-m-d', $session_time ) : $default_date;
+			$session_hours    = ( $session_time ) ? gmdate( 'g', $session_time ) : $default_hours;
+			$session_minutes  = ( $session_time ) ? gmdate( 'i', $session_time ) : $default_minutes;
+			$session_meridiem = ( $session_time ) ? gmdate( 'a', $session_time ) : $default_meridiem;
+		} else {
+			// Lightning talks are assigned to a slot; they don't have their own times.
+			$session_date     = '';
+			$session_hours    = '';
+			$session_minutes  = '';
+			$session_meridiem = '';
+
+		}
 		$session_captions = get_post_meta( $post->ID, '_wpcs_caption_url', true );
 		$session_youtube  = get_post_meta( $post->ID, '_wpcs_youtube_id', true );
 

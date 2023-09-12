@@ -284,8 +284,8 @@ class WPCS_Conference_Schedule {
 		$default_minutes  = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'i', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'i', strtotime( get_option( 'wpad_start_time' ) ) );
 		$default_meridiem = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'a', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'a', strtotime( get_option( 'wpad_start_time' ) ) );
 
-		$session_type     = get_post_meta( $post->ID, '_wpcs_session_type', true );
-		$opening_remarks  = get_option( 'wpcs_opening_remarks', false );
+		$session_type    = get_post_meta( $post->ID, '_wpcs_session_type', true );
+		$opening_remarks = get_option( 'wpcs_opening_remarks', false );
 		if ( 'lightning' !== $session_type && ! $opening_remarks ) {
 			$session_date     = ( $session_time ) ? gmdate( 'Y-m-d', $session_time ) : $default_date;
 			$session_hours    = ( $session_time ) ? gmdate( 'g', $session_time ) : $default_hours;

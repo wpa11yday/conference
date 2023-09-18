@@ -286,19 +286,20 @@ class WPCS_Conference_Schedule {
 
 		$session_type    = get_post_meta( $post->ID, '_wpcs_session_type', true );
 		$opening_remarks = get_option( 'wpcs_opening_remarks', false );
-		if ( 'lightning' !== $session_type && ! $opening_remarks ) {
-			$session_date     = ( $session_time ) ? gmdate( 'Y-m-d', $session_time ) : $default_date;
-			$session_hours    = ( $session_time ) ? gmdate( 'g', $session_time ) : $default_hours;
-			$session_minutes  = ( $session_time ) ? gmdate( 'i', $session_time ) : $default_minutes;
-			$session_meridiem = ( $session_time ) ? gmdate( 'a', $session_time ) : $default_meridiem;
-		} else {
+		$opening_remarks = ( (int) $post->ID === (int) $opening_remarks ) ? 'true' : 'false';
+		if ( 'lightning' === $session_type || 'true' === $opening_remarks ) {
 			// Lightning talks & opening remarks don't have their own times.
 			$session_date     = '';
 			$session_hours    = '';
 			$session_minutes  = '';
 			$session_meridiem = '';
+		} else {
+			$session_date     = ( $session_time ) ? gmdate( 'Y-m-d', $session_time ) : $default_date;
+			$session_hours    = ( $session_time ) ? gmdate( 'g', $session_time ) : $default_hours;
+			$session_minutes  = ( $session_time ) ? gmdate( 'i', $session_time ) : $default_minutes;
+			$session_meridiem = ( $session_time ) ? gmdate( 'a', $session_time ) : $default_meridiem;
+
 		}
-		$opening_remarks  = ( $post->ID === (int) $opening_remarks ) ? 'true' : 'false';
 		$session_captions = get_post_meta( $post->ID, '_wpcs_caption_url', true );
 		$session_youtube  = get_post_meta( $post->ID, '_wpcs_youtube_id', true );
 

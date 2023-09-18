@@ -393,7 +393,7 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 		$title_organization = array();
 		ob_start();
 		if ( 'lightning' === $talk_type ) {
-			$ltalks       = get_post_meta( $session_id, 'wpad_lightning_talks', true );
+			$ltalks = get_post_meta( $session_id, 'wpad_lightning_talks', true );
 			if ( $ltalks ) {
 				$ltalks = explode( ',', $ltalks );
 				foreach ( $ltalks as $lt ) {

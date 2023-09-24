@@ -533,6 +533,7 @@ class WPCS_Conference_Schedule {
 				'heading_level'  => 'h2',
 				'level'          => 'platinum,gold,silver,bronze,microsponsor,donor',
 				'exclude'        => '',
+				'type'           => 'display',
 			),
 			$attr
 		);
@@ -579,76 +580,88 @@ class WPCS_Conference_Schedule {
 				if ( ! $sponsors->have_posts() ) {
 					continue;
 				}
-				?>
+				$header            = '';
+				$footer            = '';
+				$secondary_heading = 'span';
+				if ( 'list' !== $attr['type'] ) {
+					$heading_level = ( $attr['heading_level'] ) ? $attr['heading_level'] : 'h2';
+					$header        = '<div class="wpcsp-sponsor-level wpcsp-sponsor-level-' . sanitize_html_class( $term->slug ) . '">
+					<' . esc_html( $heading_level ) . ' class="wpcsp-sponsor-level-heading"><span>' . $term->name . '</span></' . esc_html( $heading_level ) . '>
 
-				<div class="wpcsp-sponsor-level wpcsp-sponsor-level-<?php echo sanitize_html_class( $term->slug ); ?>">
-					<?php $heading_level = ( $attr['heading_level'] ) ? $attr['heading_level'] : 'h2'; ?>
-					<<?php echo esc_html( $heading_level ); ?> class="wpcsp-sponsor-level-heading"><span><?php echo esc_html( $term->name ); ?></span></<?php echo esc_html( $heading_level ); ?>>
+					<ul class="wpcsp-sponsor-list">';
+					$footer = '</ul></div>';
 
-					<ul class="wpcsp-sponsor-list">
+					$secondary_heading = 'h3';
+				}
+				echo $header;
+				while ( $sponsors->have_posts() ) :
+					$sponsors->the_post();
+					$website     = get_post_meta( get_the_ID(), 'wpcsp_website_url', true );
+					$logo_height = ( get_term_meta( $term->term_id, 'wpcsp_logo_height', true ) ) ? get_term_meta( $term->term_id, 'wpcsp_logo_height', true ) . 'px' : 'auto';
+					$image       = ( has_post_thumbnail() ) ? '<img class="wpcsp-sponsor-image" src="' . get_the_post_thumbnail_url( get_the_ID(), 'full' ) . '" alt="' . get_the_title( get_the_ID() ) . '" style="width: auto; max-height: ' . $logo_height . ';"  />' : null;
+					?>
+
+					<li id="wpcsp-sponsor-<?php the_ID(); ?>" class="wpcsp-sponsor">
+						<?php if ( 'visible' === $attr['title'] ) : ?>
+							<?php if ( 'website' === $attr['link'] && $website ) : ?>
+								<<?php echo $secondary_heading; ?>>
+									<a href="<?php echo esc_url( $website ); ?>" rel="sponsored">
+										<?php the_title(); ?>
+									</a>
+								</<?php echo $secondary_heading; ?>>
+							<?php elseif ( 'post' === $attr['link'] ) : ?>
+								<<?php echo $secondary_heading; ?>>
+									<a href="<?php echo esc_url( get_permalink() ); ?>">
+										<?php the_title(); ?>
+									</a>
+								</<?php echo $secondary_heading; ?>>
+							<?php else : ?>
+								<<?php echo $secondary_heading; ?>>
+									<?php the_title(); ?>
+								</<?php echo $secondary_heading; ?>>
+							<?php endif; ?>
+						<?php endif;
+						if ( 'list' !== $attr['type'] ) {
+						?>
+
+						<div class="wpcsp-sponsor-description">
+							<?php if ( 'website' === $attr['link'] && $website && $image ) : ?>
+								<a href="<?php echo esc_url( $website ); ?>" rel="sponsored">
+									<?php echo wp_kses_post( $image ); ?>
+								</a>
+							<?php elseif ( 'post' === $attr['link'] && $image ) : ?>
+								<a href="<?php echo esc_url( get_permalink() ); ?>">
+									<?php echo wp_kses_post( $image ); ?>
+								</a>
+							<?php else : ?>
+								<?php echo wp_kses_post( $image ); ?>
+							<?php endif; ?>
+
+							<?php if ( 'full' === $attr['content'] ) : ?>
+								<?php the_content(); ?>
+							<?php elseif ( 'excerpt' === $attr['content'] ) : ?>
+								<?php
+								echo wp_kses_post(
+									wpautop(
+										wp_trim_words(
+											get_the_content(),
+											absint( $attr['excerpt_length'] ),
+											apply_filters( 'excerpt_more', ' ' . '&hellip;' )
+										)
+									)
+								);
+								?>
+							<?php endif; ?>
+						</div>
 						<?php
-						while ( $sponsors->have_posts() ) :
-							$sponsors->the_post();
-							$website     = get_post_meta( get_the_ID(), 'wpcsp_website_url', true );
-							$logo_height = ( get_term_meta( $term->term_id, 'wpcsp_logo_height', true ) ) ? get_term_meta( $term->term_id, 'wpcsp_logo_height', true ) . 'px' : 'auto';
-							$image       = ( has_post_thumbnail() ) ? '<img class="wpcsp-sponsor-image" src="' . get_the_post_thumbnail_url( get_the_ID(), 'full' ) . '" alt="' . get_the_title( get_the_ID() ) . '" style="width: auto; max-height: ' . $logo_height . ';"  />' : null;
-							?>
-
-							<li id="wpcsp-sponsor-<?php the_ID(); ?>" class="wpcsp-sponsor">
-								<?php if ( 'visible' === $attr['title'] ) : ?>
-									<?php if ( 'website' === $attr['link'] && $website ) : ?>
-										<h3>
-											<a href="<?php echo esc_url( $website ); ?>" rel="sponsored">
-												<?php the_title(); ?>
-											</a>
-										</h3>
-									<?php elseif ( 'post' === $attr['link'] ) : ?>
-										<h3>
-											<a href="<?php echo esc_url( get_permalink() ); ?>">
-												<?php the_title(); ?>
-											</a>
-										</h3>
-									<?php else : ?>
-										<h3>
-											<?php the_title(); ?>
-										</h3>
-									<?php endif; ?>
-								<?php endif; ?>
-
-								<div class="wpcsp-sponsor-description">
-									<?php if ( 'website' === $attr['link'] && $website && $image ) : ?>
-										<a href="<?php echo esc_url( $website ); ?>" rel="sponsored">
-											<?php echo wp_kses_post( $image ); ?>
-										</a>
-									<?php elseif ( 'post' === $attr['link'] && $image ) : ?>
-										<a href="<?php echo esc_url( get_permalink() ); ?>">
-											<?php echo wp_kses_post( $image ); ?>
-										</a>
-									<?php else : ?>
-										<?php echo wp_kses_post( $image ); ?>
-									<?php endif; ?>
-
-									<?php if ( 'full' === $attr['content'] ) : ?>
-										<?php the_content(); ?>
-									<?php elseif ( 'excerpt' === $attr['content'] ) : ?>
-										<?php
-										echo wp_kses_post(
-											wpautop(
-												wp_trim_words(
-													get_the_content(),
-													absint( $attr['excerpt_length'] ),
-													apply_filters( 'excerpt_more', ' ' . '&hellip;' )
-												)
-											)
-										);
-										?>
-									<?php endif; ?>
-								</div>
-							</li>
-						<?php endwhile; ?>
-					</ul>
-				</div>
-			<?php endforeach; ?>
+						}
+						?>
+					</li>
+				<?php
+				endwhile;
+				echo $footer;
+			endforeach;
+			?>
 		</div>
 
 		<?php

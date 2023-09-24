@@ -579,6 +579,9 @@ class WPCS_Conference_Schedule {
 
 		&lt;div class="wpcsp-sponsors">
 			&lt;?php
+			if ( 'list' === $attr['type'] ) {
+				echo '&lt;ul>';
+			}
 			if ( is_array( $levels ) &amp;&amp; ! empty( $levels ) ) {
 				$terms = array();
 				foreach ( $levels as $level ) {
@@ -687,6 +690,9 @@ class WPCS_Conference_Schedule {
 				endwhile;
 				echo $footer;
 			endforeach;
+			if ( 'list' === $attr['type'] ) {
+				echo '&lt;/ul>';
+			}
 			?>
 		&lt;/div>
 

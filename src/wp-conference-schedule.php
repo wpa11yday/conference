@@ -592,7 +592,7 @@ class WPCS_Conference_Schedule {
 					<' . esc_html( $heading_level ) . ' class="wpcsp-sponsor-level-heading"><span>' . $term->name . '</span></' . esc_html( $heading_level ) . '>
 
 					<ul class="wpcsp-sponsor-list">';
-					$footer = '</ul></div>';
+					$footer        = '</ul></div>';
 
 					$secondary_heading = 'h3';
 				}
@@ -623,7 +623,8 @@ class WPCS_Conference_Schedule {
 									<?php the_title(); ?>
 								</<?php echo $secondary_heading; ?>>
 							<?php endif; ?>
-						<?php endif;
+						<?php
+						endif;
 						if ( 'list' !== $attr['type'] ) {
 						?>
 

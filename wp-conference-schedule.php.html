@@ -559,6 +559,7 @@ class WPCS_Conference_Schedule {
 				'heading_level'  => 'h2',
 				'level'          => 'platinum,gold,silver,bronze,microsponsor,donor',
 				'exclude'        => '',
+				'type'           => 'display',
 			),
 			$attr
 		);
@@ -605,76 +606,88 @@ class WPCS_Conference_Schedule {
 				if ( ! $sponsors->have_posts() ) {
 					continue;
 				}
-				?>
+				$header            = '';
+				$footer            = '';
+				$secondary_heading = 'span';
+				if ( 'list' !== $attr['type'] ) {
+					$heading_level = ( $attr['heading_level'] ) ? $attr['heading_level'] : 'h2';
+					$header        = '&lt;div class="wpcsp-sponsor-level wpcsp-sponsor-level-' . sanitize_html_class( $term->slug ) . '">
+					&lt;' . esc_html( $heading_level ) . ' class="wpcsp-sponsor-level-heading">&lt;span>' . $term->name . '&lt;/span>&lt;/' . esc_html( $heading_level ) . '>
 
-				&lt;div class="wpcsp-sponsor-level wpcsp-sponsor-level-&lt;?php echo sanitize_html_class( $term->slug ); ?>">
-					&lt;?php $heading_level = ( $attr['heading_level'] ) ? $attr['heading_level'] : 'h2'; ?>
-					&lt;&lt;?php echo esc_html( $heading_level ); ?> class="wpcsp-sponsor-level-heading">&lt;span>&lt;?php echo esc_html( $term->name ); ?>&lt;/span>&lt;/&lt;?php echo esc_html( $heading_level ); ?>>
+					&lt;ul class="wpcsp-sponsor-list">';
+					$footer = '&lt;/ul>&lt;/div>';
 
-					&lt;ul class="wpcsp-sponsor-list">
+					$secondary_heading = 'h3';
+				}
+				echo $header;
+				while ( $sponsors->have_posts() ) :
+					$sponsors->the_post();
+					$website     = get_post_meta( get_the_ID(), 'wpcsp_website_url', true );
+					$logo_height = ( get_term_meta( $term->term_id, 'wpcsp_logo_height', true ) ) ? get_term_meta( $term->term_id, 'wpcsp_logo_height', true ) . 'px' : 'auto';
+					$image       = ( has_post_thumbnail() ) ? '&lt;img class="wpcsp-sponsor-image" src="' . get_the_post_thumbnail_url( get_the_ID(), 'full' ) . '" alt="' . get_the_title( get_the_ID() ) . '" style="width: auto; max-height: ' . $logo_height . ';"  />' : null;
+					?>
+
+					&lt;li id="wpcsp-sponsor-&lt;?php the_ID(); ?>" class="wpcsp-sponsor">
+						&lt;?php if ( 'visible' === $attr['title'] ) : ?>
+							&lt;?php if ( 'website' === $attr['link'] &amp;&amp; $website ) : ?>
+								&lt;&lt;?php echo $secondary_heading; ?>>
+									&lt;a href="&lt;?php echo esc_url( $website ); ?>" rel="sponsored">
+										&lt;?php the_title(); ?>
+									&lt;/a>
+								&lt;/&lt;?php echo $secondary_heading; ?>>
+							&lt;?php elseif ( 'post' === $attr['link'] ) : ?>
+								&lt;&lt;?php echo $secondary_heading; ?>>
+									&lt;a href="&lt;?php echo esc_url( get_permalink() ); ?>">
+										&lt;?php the_title(); ?>
+									&lt;/a>
+								&lt;/&lt;?php echo $secondary_heading; ?>>
+							&lt;?php else : ?>
+								&lt;&lt;?php echo $secondary_heading; ?>>
+									&lt;?php the_title(); ?>
+								&lt;/&lt;?php echo $secondary_heading; ?>>
+							&lt;?php endif; ?>
+						&lt;?php endif;
+						if ( 'list' !== $attr['type'] ) {
+						?>
+
+						&lt;div class="wpcsp-sponsor-description">
+							&lt;?php if ( 'website' === $attr['link'] &amp;&amp; $website &amp;&amp; $image ) : ?>
+								&lt;a href="&lt;?php echo esc_url( $website ); ?>" rel="sponsored">
+									&lt;?php echo wp_kses_post( $image ); ?>
+								&lt;/a>
+							&lt;?php elseif ( 'post' === $attr['link'] &amp;&amp; $image ) : ?>
+								&lt;a href="&lt;?php echo esc_url( get_permalink() ); ?>">
+									&lt;?php echo wp_kses_post( $image ); ?>
+								&lt;/a>
+							&lt;?php else : ?>
+								&lt;?php echo wp_kses_post( $image ); ?>
+							&lt;?php endif; ?>
+
+							&lt;?php if ( 'full' === $attr['content'] ) : ?>
+								&lt;?php the_content(); ?>
+							&lt;?php elseif ( 'excerpt' === $attr['content'] ) : ?>
+								&lt;?php
+								echo wp_kses_post(
+									wpautop(
+										wp_trim_words(
+											get_the_content(),
+											absint( $attr['excerpt_length'] ),
+											apply_filters( 'excerpt_more', ' ' . '&amp;hellip;' )
+										)
+									)
+								);
+								?>
+							&lt;?php endif; ?>
+						&lt;/div>
 						&lt;?php
-						while ( $sponsors->have_posts() ) :
-							$sponsors->the_post();
-							$website     = get_post_meta( get_the_ID(), 'wpcsp_website_url', true );
-							$logo_height = ( get_term_meta( $term->term_id, 'wpcsp_logo_height', true ) ) ? get_term_meta( $term->term_id, 'wpcsp_logo_height', true ) . 'px' : 'auto';
-							$image       = ( has_post_thumbnail() ) ? '&lt;img class="wpcsp-sponsor-image" src="' . get_the_post_thumbnail_url( get_the_ID(), 'full' ) . '" alt="' . get_the_title( get_the_ID() ) . '" style="width: auto; max-height: ' . $logo_height . ';"  />' : null;
-							?>
-
-							&lt;li id="wpcsp-sponsor-&lt;?php the_ID(); ?>" class="wpcsp-sponsor">
-								&lt;?php if ( 'visible' === $attr['title'] ) : ?>
-									&lt;?php if ( 'website' === $attr['link'] &amp;&amp; $website ) : ?>
-										&lt;h3>
-											&lt;a href="&lt;?php echo esc_url( $website ); ?>" rel="sponsored">
-												&lt;?php the_title(); ?>
-											&lt;/a>
-										&lt;/h3>
-									&lt;?php elseif ( 'post' === $attr['link'] ) : ?>
-										&lt;h3>
-											&lt;a href="&lt;?php echo esc_url( get_permalink() ); ?>">
-												&lt;?php the_title(); ?>
-											&lt;/a>
-										&lt;/h3>
-									&lt;?php else : ?>
-										&lt;h3>
-											&lt;?php the_title(); ?>
-										&lt;/h3>
-									&lt;?php endif; ?>
-								&lt;?php endif; ?>
-
-								&lt;div class="wpcsp-sponsor-description">
-									&lt;?php if ( 'website' === $attr['link'] &amp;&amp; $website &amp;&amp; $image ) : ?>
-										&lt;a href="&lt;?php echo esc_url( $website ); ?>" rel="sponsored">
-											&lt;?php echo wp_kses_post( $image ); ?>
-										&lt;/a>
-									&lt;?php elseif ( 'post' === $attr['link'] &amp;&amp; $image ) : ?>
-										&lt;a href="&lt;?php echo esc_url( get_permalink() ); ?>">
-											&lt;?php echo wp_kses_post( $image ); ?>
-										&lt;/a>
-									&lt;?php else : ?>
-										&lt;?php echo wp_kses_post( $image ); ?>
-									&lt;?php endif; ?>
-
-									&lt;?php if ( 'full' === $attr['content'] ) : ?>
-										&lt;?php the_content(); ?>
-									&lt;?php elseif ( 'excerpt' === $attr['content'] ) : ?>
-										&lt;?php
-										echo wp_kses_post(
-											wpautop(
-												wp_trim_words(
-													get_the_content(),
-													absint( $attr['excerpt_length'] ),
-													apply_filters( 'excerpt_more', ' ' . '&amp;hellip;' )
-												)
-											)
-										);
-										?>
-									&lt;?php endif; ?>
-								&lt;/div>
-							&lt;/li>
-						&lt;?php endwhile; ?>
-					&lt;/ul>
-				&lt;/div>
-			&lt;?php endforeach; ?>
+						}
+						?>
+					&lt;/li>
+				&lt;?php
+				endwhile;
+				echo $footer;
+			endforeach;
+			?>
 		&lt;/div>
 
 		&lt;?php

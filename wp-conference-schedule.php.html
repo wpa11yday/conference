@@ -364,7 +364,8 @@ class WPCS_Conference_Schedule {
 			&lt;select id="wpcs-session-type" name="wpcs-session-type">
 				&lt;option value="session" &lt;?php selected( $session_type, 'session' ); ?>>&lt;?php esc_html_e( 'Regular Session', 'wpa-conference' ); ?>&lt;/option>
 				&lt;option value="panel" &lt;?php selected( $session_type, 'panel' ); ?>>&lt;?php esc_html_e( 'Panel', 'wpa-conference' ); ?>&lt;/option>
-				&lt;option value="lightning" &lt;?php selected( $session_type, 'lightning' ); ?>>&lt;?php esc_html_e( 'Lightning Talks', 'wpa-conference' ); ?>&lt;/option>
+				&lt;option value="lightning" &lt;?php selected( $session_type, 'lightning' ); ?>>&lt;?php esc_html_e( 'Lightning Talk', 'wpa-conference' ); ?>&lt;/option>
+				&lt;option value="lightning-group" &lt;?php selected( $session_type, 'lightning-group' ); ?>>&lt;?php esc_html_e( 'Lightning Talks Group', 'wpa-conference' ); ?>&lt;/option>
 				&lt;option value="custom" &lt;?php selected( $session_type, 'custom' ); ?>>&lt;?php esc_html_e( 'Custom', 'wpa-conference' ); ?>&lt;/option>
 			&lt;/select>
 		&lt;/p>
@@ -423,7 +424,7 @@ class WPCS_Conference_Schedule {
 
 			// Update session type.
 			$session_type = sanitize_text_field( $_POST['wpcs-session-type'] ?? '' );
-			if ( ! in_array( $session_type, array( 'session', 'lightning', 'panel', 'custom' ), true ) ) {
+			if ( ! in_array( $session_type, array( 'session', 'lightning', 'lightning-group', 'panel', 'custom' ), true ) ) {
 				$session_type = 'session';
 			}
 			update_post_meta( $post_id, '_wpcs_session_type', $session_type );
@@ -527,7 +528,7 @@ class WPCS_Conference_Schedule {
 		}
 
 		$session_type = get_post_meta( $post->ID, '_wpcs_session_type', true );
-		if ( ! in_array( $session_type, array( 'session', 'lightning', 'panel', 'custom' ), true ) ) {
+		if ( ! in_array( $session_type, array( 'session', 'lightning', 'lightning-group', 'panel', 'custom' ), true ) ) {
 			$session_type = 'session';
 		}
 
@@ -535,6 +536,8 @@ class WPCS_Conference_Schedule {
 			$states['wpcs-session-type'] = __( 'Session', 'wpa-conference' );
 		} elseif ( 'lightning' === $session_type ) {
 			$states['wpcs-session-type'] = __( 'Lightning Talks', 'wpa-conference' );
+		} elseif ( 'lightning-group' === $session_type ) {
+			$states['wpcs-session-type'] = __( 'Lightning Talk Group', 'wpa-conference' );
 		} elseif ( 'panel' === $session_type ) {
 			$states['wpcs-session-type'] = __( 'Panel', 'wpa-conference' );
 		}
@@ -648,8 +651,7 @@ class WPCS_Conference_Schedule {
 								&lt;&lt;?php echo $secondary_heading; ?>>
 									&lt;?php the_title(); ?>
 								&lt;/&lt;?php echo $secondary_heading; ?>>
-							&lt;?php endif; ?>
-						&lt;?php
+							&lt;?php endif;
 						endif;
 						if ( 'list' !== $attr['type'] ) {
 						?>

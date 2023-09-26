@@ -277,7 +277,7 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 	$talk_title  .= '<div class="talk-speakers">' . $talk_label . implode( ', ', $speakers['list'] ) . '</div>';
 	$talk_title   = '<div class="talk-title-wrapper">' . $talk_title . '</div>';
 	$talk_heading = sprintf( $time_html, ' ' . $talk_title );
-	if ( 'lightning' !== $talk_type ) {
+	if ( 'lightning-group' !== $talk_type ) {
 		$wrap   = '<div class="wp-block-column">';
 		$unwrap = '</div>';
 	} else {
@@ -285,7 +285,7 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 		$unwrap = '';
 	}
 	$talk_output  = $wrap . $sponsors;
-	$talk_output .= ( 'lightning' !== $talk_type ) ? '<div class="talk-description">' . wp_trim_words( $talk->post_content ) . '</div>' : '';
+	$talk_output .= ( 'lightning-group' !== $talk_type ) ? '<div class="talk-description">' . wp_trim_words( $talk->post_content ) . '</div>' : '';
 	$talk_output .= $unwrap;
 	$talk_output .= $wrap . $speakers['html'] . $unwrap;
 
@@ -392,7 +392,7 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 		}
 		$title_organization = array();
 		ob_start();
-		if ( 'lightning' === $talk_type ) {
+		if ( 'lightning-group' === $talk_type ) {
 			$ltalks = get_post_meta( $session_id, 'wpad_lightning_talks', true );
 			if ( $ltalks ) {
 				$ltalks = explode( ',', $ltalks );
@@ -499,7 +499,7 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 		}
 		$html .= ob_get_clean();
 	}
-	$html = ( 'lightning' !== $talk_type ) ? '<div class="wpcsp-speakers">' . $speakers_heading . $html . '</div>' : $html;
+	$html = ( 'lightning-group' !== $talk_type ) ? '<div class="wpcsp-speakers">' . $speakers_heading . $html . '</div>' : $html;
 
 	return array(
 		'list' => $list,

@@ -625,10 +625,11 @@ class WPCS_Conference_Schedule {
 								<<?php echo $secondary_heading; ?>>
 									<?php the_title(); ?>
 								</<?php echo $secondary_heading; ?>>
-							<?php endif;
+							<?php
+							endif;
 						endif;
 						if ( 'list' !== $attr['type'] ) {
-						?>
+							?>
 
 						<div class="wpcsp-sponsor-description">
 							<?php if ( 'website' === $attr['link'] && $website && $image ) : ?>
@@ -659,11 +660,11 @@ class WPCS_Conference_Schedule {
 								?>
 							<?php endif; ?>
 						</div>
-						<?php
+							<?php
 						}
 						?>
 					</li>
-				<?php
+					<?php
 				endwhile;
 				echo $footer;
 			endforeach;

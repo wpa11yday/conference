@@ -609,23 +609,29 @@ class WPCS_Conference_Schedule {
 
 					<li id="wpcsp-sponsor-<?php the_ID(); ?>" class="wpcsp-sponsor">
 						<?php if ( 'visible' === $attr['title'] ) : ?>
-							<?php if ( 'website' === $attr['link'] && $website ) : ?>
+							<?php
+							if ( 'website' === $attr['link'] && $website ) :
+								?>
 								<<?php echo $secondary_heading; ?>>
 									<a href="<?php echo esc_url( $website ); ?>" rel="sponsored">
 										<?php the_title(); ?>
 									</a>
 								</<?php echo $secondary_heading; ?>>
-							<?php elseif ( 'post' === $attr['link'] ) : ?>
+								<?php 
+							elseif ( 'post' === $attr['link'] ) :
+								?>
 								<<?php echo $secondary_heading; ?>>
 									<a href="<?php echo esc_url( get_permalink() ); ?>">
 										<?php the_title(); ?>
 									</a>
 								</<?php echo $secondary_heading; ?>>
-							<?php else : ?>
+								<?php
+							else :
+								?>
 								<<?php echo $secondary_heading; ?>>
 									<?php the_title(); ?>
 								</<?php echo $secondary_heading; ?>>
-							<?php
+								<?php
 							endif;
 						endif;
 						if ( 'list' !== $attr['type'] ) {

@@ -1,12 +1,13 @@
 === Conference Schedule ===
 Contributors: equalizedigital, alh0319, stevejonesdev, joedolson, nickthegeek, alexstine
 Donate link: https://wpaccessibility.day/donate/
-Tags: conference schedule, conference, schedule, event schedule, event, events, block, blocks, gutenberg, sessions, speakers, events, events calendar
-Requires at least: 5.0.0
-Tested up to: 6.2
-Stable tag: 1.0.0
+Tags: conference schedule, conference, schedule, event schedule, event, events, sessions, speakers
+Requires at least: 6.0
+Tested up to: 6.4
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Update URI: https://wpaccessibility.day
 
 Forked from WP Conference Schedule and customized for use by WP Accessibility Day.
 
@@ -32,6 +33,10 @@ Easily add a custom conference schedule or event schedule (in responsive table f
 
 
 == Changelog ==
+
+= 2.0.0 =
+
+* Add Github automatic updating by releases.
 
 = 1.0.0 =
 * Initial fork.

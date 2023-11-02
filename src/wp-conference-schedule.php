@@ -617,7 +617,7 @@ class WPCS_Conference_Schedule {
 										<?php the_title(); ?>
 									</a>
 								</<?php echo $secondary_heading; ?>>
-								<?php 
+								<?php
 							elseif ( 'post' === $attr['link'] ) :
 								?>
 								<<?php echo $secondary_heading; ?>>

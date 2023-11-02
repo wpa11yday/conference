@@ -635,23 +635,29 @@ class WPCS_Conference_Schedule {
 
 					&lt;li id="wpcsp-sponsor-&lt;?php the_ID(); ?>" class="wpcsp-sponsor">
 						&lt;?php if ( 'visible' === $attr['title'] ) : ?>
-							&lt;?php if ( 'website' === $attr['link'] &amp;&amp; $website ) : ?>
+							&lt;?php
+							if ( 'website' === $attr['link'] &amp;&amp; $website ) :
+								?>
 								&lt;&lt;?php echo $secondary_heading; ?>>
 									&lt;a href="&lt;?php echo esc_url( $website ); ?>" rel="sponsored">
 										&lt;?php the_title(); ?>
 									&lt;/a>
 								&lt;/&lt;?php echo $secondary_heading; ?>>
-							&lt;?php elseif ( 'post' === $attr['link'] ) : ?>
+								&lt;?php 
+							elseif ( 'post' === $attr['link'] ) :
+								?>
 								&lt;&lt;?php echo $secondary_heading; ?>>
 									&lt;a href="&lt;?php echo esc_url( get_permalink() ); ?>">
 										&lt;?php the_title(); ?>
 									&lt;/a>
 								&lt;/&lt;?php echo $secondary_heading; ?>>
-							&lt;?php else : ?>
+								&lt;?php
+							else :
+								?>
 								&lt;&lt;?php echo $secondary_heading; ?>>
 									&lt;?php the_title(); ?>
 								&lt;/&lt;?php echo $secondary_heading; ?>>
-							&lt;?php
+								&lt;?php
 							endif;
 						endif;
 						if ( 'list' !== $attr['type'] ) {

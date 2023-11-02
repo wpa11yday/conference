@@ -15,3 +15,14 @@ Before committing, staged files will be checked to see if any match the file typ
 At times it might be appropriate to ignore an error. In most cases it is best to use inline comments for the linting tool in order to ignore the error for a given line of code.
 
 In very rare cases it may be required to commit a change without resolving the lint errors. In those instances attempt to commit again with the `--no-verify` flag.
+
+## Release Process
+
+This plugin uses the WordPress automatic updater through Github releases. To release an update:
+
+* Update the version number in the readme.txt header.
+* Update the version number in init.php
+* Update the version numbers in src/wp-conference-schedule.php
+* Create a new release at Github > Releases > Draft a new release.
+
+The updater will only respond to releases marked as the latest release. Pre-release versions will not trigger updating.

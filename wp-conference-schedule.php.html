@@ -1554,6 +1554,22 @@ function wpcs_get_video() {
 }
 
 /**
+ * Append video to end of session post if has captions &amp; video.
+ *
+ * @param string $content The content.
+ *
+ * @return string
+ */
+function wpcs_add_video( $content ) {
+	if ( ! wpcs_get_captions() || ! wpcs_get_youtube() ) {
+		return $content;
+	} else {
+		return $content . wpcs_get_video();
+	}
+}
+add_filter( 'the_content', 'wpcs_add_video' );
+
+/**
  * Get video poster (the post thumbnail URL).
  *
  * @return string

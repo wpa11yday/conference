@@ -818,6 +818,7 @@ class WPCS_Conference_Schedule {
 				$title_organization = array();
 				$title              = get_post_meta( $post_id, 'wpcsp_title', true );
 				$organization       = get_post_meta( $post_id, 'wpcsp_organization', true );
+
 				if ( $title ) {
 					$title_organization[] = $title;
 				}
@@ -1267,6 +1268,15 @@ function wpcsp_speaker_metabox() {
 			'name' => __( 'Organization', 'wpa-conference' ),
 			'id'   => 'wpcsp_organization',
 			'type' => 'text',
+		)
+	);
+
+	// Author email.
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Author email', 'wpa-conference' ),
+			'id'        => 'wpcsp_user_email',
+			'type'      => 'text_email',
 		)
 	);
 

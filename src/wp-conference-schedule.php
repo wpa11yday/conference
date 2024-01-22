@@ -1274,9 +1274,9 @@ function wpcsp_speaker_metabox() {
 	// Author email.
 	$cmb->add_field(
 		array(
-			'name'      => __( 'Author email', 'wpa-conference' ),
-			'id'        => 'wpcsp_user_email',
-			'type'      => 'text_email',
+			'name' => __( 'Author email', 'wpa-conference' ),
+			'id'   => 'wpcsp_user_email',
+			'type' => 'text_email',
 		)
 	);
 

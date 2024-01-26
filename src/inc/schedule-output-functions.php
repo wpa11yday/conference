@@ -37,6 +37,9 @@ function wpcsp_get_social_links( $post_id ) {
 				case 'mastodon':
 					$social_icon = ' fa-brands fa-mastodon';
 					break;
+				case 'twitter':
+					$social_icon = ' fa-brands fa-x-twitter';
+					break;
 			}
 
 			$social_icons[] = '<a class="wpcsp-' . $post_type . '-social-icon-link" href="' . esc_url( $url ) . '"><span class="dashicons dashicons-' . $social_icon . '" aria-hidden="true"></span><span class="screen-reader-text">' . $social_label . '</a>';

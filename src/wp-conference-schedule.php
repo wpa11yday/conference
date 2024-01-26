@@ -184,7 +184,7 @@ class WPCS_Conference_Schedule {
 
 		wp_enqueue_style(
 			'font-awesome',
-			'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css',
+			'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
 			array(),
 			'1.0.0'
 		);

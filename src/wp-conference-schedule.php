@@ -1280,6 +1280,15 @@ function wpcsp_speaker_metabox() {
 		)
 	);
 
+	// Mastodon.
+	$cmb->add_field(
+		array(
+			'name' => __( 'Mastodon', 'wpa-conference' ),
+			'id'   => 'wpcsp_mastodon',
+			'type' => 'text_url',
+		)
+	);
+
 	// Facebook URL.
 	$cmb->add_field(
 		array(

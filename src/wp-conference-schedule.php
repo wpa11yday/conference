@@ -1284,7 +1284,7 @@ function wpcsp_speaker_metabox() {
 	$cmb->add_field(
 		array(
 			'name' => __( 'Mastodon', 'wpa-conference' ),
-			'id'   => 'wpcsp_mastodon',
+			'id'   => 'wpcsp_mastodon_url',
 			'type' => 'text_url',
 		)
 	);

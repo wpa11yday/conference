@@ -180,8 +180,6 @@ class WPCS_Conference_Schedule {
 	 * @uses wp_enqueue_script()
 	 */
 	public function wpcs_enqueue_scripts() {
-		wp_enqueue_style( 'wpcs_styles', plugins_url( '/assets/css/style.css', __FILE__ ), array(), 2 );
-
 		wp_enqueue_style(
 			'font-awesome',
 			'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',

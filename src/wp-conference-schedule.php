@@ -1287,6 +1287,15 @@ function wpcsp_speaker_metabox() {
 		)
 	);
 
+	// Threads.
+	$cmb->add_field(
+		array(
+			'name' => __( 'Threads', 'wpa-conference' ),
+			'id'   => 'wpcsp_threads_url',
+			'type' => 'text_url',
+		)
+	);
+
 	// Facebook URL.
 	$cmb->add_field(
 		array(

@@ -225,10 +225,10 @@ function wpcs_schedule( $atts, $content ) {
 				$is_current = true;
 			}
 			if ( (int) date( 'i' ) < 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date 
-				$text = __( 'Now speaking:', 'wpad' ) . ' ';
+				$text = __( 'Now speaking:', 'wpa-conference' ) . ' ';
 			} else {
 				$is_next = true;
-				$text    = __( 'Up next:', 'wpad' ) . ' ';
+				$text    = __( 'Up next:', 'wpa-conference' ) . ' ';
 			}
 		} elseif ( ! ( time() > $end ) ) {
 			$is_next = true;

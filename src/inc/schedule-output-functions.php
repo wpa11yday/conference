@@ -370,7 +370,7 @@ function wpcs_event_start( $atts = array() ) {
 function wpcs_banner() {
 	$time   = time();
 	$output = '';
-	// 10 minutes before start time.
+	// If more than 10 minutes before start time.
 	if ( $time < ( strtotime( get_option( 'wpad_start_time', '' ) ) - 600 ) ) {
 		// Actual start time.
 		if ( $time < strtotime( get_option( 'wpad_start_time', '' ) ) ) {
@@ -378,7 +378,8 @@ function wpcs_banner() {
 			$until  = human_time_diff( $time, strtotime( get_option( 'wpad_start_time', '' ) ) );
 			$append = " - in just <strong>$until</strong>!";
 		}
-		$output = "<div class='wpad-callout'><p>WP Accessibility Day starts $start $append <a href='" . esc_url( get_option( 'wpcs_field_registration' ) ) . "'>Register today!</a> </p></div>";
+		$register_or_signup = ( 'true' === get_option( 'wpcs_registration_open' ) ) ? "<a class='button' href='" . esc_url( get_option( 'wpcs_field_registration' ) ) . "'>Register today!</a>" : ' <a href="' . home_url( 'join-our-email-list' ) . '" class="button">Get notified when registration opens!</a>';
+		$output             = "<div class='wpad-callout'><p>WP Accessibility Day starts $start $append $register_or_signup </p></div>";
 	}
 
 	return $output;

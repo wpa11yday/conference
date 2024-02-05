@@ -23,6 +23,12 @@ function wpcs_settings_init() {
 	// register registration URL field in the "wpcs_section_info" section, inside the "wpcs" page.
 	add_settings_field( 'wpcs_field_registration', 'Registration URL', 'wpcs_field_registration_cb', 'wpa-conference', 'wpcs_section_settings' );
 
+	// register registration URL setting for "wpcs" page.
+	register_setting( 'wpa-conference', 'wpcs_registration_open' );
+
+	// register registration URL field in the "wpcs_section_info" section, inside the "wpcs" page.
+	add_settings_field( 'wpcs_registration_open', 'Registration open', 'wpcs_registration_open_cb', 'wpa-conference', 'wpcs_section_settings' );
+
 	// register event start time.
 	register_setting( 'wpa-conference', 'wpad_start_time' );
 
@@ -70,6 +76,17 @@ function wpcs_field_registration_cb() {
 	?>
 	<input type="url" name="wpcs_field_registration" value="<?php echo esc_url( get_option( 'wpcs_field_registration' ) ); ?>" style="width:100%;max-width: 450px;" aria-describedby="wpcs_field_registration_description" />
 	<p class="description" id="wpcs_field_registration_description">The URL of your registration form.</p>
+	<?php
+}
+
+/**
+ * Field registration open callback.
+ *
+ * @return void
+ */
+function wpcs_registration_open_cb() {
+	?>
+	<input type="checkbox" id="wpcs_registration_open" name="wpcs_registration_open" value="true" <?php checked( get_option( 'wpcs_registration_open', '' ), 'true', true ); ?> /> <label for="wpcs_registration_open">Registration is currently open</label>
 	<?php
 }
 

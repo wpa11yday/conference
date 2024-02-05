@@ -131,15 +131,7 @@ function wpcs_field_schedule_page_url_cb() {
  */
 function wpcs_options_page() {
 	// add top level menu page.
-	add_menu_page(
-		'WP Conference Schedule',
-		'WP Conference Schedule',
-		'manage_options',
-		'wp-conference-schedule',
-		'wpcs_options_page_html',
-		'dashicons-schedule',
-		10
-	);
+	add_options_page( 'Conference Settings', 'Conference Settings', 'manage_options', 'wp-conference-schedule', 'wpcs_options_page_html', 30 );
 }
 
 /**

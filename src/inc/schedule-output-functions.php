@@ -197,8 +197,9 @@ function wpcs_schedule( $atts, $content ) {
 			'ts' => $datatime,
 		);
 	}
-	$start = $args['start'] - 24;
-	$n     = 1;
+	$start            = $args['start'] - 24;
+	$n                = 1;
+	$current_talk_set = false;
 	for ( $i = $start; $i < $args['start']; $i++ ) {
 		$number     = ( isset( $_GET['buttonsoff'] ) ) ? str_pad( $n, 2, '0', STR_PAD_LEFT ) : '';
 		$session_id = ( isset( $_GET['buttonsoff'] ) ) ? " <span class='session_id'>$number</span>" : '';
@@ -224,10 +225,10 @@ function wpcs_schedule( $atts, $content ) {
 				$is_current = true;
 			}
 			if ( (int) date( 'i' ) < 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date 
-				$text = 'Now speaking: ';
+				$text = __( 'Now speaking:', 'wpad' ) . ' ';
 			} else {
 				$is_next = true;
-				$text    = 'Up next: ';
+				$text    = __( 'Up next:', 'wpad' ) . ' ';
 			}
 		} elseif ( ! ( time() > $end ) ) {
 			$is_next = true;
@@ -236,10 +237,13 @@ function wpcs_schedule( $atts, $content ) {
 
 		$talk_ID = $schedule[ $time ]['id'];
 		if ( $talk_ID ) {
-			$is_current   = ( $is_current || ( $is_first && $is_next ) ) ? true : false;
-			$session      = wpad_draw_session( $schedule[ $time ], $is_current, $text, $session_id );
-			$output[]     = $session[0];
-			$current_talk = $session[1];
+			$is_current = ( $is_current || ( $is_first && $is_next ) ) ? true : false;
+			$session    = wpad_draw_session( $schedule[ $time ], $is_current, $text, $session_id );
+			$output[]   = $session[0];
+			if ( true !== $current_talk_set ) {
+				$current_talk     = $session[1];
+				$current_talk_set = true;
+			}
 		}
 		$n++;
 	}

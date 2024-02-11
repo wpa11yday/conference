@@ -1,7 +1,7 @@
 <?php
 /**
  * Register the meta fields.
- * 
+ *
  * @package wpcsp
  */
 

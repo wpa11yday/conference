@@ -1,1 +1,23 @@
-(()=>{jQuery(e=>{var t=Intl.DateTimeFormat().resolvedOptions().timeZone;t===void 0&&(t="your local time"),e(".event-time").each(function(n){var a=e(this).attr("data-time"),i=new Date(a).toLocaleTimeString().replace(":00 "," "),r=new Date(a).toLocaleDateString();e(this).append('<span class="localtime">'+r+" at "+i+" "+t+"</span>")}),e("h2.talk-time").each(function(n){var a=e(this).attr("data-time"),i=new Date(a).toLocaleTimeString().replace(":00 "," ");e(this).find(".time-wrapper").append('<span class="localtime">'+i+" "+t+"</span>")})});})();
+(() => {
+  // src/assets/js/conference-time-zones.js
+  jQuery(($) => {
+    let zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (void 0 === zone) {
+      zone = "your local time";
+    }
+    $(".event-time").each(function() {
+      const utcTime = $(this).attr("data-time");
+      const userTime = new Date(utcTime).toLocaleTimeString().replace(":00 ", " ");
+      const userDate = new Date(utcTime).toLocaleDateString();
+      $(this).append(
+        '<span class="localtime">' + userDate + " at " + userTime + " " + zone + "</span>"
+      );
+    });
+    $("h2.talk-time").each(function() {
+      const utcTime = $(this).attr("data-time");
+      const userTime = new Date(utcTime).toLocaleTimeString().replace(":00 ", " ");
+      $(this).find(".time-wrapper").append('<span class="localtime">' + userTime + " " + zone + "</span>");
+    });
+  });
+})();
+//# sourceMappingURL=conference-time-zones-min.js.map

@@ -1,3 +1,5 @@
+import './plugin-sidebars/a11y-day';
+
 const registerPlugin = wp.plugins.registerPlugin;
 
 const postStatusSelect = () => {

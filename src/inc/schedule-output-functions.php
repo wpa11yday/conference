@@ -245,7 +245,7 @@ function wpcs_schedule( $atts, $content ) {
 				$current_talk_set = true;
 			}
 		}
-		$n++;
+		++$n;
 	}
 	$opening_id      = get_option( 'wpcs_opening_remarks' );
 	$opening_remarks = array(

@@ -23,7 +23,6 @@ add_action( 'init', 'wpcs_register_post_types' );
  * @return void
  */
 function wpcs_register_post_types() {
-
 	// Speaker post type labels.
 	$speakerlabels = array(
 		'name'               => __( 'People', 'wpa-conference' ),
@@ -223,7 +222,6 @@ function wpcs_register_post_types() {
 			'rest_base'       => 'sessions',
 		)
 	);
-
 }
 
 add_action( 'gettext', 'wpcs_change_title_text' );

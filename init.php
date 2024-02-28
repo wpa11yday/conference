@@ -37,7 +37,7 @@ $wpcsp_update_checker = PucFactory::buildUpdateChecker(
 // Set the branch that contains the stable release.
 $wpcsp_update_checker->setBranch( 'master' );
 
-include( dirname( __FILE__ ) . '/src/wp-conference-schedule.php' );
+require __DIR__ . '/src/wp-conference-schedule.php';
 
 /**
  * Plugin Activation & Deactivation

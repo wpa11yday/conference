@@ -35,20 +35,20 @@ define( 'WPCS_VERSION', '2.0.0' );
 define( 'PLUGIN_FILE_URL', __FILE__ );
 
 // Includes.
-require_once( WPCS_DIR . 'inc/blocks.php' );
-require_once( WPCS_DIR . 'inc/post-stati.php' );
-require_once( WPCS_DIR . 'inc/post-types.php' );
-require_once( WPCS_DIR . 'inc/taxonomies.php' );
-require_once( WPCS_DIR . 'inc/schedule-output-functions.php' );
-require_once( WPCS_DIR . 'inc/settings.php' );
-require_once( WPCS_DIR . '/inc/activation.php' );
-require_once( WPCS_DIR . '/inc/deactivation.php' );
-require_once( WPCS_DIR . '/inc/uninstall.php' );
-require_once( WPCS_DIR . '/inc/enqueue-scripts.php' );
-require_once( WPCS_DIR . '/inc/meta.php' );
-require_once( WPCS_DIR . '/inc/cmb2/init.php' );
-require_once( WPCS_DIR . '/inc/cmb-field-select2/cmb-field-select2.php' );
-require_once( WPCS_DIR . '/inc/cmb2-conditional-logic/cmb2-conditional-logic.php' );
+require_once WPCS_DIR . 'inc/blocks.php';
+require_once WPCS_DIR . 'inc/post-stati.php';
+require_once WPCS_DIR . 'inc/post-types.php';
+require_once WPCS_DIR . 'inc/taxonomies.php';
+require_once WPCS_DIR . 'inc/schedule-output-functions.php';
+require_once WPCS_DIR . 'inc/settings.php';
+require_once WPCS_DIR . '/inc/activation.php';
+require_once WPCS_DIR . '/inc/deactivation.php';
+require_once WPCS_DIR . '/inc/uninstall.php';
+require_once WPCS_DIR . '/inc/enqueue-scripts.php';
+require_once WPCS_DIR . '/inc/meta.php';
+require_once WPCS_DIR . '/inc/cmb2/init.php';
+require_once WPCS_DIR . '/inc/cmb-field-select2/cmb-field-select2.php';
+require_once WPCS_DIR . '/inc/cmb2-conditional-logic/cmb2-conditional-logic.php';
 
 add_shortcode( 'schedule', 'wpcs_schedule' );
 add_shortcode( 'donors', 'wpcsp_donors_shortcode', 10, 2 );
@@ -147,7 +147,6 @@ class WPCS_Conference_Schedule {
 
 			wp_enqueue_style( 'jquery-ui' );
 		}
-
 	}
 
 	/**
@@ -258,7 +257,6 @@ class WPCS_Conference_Schedule {
 				)
 			);
 		}
-
 	}
 
 	/**
@@ -418,9 +416,7 @@ class WPCS_Conference_Schedule {
 			// Update session caption URL.
 			$session_caption = sanitize_text_field( $_POST['wpcs-session-caption'] ?? '' );
 			update_post_meta( $post_id, '_wpcs_caption_url', $session_caption );
-
 		}
-
 	}
 
 	/**
@@ -1189,9 +1185,7 @@ class WPCS_Conference_Schedule {
 
 		$html = ob_get_clean();
 		return $html;
-
 	}
-
 }
 
 /**
@@ -1532,7 +1526,6 @@ function wpcsp_sponsor_level_metabox() {
 			),
 		)
 	);
-
 }
 
 // Load the plugin class.

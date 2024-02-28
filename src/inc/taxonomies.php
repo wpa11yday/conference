@@ -11,7 +11,6 @@
  * @return void
  */
 function wpcs_register_taxonomies() {
-
 	// Labels for tracks.
 	$track_labels = array(
 		'name'          => __( 'Tracks', 'wpa-conference' ),
@@ -69,7 +68,6 @@ function wpcs_register_taxonomies() {
 			'rest_base'    => 'session_location',
 		)
 	);
-
 }
 
 add_action( 'init', 'wpcs_register_taxonomies' );
@@ -167,6 +165,5 @@ function wpcsp_register_conference_taxonomies() {
 			'rest_base'    => 'session_tag',
 		)
 	);
-
 }
 add_action( 'init', 'wpcsp_register_conference_taxonomies' );

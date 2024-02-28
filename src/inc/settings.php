@@ -199,7 +199,6 @@ function wpcsp_settings_init() {
 
 	// register schedule page URL field in the "wpcs_section_info" section, inside the "wpcs" page.
 	add_settings_field( 'wpcsp_field_sponsor_page_url', 'Sponsor URL Redirect', 'wpcsp_field_sponsor_page_url_cb', 'wpa-conference', 'wpcs_section_settings' );
-
 }
 add_action( 'admin_init', 'wpcsp_settings_init', 11 );
 

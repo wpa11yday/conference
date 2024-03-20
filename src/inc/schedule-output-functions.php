@@ -221,14 +221,14 @@ function wpcs_schedule( $atts, $content ) {
 		$text    = '';
 		$is_next = false;
 		if ( ( time() > $begin - HOUR_IN_SECONDS ) && ( time() < $end ) ) {
-			if ( ( $begin < time() && time() < $end ) && date( 'H' ) === $time && (int) date( 'i' ) < 50 || date( 'G' ) === (int) $time - 1 && (int) date( 'i' ) > 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date 
+			if ( ( $begin < time() && time() < $end ) && date( 'H' ) === $time && (int) date( 'i' ) < 50 || date( 'G' ) === (int) $time - 1 && (int) date( 'i' ) > 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
 				$is_current = true;
 			}
-			if ( (int) date( 'i' ) < 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date 
-				$text = __( 'Now speaking:', 'wpa-conference' ) . ' ';
+			if ( (int) date( 'i' ) < 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
+				$text = __( 'Now speaking:', 'wpad' ) . ' ';
 			} else {
 				$is_next = true;
-				$text    = __( 'Up next:', 'wpa-conference' ) . ' ';
+				$text    = __( 'Up next:', 'wpad' ) . ' ';
 			}
 		} elseif ( ! ( time() > $end ) ) {
 			$is_next = true;
@@ -245,7 +245,7 @@ function wpcs_schedule( $atts, $content ) {
 				$current_talk_set = true;
 			}
 		}
-		++$n;
+		$n++;
 	}
 	$opening_id      = get_option( 'wpcs_opening_remarks' );
 	$opening_remarks = array(
@@ -263,6 +263,59 @@ function wpcs_schedule( $atts, $content ) {
 	return $return;
 }
 
+
+/**
+ * Get tags for a session.
+ *
+ * @param int    $talk_id Post ID for session.
+ * @param string $tag_heading_txt Heading text for tags.
+ *
+ * @return string
+ */
+function wpad_get_tags_html( $talk_id ) {
+	$all_tags           = wp_get_post_terms( $talk_id, 'wpcs_session_tag' );
+	$filtered_tags_html = '';
+
+	if ( ! is_wp_error( $all_tags ) && ! empty( $all_tags ) ) {
+
+		// Filter out tags that appear in more than one post.
+		$filtered_tags = array_filter( $all_tags, function( $tag ) {
+			return $tag->count > 1;
+		} );
+
+		if ( ! empty( $filtered_tags ) ) {
+			foreach ( $filtered_tags as $tag ) {
+				$filtered_tags_html .= '<span class="talk-tag-wrapper">';
+				$filtered_tags_html .= '<a href="' . esc_url( get_term_link( $tag->term_id ) ) . '">' . esc_html( $tag->name ) . '</a>';
+				$filtered_tags_html .= '</span>';
+			}
+		}
+	}
+
+	return $filtered_tags_html;
+}
+
+/**
+ * Get track name for a session.
+ *
+ * @param int $talk_id Post ID for session.
+ *
+ * @return string
+ */
+function wpad_get_track_name( $talk_id ) {
+
+	$track_name = '';
+
+	$track = wp_get_post_terms( $talk_id, 'wpcs_track' );
+	if ( ! is_wp_error( $track ) && ! empty( $track ) ) {
+		if ( isset( $track[0] ) ) {
+			$track_name = $track[0]->name;
+		}
+	}
+
+	return $track_name;
+}
+
 /**
  * Draw a single session in the schedule.
  *
@@ -274,13 +327,22 @@ function wpcs_schedule( $atts, $content ) {
  * @return array
  */
 function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
-	$talk_ID   = $talk['id'];
-	$datatime  = $talk['ts'];
-	$mins      = gmdate( 'i', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
-	$time      = gmdate( 'H', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
-	$time_html = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':' . $mins . ' UTC<span class="screen-reader-text">,&nbsp;</span></span>' . ' </div></h2><div class="talk-wrapper">%s[control]</div></div>';
+	$talk_ID         = $talk['id'];
+	$datatime        = $talk['ts'];
+	$mins            = gmdate( 'i', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
+	$time            = gmdate( 'H', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
+	$tag_heading_txt = __( 'Tags', 'wpad' );
+	$tags_html       = wpad_get_tags_html( $talk_ID );
+	$track_name      = wpad_get_track_name( $talk_ID );
+	$track_name_html = '';
+
+	if ( ! empty( $track_name ) ) {
+		$track_name_html = '<h2 class="talk-track">' . $track_name . '</h2>';
+	}
+
+	$time_html = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':' . $mins . ' UTC<span class="screen-reader-text">,&nbsp;</span></span>' . ' </div></h2>' . $track_name_html . '<div class="talk-wrapper">%s[control]</div></div>';
 	$talk_type = sanitize_html_class( get_post_meta( $talk_ID, '_wpcs_session_type', true ) );
-	$speakers  = wpcs_session_speakers( $talk_ID, $talk_type );
+    $speakers  = wpcs_session_speakers( $talk_ID, $talk_type );
 	$sponsors  = wpcs_session_sponsors( $talk_ID );
 	$talk      = get_post( $talk_ID );
 
@@ -315,6 +377,17 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 		}
 	}
 
+	if ( ! empty( $tags_html ) ) {
+		$tags_html = "
+            <div class='talk-tags-wrapper'>
+                <h4>$tag_heading_txt</h4>   
+                <div class='wp-block-columns inside talk-tags'>
+                    $tags_html
+                </div>
+            </div>
+        ";
+	}
+
 	$output = "
 	<div class='wp-block-group schedule $talk_type' id='$session_id'>
 		<div class='wp-block-group__inner-container'>
@@ -323,6 +396,9 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 				$talk_output
 			</div>
 		</div>
+		
+		$tags_html
+		
 	</div>";
 
 	return array( $output, $current_talk );
@@ -370,7 +446,7 @@ function wpcs_event_start( $atts = array() ) {
 function wpcs_banner() {
 	$time   = time();
 	$output = '';
-	// If more than 10 minutes before start time.
+	// 10 minutes before start time.
 	if ( $time < ( strtotime( get_option( 'wpad_start_time', '' ) ) - 600 ) ) {
 		// Actual start time.
 		if ( $time < strtotime( get_option( 'wpad_start_time', '' ) ) ) {
@@ -378,8 +454,7 @@ function wpcs_banner() {
 			$until  = human_time_diff( $time, strtotime( get_option( 'wpad_start_time', '' ) ) );
 			$append = " - in just <strong>$until</strong>!";
 		}
-		$register_or_signup = ( 'true' === get_option( 'wpcs_registration_open' ) ) ? "<a class='button' href='" . esc_url( get_option( 'wpcs_field_registration' ) ) . "'>Register today!</a>" : ' <a href="' . home_url( 'join-our-email-list' ) . '" class="button">Get notified when registration opens!</a>';
-		$output             = "<div class='wpad-callout'><p>WP Accessibility Day starts $start $append $register_or_signup </p></div>";
+		$output = "<div class='wpad-callout'><p>WP Accessibility Day starts $start $append <a href='" . esc_url( get_option( 'wpcs_field_registration' ) ) . "'>Register today!</a> </p></div>";
 	}
 
 	return $output;

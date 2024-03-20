@@ -225,10 +225,10 @@ function wpcs_schedule( $atts, $content ) {
 				$is_current = true;
 			}
 			if ( (int) date( 'i' ) < 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
-				$text = __( 'Now speaking:', 'wpad' ) . ' ';
+				$text = __( 'Now speaking:', 'wpa-conference' ) . ' ';
 			} else {
 				$is_next = true;
-				$text    = __( 'Up next:', 'wpad' ) . ' ';
+				$text    = __( 'Up next:', 'wpa-conference' ) . ' ';
 			}
 		} elseif ( ! ( time() > $end ) ) {
 			$is_next = true;
@@ -245,7 +245,7 @@ function wpcs_schedule( $atts, $content ) {
 				$current_talk_set = true;
 			}
 		}
-		$n++;
+		++$n;
 	}
 	$opening_id      = get_option( 'wpcs_opening_remarks' );
 	$opening_remarks = array(
@@ -262,7 +262,6 @@ function wpcs_schedule( $atts, $content ) {
 
 	return $return;
 }
-
 
 /**
  * Get tags for a session.
@@ -340,11 +339,11 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 		$track_name_html = '<h2 class="talk-track">' . $track_name . '</h2>';
 	}
 
-	$time_html = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':' . $mins . ' UTC<span class="screen-reader-text">,&nbsp;</span></span>' . ' </div></h2>' . $track_name_html . '<div class="talk-wrapper">%s[control]</div></div>';
-	$talk_type = sanitize_html_class( get_post_meta( $talk_ID, '_wpcs_session_type', true ) );
-    $speakers  = wpcs_session_speakers( $talk_ID, $talk_type );
-	$sponsors  = wpcs_session_sponsors( $talk_ID );
-	$talk      = get_post( $talk_ID );
+    $time_html       = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':' . $mins . ' UTC<span class="screen-reader-text">,&nbsp;</span></span>' . $track_name_html . ' </div></h2><div class="talk-wrapper">%s[control]</div></div>';
+	$talk_type       = sanitize_html_class( get_post_meta( $talk_ID, '_wpcs_session_type', true ) );
+	$speakers        = wpcs_session_speakers( $talk_ID, $talk_type );
+	$sponsors        = wpcs_session_sponsors( $talk_ID );
+	$talk            = get_post( $talk_ID );
 
 	$talk_attr_id = sanitize_title( $talk->post_title );
 	$talk_title   = '<a href="' . esc_url( get_the_permalink( $talk_ID ) ) . '" id="talk-' . $talk_attr_id . '">' . $talk->post_title . '</a>' . $session_id;
@@ -398,7 +397,6 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 		</div>
 		
 		$tags_html
-		
 	</div>";
 
 	return array( $output, $current_talk );
@@ -446,7 +444,7 @@ function wpcs_event_start( $atts = array() ) {
 function wpcs_banner() {
 	$time   = time();
 	$output = '';
-	// 10 minutes before start time.
+	// If more than 10 minutes before start time.
 	if ( $time < ( strtotime( get_option( 'wpad_start_time', '' ) ) - 600 ) ) {
 		// Actual start time.
 		if ( $time < strtotime( get_option( 'wpad_start_time', '' ) ) ) {
@@ -454,7 +452,8 @@ function wpcs_banner() {
 			$until  = human_time_diff( $time, strtotime( get_option( 'wpad_start_time', '' ) ) );
 			$append = " - in just <strong>$until</strong>!";
 		}
-		$output = "<div class='wpad-callout'><p>WP Accessibility Day starts $start $append <a href='" . esc_url( get_option( 'wpcs_field_registration' ) ) . "'>Register today!</a> </p></div>";
+		$register_or_signup = ( 'true' === get_option( 'wpcs_registration_open' ) ) ? "<a class='button' href='" . esc_url( get_option( 'wpcs_field_registration' ) ) . "'>Register today!</a>" : ' <a href="' . home_url( 'join-our-email-list' ) . '" class="button">Get notified when registration opens!</a>';
+		$output             = "<div class='wpad-callout'><p>WP Accessibility Day starts $start $append $register_or_signup </p></div>";
 	}
 
 	return $output;
@@ -552,37 +551,37 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 
 				echo $talk_html;
 				?>
-				<div class="wpcsp-session-speaker">
+                <div class="wpcsp-session-speaker">
 					<?php
 					if ( $headshot ) {
 						echo $headshot;
 					}
 					if ( $full_name || $title_organization ) {
-						?>
-						<div class="wpcsp-session-speaker-data">
-						<?php
-					}
-					if ( $full_name ) {
-						?>
-						<div class="wpcsp-session-speaker-name">
-							<?php echo $full_name; ?>
-						</div>
-						<?php
-					}
-					if ( $title_organization ) {
-						?>
-						<div class="wpcsp-session-speaker-title-organization">
-							<?php echo implode( ', ', $title_organization ); ?>
-						</div>
-						<?php
-					}
-					if ( $full_name || $title_organization ) {
-						?>
-						</div>
-						<?php
-					}
 					?>
-				</div>
+                    <div class="wpcsp-session-speaker-data">
+						<?php
+						}
+						if ( $full_name ) {
+							?>
+                            <div class="wpcsp-session-speaker-name">
+								<?php echo $full_name; ?>
+                            </div>
+							<?php
+						}
+						if ( $title_organization ) {
+							?>
+                            <div class="wpcsp-session-speaker-title-organization">
+								<?php echo implode( ', ', $title_organization ); ?>
+                            </div>
+							<?php
+						}
+						if ( $full_name || $title_organization ) {
+						?>
+                    </div>
+				<?php
+				}
+				?>
+                </div>
 				<?php
 			}
 		}

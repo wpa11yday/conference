@@ -267,7 +267,6 @@ function wpcs_schedule( $atts, $content ) {
  * Get tags for a session.
  *
  * @param int    $talk_id Post ID for session.
- * @param string $tag_heading_txt Heading text for tags.
  *
  * @return string
  */
@@ -283,11 +282,13 @@ function wpad_get_tags_html( $talk_id ) {
 		} );
 
 		if ( ! empty( $filtered_tags ) ) {
+            $filtered_tags_html .= '<ul class="talks-wrapper">';
 			foreach ( $filtered_tags as $tag ) {
-				$filtered_tags_html .= '<span class="talk-tag-wrapper">';
+				$filtered_tags_html .= '<li class="talk-tag-wrapper">';
 				$filtered_tags_html .= '<a href="' . esc_url( get_term_link( $tag->term_id ) ) . '">' . esc_html( $tag->name ) . '</a>';
-				$filtered_tags_html .= '</span>';
+				$filtered_tags_html .= '</li>';
 			}
+            $filtered_tags_html .= '</ul>';
 		}
 	}
 
@@ -330,16 +331,16 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 	$datatime        = $talk['ts'];
 	$mins            = gmdate( 'i', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
 	$time            = gmdate( 'H', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
-	$tag_heading_txt = __( 'Tags', 'wpad' );
+	$tag_heading_txt = __( 'Topics', 'wpad' );
 	$tags_html       = wpad_get_tags_html( $talk_ID );
 	$track_name      = wpad_get_track_name( $talk_ID );
 	$track_name_html = '';
 
 	if ( ! empty( $track_name ) ) {
-		$track_name_html = '<h2 class="talk-track">' . $track_name . '</h2>';
+		$track_name_html = '<div class="talk-track0">' . $track_name . '</div>';
 	}
 
-    $time_html       = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':' . $mins . ' UTC<span class="screen-reader-text">,&nbsp;</span></span>' . $track_name_html . ' </div></h2><div class="talk-wrapper">%s[control]</div></div>';
+    $time_html       = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':' . $mins . ' UTC<span class="screen-reader-text">,&nbsp;</span></span></div></h2><div class="talk-wrapper">%s[control]</div>'.$track_name_html.'</div>';
 	$talk_type       = sanitize_html_class( get_post_meta( $talk_ID, '_wpcs_session_type', true ) );
 	$speakers        = wpcs_session_speakers( $talk_ID, $talk_type );
 	$sponsors        = wpcs_session_sponsors( $talk_ID );
@@ -379,7 +380,7 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 	if ( ! empty( $tags_html ) ) {
 		$tags_html = "
             <div class='talk-tags-wrapper'>
-                <h4>$tag_heading_txt</h4>   
+                <h3>$tag_heading_txt</h3>   
                 <div class='wp-block-columns inside talk-tags'>
                     $tags_html
                 </div>

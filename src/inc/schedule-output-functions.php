@@ -337,7 +337,7 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 	$track_name_html = '';
 
 	if ( ! empty( $track_name ) ) {
-		$track_name_html = '<div class="talk-track0">' . $track_name . '</div>';
+		$track_name_html = '<div class="talk-track">' . $track_name . '</div>';
 	}
 
     $time_html       = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':' . $mins . ' UTC<span class="screen-reader-text">,&nbsp;</span></span></div></h2><div class="talk-wrapper">%s[control]</div>'.$track_name_html.'</div>';

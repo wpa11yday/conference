@@ -88,7 +88,7 @@ function wpcs_shortcode_people( $atts ) {
 	}
 	$users = get_users( $args );
 	foreach ( $users as $user ) {
-		$default   = plugins_url( '/assets/images/default-gravatar.png', dirname( __FILE__ ) );
+		$default   = plugins_url( '/assets/images/default-gravatar.png', __DIR__ );
 		$name      = $user->display_name;
 		$gravatar  = get_avatar( $user->user_email, 96, $default );
 		$city      = get_user_meta( $user->ID, 'city', true );

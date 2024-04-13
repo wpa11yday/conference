@@ -80,7 +80,7 @@ function wpcs_shortcode_people( $atts ) {
 		'fields'     => array( 'ID', 'display_name', 'user_email' ),
 	);
 	// get all authorized users.
-	$output = false; // get_transient( 'wpcs_attendees' );
+	$output = get_transient( 'wpcs_attendees' );
 	if ( $output ) {
 		return $output;
 	} else {

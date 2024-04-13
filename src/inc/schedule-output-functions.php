@@ -80,7 +80,7 @@ function wpcs_shortcode_people( $atts ) {
 		'fields'     => array( 'ID', 'display_name', 'user_email' ),
 	);
 	// get all authorized users.
-	$output = get_transient( 'wpcs_attendees' );
+	$output = false; // get_transient( 'wpcs_attendees' );
 	if ( $output ) {
 		return $output;
 	} else {
@@ -88,8 +88,9 @@ function wpcs_shortcode_people( $atts ) {
 	}
 	$users = get_users( $args );
 	foreach ( $users as $user ) {
+		$default   = plugins_url( '/assets/images/default-gravatar.png', dirname( __FILE__ ) );
 		$name      = $user->display_name;
-		$gravatar  = get_avatar( $user->user_email, 96, 'https://2023.wpaccessibility.day/wp-content/uploads/2023/08/cropped-cropped-WPAD_logomark-192x192.png' );
+		$gravatar  = get_avatar( $user->user_email, 96, $default );
 		$city      = get_user_meta( $user->ID, 'city', true );
 		$state     = get_user_meta( $user->ID, 'state', true );
 		$country   = get_user_meta( $user->ID, 'country', true );

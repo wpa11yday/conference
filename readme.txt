@@ -3,7 +3,7 @@ Contributors: equalizedigital, alh0319, stevejonesdev, joedolson, nickthegeek, a
 Donate link: https://wpaccessibility.day/donate/
 Tags: conference schedule, conference, schedule, event schedule, event, events, sessions, speakers
 Requires at least: 6.0
-Tested up to: 6.4
+Tested up to: 6.5
 Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

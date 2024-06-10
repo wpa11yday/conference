@@ -41,14 +41,14 @@ require_once WPCS_DIR . 'inc/post-types.php';
 require_once WPCS_DIR . 'inc/taxonomies.php';
 require_once WPCS_DIR . 'inc/schedule-output-functions.php';
 require_once WPCS_DIR . 'inc/settings.php';
-require_once WPCS_DIR . '/inc/activation.php';
-require_once WPCS_DIR . '/inc/deactivation.php';
-require_once WPCS_DIR . '/inc/uninstall.php';
-require_once WPCS_DIR . '/inc/enqueue-scripts.php';
-require_once WPCS_DIR . '/inc/meta.php';
-require_once WPCS_DIR . '/inc/cmb2/init.php';
-require_once WPCS_DIR . '/inc/cmb-field-select2/cmb-field-select2.php';
-require_once WPCS_DIR . '/inc/cmb2-conditional-logic/cmb2-conditional-logic.php';
+require_once WPCS_DIR . 'inc/activation.php';
+require_once WPCS_DIR . 'inc/deactivation.php';
+require_once WPCS_DIR . 'inc/uninstall.php';
+require_once WPCS_DIR . 'inc/enqueue-scripts.php';
+require_once WPCS_DIR . 'inc/meta.php';
+require_once WPCS_DIR . 'inc/cmb2/init.php';
+require_once WPCS_DIR . 'inc/cmb-field-select2/cmb-field-select2.php';
+require_once WPCS_DIR . 'inc/cmb2-conditional-logic/cmb2-conditional-logic.php';
 
 add_shortcode( 'schedule', 'wpcs_schedule' );
 add_shortcode( 'donors', 'wpcsp_donors_shortcode', 10, 2 );
@@ -1481,6 +1481,16 @@ function wpcsp_sponsor_metabox() {
 		array(
 			'name'      => __( 'YouTube URL', 'wpa-conference' ),
 			'id'        => 'wpcsp_youtube_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
+		)
+	);
+
+	// Twitter URL.
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Twitter URL', 'wpa-conference' ),
+			'id'        => 'wpcsp_twitter_url',
 			'type'      => 'text_url',
 			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
 		)

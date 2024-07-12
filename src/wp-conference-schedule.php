@@ -196,7 +196,7 @@ class WPCS_Conference_Schedule {
 	 * @uses wp_enqueue_style()
 	 */
 	public function wpcs_admin_css() {
-		wp_enqueue_style( 'wpcs-admin', plugins_url( '/assets/css/admin.css', __FILE__ ), array(), 1 );
+		wp_enqueue_style( 'wpcs-admin', plugins_url( '/assets/css/admin.css', __FILE__ ), array(), WPCS_VERSION );
 	}
 
 	/**
@@ -298,12 +298,15 @@ class WPCS_Conference_Schedule {
 			$session_meridiem = ( $session_time ) ? gmdate( 'a', $session_time ) : $default_meridiem;
 
 		}
-		$session_captions = get_post_meta( $post->ID, '_wpcs_caption_url', true );
-		$session_youtube  = get_post_meta( $post->ID, '_wpcs_youtube_id', true );
+		$session_captions    = get_post_meta( $post->ID, '_wpcs_caption_url', true );
+		$session_captions_es = get_post_meta( $post->ID, '_wpcs_caption_url_es', true );
+		$session_captions_fr = get_post_meta( $post->ID, '_wpcs_caption_url_fr', true );
+		$session_youtube     = get_post_meta( $post->ID, '_wpcs_youtube_id', true );
 
 		wp_nonce_field( 'edit-session-info', 'wpcs-meta-session-info' );
 		?>
-
+		<fieldset>
+			<legend><?php _e( 'Session Schedule', 'wpa-conference' ); ?></legend>
 		<p>
 			<label for="wpcs-session-date"><?php esc_html_e( 'Date:', 'wpa-conference' ); ?></label>
 			<input type="text" id="wpcs-session-date" data-date="<?php echo esc_attr( $session_date ); ?>" name="wpcs-session-date" value="<?php echo esc_attr( $session_date ); ?>" /><br />
@@ -342,16 +345,30 @@ class WPCS_Conference_Schedule {
 			</select>
 		</p>
 		<p>
-			<label for="wpcs-session-youtube"><?php esc_html_e( 'YouTube ID', 'wpa-conference' ); ?></label>
-			<input type="text" id="wpcs-session-youtube" name="wpcs-session-youtube" value="<?php echo esc_attr( $session_youtube ); ?>" />
+			<input type="checkbox" id="wpcs-session-is-opening-remarks" name="wpcs-opening-remarks" value="true" <?php checked( 'true', $opening_remarks ); ?> aria-describedby="is-opening-remarks" /> <label for="wpcs-session-is-opening-remarks"><?php esc_html_e( 'Opening Remarks', 'wpa-conference' ); ?></label>
+			<br /><em id="is-opening-remarks">Opening remarks are on a different schedule, this allows us to pull them out separately.</em>
 		</p>
-		<p>
-			<label for="wpcs-session-caption"><?php esc_html_e( 'Caption URL:', 'wpa-conference' ); ?></label>
-			<input type="text" id="wpcs-session-caption" name="wpcs-session-caption" value="<?php echo esc_attr( $session_captions ); ?>" />
-		</p>
-		<p>
-			<input type="checkbox" id="wpcs-session-is-opening-remarks" name="wpcs-opening-remarks" value="true" <?php checked( 'true', $opening_remarks ); ?> /> <label for="wpcs-session-is-opening-remarks"><?php esc_html_e( 'Opening Remarks', 'wpa-conference' ); ?></label>
-		</p>
+		</fieldset>
+		<fieldset>
+			<legend><?php _e( 'Session Recording', 'wpa-conference' ); ?></legend>
+			<p>
+				<label for="wpcs-session-youtube"><?php esc_html_e( 'YouTube ID', 'wpa-conference' ); ?></label>
+				<input type="text" id="wpcs-session-youtube" name="wpcs-session-youtube" value="<?php echo esc_attr( $session_youtube ); ?>" />
+			</p>
+			<p>
+				<label for="wpcs-session-caption"><?php esc_html_e( 'English Caption URL:', 'wpa-conference' ); ?></label>
+				<input type="text" id="wpcs-session-caption" name="wpcs-session-caption" value="<?php echo esc_attr( $session_captions ); ?>" />
+			</p>
+			<p>
+				<label for="wpcs-session-caption-es"><?php esc_html_e( 'Spanish Caption URL:', 'wpa-conference' ); ?></label>
+				<input type="text" id="wpcs-session-caption-es" name="wpcs-session-caption-es" value="<?php echo esc_attr( $session_captions_es ); ?>" />
+			</p>
+			<p>
+				<label for="wpcs-session-caption-fr"><?php esc_html_e( 'French Caption URL:', 'wpa-conference' ); ?></label>
+				<input type="text" id="wpcs-session-caption-fr" name="wpcs-session-caption-fr" value="<?php echo esc_attr( $session_captions_fr ); ?>" />
+			</p>
+		</fieldset>
+
 
 		<?php
 	}
@@ -416,6 +433,14 @@ class WPCS_Conference_Schedule {
 			// Update session caption URL.
 			$session_caption = sanitize_text_field( $_POST['wpcs-session-caption'] ?? '' );
 			update_post_meta( $post_id, '_wpcs_caption_url', $session_caption );
+
+			// Update session caption URL.
+			$session_caption_es = sanitize_text_field( $_POST['wpcs-session-caption-es'] ?? '' );
+			update_post_meta( $post_id, '_wpcs_caption_url_es', $session_caption_es );
+
+			// Update session caption URL.
+			$session_caption_fr = sanitize_text_field( $_POST['wpcs-session-caption-fr'] ?? '' );
+			update_post_meta( $post_id, '_wpcs_caption_url_fr', $session_caption_fr );
 		}
 	}
 
@@ -1542,16 +1567,41 @@ function wpcsp_sponsor_level_metabox() {
 $GLOBALS['wpcs_plugin'] = new WPCS_Conference_Schedule();
 
 /**
+ * Map supported languages to labels.
+ *
+ * @param string $lang Language code.
+ *
+ * @return string
+ */
+function wpcs_get_label( $lang ) {
+	$labels = array(
+		'en' => 'English',
+		'es' => 'Español',
+		'fr' => 'Français',
+	);
+
+	return ( isset( $labels[ $lang ] ) ) ? $labels[ $lang ] : $lang;
+}
+
+/**
  * Get video HTML.
  *
  * @return string
  */
 function wpcs_get_video() {
+	$captions  = wpcs_get_captions();
+	$subtitles = '';
+	foreach ( $captions as $lang => $caption ) {
+		$label = wpcs_get_label( $lang );
+		if ( $caption ) {
+			$subtitles .= '<track kind="captions" src="' . esc_url( $caption ) . '" srclang="' . esc_attr( $lang ) . '" label="' . $label . '">';
+		}
+	}
 	return '
 	<div class="wp-block-group alignwide wpad-video-player">
 		<h2>Session Video</h2>
 		<video id="able-player-' . get_the_ID() . '" data-skin="2020" data-able-player data-transcript-div="able-player-transcript-' . get_the_ID() . '" preload="auto" poster="' . wpcs_get_poster() . '" data-youtube-id="' . wpcs_get_youtube() . '">
-			<track kind="captions" src="' . wpcs_get_captions() . '" srclang="en" label="English">
+			' . $subtitles . '
 		</video>
 		<div id="able-player-transcript-' . get_the_ID() . '"></div>
 	</div>';
@@ -1585,15 +1635,26 @@ function wpcs_get_poster() {
 }
 
 /**
- * Get captions URL.
+ * Get captions URLs.
  *
- * @return string
+ * @return bool|array
  */
 function wpcs_get_captions() {
-	$post_id          = get_the_ID();
-	$session_captions = get_post_meta( $post_id, '_wpcs_caption_url', true );
+	$post_id             = get_the_ID();
+	$captions    = get_post_meta( $post_id, '_wpcs_caption_url', true );
+	$captions_es = get_post_meta( $post_id, '_wpcs_caption_url_es', true );
+	$captions_fr = get_post_meta( $post_id, '_wpcs_caption_url_fr', true );
 
-	return $session_captions;
+	if ( ! $captions ) {
+		return false;
+	}
+	$captions = array(
+		'en' => $captions,
+		'es' => $captions_es,
+		'fr' => $captions_fr,
+	);
+
+	return $captions;
 }
 
 /**

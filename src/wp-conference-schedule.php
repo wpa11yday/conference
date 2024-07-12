@@ -1640,7 +1640,7 @@ function wpcs_get_poster() {
  * @return bool|array
  */
 function wpcs_get_captions() {
-	$post_id             = get_the_ID();
+	$post_id     = get_the_ID();
 	$captions    = get_post_meta( $post_id, '_wpcs_caption_url', true );
 	$captions_es = get_post_meta( $post_id, '_wpcs_caption_url_es', true );
 	$captions_fr = get_post_meta( $post_id, '_wpcs_caption_url_fr', true );

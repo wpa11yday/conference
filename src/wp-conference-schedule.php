@@ -301,6 +301,8 @@ class WPCS_Conference_Schedule {
 		$session_captions    = get_post_meta( $post->ID, '_wpcs_caption_url', true );
 		$session_captions_es = get_post_meta( $post->ID, '_wpcs_caption_url_es', true );
 		$session_captions_fr = get_post_meta( $post->ID, '_wpcs_caption_url_fr', true );
+		$session_captions_he = get_post_meta( $post->ID, '_wpcs_caption_url_he', true );
+		$session_captions_it = get_post_meta( $post->ID, '_wpcs_caption_url_it', true );
 		$session_youtube     = get_post_meta( $post->ID, '_wpcs_youtube_id', true );
 
 		wp_nonce_field( 'edit-session-info', 'wpcs-meta-session-info' );
@@ -366,6 +368,14 @@ class WPCS_Conference_Schedule {
 			<p>
 				<label for="wpcs-session-caption-fr"><?php esc_html_e( 'French Caption URL:', 'wpa-conference' ); ?></label>
 				<input type="text" id="wpcs-session-caption-fr" name="wpcs-session-caption-fr" value="<?php echo esc_attr( $session_captions_fr ); ?>" />
+			</p>
+			<p>
+				<label for="wpcs-session-caption-he"><?php esc_html_e( 'Hebrew Caption URL:', 'wpa-conference' ); ?></label>
+				<input type="text" id="wpcs-session-caption-he" name="wpcs-session-caption-he" value="<?php echo esc_attr( $session_captions_he ); ?>" />
+			</p>
+			<p>
+				<label for="wpcs-session-caption-it"><?php esc_html_e( 'Italian Caption URL:', 'wpa-conference' ); ?></label>
+				<input type="text" id="wpcs-session-caption-it" name="wpcs-session-caption-it" value="<?php echo esc_attr( $session_captions_it ); ?>" />
 			</p>
 		</fieldset>
 
@@ -441,6 +451,14 @@ class WPCS_Conference_Schedule {
 			// Update session caption URL.
 			$session_caption_fr = sanitize_text_field( $_POST['wpcs-session-caption-fr'] ?? '' );
 			update_post_meta( $post_id, '_wpcs_caption_url_fr', $session_caption_fr );
+
+			// Update session caption URL.
+			$session_caption_he = sanitize_text_field( $_POST['wpcs-session-caption-he'] ?? '' );
+			update_post_meta( $post_id, '_wpcs_caption_url_he', $session_caption_he );
+
+			// Update session caption URL.
+			$session_caption_it = sanitize_text_field( $_POST['wpcs-session-caption-it'] ?? '' );
+			update_post_meta( $post_id, '_wpcs_caption_url_it', $session_caption_it );
 		}
 	}
 
@@ -1578,6 +1596,8 @@ function wpcs_get_label( $lang ) {
 		'en' => 'English',
 		'es' => 'Español',
 		'fr' => 'Français',
+		'he' => 'עִברִית',
+		'it' => 'Italiano',
 	);
 
 	return ( isset( $labels[ $lang ] ) ) ? $labels[ $lang ] : $lang;
@@ -1644,6 +1664,8 @@ function wpcs_get_captions() {
 	$captions    = get_post_meta( $post_id, '_wpcs_caption_url', true );
 	$captions_es = get_post_meta( $post_id, '_wpcs_caption_url_es', true );
 	$captions_fr = get_post_meta( $post_id, '_wpcs_caption_url_fr', true );
+	$captions_he = get_post_meta( $post_id, '_wpcs_caption_url_he', true );
+	$captions_it = get_post_meta( $post_id, '_wpcs_caption_url_it', true );
 
 	if ( ! $captions ) {
 		return false;
@@ -1652,6 +1674,8 @@ function wpcs_get_captions() {
 		'en' => $captions,
 		'es' => $captions_es,
 		'fr' => $captions_fr,
+		'he' => $captions_he,
+		'it' => $captions_it,
 	);
 
 	return $captions;

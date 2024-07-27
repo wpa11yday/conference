@@ -199,7 +199,6 @@ class WPCS_Conference_Schedule {
 	public function wpcs_admin_css() {
 		$version = WPCS_VERSION;
 		$version = ( str_contains( home_url(), 'staging.wpaccessibility.day' ) ) ? $version . '-' . wp_rand( 1000, 10000 ) : $version;
-	
 		wp_enqueue_style( 'wpcs-admin', plugins_url( '/assets/css/admin.css', __FILE__ ), array(), $version );
 	}
 

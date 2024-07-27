@@ -212,8 +212,9 @@ class WPCS_Conference_Schedule {
 			array(),
 			'1.0.0'
 		);
-
-		wp_enqueue_script( 'wpcs_scripts', plugins_url( '/assets/js/conference-time-zones.js', __FILE__ ), array( 'jquery' ), WPCS_VERSION );
+		$version = WPCS_VERSION;
+		$version = ( str_contains( home_url(), 'staging.wpaccessibility.day' ) ) ? $version . '-' . wp_rand( 1000, 10000 ) : $version;
+		wp_enqueue_script( 'wpcs_scripts', plugins_url( '/assets/js/conference-time-zones.js', __FILE__ ), array( 'jquery' ), $version );
 	}
 
 	/**
@@ -222,7 +223,10 @@ class WPCS_Conference_Schedule {
 	 * @uses wp_enqueue_style()
 	 */
 	public function wpcs_admin_css() {
-		wp_enqueue_style( 'wpcs-admin', plugins_url( '/assets/css/admin.css', __FILE__ ), array(), WPCS_VERSION );
+		$version = WPCS_VERSION;
+		$version = ( str_contains( home_url(), 'staging.wpaccessibility.day' ) ) ? $version . '-' . wp_rand( 1000, 10000 ) : $version;
+	
+		wp_enqueue_style( 'wpcs-admin', plugins_url( '/assets/css/admin.css', __FILE__ ), array(), $version );
 	}
 
 	/**

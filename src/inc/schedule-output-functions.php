@@ -264,6 +264,34 @@ function wpcs_schedule( $atts, $content ) {
 	return $return;
 }
 
+
+/**
+ * Get langs for a session.
+ *
+ * @param int $talk_id Post ID for session.
+ *
+ * @return string
+ */
+function wpad_get_langs_html( $talk_id ) {
+	$all_tags  = wp_get_post_terms( $talk_id, 'wpcs_session_lang' );
+	$tags_html = '';
+
+	if ( ! is_wp_error( $all_tags ) && ! empty( $all_tags ) ) {
+
+		if ( ! empty( $all_tags ) ) {
+			$tags_html .= '<ul class="talks-wrapper">';
+			foreach ( $all_tags as $tag ) {
+				$tags_html .= '<li class="talk-lang-wrapper ' . $tag->slug . '">';
+				$tags_html .= '<a href="' . esc_url( get_term_link( $tag->term_id ) ) . '">' . esc_html( $tag->name ) . '</a>';
+				$tags_html .= '</li>';
+			}
+			$tags_html .= '</ul>';
+		}
+	}
+
+	return $tags_html;
+}
+
 /**
  * Get tags for a session.
  *
@@ -277,20 +305,30 @@ function wpad_get_tags_html( $talk_id ) {
 
 	if ( ! is_wp_error( $all_tags ) && ! empty( $all_tags ) ) {
 
-		// Filter out tags that appear in more than one post.
+		// Filter out tags that don't appear in more than one post.
 		$filtered_tags = array_filter(
 			$all_tags,
 			function ( $tag ) {
-				return $tag->count > 1;
+				return $tag->count > 2;
 			}
 		);
+		$counted = array();
+		foreach ( $filtered_tags as $tag ) {
+			$counted[ $tag->count ] = $tag;
+		}
+		krsort( $counted );
 
-		if ( ! empty( $filtered_tags ) ) {
+		if ( ! empty( $counted ) ) {
 			$filtered_tags_html .= '<ul class="talks-wrapper">';
-			foreach ( $filtered_tags as $tag ) {
+			$i = 0;
+			foreach ( $counted as $tag ) {
+				if ( $i > 4 ) {
+					break;
+				}
 				$filtered_tags_html .= '<li class="talk-tag-wrapper">';
 				$filtered_tags_html .= '<a href="' . esc_url( get_term_link( $tag->term_id ) ) . '">' . esc_html( $tag->name ) . '</a>';
 				$filtered_tags_html .= '</li>';
+				++$i;
 			}
 			$filtered_tags_html .= '</ul>';
 		}
@@ -316,6 +354,30 @@ function wpad_get_track_name( $talk_id ) {
 	}
 
 	return $track_name;
+}
+
+/**
+ * Draw the Language list for a session.
+ *
+ * @param int $talk_id Talk Post ID.
+ *
+ * @return string
+ */
+function wpad_draw_langs( $talk_id ) {
+	$tag_heading_txt = __( 'Languages', 'wpa-conference' );
+	$tags_html       = wpad_get_langs_html( $talk_id );
+	if ( ! empty( $tags_html ) ) {
+		$tags_html = "
+			<div class='talk-langs-wrapper'>
+				<h3>$tag_heading_txt</h3>   
+				<div class='wp-block-columns inside talk-langs'>
+					$tags_html
+				</div>
+			</div>
+		";
+	}
+
+	return $tags_html;
 }
 
 /**

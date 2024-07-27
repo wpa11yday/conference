@@ -266,7 +266,7 @@ function wpcs_schedule( $atts, $content ) {
 /**
  * Get tags for a session.
  *
- * @param int    $talk_id Post ID for session.
+ * @param int $talk_id Post ID for session.
  *
  * @return string
  */
@@ -279,19 +279,19 @@ function wpad_get_tags_html( $talk_id ) {
 		// Filter out tags that appear in more than one post.
 		$filtered_tags = array_filter(
 			$all_tags,
-			function( $tag ) {
+			function ( $tag ) {
 				return $tag->count > 1;
 			}
 		);
 
 		if ( ! empty( $filtered_tags ) ) {
-            $filtered_tags_html .= '<ul class="talks-wrapper">';
+			$filtered_tags_html .= '<ul class="talks-wrapper">';
 			foreach ( $filtered_tags as $tag ) {
 				$filtered_tags_html .= '<li class="talk-tag-wrapper">';
 				$filtered_tags_html .= '<a href="' . esc_url( get_term_link( $tag->term_id ) ) . '">' . esc_html( $tag->name ) . '</a>';
 				$filtered_tags_html .= '</li>';
 			}
-            $filtered_tags_html .= '</ul>';
+			$filtered_tags_html .= '</ul>';
 		}
 	}
 
@@ -332,7 +332,7 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 	$datatime        = $talk['ts'];
 	$mins            = gmdate( 'i', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
 	$time            = gmdate( 'H', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
-	$tag_heading_txt = __( 'Topics', 'wpad' );
+	$tag_heading_txt = __( 'Topics', 'wpa-conference' );
 	$tags_html       = wpad_get_tags_html( $talk_ID );
 	$track_name      = wpad_get_track_name( $talk_ID );
 	$track_name_html = '';
@@ -341,11 +341,11 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 		$track_name_html = '<div class="talk-track">' . $track_name . '</div>';
 	}
 
-    $time_html       = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':' . $mins . ' UTC<span class="screen-reader-text">,&nbsp;</span></span></div></h2><div class="talk-wrapper">%s[control]</div>'.$track_name_html.'</div>';
-	$talk_type       = sanitize_html_class( get_post_meta( $talk_ID, '_wpcs_session_type', true ) );
-	$speakers        = wpcs_session_speakers( $talk_ID, $talk_type );
-	$sponsors        = wpcs_session_sponsors( $talk_ID );
-	$talk            = get_post( $talk_ID );
+	$time_html = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':' . $mins . ' UTC<span class="screen-reader-text">,&nbsp;</span></span></div></h2><div class="talk-wrapper">%s[control]</div>'.$track_name_html.'</div>';
+	$talk_type = sanitize_html_class( get_post_meta( $talk_ID, '_wpcs_session_type', true ) );
+	$speakers  = wpcs_session_speakers( $talk_ID, $talk_type );
+	$sponsors  = wpcs_session_sponsors( $talk_ID );
+	$talk      = get_post( $talk_ID );
 
 	$talk_attr_id = sanitize_title( $talk->post_title );
 	$talk_title   = '<a href="' . esc_url( get_the_permalink( $talk_ID ) ) . '" id="talk-' . $talk_attr_id . '">' . $talk->post_title . '</a>' . $session_id;
@@ -553,37 +553,37 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 
 				echo $talk_html;
 				?>
-                <div class="wpcsp-session-speaker">
+				<div class="wpcsp-session-speaker">
 					<?php
 					if ( $headshot ) {
 						echo $headshot;
 					}
 					if ( $full_name || $title_organization ) {
 					?>
-                    <div class="wpcsp-session-speaker-data">
+					<div class="wpcsp-session-speaker-data">
 						<?php
 						}
 						if ( $full_name ) {
 							?>
-                            <div class="wpcsp-session-speaker-name">
+							<div class="wpcsp-session-speaker-name">
 								<?php echo $full_name; ?>
-                            </div>
+							</div>
 							<?php
 						}
 						if ( $title_organization ) {
 							?>
-                            <div class="wpcsp-session-speaker-title-organization">
+							<div class="wpcsp-session-speaker-title-organization">
 								<?php echo implode( ', ', $title_organization ); ?>
-                            </div>
+							</div>
 							<?php
 						}
 						if ( $full_name || $title_organization ) {
 						?>
-                    </div>
+					</div>
 				<?php
 				}
 				?>
-                </div>
+				</div>
 				<?php
 			}
 		}

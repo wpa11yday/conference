@@ -370,14 +370,15 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 				<span>' . $time . ':' . $mins . ' UTC<span class="screen-reader-text">,&nbsp;</span></span>
 			</div>
 		</h2>
-		<div class="talk-wrapper">%s[control]</div>' . $track_name_html . '</div>';
+		<div class="talk-wrapper">%s[control]</div>
+	</div>';
 	$talk_type = sanitize_html_class( get_post_meta( $talk_ID, '_wpcs_session_type', true ) );
 	$speakers  = wpcs_session_speakers( $talk_ID, $talk_type );
 	$sponsors  = wpcs_session_sponsors( $talk_ID );
 	$talk      = get_post( $talk_ID );
 
 	$talk_attr_id = sanitize_title( $talk->post_title );
-	$talk_title   = '<a href="' . esc_url( get_the_permalink( $talk_ID ) ) . '" id="talk-' . $talk_attr_id . '">' . $talk->post_title . '</a>' . $session_id;
+	$talk_title   = '<div class="talk-title-meta"><a href="' . esc_url( get_the_permalink( $talk_ID ) ) . '" id="talk-' . $talk_attr_id . '">' . $talk->post_title . '</a>' . $track_name_html . $session_id . '</div>';
 	$talk_label   = ( 'panel' === $talk_type ) ? '<strong>Panel:</strong> ' : '';
 	$talk_title  .= '<div class="talk-speakers">' . $talk_label . implode( ', ', $speakers['list'] ) . '</div>';
 	$talk_title   = '<div class="talk-title-wrapper">' . $talk_title . '</div>';

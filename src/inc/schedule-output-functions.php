@@ -312,6 +312,7 @@ function wpad_get_tags_html( $talk_id ) {
 				return $tag->count > 2;
 			}
 		);
+
 		$counted = array();
 		foreach ( $filtered_tags as $tag ) {
 			$counted[ $tag->count ] = $tag;
@@ -320,7 +321,7 @@ function wpad_get_tags_html( $talk_id ) {
 
 		if ( ! empty( $counted ) ) {
 			$filtered_tags_html .= '<ul class="talks-wrapper">';
-			$i = 0;
+			$i                   = 0;
 			foreach ( $counted as $tag ) {
 				if ( $i > 4 ) {
 					break;

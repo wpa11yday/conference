@@ -138,7 +138,7 @@ function wpcsp_register_conference_taxonomies() {
 	);
 
 	// Labels for session tags.
-	$sponsorlevellabels = array(
+	$tag_labels = array(
 		'name'          => __( 'Tags', 'wpa-conference' ),
 		'singular_name' => __( 'Tag', 'wpa-conference' ),
 		'search_items'  => __( 'Search Tags', 'wpa-conference' ),
@@ -155,14 +155,42 @@ function wpcsp_register_conference_taxonomies() {
 		'wpcs_session_tag',
 		'wpcs_session',
 		array(
-			'labels'       => $sponsorlevellabels,
-			'rewrite'      => array( 'slug' => 'sponsor_level' ),
+			'labels'       => $tag_labels,
+			'rewrite'      => array( 'slug' => 'session-tag' ),
 			'query_var'    => 'session_tag',
 			'hierarchical' => false,
 			'public'       => true,
 			'show_ui'      => true,
 			'show_in_rest' => true,
 			'rest_base'    => 'session_tag',
+		)
+	);
+
+	// Labels for session languages.
+	$lang_labels = array(
+		'name'          => __( 'Languages', 'wpa-conference' ),
+		'singular_name' => __( 'Language', 'wpa-conference' ),
+		'search_items'  => __( 'Search Languages', 'wpa-conference' ),
+		'popular_items' => __( 'Popular Languages', 'wpa-conference' ),
+		'all_items'     => __( 'All Languages', 'wpa-conference' ),
+		'edit_item'     => __( 'Edit Languages', 'wpa-conference' ),
+		'update_item'   => __( 'Update Language', 'wpa-conference' ),
+		'add_new_item'  => __( 'Add Language', 'wpa-conference' ),
+		'new_item_name' => __( 'New Language', 'wpa-conference' ),
+	);
+	// Register session languages taxonomy.
+	register_taxonomy(
+		'wpcs_session_lang',
+		'wpcs_session',
+		array(
+			'labels'       => $lang_labels,
+			'rewrite'      => array( 'slug' => 'session-lang' ),
+			'query_var'    => 'session_lang',
+			'hierarchical' => false,
+			'public'       => true,
+			'show_ui'      => true,
+			'show_in_rest' => true,
+			'rest_base'    => 'session_lang',
 		)
 	);
 }

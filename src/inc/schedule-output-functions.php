@@ -222,10 +222,10 @@ function wpcs_schedule( $atts, $content ) {
 		$text    = '';
 		$is_next = false;
 		if ( ( time() > $begin - HOUR_IN_SECONDS ) && ( time() < $end ) ) {
-			if ( ( $begin < time() && time() < $end ) && date( 'H' ) === $time && (int) date( 'i' ) < 50 || date( 'G' ) === (int) $time - 1 && (int) date( 'i' ) > 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date 
+			if ( ( $begin < time() && time() < $end ) && date( 'H' ) === $time && (int) date( 'i' ) < 50 || date( 'G' ) === (int) $time - 1 && (int) date( 'i' ) > 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
 				$is_current = true;
 			}
-			if ( (int) date( 'i' ) < 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date 
+			if ( (int) date( 'i' ) < 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
 				$text = __( 'Now speaking:', 'wpa-conference' ) . ' ';
 			} else {
 				$is_next = true;
@@ -265,6 +265,60 @@ function wpcs_schedule( $atts, $content ) {
 }
 
 /**
+ * Get tags for a session.
+ *
+ * @param int $talk_id Post ID for session.
+ *
+ * @return string
+ */
+function wpad_get_tags_html( $talk_id ) {
+	$all_tags           = wp_get_post_terms( $talk_id, 'wpcs_session_tag' );
+	$filtered_tags_html = '';
+
+	if ( ! is_wp_error( $all_tags ) && ! empty( $all_tags ) ) {
+
+		// Filter out tags that appear in more than one post.
+		$filtered_tags = array_filter(
+			$all_tags,
+			function ( $tag ) {
+				return $tag->count > 1;
+			}
+		);
+
+		if ( ! empty( $filtered_tags ) ) {
+			$filtered_tags_html .= '<ul class="talks-wrapper">';
+			foreach ( $filtered_tags as $tag ) {
+				$filtered_tags_html .= '<li class="talk-tag-wrapper">';
+				$filtered_tags_html .= '<a href="' . esc_url( get_term_link( $tag->term_id ) ) . '">' . esc_html( $tag->name ) . '</a>';
+				$filtered_tags_html .= '</li>';
+			}
+			$filtered_tags_html .= '</ul>';
+		}
+	}
+
+	return $filtered_tags_html;
+}
+
+/**
+ * Get track name for a session.
+ *
+ * @param int $talk_id Post ID for session.
+ *
+ * @return string
+ */
+function wpad_get_track_name( $talk_id ) {
+	$track_name = '';
+	$track      = wp_get_post_terms( $talk_id, 'wpcs_track' );
+	if ( ! is_wp_error( $track ) && ! empty( $track ) ) {
+		if ( isset( $track[0] ) ) {
+			$track_name = $track[0]->name;
+		}
+	}
+
+	return $track_name;
+}
+
+/**
  * Draw a single session in the schedule.
  *
  * @param int    $talk Array with ID and timestamp for session to format.
@@ -275,11 +329,26 @@ function wpcs_schedule( $atts, $content ) {
  * @return array
  */
 function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
-	$talk_ID   = $talk['id'];
-	$datatime  = $talk['ts'];
-	$mins      = gmdate( 'i', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
-	$time      = gmdate( 'H', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
-	$time_html = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':' . $mins . ' UTC<span class="screen-reader-text">,&nbsp;</span></span>' . ' </div></h2><div class="talk-wrapper">%s[control]</div></div>';
+	$talk_ID         = $talk['id'];
+	$datatime        = $talk['ts'];
+	$mins            = gmdate( 'i', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
+	$time            = gmdate( 'H', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
+	$tag_heading_txt = __( 'Topics', 'wpa-conference' );
+	$tags_html       = wpad_get_tags_html( $talk_ID );
+	$track_name      = wpad_get_track_name( $talk_ID );
+	$track_name_html = '';
+
+	if ( ! empty( $track_name ) ) {
+		$track_name_html = '<div class="talk-track">' . $track_name . '</div>';
+	}
+
+	$time_html = '<div class="talk-header">
+		<h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '">
+			<div class="time-wrapper">
+				<span>' . $time . ':' . $mins . ' UTC<span class="screen-reader-text">,&nbsp;</span></span>
+			</div>
+		</h2>
+		<div class="talk-wrapper">%s[control]</div>' . $track_name_html . '</div>';
 	$talk_type = sanitize_html_class( get_post_meta( $talk_ID, '_wpcs_session_type', true ) );
 	$speakers  = wpcs_session_speakers( $talk_ID, $talk_type );
 	$sponsors  = wpcs_session_sponsors( $talk_ID );
@@ -316,6 +385,17 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 		}
 	}
 
+	if ( ! empty( $tags_html ) ) {
+		$tags_html = "
+            <div class='talk-tags-wrapper'>
+                <h3>$tag_heading_txt</h3>   
+                <div class='wp-block-columns inside talk-tags'>
+                    $tags_html
+                </div>
+            </div>
+        ";
+	}
+
 	$output = "
 	<div class='wp-block-group schedule $talk_type' id='$session_id'>
 		<div class='wp-block-group__inner-container'>
@@ -324,6 +404,8 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 				$talk_output
 			</div>
 		</div>
+		
+		$tags_html
 	</div>";
 
 	return array( $output, $current_talk );
@@ -477,39 +559,17 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 				$talk_html = '';
 
 				echo $talk_html;
-				?>
-				<div class="wpcsp-session-speaker">
-					<?php
-					if ( $headshot ) {
-						echo $headshot;
-					}
-					if ( $full_name || $title_organization ) {
-						?>
-						<div class="wpcsp-session-speaker-data">
-						<?php
-					}
-					if ( $full_name ) {
-						?>
+				echo '<div class="wpcsp-session-speaker">
+					' . $headshot . '
+					<div class="wpcsp-session-speaker-data">
 						<div class="wpcsp-session-speaker-name">
-							<?php echo $full_name; ?>
+							' . $full_name . '
 						</div>
-						<?php
-					}
-					if ( $title_organization ) {
-						?>
 						<div class="wpcsp-session-speaker-title-organization">
-							<?php echo implode( ', ', $title_organization ); ?>
+							' . implode( ', ', $title_organization ) . '
 						</div>
-						<?php
-					}
-					if ( $full_name || $title_organization ) {
-						?>
-						</div>
-						<?php
-					}
-					?>
-				</div>
-				<?php
+					</div>
+				</div>';
 			}
 		}
 		$html .= ob_get_clean();

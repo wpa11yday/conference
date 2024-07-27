@@ -306,10 +306,8 @@ function wpad_get_tags_html( $talk_id ) {
  * @return string
  */
 function wpad_get_track_name( $talk_id ) {
-
 	$track_name = '';
-
-	$track = wp_get_post_terms( $talk_id, 'wpcs_track' );
+	$track      = wp_get_post_terms( $talk_id, 'wpcs_track' );
 	if ( ! is_wp_error( $track ) && ! empty( $track ) ) {
 		if ( isset( $track[0] ) ) {
 			$track_name = $track[0]->name;

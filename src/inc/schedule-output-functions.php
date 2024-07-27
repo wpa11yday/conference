@@ -277,9 +277,12 @@ function wpad_get_tags_html( $talk_id ) {
 	if ( ! is_wp_error( $all_tags ) && ! empty( $all_tags ) ) {
 
 		// Filter out tags that appear in more than one post.
-		$filtered_tags = array_filter( $all_tags, function( $tag ) {
-			return $tag->count > 1;
-		} );
+		$filtered_tags = array_filter(
+			$all_tags,
+			function( $tag ) {
+				return $tag->count > 1;
+			}
+		);
 
 		if ( ! empty( $filtered_tags ) ) {
             $filtered_tags_html .= '<ul class="talks-wrapper">';

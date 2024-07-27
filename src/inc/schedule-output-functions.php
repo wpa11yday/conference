@@ -319,6 +319,30 @@ function wpad_get_track_name( $talk_id ) {
 }
 
 /**
+ * Draw the Topics list for a session.
+ *
+ * @param int $talk_id Talk Post ID.
+ *
+ * @return string
+ */
+function wpad_draw_topics( $talk_id ) {
+	$tag_heading_txt = __( 'Topics', 'wpa-conference' );
+	$tags_html       = wpad_get_tags_html( $talk_id );
+	if ( ! empty( $tags_html ) ) {
+		$tags_html = "
+			<div class='talk-tags-wrapper'>
+				<h3>$tag_heading_txt</h3>   
+				<div class='wp-block-columns inside talk-tags'>
+					$tags_html
+				</div>
+			</div>
+		";
+	}
+
+	return $tags_html;
+}
+
+/**
  * Draw a single session in the schedule.
  *
  * @param int    $talk Array with ID and timestamp for session to format.
@@ -333,8 +357,6 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 	$datatime        = $talk['ts'];
 	$mins            = gmdate( 'i', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
 	$time            = gmdate( 'H', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
-	$tag_heading_txt = __( 'Topics', 'wpa-conference' );
-	$tags_html       = wpad_get_tags_html( $talk_ID );
 	$track_name      = wpad_get_track_name( $talk_ID );
 	$track_name_html = '';
 
@@ -385,17 +407,6 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 		}
 	}
 
-	if ( ! empty( $tags_html ) ) {
-		$tags_html = "
-            <div class='talk-tags-wrapper'>
-                <h3>$tag_heading_txt</h3>   
-                <div class='wp-block-columns inside talk-tags'>
-                    $tags_html
-                </div>
-            </div>
-        ";
-	}
-
 	$output = "
 	<div class='wp-block-group schedule $talk_type' id='$session_id'>
 		<div class='wp-block-group__inner-container'>
@@ -404,8 +415,6 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 				$talk_output
 			</div>
 		</div>
-		
-		$tags_html
 	</div>";
 
 	return array( $output, $current_talk );

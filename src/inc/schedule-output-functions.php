@@ -341,7 +341,13 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 		$track_name_html = '<div class="talk-track">' . $track_name . '</div>';
 	}
 
-	$time_html = '<div class="talk-header"><h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '"><div class="time-wrapper"><span>' . $time . ':' . $mins . ' UTC<span class="screen-reader-text">,&nbsp;</span></span></div></h2><div class="talk-wrapper">%s[control]</div>'.$track_name_html.'</div>';
+	$time_html = '<div class="talk-header">
+		<h2 class="talk-time" data-time="' . $datatime . '" id="talk-time-' . $time . '">
+			<div class="time-wrapper">
+				<span>' . $time . ':' . $mins . ' UTC<span class="screen-reader-text">,&nbsp;</span></span>
+			</div>
+		</h2>
+		<div class="talk-wrapper">%s[control]</div>' . $track_name_html . '</div>';
 	$talk_type = sanitize_html_class( get_post_meta( $talk_ID, '_wpcs_session_type', true ) );
 	$speakers  = wpcs_session_speakers( $talk_ID, $talk_type );
 	$sponsors  = wpcs_session_sponsors( $talk_ID );
@@ -552,39 +558,17 @@ function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
 				$talk_html = '';
 
 				echo $talk_html;
-				?>
-				<div class="wpcsp-session-speaker">
-					<?php
-					if ( $headshot ) {
-						echo $headshot;
-					}
-					if ( $full_name || $title_organization ) {
-					?>
+				echo '<div class="wpcsp-session-speaker">
+					' . $headshot . '
 					<div class="wpcsp-session-speaker-data">
-						<?php
-						}
-						if ( $full_name ) {
-							?>
-							<div class="wpcsp-session-speaker-name">
-								<?php echo $full_name; ?>
-							</div>
-							<?php
-						}
-						if ( $title_organization ) {
-							?>
-							<div class="wpcsp-session-speaker-title-organization">
-								<?php echo implode( ', ', $title_organization ); ?>
-							</div>
-							<?php
-						}
-						if ( $full_name || $title_organization ) {
-						?>
+						<div class="wpcsp-session-speaker-name">
+							' . $full_name . '
+						</div>
+						<div class="wpcsp-session-speaker-title-organization">
+							' . implode( ', ', $title_organization ) . '
+						</div>
 					</div>
-				<?php
-				}
-				?>
-				</div>
-				<?php
+				</div>';
 			}
 		}
 		$html .= ob_get_clean();

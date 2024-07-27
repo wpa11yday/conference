@@ -80,7 +80,7 @@ function wpcs_shortcode_people( $atts ) {
 		'fields'     => array( 'ID', 'display_name', 'user_email' ),
 	);
 	// get all authorized users.
-	$output = get_transient( 'wpcs_attendees' );
+	$output = ( str_contains( home_url(), 'staging.wpaccessibility.day' ) ) ? false : get_transient( 'wpcs_attendees' );
 	if ( $output ) {
 		return $output;
 	} else {
@@ -171,7 +171,7 @@ function wpcs_get_sessions() {
  */
 function wpcs_schedule( $atts, $content ) {
 	$output       = array();
-	$return       = get_transient( 'wpcs_schedule' );
+	$return       = ( str_contains( home_url(), 'staging.wpaccessibility.day' ) ) ? false : get_transient( 'wpcs_schedule' );
 	$current_talk = '';
 	if ( $return && ! isset( $_GET['reset_cache'] ) ) {
 		return $return;

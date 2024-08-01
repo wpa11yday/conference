@@ -1760,3 +1760,79 @@ function wpcsp_donors_list() {
 		wp_reset_postdata();
 	}
 }
+
+/**
+ * Add the shortcode documentation dashboard widget.
+ *
+ * @return void
+ */
+function wpcs_dashboard_widget() {
+	wp_add_dashboard_widget( 'wpcs_dashboard_widget', __( 'WPAD Shortcodes', 'wp-accessibility' ), 'wpcs_dashboard_widget_handler' );
+}
+add_action( 'wp_dashboard_setup', 'wpcs_dashboard_widget' );
+
+/**
+ * Output the WP Accessibility stats widget.
+ *
+ * @return void
+ */
+function wpcs_dashboard_widget_handler() {
+	$shortcodes = array(
+		'schedule' => array(
+			'function' => 'wpcs_schedule',
+			'args'     => array(
+				'start' => array(
+					'type'         => 'integer',
+					'default'      => '15',
+					'description'  => 'The UTC time in hours when the event starts.',
+				),
+			),
+		),
+		'donors' => array(
+			'function' => 'wpcsp_donors_shortcode',
+			'args'     => array(),
+		),
+		'microsponsors' => array(
+			'function' => 'wpcs_display_microsponsors',
+			'args'     => array(),
+		),
+		'attendees' => array(
+			'function' => 'wpcs_shortcode_people',
+			'args'     => array(),
+		),
+		'able' => array(
+			'function' => 'wpcs_get_video',
+			'args'     => array(),
+		),
+		'wpad' => array(
+			'function' => 'wpcs_event_start',
+			'args'     => array(),
+		),
+		'wpcs_sponsors' => array(
+			'function' => '$this->shortcode_sponsors',
+			'args'     => array(),
+		),
+		'wpcs_speakers' => array(
+			'function' => '$this->shortcode_speakers',
+			'args'     => array(),
+		),
+		'logo' => array(
+			'function' => 'wpad_site_logo',
+			'args'     => array(),
+		),
+	);
+	$output = '';
+	foreach ( $shortcodes as $code => $attributes ) {
+		$output .= '<li><code>[' . $code . ']</code>/<code>' . $attributes['function'] . '()</code><ul style="padding: 1rem">';
+		if ( isset( $attributes['args'] ) ) {
+			foreach ( $attributes['args'] as $arg => $info ) {
+				$output .= '<li>Attribute: <code>' . $arg . '="' . $info['default'] . '"</code>/<code>' . $info['type'] . '</code></li>';
+				$output .= '<li><p>' . $info['description'] . '</p></li>';
+			}
+		}
+		$output .= '</ul></li>';
+	}
+	$output = '<ul>' . $output . '</ul>';
+
+	echo $output;
+}

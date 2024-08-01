@@ -1767,7 +1767,7 @@ function wpcsp_donors_list() {
  * @return void
  */
 function wpcs_dashboard_widget() {
-	wp_add_dashboard_widget( 'wpcs_dashboard_widget', __( 'WPAD Shortcodes', 'wp-accessibility' ), 'wpcs_dashboard_widget_handler' );
+	wp_add_dashboard_widget( 'wpcs_dashboard_widget', __( 'WPAD Shortcodes', 'wpa-conference' ), 'wpcs_dashboard_widget_handler' );
 }
 add_action( 'wp_dashboard_setup', 'wpcs_dashboard_widget' );
 
@@ -1778,17 +1778,17 @@ add_action( 'wp_dashboard_setup', 'wpcs_dashboard_widget' );
  */
 function wpcs_dashboard_widget_handler() {
 	$shortcodes = array(
-		'schedule' => array(
+		'schedule'      => array(
 			'function' => 'wpcs_schedule',
 			'args'     => array(
 				'start' => array(
-					'type'         => 'integer',
-					'default'      => '15',
-					'description'  => 'The UTC time in hours when the event starts.',
+					'type'        => 'integer',
+					'default'     => '15',
+					'description' => 'The UTC time in hours when the event starts.',
 				),
 			),
 		),
-		'donors' => array(
+		'donors'        => array(
 			'function' => 'wpcsp_donors_shortcode',
 			'args'     => array(),
 		),
@@ -1796,15 +1796,15 @@ function wpcs_dashboard_widget_handler() {
 			'function' => 'wpcs_display_microsponsors',
 			'args'     => array(),
 		),
-		'attendees' => array(
+		'attendees'     => array(
 			'function' => 'wpcs_shortcode_people',
 			'args'     => array(),
 		),
-		'able' => array(
+		'able'          => array(
 			'function' => 'wpcs_get_video',
 			'args'     => array(),
 		),
-		'wpad' => array(
+		'wpad'          => array(
 			'function' => 'wpcs_event_start',
 			'args'     => array(),
 		),
@@ -1816,11 +1816,12 @@ function wpcs_dashboard_widget_handler() {
 			'function' => '$this->shortcode_speakers',
 			'args'     => array(),
 		),
-		'logo' => array(
+		'logo'          => array(
 			'function' => 'wpad_site_logo',
 			'args'     => array(),
 		),
 	);
+
 	$output = '';
 	foreach ( $shortcodes as $code => $attributes ) {
 		$output .= '<li><code>[' . $code . ']</code>/<code>' . $attributes['function'] . '()</code><ul style="padding: 1rem">';

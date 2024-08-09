@@ -171,7 +171,8 @@ function wpcs_get_sessions() {
  */
 function wpcs_schedule( $atts, $content ) {
 	$output       = array();
-	$return       = ( str_contains( home_url(), 'staging.wpaccessibility.day' ) ) ? false : get_transient( 'wpcs_schedule' );
+	$is_draft     = ( 'draft' === get_post_status( get_the_ID() ) ) ? true : false;
+	$return       = ( str_contains( home_url(), 'staging.wpaccessibility.day' ) || $is_draft ) ? false : get_transient( 'wpcs_schedule' );
 	$current_talk = '';
 	if ( $return && ! isset( $_GET['reset_cache'] ) ) {
 		return $return;
@@ -248,14 +249,17 @@ function wpcs_schedule( $atts, $content ) {
 		}
 		++$n;
 	}
-	$opening_id      = get_option( 'wpcs_opening_remarks' );
-	$opening_remarks = array(
-		'id' => $opening_id,
-		'ts' => gmdate( 'Y-m-d\TH:i:s\Z', get_post_meta( $opening_id, '_wpcs_session_time', true ) ),
-	);
+	$opening_id = get_option( 'wpcs_opening_remarks' );
+	$opening    = '';
+	if ( $opening_id ) {
+		$opening_remarks = array(
+			'id' => $opening_id,
+			'ts' => gmdate( 'Y-m-d\TH:i:s\Z', get_post_meta( $opening_id, '_wpcs_session_time', true ) ),
+		);
 
-	$opening = wpad_draw_session( $opening_remarks, true, 'Up next: ', '' );
-	array_unshift( $output, $opening[0] );
+		$opening = wpad_draw_session( $opening_remarks, true, 'Up next: ', '' );
+		array_unshift( $output, $opening[0] );
+	}
 
 	$links  = wpcs_banner();
 	$return = $links . $current_talk . implode( PHP_EOL, $output );

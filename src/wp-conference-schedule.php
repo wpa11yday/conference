@@ -279,23 +279,23 @@ class WPCS_Conference_Schedule {
 		if ( ! $post ) {
 			return;
 		}
-		$session_time     = absint( get_post_meta( $post->ID, '_wpcs_session_time', true ) );
-		$default_date     = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'Y-m-d', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'Y-m-d', strtotime( get_option( 'wpad_start_time' ) ) );
-		$default_hours    = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'G', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'G', strtotime( get_option( 'wpad_start_time' ) ) );
-		$default_minutes  = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'i', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'i', strtotime( get_option( 'wpad_start_time' ) ) );
+		$session_time    = absint( get_post_meta( $post->ID, '_wpcs_session_time', true ) );
+		$default_date    = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'Y-m-d', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'Y-m-d', strtotime( get_option( 'wpad_start_time' ) ) );
+		$default_hours   = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'G', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'G', strtotime( get_option( 'wpad_start_time' ) ) );
+		$default_minutes = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'i', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'i', strtotime( get_option( 'wpad_start_time' ) ) );
 
 		$session_type    = get_post_meta( $post->ID, '_wpcs_session_type', true );
 		$opening_remarks = get_option( 'wpcs_opening_remarks', false );
 		$opening_remarks = ( (int) $post->ID === (int) $opening_remarks ) ? 'true' : 'false';
 		if ( 'lightning' === $session_type || 'true' === $opening_remarks ) {
 			// Lightning talks & opening remarks don't have their own times.
-			$session_date     = '';
-			$session_hours    = '';
-			$session_minutes  = '';
+			$session_date    = '';
+			$session_hours   = '';
+			$session_minutes = '';
 		} else {
-			$session_date     = ( $session_time ) ? gmdate( 'Y-m-d', $session_time ) : $default_date;
-			$session_hours    = ( $session_time ) ? gmdate( 'G', $session_time ) : $default_hours;
-			$session_minutes  = ( $session_time ) ? gmdate( 'i', $session_time ) : $default_minutes;
+			$session_date    = ( $session_time ) ? gmdate( 'Y-m-d', $session_time ) : $default_date;
+			$session_hours   = ( $session_time ) ? gmdate( 'G', $session_time ) : $default_hours;
+			$session_minutes = ( $session_time ) ? gmdate( 'i', $session_time ) : $default_minutes;
 		}
 		$session_captions    = get_post_meta( $post->ID, '_wpcs_caption_url', true );
 		$session_captions_es = get_post_meta( $post->ID, '_wpcs_caption_url_es', true );

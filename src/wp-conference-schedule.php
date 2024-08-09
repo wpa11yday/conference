@@ -281,9 +281,8 @@ class WPCS_Conference_Schedule {
 		}
 		$session_time     = absint( get_post_meta( $post->ID, '_wpcs_session_time', true ) );
 		$default_date     = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'Y-m-d', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'Y-m-d', strtotime( get_option( 'wpad_start_time' ) ) );
-		$default_hours    = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'g', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'g', strtotime( get_option( 'wpad_start_time' ) ) );
+		$default_hours    = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'G', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'G', strtotime( get_option( 'wpad_start_time' ) ) );
 		$default_minutes  = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'i', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'i', strtotime( get_option( 'wpad_start_time' ) ) );
-		$default_meridiem = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'a', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'a', strtotime( get_option( 'wpad_start_time' ) ) );
 
 		$session_type    = get_post_meta( $post->ID, '_wpcs_session_type', true );
 		$opening_remarks = get_option( 'wpcs_opening_remarks', false );
@@ -293,13 +292,10 @@ class WPCS_Conference_Schedule {
 			$session_date     = '';
 			$session_hours    = '';
 			$session_minutes  = '';
-			$session_meridiem = '';
 		} else {
 			$session_date     = ( $session_time ) ? gmdate( 'Y-m-d', $session_time ) : $default_date;
-			$session_hours    = ( $session_time ) ? gmdate( 'g', $session_time ) : $default_hours;
+			$session_hours    = ( $session_time ) ? gmdate( 'G', $session_time ) : $default_hours;
 			$session_minutes  = ( $session_time ) ? gmdate( 'i', $session_time ) : $default_minutes;
-			$session_meridiem = ( $session_time ) ? gmdate( 'a', $session_time ) : $default_meridiem;
-
 		}
 		$session_captions    = get_post_meta( $post->ID, '_wpcs_caption_url', true );
 		$session_captions_es = get_post_meta( $post->ID, '_wpcs_caption_url_es', true );
@@ -319,7 +315,7 @@ class WPCS_Conference_Schedule {
 
 			<select name="wpcs-session-hour" aria-label="<?php esc_attr_e( 'Session Start Hour', 'wpa-conference' ); ?>">
 					<option value="">Not assigned</option>
-				<?php for ( $i = 1; $i <= 12; $i++ ) : ?>
+				<?php for ( $i = 0; $i <= 23; $i++ ) : ?>
 					<option value="<?php echo esc_attr( $i ); ?>" <?php selected( $i, $session_hours ); ?>>
 						<?php echo esc_html( $i ); ?>
 					</option>
@@ -332,11 +328,6 @@ class WPCS_Conference_Schedule {
 						<?php echo esc_html( $i ); ?>
 					</option>
 				<?php endfor; ?>
-			</select>
-
-			<select name="wpcs-session-meridiem" aria-label="<?php esc_attr_e( 'Session Meridiem', 'wpa-conference' ); ?>">
-				<option value="am" <?php selected( 'am', $session_meridiem ); ?>>am</option>
-				<option value="pm" <?php selected( 'pm', $session_meridiem ); ?>>pm</option>
 			</select>
 		</p>
 		<p>
@@ -411,11 +402,10 @@ class WPCS_Conference_Schedule {
 			if ( ! empty( $_POST['wpcs-session-hour'] ) ) {
 				$session_time = strtotime(
 					sprintf(
-						'%s %d:%02d %s',
+						'%s %d:%02d',
 						sanitize_text_field( $_POST['wpcs-session-date'] ?? '' ),
 						absint( $_POST['wpcs-session-hour'] ?? 0 ),
-						absint( $_POST['wpcs-session-minutes'] ?? 0 ),
-						isset( $_POST['wpcs-session-meridiem'] ) && 'am' === $_POST['wpcs-session-meridiem'] ? 'am' : 'pm'
+						absint( $_POST['wpcs-session-minutes'] ?? 0 )
 					)
 				);
 			} else {

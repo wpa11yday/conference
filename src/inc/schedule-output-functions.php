@@ -252,9 +252,10 @@ function wpcs_schedule( $atts, $content ) {
 	$opening_id = get_option( 'wpcs_opening_remarks' );
 	$opening    = '';
 	if ( $opening_id ) {
+		$opening_time    = strtotime( get_option( 'wpad_start_time' ) );
 		$opening_remarks = array(
 			'id' => $opening_id,
-			'ts' => gmdate( 'Y-m-d\TH:i:s\Z', get_post_meta( $opening_id, '_wpcs_session_time', true ) ),
+			'ts' => gmdate( 'Y-m-d\TH:i:s\Z', (int) $opening_time ),
 		);
 
 		$opening = wpad_draw_session( $opening_remarks, true, 'Up next: ', '' );
@@ -422,8 +423,8 @@ function wpad_draw_topics( $talk_id ) {
 function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 	$talk_ID         = $talk['id'];
 	$datatime        = $talk['ts'];
-	$mins            = gmdate( 'i', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
-	$time            = gmdate( 'H', get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
+	$mins            = gmdate( 'i', (int) get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
+	$time            = gmdate( 'H', (int) get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
 	$track_name      = wpad_get_track_name( $talk_ID );
 	$track_name_html = '';
 

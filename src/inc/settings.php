@@ -98,7 +98,7 @@ function wpcs_registration_open_cb() {
 function wpad_start_time_cb() {
 	?>
 	<input type="text" name="wpad_start_time" value="<?php echo esc_attr( get_option( 'wpad_start_time', '' ) ); ?>" style="width:100%;max-width: 450px;" aria-describedby="wpad_start_time_description" />
-	<p class="description" id="wpad_start_time_description">Start date and time in UTC, e.g. <code>2022-11-02 15:00 UTC</code></p>
+	<p class="description" id="wpad_start_time_description">Start date and time in UTC, e.g. <code>2022-11-02 14:45 UTC</code>. When opening remarks begin.</p>
 	<?php
 }
 

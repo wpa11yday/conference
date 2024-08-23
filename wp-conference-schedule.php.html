@@ -384,10 +384,12 @@ class WPCS_Conference_Schedule {
 					continue;
 				}
 				$caption = get_post_meta( $post->ID, '_wpcs_caption_url_' . $key, true );
+				// translators: Current language (written in English.).
+				$caption_label = sprintf( __( '%s Caption URL:', 'wpa-conference' ), $language[0] );
 				?>
 				&lt;p>
-					&lt;label for="wpcs-session-caption-'&lt;?php echo $key ?>">&lt;?php echo sprintf( __( '%s Caption URL:', 'wpa-conference' ), $language[0] ); ?>&lt;/label>
-					&lt;input type="text" id="wpcs-session-caption-&lt;?php echo $key ?>" name="wpcs-session-caption-&lt;?php echo $key ?>" value="&lt;?php echo esc_attr( $caption ); ?>" />
+					&lt;label for="wpcs-session-caption-'&lt;?php echo $key; ?>">&lt;?php echo $caption_label; ?>&lt;/label>
+					&lt;input type="text" id="wpcs-session-caption-&lt;?php echo $key; ?>" name="wpcs-session-caption-&lt;?php echo $key; ?>" value="&lt;?php echo esc_attr( $caption ); ?>" />
 				&lt;/p>
 				&lt;?php
 			}

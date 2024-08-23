@@ -297,12 +297,8 @@ class WPCS_Conference_Schedule {
 			$session_hours   = ( $session_time ) ? gmdate( 'G', $session_time ) : $default_hours;
 			$session_minutes = ( $session_time ) ? gmdate( 'i', $session_time ) : $default_minutes;
 		}
-		$session_captions    = get_post_meta( $post->ID, '_wpcs_caption_url', true );
-		$session_captions_es = get_post_meta( $post->ID, '_wpcs_caption_url_es', true );
-		$session_captions_fr = get_post_meta( $post->ID, '_wpcs_caption_url_fr', true );
-		$session_captions_he = get_post_meta( $post->ID, '_wpcs_caption_url_he', true );
-		$session_captions_it = get_post_meta( $post->ID, '_wpcs_caption_url_it', true );
-		$session_youtube     = get_post_meta( $post->ID, '_wpcs_youtube_id', true );
+		$session_captions = get_post_meta( $post->ID, '_wpcs_caption_url', true );
+		$session_youtube  = get_post_meta( $post->ID, '_wpcs_youtube_id', true );
 
 		wp_nonce_field( 'edit-session-info', 'wpcs-meta-session-info' );
 		?>
@@ -355,24 +351,22 @@ class WPCS_Conference_Schedule {
 				<label for="wpcs-session-caption"><?php esc_html_e( 'English Caption URL:', 'wpa-conference' ); ?></label>
 				<input type="text" id="wpcs-session-caption" name="wpcs-session-caption" value="<?php echo esc_attr( $session_captions ); ?>" />
 			</p>
-			<p>
-				<label for="wpcs-session-caption-es"><?php esc_html_e( 'Spanish Caption URL:', 'wpa-conference' ); ?></label>
-				<input type="text" id="wpcs-session-caption-es" name="wpcs-session-caption-es" value="<?php echo esc_attr( $session_captions_es ); ?>" />
-			</p>
-			<p>
-				<label for="wpcs-session-caption-fr"><?php esc_html_e( 'French Caption URL:', 'wpa-conference' ); ?></label>
-				<input type="text" id="wpcs-session-caption-fr" name="wpcs-session-caption-fr" value="<?php echo esc_attr( $session_captions_fr ); ?>" />
-			</p>
-			<p>
-				<label for="wpcs-session-caption-he"><?php esc_html_e( 'Hebrew Caption URL:', 'wpa-conference' ); ?></label>
-				<input type="text" id="wpcs-session-caption-he" name="wpcs-session-caption-he" value="<?php echo esc_attr( $session_captions_he ); ?>" />
-			</p>
-			<p>
-				<label for="wpcs-session-caption-it"><?php esc_html_e( 'Italian Caption URL:', 'wpa-conference' ); ?></label>
-				<input type="text" id="wpcs-session-caption-it" name="wpcs-session-caption-it" value="<?php echo esc_attr( $session_captions_it ); ?>" />
-			</p>
+			<?php
+			$languages = wpcs_get_languages( false );
+			foreach ( $languages as $key => $language ) {
+				if ( 'en' === $key ) {
+					continue;
+				}
+				$caption = get_post_meta( $post->ID, '_wpcs_caption_url_' . $key, true );
+				?>
+				<p>
+					<label for="wpcs-session-caption-'<?php echo $key ?>"><?php echo sprintf( __( '%s Caption URL:', 'wpa-conference' ), $language[0] ); ?></label>
+					<input type="text" id="wpcs-session-caption-<?php echo $key ?>" name="wpcs-session-caption-<?php echo $key ?>" value="<?php echo esc_attr( $caption ); ?>" />
+				</p>
+				<?php
+			}
+			?>
 		</fieldset>
-
 
 		<?php
 	}
@@ -433,25 +427,17 @@ class WPCS_Conference_Schedule {
 			$session_youtube = sanitize_text_field( $_POST['wpcs-session-youtube'] ?? '' );
 			update_post_meta( $post_id, '_wpcs_youtube_id', $session_youtube );
 
-			// Update session caption URL.
-			$session_caption = sanitize_text_field( $_POST['wpcs-session-caption'] ?? '' );
-			update_post_meta( $post_id, '_wpcs_caption_url', $session_caption );
-
-			// Update session caption URL.
-			$session_caption_es = sanitize_text_field( $_POST['wpcs-session-caption-es'] ?? '' );
-			update_post_meta( $post_id, '_wpcs_caption_url_es', $session_caption_es );
-
-			// Update session caption URL.
-			$session_caption_fr = sanitize_text_field( $_POST['wpcs-session-caption-fr'] ?? '' );
-			update_post_meta( $post_id, '_wpcs_caption_url_fr', $session_caption_fr );
-
-			// Update session caption URL.
-			$session_caption_he = sanitize_text_field( $_POST['wpcs-session-caption-he'] ?? '' );
-			update_post_meta( $post_id, '_wpcs_caption_url_he', $session_caption_he );
-
-			// Update session caption URL.
-			$session_caption_it = sanitize_text_field( $_POST['wpcs-session-caption-it'] ?? '' );
-			update_post_meta( $post_id, '_wpcs_caption_url_it', $session_caption_it );
+			// Update language captions.
+			$languages = wpcs_get_languages( false );
+			foreach ( $languages as $key => $language ) {
+				if ( 'en' === $key ) {
+					$session_caption = sanitize_text_field( $_POST['wpcs-session-caption'] ?? '' );
+					update_post_meta( $post_id, '_wpcs_caption_url', $session_caption );
+				} else {
+					$session_caption = sanitize_text_field( $_POST[ 'wpcs-session-caption-' . $key ] ?? '' );
+					update_post_meta( $post_id, '_wpcs_caption_url_' . $key, $session_caption );
+				}
+			}
 		}
 	}
 
@@ -1588,22 +1574,27 @@ function wpcsp_sponsor_level_metabox() {
 $GLOBALS['wpcs_plugin'] = new WPCS_Conference_Schedule();
 
 /**
- * Map supported languages to labels.
+ * Register supported caption languages and provide labels. English version of language is used in admin; native is used on front-end.
  *
- * @param string $lang Language code.
+ * @param string $lang Language code or `false` to return entire array.
  *
- * @return string
+ * @return string|array
  */
-function wpcs_get_label( $lang ) {
+function wpcs_get_languages( $lang = false ) {
 	$labels = array(
-		'en' => 'English',
-		'es' => 'Español',
-		'fr' => 'Français',
-		'he' => 'עִברִית',
-		'it' => 'Italiano',
+		// $langcode => [English version, Native version].
+		'en' => array( 'English', 'English' ),
+		'es' => array( 'Spanish', 'Español' ),
+		'fr' => array( 'French', 'Français' ),
+		'he' => array( 'Hebrew', 'עִברִית' ),
+		'it' => array( 'Italian', 'Italiano' ),
+		'ms' => array( 'Malay', 'Melayu' ),
 	);
+	if ( ! $lang ) {
+		return $labels;
+	}
 
-	return ( isset( $labels[ $lang ] ) ) ? $labels[ $lang ] : $lang;
+	return ( isset( $labels[ $lang ] ) ) ? $labels[ $lang ] : array( $lang, $lang );
 }
 
 /**
@@ -1615,7 +1606,7 @@ function wpcs_get_video() {
 	$captions  = wpcs_get_captions();
 	$subtitles = '';
 	foreach ( $captions as $lang => $caption ) {
-		$label = wpcs_get_label( $lang );
+		$label = wpcs_get_languages( $lang )[1];
 		if ( $caption ) {
 			$subtitles .= '<track kind="captions" src="' . esc_url( $caption ) . '" srclang="' . esc_attr( $lang ) . '" label="' . $label . '">';
 		}
@@ -1664,22 +1655,23 @@ function wpcs_get_poster() {
  */
 function wpcs_get_captions() {
 	$post_id     = get_the_ID();
-	$captions    = get_post_meta( $post_id, '_wpcs_caption_url', true );
-	$captions_es = get_post_meta( $post_id, '_wpcs_caption_url_es', true );
-	$captions_fr = get_post_meta( $post_id, '_wpcs_caption_url_fr', true );
-	$captions_he = get_post_meta( $post_id, '_wpcs_caption_url_he', true );
-	$captions_it = get_post_meta( $post_id, '_wpcs_caption_url_it', true );
-
-	if ( ! $captions ) {
+	$languages   = wpcs_get_languages( false );
+	$captions    = array();
+	$has_caption = false;
+	foreach ( $languages as $key => $language ) {
+		if ( 'en' === $key ) {
+			$has_caption      = true;
+			$caption          = get_post_meta( $post_id, '_wpcs_caption_url', true );
+			$captions[ $key ] = $caption;
+		} else {
+			$caption          = get_post_meta( $post_id, '_wpcs_caption_url_' . $key, true );
+			$captions[ $key ] = $caption;
+		}
+	}
+	// We only display videos if they have English captions, first. Translations are secondary.
+	if ( ! $has_caption ) {
 		return false;
 	}
-	$captions = array(
-		'en' => $captions,
-		'es' => $captions_es,
-		'fr' => $captions_fr,
-		'he' => $captions_he,
-		'it' => $captions_it,
-	);
 
 	return $captions;
 }

@@ -537,10 +537,10 @@ function wpcs_banner() {
 		if ( $time < strtotime( get_option( 'wpad_start_time', '' ) ) ) {
 			$start  = gmdate( 'F j, Y', strtotime( get_option( 'wpad_start_time', '' ) ) );
 			$until  = human_time_diff( $time, strtotime( get_option( 'wpad_start_time', '' ) ) );
-			$append = " - in just <strong>$until</strong>!";
+			$append = " - in just about <strong>$until</strong>!";
 		}
 		$register_or_signup = ( 'true' === get_option( 'wpcs_registration_open' ) ) ? "<a class='button' href='" . esc_url( get_option( 'wpcs_field_registration' ) ) . "'>Register today!</a>" : ' <a href="' . home_url( 'join-our-email-list' ) . '" class="button">Get notified when registration opens!</a>';
-		$output             = "<div class='wpad-callout'><p>WP Accessibility Day starts $start $append $register_or_signup </p></div>";
+		$output             = "<div class='wpad-callout'><p><span>WP Accessibility Day starts $start $append</span> $register_or_signup </p></div>";
 	}
 
 	return $output;

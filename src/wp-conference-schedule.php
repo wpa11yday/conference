@@ -395,7 +395,7 @@ class WPCS_Conference_Schedule {
 		if ( isset( $_POST['wpcs-meta-session-info'] ) && wp_verify_nonce( sanitize_text_field( $_POST['wpcs-meta-session-info'] ), 'edit-session-info' ) ) {
 
 			// Update session time.
-			if ( ! empty( $_POST['wpcs-session-hour'] ) ) {
+			if ( isset( $_POST['wpcs-session-hour'] ) && is_numeric( $_POST['wpcs-session-hour'] ) ) {
 				$session_time = strtotime(
 					sprintf(
 						'%s %d:%02d',

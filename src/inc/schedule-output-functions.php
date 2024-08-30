@@ -423,8 +423,8 @@ function wpad_draw_topics( $talk_id ) {
 function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 	$talk_ID         = $talk['id'];
 	$datatime        = $talk['ts'];
-	$mins            = gmdate( 'i', (int) get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
-	$time            = gmdate( 'H', (int) get_post_meta( $talk_ID, '_wpcs_session_time', true ) );
+	$mins            = gmdate( 'i', strtotime( $talk['ts'] ) );
+	$time            = gmdate( 'H', strtotime( $talk['ts'] ) );
 	$track_name      = wpad_get_track_name( $talk_ID );
 	$track_name_html = '';
 

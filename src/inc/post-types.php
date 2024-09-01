@@ -200,7 +200,7 @@ function wpcs_register_post_types() {
 		'parent_item_colon'  => __( 'Parent Draft:', 'wpa-conference' ),
 	);
 
-	// Register session post type.
+	// Register drafts post type.
 	register_post_type(
 		'wpcs_drafts',
 		array(
@@ -219,7 +219,7 @@ function wpcs_register_post_types() {
 			'query_var'       => true,
 			'menu_icon'       => 'dashicons-edit',
 			'show_in_rest'    => true,
-			'rest_base'       => 'sessions',
+			'rest_base'       => 'drafts',
 		)
 	);
 }

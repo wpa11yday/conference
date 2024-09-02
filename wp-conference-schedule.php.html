@@ -888,7 +888,13 @@ class WPCS_Conference_Schedule {
 							$image_size = 'thumbnail';
 						}
 						$image_size = ( is_numeric( $image_size ) ) ? array( $image_size, $image_size ) : $image_size;
-						echo get_the_post_thumbnail( $post_id, $image_size, array( 'class' => 'wpcsp-speaker-image' ) );}
+						$thumb_id   = get_post_thumbnail_id( $post_id );
+						$thumb_size = wp_get_attachment_image_src( $thumb_id, $image_size );
+						if ( 720 > $thumb_size[1] || 720 > $thumb_size[2] ) {
+							$image_size = 'small-square';
+						}
+						echo get_the_post_thumbnail( $post_id, $image_size, array( 'class' => 'wpcsp-speaker-image' ) );
+					}
 					?>
 
 					&lt;&lt;?php echo esc_html( $heading_level ); ?> class="wpcsp-speaker-name">

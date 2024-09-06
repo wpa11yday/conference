@@ -1,0 +1,2378 @@
+WEBVTT
+
+00:00:00.970 --> 00:00:04.490
+AMBER HINDS : Journée de l'accessibilité WordPress 2023.
+
+00:00:04.490 --> 00:00:06.590
+Mon site WordPress est-il accessible ?
+
+00:00:06.590 --> 00:00:09.940
+Et comment réaliser des tests d'accessibilité et d’utilisabilité ?
+
+00:00:09.940 --> 00:00:17.350
+Nous allons voir cela avec l'intervenante Maria Gabriela Gaby Gandica, UX Manager chez Smartmatic.
+
+00:00:17.350 --> 00:00:21.670
+Cette présentation a été enregistrée le 27 septembre 2023.
+
+00:00:23.493 --> 00:00:24.760
+AMANDA ROPER : Bonjour tout le monde !
+
+00:00:24.760 --> 00:00:28.220
+Bienvenue à la Journée de l'accessibilité WordPress 2023.
+
+00:00:28.220 --> 00:00:32.640
+Je m'appelle Amanda Roper, et je m’adresse à vous depuis Philadelphie,
+
+00:00:32.640 --> 00:00:33.980
+en Pennsylvanie.
+
+00:00:33.980 --> 00:00:37.380
+Je suis Directrice du Programme d'Accessibilité chez T. Rowe Price,
+
+00:00:37.380 --> 00:00:39.340
+où je suis responsable de l'élaboration
+
+00:00:39.340 --> 00:00:43.490
+et du suivi du programme d'accessibilité au sein de nos équipes mondiales.
+
+00:00:43.490 --> 00:00:46.070
+Quand je ne travaille pas sur les problèmes d'accessibilité dans le monde,
+
+00:00:46.070 --> 00:00:49.610
+je fais de la sérigraphie, de la randonnée, ou je suis dans un musée d'art
+
+00:00:49.610 --> 00:00:52.090
+équipée de l'un de mes appareils photo vintage.
+
+00:00:52.090 --> 00:00:56.680
+Je suis impatiente de vous présenter notre prochaine intervenante.
+
+00:00:56.680 --> 00:01:02.140
+Gaby Gandica va répondre à : Mon site WordPress est-il accessible ?
+
+00:01:02.140 --> 00:01:05.240
+Ou comment réaliser des tests d'accessibilité et d'utilisabilité.
+
+00:01:05.240 --> 00:01:08.940
+Gaby est une UX designer et une directrice bienveillante et dévouée,
+
+00:01:08.940 --> 00:01:11.840
+forte de plus de 13 ans d'expérience dans le monde de la tech.
+
+00:01:11.840 --> 00:01:15.500
+Gaby a passé les sept dernières années à perfectionner ses compétences en UX design,
+
+00:01:15.500 --> 00:01:17.790
+en accessibilité, et en gestion d'équipe.
+
+00:01:17.790 --> 00:01:21.030
+Passionnée par la création d’expériences centrées sur l'utilisateur
+
+00:01:21.030 --> 00:01:23.980
+et accessibles à tous et toutes, Gaby s'efforce d'exceller
+
+00:01:23.980 --> 00:01:27.220
+à rendre le monde numérique plus inclusif pour les gens,
+
+00:01:27.220 --> 00:01:28.820
+avec ou sans handicap.
+
+00:01:28.820 --> 00:01:32.120
+N'hésitez pas à poser vos questions dans la section Q&A de Zoom,
+
+00:01:32.120 --> 00:01:34.740
+nous y répondrons à la fin de la présentation.
+
+00:01:34.740 --> 00:01:38.540
+Vous pouvez aussi échanger avec les autres participants via le chat.
+
+00:01:38.540 --> 00:01:41.410
+Gaby, la scène virtuelle est à toi !
+
+00:01:41.410 --> 00:01:42.520
+GABY GANDICA : Merci Amanda.
+
+00:01:42.520 --> 00:01:43.520
+Merci beaucoup.
+
+00:01:44.710 --> 00:01:46.040
+Bonjour tout le monde.
+
+00:01:46.040 --> 00:01:50.340
+Je vais tout d’abord partager mon écran
+
+00:01:52.320 --> 00:01:56.080
+afin de commencer notre session d’aujourd'hui.
+
+00:01:58.050 --> 00:02:00.050
+Je suis vraiment très heureuse d'être ici.
+
+00:02:00.050 --> 00:02:04.270
+C’est le résultat d’un gros travail de la part d'une communauté formidable.
+
+00:02:04.270 --> 00:02:08.980
+Et donc je leur suis reconnaissante et suis heureuse d’être là aujourd'hui.
+
+00:02:11.160 --> 00:02:16.100
+Quelques mots sur moi, en complément de ce qu’a dit Amanda,
+
+00:02:16.100 --> 00:02:19.270
+je viens de Táchira, au Venezuela.
+
+00:02:19.270 --> 00:02:21.780
+J'ai un chien qui s’appelle Louis Ramon.
+
+00:02:21.780 --> 00:02:25.210
+Si je vous dis cela, c'est parce que, bien sûr,
+
+00:02:25.210 --> 00:02:28.830
+je l'aime beaucoup, mais aussi parce qu’il pourrait
+
+00:02:28.830 --> 00:02:31.940
+se manifester avec quelques aboiements.
+
+00:02:31.940 --> 00:02:35.070
+Donc si vous entendez aboyer pendant que je présente, vous saurez pourquoi.
+
+00:02:35.070 --> 00:02:38.630
+Je suis ingénieure en informatique.
+
+00:02:38.630 --> 00:02:42.500
+J'ai commencé ma carrière comme développeuse, après quoi je me suis orientée
+
+00:02:42.500 --> 00:02:46.360
+vers l'assurance qualité, puis j'ai eu un vrai coup de cœur pour l'utilisabilité
+
+00:02:46.360 --> 00:02:47.410
+et l'accessibilité.
+
+00:02:48.470 --> 00:02:51.710
+Aujourd'hui, je suis UX Manager.
+
+00:02:51.710 --> 00:02:56.650
+Mon expérience de l'industrie est liée aux services financiers,
+
+00:02:56.650 --> 00:03:02.540
+à un système de vote électronique et à un logiciel qui assurent que notre base de clients,
+
+00:03:02.540 --> 00:03:06.080
+d’utilisateurs de ce que nous et notre équipe, créons,
+
+00:03:06.080 --> 00:03:08.230
+inclue bien tout le monde.
+
+00:03:08.230 --> 00:03:14.420
+Et c’est ce qui m'a conduite à me concentrer sur un public diversifié.
+
+00:03:14.420 --> 00:03:18.770
+Et c’est ainsi que l'accessibilité est devenue une partie de mon travail mais aussi de ma vie.
+
+00:03:21.150 --> 00:03:26.000
+Voici les 7 points que je vais développer et partager avec vous.
+
+00:03:26.000 --> 00:03:28.810
+Cela peut sembler beaucoup, mais je suis sûre que nous allons
+
+00:03:28.810 --> 00:03:30.480
+passer un excellent moment ensemble.
+
+00:03:31.615 --> 00:03:34.267
+Tout d'abord, je vais parler de ce besoin universel d’avoir
+
+00:03:34.267 --> 00:03:37.920
+des sites web accessibles, et de ce qui nous pousse à le faire.
+
+00:03:38.980 --> 00:03:44.090
+Ensuite, je vais expliquer quand aller au-delà des lignes directrices,
+
+00:03:44.090 --> 00:03:47.230
+mettre en regard les lignes directrices et la réalité.
+
+00:03:47.230 --> 00:03:52.050
+Ensuite nous verrons un aperçu des tests d'utilisabilité, puis la planification, la conduite,
+
+00:03:52.050 --> 00:03:55.240
+et l'analyse des résultats.
+
+00:03:55.240 --> 00:03:59.580
+Je vais partager avec vous quelques uns de mes conseils.
+
+00:04:00.800 --> 00:04:04.110
+Ensuite, je vais expliquer pourquoi il est si important d’agir
+
+00:04:04.110 --> 00:04:07.130
+en tant que communauté, de faire ça ensemble.
+
+00:04:07.130 --> 00:04:11.140
+Je vais partager quelques réflexions finales, quelques ressources,
+
+00:04:11.140 --> 00:04:13.390
+sans oublier la qualité.
+
+00:04:14.820 --> 00:04:17.450
+Car je suis ingénieure en assurance qualité dans l’âme.
+
+00:04:17.450 --> 00:04:20.630
+Je répondrai à vos questions à la fin.
+
+00:04:20.630 --> 00:04:21.670
+Alors allons-y !
+
+00:04:22.780 --> 00:04:29.440
+Pourquoi construire un site WordPress - ou autre - qui soit accessible ?
+
+00:04:29.440 --> 00:04:32.770
+Pourquoi ce besoin universel d’accessibilité ?
+
+00:04:32.770 --> 00:04:36.520
+Si vous me demandez quelle est ma première question, ma première pensée, ce sera :
+
+00:04:36.520 --> 00:04:39.120
+« c’est parce que c’est ainsi qu’il faut faire, n'est-ce pas ? »
+
+00:04:39.120 --> 00:04:41.310
+Sauf que moi, ça me passionne.
+
+00:04:41.310 --> 00:04:47.100
+Donc je m’implique avec toute la passion
+
+00:04:47.100 --> 00:04:50.900
+qui m’anime… Mais revenons-en aux faits.
+
+00:04:50.900 --> 00:04:53.720
+Rattachons quelques principes à la réalité des faits.
+
+00:04:53.720 --> 00:04:56.470
+Je vais en lister quelques-uns pour vous.
+
+00:04:56.470 --> 00:05:01.090
+Premièrement, il y a un milliard de personnes qui vivent avec un handicap ;
+
+00:05:01.090 --> 00:05:04.660
+et un milliard est un nombre que nous ne pouvons ignorer !
+
+00:05:05.950 --> 00:05:09.840
+Cela signifie que 15% à 20% des personnes
+
+00:05:09.840 --> 00:05:12.280
+dans le monde vivent avec un handicap.
+
+00:05:12.280 --> 00:05:16.990
+Donc un milliard pour moi, ça signifie qu’il faut agir,
+
+00:05:16.990 --> 00:05:19.950
+qu’il nous faut prendre des mesures à ce sujet.
+
+00:05:19.950 --> 00:05:25.420
+Ensuite, nous avons la Convention des Nations Unies sur les Droits des Personnes Handicapées
+
+00:05:25.420 --> 00:05:30.860
+pour qui l'accessibilité n'est pas présentée comme un luxe ou
+
+00:05:30.860 --> 00:05:32.510
+comme un accessoire appréciable.
+
+00:05:32.510 --> 00:05:34.760
+Elle est présentée comme un droit humain !
+
+00:05:36.240 --> 00:05:39.430
+Et maintenant, il faut voir le web comme une bouée de sauvetage.
+
+00:05:39.430 --> 00:05:43.980
+Nous vivons chaque jour dans un monde où, de plus en plus,
+
+00:05:43.980 --> 00:05:49.530
+internet, la connexion, et le web
+
+00:05:49.530 --> 00:05:53.390
+sont passés d'un luxe, ou d’un service que je pourrais utiliser ou non,
+
+00:05:53.390 --> 00:05:56.140
+à quelque chose d'essentiel.
+
+00:05:56.140 --> 00:06:00.290
+Car notre façon d’apprendre, d’acheter, de nous connecter les uns aux autres,
+
+00:06:00.290 --> 00:06:06.620
+de construire une communauté, et même notre façon de trouver de l’assistance,
+
+00:06:06.620 --> 00:06:08.060
+tout ça a désormais lieu sur le web.
+
+00:06:08.060 --> 00:06:09.890
+C'est donc une nécessité.
+
+00:06:09.890 --> 00:06:13.950
+C'est une chose essentielle dans la vie de chacun.
+
+00:06:15.480 --> 00:06:19.800
+Je dis souvent que l'accessibilité est importante à tout âge
+
+00:06:19.800 --> 00:06:23.270
+et à toutes les étapes, que ce soit temporaire ou permanent.
+
+00:06:24.490 --> 00:06:28.460
+Si nous avons la chance de vieillir, vous savez bien que
+
+00:06:28.460 --> 00:06:32.180
+nos sens commenceront à fonctionner différemment.
+
+00:06:32.180 --> 00:06:39.620
+Oh, je crois bien que ma souris ou mon clavier me joue un tour…
+
+00:06:41.630 --> 00:06:45.090
+Je pense que dans le futur nous serons vraiment reconnaissants
+
+00:06:45.090 --> 00:06:50.750
+envers nous-mêmes d’avoir construit des sites WordPress accessibles.
+
+00:06:50.750 --> 00:06:55.900
+Cela ne concerne pas seulement les handicaps permanents,
+
+00:06:55.900 --> 00:06:59.060
+mais des situations de la vie courante, comprenez bien cela.
+
+00:06:59.060 --> 00:07:04.440
+L'exemple typique c’est quelqu’un qui porte un enfant, ou avec un genou cassé.
+
+00:07:04.440 --> 00:07:10.020
+Ces situations requièrent des sites web accessibles.
+
+00:07:11.080 --> 00:07:13.130
+Et enfin, c'est bon pour les affaires !
+
+00:07:13.130 --> 00:07:16.042
+Lorsque nous créons un site WordPress accessible,
+
+00:07:16.043 --> 00:07:20.540
+nous créons un bon site, qui fonctionne bien.
+
+00:07:20.540 --> 00:07:24.370
+Et cela, bien sûr, vous aide à étendre votre portée.
+
+00:07:24.370 --> 00:07:28.220
+Donc, je le dis : ce n'est pas seulement bon pour la société
+
+00:07:28.220 --> 00:07:31.680
+juste parce que c’est comme ça qu’il convient de faire,
+
+00:07:31.680 --> 00:07:34.610
+mais cela améliore aussi votre présence sur le web.
+
+00:07:37.950 --> 00:07:41.870
+Les lignes directrices versus la réalité : quand et pourquoi aller au-delà ?
+
+00:07:43.760 --> 00:07:46.440
+Les lignes directrices sont mon point de départ.
+
+00:07:47.630 --> 00:07:50.850
+Les lignes directrices sur l'accessibilité des contenus web, je le dis toujours,
+
+00:07:50.850 --> 00:07:54.880
+c'est un lien que vous devez avoir en favori
+
+00:07:54.880 --> 00:07:57.350
+ou comme page d'accueil de votre navigateur.
+
+00:07:57.350 --> 00:08:00.160
+C'est notre premier recours.
+
+00:08:00.160 --> 00:08:05.040
+C'est là que nous apprenons les bases solides
+
+00:08:05.040 --> 00:08:06.820
+de l'accessibilité.
+
+00:08:06.820 --> 00:08:10.666
+Ces lignes directrices, et d’autres, nous ont aidés,
+
+00:08:10.667 --> 00:08:15.860
+et les itérations s'adaptent même aux nouvelles nécessités du web.
+
+00:08:17.100 --> 00:08:21.500
+Cependant, je crois qu'il y a des choses qui sont trop difficiles à mettre
+
+00:08:21.500 --> 00:08:25.534
+dans une liste ou sur papier : il s’agit de toute la diversité
+
+00:08:25.535 --> 00:08:28.880
+et de tout le spectre de l'humanité.
+
+00:08:28.880 --> 00:08:35.630
+Et c'est pourquoi je pense qu'il y a un écart entre ce que les lignes directrices
+
+00:08:35.630 --> 00:08:40.830
+nous apportent - c’est à dire beaucoup ! - et comment les choses se passent dans la vie réelle.
+
+00:08:43.340 --> 00:08:48.280
+Voici un exemple personnel que j'aime partager.
+
+00:08:48.280 --> 00:08:55.230
+Vous pouvez voir sur le côté droit de la diapositive
+
+00:08:55.230 --> 00:08:59.380
+la photo d'une place de parking pour personnes handicapées.
+
+00:08:59.380 --> 00:09:02.000
+J'ai pris cette photo il y a quelque temps déjà.
+
+00:09:02.000 --> 00:09:06.260
+Il y a quelques années, j'ai subi une opération du genou,
+
+00:09:06.260 --> 00:09:12.490
+donc je devais marcher avec une canne pendant 3 à 4 mois.
+
+00:09:12.490 --> 00:09:17.620
+Et lorsque j'ai pu conduire à nouveau, tout en ayant encore besoin de la canne
+
+00:09:17.620 --> 00:09:21.860
+pour marcher, on m'a attribué cette place de parking
+
+00:09:21.860 --> 00:09:25.270
+pour personnes handicapées, dans le bâtiment où je travaillais.
+
+00:09:25.270 --> 00:09:28.560
+C'était à Panama, où je vivais à l'époque.
+
+00:09:29.650 --> 00:09:34.450
+Je vais essayer de vous décrire la place de parking.
+
+00:09:34.450 --> 00:09:37.970
+Sur son côté droit, il y a un mur.
+
+00:09:37.970 --> 00:09:41.850
+Il y a un muret devant.
+
+00:09:41.850 --> 00:09:44.890
+Et sur son côté gauche, il y a deux colonnes.
+
+00:09:46.130 --> 00:09:54.130
+Alors, sur le papier, cette place de parking répond à tous les critères des lignes directrices.
+
+00:09:55.790 --> 00:10:01.640
+Elle a la bonne couleur, la signalétique est en place.
+
+00:10:01.640 --> 00:10:06.560
+Il y a du bleu, du jaune, il y a l'icône caractéristique.
+
+00:10:06.560 --> 00:10:08.000
+Donc tout est bon.
+
+00:10:08.000 --> 00:10:11.223
+Et je peux vous dire que dans ce bâtiment,
+
+00:10:11.224 --> 00:10:13.640
+selon la réglementation,
+
+00:10:13.640 --> 00:10:19.050
+vous devez avoir beaucoup de places de parking similaires
+
+00:10:19.050 --> 00:10:20.940
+en raison du nombre de personnes qui travaillent dans le bâtiment.
+
+00:10:20.940 --> 00:10:22.450
+Et ça aussi, c’est correct.
+
+00:10:24.270 --> 00:10:29.380
+Donc quand je l’ai utilisée, je devais garer ma voiture
+
+00:10:30.410 --> 00:10:35.970
+avec la porte passager face à ce que nous appellerons le mur de droite.
+
+00:10:37.450 --> 00:10:40.490
+Puis le devant face à ce muret ici.
+
+00:10:41.850 --> 00:10:46.680
+Je suis sortie de ma voiture, et j'ai dû trouver un moyen de marcher.
+
+00:10:46.680 --> 00:10:50.580
+Normalement, quand vous marchez avec une canne, vous prenez
+
+00:10:50.580 --> 00:10:52.760
+un peu plus de place que d'habitude.
+
+00:10:52.760 --> 00:10:55.820
+Donc, j'ai dû me frayer un chemin à travers ce petit couloir
+
+00:10:55.820 --> 00:10:59.360
+entre le devant de mon auto et le mur,
+
+00:10:59.360 --> 00:11:03.850
+puis monter une marche, et enfin arriver aux ascenseurs.
+
+00:11:03.850 --> 00:11:07.500
+Une autre option aurait été d'ouvrir la portière de ma voiture
+
+00:11:07.500 --> 00:11:13.570
+et de marcher une longue distance pour aller aux ascenseurs.
+
+00:11:15.180 --> 00:11:16.120
+Alors, vous voyez l'écart ?
+
+00:11:16.120 --> 00:11:18.970
+Je suis sûre que les personnes qui ont conçu
+
+00:11:18.970 --> 00:11:23.280
+et construit ces places de parking suivaient les lignes directrices.
+
+00:11:23.280 --> 00:11:27.130
+Ils s'assuraient que sur le papier,
+
+00:11:27.130 --> 00:11:30.890
+tout était conforme aux exigences.
+
+00:11:30.890 --> 00:11:34.930
+Mais je suis sûre aussi que même s'ils étaient animés des meilleures intentions,
+
+00:11:34.930 --> 00:11:37.470
+ils n'ont pas interrogé les personnes
+
+00:11:37.470 --> 00:11:41.330
+qui utilisent ces places de parking.
+
+00:11:41.330 --> 00:11:45.830
+Après le deuxième jour, j'ai décidé de ne plus utiliser cette place.
+
+00:11:45.830 --> 00:11:50.500
+Je suis retournée à ma place habituelle, qui s’est révélée plus facile à utiliser !
+
+00:11:50.500 --> 00:11:54.660
+C’est une réalité difficile à accepter…
+
+00:11:56.010 --> 00:12:03.840
+Et donc mon avis, c’est que les tests d'utilisabilité sont le chaînon manquant
+
+00:12:03.840 --> 00:12:05.300
+entre les lignes directrices et la vie réelle.
+
+00:12:05.300 --> 00:12:08.870
+Nous devrions nous adresser aux personnes
+
+00:12:08.870 --> 00:12:13.980
+qui utiliseront ce que nous créons, et recueillir
+
+00:12:13.980 --> 00:12:20.340
+leurs insights, pour créer quelque chose non seulement de meilleur,
+
+00:12:20.340 --> 00:12:23.410
+mais qui réponde réellement à leurs besoins.
+
+00:12:23.410 --> 00:12:27.250
+Je pense que d’aller au-delà des lignes directrices signifie
+
+00:12:27.250 --> 00:12:31.100
+que nous pouvons utiliser le pouvoir de l'humanité, de la connexion humaine,
+
+00:12:31.100 --> 00:12:36.520
+d'une conversation, pour apprendre et améliorer ce que nous construisons
+
+00:12:36.520 --> 00:12:39.300
+et le rendre accessible et réellement utile.
+
+00:12:43.250 --> 00:12:49.800
+Alors, qu’est-ce que les tests d'utilisabilité ?
+
+00:12:51.110 --> 00:12:56.270
+Je pense sincèrement que c'est une conversation.
+
+00:12:56.270 --> 00:12:59.633
+Une conversation où vous écoutez beaucoup,
+
+00:12:59.633 --> 00:13:05.100
+observez beaucoup, et apprenez, et grandissez.
+
+00:13:06.480 --> 00:13:10.640
+Voyons le côté droit de la diapositive.
+
+00:13:10.640 --> 00:13:14.870
+Je m'appuie sur un schéma qui reflète très bien, je pense,
+
+00:13:14.870 --> 00:13:20.390
+et de manière très simple, ce que cela signifie d’avoir un modérateur.
+
+00:13:20.390 --> 00:13:24.190
+Il est fort probable que si vous construisez un site WordPress, vous y aurez recours.
+
+00:13:24.190 --> 00:13:25.190
+Je vais vous faire quelques suggestions
+
+00:13:26.950 --> 00:13:31.200
+concernant le modérateur.
+
+00:13:31.200 --> 00:13:35.740
+Vous avez un participant et vous avez des tâches à effectuer
+
+00:13:35.740 --> 00:13:36.740
+sur votre site WordPress.
+
+00:13:37.790 --> 00:13:43.900
+Pendant que le participant exécute ces tâches, vous observez
+
+00:13:44.910 --> 00:13:46.960
+et apprenez à ce sujet.
+
+00:13:46.960 --> 00:13:49.300
+Ensuite, les participants donnent leur feedback.
+
+00:13:49.300 --> 00:13:54.200
+Celui-ci peut être verbal, ou des expressions du visage donc non verbal.
+
+00:13:56.490 --> 00:13:58.270
+Pourquoi sont-ils importants ?
+
+00:13:59.820 --> 00:14:02.980
+Je commence toujours par dire aux gens avec qui je travaille,
+
+00:14:02.980 --> 00:14:06.530
+"Vous savez trop de choses, vous êtes trop intelligents et vous connaissez
+
+00:14:06.530 --> 00:14:07.520
+trop bien ce que vous créez."
+
+00:14:07.520 --> 00:14:09.970
+Et c'est bien normal, et c'est formidable
+
+00:14:11.060 --> 00:14:14.700
+que nous mettions autant de soin dans ce que nous faisons.
+
+00:14:14.700 --> 00:14:18.030
+Cependant, lorsque nous sommes trop proches de quelque chose,
+
+00:14:18.030 --> 00:14:22.170
+il est très difficile de voir les manques ou les écarts
+
+00:14:22.170 --> 00:14:25.260
+entre les lignes directrices et le monde réel.
+
+00:14:25.260 --> 00:14:28.830
+C'est pourquoi vous devez faire appel à un tiers pour vous aider,
+
+00:14:28.830 --> 00:14:33.710
+et d’où l’intérêt de recourir aux tests d'utilisabilité.
+
+00:14:34.730 --> 00:14:39.760
+Une autre chose à partager avec vous : j'ai été dans des salles de réunion
+
+00:14:39.760 --> 00:14:43.720
+avec beaucoup de gens intelligents, talentueux et formidables
+
+00:14:43.720 --> 00:14:48.300
+qui sont animés des meilleures intentions, mais parfois nous oublions
+
+00:14:48.300 --> 00:14:50.060
+la réalité et nous commençons à faire des suppositions.
+
+00:14:50.060 --> 00:14:53.220
+Ensuite, nous entrons dans une spirale de réflexions, le plus
+
+00:14:53.220 --> 00:14:58.370
+sincèrement du monde, mais voilà nous commençons à supposer,
+
+00:14:58.370 --> 00:15:02.510
+à émettre des idées, et ensuite… Alors là, stop !
+
+00:15:02.510 --> 00:15:07.690
+Nous supposons… Il y a une phrase célèbre qui dit :
+
+00:15:07.690 --> 00:15:10.590
+"Quand vous ne vérifiez pas, vous supposez."
+
+00:15:10.590 --> 00:15:12.080
+Alors ne supposez pas, mais vérifiez !
+
+00:15:13.540 --> 00:15:17.690
+Allez à la rencontre de vos utilisateurs.
+
+00:15:17.690 --> 00:15:21.390
+Quand je commence, la première question que je me pose est :
+
+00:15:21.390 --> 00:15:24.900
+"À quelle vitesse puis-je parler aux personnes qui vont réellement utiliser cela ?"
+
+00:15:24.900 --> 00:15:29.440
+Ensuite, je commence à planifier mes tests d'utilisabilité.
+
+00:15:29.440 --> 00:15:37.170
+Je sais, c’est quelque chose qui peut sembler complexe.
+
+00:15:37.170 --> 00:15:42.330
+Mais si je suis timide ? Ou si je n'ai pas les outils ?
+
+00:15:42.330 --> 00:15:47.820
+Ou si je n'ai pas le budget ?… Je vous jure que c'est plus facile que vous ne pensez !
+
+00:15:47.820 --> 00:15:50.990
+Faites votre premier test d’utilisabilité !
+
+00:15:50.990 --> 00:15:54.150
+Je vais vous donner quelques conseils.
+
+00:15:54.150 --> 00:15:57.900
+Mais sachez que, comme pour la plupart des choses dans la vie,
+
+00:15:57.900 --> 00:16:00.250
+c’est en pratiquant que vous vous améliorerez.
+
+00:16:06.820 --> 00:16:09.640
+Alors, planifions votre premier test d'utilisabilité.
+
+00:16:09.640 --> 00:16:11.470
+Je veux faire une mise en garde ici.
+
+00:16:13.040 --> 00:16:17.450
+Je ne pense pas qu'il y ait une seule manière de faire un test d'utilisabilité.
+
+00:16:17.450 --> 00:16:22.730
+Je ne pense pas qu'il y ait un cadre unique qui réponde à tous les besoins.
+
+00:16:22.730 --> 00:16:30.730
+C’est donc une proposition que je partage avec vous, comme un premier jet.
+
+00:16:32.250 --> 00:16:36.610
+Vous pouvez commencer avec, l’adopter et l’adapter,
+
+00:16:36.610 --> 00:16:40.620
+voir ce qui fonctionne le mieux pour vous, et itérer, bref, vous l’approprier.
+
+00:16:40.620 --> 00:16:44.070
+C’est une proposition que vous pouvez prendre et vous approprier.
+
+00:16:44.070 --> 00:16:48.450
+Et donc la première chose que je vous suggère, c’est de définir vos objectifs.
+
+00:16:48.450 --> 00:16:49.800
+Que voulez-vous faire ressortir ?
+
+00:16:49.800 --> 00:16:52.650
+Voulez-vous en savoir plus sur la technologie d'assistance ?
+
+00:16:52.650 --> 00:16:56.206
+Voulez-vous en savoir plus sur la navigation au clavier
+
+00:16:56.207 --> 00:16:57.880
+sur votre site WordPress ?
+
+00:16:57.880 --> 00:17:01.900
+Voulez-vous tester à l’aide de lecteurs d'écran ?
+
+00:17:01.900 --> 00:17:03.130
+Que voulez-vous apprendre ?
+
+00:17:03.130 --> 00:17:09.640
+Cela vous aidera à définir vos attentes, à avoir un objectif clair.
+
+00:17:09.640 --> 00:17:12.230
+Je suggère toujours de mettre ça par écrit.
+
+00:17:12.230 --> 00:17:20.050
+C'est plus facile d’avoir, tout le temps, vos plans écrits avec vous.
+
+00:17:20.050 --> 00:17:21.910
+Choisissez votre méthode de test.
+
+00:17:23.191 --> 00:17:27.435
+Je le dis parce que je pensais
+
+00:17:27.445 --> 00:17:32.810
+que les tests en personne étaient la meilleure manière de procéder.
+
+00:17:32.810 --> 00:17:40.810
+Puis nous avons eu la pandémie, et nous avons eu la chance
+
+00:17:42.990 --> 00:17:48.900
+de continuer à travailler et à faire des tests d'utilisabilité à distance.
+
+00:17:48.900 --> 00:17:51.780
+Donc, si vous voulez commencer par un test à distance,
+
+00:17:51.780 --> 00:17:54.910
+il existe maintenant de nombreux outils, comme celui que j’utilise actuellement,
+
+00:17:54.910 --> 00:18:02.310
+avec lesquels nous pouvons partager notre écran, enregistrer la session, activer la caméra.
+
+00:18:03.510 --> 00:18:05.710
+C'est donc une option.
+
+00:18:05.710 --> 00:18:08.910
+Vous pouvez choisir de faire votre test en personne ou à distance,
+
+00:18:08.910 --> 00:18:10.670
+et les deux seront valables.
+
+00:18:12.860 --> 00:18:18.210
+Ensuite, en troisième étape, je suggère de sélectionner les participants au test
+
+00:18:18.210 --> 00:18:20.400
+et de leur permettre de vous connaître.
+
+00:18:20.400 --> 00:18:25.260
+Sélectionner les testeurs peut être délicat
+
+00:18:25.260 --> 00:18:27.860
+car vous êtes peut-être introverti,
+
+00:18:27.860 --> 00:18:31.150
+ou bien car vous pensez ne connaitre personne qui puisse vous aider.
+
+00:18:31.150 --> 00:18:33.610
+Et c’est là que la communauté est importante !
+
+00:18:33.610 --> 00:18:35.620
+C'est vraiment une belle communauté.
+
+00:18:35.620 --> 00:18:39.233
+Alors contactez les gens, créez des connexions,
+
+00:18:39.233 --> 00:18:42.540
+publiez sur des blogs :
+
+00:18:42.540 --> 00:18:45.900
+"J'ai besoin d'aide. Connaissez-vous quelqu'un ? Pouvez-vous m'aider
+
+00:18:45.900 --> 00:18:49.710
+avec les tests que je veux réaliser ? » La raison pour laquelle
+
+00:18:49.710 --> 00:18:54.140
+j'ai dit de laisser les testeurs vous connaître c’est parce que, selon moi, c’est toujours bénéfique
+
+00:18:54.140 --> 00:18:59.110
+d'appeler le participant avant le début du test pour lui expliquer
+
+00:18:59.110 --> 00:19:00.780
+comment celui-ci va se dérouler.
+
+00:19:02.050 --> 00:19:04.390
+Je vous ai dit que je viens du Venezuela.
+
+00:19:04.390 --> 00:19:06.900
+Je sais que vous savez que j'ai un accent.
+
+00:19:06.900 --> 00:19:12.450
+Mon anglais n'est pas toujours parfait, donc j'essaie de laisser le temps au participant
+
+00:19:12.450 --> 00:19:15.890
+de réussir à me comprendre s’il parle anglais.
+
+00:19:15.890 --> 00:19:17.590
+Ainsi, on est confortable.
+
+00:19:17.590 --> 00:19:19.710
+Nous pouvons créer une certaine relation.
+
+00:19:19.710 --> 00:19:23.810
+Et aussi, s'ils ont des inquiétudes à propos de la session, ou des questions,
+
+00:19:23.810 --> 00:19:28.400
+nous pouvons y répondre lors de ce premier contact.
+
+00:19:28.400 --> 00:19:32.770
+Ensuite, lorsque nous passerons à la session réelle du test,
+
+00:19:32.770 --> 00:19:33.770
+tout sera parfait.
+
+00:19:35.480 --> 00:19:38.890
+Puis, en numéro quatre : choisissez les bons outils.
+
+00:19:40.090 --> 00:19:43.280
+Assurez-vous que ce que vous voulez tester en objectif,
+
+00:19:43.280 --> 00:19:48.340
+ce que vous voulez apprendre, vous puissiez l'atteindre
+
+00:19:48.340 --> 00:19:51.050
+avec vos paramètres.
+
+00:19:51.050 --> 00:19:54.600
+Si la session est en personne, dans votre environnement,
+
+00:19:54.600 --> 00:19:59.790
+assurez-vous que le testeur dispose des bons outils pour effectuer le test.
+
+00:19:59.790 --> 00:20:04.450
+Préparez l’environnement, assurez-vous que tout
+
+00:20:04.450 --> 00:20:09.620
+est aussi réaliste que possible, toujours en prenant soin à ce que le participant
+
+00:20:09.620 --> 00:20:12.790
+soit dans un cadre confortable.
+
+00:20:12.790 --> 00:20:16.690
+Essayons toujours d'en faire une priorité.
+
+00:20:16.690 --> 00:20:22.900
+Et après cela, assurez-vous que vous avez l'éclairage adéquat,
+
+00:20:22.900 --> 00:20:29.630
+que ce soit à un bureau ou debout.
+
+00:20:29.630 --> 00:20:33.780
+Donc, selon ce que vous avez besoin de tester,
+
+00:20:33.780 --> 00:20:37.230
+je vous recommande de préparer l’environnement.
+
+00:20:37.230 --> 00:20:39.080
+Concevez les scenarii.
+
+00:20:39.080 --> 00:20:45.130
+Choisissez la tâche principale, la plus importante de votre site,
+
+00:20:45.130 --> 00:20:48.210
+et priorisez le test de celle-ci.
+
+00:20:49.970 --> 00:20:51.390
+Déterminez les métriques.
+
+00:20:51.390 --> 00:20:54.200
+Que voulez-vous mesurer ?
+
+00:20:54.200 --> 00:20:57.100
+Voulez-vous mesurer la réalisation effective des tâches ?
+
+00:20:57.100 --> 00:20:58.530
+Est-ce important ?
+
+00:20:58.530 --> 00:21:00.490
+Est-ce sensible au temps ?
+
+00:21:00.490 --> 00:21:01.810
+Voulez-vous mesurer la durée ?
+
+00:21:03.070 --> 00:21:09.190
+Voulez-vous finir avec un questionnaire qualité ?
+
+00:21:09.190 --> 00:21:14.340
+Assurez-vous de savoir ce que vous voulez mesurer, pour que cela soit clair
+
+00:21:14.340 --> 00:21:17.680
+et que vous puissiez comparer, non seulement entre les participants au test,
+
+00:21:17.680 --> 00:21:19.990
+mais aussi entre les itérations.
+
+00:21:21.490 --> 00:21:22.950
+Bien sûr, prévoyez les feedbacks.
+
+00:21:24.370 --> 00:21:28.650
+Lorsque vous faites des tests d’utilisabilité, écoutez 
+
+00:21:28.650 --> 00:21:32.680
+autant que possible le feedback des participants et tirez-en les enseignements.
+
+00:21:32.680 --> 00:21:37.470
+À la fin, le participant souhaitera souvent en dire plus,
+
+00:21:37.470 --> 00:21:40.340
+et partager sur son expérience globale.
+
+00:21:41.390 --> 00:21:47.180
+J'ai cette anecdote où la tâche était vraiment difficile
+
+00:21:48.330 --> 00:21:49.950
+pour les participants.
+
+00:21:49.950 --> 00:21:54.690
+Mais ce que le système, au global, faisait pour eux était si génial
+
+00:21:54.690 --> 00:21:58.710
+qu'ils disaient « Vous voyez, vous devez corriger ceci et cela,
+
+00:21:58.710 --> 00:22:01.380
+mais le concept est parfait.
+
+00:22:01.380 --> 00:22:02.130
+C'est génial !
+
+00:22:02.130 --> 00:22:04.248
+Je l'utiliserais vraiment."
+
+00:22:04.249 --> 00:22:09.060
+Donc, je pense qu’une discussion finale est toujours appréciable,
+
+00:22:09.060 --> 00:22:13.740
+c'est un petit débriefing à faire dans la foulée du test,
+
+00:22:13.740 --> 00:22:17.340
+afin que le participant ait les idées fraîches.
+
+00:22:19.390 --> 00:22:23.310
+Maintenant, pour mener le test, voici quelques best practices
+
+00:22:23.310 --> 00:22:27.180
+qui ont fonctionné pour moi dans mon travail au quotidien.
+
+00:22:28.390 --> 00:22:30.550
+Premièrement, suivez un script.
+
+00:22:30.550 --> 00:22:34.260
+Car vous pouvez être nerveux.
+
+00:22:34.260 --> 00:22:39.130
+Et parfois, le participant peut faire des plaisanteries.
+
+00:22:39.130 --> 00:22:41.830
+Vous pouvez avoir des choses en commun, comme votre équipe de sport.
+
+00:22:41.830 --> 00:22:46.450
+En ce qui me concerne, je dois admettre qu'il m'est très facile
+
+00:22:46.450 --> 00:22:49.030
+de faire des digressions.
+
+00:22:49.030 --> 00:22:50.250
+Voilà pourquoi j'ai un script.
+
+00:22:50.250 --> 00:22:52.120
+Et je le dis au participant.
+
+00:22:52.120 --> 00:22:58.610
+Je dis, « je vais suivre un script, au cas où vous perceviez
+
+00:22:58.610 --> 00:23:01.720
+que je suis trop fixée dessus, mais c’est juste pour
+
+00:23:01.720 --> 00:23:05.470
+m'assurer que nous effectuons le test aussi vite que possible. »
+
+00:23:05.470 --> 00:23:06.470
+Restez neutre.
+
+00:23:07.390 --> 00:23:14.280
+Essayez aussi d'intervenir le moins possible pendant le test.
+
+00:23:14.280 --> 00:23:18.980
+Et sur le script, vous pouvez vous aider avec des notes,
+
+00:23:18.980 --> 00:23:22.710
+comme éviter les questions dirigées, ou éviter de mentionner ceci,
+
+00:23:22.710 --> 00:23:27.920
+pour ne pas interférer dans ce que fait le participant.
+
+00:23:27.920 --> 00:23:30.400
+Rassurez et clarifiez les rôles.
+
+00:23:30.400 --> 00:23:33.200
+Chaque fois que nous parlons de tester quelque chose,
+
+00:23:33.200 --> 00:23:36.080
+on devient un peu anxieux, et c'est bien normal.
+
+00:23:36.080 --> 00:23:38.420
+Dites le au participant :
+
+00:23:38.420 --> 00:23:43.690
+« Je suis ici pour vous. Ce n’est pas vous que nous testons. 
+
+00:23:43.690 --> 00:23:45.400
+C’est vous qui nous aidez, avec ce que vous trouverez.
+
+00:23:45.400 --> 00:23:48.020
+Si vous décelez un problème, c'est un cadeau pour moi,
+
+00:23:48.020 --> 00:23:52.780
+parce qu’alors je sais quelque chose que j’ignorais, et je peux le corriger. »
+
+00:23:52.780 --> 00:23:58.770
+Assurez-vous qu'ils savent que c'est un type de test vraiment différent,
+
+00:23:58.770 --> 00:23:59.860
+et que c’est agréable.
+
+00:24:01.290 --> 00:24:04.090
+Anticipez et gérez les problèmes techniques.
+
+00:24:04.090 --> 00:24:06.580
+Les choses peuvent arriver, et elles arriveront.
+
+00:24:06.580 --> 00:24:08.490
+Je vous donne un rapide exemple.
+
+00:24:08.490 --> 00:24:14.420
+J'étais prête j’avais mon kit Bluetooth, et hier il a décidé
+
+00:24:14.420 --> 00:24:22.110
+de me lâcher, de ne plus fonctionner, donc je dois utiliser ceci aujourd'hui.
+
+00:24:22.110 --> 00:24:23.730
+Vous voyez, les choses arrivent.
+
+00:24:23.730 --> 00:24:27.070
+Soyez donc préparé(e), faites une liste.
+
+00:24:27.070 --> 00:24:31.290
+Et aussi, c’est bien car si vous oubliez quelque chose,
+
+00:24:31.290 --> 00:24:34.870
+vous pourrez l'ajouter à votre plan B. Soyez donc toujours prêt(e)
+
+00:24:34.870 --> 00:24:39.050
+au cas où une connexion échouerait ou si quelque chose se produisait,
+
+00:24:39.050 --> 00:24:41.880
+et le participant vous en sera reconnaissant.
+
+00:24:43.540 --> 00:24:45.340
+Encouragez les feedbacks expressifs.
+
+00:24:45.340 --> 00:24:50.080
+Car, encore une fois, nous sommes tous si différents.
+
+00:24:50.080 --> 00:24:54.100
+Il y a des gens qui vont mentionner des choses, faire des suggestions,
+
+00:24:54.100 --> 00:24:57.360
+parler ou se montrer expressifs tout au long du test.
+
+00:24:58.730 --> 00:25:04.850
+Je suggère que, au cas où le participant ne serait pas très expressif,
+
+00:25:04.850 --> 00:25:10.720
+vous lui rappeliez gentiment que cela vous aiderait beaucoup qu’il le soit.
+
+00:25:12.710 --> 00:25:15.570
+Prenez des notes quand c'est possible.
+
+00:25:15.570 --> 00:25:17.440
+Et si vous le pouvez, enregistrez le test.
+
+00:25:17.440 --> 00:25:21.260
+J'ai ici à droite un exemple de pratique
+
+00:25:21.260 --> 00:25:24.040
+d'un test d'utilisabilité que nous avons réalisé.
+
+00:25:24.040 --> 00:25:26.820
+J'ai flouté le système que nous testions.
+
+00:25:27.890 --> 00:25:31.640
+C'est juste pour vous montrer la configuration rapide que nous pouvons avoir
+
+00:25:31.640 --> 00:25:33.160
+dans un test à distance.
+
+00:25:33.160 --> 00:25:36.020
+C’est avec les équipes de Microsoft.
+
+00:25:38.330 --> 00:25:39.890
+Enregistrez le test.
+
+00:25:39.890 --> 00:25:43.260
+Je tiens à préciser que vous devez toujours recueillir
+
+00:25:43.260 --> 00:25:47.350
+le consentement du participant avant de l’enregistrer.
+
+00:25:47.350 --> 00:25:50.440
+Vous pouvez rédiger un document
+
+00:25:50.440 --> 00:25:53.070
+par lequel le participant consent à l’enregistrement,
+
+00:25:53.070 --> 00:25:57.190
+et dans lequel vous vous engagez également
+
+00:25:57.190 --> 00:26:03.200
+à ne pas partager l’enregistrement avec un tiers, juste avec l'équipe de recherche.
+
+00:26:03.200 --> 00:26:07.140
+C'est un engagement qu’il vous faut prendre.
+
+00:26:09.170 --> 00:26:10.740
+Prenez des données variées.
+
+00:26:10.740 --> 00:26:15.410
+Ne regardez pas le temps de la tâche, puis les commentaires finaux
+
+00:26:15.410 --> 00:26:22.110
+du participant, puis le feedback.
+
+00:26:22.110 --> 00:26:25.020
+Si vous avez un questionnaire et le feedback final, ne les regardez pas
+
+00:26:25.020 --> 00:26:29.070
+comme des éléments séparés, mais comme un tout.
+
+00:26:29.070 --> 00:26:31.950
+En fait, ne divisez pas votre analyse.
+
+00:26:31.950 --> 00:26:35.730
+Gardez toujours à l’esprit « the big picture ».
+
+00:26:36.930 --> 00:26:37.930
+Soyez flexible.
+
+00:26:38.980 --> 00:26:41.500
+Je l'ai mentionné, chaque participant est unique.
+
+00:26:41.500 --> 00:26:45.230
+Parfois, vous devrez vous adapter à une situation particulière.
+
+00:26:45.230 --> 00:26:46.950
+Mais tout ira bien.
+
+00:26:46.950 --> 00:26:50.130
+Si vous avez un script, il vous aidera à être flexible,
+
+00:26:50.130 --> 00:26:55.810
+et à rester proche de la ligne directrice la plus importante.
+
+00:26:57.510 --> 00:26:59.460
+Enfin, concluez avec soin.
+
+00:26:59.460 --> 00:27:03.150
+Ayez conscience du temps que le participant vous a consacré.
+
+00:27:03.150 --> 00:27:04.570
+Remerciez-le.
+
+00:27:04.570 --> 00:27:08.050
+Une compensation est toujours bienvenue, si vous avez la possibilité
+
+00:27:08.050 --> 00:27:12.300
+d’offrir une carte-cadeau, ou d'être bénévole
+
+00:27:12.300 --> 00:27:16.500
+dans quelque chose sur lequel le participant travaille ou s’engage.
+
+00:27:16.500 --> 00:27:20.410
+La reconnaissance est toujours bonne et appréciée.
+
+00:27:22.310 --> 00:27:25.550
+Lors de l'analyse des résultats, que faut-il chercher ?
+
+00:27:25.550 --> 00:27:31.050
+Je partage ce mur de Post-it.
+
+00:27:31.050 --> 00:27:32.950
+C'est la photo que vous voyez à droite.
+
+00:27:35.192 --> 00:27:38.317
+Lorsque vous testez l'accessibilité, pour moi,
+
+00:27:38.326 --> 00:27:39.920
+c'est là la première chose à faire.
+
+00:27:39.920 --> 00:27:43.290
+Découvrir les insights d'accessibilité recueillis
+
+00:27:43.290 --> 00:27:48.790
+lors de vos sessions avec vos différents participants.
+
+00:27:48.790 --> 00:27:53.500
+Si j'utilise des Post-it c’est qu’ils permettent de faire apparaître facilement des schémas.
+
+00:27:53.500 --> 00:27:56.920
+Et ensuite, vous pouvez juger de l’ampleur de chacun d’entre eux
+
+00:27:56.920 --> 00:28:00.950
+et prioriser selon leur importance, vous comprenez ?
+
+00:28:00.950 --> 00:28:04.860
+Si vous avez un élément bloquant, qui empêche le participant d’avancer,
+
+00:28:04.860 --> 00:28:10.640
+ou l'utilisateur d’accomplir la chose la plus importante,
+
+00:28:10.640 --> 00:28:15.080
+- que ce soit exécuter une tâche, obtenir des informations, ou imprimer quelque chose -
+
+00:28:15.080 --> 00:28:18.000
+assurez-vous d’en faire votre priorité,
+
+00:28:18.000 --> 00:28:20.700
+et définir des schémas vous y aidera.
+
+00:28:22.280 --> 00:28:25.010
+Un point délicat, c’est le feedback objectif versus le feedback subjectif.
+
+00:28:26.140 --> 00:28:29.360
+Il est très facile de partir dans une conversation, vous savez bien,
+
+00:28:29.360 --> 00:28:31.830
+car nous le faisons avec la communauté.
+
+00:28:31.830 --> 00:28:34.988
+Et parfois, les participants exprimeront des choses
+
+00:28:34.989 --> 00:28:36.600
+qui ne les empêchent pas
+
+00:28:36.600 --> 00:28:40.910
+d’accomplir la tâche ou qui ne sont en rien liées à l'accessibilité réelle
+
+00:28:40.910 --> 00:28:44.370
+ou à l’utilisabilité, mais à des préférences personnelles.
+
+00:28:44.370 --> 00:28:46.850
+Gardez à l’esprit que cela peut arriver.
+
+00:28:46.850 --> 00:28:47.870
+Et c'est tout à fait normal.
+
+00:28:47.870 --> 00:28:48.820
+Il n’y a pas de problème à cela.
+
+00:28:48.820 --> 00:28:52.320
+Votre travail est de repérer ces biais.
+
+00:28:53.700 --> 00:28:57.620
+Alors faites attention aux signaux verbaux et non verbaux.
+
+00:28:57.620 --> 00:29:02.730
+Vous pourrez aller loin si vous avez cet état d'esprit
+
+00:29:02.730 --> 00:29:10.660
+de recueillir des éléments de chaque interaction du participant.
+
+00:29:10.660 --> 00:29:13.960
+Vous ne le croirez peut-être pas, mais parfois vous serez tellement concentré(e)
+
+00:29:13.960 --> 00:29:18.640
+sur tout le reste, que vous en oublierez de noter réellement
+
+00:29:18.640 --> 00:29:21.970
+si le participant a bien finalisé la tâche avec succès !
+
+00:29:21.970 --> 00:29:25.490
+Donc, lorsque vous analyserez leur résultat,
+
+00:29:25.490 --> 00:29:28.910
+incluez dans le rapport la réalisation de la tâche,
+
+00:29:28.910 --> 00:29:33.570
+parce que c'est quelque chose qui, parfois, est si évident que nous l’oublions.
+
+00:29:35.200 --> 00:29:37.490
+Alors, le temps passé sur la tâche lors de l'analyse.
+
+00:29:37.490 --> 00:29:42.550
+C'est vraiment relatif.
+
+00:29:45.420 --> 00:29:50.250
+Peut-être que la tâche n'est pas sensible au temps, mais s’il se dégage que beaucoup
+
+00:29:50.250 --> 00:29:55.360
+de gens passent beaucoup de temps sur une tâche, alors c’est peut-être qu’elle n’est 
+pas fonctionnelle,
+
+00:29:55.360 --> 00:29:56.680
+elle est peut-être trop complexe.
+
+00:29:57.780 --> 00:29:58.950
+Et maintenant, les rapports.
+
+00:29:58.950 --> 00:30:02.280
+Il y a le CIF, le format commun de l’industrie, pour les rapports sur les tests d'utilisabilité
+
+00:30:02.280 --> 00:30:04.860
+et d'accessibilité, qui est excellent.
+
+00:30:05.870 --> 00:30:10.830
+Si vous le pouvez, écrivez, sur des Post-it ou dans votre blog,
+
+00:30:10.830 --> 00:30:14.190
+mais rapportez ce que vous avez trouvé, avec son importance.
+
+00:30:14.190 --> 00:30:19.260
+Comme un horodatage de la version de votre site WordPress.
+
+00:30:19.260 --> 00:30:21.260
+Ensuite vous pourrez comparer, à mesure que vous itérez.
+
+00:30:21.260 --> 00:30:24.980
+Donc, faites toujours un rapport, ainsi vous en apprendrez davantage.
+
+00:30:28.240 --> 00:30:31.670
+Pourquoi est-il si important pour moi de partager des tests d'accessibilité
+
+00:30:31.670 --> 00:30:35.240
+et d'utilisabilité avec ma communauté ?
+
+00:30:36.570 --> 00:30:40.300
+Parce que je crois que les tests d’utilisabilité, surtout ceux axés
+
+00:30:40.300 --> 00:30:45.530
+autour de l'accessibilité, créent un partenariat
+
+00:30:45.530 --> 00:30:49.490
+qui ravive vraiment la communauté.
+
+00:30:49.490 --> 00:30:52.070
+Il y a beaucoup d'impact dans ce type de collaboration.
+
+00:30:52.070 --> 00:30:54.950
+Premièrement, nous humanisons la tech.
+
+00:30:54.950 --> 00:30:57.670
+Nous commençons à penser la technologie comme quelque chose
+
+00:30:57.670 --> 00:31:01.370
+qui doit être conçu en étant centré sur l'utilisateur.
+
+00:31:03.410 --> 00:31:08.200
+Nous plaçons l'utilisateur, l'humain, comme la pierre angulaire,
+
+00:31:08.200 --> 00:31:10.310
+comme le premier pas de ce que nous faisons.
+
+00:31:11.340 --> 00:31:12.730
+Ça nous fait apprendre et grandir.
+
+00:31:12.730 --> 00:31:16.400
+Chaque test vous enseigne, et cela reste acquis
+
+00:31:16.400 --> 00:31:17.460
+pour vous à jamais.
+
+00:31:17.460 --> 00:31:22.150
+Donc, par définition, tout ce que vous faites à partir de là
+
+00:31:22.150 --> 00:31:28.810
+sera meilleur, plus performant,
+
+00:31:28.810 --> 00:31:30.880
+et de plus en plus accessible.
+
+00:31:30.880 --> 00:31:36.150
+Peut-être qu’avec ce test, vous avez testé la navigation au clavier,
+
+00:31:36.150 --> 00:31:39.600
+mais qu’avec le prochain, vous testerez autre chose.
+
+00:31:39.600 --> 00:31:43.460
+Donc maintenant vous avez des choses plus solides à inclure,
+
+00:31:43.460 --> 00:31:45.430
+et cela crée une société inclusive.
+
+00:31:45.430 --> 00:31:52.410
+Je crois fermement que tout ce que nous faisons, pas nécessairement
+
+00:31:52.410 --> 00:31:56.760
+POUR la communauté, mais AVEC la communauté, sera à coup sûr
+
+00:31:56.760 --> 00:32:00.560
+utile à tous ceux qui sont impliqués et qui font
+
+00:32:00.560 --> 00:32:02.230
+partie de cette communauté.
+
+00:32:03.650 --> 00:32:04.910
+Quelques dernières réflexions…
+
+00:32:06.150 --> 00:32:11.130
+Faire un seul test est toujours mieux que de ne pas tester du tout !
+
+00:32:12.900 --> 00:32:19.970
+Si vous hésitez, si vous êtes nerveux, ou si vous ne savez pas comment démarrer,
+
+00:32:19.970 --> 00:32:23.560
+alors soyez bénévole pour participer aux tests d'utilisabilité d'autres personnes.
+
+00:32:24.770 --> 00:32:27.630
+De cette façon, vous serez de l'autre côté et vous pourrez prendre des notes
+
+00:32:27.630 --> 00:32:29.480
+sur ce qui fonctionne pour vous.
+
+00:32:30.580 --> 00:32:31.680
+Voyez ça comme un voyage,
+
+00:32:31.680 --> 00:32:33.250
+pas comme une destination.
+
+00:32:33.250 --> 00:32:35.160
+Profitez de chaque itération.
+
+00:32:35.160 --> 00:32:37.190
+Profitez de chaque frustration.
+
+00:32:37.190 --> 00:32:40.960
+Profitez de chaque connexion que vous créez, de tout ce que vous apprenez.
+
+00:32:40.960 --> 00:32:44.580
+Ne le voyez pas comme un endroit où vous devez arriver.
+
+00:32:44.580 --> 00:32:49.070
+Voyez-le comme quelque chose qui améliore la façon dont vous vivez votre vie.
+
+00:32:51.460 --> 00:32:54.060
+Voici quelques ressources.
+
+00:32:54.060 --> 00:32:56.430
+Il y a un excellent livre de Steve Krug
+
+00:32:56.430 --> 00:33:00.760
+qui s’appelle "Don't Make Me Think". Il y a un chapitre sur
+
+00:33:00.760 --> 00:33:02.330
+la conduite de tests d'utilisabilité.
+
+00:33:02.330 --> 00:33:06.210
+C'est intitulé quelque chose comme "Un test d'utilisabilité à 10 centimes"
+
+00:33:06.210 --> 00:33:10.400
+pour souligner que vous n'avez pas besoin d'un gros budget pour cela.
+
+00:33:11.840 --> 00:33:16.680
+À la fin de chaque test, je suggère d'utiliser un outil
+
+00:33:16.680 --> 00:33:19.540
+comme le System Usability Scale (SUS), qui est un excellent outil
+
+00:33:19.540 --> 00:33:23.190
+pour mesurer l'utilisabilité ; et c'est une norme, donc les gens la connaîtront.
+
+00:33:24.320 --> 00:33:27.750
+Et deux favoris à mettre sur votre navigateur : l'Initiative sur l'Accessibilité du Web 
+(Web Accessibility Initiative - WAI),
+
+00:33:27.750 --> 00:33:29.660
+et les Lignes directrices sur l'Accessibilité du Contenu Web 
+(Web Content Accessibilité Guidelines - WCAG).
+
+00:33:29.660 --> 00:33:30.890
+Ce sont nos meilleurs amis.
+
+00:33:32.520 --> 00:33:36.420
+Lorsque vous recherchez des informations sur l'utilisabilité,
+
+00:33:36.420 --> 00:33:40.710
+l'accessibilité, l'expérience utilisateur, vous pouvez vous retrouver submergé(e).
+
+00:33:40.710 --> 00:33:45.810
+Alors je vous suggère de prendre simplement ce dont vous avez besoin et de vous l’approprier.
+
+00:33:45.810 --> 00:33:49.150
+Je suggère habituellement aux gens d'aller voir le groupe Nielsen Norman.
+
+00:33:49.150 --> 00:33:52.950
+Je trouve leurs informations très utiles.
+
+00:33:52.950 --> 00:33:54.850
+C’est pourquoi je les recommande.
+
+00:33:54.850 --> 00:33:59.920
+Aussi, les vérificateurs de contraste des couleurs, ou les outils qui vous aident à voir
+
+00:33:59.920 --> 00:34:05.590
+si votre site WordPress est accessible ou non, c'est toujours win-win.
+
+00:34:06.800 --> 00:34:09.080
+Vous pouvez aussi me contacter. Je reste joignable.
+
+00:34:09.080 --> 00:34:10.640
+Je suis passionnée par ce sujet.
+
+00:34:10.640 --> 00:34:12.090
+J'adore cela.
+
+00:34:12.090 --> 00:34:15.640
+Et j'ai beaucoup de chance de pouvoir faire ce que j'aime.
+
+00:34:15.640 --> 00:34:20.550
+Alors sur LinkedIn, 
+vous pouvez me trouver sous MaGabrielaG.
+
+00:34:21.590 --> 00:34:24.520
+Et voici mon courriel : 
+MaGabrielaG@me.com,
+
+00:34:24.520 --> 00:34:27.310
+Gabriela avec un seul L. 
+Voilà, ça a été formidable !
+
+00:34:29.100 --> 00:34:34.190
+Un grand merci à tous ceux qui ont rendu ce moment possible.
+
+00:34:34.190 --> 00:34:36.910
+Je ne sais pas si nous avons des questions ?
+
+00:34:41.756 --> 00:34:45.299
+AMANDA: Merci, Gaby, pour cette masterclass sur les tests d'utilisabilité.
+
+00:34:45.300 --> 00:34:48.460
+Il est maintenant temps pour les questions et réponses avec notre auditoire.
+
+00:34:48.460 --> 00:34:51.910
+Si vous n'avez pas encore eu l'occasion de poser votre question,
+
+00:34:51.910 --> 00:34:55.420
+je vous invite à l'ajouter dans la section Q&A.
+
+00:34:57.490 --> 00:35:03.770
+Je vais donner l’exemple et poser la première question.
+
+00:35:06.640 --> 00:35:08.380
+Pendant la « période de planification », vous avez parlé
+
+00:35:08.380 --> 00:35:15.390
+de choisir les scenarii les plus importants sur un site.
+
+00:35:15.390 --> 00:35:21.180
+Pourriez-vous nous en dire plus sur la façon de procéder ? 
+GABY : Absolument.
+
+00:35:21.180 --> 00:35:27.410
+Admettons que vous avez un système auquel vous devez vous connecter,
+
+00:35:27.410 --> 00:35:32.230
+et que la chose la plus importante que vous devez faire est d'imprimer des rapports,
+
+00:35:32.230 --> 00:35:32.990
+okay ?
+
+00:35:32.990 --> 00:35:37.520
+Mais vous pouvez aussi personnaliser l'expérience de votre utilisateur,
+
+00:35:37.520 --> 00:35:41.404
+en changeant son nom d’utilisateur, et toutes les choses liées
+
+00:35:41.405 --> 00:35:42.770
+à l’administration de son compte.
+
+00:35:42.770 --> 00:35:49.010
+Dans ce cas, je vérifierais d’abord que le participant,
+
+00:35:49.010 --> 00:35:53.690
+et donc que l'utilisateur peut réellement trouver les rapports et les imprimer.
+
+00:35:55.150 --> 00:36:00.710
+Pour cela, je dois moi-même, avant de commencer le test,
+
+00:36:00.710 --> 00:36:07.300
+me connecter et faire ces choses dans l’administration pour m’assurer que tout est OK,
+
+00:36:07.300 --> 00:36:12.020
+de façon à démarrer le test à partir d'un stade d’une tâche particulière, et nous assurer
+
+00:36:12.020 --> 00:36:15.130
+que nous testons ce qui est primordial.
+
+00:36:15.130 --> 00:36:19.380
+Et ensuite, nous passerons aux priorités inférieures.
+
+00:36:22.660 --> 00:36:23.500
+AMANDA : C’est très clair.
+
+00:36:23.500 --> 00:36:24.930
+Merci !
+
+00:36:24.930 --> 00:36:29.110
+Une autre question, qu'Anonymous a soumise :
+
+00:36:29.110 --> 00:36:32.120
+Sur une diapo, vous avez parlé du rapport.
+
+00:36:32.120 --> 00:36:35.067
+Qu'est-ce que c’est, et où trouver cela ?
+
+00:36:35.067 --> 00:36:36.070
+GABY : Oui bien sûr.
+
+00:36:36.070 --> 00:36:39.590
+Le rapport… Lors d’un test
+
+00:36:39.591 --> 00:36:44.409
+vous apprendrez beaucoup de choses, n'est-ce pas ?
+
+00:36:44.410 --> 00:36:49.930
+Donc le rapport c’est le résumé de tout cela.
+
+00:36:49.930 --> 00:36:52.670
+Je voulais atteindre tel objectif.
+
+00:36:52.670 --> 00:36:54.630
+Je voulais apprendre ceci.
+
+00:36:54.630 --> 00:36:56.710
+J'ai donc sélectionné ces participants.
+
+00:36:56.710 --> 00:36:59.870
+Et voici les caractéristiques de mes participants.
+
+00:36:59.870 --> 00:37:02.910
+Voici la tâche, les scenarii que je voulais tester.
+
+00:37:02.910 --> 00:37:04.290
+Voici mon environnement.
+
+00:37:04.290 --> 00:37:05.660
+Voici les métriques.
+
+00:37:05.660 --> 00:37:08.150
+Dans le rapport, vous listez tout ce qui concerne votre test.
+
+00:37:08.150 --> 00:37:11.590
+Voici ce que j'ai appris, voici mes découvertes…
+
+00:37:11.590 --> 00:37:14.730
+J'ai décidé de prioriser les choses de cette manière…
+
+00:37:15.800 --> 00:37:19.660
+Et voici les choses que je vais corriger en premier…
+
+00:37:19.660 --> 00:37:22.300
+En fait, c'est comme un résumé de tout ce que vous avez fait.
+
+00:37:22.300 --> 00:37:26.620
+C'est comme prendre une photo de tous les efforts que vous faites
+
+00:37:26.620 --> 00:37:29.520
+afin que vous ayez de la matière.
+
+00:37:29.520 --> 00:37:32.040
+Car nous ne pouvons pas mesurer ce que nous n'avons pas.
+
+00:37:32.040 --> 00:37:34.750
+Nous ne pouvons pas améliorer ce que nous ne mesurons pas.
+
+00:37:34.750 --> 00:37:36.810
+Donc avec le rapport, vous aurez de la matière.
+
+00:37:36.810 --> 00:37:41.480
+Vous pouvez aussi utiliser ce rapport comme un outil de communication au sein de votre équipe,
+
+00:37:41.480 --> 00:37:44.600
+de votre organisation, car c’est factuel.
+
+00:37:44.600 --> 00:37:49.060
+Ce n'est pas que je pense que ce n’est peut-être pas accessible.
+
+00:37:49.060 --> 00:37:53.940
+Je le tiens pour fait, parce que 70% des participants
+
+00:37:53.940 --> 00:37:56.270
+n'ont pas pu finaliser telle tâche.
+
+00:37:56.270 --> 00:37:58.500
+C'est aussi une photo à un instant T, pour vous permettre de comparer.
+
+00:37:58.500 --> 00:38:01.600
+d’améliorer ce que vous devez améliorer.
+
+00:38:01.600 --> 00:38:05.380
+Vous faites plus de tests, et vous comparez la première version
+
+00:38:05.380 --> 00:38:06.600
+à la deuxième version.
+
+00:38:06.600 --> 00:38:11.130
+Donc le rapport c’est une photo mais sous la forme d’un rapport,
+
+00:38:11.130 --> 00:38:12.040
+d’une présentation.
+
+00:38:12.040 --> 00:38:15.110
+Recherchez « Le Format Commun de l’Industrie (CIF)
+
+00:38:15.110 --> 00:38:19.700
+pour les Tests d’Utilisabilité » : c’est une excellente façon de procéder.
+
+00:38:23.752 --> 00:38:25.240
+AMANDA: Merci.
+
+00:38:25.240 --> 00:38:30.200
+Voici une autre question : 
+Est-ce une bonne idée de demander
+
+00:38:30.200 --> 00:38:34.930
+à la fin du test, comme vous l’avez fait en tant que testeur,
+
+00:38:34.930 --> 00:38:37.090
+et quel pourrait être le feedback ?
+
+00:38:37.090 --> 00:38:39.020
+Ou est-ce que ce n'est pas professionnel ?
+
+00:38:39.020 --> 00:38:43.040
+Cela aiderait les testeurs à devenir plus compétents et à fournir
+
+00:38:43.040 --> 00:38:44.040
+plus de valeur aux clients.
+
+00:38:44.040 --> 00:38:46.250
+GABY: C'est tout à fait vrai.
+
+00:38:46.250 --> 00:38:48.830
+Je suggère de le faire sous la forme d’un sondage.
+
+00:38:48.830 --> 00:38:54.800
+Ça peut être un sondage sur papier, ou via un lien accessible
+
+00:38:54.800 --> 00:38:56.420
+pour les participants.
+
+00:38:56.420 --> 00:39:00.940
+Si vous pouvez obtenir de l’aide dans votre équipe ou via un ami,
+
+00:39:00.940 --> 00:39:04.640
+vous pouvez placer dans une autre pièce un appareil où enregistrer
+
+00:39:04.640 --> 00:39:07.190
+leurs dernières réflexions.
+
+00:39:07.190 --> 00:39:10.110
+C’est pour éviter que les participants ne se sentent comme influencés…
+
+00:39:10.110 --> 00:39:13.700
+car peut-être que vous parlez trop vite or ils voudraient ajouter quelque chose,
+
+00:39:13.700 --> 00:39:17.170
+ou bien ils ne veulent pas vous faire de peine.
+
+00:39:17.170 --> 00:39:20.230
+Car une chose que j'ai apprise, c’est que les participants sont si géniaux
+
+00:39:20.230 --> 00:39:23.070
+qu'ils sont bienveillants à votre égard.
+
+00:39:23.070 --> 00:39:26.560
+Alors assurez-vous que c’est quelque chose d’anonyme.
+
+00:39:26.560 --> 00:39:29.800
+Certaines personnes le feront volontiers, mais ce n'est pas non-professionnel
+
+00:39:29.800 --> 00:39:30.580
+à mon avis.
+
+00:39:30.580 --> 00:39:35.380
+Et je demande toujours aussi du feedback sur ma prestation en tant que modératrice.
+
+00:39:39.234 --> 00:39:40.190
+AMANDA: Question intéressante…
+
+00:39:41.730 --> 00:39:45.100
+Pensez-vous que les tests en interne, c'est-à-dire avec votre propre équipe
+
+00:39:45.100 --> 00:39:47.964
+et le client, sont préférables à l'absence de tests
+
+00:39:47.965 --> 00:39:50.130
+si vous n’avez pas accès
+
+00:39:50.130 --> 00:39:54.100
+ni au budget ni aux ressources pour recourir à des testeurs externes ?
+
+00:39:54.100 --> 00:39:56.150
+GABY: Absolument.
+
+00:39:56.150 --> 00:39:57.910
+C’est tout à fait cela.
+
+00:39:57.910 --> 00:40:01.340
+Tester votre colocataire, vos parents,
+
+00:40:01.340 --> 00:40:06.520
+ou votre voisin, c’est mieux que rien !
+
+00:40:06.520 --> 00:40:07.780
+Et au sein de l'entreprise ?
+
+00:40:07.780 --> 00:40:08.780
+Bien sûr !
+
+00:40:10.560 --> 00:40:17.030
+La première chose que nous faisons dans mon équipe est de tester en interne,
+
+00:40:17.030 --> 00:40:20.660
+parce qu'il y a des choses qui ne sont vraiment pas utilisables,
+
+00:40:20.660 --> 00:40:26.250
+et ce sont ces problèmes majeurs que vous allez chercher à solutionner avec des amis.
+
+00:40:26.250 --> 00:40:28.610
+Je dis avec des amis, mais ça peut être votre famille, 
+
+00:40:28.610 --> 00:40:32.060
+ou vos collègues de travail, tant qu’ils ne sont pas impliqués
+
+00:40:32.060 --> 00:40:36.010
+dans le produit ou le projet.
+
+00:40:36.010 --> 00:40:38.560
+Donc, oui absolument.
+
+00:40:38.560 --> 00:40:39.790
+Et ainsi vous identifierez
+
+00:40:39.790 --> 00:40:45.460
+les plus gros défauts que vous avez.
+
+00:40:45.460 --> 00:40:48.610
+Puis quand vous aurez le temps et le budget, ou quand vous trouverez
+
+00:40:48.610 --> 00:40:54.030
+un outil pour établir une connexion, alors vous pourrez tester l'accessibilité
+
+00:40:54.030 --> 00:40:59.620
+ou l'utilisabilité, mais vous saurez déjà que ce que vous testez n’est pas mauvais,
+
+00:40:59.620 --> 00:41:01.430
+parce que vous l’aurez pré-testé.
+
+00:41:03.330 --> 00:41:05.090
+Donc il faut toujours tester.
+
+00:41:05.090 --> 00:41:06.900
+C’est ce qu’il faut retenir, en résumé :
+
+00:41:06.900 --> 00:41:07.460
+toujours tester !
+
+00:41:11.194 --> 00:41:12.240
+AMANDA: C'est un excellent conseil à retenir.
+
+00:41:13.520 --> 00:41:16.710
+Une autre question de Ron : 
+Essayez-vous de vérifier les informations des modèles volontaires d'accessibilité des produits (VPAT)
+
+00:41:16.710 --> 00:41:21.740
+des fournisseurs, du point de vue des tests d'utilisabilité ?
+
+00:41:21.740 --> 00:41:25.990
+Et si oui, trouvez-vous que les VPAT sont généralement fiables ?
+
+00:41:25.990 --> 00:41:30.770
+GABY: De mon expérience, les VPAT sont fiables.
+
+00:41:32.072 --> 00:41:35.420
+Cela dépend de l’entreprise que vous engagez
+
+00:41:36.810 --> 00:41:42.970
+ou avec laquelle vous travaillez dessus.
+
+00:41:42.970 --> 00:41:46.220
+J'ai travaillé avec des entreprises
+
+00:41:46.220 --> 00:41:49.750
+car c'est un très bon moyen d’avoir une tierce partie,
+
+00:41:49.750 --> 00:41:53.940
+quelqu'un qui n'est pas impliqué, pour recueillir des avis.
+
+00:41:53.940 --> 00:41:58.210
+Quand on compare ça à nos propres éléments,
+
+00:41:59.900 --> 00:42:04.010
+nous apprenons depuis d'autres perspectives.
+
+00:42:04.010 --> 00:42:06.140
+Les tests vous apporteront toujours des enseignements.
+
+00:42:06.140 --> 00:42:08.250
+Mais mon avis personnel, c’est que ces informations sont très fiables.
+
+00:42:09.320 --> 00:42:12.300
+Bien sûr, nous faisons des recherches sur qui va faire cela, n'est-ce pas ?
+
+00:42:14.080 --> 00:42:17.980
+Donc, c'est important.
+
+00:42:27.333 --> 00:42:29.997
+[on lui parle à l’oreillette 00:42:26]
+
+00:42:29.998 --> 00:42:33.320
+AMANDA: Une autre question de Ron : 
+Lorsque vous effectuez des tests d'utilisabilité,
+
+00:42:33.320 --> 00:42:38.100
+quel est le nombre minimum de testeurs que vous estimez nécessaire pour obtenir
+
+00:42:38.100 --> 00:42:41.660
+assez de feedback pour identifier la majorité des problèmes sur un site web ?
+
+00:42:41.660 --> 00:42:44.990
+GABY: C'est une excellente question, et je vous remercie de l’avoir posée.
+
+00:42:46.390 --> 00:42:53.870
+Il existe une théorie qui est présentée de manière mathématique.
+
+00:42:53.870 --> 00:42:56.920
+Je ne suis pas experte et c'est pourquoi je ne vais pas approfondir.
+
+00:42:58.660 --> 00:43:04.870
+Je vais partager ce modèle dans le chat toute à l’heure.
+
+00:43:04.870 --> 00:43:09.060
+Mais si vous testez cinq personnes, vous trouverez la plupart de vos problèmes.
+
+00:43:10.350 --> 00:43:14.660
+Voilà comment ça se passe : si vous testez avec le premier, vous identifiez des problèmes ;
+
+00:43:14.660 --> 00:43:17.610
+vous testez avec le deuxième participant, et vous trouvez ces problèmes et davantage.
+
+00:43:17.610 --> 00:43:18.610
+Vous essayez avec le troisième,
+
+00:43:19.620 --> 00:43:23.310
+et vous trouvez ce que vous avez déjà trouvé.
+
+00:43:23.310 --> 00:43:26.880
+Donc à la cinquième personne, vous avez à peu près tout identifié
+
+00:43:26.880 --> 00:43:28.550
+dans cette itération.
+
+00:43:28.550 --> 00:43:33.980
+Si vous testez l'utilisabilité dans un environnement de performance,
+
+00:43:33.980 --> 00:43:37.950
+ou si vous voulez vous assurer de dégager des tendances,
+
+00:43:37.950 --> 00:43:41.680
+testez avec davantage de gens.
+
+00:43:41.680 --> 00:43:45.710
+Cependant, parce que cela est censé être un point de départ pour vous,
+
+00:43:45.710 --> 00:43:48.690
+pour vous inspirer, cinq personnes.
+
+00:43:48.690 --> 00:43:52.790
+Mais encore une fois, un c’est mieux que zéro.
+
+00:43:54.510 --> 00:43:55.730
+Mais la réponse est « cinq ».
+
+00:43:58.267 --> 00:43:59.430
+AMANDA: Cela semble vraiment faisable.
+
+00:44:02.450 --> 00:44:06.900
+Une autre question : 
+Comment vous assurez-vous que votre test est flexible
+
+00:44:06.900 --> 00:44:11.860
+pour les personnes de toutes capacités, les questions comme les tâches ;
+
+00:44:11.860 --> 00:44:15.590
+y compris les lecteurs d'écran, la navigation sur le site au clavier versus le scroll ?
+
+00:44:18.300 --> 00:44:21.890
+GABY: Vous ne savez pas si votre site est accessible, n'est-ce pas ?
+
+00:44:21.890 --> 00:44:24.010
+Donc c’est ce que vous voulez découvrir.
+
+00:44:24.010 --> 00:44:28.060
+Si vous suivez les lignes directrices, si vous faites des recherches à ce sujet,
+
+00:44:28.060 --> 00:44:31.170
+vous saurez quoi ne pas faire dès le début.
+
+00:44:32.750 --> 00:44:35.327
+Cependant, pour préparer les questions et la conduite du test,
+
+00:44:35.328 --> 00:44:37.150
+ma suggestion est de trouver quelqu'un
+
+00:44:37.150 --> 00:44:42.140
+de la communauté de l’accessibilité, ou une personne handicapée et de lui demander.
+
+00:44:42.140 --> 00:44:45.620
+Moi, je vous le dis franchement, parfois je ne sais pas.
+
+00:44:46.720 --> 00:44:51.860
+et je ne sais toujours pas comment dire certaines choses, comment m'exprimer
+
+00:44:51.860 --> 00:44:56.030
+dans certains environnements.
+
+00:44:56.030 --> 00:45:01.020
+Alors je demande toujours, parce que c'est ce qu’il est honnête de faire.
+
+00:45:01.020 --> 00:45:04.290
+Je m’excuse, je ne sais pas, je veux apprendre.
+
+00:45:04.290 --> 00:45:08.660
+S'il vous plaît, aidez-moi. Et là je vous garantis que quelqu'un vous aidera.
+
+00:45:08.660 --> 00:45:11.840
+Donc si vous vous tournez vers la communauté, encore une fois...
+
+00:45:11.840 --> 00:45:16.150
+Et c'est pourquoi c'est si important, la collaboration inclusive.
+
+00:45:16.150 --> 00:45:18.900
+Les gens vous aideront et vous guideront.
+
+00:45:18.900 --> 00:45:24.140
+Il y a des sites web qui proposent des suggestions sur ce qu’il faut faire
+
+00:45:24.140 --> 00:45:25.350
+et ce qu’il ne faut pas faire.
+
+00:45:25.350 --> 00:45:30.630
+Perkins School For The Blind, et Perkins Access, je trouve
+
+00:45:30.630 --> 00:45:34.610
+qu'ils ont un très bon lot de lignes directrices
+
+00:45:34.610 --> 00:45:38.750
+sur comment réaliser ce type d'exercices.
+
+00:45:38.750 --> 00:45:40.350
+Donc, vous pouvez aussi vous en inspirer.
+
+00:45:46.612 --> 00:45:47.760
+AMANDA: Excellentes ressources.
+
+00:45:48.900 --> 00:45:50.780
+Une question de Christine :
+
+00:45:50.780 --> 00:45:55.150
+Pourriez-vous fournir des exemples où les WCAG ne suffisent pas ? 
+
+00:46:00.225 --> 00:46:03.910
+GABY: De ma propre expérience, il y a certaines lignes directrices
+
+00:46:03.910 --> 00:46:05.700
+qui sont complexes pour moi.
+
+00:46:05.700 --> 00:46:12.140
+Je ne sais pas si c'est dû à mon anglais, mais il y a certaines lignes directrices que,
+
+00:46:12.140 --> 00:46:15.890
+puisque je ne les comprends vraiment pas, eh bien je ne sais pas comment les appliquer.
+
+00:46:15.890 --> 00:46:18.180
+Je ne sais pas comment construire avec.
+
+00:46:18.180 --> 00:46:23.340
+Je n'ai pas, là tout de suite, un exemple qui me vient à l'esprit,
+
+00:46:23.340 --> 00:46:27.060
+mais pour sûr, ce que j'ai expérimenté c’est que je ne sais pas toujours
+
+00:46:27.060 --> 00:46:28.800
+comment les mettre en pratique.
+
+00:46:28.800 --> 00:46:33.250
+Alors, je vérifie deux fois pour être sûre,
+
+00:46:33.250 --> 00:46:38.830
+ou je demande à la communauté, ou à mes collègues, ou à quelqu'un
+
+00:46:38.830 --> 00:46:43.990
+au profil plus technique, qui comprendra ces lignes directrices.
+
+00:46:45.280 --> 00:46:50.370
+Mon plus grand exemple est le scénario réel que j'ai présenté,
+
+00:46:50.370 --> 00:46:54.100
+où parfois vous suivez les lignes directrices et elles sont parfaites,
+
+00:46:54.100 --> 00:46:57.640
+sauf qu’elles ne conviennent tout simplement pas dans la vie réelle.
+
+00:47:00.270 --> 00:47:05.010
+Mais je trouve, comme exemple, que c'est une bonne chose pour l'avenir.
+
+00:47:05.010 --> 00:47:06.540
+AMANDA: Absolument.
+
+00:47:06.540 --> 00:47:09.670
+Nous avons deux autres questions et ensuite nous terminerons.
+
+00:47:09.670 --> 00:47:14.540
+Nous avons une question de John :
+Ne pensez-vous pas qu'un code bien propre
+
+00:47:14.540 --> 00:47:18.550
+dès la création de votre projet vous aide à construire
+
+00:47:18.550 --> 00:47:20.570
+un site meilleur et plus fiable
+
+00:47:20.570 --> 00:47:25.180
+et qui va mieux satisfaire aux tests d’utilisabilité ?
+GABY: J’adhère à 100%.
+
+00:47:26.350 --> 00:47:31.880
+Construire des sites accessibles, en suivant les lignes directrices, par défaut et immédiatement, le code est plus propre, c’est 100% vrai !
+
+00:47:42.070 --> 00:47:45.923
+C’est pourquoi je dis toujours aux développeurs que l’accessibilité c'est bon pour tout le monde.
+
+00:47:45.924 --> 00:47:48.090
+L'accessibilité est comme un parapluie qui protège tout le monde.
+
+00:47:56.528 --> 00:47:57.420
+AMANDA: Absolument.
+
+00:47:58.940 --> 00:48:03.320
+Une dernière question de Luna : 
+Auriez-vous des ressources supplémentaires
+
+00:48:03.320 --> 00:48:08.150
+pour mettre en place des exigences concernant les tests d'accessibilité dans une organisation ?
+
+00:48:11.133 --> 00:48:12.040
+GABY: Bien sûr.
+
+00:48:12.040 --> 00:48:16.690
+Si vous êtes sur Slack, ou plus tard dans ce chat, je peux vous les partager.
+
+00:48:17.890 --> 00:48:21.040
+Encore une fois, le groupe Nielsen Norman propose
+
+00:48:21.040 --> 00:48:25.160
+un ensemble de tests d'utilisabilité 101, pourquoi faire des tests d'utilisabilité,
+
+00:48:26.190 --> 00:48:27.390
+en listant des faits.
+
+00:48:29.190 --> 00:48:33.770
+Et quant au processus, je pense que c'est une chose
+
+00:48:33.770 --> 00:48:35.990
+que vous créez selon votre propre recette.
+
+00:48:35.990 --> 00:48:40.738
+Si vous apprenez et trouvez des réponses et que cela fonctionne pour vous,
+
+00:48:40.739 --> 00:48:42.320
+alors c'est parfait.
+
+00:48:42.320 --> 00:48:45.490
+Vous n'avez pas à suivre des 
+recettes qui ne font pas sens
+
+00:48:45.490 --> 00:48:47.560
+avec votre réalité, vous comprenez ?
+
+00:48:47.560 --> 00:48:53.050
+Je trouve que lorsque nous sommes dans une situation où nous sommes trop stricts
+
+00:48:53.050 --> 00:48:57.410
+avec les étapes, les exigences ou autre,
+
+00:48:57.410 --> 00:48:58.960
+les gens perdent leur intérêt, voyez-vous ?
+
+00:48:58.960 --> 00:49:00.390
+Parce que c'est trop difficile.
+
+00:49:00.390 --> 00:49:02.320
+Je n'ai pas ceci, je n'ai pas cela.
+
+00:49:02.320 --> 00:49:06.020
+Je ne peux pas enregistrer, donc je ne vais pas le faire.
+Non, faites-le quand même !
+
+00:49:06.020 --> 00:49:07.030
+Et vous grandirez.
+
+00:49:07.030 --> 00:49:12.110
+Et dans ce voyage, vous découvrirez ce qui vous convient le mieux.
+
+00:49:12.110 --> 00:49:16.510
+C’est bien de se référer au groupe 
+Nielsen Norman pour débuter.
+
+00:49:16.510 --> 00:49:17.880
+Ils ont de bonnes informations à ce sujet.
+
+00:49:23.109 --> 00:49:23.750
+AMANDA: Génial.
+
+00:49:23.750 --> 00:49:26.830
+Voilà qui conclut les questions & réponses.
+
+00:49:26.830 --> 00:49:30.110
+Merci à vous d'avoir assisté à cette session avec Gaby Gandica.
+
+00:49:30.110 --> 00:49:33.190
+Vous pouvez continuer cette conversation dans le chat
+
+00:49:33.190 --> 00:49:41.190
+ou sur les réseaux sociaux en utilisant les hashtags #WPA11Yday et #WPAD2023.
+
+00:49:41.960 --> 00:49:48.760
+Nous vous serions également reconnaissants 
+de vous rendre sur 2023.wpaccessibility.day/feedback
+
+00:49:48.760 --> 00:49:53.860
+pour donner un feedback anonyme à nos intervenants sur leur présentation,
+
+00:49:53.860 --> 00:49:57.390
+et vous pouvez en profiter pour tenter de gagner un t-shirt [révolu, c’était en 2023].
+
+00:49:57.390 --> 00:50:01.990
+Restez à l'écoute pour la prochaine conférence :
+« La visualisation de données complexes
+
+00:50:01.990 --> 00:50:08.090
+et le phénomène de l’accessibilité », avec Merary Alvarado à 18 UTC.
+
+00:50:08.090 --> 00:50:10.960
+En attendant, n'oubliez pas de visiter les pages de nos sponsors
+
+00:50:10.960 --> 00:50:15.440
+pour des cadeaux virtuels et avoir une chance de gagner de superbes prix.
+
+00:50:15.440 --> 00:50:16.860
+À tout de suite après la pause.
+
+00:50:20.525 --> 00:50:24.860
+AMBER: Merci aux sponsors du WordPress Accessibility Day 2023.
+
+00:50:25.300 --> 00:50:28.180
+Sponsor Platine : Equalize Digital.
+
+00:50:28.180 --> 00:50:30.910
+L’extension Accessibility Checker d'Equalize Digital
+
+00:50:30.910 --> 00:50:33.660
+est un outil d’analyse automatique d'accessibilité
+
+00:50:33.660 --> 00:50:36.860
+qui aide les sites Web WordPress à devenir et à rester accessibles.
+
+00:50:38.110 --> 00:50:40.960
+Sponsor Platine : Gravity Forms.
+
+00:50:40.960 --> 00:50:44.550
+Gravity Forms est le constructeur de formulaires professionnels dont vous avez besoin
+
+00:50:44.550 --> 00:50:49.300
+pour créer des formulaires beaux, puissants et accessibles.
+
+00:50:49.300 --> 00:50:56.310
+Sponsors Or : 20i., Deque, Empire Caption Solutions, Pressable,
+
+00:50:56.310 --> 00:50:57.370
+et WP Engine.
+
+00:50:58.949 --> 00:51:05.829
+Sponsors Argent : Code Geek, Drake Cooper, GoDaddy, Lone Rock Point,
+
+00:51:05.830 --> 00:51:07.080
+NerdPress.
+
+00:51:07.080 --> 00:51:14.550
+Overnight Website par Kinetic Iris, Raiola Networks, A11y Collective,
+
+00:51:14.550 --> 00:51:15.550
+et The Blogsmith.
+
+00:51:17.200 --> 00:51:22.600
+Sponsors Bronze : AccessiCart, GreenGeeks Web Hosting,
+
+00:51:22.600 --> 00:51:33.933
+Hall Analysis’ SEO Consulting, HDC, ITX, IvyCat, Metabox,
+
+00:51:34.370 --> 00:51:37.332
+PixelChefs, Simply Schedule Appointments,
+
+00:51:37.332 --> 00:51:40.920
+SiteGround, Termageddon,
+
+00:51:40.920 --> 00:51:44.490
+Underrepresented In Tech, Weglot, et Yoast.

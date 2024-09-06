@@ -1,0 +1,1155 @@
+﻿WEBVTT
+
+00:00:31.964 --> 00:00:32.540
+JAY MCKAY: All right.
+
+00:00:32.540 --> 00:00:35.510
+We are going to transition
+to our second talk.
+
+00:00:35.510 --> 00:00:39.280
+I just wanted to let you
+know that Robert Jacobi is
+
+00:00:39.280 --> 00:00:42.950
+with us hanging out in the
+chat so please feel free
+
+00:00:42.950 --> 00:00:44.340
+to pop in your questions.
+
+00:00:44.340 --> 00:00:47.280
+I'm sure he would love
+to interact with you all.
+
+00:00:47.280 --> 00:00:50.860
+Our second talk is going
+to be ARIA State Management
+
+00:00:50.860 --> 00:00:55.660
+and Modern CSS presented by
+Nick Croft, lead developer
+
+00:00:55.660 --> 00:00:57.940
+of Reaktiv Studios.
+
+00:01:01.024 --> 00:01:04.650
+NICK CROFT: Folks, this is
+Nick Croft with Reaktiv Studios.
+
+00:01:04.650 --> 00:01:07.630
+You may already know me as
+Nick, the Geek.
+
+00:01:07.630 --> 00:01:11.550
+Today I'm going this talk about ARIA
+State Management and Modern CSS.
+
+00:01:11.550 --> 00:01:13.860
+Before I get into that I want to
+tell you a little bit about myself.
+
+00:01:15.110 --> 00:01:17.270
+Visually, I'm a pretty large guy.
+
+00:01:17.270 --> 00:01:19.910
+I’ve got shaggy hair
+and shaggy beard.
+
+00:01:19.910 --> 00:01:21.470
+I am wearing a blue shirt.
+
+00:01:21.470 --> 00:01:25.310
+I may look kind of scary,
+but I promise I'm really nice.
+
+00:01:25.310 --> 00:01:29.610
+One thing about me is I just
+recently got my first tattoo.
+
+00:01:29.610 --> 00:01:33.050
+That is in honor of my daughter.
+
+00:01:33.050 --> 00:01:37.390
+Last year she had a traumatic
+heart attack, nearly died on us,
+
+00:01:37.390 --> 00:01:40.150
+lost her left leg,
+has a brain injury.
+
+00:01:40.150 --> 00:01:42.720
+But she is doing phenomenally well.
+
+00:01:42.720 --> 00:01:43.460
+She's been recovering.
+
+00:01:43.460 --> 00:01:44.571
+Started back at school.
+
+00:01:44.571 --> 00:01:45.670
+We’re real excited about that.
+
+00:01:45.670 --> 00:01:50.120
+So, I got that on her alive day to
+honor the fact that she survived.
+
+00:01:50.120 --> 00:01:54.590
+I bring that up because a lot of
+what I focus on is accessibility.
+
+00:01:54.590 --> 00:01:57.540
+I have been focused on
+that for a long time.
+
+00:01:57.540 --> 00:02:01.250
+But now it's lit the
+fire sort of speak
+
+00:02:01.250 --> 00:02:04.010
+and I'm even more excited about it.
+
+00:02:04.010 --> 00:02:06.510
+So, I want to dig in and
+talk about what is going on
+
+00:02:06.510 --> 00:02:08.560
+with ARIA State management.
+
+00:02:08.560 --> 00:02:09.970
+I’ve created a demo here.
+
+00:02:09.970 --> 00:02:11.370
+You should be able to see it.
+
+00:02:11.370 --> 00:02:14.030
+I’ve got my accordion demo.
+
+00:02:14.030 --> 00:02:17.470
+And this accordion demo will
+use ARIA as we set state
+
+00:02:17.470 --> 00:02:23.020
+and controls and styles states
+in order to make them a priority
+
+00:02:23.020 --> 00:02:25.550
+in the visual and screen
+reader information.
+
+00:02:26.630 --> 00:02:29.770
+If I scroll down here,
+we’ll see this demo here.
+
+00:02:29.770 --> 00:02:32.910
+We’ve got toggle panel one
+with some Lorem ipsum there
+
+00:02:32.910 --> 00:02:35.250
+and the first bit
+of that is a link.
+
+00:02:35.250 --> 00:02:39.400
+And then toggle panel two,
+and toggle panel three.
+
+00:02:39.400 --> 00:02:42.850
+Now if I click on one of
+these, it's going to close.
+
+00:02:42.850 --> 00:02:44.480
+And if I click on it
+again, it's going to open.
+
+00:02:44.480 --> 00:02:46.810
+And if I click on panel
+two, it's going to open.
+
+00:02:46.810 --> 00:02:49.350
+If I click on panel
+three, it's going to open.
+
+00:02:49.350 --> 00:02:52.800
+They will continue to toggle
+and open as long as I continue
+
+00:02:52.800 --> 00:02:54.100
+to click on them.
+
+00:02:54.100 --> 00:02:57.130
+Now I can also use my keyboard.
+
+00:02:57.130 --> 00:02:59.760
+So, I'm switching
+to use the tab key.
+
+00:02:59.760 --> 00:03:04.380
+I'm focused into panel one and
+I'm going to hit the spacebar,
+
+00:03:04.380 --> 00:03:05.900
+and it opens right up.
+
+00:03:05.900 --> 00:03:08.910
+Now, If I tab again, it's going to
+focus on that Lorem ipsum because-
+
+00:03:08.910 --> 00:03:10.520
+it’ a focusable element.
+
+00:03:10.520 --> 00:03:12.030
+I’m going to tab out and close.
+
+00:03:12.030 --> 00:03:14.280
+If I tab again,
+it's going to skip right over that.
+
+00:03:14.280 --> 00:03:18.100
+That's really important that it
+doesn't focus on focusable elements
+
+00:03:18.100 --> 00:03:19.110
+when they’ve been hidden.
+
+00:03:20.120 --> 00:03:24.680
+Now if I continue to tab around
+and open things up, it works.
+
+00:03:24.680 --> 00:03:28.240
+If I tab up to panel number
+two, and this time I'm going
+
+00:03:28.240 --> 00:03:30.470
+to hit my number key,
+it’s going to work.
+
+00:03:30.470 --> 00:03:33.900
+It's really important that happens
+because buttons should work
+
+00:03:33.900 --> 00:03:35.400
+with the spacebar and Enter key.
+
+00:03:35.400 --> 00:03:36.910
+We’ll talk about that
+more in a moment.
+
+00:03:38.880 --> 00:03:41.030
+Last thing I want to
+show you with this demo,
+
+00:03:41.030 --> 00:03:45.865
+is if I turn on my screen
+reader, it is going to work.
+
+00:03:45.866 --> 00:03:49.030
+SCREEN READER: VoiceOver on
+Safari, A11Y Day Demo,
+
+00:03:49.030 --> 00:03:51.568
+Private Browsing
+window, visited, link,
+
+00:03:51.568 --> 00:03:52.219
+WordPress Accessibility Day 2022,
+
+00:03:52.219 --> 00:03:53.133
+has keyboard focus [unintelligible]
+
+00:03:53.133 --> 00:03:53.667
+accordion.
+
+00:03:53.667 --> 00:03:55.802
+You are currently on
+heading level two.
+
+00:03:57.347 --> 00:03:59.910
+JAY: I am using my screen reader.
+
+00:03:59.910 --> 00:04:03.430
+I’ve just used my mouse to move
+it into this so I can focus
+
+00:04:03.430 --> 00:04:04.730
+on the accordion demo.
+
+00:04:04.730 --> 00:04:06.790
+First thing I’m going to do is
+hit my tab key which is going
+
+00:04:06.790 --> 00:04:08.970
+to move me down to the panels.
+
+00:04:08.970 --> 00:04:11.360
+SCREEN READER: Toggle panel
+one, collapsed button.
+
+00:04:11.360 --> 00:04:12.710
+You are currently on
+a heading level three.
+
+00:04:13.810 --> 00:04:16.290
+JAY: And what it did was announced
+that this is currently collapsed.
+
+00:04:16.290 --> 00:04:18.280
+I'm going to use my
+spacebar to open it.
+
+00:04:18.280 --> 00:04:19.980
+SCREEN READER: Toggle panel
+one, expanded button.
+
+00:04:21.194 --> 00:04:23.740
+JAY: Now it's announced that
+it’s expanded and I can go ahead
+
+00:04:23.740 --> 00:04:25.980
+and move in and see
+what's in that content.
+
+00:04:25.980 --> 00:04:27.870
+SCREEN READER: One, link,
+Lorem ipsum dolor sit amet,
+
+00:04:27.870 --> 00:04:29.850
+consectetur adipscing elit sed
+vitae, tringila nisl,
+
+00:04:29.850 --> 00:04:31.638
+Mauris volutpat volutpat porta.
+
+00:04:32.113 --> 00:04:33.593
+You are currently
+on a text element.
+
+00:04:35.360 --> 00:04:36.105
+JAY: Next.
+
+00:04:36.105 --> 00:04:39.546
+Toggle panel number
+two and again I can open this.
+
+00:04:39.546 --> 00:04:41.548
+SCREEN READER: Toggle panel
+two, expanded, button.
+
+00:04:42.282 --> 00:04:44.540
+Toggle panel two, collapsed button.
+
+00:04:46.180 --> 00:04:48.970
+Toggle panel three,
+expanded button, main.
+
+00:04:48.970 --> 00:04:49.480
+You are current.
+
+00:04:49.480 --> 00:04:51.240
+Toggle panel three,
+collapsed, button.
+
+00:04:53.049 --> 00:04:54.360
+VoiceOver off.
+
+00:04:54.360 --> 00:04:56.650
+JAY: All the states are announced
+as we’re working with this.
+
+00:04:56.650 --> 00:04:59.010
+It's real important those states
+are announced so that people know
+
+00:04:59.010 --> 00:05:01.930
+what is happening, what's going
+to go on when they interact
+
+00:05:01.930 --> 00:05:03.820
+with all these buttons.
+
+00:05:03.820 --> 00:05:07.240
+Now let's look at some of the
+code that makes this work.
+
+00:05:08.620 --> 00:05:12.230
+Now you may be worried
+because this says svelte here,
+
+00:05:12.230 --> 00:05:15.960
+but I assure you that the reason
+I picked this is so we can focus
+
+00:05:15.960 --> 00:05:17.930
+on pure HTML.
+
+00:05:17.930 --> 00:05:22.430
+In fact, there is only HTML happening
+inside of this particular file.
+
+00:05:22.430 --> 00:05:25.690
+And the other files we look
+at is only Vanilla JavaScript,
+
+00:05:25.690 --> 00:05:27.740
+and only simple CSS.
+
+00:05:27.740 --> 00:05:32.810
+The first thing we have got is
+a div and we have an id there.
+
+00:05:32.810 --> 00:05:36.230
+I'm not really using this right now,
+but I could use it if I needed it.
+
+00:05:36.230 --> 00:05:37.720
+And it has a class accordion.
+
+00:05:37.720 --> 00:05:42.410
+Most of the classes throughout
+here are used for styling.
+
+00:05:42.410 --> 00:05:45.320
+We do have a little bit of work
+that I'm using in JavaScript
+
+00:05:45.320 --> 00:05:48.860
+to pull in some of these classes,
+but for the most part they are used
+
+00:05:48.860 --> 00:05:50.280
+for styling.
+
+00:05:50.280 --> 00:05:53.810
+Then we’ve got that h3,
+and we’re using heading tag
+
+00:05:53.810 --> 00:05:57.810
+so that these can be part of
+headings as they appear by sections.
+
+00:05:57.810 --> 00:06:01.330
+That is a little bit different than
+we might have with different kind
+
+00:06:01.330 --> 00:06:05.880
+of control like a tab where it's
+not really separate sections
+
+00:06:05.880 --> 00:06:07.100
+that are there.
+
+00:06:07.100 --> 00:06:10.530
+This is going to be
+labeled using headings.
+
+00:06:10.530 --> 00:06:12.500
+And then we have a button.
+
+00:06:12.500 --> 00:06:14.230
+Again, it's really important
+that we use a button.
+
+00:06:14.230 --> 00:06:16.780
+We will talk about this more
+later, but we get some free stuff
+
+00:06:16.780 --> 00:06:18.750
+because it's a button.
+
+00:06:18.750 --> 00:06:20.080
+And the type is being declared.
+
+00:06:20.080 --> 00:06:22.690
+That's not necessarily
+specifically required.
+
+00:06:22.690 --> 00:06:28.210
+I pulled this from the
+WCAG, ARIA guidelines there.
+
+00:06:28.210 --> 00:06:31.960
+They have these different
+components and I modified it some,
+
+00:06:31.960 --> 00:06:34.730
+but I lucked in a few
+things that they have there.
+
+00:06:34.730 --> 00:06:40.040
+The ARIA-expanded is what
+indicates that the panel is open.
+
+00:06:40.040 --> 00:06:43.940
+And then the class is what we’re
+using to style it and target it.
+
+00:06:43.940 --> 00:06:47.950
+Then we have ARIA
+controls and panel one.
+
+00:06:47.950 --> 00:06:53.550
+This is an id, and it targets
+this id here, that is our panel.
+
+00:06:53.550 --> 00:06:55.680
+We are going to link
+these two ids together,
+
+00:06:55.680 --> 00:06:59.600
+these two elements together
+using this ARIA controls.
+
+00:06:59.600 --> 00:07:03.400
+And then finally, we have an id
+on here that we’re going to use,
+
+00:07:03.400 --> 00:07:05.930
+as well to link these
+two things together.
+
+00:07:05.930 --> 00:07:09.290
+And now we have a span,
+and we have a little bit of text
+
+00:07:09.290 --> 00:07:10.610
+that’s being read out.
+
+00:07:10.610 --> 00:07:13.430
+We’re using the span to handle
+some of our styling with this.
+
+00:07:14.930 --> 00:07:20.700
+Now, we’ve got the panel itself,
+and so it has id is panel one.
+
+00:07:20.700 --> 00:07:24.140
+The role is region because
+we’ve got multiple regions.
+
+00:07:24.140 --> 00:07:25.680
+We are labeling them.
+
+00:07:25.680 --> 00:07:30.630
+And we label them using the
+accordion one which is our button.
+
+00:07:30.630 --> 00:07:33.490
+And it’s labeled by
+this content here.
+
+00:07:35.820 --> 00:07:37.060
+Next, we have a class.
+
+00:07:37.060 --> 00:07:41.390
+The class is being used in
+order to target the CSS.
+
+00:07:41.390 --> 00:07:44.350
+Finally,
+we have ARIA-hidden is false.
+
+00:07:44.350 --> 00:07:48.250
+This particular element is shown
+at page load, so it's not hidden.
+
+00:07:48.250 --> 00:07:52.210
+And our button says
+that it is expanded
+
+00:07:52.210 --> 00:07:55.240
+because the thing that it
+controls is not hidden.
+
+00:07:55.240 --> 00:07:56.240
+It’s expanded.
+
+00:07:57.400 --> 00:07:59.850
+Inside of it we just have
+a little bit of HTML,
+
+00:07:59.850 --> 00:08:03.420
+a couple of paragraph tags with
+some Lorem ipsum and this link tag.
+
+00:08:03.420 --> 00:08:08.410
+We can put any kind of HTML
+inside there that is acceptable
+
+00:08:08.410 --> 00:08:11.830
+to put inside of a div which is
+pretty much any kind of HTML.
+
+00:08:11.830 --> 00:08:14.320
+So, you can have
+images, lists, headings.
+
+00:08:15.420 --> 00:08:21.260
+You can have other divs, spans,
+tables, forms, whatever you need
+
+00:08:21.260 --> 00:08:23.390
+to put inside of there,
+it can be added to it.
+
+00:08:25.620 --> 00:08:28.600
+I basically,
+replicated this two more times.
+
+00:08:28.600 --> 00:08:31.030
+We have another h3 and button.
+
+00:08:31.030 --> 00:08:33.960
+This is one is ARIA expand false.
+
+00:08:33.960 --> 00:08:37.920
+And it is controlling
+this section two here
+
+00:08:37.920 --> 00:08:41.410
+which is ARIA-hidden
+is true at page load.
+
+00:08:41.410 --> 00:08:44.690
+And this third one,
+rather, is very similar.
+
+00:08:44.690 --> 00:08:51.180
+Just has another unique id
+here and a unique id here.
+
+00:08:51.180 --> 00:08:55.430
+We want to make sure these ids
+are always unique, so they pull in
+
+00:08:55.430 --> 00:08:58.150
+and work correctly
+with our JavaScript.
+
+00:08:58.150 --> 00:09:00.490
+Speaking of our JavaScript,
+let's look at our JavaScript.
+
+00:09:03.490 --> 00:09:08.790
+It’s all of 33 lines of
+code including white space,
+
+00:09:08.790 --> 00:09:11.240
+including all of the comments
+that I’ve added to this
+
+00:09:11.240 --> 00:09:14.630
+to make it understand what's
+going on with everything.
+
+00:09:14.630 --> 00:09:19.080
+The first thing that I do while I am
+using a EventListener I downloaded
+
+00:09:19.080 --> 00:09:22.840
+just to make sure that everything
+exists before we start trying
+
+00:09:22.840 --> 00:09:24.110
+to interact with it.
+
+00:09:24.110 --> 00:09:27.470
+The next thing I do is
+set my accordion triggers.
+
+00:09:27.470 --> 00:09:30.140
+I am targeting that class.
+
+00:09:30.140 --> 00:09:32.140
+That is the buttons.
+
+00:09:32.140 --> 00:09:37.240
+Down at the bottom of there I’m
+looping my accordion triggers
+
+00:09:37.240 --> 00:09:39.790
+and I’m adding an
+EventListerner on click.
+
+00:09:39.790 --> 00:09:43.770
+Now this is why it’s so important
+to use a button whenever you need
+
+00:09:43.770 --> 00:09:47.180
+to have some kind of actionable
+action, something that happens
+
+00:09:47.180 --> 00:09:50.250
+whenever you click on it, instead
+of going to a different webpage.
+
+00:09:50.250 --> 00:09:52.560
+Because a button should
+respond to a click.
+
+00:09:52.560 --> 00:09:53.880
+It should respond to the Enter key.
+
+00:09:53.880 --> 00:09:56.010
+It should respond to the spacebar.
+
+00:09:56.010 --> 00:10:00.470
+If you used, let’s say, a link
+and gave it role equals button
+
+00:10:00.470 --> 00:10:03.960
+then it would by default work
+with the Enter key and work
+
+00:10:03.960 --> 00:10:06.730
+with a click, but it would
+not work with the spacebar.
+
+00:10:06.730 --> 00:10:09.010
+The screen reader,
+they are hearing this is a button,
+
+00:10:09.010 --> 00:10:10.660
+but they are not actually
+be able to interact.
+
+00:10:11.790 --> 00:10:16.190
+Then you have to add an
+EventListener for a key to see
+
+00:10:16.190 --> 00:10:19.890
+if they pressed the spacebar,
+which adds a lot more complexity.
+
+00:10:19.890 --> 00:10:23.250
+If you make it a button,
+you get all of that for free.
+
+00:10:23.250 --> 00:10:25.101
+Now this calls this button click
+
+00:10:25.102 --> 00:10:27.530
+which basically calls
+this toggle panel.
+
+00:10:27.530 --> 00:10:30.360
+The main reason I separated that
+out is I wanted to really be able
+
+00:10:30.360 --> 00:10:32.400
+to focus on what is happening here.
+
+00:10:33.470 --> 00:10:38.470
+We have the button that gets
+passed to it and we load our panel.
+
+00:10:38.470 --> 00:10:41.630
+We’re able to find our panel
+because we’re using ARIA controls.
+
+00:10:41.630 --> 00:10:45.550
+Remember that is an id and
+it is the id of our panel.
+
+00:10:45.550 --> 00:10:49.330
+We can just get this attribute
+and use get element by id.
+
+00:10:49.330 --> 00:10:51.590
+And now we’ve got a panel.
+
+00:10:51.590 --> 00:10:55.360
+The next thing I want to do is
+find out if it's currently visible.
+
+00:10:55.360 --> 00:10:58.920
+And if it is visible,
+then ARIA- expanded will be true.
+
+00:10:58.920 --> 00:11:02.060
+That is the current
+state of the button.
+
+00:11:02.060 --> 00:11:05.420
+Now we need to change the
+state of the button which is
+
+00:11:05.420 --> 00:11:06.520
+what we’re going to do here.
+
+00:11:06.520 --> 00:11:09.790
+On the button itself, we are
+going to change the ARIA expanded
+
+00:11:09.790 --> 00:11:13.700
+to the opposite of whatever
+this visible property is.
+
+00:11:13.700 --> 00:11:16.990
+If it is currently visible,
+it will now be false,
+
+00:11:16.990 --> 00:11:18.080
+ARIA-expanded equals false.
+
+00:11:18.080 --> 00:11:20.990
+If it is not visible,
+currently ARIA-expanded is false,
+
+00:11:20.990 --> 00:11:23.300
+then it will flip that
+ARIA-expanded is true.
+
+00:11:23.300 --> 00:11:29.510
+And then our panel property is going
+to set an Attribute on ARIA hidden.
+
+00:11:29.510 --> 00:11:35.570
+If the button is currently
+visible, ARIA-expanded is true.
+
+00:11:35.570 --> 00:11:38.620
+That means ARIA-hidden is
+currently false, and we need
+
+00:11:38.620 --> 00:11:40.610
+to make ARIA-hidden true.
+
+00:11:40.610 --> 00:11:43.300
+We’re going to flip that
+now, so, it becomes true.
+
+00:11:43.300 --> 00:11:46.070
+Or we are going to switch
+it around to make it false.
+
+00:11:47.440 --> 00:11:50.120
+That's all of the JavaScript.
+
+00:11:50.120 --> 00:11:52.350
+And all we’re doing is
+flipping those two attributes
+
+00:11:52.350 --> 00:11:56.460
+and we’re using the ARIA controls
+and ARIA-expanded to find out
+
+00:11:56.460 --> 00:11:57.890
+what current states are.
+
+00:11:57.890 --> 00:12:00.810
+We can do a lot of other
+stuff for state management
+
+00:12:00.810 --> 00:12:03.880
+if we wanted to but this was
+really simple and easy to do.
+
+00:12:03.880 --> 00:12:06.140
+Let the DOM be our
+state management.
+
+00:12:08.840 --> 00:12:11.720
+The last thing we
+have is our styling.
+
+00:12:11.720 --> 00:12:16.480
+Now with the styling, basically,
+the top of this is focused largely
+
+00:12:16.480 --> 00:12:19.360
+on creating the look
+and feel of everything.
+
+00:12:20.490 --> 00:12:21.960
+We’re adding borders.
+
+00:12:21.960 --> 00:12:27.390
+We’re adding some different
+spacing and padding, some colors,
+
+00:12:27.390 --> 00:12:29.560
+all that stuff is happening.
+
+00:12:29.560 --> 00:12:33.890
+Now one of the things
+that we have down here is
+
+00:12:37.050 --> 00:12:43.650
+on the accordion trigger
+after, this code right here is
+
+00:12:43.650 --> 00:12:46.570
+what is making our down arrow.
+
+00:12:46.570 --> 00:12:50.080
+And we are setting a
+transition of transform so that
+
+00:12:50.080 --> 00:12:56.600
+whenever this value changes, the
+transform is going to be animated.
+
+00:12:58.320 --> 00:13:06.050
+And then again with our accordion
+panel we have set our visibility,
+
+00:13:06.050 --> 00:13:10.940
+and we have hidden our overflow and
+we have our scale set as a default.
+
+00:13:12.150 --> 00:13:16.370
+But the other thing that we’re doing
+here is we have a transition all,
+
+00:13:16.370 --> 00:13:19.090
+so we are going to be animating
+a few different things
+
+00:13:19.090 --> 00:13:20.480
+whenever that expands.
+
+00:13:21.640 --> 00:13:24.670
+Now the last bit, the stuff that
+actually does the triggering
+
+00:13:24.670 --> 00:13:26.720
+is this little code right here.
+
+00:13:27.920 --> 00:13:32.230
+On our accordion trigger,
+whenever ARIA-expanded is true
+
+00:13:32.230 --> 00:13:34.060
+that means that it’s open.
+
+00:13:34.060 --> 00:13:39.200
+We change our transform, and what
+that does is flips the icon around
+
+00:13:39.200 --> 00:13:40.340
+so it’s pointing up.
+
+00:13:40.340 --> 00:13:42.590
+And it's going to do a rotate
+effect whenever that happens
+
+00:13:42.590 --> 00:13:45.840
+because we have got that
+transition on transform.
+
+00:13:47.250 --> 00:13:53.650
+And then the accordion panel
+itself, if it is ARIA-hidden true,
+
+00:13:53.650 --> 00:13:58.430
+then we want to hide
+the accordion panel.
+
+00:13:58.430 --> 00:14:02.670
+By default, it shows and then
+whenever the state changes,
+
+00:14:02.670 --> 00:14:04.040
+we are going to hide it.
+
+00:14:05.600 --> 00:14:07.830
+And visibility becomes hidden.
+
+00:14:07.830 --> 00:14:10.680
+This is really important
+because it’s what prevents focus
+
+00:14:10.680 --> 00:14:13.960
+from happening to
+content inside of there.
+
+00:14:13.960 --> 00:14:17.490
+And then we change our scale,
+and we change some padding,
+
+00:14:17.490 --> 00:14:19.440
+and we change our height
+and that's what allows it
+
+00:14:19.440 --> 00:14:20.730
+to have that animated effect.
+
+00:14:21.790 --> 00:14:25.070
+However, we don't want to leave
+that as the only way we do things
+
+00:14:25.070 --> 00:14:28.610
+because sometimes animations
+can cause people trouble.
+
+00:14:28.610 --> 00:14:31.550
+We have prefers-reduced-motion
+happening.
+
+00:14:31.550 --> 00:14:35.280
+And all I'm doing is taking
+those two animated elements
+
+00:14:35.280 --> 00:14:38.530
+and setting the transition to
+none so it's going to just snap,
+
+00:14:38.530 --> 00:14:40.370
+whenever people activate it.
+
+00:14:40.370 --> 00:14:44.870
+And that way they won't have any
+potentially triggering animations.
+
+00:14:44.870 --> 00:14:47.000
+There’s a lot of different
+ways to handle the animations.
+
+00:14:47.000 --> 00:14:48.700
+If I were to take a
+little bit more time,
+
+00:14:48.700 --> 00:14:51.920
+I probably would get some keyframes
+and get some roll-up effects
+
+00:14:51.920 --> 00:14:55.150
+and some other really cool things
+you can do using keyframes.
+
+00:14:55.150 --> 00:14:59.040
+In that case we would want to
+have a keyframe here that had
+
+00:14:59.040 --> 00:15:02.690
+either reduced motion or no
+motion associated with it.
+
+00:15:02.690 --> 00:15:05.730
+That way we can honor that request
+for preferred-reduced motion.
+
+00:15:07.190 --> 00:15:09.890
+That's all the stuff that
+is happening with this.
+
+00:15:12.300 --> 00:15:13.890
+Everything is working really well.
+
+00:15:13.890 --> 00:15:16.950
+As you see if I click on
+this, that rotates around.
+
+00:15:16.950 --> 00:15:18.140
+This animates down.
+
+00:15:18.140 --> 00:15:20.670
+All things are happening
+and working correctly.
+
+00:15:20.670 --> 00:15:25.140
+One of the things that I did
+is also have a tabs demo.
+
+00:15:25.140 --> 00:15:27.810
+I don't have quite enough time
+to go through all the code,
+
+00:15:27.810 --> 00:15:29.470
+but it's really similar.
+
+00:15:29.470 --> 00:15:31.930
+And you just click on it,
+everything works correctly.
+
+00:15:31.930 --> 00:15:36.700
+All the ARIA controls and all the
+different ARIA describedby labels
+
+00:15:36.700 --> 00:15:38.030
+all work correctly.
+
+00:15:38.030 --> 00:15:41.060
+The fun thing about this one
+is if you use your tab key,
+
+00:15:41.060 --> 00:15:45.320
+you actually focus on the tab
+group and then you're able
+
+00:15:45.320 --> 00:15:49.270
+to use your keyboard left/right arrow
+to navigate through all of this.
+
+00:15:50.530 --> 00:15:53.440
+Otherwise,
+it works pretty much the same.
+
+00:15:53.440 --> 00:15:55.640
+Now to make this
+easier for you to get
+
+00:15:55.640 --> 00:15:57.680
+because I know there's a
+little bit of code there,
+
+00:15:57.680 --> 00:15:59.790
+I have got these CodePens set up.
+
+00:15:59.790 --> 00:16:02.200
+And these links we’ll make
+sure they are provided to you.
+
+00:16:03.380 --> 00:16:05.850
+And I will be tweeting them out
+as well if you want to follow me
+
+00:16:05.850 --> 00:16:10.269
+as Nick_theGeek just like
+it is here in this CodePen.
+
+00:16:10.269 --> 00:16:11.971
+But if you go
+
+00:16:11.971 --> 00:16:25.117
+to codepen.io/Nick_theGeek/pen/gOZqKWL
+or YzLBvMN.
+
+00:16:25.117 --> 00:16:30.090
+Those two pens right there are
+going to get you all the code
+
+00:16:30.090 --> 00:16:31.200
+that I just shared.
+
+00:16:31.200 --> 00:16:34.960
+It is going to be set up as
+pure HTML, JavaScript and CSS
+
+00:16:34.960 --> 00:16:38.660
+so you can import that into whatever
+kind of framework you're using
+
+00:16:38.660 --> 00:16:41.060
+whether it’s PHP, whether it’s
+React, whether it’s Vue,
+
+00:16:41.060 --> 00:16:43.180
+whether it’s Svelte,
+whether whatever.
+
+00:16:43.180 --> 00:16:45.990
+You can get that into whatever
+you’re using and start modifying this
+
+00:16:45.990 --> 00:16:48.350
+to your own ends.
+
+00:16:48.350 --> 00:16:50.330
+I hope this has been
+helpful and informative.
+
+00:16:50.330 --> 00:16:52.940
+Looking forward to a great conf.
+
+00:16:52.940 --> 00:16:54.320
+You all have a wonderful day.

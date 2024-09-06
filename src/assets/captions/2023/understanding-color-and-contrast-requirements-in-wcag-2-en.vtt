@@ -1,0 +1,3712 @@
+﻿WEBVTT
+
+00:00:01.273 --> 00:00:04.600
+ AMBER HINDS: WordPress
+Accessibility Day 2023.
+
+00:00:04.600 --> 00:00:08.560
+Understanding Color and
+Contrast Requirements in WCAG 2,
+
+00:00:08.560 --> 00:00:12.990
+with speaker Jonathan Whiting,
+Director of Training, WebAIM.
+
+00:00:12.990 --> 00:00:15.790
+Recorded on September 28th, 2023.
+
+00:00:19.224 --> 00:00:19.790
+ JASON FERREIRA: All right.
+
+00:00:19.790 --> 00:00:20.940
+We're at the top of the hour.
+
+00:00:23.000 --> 00:00:27.090
+Welcome, everyone who is
+new here for this session;
+
+00:00:27.090 --> 00:00:30.260
+or if you've been
+here, welcome back.
+
+00:00:30.260 --> 00:00:34.210
+This is WordPress
+Accessibility Day 2023.
+
+00:00:34.210 --> 00:00:36.380
+My name is Jason Ferreira.
+
+00:00:36.380 --> 00:00:39.990
+In my day job, I'm the accessibility
+lead for consumer products
+
+00:00:39.990 --> 00:00:44.090
+at Dow Jones, but for
+today, I will be your host.
+
+00:00:44.090 --> 00:00:47.380
+Thank you all for joining
+us for Understanding Color
+
+00:00:47.380 --> 00:00:51.030
+and Contrast Requirements in WCAG
+2, with Jonathan Whiting.
+
+00:00:51.030 --> 00:00:53.170
+A little background on Jon.
+
+00:00:53.170 --> 00:00:56.820
+Jon is the Director
+of Training at WebAIM.
+
+00:00:56.820 --> 00:00:59.180
+His main passion is
+helping others learn
+
+00:00:59.180 --> 00:01:02.980
+to make the web more accessible
+to people with disabilities.
+
+00:01:02.980 --> 00:01:04.239
+With a master's degree
+
+00:01:04.240 --> 00:01:06.700
+in Instructional
+Technology, and 20 years
+
+00:01:06.700 --> 00:01:10.170
+of experience in the field
+of web accessibility,
+
+00:01:10.170 --> 00:01:13.090
+Jonathan has published dozens
+of articles, tutorials,
+
+00:01:13.090 --> 00:01:15.890
+and other instructional resources.
+
+00:01:15.890 --> 00:01:19.490
+He has traveled extensively to
+train thousands of web developers,
+
+00:01:19.490 --> 00:01:23.640
+and other professionals who
+develop or maintain web content.
+
+00:01:23.640 --> 00:01:27.740
+Before I pass it over to you,
+Jon, one last bit of housekeeping.
+
+00:01:27.740 --> 00:01:30.480
+Attendees, please feel
+free to add your questions
+
+00:01:30.480 --> 00:01:33.900
+in the Zoom Q&A section,
+and we will answer them at the end
+
+00:01:33.900 --> 00:01:35.590
+of today's session.
+
+00:01:35.590 --> 00:01:38.120
+Please use the chat to
+connect with other attendees,
+
+00:01:38.120 --> 00:01:42.290
+to chat amongst yourselves,
+and use the Q&A for any questions
+
+00:01:42.290 --> 00:01:45.760
+that you would like Jon to
+address at the end here.
+
+00:01:45.760 --> 00:01:48.050
+Without further ado, I will
+turn it over to you, Jonathan,
+
+00:01:48.050 --> 00:01:49.160
+and we will get started.
+
+00:01:51.260 --> 00:01:52.390
+ JONATHAN WHITING: Great.
+
+00:01:52.390 --> 00:01:54.150
+Thank you, Jason,
+for your intro, I'm going
+
+00:01:54.150 --> 00:01:55.550
+to get my screen share going here.
+
+00:02:04.386 --> 00:02:06.079
+Thank you so much for that intro.
+
+00:02:06.080 --> 00:02:07.759
+I am just going to dive right in
+
+00:02:07.760 --> 00:02:09.370
+because we've got a
+lot to talk about it.
+
+00:02:09.370 --> 00:02:12.420
+I do not know what I was
+thinking trying to cover all this
+
+00:02:12.420 --> 00:02:17.210
+in 40 minutes, but I am
+going do the best that I can.
+
+00:02:17.210 --> 00:02:21.640
+Just at the start, actually,
+Jacqueline just put a link in chat
+
+00:02:21.640 --> 00:02:25.130
+for a page with resources
+that are related to this.
+
+00:02:25.130 --> 00:02:27.220
+Now, I am not going to
+be sharing the slides,
+
+00:02:27.220 --> 00:02:29.370
+and this might make more
+sense as we go through.
+
+00:02:29.370 --> 00:02:31.080
+These are not really
+slides for sharing.
+
+00:02:31.080 --> 00:02:33.360
+There's a lot of accessibility
+issues that need to be explained
+
+00:02:33.360 --> 00:02:34.760
+and talked through.
+
+00:02:34.760 --> 00:02:39.080
+But what I do want to share is a
+page with several related resources.
+
+00:02:39.080 --> 00:02:44.960
+So just articles on how to
+make content more accessible,
+
+00:02:44.960 --> 00:02:47.620
+articles on really what we are
+going to talk about, and some tools
+
+00:02:47.620 --> 00:02:48.840
+that we are going
+to be using as well.
+
+00:02:48.840 --> 00:02:52.700
+I think this will be kind of a more
+useful page to refer to afterwards,
+
+00:02:52.700 --> 00:02:56.080
+as opposed to my slides that
+are really just talking points
+
+00:02:56.080 --> 00:02:57.190
+and a lot of visuals.
+
+00:02:59.470 --> 00:03:03.620
+I just want to start by
+saying, at a very high level,
+
+00:03:03.620 --> 00:03:06.290
+we are going to talk about,
+primarily, two principles.
+
+00:03:06.290 --> 00:03:09.270
+I am going to talk about just
+making sure you've got good contrast
+
+00:03:09.270 --> 00:03:11.360
+in the things that you create; I
+will talk more about what I mean
+
+00:03:11.360 --> 00:03:12.090
+by that.
+
+00:03:12.090 --> 00:03:14.050
+And not relying on color.
+
+00:03:14.050 --> 00:03:17.930
+So these are the two main principles
+that we are going to talk about.
+
+00:03:17.930 --> 00:03:20.570
+And to talk about all of
+that, I am going to try to,
+
+00:03:20.570 --> 00:03:23.060
+for the most part,
+stick to a single example.
+
+00:03:23.060 --> 00:03:25.120
+So I have got a question,
+and feel free to type into chat.
+
+00:03:26.750 --> 00:03:29.800
+I am going to just
+describe it a little bit.
+
+00:03:29.800 --> 00:03:30.760
+We have got a checkbox.
+
+00:03:30.760 --> 00:03:32.450
+It is a custom checkbox.
+
+00:03:32.450 --> 00:03:34.350
+I have got a label
+with a link in it.
+
+00:03:34.350 --> 00:03:36.910
+So the labels, I've read and
+agreed to the terms of use.
+
+00:03:36.910 --> 00:03:39.040
+The terms of use is the link.
+
+00:03:39.040 --> 00:03:40.680
+It's not underlined.
+
+00:03:40.680 --> 00:03:43.870
+And so just maybe any
+guesses how many color
+
+00:03:43.870 --> 00:03:47.330
+and contrast checks you would
+have for this example right here,
+
+00:03:47.330 --> 00:03:49.440
+if you were to evaluate
+this on one of your pages.
+
+00:03:52.160 --> 00:03:55.120
+OK, good.
+
+00:03:55.120 --> 00:03:57.560
+So we got three, five.
+
+00:03:57.560 --> 00:03:59.480
+This is great.
+
+00:03:59.480 --> 00:04:00.750
+I really appreciate this.
+
+00:04:02.720 --> 00:04:05.590
+I'll give just another second
+for a couple more guesses.
+
+00:04:05.590 --> 00:04:06.220
+Excellent.
+
+00:04:06.220 --> 00:04:08.510
+There’s three, four, perfect, OK.
+
+00:04:08.510 --> 00:04:10.150
+That is just about the average.
+
+00:04:10.150 --> 00:04:12.760
+Most people do say three to five.
+
+00:04:12.760 --> 00:04:15.610
+The reality is it’s 15 or more.
+
+00:04:15.610 --> 00:04:17.230
+And you are, like, Wait, what?
+
+00:04:17.230 --> 00:04:19.580
+Really 15 or more?
+And I'll explain why that is.
+
+00:04:19.580 --> 00:04:20.910
+But yes, there is a lot.
+
+00:04:20.910 --> 00:04:22.070
+There's a lot of checks.
+
+00:04:22.070 --> 00:04:24.360
+A lot of times when I'm
+evaluating a page...
+
+00:04:24.360 --> 00:04:25.870
+And that's part of the work I do.
+
+00:04:25.870 --> 00:04:27.940
+I, primarily at WebAIM,
+I focus on training,
+
+00:04:27.940 --> 00:04:29.880
+but I do evaluation work as well.
+
+00:04:29.880 --> 00:04:33.060
+And there are oftentimes
+where I spend almost half
+
+00:04:33.060 --> 00:04:37.410
+of my evaluation time just
+cataloging issues related to color
+
+00:04:37.410 --> 00:04:38.470
+and contrast.
+
+00:04:38.470 --> 00:04:41.220
+So there is a link in that
+resource page to a blog post
+
+00:04:41.220 --> 00:04:42.930
+that enumerates those 15.
+
+00:04:42.930 --> 00:04:45.420
+We are actually going to go
+beyond that, time permitting,
+
+00:04:45.420 --> 00:04:46.780
+to talk about why.
+
+00:04:46.780 --> 00:04:49.790
+And why that number so high will
+make sense, hopefully, pretty soon.
+
+00:04:51.000 --> 00:04:54.560
+I am not going to
+talk too much about
+
+00:04:54.560 --> 00:04:58.250
+the Web Content Accessibility
+Guidelines as a set of guidelines.
+
+00:04:58.250 --> 00:05:02.380
+Just within the guidelines,
+there are these numbered requirements
+
+00:05:02.380 --> 00:05:04.400
+called Success Criterion.
+
+00:05:04.400 --> 00:05:06.400
+And there are a few that
+I am going to talk about;
+
+00:05:06.400 --> 00:05:09.950
+three in some detail, and I can
+briefly touch on a fourth one.
+
+00:05:09.950 --> 00:05:12.890
+Now I am going to start with the
+requirement related to contrast.
+
+00:05:12.890 --> 00:05:13.860
+Now there are levels.
+
+00:05:13.860 --> 00:05:16.810
+If you are familiar with the
+success criteria, they have levels
+
+00:05:16.810 --> 00:05:19.670
+of single, double,
+or triple A assigned to them.
+
+00:05:19.670 --> 00:05:21.396
+So this first one
+with minimum contrast
+
+00:05:21.397 --> 00:05:22.820
+is a level double-A requirement.
+
+00:05:23.990 --> 00:05:27.700
+Just a little bit
+about that requirement.
+
+00:05:27.700 --> 00:05:30.400
+There is a phrase
+that gets used a lot,
+
+00:05:30.400 --> 00:05:32.030
+and it is not even
+an incorrect phrase.
+
+00:05:32.030 --> 00:05:34.310
+People talk about color contrast.
+
+00:05:34.310 --> 00:05:38.640
+And it is true, color is an aspect
+of contrast as we perceive it.
+
+00:05:38.640 --> 00:05:44.060
+Different color combinations can
+impact just the perceived contrast
+
+00:05:44.060 --> 00:05:44.630
+of colors.
+
+00:05:44.630 --> 00:05:46.260
+Some things are more legible.
+
+00:05:46.260 --> 00:05:49.910
+Invert them, and maybe one or the
+other is going to be more legible
+
+00:05:49.910 --> 00:05:50.680
+for you.
+
+00:05:50.680 --> 00:05:53.880
+However, the reality
+is in these guidelines,
+
+00:05:53.880 --> 00:05:55.950
+in the Web Content
+Accessibility Guidelines,
+
+00:05:57.580 --> 00:06:02.570
+they actually do not talk
+about color contrast.
+
+00:06:02.570 --> 00:06:06.030
+What they talk about in
+WCAG is luminance contrast.
+
+00:06:06.030 --> 00:06:08.310
+And what that means is it's not
+about the colors you choose;
+
+00:06:08.310 --> 00:06:13.190
+it's about the brightness
+difference between these colors.
+
+00:06:13.190 --> 00:06:15.260
+The full term that's
+used in these guidelines
+
+00:06:15.260 --> 00:06:17.320
+is Relative Luminance Contrast.
+
+00:06:17.320 --> 00:06:18.360
+So what does that mean?
+
+00:06:18.360 --> 00:06:20.950
+What it means is,
+the way our screens work,
+
+00:06:20.950 --> 00:06:23.540
+we’re really seeing three colors.
+
+00:06:23.540 --> 00:06:27.030
+You got black, and then you got
+three colors that are presented red,
+
+00:06:27.030 --> 00:06:28.510
+green, and blue.
+
+00:06:28.510 --> 00:06:30.139
+And pure red is pretty hard to read
+
+00:06:30.140 --> 00:06:32.000
+when it is used on
+a white background.
+
+00:06:32.000 --> 00:06:34.460
+Pure green is also
+pretty hard to read.
+
+00:06:34.460 --> 00:06:37.280
+Maybe even brighter and
+harder to read than the blue.
+
+00:06:37.280 --> 00:06:39.060
+I have actually added
+a little outline.
+
+00:06:39.060 --> 00:06:42.430
+It's just, I am trying to
+make my inaccessible visuals
+
+00:06:42.430 --> 00:06:46.900
+a bit more accessible with a few
+little techniques here and there.
+
+00:06:46.900 --> 00:06:50.710
+But that red and green is
+just kind of hard to see.
+
+00:06:50.710 --> 00:06:53.823
+And so what is found
+within these guidelines
+
+00:06:53.824 --> 00:06:57.630
+is a fairly complex formula to try
+to weigh these different colors.
+
+00:06:57.630 --> 00:06:59.560
+Don’t worry about the formula;
+it's just a slide to say,
+
+00:06:59.560 --> 00:07:03.040
+Look at all this math is
+pretty much what's going on.
+
+00:07:03.040 --> 00:07:05.520
+But what it does is it
+weighs the red and the green
+
+00:07:05.520 --> 00:07:08.970
+and the blue that are used and just
+kind of looks at the brightness
+
+00:07:08.970 --> 00:07:12.710
+of those, and creates a
+ratio between two colors.
+
+00:07:12.710 --> 00:07:18.060
+Now, the highest this ratio can be is
+21-to-1, and that's black and white.
+
+00:07:18.060 --> 00:07:20.570
+It does not matter if it's black
+on white or white on black,
+
+00:07:20.570 --> 00:07:26.220
+it's that same ratio, and that's
+the case with all of this.
+
+00:07:26.220 --> 00:07:29.070
+If you swap those colors,
+the ratio is still the same.
+
+00:07:30.210 --> 00:07:35.650
+Now, this is a lot of contrast,
+and the highest isn't always best.
+
+00:07:35.650 --> 00:07:38.060
+A lot of black and white
+can be kind of jarring.
+
+00:07:39.240 --> 00:07:43.390
+So what is within WCAG within
+these guidelines is a minimum level
+
+00:07:43.390 --> 00:07:44.390
+of contrast.
+
+00:07:45.270 --> 00:07:48.580
+And it's 4.5 to one
+according to that formula.
+
+00:07:48.580 --> 00:07:51.520
+So the first couple checks that
+you're going to have to do,
+
+00:07:51.520 --> 00:07:56.900
+one is for that main text of I
+have read and agreed to the...
+
+00:07:56.900 --> 00:08:01.560
+So the not link part of
+it, just that label text.
+
+00:08:01.560 --> 00:08:05.460
+And that would need 4.5 to 1
+contrast with its background,
+
+00:08:05.460 --> 00:08:07.570
+which in this case is
+a white background.
+
+00:08:07.570 --> 00:08:11.300
+The second check is going
+to be the link text.
+
+00:08:11.300 --> 00:08:18.160
+So that also needs 4.5 to 1
+contrast with its background.
+
+00:08:18.160 --> 00:08:19.370
+Again,
+we have got a lot to talk about.
+
+00:08:19.370 --> 00:08:22.850
+I am going to really demo
+some things fairly quickly.
+
+00:08:22.850 --> 00:08:24.709
+But I am going to
+talk about a few tools
+
+00:08:24.710 --> 00:08:26.250
+to help with testing of contrast.
+
+00:08:26.250 --> 00:08:29.040
+Now, there are a lot of great
+contrast tools out there,
+
+00:08:29.040 --> 00:08:31.460
+but I'm going to talk about the
+ones that we have at WebAIM.
+
+00:08:31.460 --> 00:08:32.500
+They are available for free.
+
+00:08:32.500 --> 00:08:35.800
+But I'm going to point out
+a couple of WebAIM tools,
+
+00:08:37.080 --> 00:08:40.350
+and the first one is going
+to be a tool called WAVE.
+
+00:08:40.350 --> 00:08:42.680
+WAVE is a free evaluation tool.
+
+00:08:42.680 --> 00:08:46.360
+It's available at Wave.webaim.org,
+and there is a link to that
+
+00:08:46.360 --> 00:08:49.980
+within the evaluation
+tools section.
+
+00:08:49.980 --> 00:08:53.930
+I am going to show what
+WAVE does in just a second.
+
+00:08:53.930 --> 00:08:56.900
+But we also have browser
+extensions that allows you
+
+00:08:56.900 --> 00:09:00.480
+to install this evaluation tool
+on Chrome, Firefox, and Edge.
+
+00:09:00.480 --> 00:09:03.230
+So that's what I'm going to use.
+
+00:09:03.230 --> 00:09:08.960
+When I demonstrate this,
+I'm going to come to this color
+
+00:09:08.960 --> 00:09:12.740
+and contrast practice
+link in this page.
+
+00:09:13.800 --> 00:09:16.950
+I'm going to make sure to put this
+back at its normal default size,
+
+00:09:16.950 --> 00:09:18.120
+and then I'm going to use WAVE.
+
+00:09:18.120 --> 00:09:21.740
+Now because I have got
+this add-on Installed,
+
+00:09:21.740 --> 00:09:25.570
+and I have this little WAVE,
+W icon in the upper-right corner
+
+00:09:25.570 --> 00:09:28.150
+of my browser window here,
+so I'm going to use that.
+
+00:09:29.470 --> 00:09:32.910
+WAVE gives me a lot of information
+about a lot of accessibility things,
+
+00:09:32.910 --> 00:09:37.820
+errors, alerts, features, just things
+that it wants me to be aware of
+
+00:09:37.820 --> 00:09:40.350
+and test a little bit more deeply.
+
+00:09:40.350 --> 00:09:42.850
+But don’t have time to
+talk about most of WAVE.
+
+00:09:42.850 --> 00:09:45.510
+I'm just going to focus on
+one thing that it will do,
+
+00:09:45.510 --> 00:09:47.830
+and that is it will
+report contrast errors.
+
+00:09:48.960 --> 00:09:56.360
+In this Wave sidebar,
+I can click on the contrast tab,
+
+00:09:56.360 --> 00:09:59.320
+and there are a couple of these
+icons telling me there's some text
+
+00:09:59.320 --> 00:10:00.840
+with very low contrast.
+
+00:10:00.840 --> 00:10:05.460
+There is this grand white that
+has just under 4.7 to one.
+
+00:10:05.460 --> 00:10:10.470
+There’s also this button text,
+like a gray on lighter gray button,
+
+00:10:10.470 --> 00:10:12.760
+also with low contrast.
+
+00:10:12.760 --> 00:10:17.160
+Now, this text in the middle
+between these two icons, which is,
+
+00:10:17.160 --> 00:10:19.100
+is this larger text to
+have enough contrast.
+
+00:10:20.170 --> 00:10:28.170
+It actually has the same level of
+contrast, but it does not show up.
+
+00:10:35.810 --> 00:10:38.950
+So the reason it does not
+show up with an icon is
+
+00:10:38.950 --> 00:10:40.950
+because there is one
+other rule to be aware of.
+
+00:10:40.950 --> 00:10:42.050
+Let me say it a little differently.
+
+00:10:42.050 --> 00:10:43.690
+There is no error.
+
+00:10:43.690 --> 00:10:47.040
+Same color; but this larger
+text, no error icon.
+
+00:10:47.040 --> 00:10:53.180
+It's because there is one other
+rule to be aware of in WCAG,
+
+00:10:53.180 --> 00:10:56.610
+and that is contrast of large text.
+
+00:10:56.610 --> 00:10:59.780
+So if you do have text that's
+a certain size or larger,
+
+00:10:59.780 --> 00:11:01.900
+the requirement goes down.
+
+00:11:01.900 --> 00:11:06.270
+It goes down from 4.5-to-1
+contrast down to three to one.
+
+00:11:06.270 --> 00:11:07.930
+So it’s bigger on screen.
+
+00:11:07.930 --> 00:11:08.950
+You just have more of it to read.
+
+00:11:08.950 --> 00:11:12.180
+It doesn't need as much
+contrast to be perceivable.
+
+00:11:12.180 --> 00:11:17.490
+So the requirement for that 3-to-1,
+that starts at 18-point text.
+
+00:11:17.490 --> 00:11:20.820
+Now in pixels, on the web,
+that's going to be 24 pixels.
+
+00:11:20.820 --> 00:11:26.230
+If that text is bold, 14 point
+or 18 and two-thirds pixels.
+
+00:11:26.230 --> 00:11:28.410
+That's that 3-to-1
+contrast requirement.
+
+00:11:32.300 --> 00:11:35.120
+That’s why using
+this tool in WAVE...
+
+00:11:35.120 --> 00:11:37.540
+And there's some other
+tools we will talk about.
+
+00:11:37.540 --> 00:11:40.520
+That’s why there is no error here,
+because even though this text
+
+00:11:40.520 --> 00:11:46.270
+has the same color,
+because it's large enough, it meets
+
+00:11:46.270 --> 00:11:48.500
+at least 3-to-1 contrast requirement,
+so it's not a WCAG failure.
+
+00:11:48.500 --> 00:11:50.080
+And Wave does detect that.
+
+00:11:50.080 --> 00:11:53.780
+It looks at the size and
+weight of the text to do this.
+
+00:11:53.780 --> 00:11:55.610
+Although it's not going
+to detect everything.
+
+00:11:55.610 --> 00:11:58.540
+For example, I do have some text
+that's on a gradient background.
+
+00:11:58.540 --> 00:12:00.340
+So there’s this is image.
+
+00:12:00.340 --> 00:12:01.970
+It's a background image as
+well, I think.
+
+00:12:01.970 --> 00:12:02.740
+I can’t remember.
+
+00:12:02.740 --> 00:12:04.360
+I think I used a
+background image here.
+
+00:12:04.360 --> 00:12:09.510
+Or maybe it's just a color gradient,
+but still WAVE is not that smart.
+
+00:12:09.510 --> 00:12:13.190
+And so then we will talk about
+some other ways to test contrast,
+
+00:12:13.190 --> 00:12:15.810
+but those are those
+first couple of checks.
+
+00:12:15.810 --> 00:12:18.770
+Going to be the label text
+and then that link text.
+
+00:12:19.870 --> 00:12:24.350
+OK, so that's one and two.
+
+00:12:24.350 --> 00:12:28.320
+Number three has to do
+with non-text contrast.
+
+00:12:28.320 --> 00:12:32.670
+So there's a requirement;
+the number is 1.4.11.
+
+00:12:32.670 --> 00:12:36.650
+But this requirement called
+non-text contrast, also level AA,
+
+00:12:36.650 --> 00:12:43.510
+deals with things
+that are not text.
+
+00:12:45.000 --> 00:12:48.640
+In this case, because this
+is a custom check box... Now,
+
+00:12:48.640 --> 00:12:55.130
+if I'd stuck with the built-in native
+kind of browser-built check box,
+
+00:12:55.130 --> 00:12:58.220
+no customization,
+I would not need to check this.
+
+00:12:58.220 --> 00:13:01.120
+But because this is a custom
+check box, I would also need
+
+00:13:01.120 --> 00:13:07.620
+to check to see that the check
+box has at least 3-to-1 contrast.
+
+00:13:07.620 --> 00:13:08.930
+Now, what parts of the check box?
+
+00:13:08.930 --> 00:13:11.720
+Right now we're focusing on that
+border, because that's the part
+
+00:13:11.720 --> 00:13:15.630
+that I need to be able to see
+to know where I put my mouse
+
+00:13:15.630 --> 00:13:17.530
+or where I need to
+navigate to the keyboard.
+
+00:13:19.680 --> 00:13:23.490
+Inside here, you can check
+this thing, and so that needs
+
+00:13:23.490 --> 00:13:25.050
+to have at least 3-to-1 contrast.
+
+00:13:26.100 --> 00:13:28.810
+So that is the third
+requirement here.
+
+00:13:28.810 --> 00:13:32.010
+And we’ll talk about a
+couple other things related
+
+00:13:32.010 --> 00:13:36.740
+to non-text contrast later
+on, but that’s three.
+
+00:13:36.740 --> 00:13:44.110
+I am going to just jump
+onto this use of color,
+
+00:13:44.110 --> 00:13:46.600
+which is going to give me
+my fourth check right now.
+
+00:13:46.600 --> 00:13:50.330
+So another requirement,
+and the number for this is 1.4.1.
+
+00:13:50.330 --> 00:13:53.160
+And for keeping track,
+it is level single A,
+
+00:13:53.160 --> 00:13:56.000
+but this requirement
+is called use of color.
+
+00:13:56.000 --> 00:13:59.580
+Now there's two important
+things related to this.
+
+00:13:59.580 --> 00:14:01.730
+A lot of times what it comes to
+mind when people talk about use
+
+00:14:01.730 --> 00:14:05.640
+of color is do not rely on color
+like red and green for pass
+
+00:14:05.640 --> 00:14:07.200
+and fail and things like that.
+
+00:14:07.200 --> 00:14:10.460
+That's true, and we’re
+going to come back to that.
+
+00:14:10.460 --> 00:14:15.980
+However, there is another important
+way that color can be used.
+
+00:14:15.980 --> 00:14:20.540
+Sometimes it's requiring that someone
+can distinguish a certain color.
+
+00:14:20.540 --> 00:14:21.840
+I can see red.
+
+00:14:21.840 --> 00:14:23.260
+I can see green.
+
+00:14:23.260 --> 00:14:27.130
+But sometimes color is used
+to distinguish an element
+
+00:14:27.130 --> 00:14:30.160
+to differentiate it
+from something else.
+
+00:14:30.160 --> 00:14:32.960
+And it's not so much the
+color you’re are using;
+
+00:14:32.960 --> 00:14:37.040
+it’s the difference between colors
+that's giving you information.
+
+00:14:37.040 --> 00:14:38.930
+A common example of this is a link.
+
+00:14:40.140 --> 00:14:41.970
+We have this link here
+in the screenshot.
+
+00:14:41.970 --> 00:14:45.690
+And I have tried to add some
+borders and a few things just to...
+
+00:14:45.690 --> 00:14:50.760
+I do not want my own slides
+to have accessibility issues.
+
+00:14:50.760 --> 00:14:53.120
+I do not want to rely on
+color in my own slides,
+
+00:14:53.120 --> 00:14:55.970
+so I tried to put an
+order around this.
+
+00:14:55.970 --> 00:15:01.770
+But this terms of use,
+because it's not underlined,
+
+00:15:01.770 --> 00:15:05.220
+because it's just a color difference,
+that's being used to tell me
+
+00:15:05.220 --> 00:15:06.230
+that's a link.
+
+00:15:06.230 --> 00:15:07.750
+This would fail that requirement.
+
+00:15:07.750 --> 00:15:09.780
+One of the things it says
+that you cannot do using
+
+00:15:09.780 --> 00:15:11.900
+just color is you
+can not rely on color
+
+00:15:11.900 --> 00:15:14.460
+for distinguishing
+a visual element.
+
+00:15:14.460 --> 00:15:17.860
+In other words, this isn't
+body text; this is a link,
+
+00:15:17.860 --> 00:15:19.850
+and you can not rely on just
+a color difference for that.
+
+00:15:21.340 --> 00:15:24.770
+I'm going to talk about that
+requirement a little bit more,
+
+00:15:24.770 --> 00:15:28.100
+just focusing in on the
+difference between this link text
+
+00:15:28.100 --> 00:15:29.140
+and the label text here.
+
+00:15:30.370 --> 00:15:34.140
+By the way,
+these colors that I am going to use,
+
+00:15:34.140 --> 00:15:37.110
+these are colors that are
+pulled exactly from, like,
+
+00:15:37.110 --> 00:15:39.880
+a Fortune 100 Company
+that we worked with,
+
+00:15:39.880 --> 00:15:42.120
+and these are the colors they
+were using for their links.
+
+00:15:42.120 --> 00:15:47.020
+This is the process we went through
+talking about this with them.
+
+00:15:47.020 --> 00:15:49.240
+First of all,
+you might think, Oh, no,
+
+00:15:49.240 --> 00:15:51.080
+those colors are pretty different.
+
+00:15:51.080 --> 00:15:54.170
+They are actually not.
+
+00:15:54.170 --> 00:15:57.030
+OK, the colors are different,
+but the brightness difference
+
+00:15:57.030 --> 00:16:00.050
+between the two is
+actually not a lot.
+
+00:16:00.050 --> 00:16:03.900
+The contrast difference,
+they are almost the same.
+
+00:16:03.900 --> 00:16:07.570
+Some people do have difficulty
+distinguishing gray and blue text.
+
+00:16:07.570 --> 00:16:10.350
+I've talked to a couple
+people who told me that
+
+00:16:10.350 --> 00:16:12.210
+and shared that experience.
+
+00:16:12.210 --> 00:16:16.340
+And so if someone has difficulty
+distinguishing gray and blue,
+
+00:16:16.340 --> 00:16:21.740
+this is a slide trying to
+simulate what that might be like
+
+00:16:21.740 --> 00:16:22.420
+for that person.
+
+00:16:22.420 --> 00:16:26.260
+In terms of use, while very
+slightly different, it's really hard
+
+00:16:26.260 --> 00:16:27.260
+to distinguish that.
+
+00:16:28.260 --> 00:16:31.610
+In fact, if you were just
+reading through lines of text,
+
+00:16:31.610 --> 00:16:34.740
+even if you have good contrast
+sensitivity, I think you're going
+
+00:16:34.740 --> 00:16:36.170
+to have a hard time
+picking up the links.
+
+00:16:37.460 --> 00:16:42.850
+So that is just giving
+you an idea of that issue.
+
+00:16:42.850 --> 00:16:45.850
+Now, when we were working
+with this client, they said,
+
+00:16:45.850 --> 00:16:47.410
+Well, what if I just bold this?
+
+00:16:47.410 --> 00:16:50.110
+What if I use bold to
+distinguish this link?
+
+00:16:50.110 --> 00:16:51.800
+And so let's see if I
+were to pull out the color
+
+00:16:51.800 --> 00:16:54.530
+and just look at the
+contrast difference there.
+
+00:16:54.530 --> 00:16:57.870
+That definitely does work.
+
+00:16:57.870 --> 00:17:01.190
+You now have distinguished your
+links using more than just color.
+
+00:17:02.450 --> 00:17:09.510
+However, that only works if you only
+use bold just for identifying links,
+
+00:17:09.510 --> 00:17:11.170
+and that's almost never the case.
+
+00:17:11.170 --> 00:17:13.290
+With this client, and a lot of
+other people who we worked with
+
+00:17:13.290 --> 00:17:17.470
+on this issue, at some point
+they use bold to emphasize text.
+
+00:17:17.470 --> 00:17:20.680
+So you might say, Well, I have read
+and agreed to the terms of use,
+
+00:17:20.680 --> 00:17:24.690
+or, You must do this. Or it's
+just, anywhere in that nearby text,
+
+00:17:24.690 --> 00:17:27.380
+you bold something to emphasize
+it, well, now you are back
+
+00:17:27.380 --> 00:17:31.550
+to relying on color, and now you are
+back to failing this requirement.
+
+00:17:31.550 --> 00:17:39.550
+So that’s a workaround that just
+doesn't work most of the time.
+
+00:17:41.450 --> 00:17:44.150
+There’s a question that I know
+has just popped up in Q&A.
+
+00:17:44.150 --> 00:17:47.320
+So does this meet this
+criteria of colors used?
+
+00:17:47.320 --> 00:17:50.400
+And the link is underlined
+when hovering a mouse over it.
+
+00:17:50.400 --> 00:17:52.120
+So I’m going to come to that.
+
+00:17:52.120 --> 00:17:56.820
+Before I do it, I just want to
+say, let's underline our links.
+
+00:17:56.820 --> 00:17:59.090
+I think that's going
+to be best practice.
+
+00:17:59.090 --> 00:18:01.920
+Not all links, not all the time,
+but where they're appearing next
+
+00:18:01.920 --> 00:18:04.800
+to other non-linked
+text, body text.
+
+00:18:04.800 --> 00:18:08.570
+It just make them better,
+it makes them, I think, more usable,
+
+00:18:08.570 --> 00:18:11.680
+more mobile-friendly,
+more scannable,
+
+00:18:11.680 --> 00:18:15.410
+easier to track a link across
+line breaks, and things like that.
+
+00:18:15.410 --> 00:18:17.570
+So there's just a lot of good
+reasons to underline your links.
+
+00:18:18.960 --> 00:18:19.850
+So what's required?
+
+00:18:19.850 --> 00:18:23.990
+And this actually, I think, goes to
+the question that Beatrice asked,
+
+00:18:23.990 --> 00:18:28.890
+and that is, you've got not
+just the contrast requirement,
+
+00:18:28.890 --> 00:18:32.730
+but what if the link is underlined
+when hovering the mouse over it?
+
+00:18:32.730 --> 00:18:36.800
+So that on its own does
+not meet this requirement,
+
+00:18:36.800 --> 00:18:40.020
+but it is a part of
+meeting this requirement.
+
+00:18:40.020 --> 00:18:46.160
+So if you aren't underlining those
+links, there are two requirements.
+
+00:18:46.160 --> 00:18:50.810
+One is that there is a 3-to-1
+contrast ratio between the link text
+
+00:18:50.810 --> 00:18:53.170
+and the non-link text.
+
+00:18:53.170 --> 00:18:56.250
+The idea with this is, if you give
+it enough of a contrast difference,
+
+00:18:56.250 --> 00:19:00.270
+now you're not relying on someone
+being able to differentiate colors;
+
+00:19:00.270 --> 00:19:03.430
+you are allowing them to just
+differentiate the contrast,
+
+00:19:03.430 --> 00:19:05.640
+and just tell the difference
+between, Well, this text is lighter
+
+00:19:05.640 --> 00:19:08.420
+or darker than this other text.
+
+00:19:08.420 --> 00:19:11.800
+And we’re are going to use a
+tool in just a minute to show
+
+00:19:11.800 --> 00:19:12.800
+how you can do that.
+
+00:19:13.790 --> 00:19:17.380
+The second part to this,
+though, is kind of related
+
+00:19:17.380 --> 00:19:18.400
+to what was just asked.
+
+00:19:18.400 --> 00:19:21.820
+The link must present a
+change, a non-colored queue.
+
+00:19:21.820 --> 00:19:23.870
+So more than just a color change.
+
+00:19:23.870 --> 00:19:25.880
+And that typically
+means bringing back
+
+00:19:25.880 --> 00:19:29.380
+that underline on keyboard focus.
+
+00:19:29.380 --> 00:19:33.620
+It actually isn't required for
+mouse hover, because the idea
+
+00:19:33.620 --> 00:19:35.650
+with mouse hovers, is you're
+already hovering with your mouse,
+
+00:19:35.650 --> 00:19:37.930
+and you already have
+a pointer there.
+
+00:19:37.930 --> 00:19:41.450
+If it's a link... And this is,
+by the way, just for links.
+
+00:19:41.450 --> 00:19:43.410
+It's not for buttons
+or other things.
+
+00:19:43.410 --> 00:19:46.430
+This requirement, it just
+specifically calls out links.
+
+00:19:46.430 --> 00:19:53.250
+It's kind of weird, but it does...
+When you hover over link,
+
+00:19:53.250 --> 00:19:54.620
+you also get that cursor change.
+
+00:19:54.620 --> 00:19:56.390
+It changes to that finger.
+
+00:19:56.390 --> 00:19:59.900
+And so technically it's not required,
+but it's a really, really good idea.
+
+00:19:59.900 --> 00:20:03.180
+If you are going to bring back
+that underline, bring it back
+
+00:20:03.180 --> 00:20:04.180
+for the hover as well.
+
+00:20:05.370 --> 00:20:08.160
+So let's use this contrast checker.
+
+00:20:08.160 --> 00:20:12.020
+I'm going to go back to this page.
+
+00:20:12.020 --> 00:20:13.870
+Let me refresh this page.
+
+00:20:13.870 --> 00:20:15.630
+I'm actually going to
+make it a bit larger.
+
+00:20:15.630 --> 00:20:19.450
+So we do have a link here,
+kind of moving down this list.
+
+00:20:19.450 --> 00:20:22.520
+This I've read and agreed to...
+And this time, it says copyright
+
+00:20:22.520 --> 00:20:23.520
+in terms of use.
+
+00:20:24.760 --> 00:20:28.890
+So these are the same colors
+as was used in that slide.
+
+00:20:28.890 --> 00:20:32.870
+Now, if I want to test this,
+I can use a link-contrast checker.
+
+00:20:35.200 --> 00:20:42.490
+This link contrast checker, what
+it does is it adds another option.
+
+00:20:42.490 --> 00:20:45.570
+When I was using WAVE,
+I had these two options for color.
+
+00:20:45.570 --> 00:20:49.120
+I had a slider for the text color
+and a slider for the background,
+
+00:20:49.120 --> 00:20:51.780
+or options for the text
+color and background color.
+
+00:20:51.780 --> 00:20:56.270
+This one has two different text
+options: link and body text.
+
+00:20:56.270 --> 00:21:01.220
+So with link and body text,
+I've pre-populated this
+
+00:21:01.220 --> 00:21:03.170
+with the two colors
+that I've been using.
+
+00:21:03.170 --> 00:21:07.440
+So it's a blue that does
+have at least 4.5 to one.
+
+00:21:07.440 --> 00:21:09.930
+You've got the body text that
+also has at least 4.5 to one.
+
+00:21:09.930 --> 00:21:12.726
+So the link and body text pass
+
+00:21:12.727 --> 00:21:16.920
+on their own the text
+contrast requirement.
+
+00:21:18.160 --> 00:21:21.720
+However, as I mentioned, they
+have almost no contrast difference
+
+00:21:21.720 --> 00:21:22.660
+between them.
+
+00:21:22.660 --> 00:21:25.150
+So if I don't want to underline
+my links, I am going to have
+
+00:21:25.150 --> 00:21:26.690
+to use a different color.
+
+00:21:26.690 --> 00:21:32.100
+Now I can not really go lighter
+because if I go lighter very quickly,
+
+00:21:32.100 --> 00:21:35.820
+before I meet that three to
+one difference between link
+
+00:21:35.820 --> 00:21:41.380
+and body text, very quickly,
+I will get too low of contrast text.
+
+00:21:41.380 --> 00:21:44.120
+So in order to have 3-to-1
+difference between the blue and gray,
+
+00:21:44.120 --> 00:21:48.720
+I have got to get that so light that
+it only has 1.5 to one contrast.
+
+00:21:53.980 --> 00:21:56.670
+So the way I did that using this
+link contrast checker, by the way,
+
+00:21:56.670 --> 00:22:01.320
+and other contrast checkers is
+that there is a lightness slider,
+
+00:22:01.320 --> 00:22:04.540
+and that just tries to change
+the lightness and darkness
+
+00:22:04.540 --> 00:22:07.530
+of that same keyword color.
+
+00:22:07.530 --> 00:22:08.530
+So that's not going to work.
+
+00:22:09.410 --> 00:22:11.590
+Neither is going
+lighter with the gray.
+
+00:22:11.590 --> 00:22:14.030
+What you need to do is go
+darker with one of those colors.
+
+00:22:14.030 --> 00:22:17.300
+I think it probably makes the most
+sense to go darker with that gray.
+
+00:22:17.300 --> 00:22:20.130
+Otherwise, it basically looks like
+you've got black links, you know,
+
+00:22:20.130 --> 00:22:22.090
+by the time it's dark enough.
+
+00:22:22.090 --> 00:22:26.800
+So dark gray text with that
+same color blue for the links,
+
+00:22:26.800 --> 00:22:29.210
+this would now meet
+that requirement.
+
+00:22:30.360 --> 00:22:32.210
+And that's something that I can do.
+
+00:22:32.210 --> 00:22:34.170
+I'm keeping Q&A open.
+
+00:22:34.170 --> 00:22:36.230
+I'm going to try to answer
+some questions as I go,
+
+00:22:36.230 --> 00:22:39.560
+and hopefully still keep a
+couple minutes at the end.
+
+00:22:39.560 --> 00:22:42.180
+There was a question about
+adding an ARIA label.
+
+00:22:42.180 --> 00:22:44.530
+And I'm going to lump
+that all into one category
+
+00:22:44.530 --> 00:22:48.250
+of making this accessible
+for screen readers.
+
+00:22:48.250 --> 00:22:53.580
+And this is not about a blind
+users or screen-reader users;
+
+00:22:53.580 --> 00:22:56.150
+this is about sighted users.
+
+00:22:56.150 --> 00:22:58.550
+So the thing with the
+ARIA label is that
+
+00:22:58.550 --> 00:23:01.240
+and maybe some other
+techniques might help me
+
+00:23:01.240 --> 00:23:03.050
+if I'm using a screen reader.
+
+00:23:03.050 --> 00:23:05.039
+But a screen reader is
+actually already going
+
+00:23:05.040 --> 00:23:06.120
+to tell me it's a label.
+
+00:23:06.120 --> 00:23:08.270
+So this is purely a visual thing.
+
+00:23:08.270 --> 00:23:11.040
+This is really just about
+differentiating colors.
+
+00:23:11.040 --> 00:23:13.390
+And so the ARIA in this case,
+you're not going to be able
+
+00:23:13.390 --> 00:23:16.130
+to add anything with ARIA
+labels or anything else
+
+00:23:16.131 --> 00:23:17.500
+that would address this.
+
+00:23:17.500 --> 00:23:19.650
+It would really have to be at the
+level of the colors you choose.
+
+00:23:21.310 --> 00:23:23.760
+Another question from Megan;
+a really good question.
+
+00:23:23.760 --> 00:23:28.310
+And that is if there's different
+requirements, the link is standalone.
+
+00:23:28.310 --> 00:23:33.500
+So you gave the example, Megan, in
+your question, maybe of navigation.
+
+00:23:33.500 --> 00:23:36.200
+So on this page with the
+link contrast checker,
+
+00:23:36.200 --> 00:23:40.350
+we do have some navigation links at
+the top to the five main sections
+
+00:23:40.350 --> 00:23:43.970
+on the WebAIM site,
+and they are not underlined,
+
+00:23:43.970 --> 00:23:49.380
+because they are clearly
+presented as links.
+
+00:23:49.380 --> 00:23:51.960
+Again, this is about
+the visual presentation.
+
+00:23:51.960 --> 00:23:57.790
+And if I can not perceive color, I am
+still going to know those are links.
+
+00:23:57.790 --> 00:24:04.130
+Regardless of the color perception
+or contrast sensitivity,
+
+00:24:04.130 --> 00:24:05.760
+I'm still going to be able to tell.
+
+00:24:05.760 --> 00:24:07.510
+So, yes, good question.
+
+00:24:07.510 --> 00:24:10.340
+That would not need
+to be underlined.
+
+00:24:10.340 --> 00:24:12.300
+Or if there's other styling.
+
+00:24:12.300 --> 00:24:14.820
+Sometimes you got links
+that look like buttons.
+
+00:24:14.820 --> 00:24:17.600
+They are links under the hood, and
+you've made them look like buttons,
+
+00:24:17.600 --> 00:24:19.420
+and you no longer
+have those underlined.
+
+00:24:19.420 --> 00:24:20.910
+That's another example
+in the question.
+
+00:24:20.910 --> 00:24:22.090
+That's fine too.
+
+00:24:22.090 --> 00:24:26.020
+Really, this is about just not
+relying on color as the only way
+
+00:24:26.020 --> 00:24:27.020
+to present that.
+
+00:24:28.000 --> 00:24:30.160
+So yes,
+thank you for the questions.
+
+00:24:30.160 --> 00:24:31.510
+Keep those questions coming.
+
+00:24:31.510 --> 00:24:34.870
+Some I'll probably hold off and
+answer at the end; but some,
+
+00:24:34.870 --> 00:24:38.000
+if it seems helpful to just
+answer them while I'm going,
+
+00:24:38.000 --> 00:24:39.000
+I'll do that instead.
+
+00:24:40.730 --> 00:24:46.370
+So hopefully that maybe helps
+with how I could use this tool
+
+00:24:46.370 --> 00:24:52.120
+to get the necessary color,
+or really contrast differences
+
+00:24:52.120 --> 00:24:53.120
+with these colors.
+
+00:24:56.330 --> 00:24:59.220
+All right.
+
+00:25:00.330 --> 00:25:03.510
+So here’s a slide showing
+what that would be like.
+
+00:25:03.510 --> 00:25:06.880
+We got that much darker gray that's
+getting a lot closer to black.
+
+00:25:06.880 --> 00:25:09.700
+And then we have got that
+contrast that's going to give you
+
+00:25:09.700 --> 00:25:11.140
+what you need again.
+
+00:25:11.140 --> 00:25:13.250
+But if I underline it,
+just look how much more obvious
+
+00:25:13.250 --> 00:25:18.640
+it is right off the bat
+that that is a link.
+
+00:25:20.210 --> 00:25:24.740
+So that's just a little bit
+more about kind of that idea
+
+00:25:24.740 --> 00:25:32.050
+of relying on color, and why it's
+important to not just do that.
+
+00:25:32.050 --> 00:25:33.800
+OK, so we're only up to four.
+
+00:25:33.800 --> 00:25:35.570
+We're halfway through our time,
+and we're only up to four,
+
+00:25:35.570 --> 00:25:36.720
+how's that possible?
+
+00:25:36.720 --> 00:25:40.440
+Well, the reason that's possible
+is because numbers five to 15,
+
+00:25:40.440 --> 00:25:43.170
+most of them kind of fall
+into the same category.
+
+00:25:43.170 --> 00:25:45.360
+And that is,
+you got to interact with the thing.
+
+00:25:46.570 --> 00:25:52.040
+There are only a few things that
+you can detect just at a glance
+
+00:25:52.040 --> 00:25:53.600
+or using tools like WAVE.
+
+00:25:53.600 --> 00:25:56.550
+A lot of it has to do with
+the interaction that happens,
+
+00:25:56.550 --> 00:25:59.777
+because you need to consider
+the contrast of things
+
+00:25:59.778 --> 00:26:01.080
+in different states.
+
+00:26:01.080 --> 00:26:03.690
+So if I have this custom
+checkbox and I hover over it,
+
+00:26:03.690 --> 00:26:08.020
+and so it changes from gray to
+blue... Or if I have a link,
+
+00:26:08.020 --> 00:26:11.570
+and when I hover over that link,
+it gets lighter, as an example,
+
+00:26:12.690 --> 00:26:16.710
+now those are different states
+where the contrast has changed,
+
+00:26:16.710 --> 00:26:18.330
+and I'm going to need to test that.
+
+00:26:18.330 --> 00:26:20.370
+So that's a lot of these.
+
+00:26:20.370 --> 00:26:22.890
+Five, six, seven, eight,
+they are all different states
+
+00:26:22.890 --> 00:26:24.450
+of that checkbox border.
+
+00:26:24.450 --> 00:26:26.800
+Hover, focus, active, checked.
+
+00:26:26.800 --> 00:26:29.780
+Now some of these are
+just super fast tests.
+
+00:26:29.780 --> 00:26:33.090
+If I'm hovering with my mouse
+and something does not change,
+
+00:26:33.090 --> 00:26:38.770
+or it gets darker, well, I don't
+need to dig deeper with that.
+
+00:26:38.770 --> 00:26:40.800
+I don't need to pull out
+other tools or techniques.
+
+00:26:41.960 --> 00:26:45.580
+If it has enough contrast and it
+gets darker on the background,
+
+00:26:45.580 --> 00:26:47.990
+it's going to have more contrast.
+
+00:26:47.990 --> 00:26:51.220
+So some of these are like one-second
+checks, but it's important
+
+00:26:51.220 --> 00:26:51.890
+to do this.
+
+00:26:51.890 --> 00:26:57.070
+When I interact with this thing, when
+I check it, when I follow a link,
+
+00:26:57.070 --> 00:27:00.510
+does it... You don't have as
+many sites with this anymore,
+
+00:27:00.510 --> 00:27:04.880
+but if it has, like...
+Sorry, transitioning to the links.
+
+00:27:04.880 --> 00:27:08.290
+Does it have, like,
+a visited state, you know?
+
+00:27:08.290 --> 00:27:10.510
+It’s hover, focus, active, visited.
+
+00:27:10.510 --> 00:27:11.750
+So that's a bunch of these.
+
+00:27:11.750 --> 00:27:15.187
+Nine, ten, eleven,
+twelve; hover, focus, active,
+
+00:27:15.188 --> 00:27:16.940
+and visited for my link.
+
+00:27:18.060 --> 00:27:20.680
+So that's how that number
+gets so big so fast.
+
+00:27:24.850 --> 00:27:27.550
+OK, so there's a question in
+the related resource section.
+
+00:27:27.550 --> 00:27:30.420
+Let me go back to this page
+real quick, just to clarify.
+
+00:27:30.420 --> 00:27:32.340
+Really good question,
+and good catch.
+
+00:27:32.340 --> 00:27:35.630
+I have like a few links in this
+page, and only one
+
+00:27:35.630 --> 00:27:39.740
+of these examples is not underlined
+specifically for this activity.
+
+00:27:39.740 --> 00:27:42.970
+There are some others
+that are underlined.
+
+00:27:42.970 --> 00:27:50.970
+Leigh Ann, I'm actually not sure if
+I'm totally following the question.
+
+00:27:51.140 --> 00:27:57.590
+So where it's clear that these
+are links... Oh, I'm sorry,
+
+00:27:57.590 --> 00:27:58.870
+actually,
+I know what you are saying.
+
+00:27:58.870 --> 00:28:01.230
+So we've got this
+related resource section.
+
+00:28:01.230 --> 00:28:04.880
+So we've got a few things that are
+very clearly presented as links.
+
+00:28:04.880 --> 00:28:09.280
+So how about the non-link
+text for some of these though?
+
+00:28:09.280 --> 00:28:13.330
+For each of the articles,
+I have added a few words to describe
+
+00:28:13.330 --> 00:28:16.490
+what that article contains,
+and that's not a link.
+
+00:28:16.490 --> 00:28:22.160
+Now, if for example, my related
+resources, it gets a lot closer,
+
+00:28:22.160 --> 00:28:25.290
+but I even, there, do have a
+couple of separate links...
+
+00:28:25.290 --> 00:28:28.590
+So at the bottom, I've got a link to
+the WordPress accessibility plugin,
+
+00:28:28.590 --> 00:28:31.020
+and that’s about the only thing
+I'm going to say about WordPress
+
+00:28:31.020 --> 00:28:33.200
+in this WordPress
+Accessibility day.
+
+00:28:33.200 --> 00:28:37.070
+But it's got a link and then
+non-link, and then the name,
+
+00:28:37.070 --> 00:28:38.270
+and so it's two separate links.
+
+00:28:38.270 --> 00:28:42.510
+And so that's kind
+of the idea there.
+
+00:28:42.510 --> 00:28:45.150
+Yes, thank you, Leigh Ann,
+I finally tracked that question.
+
+00:28:45.150 --> 00:28:46.600
+That's a good question, thanks.
+
+00:28:48.500 --> 00:28:52.370
+So you would still need to,
+in this case, underline those links.
+
+00:28:52.370 --> 00:28:55.720
+Now, there might be places
+where that's not the case.
+
+00:28:55.720 --> 00:28:58.000
+For example, there might be
+some pages where we have a list
+
+00:28:58.000 --> 00:28:59.490
+of related resources.
+
+00:28:59.490 --> 00:29:04.290
+They are always just links, and
+they are called related resources.
+
+00:29:04.290 --> 00:29:06.770
+And you could maybe make a
+case for not underlining those.
+
+00:29:06.770 --> 00:29:09.820
+And I'm talking about a sidebar
+that we have in an article
+
+00:29:09.820 --> 00:29:11.040
+that I just clicked on.
+
+00:29:11.040 --> 00:29:18.330
+So yes, there might be times
+where that's not needed.
+
+00:29:27.360 --> 00:29:28.860
+Got a question coming on.
+
+00:29:28.860 --> 00:29:31.340
+I'm going to hold off on
+that one maybe till later.
+
+00:29:32.570 --> 00:29:36.570
+So 13 and 14, now we're going to
+be talking about not just the color
+
+00:29:36.570 --> 00:29:38.740
+of something if it
+changes color on focus,
+
+00:29:38.740 --> 00:29:43.360
+but whatever indication you have
+that something has keyboard focus.
+
+00:29:43.360 --> 00:29:48.370
+So this focus indicator, I’ve
+used to blue outline as an example
+
+00:29:48.370 --> 00:29:50.770
+where if I hit the tab key
+and navigate to something
+
+00:29:50.770 --> 00:29:53.840
+with the keyboard,
+there is outline.
+
+00:29:53.840 --> 00:29:55.950
+So that's going to be
+number 13 for the link.
+
+00:29:55.950 --> 00:29:58.030
+Number 14 is going to
+be for the checkbox.
+
+00:30:01.220 --> 00:30:04.030
+Oh, yes, Joe mentioned in the chat.
+
+00:30:04.030 --> 00:30:08.210
+A little plug for that, it does
+have a contrast testing, I think,
+
+00:30:08.210 --> 00:30:10.300
+built into that plugin.
+
+00:30:10.300 --> 00:30:11.980
+And Joe, you can correct
+me on that if I am wrong,
+
+00:30:11.980 --> 00:30:15.500
+but it is a useful WordPress
+resource, absolutely.
+
+00:30:17.240 --> 00:30:22.760
+So a little bit more on focus.
+
+00:30:22.760 --> 00:30:26.660
+Of all of these different states,
+it is by far the trickiest.
+
+00:30:26.660 --> 00:30:29.480
+Because the thing that
+sets keyboard focus apart
+
+00:30:29.480 --> 00:30:36.520
+from all these other
+possible states is
+
+00:30:36.520 --> 00:30:41.500
+that the change actually does
+direct you to that thing.
+
+00:30:41.500 --> 00:30:45.430
+When I'm hitting the tab key,
+that whatever change I get on focus,
+
+00:30:45.430 --> 00:30:48.260
+that's how I know
+that thing has focus.
+
+00:30:48.260 --> 00:30:50.700
+With a mouse,
+I know because my mouse is on it.
+
+00:30:50.700 --> 00:30:52.306
+I get a cursor, I get a finger,
+
+00:30:52.307 --> 00:30:54.430
+something to tell me
+my mouse is on it.
+
+00:30:54.430 --> 00:30:57.320
+Well, with focus,
+that is how I know.
+
+00:30:57.320 --> 00:31:01.070
+And so there's some additional
+things to be aware of here.
+
+00:31:01.070 --> 00:31:05.320
+So if I just changed color
+between these different states...
+
+00:31:05.320 --> 00:31:10.400
+I've got a gray default, a blue
+hover, and a green focus border.
+
+00:31:10.400 --> 00:31:12.130
+Now, I'm not recommending
+these colors.
+
+00:31:12.130 --> 00:31:14.130
+It’s just for examples.
+
+00:31:14.130 --> 00:31:17.170
+But if I were to do that,
+the hover would be fine
+
+00:31:17.170 --> 00:31:19.820
+because there'd be a
+3-to-1 difference here.
+
+00:31:19.820 --> 00:31:22.540
+The focus though,
+there'd actually be a problem here.
+
+00:31:23.700 --> 00:31:26.750
+And it would probably
+be a failure of WCAG.
+
+00:31:26.750 --> 00:31:29.690
+Now, it gets kind of
+technical and tricky here.
+
+00:31:29.690 --> 00:31:34.130
+It's actually a failure of the
+color requirement because I'm back
+
+00:31:34.130 --> 00:31:35.840
+to relying on color.
+
+00:31:35.840 --> 00:31:39.470
+I'm back to relying on color
+for a place where, like,
+
+00:31:39.470 --> 00:31:41.880
+if I'm using a keyboard,
+it's only a color difference
+
+00:31:41.880 --> 00:31:44.880
+that would tell me that I'm
+navigated to that thing.
+
+00:31:44.880 --> 00:31:49.550
+So that's a requirement
+that you need to address.
+
+00:31:49.550 --> 00:31:53.360
+Now, this is probably one of
+the funkiest things that I want
+
+00:31:53.360 --> 00:31:57.010
+to talk about, and I hope I can
+explain it with the time I've got.
+
+00:31:57.010 --> 00:32:01.810
+If you add, say, a little
+light gray border to a checkbox
+
+00:32:03.970 --> 00:32:07.500
+between the hover and focus states...
+So you've got gray default,
+
+00:32:07.500 --> 00:32:11.580
+blue hover, and then just this
+light gray little glow on focus...
+
+00:32:11.580 --> 00:32:17.140
+It actually passes all of the
+requirements in WCAG at levels A
+
+00:32:17.140 --> 00:32:21.330
+and double A, up to version 2.1,
+which is the current version.
+
+00:32:21.330 --> 00:32:24.290
+There's kind of this weird
+gap where in the contrast one,
+
+00:32:24.290 --> 00:32:27.690
+it says, well, you need at least
+3-to-1 contrast for every state,
+
+00:32:27.690 --> 00:32:30.860
+but not differences between states.
+
+00:32:30.860 --> 00:32:35.090
+And in the color one, it says
+you can’t rely on color alone,
+
+00:32:35.090 --> 00:32:37.400
+but it does not have
+a minimum contrast.
+
+00:32:37.400 --> 00:32:41.150
+So there's this weird little gap
+where this little subtle glow,
+
+00:32:41.150 --> 00:32:44.160
+even though it's very light and
+has less than 3-to-1 contrast,
+
+00:32:44.160 --> 00:32:47.490
+would not fail anything
+in version 2.1.
+
+00:32:47.490 --> 00:32:49.560
+So there is a version 2.2.
+
+00:32:50.700 --> 00:32:53.360
+And I've got the text here, but
+actually, in the interest of time,
+
+00:32:53.360 --> 00:32:54.680
+I'm not going to read it all.
+
+00:32:54.680 --> 00:32:56.430
+It's called focus appearance.
+
+00:32:56.430 --> 00:33:00.720
+And what it basically says
+is, it's not enough just to...
+
+00:33:00.720 --> 00:33:02.010
+It fills that gap.
+
+00:33:03.920 --> 00:33:09.150
+If I have the gray box as my
+default, that blue box
+
+00:33:09.150 --> 00:33:12.120
+with the light gray glow
+is my focus indication,
+
+00:33:12.120 --> 00:33:14.600
+that would fail this requirement.
+
+00:33:14.600 --> 00:33:16.870
+Because the difference
+between these two,
+
+00:33:16.870 --> 00:33:18.990
+is it does not have
+3-to-1 contrast.
+
+00:33:20.560 --> 00:33:23.010
+Another thing that would
+fail is a very narrow border.
+
+00:33:23.010 --> 00:33:26.980
+So if I have just got like a one
+or under a two pixel, say outline
+
+00:33:26.980 --> 00:33:29.650
+or something like that...
+If it's really, really thin...
+
+00:33:29.650 --> 00:33:34.230
+I made it's slightly bigger than one
+pixel just so you all can see it.
+
+00:33:34.230 --> 00:33:38.170
+But it would also fail just
+because the indication is so small
+
+00:33:38.170 --> 00:33:39.430
+that it might be hard to perceive.
+
+00:33:40.670 --> 00:33:43.934
+Although,
+if I did darken the checkbox,
+
+00:33:43.935 --> 00:33:46.300
+the checkbox is much darker,
+
+00:33:46.300 --> 00:33:51.810
+and now the color difference between
+of the borders is at least 3-to-1,
+
+00:33:51.810 --> 00:33:52.940
+that would actually pass.
+
+00:33:52.940 --> 00:33:55.920
+Because now I've got this big
+border, at least two pixels,
+
+00:33:55.920 --> 00:33:59.480
+and that border has at least
+a 3-to-1 contrast difference.
+
+00:33:59.480 --> 00:34:02.210
+The glow, actually,
+is no longer even relevant.
+
+00:34:02.210 --> 00:34:05.860
+It's just that it's big enough
+and it's different enough
+
+00:34:05.860 --> 00:34:07.650
+that it would meet
+this requirement.
+
+00:34:07.650 --> 00:34:10.800
+Now even better,
+give it a focus outline.
+
+00:34:10.800 --> 00:34:15.100
+Almost always add that keyboard
+focus outline because it works
+
+00:34:15.100 --> 00:34:16.830
+with all of your states.
+
+00:34:16.830 --> 00:34:19.710
+Sometimes you end up getting places
+where you get more than one state
+
+00:34:19.710 --> 00:34:21.480
+at the same time.
+
+00:34:22.590 --> 00:34:23.740
+Now, this is kind
+of a weird scenario,
+
+00:34:23.740 --> 00:34:25.880
+but maybe I've hovered over
+something with my mouse
+
+00:34:25.880 --> 00:34:27.740
+while I'm tapping along with
+my keyboard, I just kind
+
+00:34:27.740 --> 00:34:29.020
+of put my mouse over something.
+
+00:34:31.030 --> 00:34:35.230
+I've given that an outline, and
+that outline is at least two pixels,
+
+00:34:35.230 --> 00:34:38.320
+and that outline has at least
+3-to-1 contrast with the background,
+
+00:34:38.320 --> 00:34:40.450
+then I've met all of
+these requirements.
+
+00:34:40.450 --> 00:34:42.120
+And so that's going to
+be best most of the time.
+
+00:34:43.700 --> 00:34:47.280
+OK, a little water break.
+
+00:34:50.600 --> 00:34:55.780
+So if we've got to evaluate all
+these states, and if it's two-thirds
+
+00:34:55.780 --> 00:34:58.540
+of the things that I've talked
+about in terms of numbers,
+
+00:34:59.610 --> 00:35:01.760
+how can I do that?
+
+00:35:01.760 --> 00:35:04.810
+Well there's several
+ways that I can do this,
+
+00:35:04.810 --> 00:35:08.390
+but one is using DevTools
+or Chrome Developer Tools.
+
+00:35:08.390 --> 00:35:11.550
+There are similar contrast tools
+in other browsers, but I'm going
+
+00:35:11.550 --> 00:35:14.680
+to focus in on Chrome and
+their developer tools.
+
+00:35:14.680 --> 00:35:16.960
+There's an article that goes
+through this, so I'm going
+
+00:35:16.960 --> 00:35:18.590
+to go fairly quickly.
+
+00:35:18.590 --> 00:35:21.140
+But if you want to learn
+more about how to do this,
+
+00:35:21.140 --> 00:35:25.220
+just please go back to the article
+that's linked to that resource page.
+
+00:35:25.220 --> 00:35:29.700
+So I've got a scenario here now
+where there's a contact us link.
+
+00:35:29.700 --> 00:35:32.260
+And when I come to this contact
+us link and I hover over it
+
+00:35:32.260 --> 00:35:35.040
+with a mouse, or if I navigate
+to it with a keyboard...
+
+00:35:36.350 --> 00:35:39.080
+In this case,
+it's just the hover state.
+
+00:35:39.080 --> 00:35:40.000
+I misspoke.
+
+00:35:40.000 --> 00:35:41.000
+It gets lighter.
+
+00:35:42.350 --> 00:35:47.420
+So that lighter text, I don’t
+know if that has enough contrast.
+
+00:35:47.420 --> 00:35:50.160
+So with DevTools, there's
+some cool stuff that I can do.
+
+00:35:50.160 --> 00:35:53.340
+Just to save time, keyboard
+shortcut that I use all the time
+
+00:35:53.340 --> 00:35:58.510
+is Control-Shift C on Windows and
+Command-Shift or Command-Option.
+
+00:35:58.510 --> 00:36:00.190
+I think, maybe even both.
+
+00:36:00.190 --> 00:36:03.120
+But I think it's
+Command-Shift C on Mac,
+
+00:36:03.120 --> 00:36:05.110
+and it will open
+this Developer Tools,
+
+00:36:05.110 --> 00:36:07.800
+and it will also open
+this mouse inspector.
+
+00:36:07.800 --> 00:36:10.330
+Now, this tool is mouse
+only, but what I can do is
+
+00:36:10.330 --> 00:36:12.450
+I can hover over
+different elements.
+
+00:36:12.450 --> 00:36:15.080
+One thing it'll do is it'll
+actually tell me the contrast,
+
+00:36:15.080 --> 00:36:18.430
+which in this case is 4.8 to 1.
+
+00:36:18.430 --> 00:36:22.430
+So it's over that 4.5 to 1
+requirement in its default state.
+
+00:36:22.430 --> 00:36:27.340
+Now, if I wanted to test that hover
+state, in this Developer Tools,
+
+00:36:27.340 --> 00:36:30.170
+kind of the bottom half,
+I've got these different tabs.
+
+00:36:30.170 --> 00:36:32.860
+The first one that's selected
+by default is styles.
+
+00:36:33.960 --> 00:36:36.900
+Right under that styles
+tab is this button.
+
+00:36:36.900 --> 00:36:39.150
+HOB is what the button says.
+
+00:36:39.150 --> 00:36:41.870
+It's called ToggleElementState.
+
+00:36:41.870 --> 00:36:44.590
+And if I come into this
+ToggleElementState, I expand it
+
+00:36:44.590 --> 00:36:48.120
+by clicking on the button,
+and I check the hover state,
+
+00:36:48.120 --> 00:36:50.690
+it actually will lighten this text.
+
+00:36:50.690 --> 00:36:51.770
+I should have lightened the text.
+
+00:36:51.770 --> 00:36:52.210
+You know what?
+
+00:36:52.210 --> 00:36:53.340
+I didn't inspect the right thing.
+
+00:36:53.340 --> 00:36:54.460
+Let me do that one more time.
+
+00:36:54.460 --> 00:36:55.880
+Got to make sure I'm
+on the right thing.
+
+00:36:55.880 --> 00:36:57.080
+I'm on that link.
+
+00:36:57.080 --> 00:36:59.820
+You are going to toggle
+that hover state.
+
+00:36:59.820 --> 00:37:04.690
+And now if I inspect this,
+it has 3-to-1 contrast,
+
+00:37:04.690 --> 00:37:06.440
+and it fails this requirement.
+
+00:37:06.440 --> 00:37:10.890
+And so Developer Tools can be really
+useful to lock in these states
+
+00:37:10.890 --> 00:37:12.590
+when I know I need to do
+a little more testing.
+
+00:37:15.180 --> 00:37:17.570
+I know we're kind of
+flying through these.
+
+00:37:18.610 --> 00:37:21.370
+Sometimes I'll take about
+three hours on these topics.
+
+00:37:21.370 --> 00:37:23.600
+Going kind of quickly,
+but, again, hopefully
+
+00:37:23.600 --> 00:37:27.470
+just the principles make some
+sense, and then dig a little deeper
+
+00:37:27.470 --> 00:37:28.590
+with some of those articles.
+
+00:37:29.890 --> 00:37:33.740
+OK, so number 15 is actually
+an easy one to overlook.
+
+00:37:33.740 --> 00:37:35.690
+But that is, Well, what about
+the check mark? So actually,
+
+00:37:35.690 --> 00:37:37.740
+it's in this checked state.
+
+00:37:37.740 --> 00:37:40.590
+I mean, what is the indication that
+this thing is actually checked?
+
+00:37:40.590 --> 00:37:41.440
+A check mark?
+
+00:37:41.440 --> 00:37:44.100
+I've got to test the contrast
+of that and make sure
+
+00:37:44.100 --> 00:37:46.900
+that thing has contrast as well.
+
+00:37:46.900 --> 00:37:48.180
+So I'm up to my 15.
+
+00:37:49.880 --> 00:37:51.690
+But wait, there's more.
+
+00:37:51.690 --> 00:37:55.150
+There's actually more than these
+15, because if I look at this thing,
+
+00:37:55.150 --> 00:37:57.670
+I have read and agreed to
+the terms of use, basically,
+
+00:37:57.670 --> 00:38:01.480
+every time this appears or something
+like this appears in a form,
+
+00:38:01.480 --> 00:38:02.480
+it is required.
+
+00:38:03.350 --> 00:38:05.970
+And so if you have something
+that's required, what are you going
+
+00:38:05.970 --> 00:38:06.460
+to end up with?
+
+00:38:06.460 --> 00:38:09.600
+You are going to end up with
+error messaging submission
+
+00:38:09.600 --> 00:38:12.040
+of that thing, error
+states, that kind of stuff.
+
+00:38:13.320 --> 00:38:17.400
+So this is the bonus around,
+the lightning round here,
+
+00:38:17.400 --> 00:38:19.670
+where it gets faster.
+
+00:38:19.670 --> 00:38:24.580
+But this is going to be a
+little bit more than those 15.
+
+00:38:24.580 --> 00:38:30.160
+What if this thing has an error?
+So I've read and agreed
+
+00:38:30.160 --> 00:38:32.220
+to the terms of use,
+and there's this submit button,
+
+00:38:32.220 --> 00:38:34.760
+but it has really low contrast.
+
+00:38:34.760 --> 00:38:39.510
+That's a visual indication that
+this thing is disabled or inactive,
+
+00:38:39.510 --> 00:38:41.250
+and I can’t click on it.
+
+00:38:41.250 --> 00:38:43.420
+So I might try to click on it
+and nothing's going to happen.
+
+00:38:43.420 --> 00:38:45.080
+If I try to navigate with
+the keyboard, it's going
+
+00:38:45.080 --> 00:38:49.010
+to jump past that thing because
+it can’t get keyboard focus
+
+00:38:49.010 --> 00:38:50.620
+while it's in that disabled state.
+
+00:38:52.540 --> 00:38:54.460
+So you might think, Well,
+what do I do about that?
+
+00:38:54.460 --> 00:38:57.880
+That fails, right?
+It actually does not fail
+
+00:38:57.880 --> 00:39:01.110
+because there is an exception
+for inactive components,
+
+00:39:01.110 --> 00:39:03.180
+because the way you know
+something is inactive
+
+00:39:03.180 --> 00:39:05.800
+or disabled is that
+it's low contrast.
+
+00:39:05.800 --> 00:39:10.290
+But this is not an
+ideal way to do this.
+
+00:39:11.360 --> 00:39:14.200
+I'm sure all of us have had this
+situation where we were, like,
+
+00:39:14.200 --> 00:39:15.690
+Why can't I submit this thing?
+
+00:39:15.690 --> 00:39:17.630
+Why can't I click this button?
+And then you realize,
+
+00:39:17.630 --> 00:39:20.600
+Oh, I missed some required things
+somewhere else up the form.
+
+00:39:20.600 --> 00:39:22.540
+I did not even realize
+it was required.
+
+00:39:22.540 --> 00:39:26.170
+I think it’s better to
+usually allow submission,
+
+00:39:26.170 --> 00:39:30.080
+and then provide error
+feedback, error messaging.
+
+00:39:30.080 --> 00:39:31.720
+So we got this button.
+
+00:39:32.800 --> 00:39:35.550
+The submit button is
+no longer disabled.
+
+00:39:35.550 --> 00:39:38.920
+So I'm going to click it and I
+will get some error messages.
+
+00:39:38.920 --> 00:39:40.500
+So now I need to test that.
+
+00:39:40.500 --> 00:39:43.250
+So number 16 is going to be
+contrast of the button border.
+
+00:39:43.250 --> 00:39:44.710
+[Inaudible 00:39:43]
+
+00:39:44.710 --> 00:39:47.290
+leading way... Actually not.
+
+00:39:47.290 --> 00:39:49.460
+Because the idea with... Why not?
+
+00:39:49.460 --> 00:39:52.700
+I said I needed the border with the
+checkbox, but not with the button.
+
+00:39:52.700 --> 00:39:55.580
+Well, that's because with
+the checkbox, I need to know
+
+00:39:55.580 --> 00:39:58.830
+that my mouse goes inside that box.
+
+00:39:58.830 --> 00:40:02.120
+That's the border of the thing
+that I can check with a button.
+
+00:40:03.620 --> 00:40:07.920
+So you do not actually have a
+contrast requirement for that border.
+
+00:40:07.920 --> 00:40:10.080
+So how about the
+fill of that button?
+
+00:40:10.080 --> 00:40:13.210
+Actually, not even the fill.
+
+00:40:15.510 --> 00:40:21.810
+The fill with the background,
+does that meet at least 3-to-1
+
+00:40:21.810 --> 00:40:23.460
+or something like that?
+
+00:40:23.460 --> 00:40:25.270
+It does not.
+
+00:40:25.270 --> 00:40:27.760
+The idea with that is,
+we've all seen buttons
+
+00:40:27.760 --> 00:40:31.310
+that do not have a background at all
+and we still know where to click.
+
+00:40:32.880 --> 00:40:36.830
+Now submit usually looks like
+a button, but sometimes it
+
+00:40:36.830 --> 00:40:38.170
+might be a different color.
+
+00:40:38.170 --> 00:40:42.000
+Or you might have a
+reset button or something
+
+00:40:42.000 --> 00:40:44.250
+that does not look like a button.
+
+00:40:44.250 --> 00:40:46.370
+So what do I need to really test?
+
+00:40:46.370 --> 00:40:47.840
+Well, the contrast
+of the button text.
+
+00:40:47.840 --> 00:40:51.800
+So that would be this dark gray
+text on this light blue background.
+
+00:40:51.800 --> 00:40:55.060
+That would be the contrast
+that I would need to test.
+
+00:40:55.060 --> 00:40:57.530
+I'm actually thinking, well,
+you are kind of stretching
+
+00:40:57.530 --> 00:40:58.640
+for some of these numbers.
+
+00:40:58.640 --> 00:41:00.630
+I'm actually going to
+walk you back here.
+
+00:41:00.630 --> 00:41:02.790
+And I'm just going
+to leave it at 16.
+
+00:41:02.790 --> 00:41:05.830
+But you actually would need to
+test all the other possible states
+
+00:41:05.830 --> 00:41:07.320
+of this button as well.
+
+00:41:07.320 --> 00:41:09.780
+So it's actually going to be
+16-plus, closer to 20.
+
+00:41:11.020 --> 00:41:13.110
+So let's say I submit this
+thing and I've got an error.
+
+00:41:14.120 --> 00:41:22.110
+And so now with this error,
+I've got a checkbox that's now red.
+
+00:41:22.110 --> 00:41:24.340
+So a couple of things
+with this red checkbox.
+
+00:41:24.340 --> 00:41:27.490
+One is that I now need to test
+the contrast of this thing.
+
+00:41:27.490 --> 00:41:30.240
+So does it have at least 3-to-1
+contrast at the background
+
+00:41:30.240 --> 00:41:31.890
+in its error state?
+
+00:41:31.890 --> 00:41:35.800
+I've introduced an additional state
+now that this thing has an error.
+
+00:41:37.260 --> 00:41:39.010
+So that's 17.
+
+00:41:40.780 --> 00:41:44.510
+Then what about the difference
+between the error state
+
+00:41:44.510 --> 00:41:46.230
+and the focus state?
+
+00:41:46.230 --> 00:41:50.310
+So before saying, OK, we got that
+black or really dark checkbox,
+
+00:41:50.310 --> 00:41:52.470
+got this bright blue
+focus indicator.
+
+00:41:52.470 --> 00:41:56.510
+I'm good to go, right?
+Well, what if there's an error?
+
+00:41:56.510 --> 00:42:01.970
+The difference you're looking
+for is between the unfocused
+
+00:42:01.970 --> 00:42:04.060
+and the focused
+state of that thing.
+
+00:42:04.060 --> 00:42:07.750
+And when it's got an error,
+the unfocused state is now red.
+
+00:42:07.750 --> 00:42:11.000
+And so I failed again, unless I
+would have added maybe that...
+
+00:42:11.000 --> 00:42:14.280
+That’s another reason,
+another plug for adding that outline.
+
+00:42:15.550 --> 00:42:18.130
+So that's that one.
+
+00:42:18.130 --> 00:42:20.154
+Probably the big one
+here is you've got color
+
+00:42:20.155 --> 00:42:21.430
+that's prompting a response.
+
+00:42:22.470 --> 00:42:26.450
+So with this color prompting a
+response, that's going to be a use
+
+00:42:26.450 --> 00:42:27.730
+of color failure.
+
+00:42:27.730 --> 00:42:29.260
+And you might say, Well,
+wait, I thought I had
+
+00:42:29.260 --> 00:42:33.660
+at least 3-to-1 contrast like the
+link text. Well, this is different.
+
+00:42:33.660 --> 00:42:36.240
+The reason this is different is
+because you're not just saying,
+
+00:42:36.240 --> 00:42:37.670
+here's a color difference.
+
+00:42:37.670 --> 00:42:42.020
+You're actually using the
+color red to convey meaning.
+
+00:42:42.020 --> 00:42:46.220
+This requires that I can detect
+and differentiate the color red
+
+00:42:46.220 --> 00:42:48.430
+from all other colors.
+
+00:42:48.430 --> 00:42:50.561
+And so even if this
+has enough contrast,
+
+00:42:50.562 --> 00:42:52.120
+this would still be a failure
+
+00:42:52.120 --> 00:42:58.290
+of that use of color requirement
+because I got to be able to see red
+
+00:42:58.290 --> 00:42:59.490
+and tell it apart from others.
+
+00:43:00.970 --> 00:43:01.790
+So what would I want to do?
+
+00:43:01.790 --> 00:43:05.810
+Maybe I'd want to add an icon
+and some kind of an alert
+
+00:43:05.810 --> 00:43:09.840
+in addition to that color to let
+me know that there's an error,
+
+00:43:09.840 --> 00:43:10.840
+and that's great.
+
+00:43:11.790 --> 00:43:16.870
+Now, this would be something that I'd
+also need to test the contrast of.
+
+00:43:16.870 --> 00:43:19.370
+So one little aside
+here with this contrast,
+
+00:43:20.400 --> 00:43:26.080
+and that is I've used a white
+background for all of these slides.
+
+00:43:26.080 --> 00:43:29.720
+Often, I'll see a form, for example,
+or maybe even like this bottom part
+
+00:43:29.720 --> 00:43:31.190
+of the form where it's
+like a lighter gray.
+
+00:43:32.430 --> 00:43:36.500
+When it comes to testing
+contrast of shapes,
+
+00:43:36.500 --> 00:43:39.830
+it's not always just two colors.
+
+00:43:39.830 --> 00:43:43.880
+The term that's used in WCAG to
+describe the contrast requirements is
+
+00:43:43.880 --> 00:43:46.640
+that it's against adjacent colors.
+
+00:43:46.640 --> 00:43:50.150
+The parts of the shape
+that I need to perceive
+
+00:43:50.150 --> 00:43:51.780
+in order to know what's going on.
+
+00:43:51.780 --> 00:43:55.850
+And for an alert icon specifically,
+a triangle is part of that shape.
+
+00:43:55.850 --> 00:43:59.960
+Now, if it were a circle or a square
+or just an exclamation mark, fine.
+
+00:43:59.960 --> 00:44:03.250
+But because I've decided to use
+a triangle, and that is a symbol
+
+00:44:03.250 --> 00:44:09.380
+for an alert, now I’d have to
+test really the white contrast
+
+00:44:09.380 --> 00:44:10.860
+from the red.
+
+00:44:10.860 --> 00:44:15.080
+And if that has at least 3-to-1, I'm
+good, which, in this case, it does.
+
+00:44:15.080 --> 00:44:18.690
+But the red against the
+gray background does not.
+
+00:44:18.690 --> 00:44:22.420
+It has less than 3-to-1, and so
+that this would actually fail that
+
+00:44:22.420 --> 00:44:27.410
+because this triangle, I need to
+perceive or distinguish the triangle
+
+00:44:27.410 --> 00:44:28.410
+from the background.
+
+00:44:29.210 --> 00:44:31.890
+One I can address this is
+to add order to the icons.
+
+00:44:31.890 --> 00:44:35.080
+If you do that in general, to the
+little icons you're using like that,
+
+00:44:35.080 --> 00:44:37.700
+then you can be confident that
+it will have enough contrast
+
+00:44:37.700 --> 00:44:38.980
+on any color background.
+
+00:44:40.220 --> 00:44:41.290
+OK, so we are real close.
+
+00:44:41.290 --> 00:44:42.650
+We are almost done here.
+
+00:44:42.650 --> 00:44:44.850
+Just going to wrap it
+up with one final thing,
+
+00:44:44.850 --> 00:44:46.580
+and that is an error message.
+
+00:44:46.580 --> 00:44:48.780
+So what if I add an error message?
+
+00:44:48.780 --> 00:44:50.850
+You must agree to the
+terms of use to continue.
+
+00:44:52.490 --> 00:44:58.040
+So one final thing related
+to graphics is that you need
+
+00:44:58.040 --> 00:45:01.710
+to have that 3-to-1 contrast
+if the graphic is required
+
+00:45:01.710 --> 00:45:06.360
+to understand what's going
+on, if it's an enhancement.
+
+00:45:07.560 --> 00:45:09.570
+And in this case,
+it's become an enhancement.
+
+00:45:09.570 --> 00:45:11.830
+There's no contrast requirement.
+
+00:45:11.830 --> 00:45:14.530
+Now it's great that it's there and
+I would definitely recommend it,
+
+00:45:14.530 --> 00:45:17.540
+but the error message on its
+own is enough to tell you
+
+00:45:17.540 --> 00:45:19.950
+that there's an error here.
+
+00:45:19.950 --> 00:45:20.680
+It appeared.
+
+00:45:20.680 --> 00:45:22.170
+It wasn't there before.
+
+00:45:22.170 --> 00:45:24.150
+You must agree to the
+terms of use to continue,
+
+00:45:24.150 --> 00:45:30.520
+it tells me that this
+is an in an error state.
+
+00:45:30.520 --> 00:45:34.330
+So in that case, I would need to
+test the contrast, the error message.
+
+00:45:34.330 --> 00:45:39.110
+I would still highly recommend
+a good high contrast alert icon,
+
+00:45:39.110 --> 00:45:45.110
+but on its own,
+that would not be required.
+
+00:45:46.140 --> 00:45:48.860
+So we made it.
+
+00:45:48.860 --> 00:45:50.270
+I know that was that
+was pretty quick.
+
+00:45:50.270 --> 00:45:53.210
+That was about as fast as
+I know how to go with this.
+
+00:45:53.210 --> 00:45:55.240
+But that just gives you an idea
+that we're actually up to 20,
+
+00:45:55.240 --> 00:45:58.120
+and really even more with
+that button that I threw in;
+
+00:45:58.120 --> 00:46:00.480
+different things that
+you would need to test.
+
+00:46:00.480 --> 00:46:03.660
+So just be mindful with
+your contrast testing.
+
+00:46:03.660 --> 00:46:06.980
+I think the big key is
+interact with that thing.
+
+00:46:06.980 --> 00:46:10.340
+You interact, figure out what
+are its different states.
+
+00:46:10.340 --> 00:46:13.670
+Submit things with errors so
+that you can test the errors
+
+00:46:13.670 --> 00:46:15.030
+of those as well.
+
+00:46:15.030 --> 00:46:16.830
+And I think those are
+going to be the real keys
+
+00:46:16.830 --> 00:46:21.510
+to really bring the number of
+those checks up pretty quickly.
+
+00:46:22.870 --> 00:46:24.110
+OK, so we are at the end.
+
+00:46:24.110 --> 00:46:27.230
+Thank you so much, and I'm going
+to go back through a few questions.
+
+00:46:27.230 --> 00:46:32.920
+We have about four minutes
+remaining for questions.
+
+00:46:32.920 --> 00:46:36.680
+We do have a link to that
+that WebAIM resource page.
+
+00:46:36.680 --> 00:46:39.600
+We have a lot of other resources on
+the WebAIM site, discussion list,
+
+00:46:39.600 --> 00:46:43.270
+newsletter, and info about
+the services we offer.
+
+00:46:43.270 --> 00:46:45.660
+So with that,
+I'm going to stop my share
+
+00:46:46.670 --> 00:46:51.370
+and just take a look at these last
+couple of questions that came in.
+
+00:46:51.370 --> 00:46:54.900
+Yes, so one thing Beatrice
+asked, it really is
+
+00:46:54.900 --> 00:46:57.710
+that the test is really
+foreground and background of text,
+
+00:46:57.710 --> 00:46:58.750
+and some kind of skipping around.
+
+00:46:58.750 --> 00:47:01.480
+The question is: Do we need
+to perform contrast tests
+
+00:47:01.480 --> 00:47:04.860
+with the background of the
+overall page? Absolutely.
+
+00:47:04.860 --> 00:47:07.600
+So I used white,
+kind of as a default for these,
+
+00:47:07.600 --> 00:47:10.070
+but it's really going to be
+whatever that background color is.
+
+00:47:10.070 --> 00:47:11.810
+And it's very often not white.
+
+00:47:11.810 --> 00:47:13.400
+It's going to be some other color.
+
+00:47:13.400 --> 00:47:19.420
+So yes.
+
+00:47:19.420 --> 00:47:22.220
+Gary asked that question about
+not relying fully on color
+
+00:47:22.220 --> 00:47:24.970
+of contrast,
+and also using ARIA attributes.
+
+00:47:24.970 --> 00:47:28.870
+I think a key to the question
+that you asked, Jerry or Gary,
+
+00:47:28.870 --> 00:47:34.700
+is definitely also ARIA attributes.
+
+00:47:34.700 --> 00:47:36.550
+This is everything.
+
+00:47:36.550 --> 00:47:41.100
+All we've talked about 100% has
+been about the visual experience,
+
+00:47:41.100 --> 00:47:44.460
+and you would definitely want to
+enhance that experience using ARIA
+
+00:47:44.460 --> 00:47:47.170
+to make sure that somebody knows,
+for example, it's in an error state,
+
+00:47:47.170 --> 00:47:49.340
+and has that error message read.
+
+00:47:49.340 --> 00:47:51.500
+But that would be in addition
+to all of those color
+
+00:47:51.500 --> 00:47:55.560
+and contrast requirements still
+being in place regardless of the ARIA
+
+00:47:55.560 --> 00:47:59.200
+that you are using.
+
+00:48:02.120 --> 00:48:04.000
+Avoiding placement of text
+on gradient backgrounds
+
+00:48:04.000 --> 00:48:05.760
+is generally best practice? Yes.
+
+00:48:05.760 --> 00:48:06.330
+I think so.
+
+00:48:06.330 --> 00:48:08.150
+Or busy images.
+
+00:48:08.150 --> 00:48:10.990
+I mean, sometimes a gradient
+can be quite subtle,
+
+00:48:10.990 --> 00:48:15.200
+and I think that's OK, but a
+really pretty significant gradient
+
+00:48:15.200 --> 00:48:19.850
+or very busy background images.
+
+00:48:19.850 --> 00:48:21.840
+Would you say that avoiding
+the placement of text
+
+00:48:21.840 --> 00:48:24.450
+on a gradient background
+is generally best practice?
+
+00:48:24.450 --> 00:48:27.200
+I think in general, unless
+that gradient is pretty subtle.
+
+00:48:29.460 --> 00:48:37.330
+Are there color palette resources
+that we are not really calling colors
+
+00:48:37.330 --> 00:48:40.340
+that will help set up a theme
+so that all the colors will work
+
+00:48:40.340 --> 00:48:42.980
+in any state use at the beginning?
+Absolutely.
+
+00:48:42.980 --> 00:48:44.804
+I think having color palettes,
+
+00:48:44.805 --> 00:48:47.540
+and parts of style
+guide are really useful.
+
+00:48:48.790 --> 00:48:52.220
+I can’t quite remember the
+link to one or two tools
+
+00:48:52.220 --> 00:48:54.290
+that can help you with
+color palette building.
+
+00:48:54.290 --> 00:48:57.440
+If anyone knows of one that they want
+to share in the chat, that's great.
+
+00:48:57.440 --> 00:48:59.111
+Of course,
+you can definitely use tools
+
+00:48:59.112 --> 00:49:00.490
+like the contrast checking tools
+
+00:49:00.490 --> 00:49:03.720
+that we’ve talked about within
+WebAIM to determine what are
+
+00:49:03.720 --> 00:49:06.230
+some of those colors
+and those differences.
+
+00:49:06.230 --> 00:49:10.020
+I can’t, off the top of my head,
+think of a tool that helps you
+
+00:49:10.020 --> 00:49:11.170
+with that color palette building.
+
+00:49:13.310 --> 00:49:16.840
+Then last question: Usually workflow,
+when deciding on color styles
+
+00:49:16.840 --> 00:49:21.250
+for a website, what tools or
+checks do you typically rely on?
+
+00:49:21.250 --> 00:49:21.740
+Yes, thank you.
+
+00:49:21.740 --> 00:49:25.070
+Someone mentioned, I think,
+Adobe does have that tool.
+
+00:49:25.070 --> 00:49:26.920
+Then there's a couple that
+are being added in the chat
+
+00:49:26.920 --> 00:49:29.990
+for that last question
+about palette builders.
+
+00:49:43.867 --> 00:49:45.640
+Jason, I'm sorry, could you
+remind me of that last question?
+
+00:49:45.640 --> 00:49:47.360
+I distracted myself.
+
+00:49:47.360 --> 00:49:48.280
+ JASON: Oh, sorry.
+
+00:49:49.297 --> 00:49:50.710
+This last one.
+
+00:49:54.950 --> 00:49:57.359
+ JONATHAN: And I think it was
+just about workflows and processes.
+
+00:49:57.360 --> 00:50:02.190
+And I think for that one,
+the process is typically going
+
+00:50:02.190 --> 00:50:07.290
+to be testing contrast in its
+default state using tools like WAVE,
+
+00:50:07.290 --> 00:50:11.280
+and then a really big part of
+it becomes the interactions.
+
+00:50:11.280 --> 00:50:13.180
+I think that can be
+done one of two ways.
+
+00:50:13.180 --> 00:50:16.150
+Either remember that while
+you're testing interactions,
+
+00:50:16.150 --> 00:50:18.460
+mouse and keyboard and
+things like that, remember
+
+00:50:18.460 --> 00:50:20.950
+to always test contrast
+with those interactions.
+
+00:50:20.950 --> 00:50:24.690
+Or I will often just
+do my contrast testing.
+
+00:50:24.690 --> 00:50:29.740
+So it's like, OK, default, focus,
+hover, error, active, you know,
+
+00:50:29.740 --> 00:50:30.780
+all the different states.
+
+00:50:30.780 --> 00:50:35.050
+And I think it's a lot easier to
+cover my basis if I do those all
+
+00:50:35.050 --> 00:50:36.050
+at the same time.
+
+00:50:37.230 --> 00:50:38.760
+I think I’m out of time.
+
+00:50:38.760 --> 00:50:39.540
+Thank you so much.
+
+00:50:39.540 --> 00:50:42.730
+If I can, I'll type answers to
+these other questions as I go.
+
+00:50:42.730 --> 00:50:45.330
+Or if there are any
+other questions.
+
+00:50:45.330 --> 00:50:47.670
+ JASON: Yes,
+I think you wrap them all up.
+
+00:50:47.670 --> 00:50:48.680
+Thank you very much, Jon.
+
+00:50:48.680 --> 00:50:50.000
+That was a great session.
+
+00:50:50.000 --> 00:50:51.443
+And you took care of all
+the questions for me;
+
+00:50:51.444 --> 00:50:52.210
+made my job really easy.
+
+00:50:53.370 --> 00:50:56.010
+So thanks again.
+
+00:50:56.010 --> 00:50:59.860
+And thanks, everybody, for attending
+this session with Jonathan Whiting.
+
+00:50:59.860 --> 00:51:06.960
+You can continue the conversation
+on social media using the #WPA11YDAY
+
+00:51:06.960 --> 00:51:10.580
+and #WPAD2023.
+
+00:51:10.580 --> 00:51:13.630
+We would also very much
+appreciate it if you go
+
+00:51:13.630 --> 00:51:20.800
+to 2023.WPaccessibility.day/feedback
+to provide anonymous feedback
+
+00:51:20.800 --> 00:51:23.670
+for our speakers on
+their presentations,
+
+00:51:23.671 --> 00:51:27.780
+and while you're there,
+you can enter to win a T-shirt.
+
+00:51:27.780 --> 00:51:29.520
+That about wraps it up for me.
+
+00:51:29.520 --> 00:51:31.550
+Thank you all so much for
+attending, and I hope you learned
+
+00:51:31.550 --> 00:51:34.220
+some really great accessibility
+tips and tricks, and get a chance
+
+00:51:34.220 --> 00:51:36.450
+to use them on your sites.
+
+00:51:36.450 --> 00:51:38.980
+Thank you to WordPress for
+giving me the opportunity
+
+00:51:38.980 --> 00:51:40.760
+to host some really great sessions.
+
+00:51:40.760 --> 00:51:43.240
+And with that,
+I believe I'm passing it to Joe.
+
+00:51:44.460 --> 00:51:45.190
+Thanks, everybody.
+
+00:51:45.190 --> 00:51:49.840
+ AMBER: Thank you to WordPress
+Accessibility Day 2023 sponsors.
+
+00:51:49.840 --> 00:51:52.760
+Platinum Sponsor: Equalize Digital.
+
+00:51:52.760 --> 00:51:55.500
+Equalize Digital’s
+Accessibility Checker Plugin
+
+00:51:55.500 --> 00:51:58.240
+is an automated
+accessibility-scanning tool
+
+00:51:58.240 --> 00:52:01.450
+that helps WordPress websites
+become and stay accessible.
+
+00:52:02.680 --> 00:52:05.550
+Platinum Sponsor: Gravity Forms.
+
+00:52:05.550 --> 00:52:09.170
+Gravity Forms is the professional
+form builder that you need
+
+00:52:09.170 --> 00:52:13.890
+to create beautiful, powerful,
+and accessible forms.
+
+00:52:13.890 --> 00:52:20.890
+Gold Sponsors: 20i., Deque,
+Empire Caption Solutions, Pressable,
+
+00:52:20.890 --> 00:52:21.940
+and WP Engine.
+
+00:52:23.530 --> 00:52:30.420
+Silver Sponsors: Code Geek, Drake
+Cooper, GoDaddy, Lone Rock Point,
+
+00:52:30.420 --> 00:52:31.670
+NerdPress.
+
+00:52:31.670 --> 00:52:39.140
+Overnight Website by Kinetic Iris,
+Raiola Networks, A11y Collective,
+
+00:52:39.140 --> 00:52:40.140
+and The Blogsmith.
+
+00:52:41.800 --> 00:52:47.200
+Bronze Sponsors: AccessiCart,
+GreenGeeks Web Hosting,
+
+00:52:47.200 --> 00:52:58.949
+Hall Analysis’ SEO Consulting,
+HDC, ITX, IvyCat, Metabox,
+
+00:52:58.950 --> 00:53:03.870
+PixelChefs, Simply Schedule
+Appointments, SiteGround,
+
+00:53:03.871 --> 00:53:09.090
+Termageddon, Underrepresented
+In Tech, Weglot, and Yoast.

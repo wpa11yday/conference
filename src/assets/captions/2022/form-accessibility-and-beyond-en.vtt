@@ -1,0 +1,2730 @@
+﻿WEBVTT
+
+00:00:00.001 --> 00:00:30.454
+[pause ]
+
+00:00:30.500 --> 00:00:31.770
+>> ABBAS: Hi, welcome everybody.
+
+00:00:32.920 --> 00:00:35.670
+I hope everybody's having
+a great time so far.
+
+00:00:35.670 --> 00:00:37.820
+Thank you for joining us.
+
+00:00:37.820 --> 00:00:40.370
+Welcome to WordPress
+Accessibility Day.
+
+00:00:40.370 --> 00:00:42.480
+My name is Abbas Jaffary.
+
+00:00:42.480 --> 00:00:45.160
+I'm a mathematics
+teacher and tutor focused
+
+00:00:45.160 --> 00:00:49.290
+on making mathematics more
+accessible on the web and beyond.
+
+00:00:49.290 --> 00:00:52.960
+I want to thank everybody for
+joining us for Form Accessibility
+
+00:00:52.960 --> 00:00:54.450
+and Beyond.
+
+00:00:54.450 --> 00:00:58.070
+With our speakers today,
+we have Rian Rietveld.
+
+00:00:58.070 --> 00:01:03.480
+She is a web accessibility specialist
+at Level Level in the Netherlands.
+
+00:01:03.480 --> 00:01:07.460
+She works in Rotterdam for
+the digital agency Level Level
+
+00:01:07.460 --> 00:01:10.730
+as an accessibility
+consultant and is a trainer
+
+00:01:10.730 --> 00:01:14.320
+for the online learning
+platform, the LI Collective.
+
+00:01:14.320 --> 00:01:17.610
+She is part of web projects
+from start to finish,
+
+00:01:17.610 --> 00:01:20.960
+training both the Level
+Level team and their clients
+
+00:01:20.961 --> 00:01:22.350
+in web accessibility.
+
+00:01:22.350 --> 00:01:25.610
+Besides that, she does accessibility
+consultancy and training
+
+00:01:25.610 --> 00:01:28.590
+for major web agencies
+and companies.
+
+00:01:28.590 --> 00:01:30.850
+She loves to share her
+knowledge at word camps
+
+00:01:30.850 --> 00:01:33.330
+and accessibility
+conferences worldwide.
+
+00:01:33.330 --> 00:01:37.000
+When not coding, reviewing, or
+teaching, you can find Rian working
+
+00:01:37.000 --> 00:01:38.000
+in her garden.
+
+00:01:40.180 --> 00:01:41.180
+We welcome Rian.
+
+00:01:42.760 --> 00:01:47.520
+We also have Morgan Kay,
+a software engineer at Rocketgenius,
+
+00:01:47.520 --> 00:01:50.610
+where she works on a product
+team to build Gravity Forms.
+
+00:01:50.610 --> 00:01:54.260
+She has over 15 years of
+experience with WordPress,
+
+00:01:54.260 --> 00:01:57.500
+both as a developer and
+community organizer.
+
+00:01:57.500 --> 00:02:01.320
+She has organized word
+camps and WordPress meetups
+
+00:02:01.320 --> 00:02:04.150
+and facilitated trainings
+and safe spaces for women
+
+00:02:04.150 --> 00:02:06.950
+and underrepresented
+groups in technology.
+
+00:02:06.950 --> 00:02:09.078
+When she's not working
+at her computer,
+
+00:02:09.079 --> 00:02:12.215
+Morgan is usually out hiking in
+the beautiful Pacific Northwest
+
+00:02:12.216 --> 00:02:13.260
+or reading.
+
+00:02:14.500 --> 00:02:15.360
+Welcome both of you.
+
+00:02:15.360 --> 00:02:16.360
+Thank you.
+
+00:02:17.150 --> 00:02:20.860
+Everybody, please feel free to
+add your questions in the Q&A tab
+
+00:02:20.860 --> 00:02:23.870
+in Slido, and we'll answer
+them at the end of the session.
+
+00:02:23.870 --> 00:02:29.360
+Please use the ideas section
+to chat with other attendees.
+
+00:02:29.360 --> 00:02:31.084
+Now I'll turn it over to Rian.
+
+00:02:34.759 --> 00:02:35.344
+>> RIAN: Hi.
+
+00:02:38.280 --> 00:02:38.590
+welcome.
+
+00:02:38.590 --> 00:02:40.530
+Thank you everybody for joining us.
+
+00:02:43.050 --> 00:02:43.846
+Morgan?
+
+00:02:43.846 --> 00:02:44.898
+>> MORGAN: Yes.
+
+00:02:47.083 --> 00:02:52.830
+I'm Morgan, and today we are going to
+talk about forms and accessibility.
+
+00:02:53.850 --> 00:02:58.410
+Forms are the most common
+interactive elements on websites
+
+00:02:58.410 --> 00:03:02.840
+and the most basic way for users
+to share information with you.
+
+00:03:02.840 --> 00:03:07.000
+Form accessibility and
+usability are absolutely vital.
+
+00:03:07.000 --> 00:03:10.220
+If users can't fill out your form,
+they can't interact with you,
+
+00:03:10.220 --> 00:03:12.860
+they can't place orders,
+they can't contact you.
+
+00:03:14.595 --> 00:03:17.650
+>> RIAN: We are not going
+to talk only about code,
+
+00:03:17.650 --> 00:03:22.940
+but also about form design,
+and how to think about forms
+
+00:03:22.940 --> 00:03:25.480
+from the viewpoint of your users.
+
+00:03:25.480 --> 00:03:28.950
+There's so much to tell,
+and we have only 40 minutes,
+
+00:03:28.950 --> 00:03:32.300
+so we only address the
+most important takeaways.
+
+00:03:34.320 --> 00:03:39.318
+We have demo code and
+all the resources online
+
+00:03:39.319 --> 00:03:41.090
+on the GitHub page for you.
+
+00:03:41.090 --> 00:03:54.000
+The shortcut for that page
+is gravityfor.ms/3U9Sy4T.
+
+00:03:55.630 --> 00:03:56.287
+Morgan?
+
+00:03:59.028 --> 00:04:01.920
+>> MORGAN: When you put
+a form on your website,
+
+00:04:01.920 --> 00:04:05.250
+the very first thing you need
+to do is to ask yourself,
+
+00:04:05.250 --> 00:04:06.800
+why are you building a form?
+
+00:04:07.880 --> 00:04:10.970
+How can you build the form
+to meet not only your needs
+
+00:04:10.970 --> 00:04:12.900
+but also your users' needs?
+
+00:04:14.180 --> 00:04:17.530
+So often,
+accessibility is an afterthought.
+
+00:04:17.530 --> 00:04:20.400
+We build a website, and then we
+test it with keyboard navigation
+
+00:04:20.400 --> 00:04:22.490
+and a screen reader and we
+fix the problems we have
+
+00:04:22.490 --> 00:04:24.890
+and we call it a day.
+
+00:04:24.890 --> 00:04:27.660
+You should really start
+thinking about accessibility
+
+00:04:27.660 --> 00:04:32.470
+before you even create a form
+because they are so important.
+
+00:04:32.470 --> 00:04:34.920
+You want to build the
+form, not just the code,
+
+00:04:34.920 --> 00:04:38.280
+but also the form questions
+in the form visual design
+
+00:04:38.280 --> 00:04:41.120
+with your users' needs in
+mind from the very beginning.
+
+00:04:43.510 --> 00:04:47.230
+In addition to accessibility, you
+also want to think about usability,
+
+00:04:47.230 --> 00:04:50.207
+and not just for users
+with disabilities,
+
+00:04:50.208 --> 00:04:52.120
+but for all of your users.
+
+00:04:52.120 --> 00:04:55.350
+Accessibility and usability are
+very closely linked together,
+
+00:04:55.350 --> 00:04:59.630
+and it's not just about assistive
+tools like keyboard navigation
+
+00:04:59.630 --> 00:05:00.990
+and screen in meters.
+
+00:05:00.990 --> 00:05:05.900
+You want all of your users to easily
+understand and fill out your forms.
+
+00:05:07.240 --> 00:05:09.793
+If you ask yourself
+from the beginning,
+
+00:05:09.794 --> 00:05:11.580
+why you're building a form,
+
+00:05:11.580 --> 00:05:14.750
+this is going to impact
+how you build the form.
+
+00:05:14.750 --> 00:05:18.970
+For example, you're going to want to
+build an e-commerce form differently
+
+00:05:18.970 --> 00:05:20.920
+from the job application.
+
+00:05:20.920 --> 00:05:25.020
+On an e-commerce form, you want it to
+be as short and as easy as possible.
+
+00:05:25.020 --> 00:05:28.540
+You don't want users to have time
+to second guess their purchases,
+
+00:05:28.540 --> 00:05:32.450
+you want them to give you your
+money, and submit the form.
+
+00:05:33.780 --> 00:05:37.220
+If your form is a job
+application, users are willing
+
+00:05:37.220 --> 00:05:39.440
+to put some more work
+into a job application,
+
+00:05:39.440 --> 00:05:43.280
+so it can be a more complex
+form, but you still don't want
+
+00:05:43.280 --> 00:05:46.380
+to make it too difficult for them.
+
+00:05:46.380 --> 00:05:49.440
+Different forms have different
+usability requirements, and you want
+
+00:05:49.440 --> 00:05:51.020
+to think about that
+from the beginning.
+
+00:05:53.100 --> 00:05:56.720
+You need to think about what
+information you actually need
+
+00:05:56.720 --> 00:05:58.120
+from your users.
+
+00:05:58.120 --> 00:06:01.420
+Do you really need all
+of those form fields?
+
+00:06:01.420 --> 00:06:03.660
+Once you start asking
+questions, it's really tempting
+
+00:06:03.660 --> 00:06:06.320
+to keep asking more,
+but you want to make sure
+
+00:06:06.320 --> 00:06:09.640
+that you're really only asking
+users for the information
+
+00:06:09.640 --> 00:06:11.220
+you actually need.
+
+00:06:11.220 --> 00:06:13.067
+For instance, on contact forms,
+
+00:06:13.068 --> 00:06:15.510
+contact forms often
+have phone numbers.
+
+00:06:16.910 --> 00:06:20.330
+Do you really need that phone
+number on the contact form,
+
+00:06:20.330 --> 00:06:23.120
+or demographic information?
+
+00:06:23.120 --> 00:06:26.490
+We often want to know as much
+as we can about our users' age,
+
+00:06:26.490 --> 00:06:28.920
+experience level,
+how they found us.
+
+00:06:28.920 --> 00:06:31.530
+A lot of that information
+isn't strictly necessary,
+
+00:06:31.530 --> 00:06:34.010
+and it just makes the
+form longer for the user.
+
+00:06:35.100 --> 00:06:38.020
+On the other hand, maybe you do need
+that information, and that's fine.
+
+00:06:38.020 --> 00:06:41.110
+Ask for it if you need it,
+but just be aware that users
+
+00:06:41.110 --> 00:06:46.000
+might be hesitant to share even
+personal information like gender
+
+00:06:46.000 --> 00:06:48.440
+or marital status, or race.
+
+00:06:48.440 --> 00:06:52.020
+Only ask for that
+information if you need it.
+
+00:06:52.020 --> 00:06:54.533
+If you do need that
+kind of information,
+
+00:06:54.534 --> 00:06:58.815
+make it clear to your users why
+you are requesting the information
+
+00:06:58.816 --> 00:07:00.920
+and how you're going to use it.
+
+00:07:00.920 --> 00:07:04.380
+For example, if you are asking
+for demographic information,
+
+00:07:04.380 --> 00:07:09.870
+such as race or gender, make it
+clear why you need that information
+
+00:07:09.870 --> 00:07:11.210
+and how you're going to use it.
+
+00:07:12.450 --> 00:07:16.850
+Another example is a
+phone number field.
+
+00:07:16.850 --> 00:07:19.140
+If you are asking
+for a phone number,
+
+00:07:19.140 --> 00:07:23.050
+you should probably clarify
+whether you plan to use that number
+
+00:07:23.050 --> 00:07:26.410
+for phone calls or for
+text, because some users
+
+00:07:26.410 --> 00:07:28.550
+might actually give you a
+different phone number depending on
+
+00:07:28.550 --> 00:07:30.690
+how you're going to use it.
+
+00:07:30.690 --> 00:07:34.760
+The more information you
+give your users about
+
+00:07:34.760 --> 00:07:37.780
+why you're asking these questions,
+the more likely they are
+
+00:07:37.780 --> 00:07:39.660
+to be willing to
+answer those questions.
+
+00:07:42.350 --> 00:07:44.910
+You also want to think about
+the easiest way for users
+
+00:07:44.910 --> 00:07:48.250
+to give you the information
+you need and what kind of
+
+00:07:48.250 --> 00:07:51.680
+form inputs are easiest
+for them to use.
+
+00:07:51.680 --> 00:07:58.130
+For instance, if you are asking for
+categories, you might have a list
+
+00:07:58.130 --> 00:08:02.080
+of 100 categories, and you
+should think about, is it easier
+
+00:08:02.080 --> 00:08:04.850
+for your users to read
+through that big long list
+
+00:08:04.850 --> 00:08:07.890
+and pick out the correct ones,
+or would it be easier for them
+
+00:08:07.890 --> 00:08:10.810
+to just type in
+their own categories?
+
+00:08:10.810 --> 00:08:14.150
+If they're typing in their own
+categories, the data you get
+
+00:08:14.150 --> 00:08:17.810
+might not be as clean,
+but you'll actually get better data
+
+00:08:17.810 --> 00:08:21.200
+because it's going to
+be easier for your users
+
+00:08:21.200 --> 00:08:23.620
+to fill out the
+correct information.
+
+00:08:23.620 --> 00:08:25.870
+On the other hand,
+if it is really important
+
+00:08:25.870 --> 00:08:31.880
+that users give exactly the
+categories that you have in mind,
+
+00:08:31.880 --> 00:08:34.860
+then a drop-down probably
+is the better choice.
+
+00:08:35.980 --> 00:08:38.450
+You just need to think through,
+is it easier for your users
+
+00:08:38.450 --> 00:08:41.040
+to read through a long list or
+to type in their own answer.
+
+00:08:43.000 --> 00:08:46.080
+Once you've thought
+about these questions,
+
+00:08:46.080 --> 00:08:47.860
+what information do you
+need from your users,
+
+00:08:47.860 --> 00:08:51.400
+and what's the easiest way for
+them to give you that information?
+
+00:08:51.400 --> 00:08:53.580
+Now you're ready to
+start building your form.
+
+00:08:53.580 --> 00:08:56.620
+I'll turn it over to Rian to
+talk some more about usability.
+
+00:08:56.620 --> 00:09:01.460
+>> RIAN: Form usability
+or user experience.
+
+00:09:01.460 --> 00:09:06.150
+How to help your user fill out
+a form as easy as possible.
+
+00:09:06.150 --> 00:09:08.480
+The last thing you
+want, that users leave
+
+00:09:08.480 --> 00:09:12.010
+because a form is too
+complicated or not trustworthy.
+
+00:09:14.450 --> 00:09:16.980
+Very important is
+to be predictable.
+
+00:09:18.830 --> 00:09:22.620
+For example, make sure the
+user has everything they need
+
+00:09:22.620 --> 00:09:26.540
+at hand before they start
+filling out the form.
+
+00:09:26.540 --> 00:09:30.760
+For example, a credit card
+number, passport, an order number,
+
+00:09:30.760 --> 00:09:33.760
+or other documents or
+information they might need.
+
+00:09:33.760 --> 00:09:38.520
+Do you have a timer on your form?
+
+00:09:38.520 --> 00:09:41.370
+For example, for security reasons?
+
+00:09:41.370 --> 00:09:45.300
+Don't cause a panic, "Oh,
+my I don't have that time.
+
+00:09:45.300 --> 00:09:46.300
+I cannot do this."
+
+00:09:46.300 --> 00:09:48.610
+Tick-tock, tick-tock,
+the user panics.
+
+00:09:50.930 --> 00:09:55.110
+Inform them in advance there
+will be a timer and tell them
+
+00:09:55.110 --> 00:09:57.290
+why there is a timer.
+
+00:09:57.290 --> 00:10:02.120
+Inform them about the time
+they have and give them a way
+
+00:10:02.120 --> 00:10:05.520
+to extend that time,
+not everybody is that quick.
+
+00:10:09.090 --> 00:10:13.030
+As Morgan already told, only
+ask what you really, really need
+
+00:10:13.030 --> 00:10:17.460
+to know, but even then
+that can be quite a lot.
+
+00:10:17.460 --> 00:10:19.750
+Do you have long form?
+
+00:10:19.750 --> 00:10:27.550
+Break it up in steps, each step a
+topic, tell how many steps there are.
+
+00:10:29.720 --> 00:10:33.970
+Name each step and tell
+what will happen next.
+
+00:10:33.970 --> 00:10:36.990
+Let users know how much
+they still need to fill out.
+
+00:10:38.640 --> 00:10:43.350
+For everybody, especially people
+with anxiety, this is helpful
+
+00:10:43.350 --> 00:10:44.350
+and reassuring.
+
+00:10:46.260 --> 00:10:50.090
+At the bottom of each step,
+provide clear navigation,
+
+00:10:51.840 --> 00:10:56.890
+not just back and next
+but back to step two.
+
+00:10:56.890 --> 00:11:02.380
+The next step, step four is
+student information, for example.
+
+00:11:03.800 --> 00:11:07.060
+Then people are reassured
+they are doing the right thing
+
+00:11:07.060 --> 00:11:11.820
+and they also can go back and
+check what has been filled out,
+
+00:11:11.820 --> 00:11:13.350
+so be predictable.
+
+00:11:16.660 --> 00:11:20.500
+Don't put the burden of
+your problem on the user
+
+00:11:20.500 --> 00:11:21.750
+and that's what happens a lot.
+
+00:11:23.140 --> 00:11:27.040
+We all hate spam
+informs, don't you?
+
+00:11:27.040 --> 00:11:31.810
+Maybe accept the people who sent
+you spam, so what do you do?
+
+00:11:31.810 --> 00:11:35.850
+You put the burden of
+preventing spam on your user.
+
+00:11:35.850 --> 00:11:39.230
+"Hey, you, prove you're a
+human with good intentions."
+
+00:11:40.500 --> 00:11:42.070
+For example, you add a CAPTCHA.
+
+00:11:43.980 --> 00:11:47.810
+This is an example I saw in
+the world is actually a CAPTCHA
+
+00:11:48.940 --> 00:11:54.870
+from Google version 2, please click
+each image containing a smiling dog,
+
+00:11:56.180 --> 00:11:57.180
+really.
+
+00:11:57.920 --> 00:12:02.260
+I'm a cat person, smiling dog
+is really a problem for me
+
+00:12:02.260 --> 00:12:07.390
+and what about people with autism
+who have difficulties reading emotion
+
+00:12:07.390 --> 00:12:08.390
+from a face?
+
+00:12:09.640 --> 00:12:13.830
+I also must be able to
+recognize you as school buses.
+
+00:12:13.830 --> 00:12:14.350
+Really?
+
+00:12:14.350 --> 00:12:17.390
+I'm from Europe, what do I know
+about you as a school buses?
+
+00:12:19.010 --> 00:12:22.280
+Google CAPTCHA version
+3 is user-friendly
+
+00:12:22.280 --> 00:12:25.350
+but maybe has some privacy issues.
+
+00:12:26.820 --> 00:12:31.290
+A rising star is a turnstile who
+claims to be a user-friendly,
+
+00:12:31.290 --> 00:12:34.750
+privacy-preserving,
+alternative to CAPTCHA.
+
+00:12:34.750 --> 00:12:40.260
+I haven't researched it but which
+option you choose, do your research
+
+00:12:40.260 --> 00:12:45.020
+and take accessibility, GDPR,
+and usability into account.
+
+00:12:47.680 --> 00:12:53.270
+Then the later debate about, should
+I use multi-select versus a checkbox
+
+00:12:53.270 --> 00:12:54.510
+or an autocomplete.
+
+00:12:55.880 --> 00:12:56.500
+What is better?
+
+00:12:57.177 --> 00:12:58.950
+A multi-select or checkboxes?
+
+00:13:00.320 --> 00:13:02.557
+What about the search
+box autocomplete
+
+00:13:02.558 --> 00:13:04.450
+if you want to select something?
+
+00:13:05.870 --> 00:13:07.750
+Think from your
+user's point of view.
+
+00:13:08.980 --> 00:13:12.020
+When you want your user,
+your visitor to select options,
+
+00:13:12.020 --> 00:13:14.260
+make life easy for them.
+
+00:13:14.260 --> 00:13:20.470
+Multi-select interfaces are
+hard, checkboxes are super easy.
+
+00:13:20.470 --> 00:13:23.902
+If you have many
+options, a searchable,
+
+00:13:23.903 --> 00:13:26.390
+accessible select is useful.
+
+00:13:26.390 --> 00:13:27.390
+Let me show you.
+
+00:13:30.990 --> 00:13:34.040
+This is part of the GitHub
+pages we created for you
+
+00:13:34.040 --> 00:13:41.100
+with all the demo code and also
+an example of a multi-select,
+
+00:13:41.100 --> 00:13:45.210
+checkboxes,
+a select with many options.
+
+00:13:45.210 --> 00:13:50.520
+I want to show you accessible
+alternative for a select
+
+00:13:51.280 --> 00:13:52.290
+with the search.
+
+00:13:53.380 --> 00:13:56.640
+On auto select,
+if you have a multi-select,
+
+00:13:56.640 --> 00:14:01.210
+if you use a mouse you
+can select an option
+
+00:14:01.210 --> 00:14:07.020
+and if you want to select the
+bird, you have to select comment
+
+00:14:08.070 --> 00:14:12.180
+but if you want to remove it--
+Oh, if I click,
+
+00:14:12.180 --> 00:14:16.080
+it's gone again so if I do
+shift, I select everything
+
+00:14:16.080 --> 00:14:21.050
+and with command I-- this is
+really a very difficult interface,
+
+00:14:21.050 --> 00:14:24.490
+with a mouse let alone with
+a keyboard or screen reader.
+
+00:14:25.850 --> 00:14:28.890
+This is the same with checkboxes.
+
+00:14:28.890 --> 00:14:33.800
+Click, click,
+ready and it stays there.
+
+00:14:33.800 --> 00:14:38.590
+It's really, really easy and people
+get that so don't use multi-select
+
+00:14:38.590 --> 00:14:41.000
+because it's a very
+difficult interface.
+
+00:14:41.000 --> 00:14:42.140
+>> JOE: Hey, Rian.
+
+00:14:42.982 --> 00:14:43.922
+>> RIAN: If you have country--
+
+00:14:43.923 --> 00:14:45.170
+>> JOE: [inaudible]
+
+00:14:45.170 --> 00:14:45.400
+Rian.
+
+00:14:45.400 --> 00:14:45.980
+>> RIAN: Yes.
+
+00:14:45.980 --> 00:14:48.070
+>> JOE: Is it possible
+for you to zoom in
+
+00:14:48.070 --> 00:14:51.300
+so that we can see the
+forms a bit better?
+
+00:14:51.300 --> 00:14:52.290
+>> RIAN: Is it better?
+
+00:14:52.290 --> 00:14:53.170
+>> JOE: That's great.
+
+00:14:53.170 --> 00:14:54.820
+Thank you very much.
+
+00:14:54.820 --> 00:15:00.190
+>> RIAN: Okay, if you have a
+country and we want to select
+
+00:15:00.190 --> 00:15:04.360
+with more than 200 options,
+more than already set, yes,
+
+00:15:04.360 --> 00:15:10.090
+is it the best way that you can
+use a searchable auto select,
+
+00:15:11.530 --> 00:15:13.920
+but most of them are inaccessible?
+
+00:15:13.920 --> 00:15:18.040
+If you use select to or chosen,
+the screen reader feedback
+
+00:15:18.040 --> 00:15:23.940
+is non-existent sometimes with some
+patterns, the keyboard doesn't work.
+
+00:15:25.640 --> 00:15:31.154
+The US Government published
+on alphagov.github.io,
+
+00:15:31.155 --> 00:15:33.640
+accessible components.
+
+00:15:33.640 --> 00:15:34.980
+These are accessible.
+
+00:15:36.130 --> 00:15:41.100
+If you want to search for the
+Netherlands, it gives you two results
+
+00:15:42.570 --> 00:15:46.280
+and with the screen reader,
+it denounces two results.
+
+00:15:46.280 --> 00:15:50.790
+With the arrow down, you can
+actually select one with enter.
+
+00:15:52.390 --> 00:16:00.090
+This is an accessible alternative
+for auto-select, for example,
+
+00:16:00.090 --> 00:16:02.170
+for the components that
+are not accessible.
+
+00:16:03.420 --> 00:16:06.650
+Think about this, think from
+the user what's the best option?
+
+00:16:09.480 --> 00:16:11.270
+Right, oh, this is the demo, okay.
+
+00:16:12.672 --> 00:16:15.357
+Then we're going to
+form design with Morgan.
+
+00:16:16.017 --> 00:16:19.600
+>> MORGAN: Yes,
+you want your form to be usable
+
+00:16:19.600 --> 00:16:22.440
+but you also want it to look nice.
+
+00:16:22.440 --> 00:16:25.590
+Browsers or window form elements
+are a little bit differently
+
+00:16:25.590 --> 00:16:29.360
+and honestly, out of the
+box, a lot of them are ugly.
+
+00:16:29.360 --> 00:16:32.350
+It's natural to want to change
+the appearance of your forms
+
+00:16:32.350 --> 00:16:35.590
+to make them more
+consistent across browsers,
+
+00:16:35.590 --> 00:16:38.330
+to make them more pleasing to the
+eye, and to make them look better
+
+00:16:38.330 --> 00:16:39.680
+with the rest of your website.
+
+00:16:41.640 --> 00:16:44.990
+You need to be careful when
+you restyle form elements
+
+00:16:44.990 --> 00:16:48.240
+and make sure you don't
+change the design so much
+
+00:16:48.240 --> 00:16:50.930
+that users can't recognize them.
+
+00:16:50.930 --> 00:16:54.150
+You want to make sure
+that your designed
+
+00:16:54.150 --> 00:16:57.980
+form inputs still feel familiar
+and intuitive so users know
+
+00:16:57.980 --> 00:16:59.800
+how to interact with them.
+
+00:16:59.800 --> 00:17:03.410
+For example, this is a demo
+I found on CodePen that shows
+
+00:17:03.410 --> 00:17:07.090
+how to style radio
+buttons and checkboxes.
+
+00:17:07.090 --> 00:17:11.260
+You can see that for both
+radio buttons and checkboxes,
+
+00:17:11.260 --> 00:17:14.110
+they're using both
+squares and circles.
+
+00:17:15.680 --> 00:17:19.390
+Then they have these other
+shapes like this rounded square
+
+00:17:19.390 --> 00:17:25.360
+and this diamond and it's not
+obvious from looking at these
+
+00:17:25.360 --> 00:17:28.130
+whether you are allowed
+to select one or many.
+
+00:17:29.190 --> 00:17:31.830
+Users are used to knowing
+that when there's a circle,
+
+00:17:31.830 --> 00:17:35.190
+you can select one and when there's
+a square, you can select many.
+
+00:17:35.190 --> 00:17:38.550
+If you use other shapes,
+it can get really confusing
+
+00:17:38.550 --> 00:17:42.260
+or if you reverse the functionality,
+that is also confusing.
+
+00:17:43.810 --> 00:17:48.190
+Make sure that the form inputs
+are still intuitive and behave
+
+00:17:48.190 --> 00:17:49.680
+in a recognizable way.
+
+00:17:52.330 --> 00:17:53.940
+You also want to make
+sure that changing
+
+00:17:53.940 --> 00:17:57.440
+the style doesn't change the
+behavior of the form element
+
+00:17:57.440 --> 00:17:59.390
+or break the functionality.
+
+00:17:59.390 --> 00:18:04.340
+Your styled form elements should
+work the same way as unstyled
+
+00:18:04.340 --> 00:18:07.770
+form elements so that users
+who can't see, who don't know
+
+00:18:07.770 --> 00:18:12.270
+that this looks different can
+still interact with the form.
+
+00:18:13.300 --> 00:18:18.598
+For example, focus states,
+it's really easy to forget
+
+00:18:18.599 --> 00:18:20.560
+about focus states.
+
+00:18:20.560 --> 00:18:25.350
+Designers often think they're
+ugly, developers just forget
+
+00:18:25.350 --> 00:18:27.580
+that it's something
+we need to deal with.
+
+00:18:27.580 --> 00:18:31.110
+Always test with the keyboard
+and make sure that you have focus
+
+00:18:31.110 --> 00:18:32.230
+and active states.
+
+00:18:33.620 --> 00:18:38.620
+Here's an example of some code
+that I found on w3schools.com,
+
+00:18:38.620 --> 00:18:43.120
+which is notorious for having a
+lot of really bad code examples.
+
+00:18:45.570 --> 00:18:49.330
+If you're looking for code
+examples, look at our resources
+
+00:18:49.330 --> 00:18:53.050
+because we've given you some
+good functional examples.
+
+00:18:53.050 --> 00:18:56.950
+In this particular example,
+they have restyled the checkbox,
+
+00:18:56.950 --> 00:19:02.230
+and the way they've done
+it, they're basically hiding
+
+00:19:02.230 --> 00:19:05.580
+the existing checkbox and
+replacing it with another one
+
+00:19:05.580 --> 00:19:08.730
+and there's no focus state.
+
+00:19:08.730 --> 00:19:13.450
+You can't tell in this little
+video, but I am using a keyboard
+
+00:19:13.450 --> 00:19:18.580
+to interact with this form
+and there's no indication
+
+00:19:18.580 --> 00:19:22.200
+of which checkbox is
+active at the moment.
+
+00:19:25.000 --> 00:19:27.090
+Actually, I messed with
+the code on this to try
+
+00:19:27.090 --> 00:19:29.640
+to add a focus state to it, and
+the way they've written that code,
+
+00:19:29.640 --> 00:19:33.200
+it is impossible to
+add a focus state.
+
+00:19:33.200 --> 00:19:37.890
+Just be careful not to break the
+functionality when you add styles.
+
+00:19:40.030 --> 00:19:42.210
+You also want to be
+careful with dropdowns.
+
+00:19:43.390 --> 00:19:48.850
+It's really easy to style the
+input, that initial box at the top
+
+00:19:48.850 --> 00:19:51.990
+of this demo, that styling the
+drop-down menu that shows up
+
+00:19:51.990 --> 00:19:55.990
+when you click on it
+is very difficult.
+
+00:19:55.990 --> 00:20:01.450
+It usually requires JavaScript and
+it is usually not keyboard navigable.
+
+00:20:02.690 --> 00:20:06.600
+That dropdown might be really
+ugly, but you're really better off
+
+00:20:06.600 --> 00:20:10.760
+leaving it alone and leaving it ugly
+so that users can still interact
+
+00:20:10.760 --> 00:20:11.644
+with it.
+
+00:20:13.490 --> 00:20:16.510
+There is some browser default
+behavior that you can change
+
+00:20:16.510 --> 00:20:20.280
+without hurting accessibility,
+for example, fieldsets.
+
+00:20:21.310 --> 00:20:25.950
+Fieldsets look really ugly in
+the browser but Rian will explain
+
+00:20:25.950 --> 00:20:28.190
+in a few minutes why
+they're really important.
+
+00:20:30.550 --> 00:20:33.510
+This is what a form looks
+like with field sets.
+
+00:20:33.510 --> 00:20:36.890
+With some pretty minimal
+CSS, you can make field sets
+
+00:20:36.890 --> 00:20:39.090
+look like other inputs.
+
+00:20:39.090 --> 00:20:41.490
+It doesn't take much
+to remove that border
+
+00:20:41.490 --> 00:20:45.780
+and scoot the legend
+around a little bit.
+
+00:20:47.000 --> 00:20:50.050
+If you have a form that has a mix
+of field sets and regular fields,
+
+00:20:50.050 --> 00:20:53.510
+those fieldsets look extra weird.
+
+00:20:53.510 --> 00:20:56.250
+You can adjust the
+behavior of field sets
+
+00:20:56.250 --> 00:20:59.220
+to make them look more
+like the rest of the form.
+
+00:21:01.850 --> 00:21:04.690
+You should also make sure you
+put the submit button at the end
+
+00:21:04.690 --> 00:21:05.850
+of the form.
+
+00:21:05.850 --> 00:21:10.300
+I know that sounds obvious but
+this has become very common lately.
+
+00:21:12.420 --> 00:21:16.880
+Especially with like terms
+and conditions or SMS consent.
+
+00:21:17.910 --> 00:21:21.330
+Users and especially
+blind users will not see
+
+00:21:21.330 --> 00:21:24.530
+or read anything that happens
+below the submit button
+
+00:21:24.530 --> 00:21:27.680
+because they think the submit
+button is the end of the form.
+
+00:21:27.680 --> 00:21:30.790
+Don't put other information
+under the button.
+
+00:21:30.790 --> 00:21:33.350
+This is a screenshot from Etsy.
+
+00:21:33.350 --> 00:21:36.330
+They've got that register
+button and then underneath it,
+
+00:21:36.330 --> 00:21:39.450
+they have other options for
+other ways you can sign in.
+
+00:21:39.450 --> 00:21:45.090
+Then below that,
+they have some legalese saying that
+
+00:21:45.090 --> 00:21:48.710
+by registering you are agreeing
+to their terms and conditions.
+
+00:21:48.710 --> 00:21:53.300
+A lot of users are
+never going to see that.
+
+00:21:53.300 --> 00:21:56.300
+Make sure the submit button is always
+the very last thing in the form.
+
+00:21:59.300 --> 00:22:01.330
+Don't hide labels.
+
+00:22:01.330 --> 00:22:07.280
+Labels need to always be visible and
+placeholders do not replace labels.
+
+00:22:07.280 --> 00:22:10.610
+The placeholder goes away
+as soon as you start typing.
+
+00:22:10.610 --> 00:22:12.770
+Now you don't know
+what you're doing.
+
+00:22:14.190 --> 00:22:16.900
+Make sure that the
+label is always visible.
+
+00:22:19.180 --> 00:22:22.220
+Error messages are
+also very important.
+
+00:22:22.220 --> 00:22:26.350
+It's easy to forget that you
+need to design error messages
+
+00:22:26.350 --> 00:22:29.010
+but you want to create some
+space at the top of your form,
+
+00:22:29.010 --> 00:22:32.400
+so that you can display all of
+the error messages in one place.
+
+00:22:34.450 --> 00:22:37.910
+You can use color to show
+that there is an error.
+
+00:22:37.910 --> 00:22:41.520
+For instance, in this screenshot,
+the error message is in red,
+
+00:22:41.520 --> 00:22:45.650
+but also use an icon or some
+other indicator that doesn't rely
+
+00:22:45.650 --> 00:22:49.440
+on color so that people who can't
+see color will still be able
+
+00:22:49.440 --> 00:22:50.730
+to tell that there's
+something wrong.
+
+00:22:52.540 --> 00:22:55.600
+You want to make sure that the
+text of the error message is clear
+
+00:22:55.600 --> 00:22:57.290
+and tells the users
+what they need to do.
+
+00:22:59.020 --> 00:23:01.310
+Rian is going to talk some
+more about error messages
+
+00:23:01.310 --> 00:23:02.940
+along with some other standards.
+
+00:23:05.284 --> 00:23:09.520
+>> RIAN: Next topic is Web Content
+Accessibility Guidelines (WCAG)
+
+00:23:09.520 --> 00:23:10.520
+on forms.
+
+00:23:11.770 --> 00:23:15.430
+There are quite a few guidelines
+or success criteria about forms.
+
+00:23:16.460 --> 00:23:19.840
+I want to address the
+most important ones.
+
+00:23:21.000 --> 00:23:27.200
+For accessibility, we want
+to comply to WCAG version 2.1
+
+00:23:27.200 --> 00:23:32.200
+that's at the moment, the latest
+version, and we globally stick
+
+00:23:32.200 --> 00:23:36.710
+to the level AA, so WCAG 2.1 AA.
+
+00:23:36.710 --> 00:23:41.230
+That's what we are going
+to address and we give you
+
+00:23:41.230 --> 00:23:43.660
+the most important topics first.
+
+00:23:46.660 --> 00:23:47.660
+Color contrast.
+
+00:23:48.710 --> 00:23:50.090
+Color contrast in forms.
+
+00:23:51.190 --> 00:23:55.930
+Well you can call easy
+calculate color contrast.
+
+00:23:55.930 --> 00:23:58.874
+If you google color
+contrast analyzer,
+
+00:23:58.875 --> 00:24:01.290
+you get like a zillion results.
+
+00:24:01.290 --> 00:24:03.020
+Pick the one you really prefer.
+
+00:24:04.280 --> 00:24:10.040
+For text-like labels,
+the color contrast must be 4.5
+
+00:24:10.040 --> 00:24:15.070
+to 1 against the background, but
+that also counts for the placeholder.
+
+00:24:17.460 --> 00:24:23.200
+Pro-tip, add to the placeholder,
+CSS in opacity of one
+
+00:24:23.200 --> 00:24:27.990
+because some browsers add by
+default opacity to the placeholder.
+
+00:24:29.020 --> 00:24:32.390
+It is lighter than you
+defined in the CSS.
+
+00:24:32.390 --> 00:24:36.740
+Add an opacity of !.
+
+00:24:36.740 --> 00:24:41.290
+There's also a color contrast
+rule for borders and icons.
+
+00:24:41.290 --> 00:24:45.400
+If you have a form control
+and you have a border,
+
+00:24:45.400 --> 00:24:48.510
+the color contrast must be 3 to 1.
+
+00:24:49.670 --> 00:24:52.490
+It also counts for
+icons that have meaning.
+
+00:24:53.630 --> 00:24:56.550
+That is that people
+don't need to guess like
+
+00:24:56.550 --> 00:25:01.450
+where do I put a mouse to
+actually click on an input field,
+
+00:25:01.450 --> 00:25:06.890
+clear board is to find that.
+
+00:25:06.890 --> 00:25:10.330
+Then connect the label to an input.
+
+00:25:10.330 --> 00:25:14.130
+Maybe you say, "Oh,
+I know that," but I can name you
+
+00:25:14.130 --> 00:25:17.920
+like a zillion developers that
+hear this for the first time.
+
+00:25:19.570 --> 00:25:23.320
+If you have a label and an input,
+you have to connect them together.
+
+00:25:25.220 --> 00:25:30.710
+The input you give an ID and
+the label, you give an attribute
+
+00:25:30.710 --> 00:25:32.830
+for referring to that Id.
+
+00:25:34.930 --> 00:25:37.320
+I will run a demo and Voiceover.
+
+00:25:38.540 --> 00:25:44.730
+Then you hear first, no label
+attached and then a label attached,
+
+00:25:44.730 --> 00:25:47.480
+and then a label
+with a placeholder.
+
+00:25:47.480 --> 00:25:48.640
+Let's see if that works.
+
+00:25:50.649 --> 00:25:53.260
+>> SPEAKER: Adding level 1,
+connect a label to a form control.
+
+00:25:56.180 --> 00:26:01.170
+Enter text blank name,
+what's your favorite color?
+
+00:26:01.170 --> 00:26:02.170
+Edit text.
+
+00:26:03.360 --> 00:26:06.230
+What's your favorite color,
+type the color, edit text.
+
+00:26:07.933 --> 00:26:10.530
+>> RIAN: First it's
+a no label attached.
+
+00:26:10.530 --> 00:26:14.380
+The screen reader says
+just edit text blank.
+
+00:26:14.380 --> 00:26:16.860
+I have no idea what the label is.
+
+00:26:16.860 --> 00:26:20.830
+If there's a proper label
+input relation, then it says,
+
+00:26:20.830 --> 00:26:23.310
+what's your favorite
+color, edit text.
+
+00:26:24.760 --> 00:26:28.100
+If there is a placeholder,
+it first announces the label
+
+00:26:28.100 --> 00:26:29.500
+and then the placeholder.
+
+00:26:31.299 --> 00:26:39.689
+Always connect a label to an input
+field and then group elements
+
+00:26:39.690 --> 00:26:41.750
+that belong together in a fieldset.
+
+00:26:43.750 --> 00:26:47.250
+For example, this is a code
+example, how many cookies
+
+00:26:48.760 --> 00:26:56.570
+and there is an option select with an
+option and you can select a number.
+
+00:26:58.130 --> 00:27:02.120
+If you have a field set,
+how many cookies is announced
+
+00:27:02.120 --> 00:27:03.670
+with each selection?
+
+00:27:04.960 --> 00:27:09.900
+They have like a
+connection with each other.
+
+00:27:11.030 --> 00:27:15.980
+I will show you a screen
+reader demo on how that works.
+
+00:27:17.120 --> 00:27:23.200
+First with select, then with radios,
+buttons, then with checkboxes.
+
+00:27:23.200 --> 00:27:25.610
+The last one with
+the shipping address.
+
+00:27:25.610 --> 00:27:29.970
+All these elements belong
+together in a field set.
+
+00:27:29.970 --> 00:27:31.600
+These are four different fieldsets.
+
+00:27:33.318 --> 00:27:35.840
+>> SPEAKER: Heading level
+1, field sets.
+
+00:27:35.840 --> 00:27:37.590
+One, Amount, pop-up button.
+
+00:27:37.590 --> 00:27:39.030
+How many cookies?
+
+00:27:39.030 --> 00:27:40.580
+Menu, three items.
+
+00:27:40.580 --> 00:27:41.580
+Tick, one.
+
+00:27:43.010 --> 00:27:44.010
+Two.
+
+00:27:45.100 --> 00:27:46.560
+Closing menu.
+
+00:27:46.560 --> 00:27:48.230
+Two, amount, pop-up button.
+
+00:27:50.290 --> 00:27:51.570
+small, radio button.
+
+00:27:51.570 --> 00:27:55.510
+1 of 3, Select a T-shirt,
+Select a T-shirt size, group,
+
+00:27:55.510 --> 00:27:59.540
+medium, selected, radio button,
+2 of 3, Select a T-shirt size,
+
+00:27:59.540 --> 00:28:03.450
+large selected, radio button,
+3 of 3, Select a T-shirt size.,
+
+00:28:03.450 --> 00:28:07.290
+medium selected, radio button,
+2 of 3, Select a T-shirt size,
+
+00:28:07.290 --> 00:28:08.670
+Dog, unticked, tick box.
+
+00:28:08.670 --> 00:28:09.660
+Which pets do you have?
+
+00:28:09.660 --> 00:28:10.620
+Which pets do you have?
+
+00:28:10.620 --> 00:28:13.710
+Group, Cat, unticked tick box.
+
+00:28:13.710 --> 00:28:15.270
+Which pets do you have?
+
+00:28:15.270 --> 00:28:17.000
+Ticked cat tick box?
+
+00:28:17.000 --> 00:28:19.780
+Bird, unticked tickbox,
+Which pets do you have?
+
+00:28:19.780 --> 00:28:22.660
+Mouse, unticked tickbox,
+Which pets do you have?
+
+00:28:22.660 --> 00:28:25.950
+Street, edit text, Shipping
+address, Shipping address, Group,
+
+00:28:25.950 --> 00:28:29.610
+postal code, edit text,
+Shipping address, City, edit text,
+
+00:28:29.610 --> 00:28:30.550
+Shipping address.
+
+00:28:32.377 --> 00:28:37.040
+>> RIAN: The relation of the
+ship, the legend is announced
+
+00:28:37.040 --> 00:28:38.040
+with each field.
+
+00:28:38.040 --> 00:28:41.100
+When you can see,
+you can see clearly okay,
+
+00:28:41.100 --> 00:28:44.850
+how many cookies this all belongs
+together or a shipping address,
+
+00:28:44.850 --> 00:28:48.130
+but if you are blind, you can
+get it announced with each field
+
+00:28:48.130 --> 00:28:51.160
+to make sure you fill
+out the fields right.
+
+00:28:51.160 --> 00:28:52.160
+All right.
+
+00:28:54.317 --> 00:28:55.030
+Next one.
+
+00:28:56.070 --> 00:29:03.090
+Then use aria-describedby to connect
+more information to the input field.
+
+00:29:03.090 --> 00:29:05.880
+We have a label connected
+to an input field,
+
+00:29:05.880 --> 00:29:09.930
+but also extra information
+connected to the input field.
+
+00:29:09.930 --> 00:29:11.590
+They are announced all together.
+
+00:29:13.440 --> 00:29:17.750
+The label is referring to
+the id of the input field.
+
+00:29:17.750 --> 00:29:20.880
+Aria-describedby is different
+that has an id of its own.
+
+00:29:20.880 --> 00:29:25.710
+The paragraph you want to describe
+has an ID and with the input,
+
+00:29:25.710 --> 00:29:29.430
+you say aria-describedby
+referring to that Id.
+
+00:29:29.430 --> 00:29:36.550
+This is all in example code,
+so you can look it up later.
+
+00:29:36.550 --> 00:29:38.620
+I will show you how this works.
+
+00:29:40.080 --> 00:29:40.950
+This is a short demo.
+
+00:29:40.950 --> 00:29:43.060
+>> SPEAKER: Heading level
+one, Aria-describedby.
+
+00:29:45.440 --> 00:29:49.350
+Your new password, secured edit
+text, main, Please use a password
+
+00:29:49.350 --> 00:29:50.640
+of minimal 8 characters.
+
+00:29:51.730 --> 00:29:53.340
+I agree with the
+terms and conditions.
+
+00:29:53.340 --> 00:29:57.100
+Inticked, tick box, Consent,
+Consent, Group, ticked, I agree
+
+00:29:57.100 --> 00:29:59.710
+with the terms and
+conditions, tick box.
+
+00:29:59.710 --> 00:30:01.350
+Please read our
+terms and conditions.
+
+00:30:02.910 --> 00:30:06.960
+>> RIAN: Everything is read
+out if the input fields
+
+00:30:06.960 --> 00:30:08.890
+or the form control gets focused.
+
+00:30:13.020 --> 00:30:15.970
+Last topic, form validation.
+
+00:30:15.970 --> 00:30:17.370
+That's super important.
+
+00:30:18.870 --> 00:30:22.390
+If people cannot fill out your
+form right or don't understand
+
+00:30:22.390 --> 00:30:23.800
+what goes wrong, they will leave.
+
+00:30:25.600 --> 00:30:29.450
+First, tell the rules in advance.
+
+00:30:30.470 --> 00:30:32.870
+How many times did you
+scream at the screen?
+
+00:30:32.870 --> 00:30:36.330
+Tell me the rules of
+the password beforehand.
+
+00:30:36.330 --> 00:30:37.810
+That's so super annoying.
+
+00:30:37.810 --> 00:30:42.600
+You come up with a super password
+and you press enter or submit
+
+00:30:42.600 --> 00:30:47.220
+and then, "Oh, no, but it has
+to be like-- Tell the people
+
+00:30:47.220 --> 00:30:50.330
+in advance what the
+rules of the password is.
+
+00:30:53.190 --> 00:30:56.870
+As Morgan already told,
+not by color alone.
+
+00:30:56.870 --> 00:31:01.220
+Don't put only a red border
+around the required field
+
+00:31:01.220 --> 00:31:03.800
+that isn't filled out.
+
+00:31:03.800 --> 00:31:06.550
+What should you do?
+
+00:31:06.550 --> 00:31:09.540
+The default HTML5
+warnings are not enough.
+
+00:31:10.560 --> 00:31:14.960
+If you add an attribute
+required to a form element,
+
+00:31:14.960 --> 00:31:19.150
+some browsers automatically add
+form validation to the input
+
+00:31:19.150 --> 00:31:21.320
+and prevent you from
+submitting the form.
+
+00:31:22.930 --> 00:31:27.300
+If you don't want that, you have
+to add No Validate as attribute
+
+00:31:27.300 --> 00:31:32.150
+to the form element so that
+validation doesn't pop up.
+
+00:31:33.980 --> 00:31:37.000
+There are three items
+you need to keep in mind,
+
+00:31:37.000 --> 00:31:40.380
+and I'll address them first
+and then I do a quick demo
+
+00:31:40.380 --> 00:31:41.420
+with Gravity Forms.
+
+00:31:43.150 --> 00:31:46.650
+First, write clear
+custom error messages.
+
+00:31:47.710 --> 00:31:53.130
+This field is required is not enough,
+provide a follow-up email address,
+
+00:31:53.130 --> 00:31:54.450
+please fill out your name.
+
+00:31:55.460 --> 00:31:58.350
+These fields required
+is just too generic.
+
+00:32:00.730 --> 00:32:05.090
+In case of more than two entries, add
+a summary of errors above the form.
+
+00:32:06.650 --> 00:32:10.580
+That's super useful also for
+people who are blind or people
+
+00:32:10.580 --> 00:32:11.580
+who use a keyboard.
+
+00:32:13.660 --> 00:32:17.250
+Then for the validation
+messages with the input field,
+
+00:32:17.250 --> 00:32:20.640
+use aria-describedby to
+connect the error to the input.
+
+00:32:24.170 --> 00:32:28.750
+On the Gravity Forms website,
+there is external documentation
+
+00:32:28.750 --> 00:32:30.850
+on how to make forms accessible.
+
+00:32:33.980 --> 00:32:39.300
+There is information for content
+providers, for developers.
+
+00:32:39.300 --> 00:32:44.090
+There is information about the
+warnings on the fields in the admin
+
+00:32:44.090 --> 00:32:47.740
+for designers, and there's also
+an accessibility checklist.
+
+00:32:52.140 --> 00:33:00.530
+It takes you step-by-step through
+the settings, how to compose a form
+
+00:33:00.530 --> 00:33:02.230
+with accessibility in mind.
+
+00:33:03.960 --> 00:33:09.240
+This is a super useful page if you
+create a form with Gravity Forms.
+
+00:33:14.040 --> 00:33:16.680
+How does form validation
+work in Gravity Forms?
+
+00:33:16.680 --> 00:33:22.420
+This is an accessible form
+with a name that's required
+
+00:33:22.420 --> 00:33:24.710
+and an email address
+that's required.
+
+00:33:24.710 --> 00:33:27.190
+That's an area
+described by message.
+
+00:33:27.190 --> 00:33:31.660
+We will use your email address
+only to send you the newsletter
+
+00:33:31.660 --> 00:33:32.770
+and subscribe button.
+
+00:33:34.710 --> 00:33:36.480
+I will read it with
+VoiceOver in Safari.
+
+00:33:36.480 --> 00:33:38.717
+>> SPEAKER: Level
+2, accessible form,
+
+00:33:39.260 --> 00:33:42.440
+Your name (Required)
+required edit text,
+
+00:33:42.440 --> 00:33:46.360
+Your email address (Required)
+required, edit text, Email field.
+
+00:33:46.360 --> 00:33:47.360
+Subscribe button.
+
+00:33:48.740 --> 00:33:49.830
+Name.
+
+00:33:49.830 --> 00:33:51.540
+There was a problem
+with your submission,
+
+00:33:51.540 --> 00:33:54.900
+Please review the fields
+below, Visited link, Your name,
+
+00:33:54.900 --> 00:33:59.300
+please enter your name, List two
+items, Linked, Your email address,
+
+00:33:59.300 --> 00:34:03.860
+please enter a valid email address,
+Your name (Required) required,
+
+00:34:03.860 --> 00:34:08.070
+invalid data, edit text,
+main, Please enter your name,
+
+00:34:08.070 --> 00:34:11.270
+Your email address required,
+required, Invalid data, edit text,
+
+00:34:11.270 --> 00:34:13.660
+Email field,
+Please enter a valid email address,
+
+00:34:13.660 --> 00:34:16.190
+We will use your email address
+only to send you the newsletter,
+
+00:34:17.480 --> 00:34:18.480
+Subscribe button.
+
+00:34:19.870 --> 00:34:23.630
+>> RIAN: Also the screen reader will
+announce that there are problems
+
+00:34:23.630 --> 00:34:25.000
+with your submission.
+
+00:34:25.000 --> 00:34:29.540
+If you're blind,
+you also get the notification that
+
+00:34:29.540 --> 00:34:34.910
+"Okay, I didn't fill it out right,"
+or, "I need some extra information
+
+00:34:34.910 --> 00:34:35.907
+to fill out."
+
+00:34:37.470 --> 00:34:42.810
+All the information is given by
+a screen reader and it's easy,
+
+00:34:42.810 --> 00:34:44.160
+accessible with a keyboard.
+
+00:34:46.580 --> 00:34:50.240
+If you want to know more about
+how to create accessible forms
+
+00:34:50.240 --> 00:34:54.800
+or accessibility on the A11Y
+collective, this A11y-collective.com.
+
+00:34:56.080 --> 00:34:58.661
+We have a course
+about accessible code,
+
+00:34:58.662 --> 00:35:00.920
+with the last chapter about forms.
+
+00:35:03.850 --> 00:35:04.430
+Conclusion.
+
+00:35:07.075 --> 00:35:11.350
+>> MORGAN: The main takeaway here
+is have empathy for your users,
+
+00:35:11.350 --> 00:35:13.910
+and that means all of your users.
+
+00:35:15.840 --> 00:35:18.760
+Those who need assistive technology
+and those who don't, think
+
+00:35:18.760 --> 00:35:21.590
+about absolutely everybody who is
+going to be filling out your form
+
+00:35:23.955 --> 00:35:28.650
+>> RIAN: Don't create anxiety
+by not being predictable,
+
+00:35:28.650 --> 00:35:33.340
+by giving people too short time,
+or doing unexpected things.
+
+00:35:35.230 --> 00:35:36.310
+Be trustworthy.
+
+00:35:37.630 --> 00:35:42.620
+>> MORGAN: Be predictable,
+make sure you explain
+
+00:35:42.620 --> 00:35:45.830
+what will happen next,
+either when a user clicks a button
+
+00:35:45.830 --> 00:35:48.180
+to go to the next page or
+when they submit the form.
+
+00:35:50.430 --> 00:35:55.600
+>> RIAN: Form validation
+is super important.
+
+00:35:55.600 --> 00:35:58.850
+Write good confirmation
+and error messages.
+
+00:35:59.925 --> 00:36:01.130
+>> MORGAN: Keep it simple.
+
+00:36:01.130 --> 00:36:05.130
+Avoid overcomplicating your forms
+and don't make users have to think
+
+00:36:05.130 --> 00:36:10.700
+or second guess or cause stress
+as they fill out the form.
+
+00:36:12.390 --> 00:36:16.670
+>> RIAN: Help all users to fill
+out your form and make the form
+
+00:36:16.670 --> 00:36:19.070
+as easy to fill out for everyone.
+
+00:36:22.700 --> 00:36:23.700
+Thank you.
+
+00:36:30.970 --> 00:36:32.110
+That was the presentation.
+
+00:36:32.110 --> 00:36:34.610
+We'll ask why don't we
+take questions if you want.
+
+00:36:34.610 --> 00:36:38.060
+>> ABBAS: Thank you so
+much, Rian, and Morgan.
+
+00:36:39.310 --> 00:36:41.600
+W have a number of
+questions that came in here.
+
+00:36:41.600 --> 00:36:46.000
+The first one is, what considerations
+do you need to think about
+
+00:36:46.000 --> 00:36:48.890
+when a user misses
+a required field?
+
+00:36:48.890 --> 00:36:51.140
+How will the reader
+react to the situation?
+
+00:36:51.140 --> 00:36:53.210
+Is there a needed code to comply?
+
+00:36:58.149 --> 00:37:01.220
+>> MORGAN: I think we've
+covered that pretty thoroughly
+
+00:37:01.220 --> 00:37:04.980
+in the voiceover
+demonstration of what happens
+
+00:37:07.220 --> 00:37:09.350
+when there are required
+fields in a form.
+
+00:37:09.350 --> 00:37:14.550
+Mostly that Aria-describedby
+is the really important thing
+
+00:37:14.550 --> 00:37:17.740
+to make sure that the error
+message is connected to the field.
+
+00:37:20.205 --> 00:37:21.040
+>> ABBAS: Thank you.
+
+00:37:21.845 --> 00:37:25.760
+Do you have any thoughts about
+empty choices in dropdowns?
+
+00:37:25.760 --> 00:37:28.770
+This person usually adds
+an empty choice at the top
+
+00:37:28.770 --> 00:37:31.900
+of the required drop-down, so the
+first choice won't be selected
+
+00:37:31.900 --> 00:37:32.900
+by default.
+
+00:37:36.380 --> 00:37:40.000
+>> RIAN: I think if you make it
+clear that that's an empty choice,
+
+00:37:40.000 --> 00:37:41.690
+that's okay.
+
+00:37:41.690 --> 00:37:43.110
+It happens a lot.
+
+00:37:43.110 --> 00:37:45.220
+I think it's not
+unexpected behavior.
+
+00:37:47.132 --> 00:37:49.360
+>> MORGAN: Actually, when I was
+putting together screenshots
+
+00:37:49.360 --> 00:37:52.214
+for this, I had a form that
+had a drop-down at the top
+
+00:37:52.215 --> 00:37:53.200
+that was required.
+
+00:37:54.420 --> 00:37:56.280
+I didn't fill it out when
+I submitted the form,
+
+00:37:56.280 --> 00:37:58.310
+so I could take a picture
+of the error message.
+
+00:37:58.310 --> 00:38:01.310
+I was surprised that the error
+message didn't include that dropdown,
+
+00:38:01.310 --> 00:38:05.520
+and it was because there wasn't
+an empty value at the top.
+
+00:38:07.080 --> 00:38:11.190
+If you don't have an empty
+value, and a field is required,
+
+00:38:11.190 --> 00:38:14.970
+and the user doesn't fill out the
+field, that first option is going
+
+00:38:14.970 --> 00:38:17.810
+to be selected by default,
+The browser will never realize that
+
+00:38:17.810 --> 00:38:20.120
+that form hasn't been filled out.
+
+00:38:20.120 --> 00:38:22.880
+If that field is required, having
+an empty option is a good idea.
+
+00:38:25.238 --> 00:38:26.327
+>> ABBAS: Thank you.
+
+00:38:27.320 --> 00:38:31.110
+What is the best way to
+deal with form-fill spam
+
+00:38:31.110 --> 00:38:32.790
+with the invisible CAPTCHA?
+
+00:38:32.790 --> 00:38:37.200
+Will version 3 solve the issue while
+still maintaining form accessibility?
+
+00:38:41.986 --> 00:38:42.860
+>> RIAN: I don't know.
+
+00:38:42.860 --> 00:38:43.860
+[laughter]
+
+00:38:46.610 --> 00:38:49.050
+There are a few
+options like Honeypots.
+
+00:38:53.260 --> 00:38:56.400
+Yes, spam is really the
+evil of today, I think.
+
+00:39:02.373 --> 00:39:03.590
+Did I mention that?
+
+00:39:05.477 --> 00:39:06.970
+>> MORGAN: You talked
+about turnstile?
+
+00:39:06.970 --> 00:39:08.010
+>> RIAN: Turnstile, yes.
+
+00:39:08.518 --> 00:39:10.422
+I don't know I haven't researched,
+
+00:39:10.423 --> 00:39:13.260
+but maybe that's an
+option if it fits.
+
+00:39:13.260 --> 00:39:16.290
+I think Google version 3
+has really privacy issues.
+
+00:39:18.470 --> 00:39:22.190
+That Google watches what
+you're doing on the page.
+
+00:39:24.596 --> 00:39:27.910
+>> MORGAN: A Honeypot might be a
+better option than a reCAPTCHA.
+
+00:39:29.380 --> 00:39:31.420
+Spam is always a moving
+target, though.
+
+00:39:31.420 --> 00:39:33.430
+We come up with spam
+prevention things
+
+00:39:33.430 --> 00:39:35.100
+and then spammers
+find ways around them,
+
+00:39:35.100 --> 00:39:39.500
+so it requires some constant
+vigilance and research.
+
+00:39:44.579 --> 00:39:48.210
+>> ABBAS: Do you know how Google
+Forms are set up for the form fields
+
+00:39:48.210 --> 00:39:49.210
+and how it's read?
+
+00:39:50.698 --> 00:39:51.960
+>> RIAN: I haven't researched it.
+
+00:39:51.960 --> 00:39:52.960
+>> MORGAN: No idea.
+
+00:39:55.026 --> 00:39:59.510
+>> RIAN: With the knowledge you
+now have, you can actually [laughs]
+
+00:39:59.510 --> 00:40:01.480
+try it yourself.
+
+00:40:01.480 --> 00:40:06.110
+Those that have a label, at least the
+label attached to the input field.
+
+00:40:06.110 --> 00:40:09.870
+If you don't fill anything out,
+do you get real good warnings
+
+00:40:09.870 --> 00:40:10.970
+and error messages?
+
+00:40:13.310 --> 00:40:15.740
+Try it yourself at home.
+
+00:40:17.282 --> 00:40:20.100
+>> ABBAS: Reanne,
+can you expand why it's helpful
+
+00:40:20.100 --> 00:40:24.350
+to lay out the steps for a user,
+and does that prevent user fatigue?
+
+00:40:25.156 --> 00:40:26.030
+>> RIAN: To lay out what?
+
+00:40:27.659 --> 00:40:30.440
+>> ABBAS: To prevent user fatigue,
+to lay out the steps for the form
+
+00:40:30.440 --> 00:40:31.440
+for a user.
+
+00:40:33.640 --> 00:40:35.740
+>> RIAN: I don't think
+it's for fatigue.
+
+00:40:35.740 --> 00:40:37.400
+I think it's for anxiety.
+
+00:40:38.536 --> 00:40:38.960
+>> ABBAS: Okay.
+
+00:40:41.239 --> 00:40:48.710
+>> RIAN: I think it's to make
+people sure that they actually know.
+
+00:40:52.140 --> 00:40:55.710
+If it's a long-form that
+people in the middle think,
+
+00:40:55.710 --> 00:40:57.770
+"Okay, that's so much, I quit."
+
+00:40:59.110 --> 00:41:00.590
+That's what you mean with fatigue?
+
+00:41:01.850 --> 00:41:05.750
+I think doing it in
+steps makes it easier
+
+00:41:05.750 --> 00:41:12.430
+and people have a better
+overview, its usability
+
+00:41:12.430 --> 00:41:15.640
+and better user experience.
+
+00:41:17.475 --> 00:41:21.300
+>> ABBAS: If I may I'm going
+to add to that, especially
+
+00:41:21.300 --> 00:41:24.070
+for forms that are taking long
+and in some cases people have
+
+00:41:24.070 --> 00:41:27.570
+to look up something,
+or step away for a moment,
+
+00:41:27.570 --> 00:41:31.000
+and occasionally the browser would
+refresh and they lose everything.
+
+00:41:31.000 --> 00:41:34.410
+This may be a more general
+question, but you have any thoughts
+
+00:41:34.410 --> 00:41:39.090
+on caching user input into a form?
+
+00:41:39.090 --> 00:41:42.230
+I've seen that happen sometimes and
+I find it much more helpful like
+
+00:41:42.230 --> 00:41:46.770
+if I type a paragraph and then
+navigate somewhere, or in some cases
+
+00:41:46.770 --> 00:41:48.830
+if you lose focus and
+navigate and you come back
+
+00:41:48.830 --> 00:41:51.780
+and it disappears versus
+in some cases it stays.
+
+00:41:51.780 --> 00:41:56.070
+Is that strictly a browser issue
+or is there somewhere to ensure,
+
+00:41:56.070 --> 00:41:58.100
+"Okay, I'm not going to lose
+all my input, especially
+
+00:41:58.100 --> 00:42:00.680
+for longer forms, and especially
+for forms that are broken up
+
+00:42:00.680 --> 00:42:02.350
+in different steps?"
+
+00:42:04.522 --> 00:42:07.600
+>> MORGAN: I think that's
+mostly browser behavior.
+
+00:42:08.850 --> 00:42:11.530
+Over the past few years,
+browsers have gotten a lot better--
+
+00:42:11.530 --> 00:42:14.060
+I've had that experience
+where your browser crashes
+
+00:42:14.060 --> 00:42:17.220
+or your computer crashes, and you'd
+spent an hour filling out this thing.
+
+00:42:17.220 --> 00:42:18.920
+You don't want to lose everything.
+
+00:42:18.920 --> 00:42:25.150
+I think that's mostly
+browser behavior.
+
+00:42:25.150 --> 00:42:28.900
+I think Chrome, in particular,
+is really good about just remembering
+
+00:42:28.900 --> 00:42:33.630
+what you've filled in, but I
+don't know off the top of my head.
+
+00:42:35.320 --> 00:42:38.870
+You'd have to have some sort of
+mechanism for storing all of that
+
+00:42:38.870 --> 00:42:41.410
+in browser storage,
+which could get complicated.
+
+00:42:44.336 --> 00:42:47.170
+>> ABBAS: If anybody has any
+additional questions please feel free
+
+00:42:47.170 --> 00:42:48.990
+to put them in the Slido.
+
+00:42:48.990 --> 00:42:51.710
+I guess we could take another
+moment here just to see
+
+00:42:51.710 --> 00:42:52.670
+if anything else comes in.
+
+00:42:53.336 --> 00:42:54.040
+If there are [inaudible]
+
+00:42:54.040 --> 00:42:57.175
+there's any other follow-up thoughts
+that either of you would like to add.
+
+00:42:58.843 --> 00:42:59.911
+Hello to the kitty.
+
+00:42:59.911 --> 00:43:03.414
+[laughter]
+
+00:43:24.135 --> 00:43:24.849
+All right.
+
+00:43:24.850 --> 00:43:27.560
+Well, it looks like--
+Oh, here we go.
+
+00:43:27.560 --> 00:43:28.560
+We have another one coming in.
+
+00:43:29.874 --> 00:43:35.079
+Your opinion on IFrame forms from
+Hotspot and Pardot and et cetera?
+
+00:43:38.570 --> 00:43:40.590
+>> RIAN: Well I'm not
+going to give an opinion,
+
+00:43:40.590 --> 00:43:45.300
+but forms I haven't researched,
+so I really don't know.
+
+00:43:47.030 --> 00:43:50.190
+I do know if you want
+an accessible site
+
+00:43:50.190 --> 00:43:53.770
+and you have a third-party
+application like Search a Form
+
+00:43:53.770 --> 00:43:59.190
+in an Iframe, do your research
+if that third-party application
+
+00:43:59.190 --> 00:44:02.980
+is accessible too,
+because it's part of your process.
+
+00:44:04.740 --> 00:44:09.180
+Maybe you say, "Oh no, it's off-topic
+because it's from somebody else,"
+
+00:44:09.180 --> 00:44:13.810
+but if a visitor needs that
+application to perform task,
+
+00:44:13.810 --> 00:44:15.560
+then that needs to
+be accessible too.
+
+00:44:18.090 --> 00:44:21.220
+Make do your research
+before you actually import
+
+00:44:21.220 --> 00:44:25.390
+such a third-party
+application or an IFrame.
+
+00:44:28.399 --> 00:44:29.490
+>> ABBAS: Thank you.
+
+00:44:29.490 --> 00:44:31.630
+We do want to give just a quick--
+Oh, we just missed him.
+
+00:44:31.630 --> 00:44:33.880
+We just wanted to give a
+quick shout-out to Edgar.
+
+00:44:33.880 --> 00:44:35.800
+Thank you for such a great session.
+
+00:44:35.800 --> 00:44:43.040
+His work is delightful and impossible
+to ignore, so thank him once again.
+
+00:44:43.040 --> 00:44:45.650
+It looks like we don't really
+have anymore questions coming in.
+
+00:44:45.650 --> 00:44:47.450
+If it's okay,
+I will go ahead and wrap up
+
+00:44:47.450 --> 00:44:49.100
+and I will tell you
+both thank you so much
+
+00:44:49.100 --> 00:44:50.950
+for an amazingly informal session.
+
+00:44:52.210 --> 00:44:55.560
+I want to just let everybody know
+they can continue the conversation
+
+00:44:55.560 --> 00:44:57.640
+in the chat or on social media.
+
+00:44:57.640 --> 00:45:02.490
+Please use the hashtag wpa11yday.
+
+00:45:02.490 --> 00:45:07.820
+That's wpliday and
+the wpad2022 hashtags.
+
+00:45:08.860 --> 00:45:10.760
+We also would
+appreciate if you go to
+
+00:45:10.760 --> 00:45:15.046
+the
+wordpressaccessibility.day/feedback
+
+00:45:15.046 --> 00:45:16.540
+to provide anonymous feedback
+
+00:45:16.540 --> 00:45:19.200
+for our speakers on
+their presentation.
+
+00:45:19.200 --> 00:45:21.210
+You can enter to win a
+T-shirt while you're there.
+
+00:45:22.290 --> 00:45:25.080
+Coming up next, please stay
+tune, we have the proof,
+
+00:45:25.080 --> 00:45:30.210
+accessible websites can be beautiful
+too, coming with Gary Osante
+
+00:45:30.210 --> 00:45:32.060
+and Steven Plummer.
+
+00:45:32.060 --> 00:45:34.590
+While you're waiting, don't forget
+to visit our sponsors' pages
+
+00:45:34.590 --> 00:45:38.710
+to grab virtual swag and enter
+for a chance to win great prizes.
+
+00:45:38.710 --> 00:45:40.920
+Thank you two both so
+much again and hopefully,
+
+00:45:40.920 --> 00:45:43.030
+we will see everybody here
+right after the break.
+
+00:45:43.030 --> 00:45:44.730
+>> RIAN: Thank you so very much.
+
+00:45:44.730 --> 00:45:48.340
+This is a very well-organized
+and absolutely fabulous event.
+
+00:45:48.340 --> 00:45:50.880
+Thank you,
+and it's an honor to be here.
+
+00:45:50.880 --> 00:45:52.590
+>> MORGAN: Yes, thank you.
+
+00:45:52.590 --> 00:45:54.540
+>> ABBAS: All right,
+thanks, everybody.
+
+00:45:54.541 --> 00:45:55.170
+Rian: Bye.

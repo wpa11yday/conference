@@ -1,0 +1,2703 @@
+﻿WEBVTT
+
+00:00:01.125 --> 00:00:04.685
+ AMBER HINDES: WordPress
+Accessibility Day 2023.
+
+00:00:05.580 --> 00:00:09.670
+Accessibility pitfalls of
+WordPress menus with speaker,
+
+00:00:09.670 --> 00:00:14.610
+Deneb Pulsipher, Captain
+Accessible, SeaMonster Studios.
+
+00:00:14.610 --> 00:00:18.780
+This presentation was
+recorded September 28th, 2023.
+
+00:00:22.334 --> 00:00:26.200
+JOOST DE VALK: So,
+as it's exactly 10 UTC, we are going
+
+00:00:26.200 --> 00:00:27.790
+to start right on time.
+
+00:00:27.790 --> 00:00:33.210
+I am trying to be the pseudo
+German, aka Dutch person that I am.
+
+00:00:33.210 --> 00:00:37.230
+Welcome to WordPress
+Accessibility Day 2023.
+
+00:00:37.230 --> 00:00:38.480
+My name is Joost De Valk.
+
+00:00:38.480 --> 00:00:41.950
+I'm a partner at Inglis
+Capital, the CTO of Post Status
+
+00:00:41.950 --> 00:00:42.820
+and many more things.
+
+00:00:42.820 --> 00:00:45.780
+But more importantly,
+I'm your MC for this session.
+
+00:00:47.010 --> 00:00:49.950
+First, we have a couple
+of housekeeping notes.
+
+00:00:49.950 --> 00:00:53.410
+Please feel free to add your
+questions in the Zoom Q&A section.
+
+00:00:53.410 --> 00:00:56.090
+You'll find Q&A in the
+bottom of your Zoom screen.
+
+00:00:57.200 --> 00:00:59.210
+Add your questions there.
+
+00:00:59.210 --> 00:01:01.170
+We will answer them at
+the end of the session.
+
+00:01:01.170 --> 00:01:05.440
+And of course, use the chat to
+connect with other attendees.
+
+00:01:05.440 --> 00:01:09.490
+That being said, I'm very excited
+to introduce our next speaker,
+
+00:01:09.490 --> 00:01:13.490
+Deneb Pulsipher, who will talk to
+us about the accessibility pitfalls
+
+00:01:13.490 --> 00:01:15.610
+of WordPress menus.
+
+00:01:15.610 --> 00:01:19.060
+Deneb is better known as Captain
+Accessible, among his colleagues
+
+00:01:19.060 --> 00:01:22.530
+at SeaMonster Studios,
+a small development shop based
+
+00:01:22.530 --> 00:01:24.370
+in Seattle, Washington.
+
+00:01:24.370 --> 00:01:28.170
+And trusted with the critical role of
+ensuring that all websites produced
+
+00:01:28.170 --> 00:01:31.070
+by SeaMonster Studios meet
+accessibility standards,
+
+00:01:31.070 --> 00:01:33.637
+Deneb has developed
+a profound interest
+
+00:01:33.638 --> 00:01:35.690
+in simple and intricate methods
+
+00:01:35.690 --> 00:01:39.380
+that can enhance website
+usability for all visitors.
+
+00:01:39.380 --> 00:01:42.130
+His fascination lies in
+how minor adjustments
+
+00:01:42.130 --> 00:01:45.390
+by web developers can make a
+world of difference for users,
+
+00:01:45.390 --> 00:01:47.500
+regardless of how
+they access the site.
+
+00:01:47.500 --> 00:01:51.130
+So please join me in giving
+a warm welcome to Denev.
+
+00:01:51.130 --> 00:01:51.550
+Take it away.
+
+00:01:53.625 --> 00:01:54.290
+DENEB PULSIPHER: Thank you.
+
+00:01:56.030 --> 00:02:02.260
+OK, so here in my first
+slide, I'll just note
+
+00:02:02.260 --> 00:02:05.970
+that I do have a QR code
+that links to the slide deck.
+
+00:02:05.970 --> 00:02:09.630
+So if you are interested in getting
+that in the easiest way possible,
+
+00:02:09.630 --> 00:02:12.080
+you can scan this code.
+
+00:02:12.080 --> 00:02:18.070
+All right, so let's talk about
+why it's so essential to make sure
+
+00:02:18.070 --> 00:02:22.080
+that your menu,
+your navigation menu is accessible.
+
+00:02:22.080 --> 00:02:27.370
+So on this slide,
+I have a picture of a person sitting
+
+00:02:27.370 --> 00:02:35.110
+in a rowboat looking tranquilly over
+this peaceful scene of this lake
+
+00:02:35.110 --> 00:02:36.740
+that he is floating on.
+
+00:02:36.740 --> 00:02:41.040
+There is however one thing
+notably missing from this picture
+
+00:02:41.040 --> 00:02:43.290
+and that is any oars.
+
+00:02:43.290 --> 00:02:51.040
+So this person has no way of
+actually moving around this locale.
+
+00:02:52.670 --> 00:02:59.600
+So it’s going to be problematic
+for the person coming in.
+
+00:02:59.600 --> 00:03:07.600
+If we say that your site is akin
+to this scene, your menu is going
+
+00:03:09.100 --> 00:03:12.970
+to be those paddles, it's going to
+be the way that your visitors have
+
+00:03:12.970 --> 00:03:18.640
+of moving around your site
+in the way that they need to.
+
+00:03:18.640 --> 00:03:21.450
+And so without a paddle,
+you are in trouble.
+
+00:03:22.760 --> 00:03:26.540
+Getting around is hard without a
+good navigation menu that works
+
+00:03:26.540 --> 00:03:28.130
+for everybody.
+
+00:03:28.130 --> 00:03:34.260
+So often, people put a lot of
+thought and effort into making sure
+
+00:03:34.260 --> 00:03:38.600
+that their navigation
+menu works pretty well,
+
+00:03:40.900 --> 00:03:42.970
+and that it does the things
+that they want it to.
+
+00:03:42.970 --> 00:03:47.820
+But if it's not accessible,
+then a whole segment
+
+00:03:47.820 --> 00:03:50.060
+of their audience is not
+able to use it in the way
+
+00:03:50.060 --> 00:03:50.990
+that they are intending.
+
+00:03:50.990 --> 00:03:55.920
+And so we have got to make
+sure that they can do that.
+
+00:03:55.920 --> 00:04:01.640
+Now, internal page links can
+work if you disregard the ability
+
+00:04:01.640 --> 00:04:02.640
+to use the menu.
+
+00:04:03.750 --> 00:04:05.740
+So you can direct
+people around your site
+
+00:04:05.740 --> 00:04:07.450
+through just internal page links.
+
+00:04:07.450 --> 00:04:08.510
+That's an OK thing.
+
+00:04:08.510 --> 00:04:10.650
+The further navigation is
+almost always accessible
+
+00:04:10.650 --> 00:04:14.490
+because there are no dropdowns or
+complications as far as that goes.
+
+00:04:16.340 --> 00:04:19.670
+And many people are coming from
+Google anyhow, so they will come
+
+00:04:19.670 --> 00:04:24.895
+to the precise page that
+Google thinks they want,
+
+00:04:24.896 --> 00:04:27.090
+which often is true.
+
+00:04:27.090 --> 00:04:35.090
+However, in the final analysis, you
+do want people to stay on your site,
+
+00:04:36.630 --> 00:04:39.010
+and in the end,
+it is a numbers game.
+
+00:04:39.010 --> 00:04:40.690
+What do I mean by that?
+
+00:04:40.690 --> 00:04:44.600
+I mean that with your
+visitors on your site, you are
+
+00:04:44.600 --> 00:04:47.950
+in a race against time.
+
+00:04:47.950 --> 00:04:50.090
+So here's some numbers to look at.
+
+00:04:50.090 --> 00:04:52.770
+54, what is that?
+
+00:04:52.770 --> 00:04:58.760
+Well, 54 actually is the average
+number of seconds spent on a page.
+
+00:04:58.760 --> 00:05:06.760
+So less than a minute,
+internet-wide, the length of time
+
+00:05:07.470 --> 00:05:13.010
+that people are actually gonna
+be absorbing a page worth
+
+00:05:13.010 --> 00:05:17.250
+of information before they are
+looking to go to their next page.
+
+00:05:18.880 --> 00:05:20.750
+Next number, five to seven.
+
+00:05:20.750 --> 00:05:21.590
+Well, what's that?
+
+00:05:21.590 --> 00:05:25.150
+That's the average number of
+pages visited per session.
+
+00:05:25.150 --> 00:05:28.610
+So they will come onto your site
+and they will stay on your site
+
+00:05:28.610 --> 00:05:33.840
+for an average number of five to
+seven distinct pages of your site.
+
+00:05:34.880 --> 00:05:39.460
+Well, so you hope that you can
+get them to the right place
+
+00:05:39.460 --> 00:05:41.770
+within those five to seven pages.
+
+00:05:43.950 --> 00:05:48.070
+Let's look at the average depth of
+your best converting call to action.
+
+00:05:48.070 --> 00:05:52.300
+So on one of your pages,
+it's what you want them to get to.
+
+00:05:52.300 --> 00:05:56.080
+How many pages do they have
+to go through to get there?
+
+00:05:56.080 --> 00:05:58.180
+And I don't know
+the answer to that.
+
+00:05:58.180 --> 00:05:59.940
+Probably nobody knows
+the answer to that.
+
+00:05:59.940 --> 00:06:03.420
+It would be a very difficult
+number to figure out.
+
+00:06:03.420 --> 00:06:07.640
+But what is certain is it's almost
+certainly not the first page
+
+00:06:07.640 --> 00:06:08.490
+that they land on.
+
+00:06:08.490 --> 00:06:13.740
+So you are going to want to
+provide people with a good way
+
+00:06:13.740 --> 00:06:17.570
+to get around your
+site, hence the menu.
+
+00:06:17.570 --> 00:06:22.950
+But it needs to be accessible so
+that all your visitors can use it.
+
+00:06:22.950 --> 00:06:27.180
+I've got my links to where
+I got this information.
+
+00:06:28.270 --> 00:06:33.130
+And then my next slide says
+menus may save bounces.
+
+00:06:33.130 --> 00:06:37.050
+One of the big benefits of having
+a good menu, a well-designed menu,
+
+00:06:37.050 --> 00:06:39.540
+is that it will save bounces.
+
+00:06:39.540 --> 00:06:42.080
+So people won't come to your site,
+not find what they are looking for,
+
+00:06:42.080 --> 00:06:45.030
+and jump off to another place.
+
+00:06:45.030 --> 00:06:48.920
+They will actually spend
+some time on your site.
+
+00:06:50.080 --> 00:06:50.800
+Why?
+
+00:06:50.800 --> 00:06:54.080
+I say that your menu is
+kind of like an old friend.
+
+00:06:54.080 --> 00:07:01.200
+Makes people feel
+comfortable on your site.
+
+00:07:01.200 --> 00:07:03.710
+Makes them feel like they
+know what's going on,
+
+00:07:03.710 --> 00:07:05.420
+and they can understand things.
+
+00:07:06.570 --> 00:07:11.020
+But this is only if they
+can use your menu well.
+
+00:07:12.120 --> 00:07:17.980
+Your menu can be a springboard
+into the other areas
+
+00:07:17.980 --> 00:07:25.220
+where they will actually find
+the things that you are hoping
+
+00:07:25.220 --> 00:07:28.030
+that they will find.
+
+00:07:29.270 --> 00:07:33.700
+Your menu needs to avoid
+some common problems.
+
+00:07:33.700 --> 00:07:38.620
+And I think a lot of people don't...
+The menu was kind of given to them.
+
+00:07:38.620 --> 00:07:41.760
+It was part of the theme or
+whatever that they're using
+
+00:07:41.760 --> 00:07:43.470
+to develop the site.
+
+00:07:43.470 --> 00:07:45.920
+And they do not
+think a lot about it,
+
+00:07:45.920 --> 00:07:49.380
+but there are some common problems
+that your menu needs to avoid.
+
+00:07:50.670 --> 00:07:53.960
+So what problems might be
+lurking in your WordPress menu?
+
+00:07:53.960 --> 00:08:00.230
+On this screen, I have a
+background image of a crocodile,
+
+00:08:02.720 --> 00:08:10.160
+just looking out half
+concealed under the water.
+
+00:08:10.160 --> 00:08:13.370
+Oops, let's see.
+
+00:08:13.370 --> 00:08:15.940
+So what problems might be
+lurking in your WordPress menu?
+
+00:08:15.940 --> 00:08:17.100
+OK, so problem number one.
+
+00:08:19.450 --> 00:08:27.450
+Your menu might only drop down
+on hover and not focus or click.
+
+00:08:30.310 --> 00:08:33.370
+What this means is that if
+you have a drop down menu...
+
+00:08:35.220 --> 00:08:41.580
+I have a couple of images here of
+my favorite site for black history,
+
+00:08:41.580 --> 00:08:45.130
+which is blackpast.org,
+which I've worked on.
+
+00:08:45.130 --> 00:08:52.560
+When I started working on it,
+the menu dropped down on hover,
+
+00:08:52.560 --> 00:08:53.850
+but not on focus.
+
+00:08:53.850 --> 00:08:58.750
+So I have this image
+of their website
+
+00:08:58.750 --> 00:09:05.870
+and someone hovering over the
+African American history menu item
+
+00:09:05.870 --> 00:09:09.630
+and it drops down and we see
+this drop down with a lot
+
+00:09:11.130 --> 00:09:14.880
+of secondary menu items in there.
+
+00:09:14.880 --> 00:09:22.690
+And then the second image I
+have is showing the same menu,
+
+00:09:22.690 --> 00:09:27.850
+but now it has the focus indicator
+on that primary menu item,
+
+00:09:27.850 --> 00:09:30.870
+but nothing is dropping down.
+
+00:09:30.870 --> 00:09:33.270
+With many websites,
+this is what you get.
+
+00:09:34.320 --> 00:09:39.990
+You can see that you can tab
+into the primary menu item,
+
+00:09:39.990 --> 00:09:41.090
+but it does not drop down.
+
+00:09:41.090 --> 00:09:47.710
+So you can't have access to all
+of these secondary menu items
+
+00:09:47.710 --> 00:09:50.530
+that you've put in
+there for a good reason.
+
+00:09:50.530 --> 00:09:53.670
+So a little closer look at this.
+
+00:09:53.670 --> 00:09:57.300
+Once again,
+this is what it looks like on hover.
+
+00:09:57.300 --> 00:10:01.740
+So if you're hovering over this
+category, all these drop downs.
+
+00:10:01.740 --> 00:10:07.210
+The second one, well,
+I guess we missed the second one,
+
+00:10:07.210 --> 00:10:08.480
+it is just the same.
+
+00:10:08.480 --> 00:10:11.180
+It's just a closer look.
+
+00:10:11.180 --> 00:10:15.530
+OK, the next slide here goes
+through why this is a problem.
+
+00:10:15.530 --> 00:10:17.460
+Well, who defects?
+
+00:10:17.460 --> 00:10:22.650
+If you are able to tab into
+the primary menu items,
+
+00:10:22.650 --> 00:10:26.600
+but not the secondary menu items,
+then this affects keyboard users
+
+00:10:26.600 --> 00:10:29.640
+because now all those
+people who are navigating
+
+00:10:30.840 --> 00:10:33.880
+because they can not use mice,
+maybe their mice are broken
+
+00:10:33.880 --> 00:10:39.740
+or they have got tremors and so they
+can not have the fine motor control
+
+00:10:39.740 --> 00:10:44.290
+to actually use a mouse
+to get around the site.
+
+00:10:45.800 --> 00:10:47.900
+Or people who just prefer
+to navigate by keyboard.
+
+00:10:47.900 --> 00:10:50.560
+There are many reasons
+why people might.
+
+00:10:50.560 --> 00:10:57.170
+And so there's a certain
+portion of the population
+
+00:10:57.170 --> 00:11:02.230
+that will just navigate
+your site by keyboard.
+
+00:11:02.230 --> 00:11:07.590
+And so having your menu only dropping
+down on hover influences them
+
+00:11:07.590 --> 00:11:10.110
+or stops their ability
+to use the menu.
+
+00:11:11.220 --> 00:11:13.090
+Also it could affect
+switch device users.
+
+00:11:13.090 --> 00:11:16.020
+Those are users who
+have a switch device
+
+00:11:16.020 --> 00:11:19.410
+where they only are using
+one button to either advance
+
+00:11:19.410 --> 00:11:24.580
+or to select typically
+that will move their focus,
+
+00:11:26.020 --> 00:11:32.560
+but it will not necessarily move
+their cursor or their pointer.
+
+00:11:32.560 --> 00:11:34.990
+And so they would
+not get the dropdown.
+
+00:11:37.090 --> 00:11:40.890
+Again, switch device users might
+be people with no fine motor skills
+
+00:11:40.890 --> 00:11:46.550
+or limited people with cognitive
+disabilities who it helps
+
+00:11:46.550 --> 00:11:49.620
+to just have an option of yay or
+nay, yes or no.
+
+00:11:51.600 --> 00:11:54.250
+Sometimes this will also
+affect screen reader users.
+
+00:11:54.250 --> 00:11:57.710
+Depending upon the
+screen reader setup.
+
+00:11:58.730 --> 00:12:04.720
+So if it's set up for the virtual
+cursor to follow the focus,
+
+00:12:04.720 --> 00:12:11.990
+then they might be fine
+with your dropdown on hover.
+
+00:12:11.990 --> 00:12:14.350
+But if it's not set up that
+way, then they
+
+00:12:14.350 --> 00:12:17.763
+might also have trouble using...
+
+00:12:17.764 --> 00:12:22.350
+We had an interesting
+little interruption
+
+00:12:25.710 --> 00:12:26.770
+by a screen reader.
+
+00:12:26.770 --> 00:12:29.120
+But yes,
+so that could be problematic.
+
+00:12:31.510 --> 00:12:33.170
+OK, our second problem here.
+
+00:12:35.730 --> 00:12:43.390
+If the dropdown works on
+focus, but there's no ability
+
+00:12:43.390 --> 00:12:46.050
+to pull the menu back up.
+
+00:12:46.050 --> 00:12:54.050
+So what happens if this is the
+case, is that when you tab
+
+00:12:55.170 --> 00:13:00.510
+into the menu and it drops
+down, your next tab would be
+
+00:13:00.510 --> 00:13:04.610
+to the submenu item, and you
+would have to go through that,
+
+00:13:04.610 --> 00:13:07.770
+which is OK if there are
+only a few submenu items.
+
+00:13:08.830 --> 00:13:13.720
+With BlackPast, I have this
+program that will enumerate
+
+00:13:13.720 --> 00:13:15.800
+how many tab stops are on the page.
+
+00:13:15.800 --> 00:13:19.580
+And as you can see,
+to get to the bottom of this menu,
+
+00:13:19.580 --> 00:13:23.860
+you actually have 87 tab stops.
+
+00:13:23.860 --> 00:13:29.230
+So if you want to get to the
+International Advisory Board
+
+00:13:29.230 --> 00:13:35.280
+in the About Us menu,
+you would have to tab 87 times
+
+00:13:35.280 --> 00:13:39.410
+to get there, which is problematic.
+
+00:13:39.410 --> 00:13:43.070
+If you have the ability
+to suck that menu back up,
+
+00:13:43.070 --> 00:13:45.370
+then you do not have that problem.
+
+00:13:46.400 --> 00:13:47.780
+All right, so who this affects?
+
+00:13:47.780 --> 00:13:50.760
+Once again, keyboard
+users, switch device users,
+
+00:13:50.760 --> 00:13:52.110
+sometimes screen reader users.
+
+00:13:53.810 --> 00:13:55.390
+Why is it a problem?
+
+00:13:55.390 --> 00:14:01.400
+It probably exponentially
+increases the amount of time needed
+
+00:14:01.400 --> 00:14:03.290
+to tab through the menu.
+
+00:14:05.440 --> 00:14:09.920
+So as I said, in this
+particular case, they would have
+
+00:14:09.920 --> 00:14:16.170
+to tab 87 times,
+which is not likely to be something
+
+00:14:16.170 --> 00:14:18.030
+that anyone is going
+to be willing to do.
+
+00:14:18.030 --> 00:14:26.020
+So making sure that you
+can pull up the menu
+
+00:14:26.020 --> 00:14:29.070
+that you have dropped
+down is pretty important.
+
+00:14:29.070 --> 00:14:31.040
+Usually that's going
+to be through control.
+
+00:14:31.040 --> 00:14:36.010
+Like on this site, there was
+supposed to be this little plus icon
+
+00:14:36.010 --> 00:14:42.010
+to the right of the
+menu, the main menu item,
+
+00:14:42.010 --> 00:14:44.150
+but that had been disabled
+at some point by the site.
+
+00:14:44.150 --> 00:14:45.970
+And so it wasn't
+working on BlackPast.
+
+00:14:48.510 --> 00:14:50.460
+Now I do have a caveat here.
+
+00:14:50.460 --> 00:14:51.600
+Why this is a problem.
+
+00:14:51.600 --> 00:14:55.000
+I say it probably exponentially
+increases the amount of time needed
+
+00:14:55.000 --> 00:15:01.030
+to move through a menu, but it
+would not increase that amount
+
+00:15:01.030 --> 00:15:07.250
+of time if you implement arrow key
+navigation such that you can go down
+
+00:15:07.250 --> 00:15:12.240
+into the menu and then press
+the right or the left arrow key
+
+00:15:12.240 --> 00:15:16.400
+to go to the next main menu item.
+
+00:15:19.490 --> 00:15:23.270
+You would not necessarily need
+to have a distinct control
+
+00:15:23.270 --> 00:15:25.830
+to pull the menu back
+up if you can do that.
+
+00:15:25.830 --> 00:15:29.390
+And we will talk about that
+a little bit more later on,
+
+00:15:29.390 --> 00:15:34.430
+but problem two is problematic.
+
+00:15:34.430 --> 00:15:42.430
+Problem three,
+if the items in your menu drop down
+
+00:15:44.760 --> 00:15:48.600
+do not have
+aria-expanded attribute.
+
+00:15:49.940 --> 00:15:53.860
+Now, the aria-expanded
+attribute is just something
+
+00:15:53.860 --> 00:15:57.530
+that helps assistive technology
+users, primarily screen reader users.
+
+00:15:57.530 --> 00:16:02.650
+So when they move
+their focus into the –
+
+00:16:03.800 --> 00:16:07.170
+in this case, for I'm looking
+at Black Past site again -
+
+00:16:07.170 --> 00:16:13.720
+African American history main
+menu item, they would hear,
+
+00:16:13.720 --> 00:16:16.650
+if it was in the collapse
+state, if it was not expanded,
+
+00:16:16.650 --> 00:16:21.420
+they would hear African
+American history link collapsed.
+
+00:16:21.420 --> 00:16:25.510
+And that would indicate to them,
+oh, there's a sub menu here.
+
+00:16:25.510 --> 00:16:32.720
+So if I expand this menu,
+the next place I go to is going
+
+00:16:32.720 --> 00:16:33.720
+to be inside the menu.
+
+00:16:35.030 --> 00:16:37.610
+Or if they come into
+here and they hear
+
+00:16:37.610 --> 00:16:39.975
+African American
+history link expanded,
+
+00:16:39.976 --> 00:16:41.690
+they are automatically going
+
+00:16:41.690 --> 00:16:44.690
+to think, OK,
+so this is a drop down menu
+
+00:16:44.690 --> 00:16:47.700
+and I'm moving into it
+with my next key press
+
+00:16:49.070 --> 00:16:53.840
+If they do not get that collapsed
+or expanded notification,
+
+00:16:53.840 --> 00:16:57.370
+then they will add a new menu
+item and end up thinking,
+
+00:16:57.370 --> 00:17:00.090
+Oh I'm here in African
+American history.
+
+00:17:00.090 --> 00:17:05.650
+My next stop is going to
+be the next main menu item.
+
+00:17:05.650 --> 00:17:11.790
+But after they get through six
+or seven of these unrelated
+
+00:17:11.790 --> 00:17:18.630
+or non-high-level menu items,
+they are going to start thinking
+
+00:17:18.630 --> 00:17:26.630
+or realizing that this may
+not be what they think it is.
+
+00:17:28.120 --> 00:17:31.180
+But if they have that aria-expanded
+attribute, it's going to work.
+
+00:17:32.270 --> 00:17:33.160
+Who else this affects?
+
+00:17:33.160 --> 00:17:35.910
+Refreshable Braille device users.
+
+00:17:35.910 --> 00:17:39.540
+So people who can not
+see and can not hear.
+
+00:17:42.220 --> 00:17:46.350
+Why this is a problem once again,
+they won't understand the menu
+
+00:17:46.350 --> 00:17:47.190
+and where they are in it.
+
+00:17:47.190 --> 00:17:50.870
+So they will have an erroneous
+conception of what's going on
+
+00:17:50.870 --> 00:17:55.410
+and might get frustrated
+after going through 20 things
+
+00:17:55.410 --> 00:17:57.120
+that they think are
+primary menu items
+
+00:17:57.120 --> 00:17:59.725
+that are actually sub menu items.
+
+00:18:03.740 --> 00:18:08.050
+Or if your menu drops down on
+click like this, for example.
+
+00:18:08.050 --> 00:18:10.790
+This African American history
+would drop down as you click
+
+00:18:10.790 --> 00:18:12.690
+on the African
+American history thing.
+
+00:18:14.640 --> 00:18:19.710
+The screen reader user may not
+know what's happened at all.
+
+00:18:19.710 --> 00:18:23.340
+If you do not have an
+expanded or contracted state,
+
+00:18:24.360 --> 00:18:26.700
+they would click on it
+and it would drop down,
+
+00:18:26.700 --> 00:18:28.126
+but they would not
+have any indication
+
+00:18:28.127 --> 00:18:29.150
+that anything has happened.
+
+00:18:29.150 --> 00:18:32.090
+They’d think maybe something
+had just gone wrong and they are
+
+00:18:32.090 --> 00:18:34.240
+in no place now.
+
+00:18:34.240 --> 00:18:35.290
+So that could be problematic.
+
+00:18:36.360 --> 00:18:42.280
+All right, a kind of a sidebar,
+the best practice for menus I've kind
+
+00:18:42.280 --> 00:18:49.510
+of decided or found is if you
+have five to seven menu items,
+
+00:18:49.510 --> 00:18:51.490
+just put them in the main menu.
+
+00:18:51.490 --> 00:18:54.390
+Don't worry about
+having dropdowns at all.
+
+00:18:54.390 --> 00:18:59.940
+And that's highly accessible
+because then you don't have
+
+00:18:59.940 --> 00:19:01.240
+to worry about aria-expanded.
+
+00:19:01.240 --> 00:19:03.870
+You do not have to worry
+about, does it drop down?
+
+00:19:03.870 --> 00:19:04.870
+Does it not?
+
+00:19:05.690 --> 00:19:07.200
+So that's super great.
+
+00:19:07.200 --> 00:19:13.140
+But if you have 15 to 20 or
+more drop downs, you want them,
+
+00:19:13.140 --> 00:19:16.530
+or 15 or 20 or more items that
+you want to fit into your menu,
+
+00:19:16.530 --> 00:19:19.600
+you definitely want drop downs.
+
+00:19:19.600 --> 00:19:23.300
+And you will need to make sure that
+the aria-expanded attribute is there
+
+00:19:23.300 --> 00:19:27.710
+so that the drop down
+works for people.
+
+00:19:29.160 --> 00:19:29.900
+OK.
+
+00:19:29.900 --> 00:19:35.500
+And here we go with our next
+slide assessing the problems.
+
+00:19:35.500 --> 00:19:36.500
+So the next section.
+
+00:19:38.620 --> 00:19:40.660
+So how to assess.
+
+00:19:40.660 --> 00:19:45.630
+So if you are working on your
+webpage or someone else's,
+
+00:19:45.630 --> 00:19:50.670
+and you want to see or
+assess whether the menu
+
+00:19:50.670 --> 00:19:57.650
+that's in there is accessible,
+well, use a keyboard.
+
+00:19:57.650 --> 00:19:58.650
+Start out that way.
+
+00:19:59.490 --> 00:20:01.380
+So you're going to hit tab.
+
+00:20:01.380 --> 00:20:04.510
+You're going to tab right
+through the skip link
+
+00:20:04.510 --> 00:20:07.230
+that will probably pop
+up first or second.
+
+00:20:07.230 --> 00:20:10.560
+Then you should be able to
+tab into the actual menu.
+
+00:20:10.560 --> 00:20:13.190
+And you are just going to
+start tabbing through it.
+
+00:20:13.190 --> 00:20:17.760
+If you get to a menu
+item that is a drop-down,
+
+00:20:20.020 --> 00:20:23.680
+when you tab into it,
+does it drop-down?
+
+00:20:23.680 --> 00:20:26.090
+If it doesn't, you got trouble.
+
+00:20:26.090 --> 00:20:28.540
+And you're going to have to
+figure out how to fix that.
+
+00:20:28.540 --> 00:20:30.460
+We'll talk about how to
+fix it in just a minute.
+
+00:20:30.460 --> 00:20:33.350
+You are going to see
+if the menu drops down.
+
+00:20:33.350 --> 00:20:37.730
+You're going to see if there's
+a way to make it pull up.
+
+00:20:37.730 --> 00:20:40.230
+Next, you want to assess
+with the screen reader
+
+00:20:40.230 --> 00:20:45.070
+because you can use the
+standard error navigation
+
+00:20:45.070 --> 00:20:47.550
+on the screen reader to go
+forward through the menu
+
+00:20:47.550 --> 00:20:51.890
+and listen for your screen reader
+to say, collapsed or expanded,
+
+00:20:51.890 --> 00:20:56.170
+which indicates to you
+that it has the collapsed
+
+00:20:56.170 --> 00:20:59.320
+or the Aria expanded attribute
+on it like it should.
+
+00:21:01.890 --> 00:21:05.580
+And finally,
+you probably want to inspect.
+
+00:21:05.580 --> 00:21:12.120
+So use your browser inspector
+to inspect an element.
+
+00:21:12.120 --> 00:21:14.850
+Let's take a closer look at this.
+
+00:21:16.740 --> 00:21:21.620
+OK, so if you were to
+inspect, this is using Chrome,
+
+00:21:21.620 --> 00:21:25.790
+but Firefox and the other browsers
+are usually pretty similar.
+
+00:21:26.900 --> 00:21:31.590
+So you'd put your pointer over
+the item that makes it drop down.
+
+00:21:31.590 --> 00:21:35.000
+You would right click
+and choose inspect,
+
+00:21:35.000 --> 00:21:37.390
+which would open up your
+element inspector here.
+
+00:21:37.390 --> 00:21:45.390
+What you are looking for to make
+sure that the menu is dropping down
+
+00:21:45.720 --> 00:21:48.910
+and that the aria-expanded
+attribute is there.
+
+00:21:48.910 --> 00:21:52.240
+You are looking to see
+here on this element
+
+00:21:52.240 --> 00:21:54.270
+if there is this
+aria-expanded equals true.
+
+00:21:55.780 --> 00:22:00.440
+As you can see here,
+it was not this way initially,
+
+00:22:00.440 --> 00:22:03.290
+but I did remediate BlackPast
+so that it does have
+
+00:22:03.290 --> 00:22:05.430
+the aria-expanded equals true.
+
+00:22:05.430 --> 00:22:08.380
+And as you can see a little
+farther down this next one,
+
+00:22:08.380 --> 00:22:11.590
+global African American
+history, that menu item,
+
+00:22:11.590 --> 00:22:16.560
+which is also a dropdown,
+has the aria-expanded equals false.
+
+00:22:16.560 --> 00:22:24.560
+You want to make sure that when the
+global African history menu item
+
+00:22:24.830 --> 00:22:27.010
+drops down that these two swap.
+
+00:22:27.010 --> 00:22:30.680
+So that your first one would
+say aria-expanded false
+
+00:22:30.680 --> 00:22:32.860
+and the second one would
+say aria-expanded true.
+
+00:22:32.860 --> 00:22:40.520
+If that's working, you're
+golden, at least in this aspect.
+
+00:22:40.520 --> 00:22:43.660
+So that's good.
+
+00:22:43.660 --> 00:22:44.660
+All right.
+
+00:22:46.750 --> 00:22:54.750
+In preparing for this talk,
+I looked through 15 theme sites
+
+00:22:56.450 --> 00:22:57.850
+of WordPress themes.
+
+00:22:57.850 --> 00:23:01.520
+So I looked through,
+I went to the popular themes
+
+00:23:01.520 --> 00:23:06.650
+and I tried to find sites that
+were built with those themes
+
+00:23:06.650 --> 00:23:13.130
+and I assessed them to see if they
+had any of these three problems
+
+00:23:13.130 --> 00:23:14.470
+and here's what I found.
+
+00:23:14.470 --> 00:23:16.800
+And then I also looked
+at five other big ones,
+
+00:23:16.800 --> 00:23:19.930
+Google and very
+much and a few more.
+
+00:23:19.930 --> 00:23:21.710
+And here's what I found.
+
+00:23:22.970 --> 00:23:28.550
+Of these 20 websites,
+the bad news is nine of 20
+
+00:23:28.550 --> 00:23:31.480
+of them did not drop down on focus.
+
+00:23:31.480 --> 00:23:33.030
+They only dropped out on hover.
+
+00:23:34.150 --> 00:23:39.980
+So once again, this is going to
+be bad for keyboard navigators.
+
+00:23:39.980 --> 00:23:41.670
+I first got some
+screen reader users.
+
+00:23:43.330 --> 00:23:45.590
+And that's almost half of them.
+
+00:23:45.590 --> 00:23:52.750
+So that's a huge number of
+sites that did not work great.
+
+00:23:52.750 --> 00:24:00.750
+Of the ones that did drop
+down on focus, seven of those,
+
+00:24:02.340 --> 00:24:06.280
+so seven of 11,
+had no way to pull the menu back up.
+
+00:24:06.280 --> 00:24:07.870
+So once again,
+that's going to be a problem too.
+
+00:24:09.120 --> 00:24:15.410
+And then of these 20 websites, 15 of
+them had no aria-expanded attribute.
+
+00:24:18.360 --> 00:24:24.940
+So poor for screen reader users.
+
+00:24:24.940 --> 00:24:29.790
+The good news is there were four
+sites that worked perfectly.
+
+00:24:29.790 --> 00:24:36.640
+Google had very limited drop downs,
+but the one that they had worked.
+
+00:24:36.640 --> 00:24:37.660
+Merriam-Webster.
+
+00:24:38.670 --> 00:24:40.430
+So those were kind of
+the industry sites.
+
+00:24:40.430 --> 00:24:43.560
+I don't know if they're probably
+most certainly not built
+
+00:24:43.560 --> 00:24:45.460
+with WordPress, but they did work.
+
+00:24:47.620 --> 00:24:52.060
+And also the Elementor
+demo site worked perfectly.
+
+00:24:52.060 --> 00:24:53.820
+It had no problems.
+
+00:24:53.820 --> 00:24:57.620
+And the Astra theme demo
+site worked perfectly.
+
+00:24:57.620 --> 00:25:00.690
+So there is some hope.
+
+00:25:02.010 --> 00:25:03.010
+It can be done.
+
+00:25:04.410 --> 00:25:08.840
+They're out there,
+the sites that work fine.
+
+00:25:08.840 --> 00:25:16.840
+But most sites, at least that I
+looked at, did not work as desired.
+
+00:25:19.090 --> 00:25:27.090
+So what solutions can you
+implement on your WordPress menu?
+
+00:25:29.380 --> 00:25:30.250
+Let's take a look at it.
+
+00:25:30.250 --> 00:25:34.040
+Well, you can do
+some PHP remediation.
+
+00:25:35.100 --> 00:25:39.750
+And what you'll want to
+do is you'll want to go in
+
+00:25:39.750 --> 00:25:46.210
+and modify the Navwalker class
+that you'll find in the PHP.
+
+00:25:47.540 --> 00:25:55.540
+And I have an image here of a
+screenshot of this Walker_Nav_Menu
+
+00:25:57.740 --> 00:25:59.860
+in some PHP code.
+
+00:25:59.860 --> 00:26:02.820
+It's complicated, it's confusing.
+
+00:26:03.970 --> 00:26:08.540
+And so it's, though it's probably the
+best solution because it's getting
+
+00:26:08.540 --> 00:26:12.640
+at the real heart of the
+issue, it's also probably
+
+00:26:12.640 --> 00:26:18.310
+beyond what the average WordPress
+developer is capable of.
+
+00:26:18.310 --> 00:26:21.570
+And it's definitely beyond the
+scope of this presentation.
+
+00:26:23.090 --> 00:26:28.670
+So if you want to do
+it, I have a link here.
+
+00:26:28.670 --> 00:26:34.110
+You're welcome to follow to
+the WordPress docs that talk
+
+00:26:34.110 --> 00:26:35.700
+about this Walker_Nav_Menu.
+
+00:26:38.260 --> 00:26:41.860
+There are ways that you
+can completely swap it out.
+
+00:26:41.860 --> 00:26:49.400
+I have not found code that you
+could swap in for it or instructions
+
+00:26:49.400 --> 00:26:53.930
+on how to do it to make sure
+that you are changing your menu
+
+00:26:53.930 --> 00:26:56.366
+to actually be one
+that is accessible,
+
+00:26:56.367 --> 00:26:59.240
+but presumably there is a way
+to do that.
+
+00:27:01.880 --> 00:27:03.410
+But let's look at
+some other solutions
+
+00:27:03.410 --> 00:27:07.930
+that are probably more
+likely helpful for you.
+
+00:27:08.990 --> 00:27:14.650
+So the solution for
+drop-down only on hover.
+
+00:27:14.650 --> 00:27:19.120
+So if it only drops down when you
+hover, usually you can fix this
+
+00:27:19.120 --> 00:27:20.860
+with just some CSS remediation.
+
+00:27:22.600 --> 00:27:25.480
+So adding something
+to the stylesheet.
+
+00:27:25.480 --> 00:27:29.310
+So you're going to make sure that
+the menu drops down on focus.
+
+00:27:33.780 --> 00:27:41.780
+So you'll inspect an element and
+then you are going to look here
+
+00:27:42.080 --> 00:27:44.750
+in the style in this first
+element state, you are going
+
+00:27:44.750 --> 00:27:47.690
+to click the hover and you are
+going to figure out which one
+
+00:27:47.690 --> 00:27:55.300
+of these items is actually causing
+the on-hover for it to drop down.
+
+00:27:55.300 --> 00:27:58.180
+And so by clicking
+and unclicking hover
+
+00:27:58.180 --> 00:28:01.470
+with different items selected
+here in the inspector,
+
+00:28:03.650 --> 00:28:07.160
+you will figure out which one of
+those is triggering the drop-down.
+
+00:28:07.160 --> 00:28:12.690
+Then you can scroll down in
+the rules here to figure out
+
+00:28:12.690 --> 00:28:16.540
+what's changing, figure out where in
+the style sheet it is changing it.
+
+00:28:16.540 --> 00:28:20.670
+And then if you just add a
+hover declaration to that,
+
+00:28:20.670 --> 00:28:28.010
+add a focus declaration to the hover
+declaration that's already there.
+
+00:28:31.320 --> 00:28:33.740
+So let me see if I
+got all my things.
+
+00:28:33.740 --> 00:28:36.960
+Use the browser dev tools,
+add a focus declaration to it,
+
+00:28:36.960 --> 00:28:39.430
+and you should get it.
+
+00:28:39.430 --> 00:28:40.910
+OK, next.
+
+00:28:42.010 --> 00:28:48.860
+For the missing aria-expanded,
+you are going to need
+
+00:28:48.860 --> 00:28:51.410
+to do some JavaScript remediation.
+
+00:28:51.410 --> 00:28:56.590
+So use JavaScript to modify
+the proper aria-attributes,
+
+00:28:56.590 --> 00:28:59.740
+which does add some weight
+to your site's load time.
+
+00:28:59.740 --> 00:29:03.860
+So anytime you add JavaScript,
+that's one more resource,
+
+00:29:03.860 --> 00:29:06.100
+and it will take a
+little bit longer.
+
+00:29:06.100 --> 00:29:14.100
+So that's a consideration, but if
+it's adding this essential ability,
+
+00:29:14.340 --> 00:29:17.660
+it's definitely worth it.
+
+00:29:17.660 --> 00:29:20.730
+This only works if visitors have
+JavaScript enabled in their browsers.
+
+00:29:20.730 --> 00:29:24.620
+And 1.2% of Internet users do
+not have JavaScript enabled,
+
+00:29:24.620 --> 00:29:29.470
+which is actually a huge number
+of visitors, 62 million a year,
+
+00:29:31.680 --> 00:29:34.240
+that do not have
+JavaScript enabled.
+
+00:29:34.240 --> 00:29:41.230
+So it's just something you're going
+to have to deal with or accept,
+
+00:29:41.230 --> 00:29:45.570
+that it's not going to work
+for everyone, unfortunately.
+
+00:29:45.570 --> 00:29:50.900
+But how do you do it if you're
+missing this aria-expanded attribute?
+
+00:29:50.900 --> 00:29:53.480
+Well,
+you got to select the element.
+
+00:29:53.480 --> 00:29:57.330
+And I have on the right
+side of the screen, an image
+
+00:29:57.330 --> 00:30:04.630
+of the BlackPast site with
+the JavaScript console open.
+
+00:30:04.630 --> 00:30:10.160
+You can see some of the
+things that I wrote here.
+
+00:30:10.160 --> 00:30:13.780
+You can try at first in
+the JavaScript console.
+
+00:30:16.270 --> 00:30:20.260
+And then if it works there,
+then you can add it to a resource,
+
+00:30:20.260 --> 00:30:22.310
+[Inaudible 30:27]
+
+00:30:22.310 --> 00:30:25.540
+JavaScript file that is
+called throughout the site.
+
+00:30:25.540 --> 00:30:33.010
+But you got to select the element
+and then use the set attribute method
+
+00:30:33.010 --> 00:30:38.860
+to set the aria-expanded to
+false before it is dropping down
+
+00:30:38.860 --> 00:30:42.100
+and true when it does drop down.
+
+00:30:42.100 --> 00:30:44.620
+You are going to test,
+test and test, in the console,
+
+00:30:45.710 --> 00:30:48.330
+in a dev environment,
+in the live environment.
+
+00:30:48.330 --> 00:30:51.850
+Make sure that this works
+the way that you expect it to
+
+00:30:51.850 --> 00:30:53.570
+or that you want it to.
+
+00:30:53.570 --> 00:31:00.290
+All right, so a little closer
+look at what this looks like.
+
+00:31:00.290 --> 00:31:05.990
+So you can see the code that I used
+here or that I tested in the console.
+
+00:31:09.580 --> 00:31:12.770
+But in addition to setting the
+initial aria-expanded attribute
+
+00:31:12.770 --> 00:31:16.610
+of aria-expanded equals
+false, you will also need
+
+00:31:16.610 --> 00:31:22.340
+to add an event listener on focus
+that sets the aria-expanded attribute
+
+00:31:22.340 --> 00:31:25.630
+to true and another
+one on the blur.
+
+00:31:25.630 --> 00:31:29.390
+So another event listener on
+blur that sets it back to false.
+
+00:31:29.390 --> 00:31:37.390
+So making sure that the aria-expanded
+attribute is modified dynamically
+
+00:31:40.430 --> 00:31:43.830
+on the fly as the
+states of this change.
+
+00:31:46.060 --> 00:31:52.580
+You can do something like this,
+drop down items, i.addEventListener
+
+00:31:53.970 --> 00:31:59.040
+on focus, and then use
+your function that adds
+
+00:31:59.040 --> 00:32:02.510
+or takes away the proper attribute.
+
+00:32:03.760 --> 00:32:08.570
+So this is scratching the
+surface, not going deeply into
+
+00:32:08.570 --> 00:32:13.830
+how to do the JavaScript, but
+probably you already know that bit.
+
+00:32:13.830 --> 00:32:17.610
+All right, let's talk about this
+enhancement that I mentioned earlier
+
+00:32:18.800 --> 00:32:24.440
+of the arrow key navigation.
+
+00:32:29.640 --> 00:32:34.430
+If you have menus that drop down...
+I have got an image
+
+00:32:34.430 --> 00:32:42.430
+of the BlackPass site once again
+because it has implemented this.
+
+00:32:44.240 --> 00:32:49.710
+You'll see that it's an image
+of somebody in one of the menus,
+
+00:32:49.710 --> 00:32:52.380
+but there's a little message
+up above the menu that says,
+
+00:32:52.380 --> 00:32:54.230
+use the arrow keys
+to navigate the menu.
+
+00:32:54.230 --> 00:32:57.000
+To enter the page, use the right
+arrow key from the last menu item,
+
+00:32:57.000 --> 00:32:59.020
+or press escape at any time.
+
+00:32:59.020 --> 00:33:02.840
+So what arrow key navigation
+does is it allows visitors
+
+00:33:02.840 --> 00:33:05.750
+who tab into the menu to
+move their focus around it
+
+00:33:05.750 --> 00:33:10.190
+with the arrow keys, which kind of
+makes it so that you do not have
+
+00:33:10.190 --> 00:33:18.090
+to worry about having a way to
+suck the menu back up necessarily,
+
+00:33:18.090 --> 00:33:22.680
+because you can always just go to
+the right, go to the next menu over.
+
+00:33:25.020 --> 00:33:26.250
+How to do it?
+
+00:33:26.250 --> 00:33:28.167
+It's not a simple process,
+
+00:33:28.168 --> 00:33:31.780
+but basically you add
+key press event listeners
+
+00:33:31.780 --> 00:33:35.410
+while the menu item has
+focus, and you push the focus,
+
+00:33:35.410 --> 00:33:41.830
+depending upon the key presses of
+the right and the left arrow key,
+
+00:33:41.830 --> 00:33:43.840
+you push the focus to
+the desired element.
+
+00:33:46.250 --> 00:33:51.370
+So it does require JavaScript, with
+all the caveats that that requires.
+
+00:33:51.370 --> 00:33:55.130
+It is, however,
+helpful for keyboard navigators.
+
+00:33:56.150 --> 00:34:02.940
+It's not necessarily super
+helpful for all other users,
+
+00:34:02.940 --> 00:34:04.450
+like screen reader users.
+
+00:34:04.450 --> 00:34:10.320
+There's a way to make it work,
+but it's a little bit convoluted,
+
+00:34:10.320 --> 00:34:12.800
+and so it may not be helpful to
+them, but it's not problematic
+
+00:34:12.800 --> 00:34:13.940
+to them either.
+
+00:34:13.940 --> 00:34:19.200
+So it does not block their
+ability to at least go
+
+00:34:19.200 --> 00:34:22.250
+through all these menu
+items if they want to.
+
+00:34:22.250 --> 00:34:30.250
+It just makes it easier for keyboard
+navigators and not worse for others.
+
+00:34:31.990 --> 00:34:33.000
+OK.
+
+00:34:33.000 --> 00:34:38.530
+So the easy way to do this, I would
+say is use the Crow's Nest plugin,
+
+00:34:38.530 --> 00:34:45.130
+which is available on the
+WordPress plugin directory.
+
+00:34:45.130 --> 00:34:48.650
+And also I have a QR code here.
+
+00:34:50.130 --> 00:34:56.520
+It's a plugin that enables this
+arrow key navigation on the menus.
+
+00:34:56.520 --> 00:34:57.840
+There are a few caveats.
+
+00:34:57.840 --> 00:35:05.840
+This plugin only works if the drop
+down on focus is already enabled.
+
+00:35:07.240 --> 00:35:09.130
+So you have got to fix that first.
+
+00:35:09.130 --> 00:35:17.130
+And then you will set this plugin
+up by targeting various elements,
+
+00:35:25.220 --> 00:35:32.330
+doing the CSS styles that
+would target various elements.
+
+00:35:33.993 --> 00:35:35.063
+OK.
+
+00:35:35.190 --> 00:35:37.210
+So question.
+
+00:35:38.540 --> 00:35:42.950
+Remember that person on the lake that
+we looked at the very first slide?
+
+00:35:42.950 --> 00:35:50.480
+Wouldn’t you rather have this
+one paddling around your lake.
+
+00:35:50.480 --> 00:35:57.380
+Notice he's ready to stay, this
+guy, he's got his fishing tackle,
+
+00:35:57.380 --> 00:36:02.040
+his fishing pole,
+and he's got these oars.
+
+00:36:02.040 --> 00:36:06.370
+And so he is able to paddle around
+the site, he's going to stay.
+
+00:36:08.750 --> 00:36:12.820
+That's what you want to
+do with your navigation.
+
+00:36:12.820 --> 00:36:15.420
+Give your visitors
+the proper paddles,
+
+00:36:15.421 --> 00:36:24.110
+the way to get around your site,
+and they will stay longer.
+
+00:36:24.110 --> 00:36:29.550
+So you want to make sure that
+your menu drops down on focus
+
+00:36:29.550 --> 00:36:30.550
+as well as hover.
+
+00:36:31.240 --> 00:36:35.140
+Do this by adding or adjusting
+your CSS to add a focus trigger
+
+00:36:35.140 --> 00:36:38.520
+to your hover styles
+that make that happen.
+
+00:36:38.520 --> 00:36:41.380
+Make sure that your menu has
+a mechanism to suck back up,
+
+00:36:42.940 --> 00:36:45.220
+for keyboard and
+screen reader users.
+
+00:36:45.220 --> 00:36:48.780
+So when it drops down,
+you want it to have a way to come up
+
+00:36:48.780 --> 00:36:52.220
+or else they will be tapping
+through the entire dropdown list,
+
+00:36:52.220 --> 00:36:55.370
+which is not great
+if it's extensive.
+
+00:36:56.810 --> 00:36:59.960
+Or you can add arrow key
+navigation as we have talked about.
+
+00:37:01.460 --> 00:37:05.480
+Make sure that your menu has
+the proper aria attributes
+
+00:37:05.480 --> 00:37:10.450
+so it can be understood by
+screen readers and their users.
+
+00:37:12.850 --> 00:37:15.720
+So that's the final takeaway.
+
+00:37:17.210 --> 00:37:20.470
+If you need a little extra help
+with your menu, let's connect.
+
+00:37:20.470 --> 00:37:26.550
+I’ve got my LinkedIn link
+there, my email address.
+
+00:37:26.550 --> 00:37:32.230
+So if you notice that your menu
+isn't working like it needs
+
+00:37:32.230 --> 00:37:34.800
+to let me know.
+
+00:37:34.800 --> 00:37:36.510
+Hit me up and we'll talk.
+
+00:37:39.330 --> 00:37:39.590
+OK.
+
+00:37:39.590 --> 00:37:44.620
+And I guess that's all I've got.
+
+00:37:44.620 --> 00:37:45.630
+JOOST: Thank you, Deneb.
+
+00:37:45.630 --> 00:37:48.720
+That was excellent actually.
+
+00:37:48.720 --> 00:37:51.520
+If you could stop sharing your
+screen and people might be able
+
+00:37:51.520 --> 00:37:52.710
+to see you a bit better.
+
+00:37:54.150 --> 00:37:56.700
+We have a ton of questions
+to go through, which is good.
+
+00:37:56.700 --> 00:38:04.240
+So I am going to try and go
+through them in a bit of order
+
+00:38:04.240 --> 00:38:06.160
+as you went through
+your presentation.
+
+00:38:07.270 --> 00:38:11.290
+You talked about the number of
+tab stops and I can totally see
+
+00:38:11.290 --> 00:38:15.070
+why 87 tab stops to get
+somewhere is a bit much.
+
+00:38:17.230 --> 00:38:21.210
+What would you recommend as a
+number that is still acceptable?
+
+00:38:22.300 --> 00:38:26.680
+DENEB: Yes, so I have thought
+about this quite a bit
+
+00:38:26.680 --> 00:38:31.500
+because I made this plugin
+and so I have to decide, well,
+
+00:38:31.500 --> 00:38:35.900
+is it worth it to install this
+plugin on various client sites?
+
+00:38:35.900 --> 00:38:43.900
+And so I've decided that if a menu
+has maybe six main drop downs,
+
+00:38:49.550 --> 00:38:52.080
+main menu items.
+
+00:38:52.080 --> 00:38:59.700
+But if they are in 15 sub menu
+items, then that's probably
+
+00:38:59.700 --> 00:39:03.270
+about where I start
+thinking, OK, yes, we got
+
+00:39:03.270 --> 00:39:05.230
+to enable this arrow
+key navigation.
+
+00:39:06.910 --> 00:39:09.150
+But that's my personal opinion.
+
+00:39:09.150 --> 00:39:12.630
+JOOST: Well, no,
+but it's a good number to go from.
+
+00:39:12.630 --> 00:39:18.830
+I can see how you would sort
+of get to that range of number.
+
+00:39:18.830 --> 00:39:21.750
+OK, for everyone listening,
+if you have your own questions,
+
+00:39:21.750 --> 00:39:23.900
+please look at the bottom
+of your Zoom screen.
+
+00:39:23.900 --> 00:39:27.280
+There's a Q&A button there,
+you can add your own questions.
+
+00:39:27.280 --> 00:39:30.200
+That makes it a lot easier
+for me to see your questions
+
+00:39:30.200 --> 00:39:32.930
+and to actually go
+through them with Deneb.
+
+00:39:32.930 --> 00:39:36.460
+We've just answered the first
+one, but we're not done yet.
+
+00:39:36.460 --> 00:39:40.670
+Andrea Fertia, a former colleague
+of mine, very dear to me,
+
+00:39:40.670 --> 00:39:44.450
+was actually asking, what tool
+did you use to count the tab stops
+
+00:39:44.450 --> 00:39:44.910
+in the menu?
+
+00:39:44.910 --> 00:39:46.190
+DENEB: Oh, yes.
+
+00:39:47.260 --> 00:39:48.690
+Let me see.
+
+00:39:48.690 --> 00:39:51.710
+I'll pull that up so I can
+figure out what that is.
+
+00:39:54.460 --> 00:39:54.990
+What was it?
+
+00:39:55.991 --> 00:39:56.660
+JOOST: You know what?
+
+00:39:56.660 --> 00:39:59.840
+You'll get to share
+that link later on
+
+00:39:59.840 --> 00:40:03.990
+in the WordPress
+Accessibility day Slack.
+
+00:40:03.990 --> 00:40:05.880
+DENEB: I will put it in Slack.
+
+00:40:05.880 --> 00:40:07.860
+I'll look it up and I'll
+put it in Slack for sure.
+
+00:40:07.860 --> 00:40:08.790
+JOOST: Perfect.
+
+00:40:08.790 --> 00:40:09.790
+Thank you very much.
+
+00:40:10.800 --> 00:40:14.440
+Yolan is asking,
+is vanilla JavaScript a good way
+
+00:40:14.440 --> 00:40:17.360
+to alter the navigation menu
+with regards to tabbing?
+
+00:40:18.680 --> 00:40:28.400
+DENEB: Well, like I
+said, the best way is
+
+00:40:28.400 --> 00:40:36.530
+to actually change the whole menu
+with PHP to do that NavWalker class.
+
+00:40:38.810 --> 00:40:45.930
+However, the technical ability
+needed to do it that way, I think,
+
+00:40:45.930 --> 00:40:51.510
+is much more substantial than
+changing it with JavaScript.
+
+00:40:51.510 --> 00:40:59.150
+And so although it's not
+great to be dependent
+
+00:40:59.150 --> 00:41:06.440
+upon a client-side service like
+JavaScript that could be disabled
+
+00:41:06.440 --> 00:41:10.190
+on people's browsers,
+though that's not great,
+
+00:41:10.190 --> 00:41:16.930
+I think it's worth it,
+and it's better than nothing.
+
+00:41:16.930 --> 00:41:19.770
+Particularly if in your accessibility
+statement you say, you know,
+
+00:41:19.770 --> 00:41:25.860
+there are some...
+In fact you could mention your menu,
+
+00:41:25.860 --> 00:41:29.640
+call it out in the
+accessibility statement and say,
+
+00:41:29.640 --> 00:41:32.950
+Hey, our menu works best if
+you have JavaScript enabled,
+
+00:41:32.950 --> 00:41:36.150
+or just put that generally in your
+accessibility statement someplace
+
+00:41:36.150 --> 00:41:40.080
+or site works best with
+then they at least know oh,
+
+00:41:40.080 --> 00:41:43.250
+if I want the best experience,
+I can enable JavaScript,
+
+00:41:43.250 --> 00:41:45.610
+even though usually I do not usually
+need it, maybe for this side,
+
+00:41:45.610 --> 00:41:46.610
+I'll have it.
+
+00:41:48.100 --> 00:41:53.050
+JOOST: And your PHP remediation,
+you mentioned it takes too far
+
+00:41:53.050 --> 00:41:55.770
+for this presentation,
+which I understand.
+
+00:41:55.770 --> 00:41:59.040
+But do you feel that that's
+something that should actually be
+
+00:41:59.040 --> 00:42:00.040
+in WordPress core?
+
+00:42:03.580 --> 00:42:09.470
+DENEB: As I understand it, each theme
+puts in their own navigation menu
+
+00:42:14.240 --> 00:42:18.650
+with their own PHP NavWalker class.
+
+00:42:18.650 --> 00:42:21.060
+JOOST: They should
+not for the most part.
+
+00:42:21.860 --> 00:42:25.440
+DENEB: It would be helpful
+if WordPress would put
+
+00:42:25.440 --> 00:42:31.890
+like a fully accessible
+example code,
+
+00:42:31.890 --> 00:42:38.190
+or something that developers
+could start with a basis.
+
+00:42:39.620 --> 00:42:45.260
+But I don't know too much
+about that side of things.
+
+00:42:45.260 --> 00:42:47.360
+JOOST: No, that's absolutely fine.
+
+00:42:47.360 --> 00:42:51.200
+I was actually talking to our
+tech guy, Jonathan Vossinger,
+
+00:42:51.200 --> 00:42:53.760
+about like, hey,
+shouldn't this be in core?
+
+00:42:53.760 --> 00:42:57.790
+We'll have a look after this,
+like where should this live?
+
+00:42:57.790 --> 00:43:01.410
+I think there's quite a few people
+listening that may have opinions
+
+00:43:01.410 --> 00:43:06.000
+on that, but maybe we can make
+this a bit better for everyone
+
+00:43:06.000 --> 00:43:08.600
+and a bit easier because
+I'm fully with you.
+
+00:43:08.600 --> 00:43:11.610
+If people have to start writing
+navigation walker classes,
+
+00:43:11.610 --> 00:43:14.810
+that's a bit too
+much for most things.
+
+00:43:17.530 --> 00:43:20.830
+Another question from Karen Suika.
+
+00:43:20.830 --> 00:43:23.750
+Karen, I don't know how to
+pronounce your name, Karen, sorry.
+
+00:43:25.350 --> 00:43:28.440
+Have you tested the
+current standard theme 2023
+
+00:43:28.440 --> 00:43:31.040
+and do you have any
+experience with that?
+
+00:43:31.040 --> 00:43:32.150
+DENEB: No, I have not.
+
+00:43:32.150 --> 00:43:33.980
+That was not one of
+the ones that I did.
+
+00:43:33.980 --> 00:43:39.220
+In fact, if you give my presentation,
+you can click on that chart
+
+00:43:39.220 --> 00:43:42.880
+and it will take you
+to the spreadsheet
+
+00:43:42.880 --> 00:43:47.620
+that I used that has listed all
+of the ones that I tested.
+
+00:43:47.620 --> 00:43:49.670
+But that wasn't one of them.
+
+00:43:49.670 --> 00:43:52.550
+I'd certainly be interested in it.
+
+00:43:52.550 --> 00:43:59.620
+If you're curious, hit me up
+or put that request in Slack.
+
+00:43:59.620 --> 00:44:02.700
+And I'd definitely be
+interested in looking at that.
+
+00:44:03.460 --> 00:44:06.210
+JOOST: Yes, we should definitely
+also look at the new default theme
+
+00:44:06.210 --> 00:44:12.150
+being developed for WordPress to see
+like, hey, is it doing this well?
+
+00:44:12.150 --> 00:44:16.220
+I think it's a good
+thing to think about.
+
+00:44:16.220 --> 00:44:19.190
+Leah Roots is asking,
+do you have any recommendations
+
+00:44:19.190 --> 00:44:23.246
+for accessible mega menu
+designs or plugins like that?
+
+00:44:25.800 --> 00:44:28.050
+DENEB: I don't.
+
+00:44:30.311 --> 00:44:40.640
+So I know that, like I said, one of
+the themes, I guess it was a theme.
+
+00:44:41.060 --> 00:44:45.000
+It was the Hello Elementor
+theme, but with Elementor,
+
+00:44:45.000 --> 00:44:46.950
+I know they've got
+all sorts of things.
+
+00:44:46.950 --> 00:44:52.200
+And so I know that their default
+theme did work perfectly.
+
+00:44:53.610 --> 00:44:54.690
+So their demo theme would.
+
+00:44:54.690 --> 00:44:57.290
+So that would indicate
+to me that probably
+
+00:44:57.290 --> 00:45:02.780
+if they have a mega menu option
+that it's probably going to work,
+
+00:45:02.780 --> 00:45:06.950
+but I have not tested it.
+
+00:45:06.950 --> 00:45:11.340
+But now, after having gone
+through my presentation, you know,
+
+00:45:11.340 --> 00:45:15.960
+gotten the slides and stuff, you
+are empowered to test it yourself.
+
+00:45:15.960 --> 00:45:21.620
+Or hit me up on LinkedIn or on
+just email or on Slack or whatever.
+
+00:45:21.620 --> 00:45:23.950
+And I'll go through it with you.
+
+00:45:25.390 --> 00:45:25.990
+JOOST: Perfect.
+
+00:45:25.990 --> 00:45:27.500
+It's a great offer.
+
+00:45:27.500 --> 00:45:31.140
+I would definitely take you up on
+that if I were any of these people.
+
+00:45:32.240 --> 00:45:34.770
+The last question I currently
+have open, if you have any more,
+
+00:45:34.770 --> 00:45:38.180
+don't hesitate to add
+them, is from Jerry Ong.
+
+00:45:38.180 --> 00:45:41.500
+What's your take on
+accessibility of mega menus
+
+00:45:41.500 --> 00:45:45.840
+that could have drop downs with
+varied layouts and content?
+
+00:45:45.840 --> 00:45:49.660
+Avoid mega menus or just apply
+the same accessibility techniques?
+
+00:45:52.900 --> 00:45:56.150
+DENEB: So I'm not a
+huge fan of mega menus.
+
+00:45:58.030 --> 00:46:01.200
+However, I think they are OK.
+
+00:46:02.440 --> 00:46:06.130
+If you make sure that they
+avoid those three problems
+
+00:46:06.130 --> 00:46:11.000
+that I talked about, screen
+reader users would be able to get
+
+00:46:11.000 --> 00:46:18.700
+into them and go around them.
+
+00:46:18.700 --> 00:46:21.090
+Keyboard users would as well,
+as long as there's a way
+
+00:46:21.090 --> 00:46:23.640
+to suck that mega menu back up.
+
+00:46:25.030 --> 00:46:32.430
+If you make a keyboard user tab
+all the way through this vast array
+
+00:46:32.430 --> 00:46:38.010
+of options in the mega menu,
+it's going to be kind of problematic.
+
+00:46:38.010 --> 00:46:44.980
+And that's not a great usability
+feature, which is one of the reasons
+
+00:46:44.980 --> 00:46:47.320
+why I do not like
+Mega Menus too much.
+
+00:46:49.450 --> 00:46:54.580
+But as long as it's
+showing when it's expanded,
+
+00:46:54.580 --> 00:46:58.570
+as long as you can get
+in there with just having
+
+00:46:58.570 --> 00:47:03.210
+and not necessarily
+needing to hover over it,
+
+00:47:03.210 --> 00:47:05.270
+then I think Mega Menus can be OK.
+
+00:47:06.300 --> 00:47:08.160
+JOOST: Yes, clear.
+
+00:47:08.160 --> 00:47:12.440
+Another anonymous attendee is
+asking, what about menus on mobile?
+
+00:47:12.440 --> 00:47:14.340
+All the examples shared
+were for desktop.
+
+00:47:14.340 --> 00:47:15.620
+Is there any difference?
+
+00:47:15.620 --> 00:47:18.630
+Does that change the
+perspective on any of this?
+
+00:47:19.293 --> 00:47:24.310
+DENEB: So, that is actually
+something I should have brought up
+
+00:47:24.310 --> 00:47:25.070
+in the presentation.
+
+00:47:25.070 --> 00:47:29.370
+You do need to make sure that
+your menu works both in desktop
+
+00:47:29.370 --> 00:47:36.550
+and mobile for keyboard
+navigators and screen readers
+
+00:47:36.550 --> 00:47:38.800
+because it is different.
+
+00:47:38.800 --> 00:47:44.360
+Typically, your mobile menu
+would have a single dropdown.
+
+00:47:44.360 --> 00:47:50.420
+I mean, it's the hamburger
+button that you click on,
+
+00:47:50.420 --> 00:47:52.770
+and that would drop the menu down.
+
+00:47:52.770 --> 00:47:56.000
+But you still do need
+to make sure that it has
+
+00:47:56.000 --> 00:48:03.350
+the proper aria-expanded
+attribute, and that it can work
+
+00:48:03.350 --> 00:48:07.660
+on keyboard focus, because
+sometimes people are going to be,
+
+00:48:07.660 --> 00:48:12.090
+just have a really narrow
+browser, and they may
+
+00:48:12.090 --> 00:48:13.930
+still be using their
+keyboard to navigate.
+
+00:48:13.930 --> 00:48:17.980
+And so you do need to check
+the mobile menu as well.
+
+00:48:17.980 --> 00:48:21.490
+So apply the same standards to make
+sure that the mobile menu works
+
+00:48:21.490 --> 00:48:22.610
+as well.
+
+00:48:22.610 --> 00:48:24.120
+JOOST: Clear.
+
+00:48:24.120 --> 00:48:26.930
+Well, with that, we've come
+to the end of our questions,
+
+00:48:26.930 --> 00:48:28.370
+and thus the end of this session.
+
+00:48:28.370 --> 00:48:32.610
+Thank you again, Deneb,
+for your excellent presentation.
+
+00:48:32.610 --> 00:48:36.530
+Thank you all for attending this
+session with Deneb Pulsipher.
+
+00:48:36.530 --> 00:48:39.050
+You can continue the
+conversation in chat
+
+00:48:39.050 --> 00:48:47.050
+or on social media using the
+#WPA11Yday, or #WPAD2023.
+
+00:48:47.090 --> 00:48:48.840
+We also really
+appreciate it if you go
+
+00:48:48.840 --> 00:48:52.600
+to the WPAcessibilityDay website
+to provide anonymous feedback
+
+00:48:52.600 --> 00:48:56.000
+to our speakers so that they
+can learn what they did right
+
+00:48:56.000 --> 00:48:57.940
+and what they can
+do better next time.
+
+00:48:57.940 --> 00:49:01.530
+And while you are there you
+can enter to win a t-shirt.
+
+00:49:01.530 --> 00:49:03.740
+Stay tuned for a practical guide
+
+00:49:03.741 --> 00:49:06.710
+to automated accessibility
+coming up next
+
+00:49:06.710 --> 00:49:12.090
+with Mark Steadman at the top
+of the hour, which is 11am UTC.
+
+00:49:12.090 --> 00:49:15.440
+And while you are waiting, do not
+forget to visit our sponsors pages
+
+00:49:15.440 --> 00:49:20.720
+to grab virtual swag and enter for
+a chance to win some great prizes.
+
+00:49:20.720 --> 00:49:22.820
+We're going to see
+you right after rake.
+
+00:49:22.820 --> 00:49:24.390
+Have a great WordPress
+Accessibility Day.
+
+00:49:30.064 --> 00:49:34.160
+AMBER: Thank you to WordPress
+Accessibility Day 2023 sponsors.
+
+00:49:34.710 --> 00:49:37.530
+Platinum sponsor Equalize Digital.
+
+00:49:37.530 --> 00:49:40.320
+Equalize Digital's
+Accessibility Checker plugin
+
+00:49:40.320 --> 00:49:43.070
+is an automated
+accessibility scanning tool
+
+00:49:43.070 --> 00:49:46.260
+that helps WordPress websites
+become and stay accessible.
+
+00:49:47.510 --> 00:49:50.380
+Platinum Sponsor, Gravity Forms.
+
+00:49:50.380 --> 00:49:53.990
+Gravity Forms is the professional
+form builder that you need
+
+00:49:53.990 --> 00:49:58.710
+to create beautiful,
+powerful and accessible forms.
+
+00:49:58.710 --> 00:50:04.115
+Gold Sponsors, 20i, DQ,
+Empire Caption Solutions,
+
+00:50:04.116 --> 00:50:06.710
+Precibel and WP Engine.
+
+00:50:08.360 --> 00:50:15.240
+Silver Sponsors, Code Geek, Drake
+Cooper, GoDaddy, LoneRock Point,
+
+00:50:15.240 --> 00:50:20.460
+NerdPress, Overnight website
+by KineticIris, Riola Networks,
+
+00:50:21.770 --> 00:50:24.740
+A11y Collective and the Blogsmith.
+
+00:50:26.610 --> 00:50:31.960
+Bronze Sponsors, ExcessaCart,
+Green Geeks Web Hosting,
+
+00:50:31.960 --> 00:50:39.960
+Hall Analysis SEO Consulting,
+HDC, ITX, Ivy Cat, Metabox,
+
+00:50:43.770 --> 00:50:48.690
+Pixel chefs, Simply schedule
+appointments, Site ground,
+
+00:50:48.691 --> 00:50:53.910
+Termageddon, Underrepresented
+in tech, Weglot, and Yoast.

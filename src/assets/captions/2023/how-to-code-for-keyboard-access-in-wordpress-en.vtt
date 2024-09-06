@@ -1,0 +1,2744 @@
+﻿WEBVTT
+
+00:00:01.127 --> 00:00:05.090
+ AMBER HINDS: WordPress
+Accessibility Day 2023.
+
+00:00:05.090 --> 00:00:10.860
+How to code for keyboard access in
+WordPress with Speaker Priti Rohra,
+
+00:00:10.860 --> 00:00:14.230
+Chief Accessibility
+Officer at Barrier Break.
+
+00:00:14.230 --> 00:00:17.920
+This presentation was
+recorded September 28th, 2023.
+
+00:00:20.576 --> 00:00:21.390
+JASON FERRARA: All right.
+
+00:00:21.390 --> 00:00:22.930
+Well, hello everybody.
+
+00:00:22.930 --> 00:00:26.350
+Welcome to WordPress
+Accessibility Day 2023.
+
+00:00:26.350 --> 00:00:27.700
+My name is Jason Ferrara.
+
+00:00:27.700 --> 00:00:31.020
+My day job, I am the accessibility
+lead for consumer products
+
+00:00:31.020 --> 00:00:32.350
+at Dow Jones.
+
+00:00:32.350 --> 00:00:35.210
+But for today, I will be your host.
+
+00:00:35.210 --> 00:00:40.340
+Thank you to everybody who is
+in this room for joining us for
+
+00:00:40.340 --> 00:00:43.900
+how to code for keyboard access
+in WordPress with Priti Rohra.
+
+00:00:43.900 --> 00:00:46.870
+A little background on Priti.
+
+00:00:46.870 --> 00:00:50.750
+Priti is a veteran in the
+field of digital accessibility.
+
+00:00:50.750 --> 00:00:52.930
+A person with low
+vision, she entered
+
+00:00:52.930 --> 00:00:56.100
+into the digital accessibility
+world 20 years ago to ensure
+
+00:00:56.100 --> 00:01:00.010
+that the perspective of people with
+visual impairments was included
+
+00:01:00.010 --> 00:01:02.280
+and their technology
+needs were met.
+
+00:01:02.280 --> 00:01:05.250
+Soon, she developed a keen
+interest in finding out how people
+
+00:01:05.250 --> 00:01:08.010
+with other types of disabilities
+access digital content
+
+00:01:08.010 --> 00:01:11.180
+and what are the technology
+options available to them.
+
+00:01:11.180 --> 00:01:13.230
+This kick started her
+accessibility journey
+
+00:01:13.230 --> 00:01:17.340
+and helped her become a keen student
+in the digital accessibility space.
+
+00:01:17.340 --> 00:01:20.630
+Priti also worked with the team on
+drafting India's national policy
+
+00:01:20.630 --> 00:01:23.810
+for electronic and information
+communication technology.
+
+00:01:23.810 --> 00:01:25.360
+I think I got that right.
+
+00:01:25.360 --> 00:01:27.960
+And throughout her career,
+she has been a mentor
+
+00:01:27.960 --> 00:01:30.790
+to many accessibility test
+engineers, developers
+
+00:01:30.790 --> 00:01:32.280
+and subject matter experts.
+
+00:01:33.360 --> 00:01:36.670
+One last bit of housekeeping before
+I turn it over to you, Priti.
+
+00:01:36.670 --> 00:01:39.434
+Attendees, please feel
+free to add your questions
+
+00:01:39.435 --> 00:01:40.760
+in the Zoom Q&A section
+
+00:01:40.760 --> 00:01:43.410
+and we'll answer them at
+the end of the session.
+
+00:01:43.410 --> 00:01:45.620
+Use the chat to connect
+with other attendees
+
+00:01:45.620 --> 00:01:48.440
+and that way the Q&A will
+be the easiest place for us
+
+00:01:48.440 --> 00:01:51.840
+to find the questions
+after the session.
+
+00:01:51.840 --> 00:01:54.240
+And with that, Priti,
+I'll hand it off to you.
+
+00:01:54.982 --> 00:01:57.610
+PRITI ROHRA: Thank you, Jason,
+first of all, for the introduction.
+
+00:01:57.610 --> 00:02:00.110
+I just would like to add to that.
+
+00:02:00.110 --> 00:02:02.504
+I am a native screen reader user,
+
+00:02:02.505 --> 00:02:05.550
+a person with a lived
+visual impairment.
+
+00:02:05.550 --> 00:02:07.040
+I have low vision.
+
+00:02:07.040 --> 00:02:11.070
+So if there is a raise of hand,
+I might not be able to see,
+
+00:02:11.070 --> 00:02:15.350
+but as Jason rightly said, you can
+share your questions on the chat
+
+00:02:15.350 --> 00:02:18.980
+and I'll be happy to take them
+towards the end of the session.
+
+00:02:20.240 --> 00:02:25.420
+So today I'm here to talk about
+how to code for keyboard access
+
+00:02:25.420 --> 00:02:26.420
+in WordPress.
+
+00:02:27.650 --> 00:02:32.900
+And along the way, we are going
+to talk about different techniques
+
+00:02:32.900 --> 00:02:35.570
+for ensuring keyboard access.
+
+00:02:35.570 --> 00:02:37.600
+What are the different user groups?
+
+00:02:37.600 --> 00:02:39.810
+Who will benefit from that?
+
+00:02:39.810 --> 00:02:45.860
+And what are the tips and tricks that
+I would have learned over the years,
+
+00:02:45.860 --> 00:02:50.000
+would love to share with all of
+you to make sure accessibility
+
+00:02:51.230 --> 00:02:56.210
+can be implemented correctly
+for all user groups.
+
+00:02:58.040 --> 00:03:02.820
+So before we get into today's
+topic, I'd like to talk a bit
+
+00:03:02.820 --> 00:03:04.810
+about my company.
+
+00:03:04.810 --> 00:03:08.340
+I work as a chief accessibility
+officer with BarrierBreak.
+
+00:03:09.590 --> 00:03:12.490
+And I'm IWAPCBW certified.
+
+00:03:13.760 --> 00:03:18.410
+BarrierBreak is the leader,
+the pioneers in the field
+
+00:03:18.410 --> 00:03:20.900
+of digital accessibility
+when it comes to India.
+
+00:03:20.900 --> 00:03:26.010
+We started the conversation in
+India, you know, under the guidance
+
+00:03:26.010 --> 00:03:30.030
+of Shilpi Kapoor,
+who's the CEO of BarrierBreak more
+
+00:03:30.030 --> 00:03:31.050
+than two decades back.
+
+00:03:32.140 --> 00:03:35.870
+You know, there were no listening
+ears, I could say at that time,
+
+00:03:35.870 --> 00:03:39.630
+but as the conversation
+has shifted over the years
+
+00:03:39.630 --> 00:03:41.600
+for digital accessibility.
+
+00:03:41.600 --> 00:03:43.850
+And so is the case in India.
+
+00:03:43.850 --> 00:03:49.400
+So, you know, we've been in this
+space for more than 18 years
+
+00:03:49.400 --> 00:03:50.400
+to two decades.
+
+00:03:52.260 --> 00:03:56.020
+We service clients across the
+globe, 14 different countries,
+
+00:03:56.020 --> 00:04:01.160
+and we service different types of
+clients from tech to government,
+
+00:04:01.160 --> 00:04:04.730
+fintech, health sector,
+insurance, and so on.
+
+00:04:07.940 --> 00:04:11.830
+At BarrierBreak, we believe
+in the people first approach.
+
+00:04:11.830 --> 00:04:15.510
+People with disabilities
+are part of the conversation
+
+00:04:15.510 --> 00:04:17.120
+as well as solutions.
+
+00:04:17.120 --> 00:04:21.020
+So when we do accessibility
+testing, accessible development,
+
+00:04:21.020 --> 00:04:22.311
+document remediation,
+
+00:04:22.312 --> 00:04:25.630
+all the different services
+that BarrierBreak offers,
+
+00:04:25.630 --> 00:04:31.010
+we have people with disabilities
+who are part of these solutions.
+
+00:04:32.200 --> 00:04:37.990
+This ensures that we would come
+up with practical recommendations
+
+00:04:37.990 --> 00:04:42.670
+that will not only help our
+clients meet the conformance needs,
+
+00:04:42.670 --> 00:04:45.554
+but also make sure
+the user experience
+
+00:04:45.555 --> 00:04:48.720
+for people with disabilities is
+up to the mark.
+
+00:04:50.860 --> 00:04:55.910
+We have people with disabilities
+as part of our team,
+
+00:04:55.910 --> 00:05:01.840
+and we would have around 40 to
+50% of our staff who have people
+
+00:05:01.840 --> 00:05:04.120
+with lived disabilities.
+
+00:05:04.120 --> 00:05:10.930
+We are a team of 270 plus
+accessibility professionals
+
+00:05:10.930 --> 00:05:13.720
+and we work based out of
+Mumbai, India.
+
+00:05:15.650 --> 00:05:19.620
+Also, we deliver on the hybrid
+model on the remote model.
+
+00:05:19.620 --> 00:05:27.210
+So we accommodate our time in a
+way that we can service clients
+
+00:05:27.210 --> 00:05:33.170
+across the globe, be it a US timeline
+or Canada or in the European region.
+
+00:05:35.110 --> 00:05:40.120
+So let's get right into today's
+topic, which is how to code
+
+00:05:40.120 --> 00:05:42.420
+for keyboard access in WordPress.
+
+00:05:42.420 --> 00:05:43.830
+What are we going to cover here?
+
+00:05:45.250 --> 00:05:48.620
+We're going to talk about,
+What is the importance
+
+00:05:48.620 --> 00:05:51.660
+of keyboard accessibility?
+in brief.
+
+00:05:51.660 --> 00:05:55.940
+Understand the challenges that
+people who use a keyboard will face
+
+00:05:55.940 --> 00:05:57.330
+on the web.
+
+00:05:57.330 --> 00:06:02.350
+How to implement keyboard
+access through navigation,
+
+00:06:02.350 --> 00:06:07.840
+focus visibility, tabbing
+order, keyboard operability,
+
+00:06:07.840 --> 00:06:10.720
+and most importantly,
+focus management.
+
+00:06:10.720 --> 00:06:15.310
+Last but not the least,
+we'll wrap things up on how to test
+
+00:06:15.310 --> 00:06:16.450
+for keyboard access.
+
+00:06:19.540 --> 00:06:23.630
+Starting off with the importance
+of keyboard accessibility.
+
+00:06:23.630 --> 00:06:28.790
+Keyboard accessibility is
+important due to different reasons.
+
+00:06:30.210 --> 00:06:33.480
+We all use the keyboard
+in some or the other form
+
+00:06:33.481 --> 00:06:35.050
+in our day-to-day life.
+
+00:06:36.460 --> 00:06:40.990
+Obviously, while browsing the
+web or working on the computer.
+
+00:06:42.550 --> 00:06:45.870
+But it is a necessity for
+people with disabilities,
+
+00:06:45.870 --> 00:06:49.790
+people with mobility impairments,
+people with visual impairments.
+
+00:06:49.790 --> 00:06:54.680
+Keyboard is the only medium
+through which they would be able
+
+00:06:54.680 --> 00:06:56.300
+to interact with their computers.
+
+00:06:58.530 --> 00:07:01.960
+Not only people with mobility
+and visual impairments,
+
+00:07:01.960 --> 00:07:09.630
+the keyboard is very important
+also for power users who want
+
+00:07:09.630 --> 00:07:14.320
+to efficiently and
+quickly get the task done.
+
+00:07:14.320 --> 00:07:16.920
+They would generally
+rely on a keyboard.
+
+00:07:16.920 --> 00:07:20.540
+And it can also help someone
+whose mouse has stopped working,
+
+00:07:20.540 --> 00:07:22.680
+a situational disability.
+
+00:07:22.680 --> 00:07:24.790
+A keyboard will come in handy.
+
+00:07:24.790 --> 00:07:29.220
+This would all be possible
+if our solutions are made,
+
+00:07:29.220 --> 00:07:35.160
+keeping in mind the
+requirements of keyboard access.
+
+00:07:35.160 --> 00:07:39.690
+People would fill up forms using
+a keyboard, navigate and interact
+
+00:07:39.690 --> 00:07:41.990
+with elements using a keyboard.
+
+00:07:41.990 --> 00:07:47.340
+And what keyboard accessibility
+implementation brings in
+
+00:07:47.340 --> 00:07:52.590
+as an added advantage is that
+it ensures that when we call
+
+00:07:52.590 --> 00:07:57.700
+for keyboard access, support
+for other assistive technologies
+
+00:07:57.700 --> 00:08:00.590
+is also taken care of.
+
+00:08:00.590 --> 00:08:05.230
+Things like support for
+speech recognition systems,
+
+00:08:05.230 --> 00:08:08.210
+support for switch control devices.
+
+00:08:08.210 --> 00:08:11.980
+If your elements, your interactions
+are keyboard accessible,
+
+00:08:11.980 --> 00:08:16.350
+people using these assistive
+technologies would also benefit
+
+00:08:16.350 --> 00:08:17.350
+from the same.
+
+00:08:20.410 --> 00:08:26.130
+So above the challenges that people
+who use a keyboard generally face
+
+00:08:26.130 --> 00:08:31.480
+on the web, not all the elements
+can be navigated with a keyboard.
+
+00:08:31.480 --> 00:08:37.240
+Menus, tooltips, sliders, you can not
+interact with them with a keyboard.
+
+00:08:37.240 --> 00:08:40.510
+They are only coded
+to work with a mouse.
+
+00:08:40.510 --> 00:08:43.310
+If I can not get into
+a menu with a keyboard,
+
+00:08:43.310 --> 00:08:46.580
+how am I supposed to access
+the different list of products
+
+00:08:46.580 --> 00:08:48.250
+that are available
+in the products menu?
+
+00:08:51.280 --> 00:08:55.135
+Other types of problems that
+people would face generally
+
+00:08:55.136 --> 00:08:56.420
+using a keyboard.
+
+00:08:57.820 --> 00:09:01.580
+They can navigate to elements in
+some parts, but they can't see
+
+00:09:01.580 --> 00:09:02.440
+where they are.
+
+00:09:02.440 --> 00:09:04.280
+The keyboard focus is not visible.
+
+00:09:05.370 --> 00:09:08.390
+When they are tabbing
+through different elements,
+
+00:09:08.390 --> 00:09:10.120
+the focus order is not logical.
+
+00:09:11.330 --> 00:09:15.920
+These are pretty old kinds of
+problems when we think about it,
+
+00:09:15.920 --> 00:09:19.950
+and these are right there
+when the conversation
+
+00:09:19.950 --> 00:09:22.610
+about web accessibility
+started with WCAG 1.0.
+
+00:09:22.610 --> 00:09:27.440
+But believe me, these are very
+much there even today as well.
+
+00:09:28.620 --> 00:09:30.860
+Focus is not managed correctly.
+
+00:09:30.860 --> 00:09:33.990
+Focus goes to
+non-interactive elements.
+
+00:09:33.990 --> 00:09:37.220
+All these kinds of problems
+people generally have
+
+00:09:38.480 --> 00:09:42.050
+when they are browsing
+the web using a keyboard.
+
+00:09:46.170 --> 00:09:51.430
+So when it comes to WordPress,
+accessibility is [Inaudible 09:50].
+
+00:09:51.430 --> 00:09:55.890
+There is support for adding
+alternate text for images.
+
+00:09:55.890 --> 00:10:01.110
+There is support to access the admin
+panels using keyboard shortcuts.
+
+00:10:01.110 --> 00:10:06.550
+Even I can control my website
+using a screen reader and interact
+
+00:10:06.550 --> 00:10:10.410
+with the admin panel and different
+controls and configure the settings.
+
+00:10:11.440 --> 00:10:14.410
+From a website
+development perspective,
+
+00:10:14.410 --> 00:10:16.750
+there are lots of
+accessibility themes available,
+
+00:10:16.750 --> 00:10:22.870
+which can be utilized to
+create accessible websites.
+
+00:10:22.870 --> 00:10:28.190
+And there are lots of accessibility
+plugins available to help ensure
+
+00:10:28.190 --> 00:10:33.920
+that we can test for accessibility
+as well as code different elements,
+
+00:10:33.920 --> 00:10:37.120
+which are available
+via these plugins.
+
+00:10:37.120 --> 00:10:44.820
+We will not go in detail regarding
+themes and plugins because as all
+
+00:10:44.820 --> 00:10:48.250
+of us know, there are lots
+and lots of them available.
+
+00:10:48.250 --> 00:10:54.050
+And each one of them has their
+own merits as well as advantages.
+
+00:10:55.940 --> 00:11:03.940
+So what we are going to focus on
+is the practices, the techniques
+
+00:11:04.270 --> 00:11:07.140
+which are needed to
+implement keyboard access.
+
+00:11:08.690 --> 00:11:14.070
+And the five different areas that we
+will cover are keyboard navigation,
+
+00:11:15.140 --> 00:11:20.310
+focus visibility, logical tabbing
+order, keyboard operability,
+
+00:11:20.310 --> 00:11:21.920
+and focus management.
+
+00:11:25.020 --> 00:11:28.720
+The mantra to success for
+implementing keyboard access
+
+00:11:28.720 --> 00:11:34.180
+on the web is
+to use native HTML markup elements.
+
+00:11:34.180 --> 00:11:36.360
+Keyboard access is baked right in.
+
+00:11:37.410 --> 00:11:37.890
+OK.
+
+00:11:37.890 --> 00:11:43.280
+The navigation, operability, focus
+visibility, you got it all covered.
+
+00:11:44.940 --> 00:11:49.800
+But you and I all know that
+it is not always possible
+
+00:11:49.800 --> 00:11:51.920
+to use native HTML markup.
+
+00:11:51.920 --> 00:11:56.450
+There are certain custom
+interactions of which we have to rely
+
+00:11:56.450 --> 00:11:59.080
+on custom components.
+
+00:11:59.080 --> 00:12:02.170
+So let's understand
+each of these in detail.
+
+00:12:04.650 --> 00:12:07.350
+Start off with keyboard navigation.
+
+00:12:09.710 --> 00:12:14.170
+So keyboard navigation,
+some fundamentals that we need
+
+00:12:14.170 --> 00:12:18.940
+to be worthy about,
+to be keeping in mind.
+
+00:12:21.390 --> 00:12:24.690
+All the elements should be
+navigable with a keyboard.
+
+00:12:24.690 --> 00:12:29.320
+Using the tab key, using the shift
+tab key, or using the arrow keys.
+
+00:12:29.320 --> 00:12:33.590
+Yes, different components
+require different interactions.
+
+00:12:33.590 --> 00:12:38.180
+We would cover those later when
+we talk about keyboard operability
+
+00:12:38.180 --> 00:12:39.460
+and focus management.
+
+00:12:41.140 --> 00:12:44.960
+When we say all the elements should
+be navigable with a keyboard,
+
+00:12:44.960 --> 00:12:48.940
+I should be able to reach
+all the menus, submenus,
+
+00:12:48.940 --> 00:12:50.020
+even the tooltips.
+
+00:12:51.270 --> 00:12:54.170
+Also things like skip links.
+
+00:12:54.170 --> 00:12:58.120
+One should be able to
+navigate to the main content,
+
+00:12:58.120 --> 00:13:03.510
+to the navigation sections
+using the skip links.
+
+00:13:03.510 --> 00:13:08.920
+Standard interaction methods, a tab,
+shift tab, arrow keys, and so on.
+
+00:13:10.990 --> 00:13:16.000
+When users are using these
+keystrokes, they should be able
+
+00:13:16.000 --> 00:13:19.510
+to navigate to different elements.
+
+00:13:19.510 --> 00:13:23.410
+For this to happen correctly,
+there are certain techniques
+
+00:13:23.410 --> 00:13:30.090
+that we should be keeping in mind.
+
+00:13:30.090 --> 00:13:32.600
+First of all,
+use native HTML markups.
+
+00:13:33.920 --> 00:13:36.280
+Secondly,
+when custom components are used,
+
+00:13:36.280 --> 00:13:39.440
+make sure you make them focusable.
+
+00:13:39.440 --> 00:13:43.420
+So let's first talk about
+the native HTML elements.
+
+00:13:43.420 --> 00:13:49.300
+The button tag, anchor element,
+the input tag, select elements,
+
+00:13:49.300 --> 00:13:51.970
+text area, and so on.
+
+00:13:51.970 --> 00:13:57.710
+Now all of these by default can
+be navigated using a keyboard.
+
+00:13:58.960 --> 00:14:03.400
+As a developer, we do not need
+to do anything extra to make sure
+
+00:14:03.400 --> 00:14:08.550
+that these elements can be
+navigated with a keyboard.
+
+00:14:08.550 --> 00:14:13.040
+In case of an anchor tag, make
+sure to define the href attribute.
+
+00:14:16.650 --> 00:14:21.640
+As far as breaking the default
+navigation, yes, if tab index
+
+00:14:21.640 --> 00:14:25.936
+or a negative tab index
+value is specified,
+
+00:14:25.937 --> 00:14:28.670
+or any scripts are defined,
+
+00:14:28.670 --> 00:14:30.750
+which will prevent
+this default behavior
+
+00:14:30.750 --> 00:14:34.240
+of all these elements
+is saying the tab focus.
+
+00:14:34.240 --> 00:14:37.820
+Otherwise, they are tabbable
+and focusable by default.
+
+00:14:38.960 --> 00:14:45.710
+When it comes to custom components,
+we need to specify tab index.
+
+00:14:46.950 --> 00:14:49.760
+It is important when
+we create a button
+
+00:14:49.760 --> 00:14:55.000
+or we create an input field
+using a div tag or a span.
+
+00:14:55.000 --> 00:14:59.010
+Now, they do not receive
+tab focus by default.
+
+00:14:59.010 --> 00:15:04.000
+We need to specify
+tabindex zero to make sure
+
+00:15:04.000 --> 00:15:05.970
+that they receive keyboard focus.
+
+00:15:07.120 --> 00:15:10.710
+Yes, tabindex zero is not
+enough for a custom component.
+
+00:15:10.710 --> 00:15:14.760
+We need to do other stuff as well
+in order to make them accessible.
+
+00:15:14.760 --> 00:15:16.710
+And we'll talk about
+that as we go ahead.
+
+00:15:19.380 --> 00:15:25.780
+So when we are navigating
+on the pages, several issues
+
+00:15:25.780 --> 00:15:27.230
+that are seen by default.
+
+00:15:28.680 --> 00:15:31.440
+Let's take an example
+of a skip link.
+
+00:15:31.440 --> 00:15:35.640
+When skip links are added
+on the site and users go in
+
+00:15:35.640 --> 00:15:41.700
+and navigate to it, they would
+activate the link in the hope
+
+00:15:41.700 --> 00:15:44.180
+that this will take them
+directly to the main content
+
+00:15:44.180 --> 00:15:45.860
+or to the navigation section.
+
+00:15:47.110 --> 00:15:53.450
+But what happens in most cases
+is visually the page scrolls,
+
+00:15:53.450 --> 00:16:00.090
+but programmatically, the focus does
+not move to the respective section.
+
+00:16:00.090 --> 00:16:02.010
+Now, why does this happen?
+
+00:16:02.010 --> 00:16:05.550
+There are multiple reasons.
+
+00:16:05.550 --> 00:16:10.310
+It can be scripts and it
+can be your markup as well.
+
+00:16:10.310 --> 00:16:13.560
+So it is important that
+when you activate the link,
+
+00:16:13.560 --> 00:16:18.130
+skip link, after that,
+you press tab again
+
+00:16:18.130 --> 00:16:21.320
+to see programmatically
+is the focus going there.
+
+00:16:21.320 --> 00:16:26.500
+If it is not, it's time to
+debug our code and make sure
+
+00:16:26.500 --> 00:16:34.500
+that we are defining ID and the
+bookmark href attribute correctly.
+
+00:16:36.090 --> 00:16:40.400
+Not only that, if there are
+any scripts that are associated
+
+00:16:40.400 --> 00:16:44.130
+with our skip links, now those
+need to be worked on as well.
+
+00:16:46.690 --> 00:16:52.510
+So here's an example the BarrierBreak
+website, the top navigation.
+
+00:16:53.550 --> 00:17:01.550
+Here under about section, the work
+with BarrierBreak option is selected.
+
+00:17:02.140 --> 00:17:06.590
+OK, now all these options,
+whether the top navigation,
+
+00:17:06.590 --> 00:17:10.380
+as well as the sub menu options,
+all are tabbable and focusable
+
+00:17:10.380 --> 00:17:11.960
+with the keyboard.
+
+00:17:11.960 --> 00:17:14.520
+What we have done,
+no rocket science.
+
+00:17:15.750 --> 00:17:18.450
+It is basic HTML markup.
+
+00:17:18.450 --> 00:17:22.290
+Yes, since these are expandable
+and collapsible menus,
+
+00:17:22.290 --> 00:17:26.990
+so JavaScript does come into
+play from that perspective.
+
+00:17:26.990 --> 00:17:30.700
+Otherwise,
+as the code shows on the screen,
+
+00:17:30.700 --> 00:17:34.120
+we have taken standard
+anchor elements,
+
+00:17:34.120 --> 00:17:40.750
+which are wrapped inside an
+unordered list and list item markup.
+
+00:17:40.750 --> 00:17:43.360
+And they have a
+valid href attribute.
+
+00:17:45.570 --> 00:17:47.920
+Simple, but very, very effective.
+
+00:17:51.030 --> 00:17:53.920
+After keyboard navigation,
+the next thing that we are going
+
+00:17:53.920 --> 00:17:58.360
+to talk about is focus
+visibility, very important.
+
+00:17:58.360 --> 00:18:02.310
+As a keyboard user,
+I can navigate to an element,
+
+00:18:02.310 --> 00:18:04.900
+but I can not see where I am.
+
+00:18:04.900 --> 00:18:10.550
+So it is important that the focus
+indicator is clearly visible.
+
+00:18:10.550 --> 00:18:15.490
+It helps users understand
+where they are.
+
+00:18:15.490 --> 00:18:19.310
+Other pages are filled up with
+interactive elements, be it links,
+
+00:18:19.310 --> 00:18:21.800
+menus, buttons, forms, etcetera.
+
+00:18:23.300 --> 00:18:28.020
+Focus indicator helps users
+understand where they are.
+
+00:18:28.020 --> 00:18:31.440
+They are helpful for people
+with mobility impairments
+
+00:18:31.440 --> 00:18:35.560
+who rely on a keyboard and
+very, very important for people
+
+00:18:35.560 --> 00:18:36.960
+with low vision.
+
+00:18:38.170 --> 00:18:43.310
+People with low vision,
+it is a spectrum.
+
+00:18:43.310 --> 00:18:48.210
+Not every person with low vision
+like me would use a screen reader.
+
+00:18:48.210 --> 00:18:51.480
+Some of them would use a screen
+magnifier, or some of them
+
+00:18:51.480 --> 00:18:54.240
+might be just using the
+browser zoom option.
+
+00:18:55.650 --> 00:18:58.230
+For those who are
+looking at the screen,
+
+00:18:58.230 --> 00:19:02.690
+who are viewing the information
+through their screens,
+
+00:19:02.690 --> 00:19:05.900
+they would need to know
+where the keyboard focus is
+
+00:19:05.900 --> 00:19:08.990
+at any given point of time.
+
+00:19:08.990 --> 00:19:14.470
+In the absence of a visible focus
+indicator, they would feel lost
+
+00:19:14.470 --> 00:19:15.690
+where exactly they are.
+
+00:19:16.780 --> 00:19:23.500
+Now to make this happen, again,
+there are two approaches.
+
+00:19:25.290 --> 00:19:29.060
+By default, every browser
+provides a default focus indicator
+
+00:19:29.060 --> 00:19:33.340
+for all the native elements,
+be it your buttons, links, etcetera.
+
+00:19:35.170 --> 00:19:37.570
+Do not disable the
+browser default focus.
+
+00:19:39.400 --> 00:19:44.520
+If you decide to disable
+it, you find it very boring,
+
+00:19:44.520 --> 00:19:49.160
+you find that it does not go well
+with the design of your web pages,
+
+00:19:50.480 --> 00:19:57.930
+when you are designing for
+hover classes, make sure
+
+00:19:57.930 --> 00:20:00.820
+that focus classes
+are defined as well.
+
+00:20:00.820 --> 00:20:05.090
+Simply disabling the
+browser default focus
+
+00:20:05.090 --> 00:20:12.450
+and not defining the focus class for
+the interactive elements is very,
+
+00:20:12.450 --> 00:20:18.440
+very, discomforting as far as
+keyboard users are concerned.
+
+00:20:18.440 --> 00:20:22.490
+So make sure that when you are
+defining your pseudo classes
+
+00:20:22.490 --> 00:20:29.030
+through CSS for mouse hover,
+do the same for focus as well.
+
+00:20:29.030 --> 00:20:33.250
+And CSS has lots of different
+options to make this happen.
+
+00:20:34.940 --> 00:20:36.990
+When you want to do it
+through pseudo classes,
+
+00:20:36.990 --> 00:20:42.240
+you have the focus pseudo
+class, old, but yet effective,
+
+00:20:42.240 --> 00:20:47.060
+you have the focus-visible
+and focus-within.
+
+00:20:47.060 --> 00:20:48.400
+These are the new additions.
+
+00:20:49.680 --> 00:20:53.420
+Or I could say the latest
+additions in the pseudo classes,
+
+00:20:53.420 --> 00:20:54.420
+which can be used.
+
+00:20:55.640 --> 00:20:57.780
+When it comes to
+different CSS properties,
+
+00:20:57.780 --> 00:21:00.820
+we can use the outline
+property opacity
+
+00:21:01.940 --> 00:21:08.470
+and also the outline
+offset property.
+
+00:21:10.150 --> 00:21:16.050
+Make sure the outline
+is not set to zero.
+
+00:21:16.050 --> 00:21:20.300
+Most of the web pages that
+we audit will see people
+
+00:21:20.300 --> 00:21:24.190
+would define their
+outline to be zero.
+
+00:21:24.190 --> 00:21:27.940
+This will disable the
+default browser focus
+
+00:21:27.940 --> 00:21:32.440
+and the custom focus does not
+specify it will not be visible
+
+00:21:32.440 --> 00:21:34.190
+because the outline value is zero.
+
+00:21:34.190 --> 00:21:40.230
+That's one of the common CSS code
+errors that we would come across
+
+00:21:40.230 --> 00:21:42.860
+when we are reviewing a
+page for focus visibility.
+
+00:21:46.200 --> 00:21:50.540
+Defining a focused pseudo
+class is not enough.
+
+00:21:50.540 --> 00:21:53.720
+On top of it, we need to make
+sure in order to conform to WCAG
+
+00:21:53.720 --> 00:21:58.620
+that the focus has
+sufficient contrast.
+
+00:21:58.620 --> 00:22:06.000
+The requirement as per success
+criteria 1.4.11 is 3 is to 1.
+
+00:22:06.000 --> 00:22:09.320
+When you are designing all
+these custom focus indicators,
+
+00:22:09.320 --> 00:22:14.350
+make sure that it has a contrast of
+3 is to 1 with the adjacent colors.
+
+00:22:17.280 --> 00:22:22.000
+Again, if we talk about the same
+example on the BarrierBreak website,
+
+00:22:23.570 --> 00:22:26.010
+the markup we already
+had a look at.
+
+00:22:26.010 --> 00:22:31.250
+When we look at the CSS,
+the focus class is defined
+
+00:22:31.250 --> 00:22:35.610
+to make sure that the focus is
+clearly visible when you tap
+
+00:22:35.610 --> 00:22:41.700
+to the links and sub-options
+using your keyboard.
+
+00:22:45.320 --> 00:22:49.150
+Next point, tabbing order.
+
+00:22:49.150 --> 00:22:54.430
+Very important at your visual focus
+order and your tabbing on matching.
+
+00:22:57.050 --> 00:22:58.750
+Easier said than done.
+
+00:22:58.750 --> 00:23:04.410
+Yes, depending on different design
+layouts, there are challenges
+
+00:23:04.410 --> 00:23:09.270
+that one often comes across and
+one needs to adjust the layout.
+
+00:23:09.270 --> 00:23:15.900
+Here would say at the minimum,
+one should ensure that the meaning
+
+00:23:15.900 --> 00:23:20.450
+in which a person would navigate
+through using a keyboard
+
+00:23:20.450 --> 00:23:22.680
+or the sequence is not broken.
+
+00:23:24.050 --> 00:23:30.620
+So don't let the focus jump
+from the middle of a section
+
+00:23:30.620 --> 00:23:32.960
+to another block of content.
+
+00:23:34.600 --> 00:23:38.520
+Finish one block and then
+it should go to the next.
+
+00:23:38.520 --> 00:23:42.820
+Yes, we need to adjust the styles
+to meet the design requirements
+
+00:23:44.490 --> 00:23:50.080
+and keep all the stakeholders
+happy, but it is also important
+
+00:23:50.080 --> 00:23:53.360
+that we don't break
+accessibility while doing so.
+
+00:23:53.360 --> 00:24:00.980
+When we adjust our layouts using
+CSS to make sure the code is correct
+
+00:24:00.980 --> 00:24:03.530
+in the DOM,
+it is in the correct order.
+
+00:24:03.530 --> 00:24:05.520
+So focus order will
+not get affected,
+
+00:24:05.520 --> 00:24:10.170
+but when we visually adjust the
+elements or move around the blocks
+
+00:24:10.170 --> 00:24:14.740
+of content, the user experience
+for keyboard only users
+
+00:24:14.740 --> 00:24:19.700
+and low vision users who are using
+a keyboard is very, very poor.
+
+00:24:20.840 --> 00:24:26.430
+All of a sudden, the focus will
+jump from one part to another.
+
+00:24:26.430 --> 00:24:31.320
+So technically the
+code order is correct,
+
+00:24:31.320 --> 00:24:35.640
+but visually the visual order will
+not match with the focus order.
+
+00:24:37.030 --> 00:24:38.030
+OK.
+
+00:24:40.170 --> 00:24:45.450
+So as we already understood
+that code order is important,
+
+00:24:45.450 --> 00:24:52.090
+but while doing so, make sure
+that the focus order is logical.
+
+00:24:52.090 --> 00:24:56.360
+So when there are links, we saw
+the example of BarrierBreak website
+
+00:24:56.360 --> 00:25:01.330
+and the links are the top
+navigation, the focus should move
+
+00:25:01.330 --> 00:25:05.090
+from left to right,
+and when the menu is expanded
+
+00:25:05.090 --> 00:25:09.580
+or the suboptions are visible,
+then the focus should go from top
+
+00:25:09.580 --> 00:25:10.580
+to bottom.
+
+00:25:11.010 --> 00:25:14.543
+Focus should also not
+go to hidden elements,
+
+00:25:14.544 --> 00:25:16.820
+because when the focus moves
+
+00:25:16.820 --> 00:25:20.880
+into the hidden territory,
+it is very disorienting.
+
+00:25:20.880 --> 00:25:27.180
+You do not know what you are landed
+on and what will be activated
+
+00:25:27.180 --> 00:25:29.870
+if you decide to press enter.
+
+00:25:36.520 --> 00:25:40.000
+After focus order, we are going to
+talk about keyboard operability.
+
+00:25:42.780 --> 00:25:46.480
+Keyboard operability, all the
+elements, all the functionality
+
+00:25:46.480 --> 00:25:49.210
+should be operable with a keyboard.
+
+00:25:49.210 --> 00:25:53.320
+Be it your buttons, be it your
+drop downs, be it your tabs,
+
+00:25:53.320 --> 00:25:56.850
+be it your sliders and so on.
+
+00:25:56.850 --> 00:25:59.810
+All of these need to
+work with a keyboard.
+
+00:25:59.810 --> 00:26:02.880
+Now, all of them have a
+different interaction pattern.
+
+00:26:04.010 --> 00:26:08.230
+These interaction patterns
+are standard and when you look
+
+00:26:08.230 --> 00:26:12.780
+at the aria specifications, they
+have all these interaction patterns
+
+00:26:12.780 --> 00:26:17.750
+defined for different types of
+interactions, all the standard ones
+
+00:26:17.750 --> 00:26:20.310
+as well as the custom components.
+
+00:26:21.740 --> 00:26:25.620
+When we are looking for
+keyboard operability,
+
+00:26:27.160 --> 00:26:30.850
+to ensure that all the elements
+are accessible, I can get
+
+00:26:30.850 --> 00:26:33.820
+to a slider, but if I can
+not change the values of it,
+
+00:26:35.090 --> 00:26:39.480
+people with visual impairments
+would not be able to use the slider.
+
+00:26:39.480 --> 00:26:40.980
+They will not be
+able to operate it.
+
+00:26:42.160 --> 00:26:45.990
+So, it will be the case for
+people with mobility impairments.
+
+00:26:45.990 --> 00:26:52.300
+So it is not only important that one
+can get there, the focus is visible
+
+00:26:52.300 --> 00:26:57.070
+and the tabbing order is logical,
+but it is equally important
+
+00:26:57.070 --> 00:27:00.550
+that one can interact
+with the given control.
+
+00:27:04.590 --> 00:27:07.670
+So when we talk about
+keyboard operability,
+
+00:27:07.670 --> 00:27:12.170
+again native elements
+have all the information
+
+00:27:12.170 --> 00:27:14.070
+on all the functionality based in.
+
+00:27:14.070 --> 00:27:19.570
+A button can be operated using
+the enter key or the space bar key
+
+00:27:19.570 --> 00:27:22.850
+or even the return key on
+the backside of things.
+
+00:27:24.550 --> 00:27:28.120
+Same as a case for
+link, select dropdowns.
+
+00:27:28.120 --> 00:27:33.370
+You can tab to them and use
+the arrow keys to traverse
+
+00:27:33.370 --> 00:27:34.860
+through the options.
+
+00:27:34.860 --> 00:27:39.130
+When it comes to custom
+components, we need to make sure
+
+00:27:39.130 --> 00:27:42.730
+that we call for redundant
+keyboard handlers.
+
+00:27:44.340 --> 00:27:49.000
+So if you are defining an
+on-click event for a div,
+
+00:27:49.000 --> 00:27:52.900
+which is used for structuring
+or coding a button,
+
+00:27:52.900 --> 00:27:56.840
+then it should also have a key
+press handler as well as a key down.
+
+00:27:58.180 --> 00:28:05.540
+Not only this, the JavaScript should
+also be coupled with key listeners.
+
+00:28:05.540 --> 00:28:10.700
+Now, on the press of the enter
+key or the space bar key,
+
+00:28:10.700 --> 00:28:13.190
+the button should be triggered,
+the action should be fired.
+
+00:28:14.500 --> 00:28:17.731
+All this is important
+when we are looking
+
+00:28:17.732 --> 00:28:20.270
+at implementing keyboard access.
+
+00:28:23.240 --> 00:28:24.930
+Next up, focus management.
+
+00:28:26.150 --> 00:28:30.180
+Very, very important with the
+rich and dynamic interactions
+
+00:28:30.180 --> 00:28:35.940
+that we come across on all websites
+and web applications these days.
+
+00:28:40.480 --> 00:28:44.100
+All the four points that we
+spoke about – navigation,
+
+00:28:44.100 --> 00:28:50.100
+focus visibility, tab order,
+and keyboard operability –
+
+00:28:50.101 --> 00:28:56.042
+need to be taken into account
+along with focus management
+
+00:28:56.043 --> 00:29:03.610
+in order for a complete and useful
+experience for keyboard users.
+
+00:29:05.690 --> 00:29:09.170
+So when we talk about focus
+management, there are different ways
+
+00:29:09.170 --> 00:29:10.670
+to achieve this.
+
+00:29:10.670 --> 00:29:13.820
+And while we are doing
+that, again, we need
+
+00:29:13.820 --> 00:29:18.090
+to follow the standard
+keyboard interaction methods.
+
+00:29:18.090 --> 00:29:21.720
+When we are using non-standard
+keyboard interaction methods,
+
+00:29:21.720 --> 00:29:24.630
+these have to be documented for.
+
+00:29:25.710 --> 00:29:32.350
+Provide instructions to let keyboard
+users know that they can interact
+
+00:29:32.350 --> 00:29:37.930
+with a given component using
+the given non-standard methods.
+
+00:29:39.250 --> 00:29:43.220
+Now what all comes into play to
+make focus management happen?
+
+00:29:44.650 --> 00:29:50.300
+When we talk about focus management,
+JavaScript comes in heavily.
+
+00:29:50.300 --> 00:29:52.200
+It has a significant role to play.
+
+00:29:53.560 --> 00:29:58.580
+Along with JavaScript, yes,
+the keyboard handles also
+
+00:29:58.580 --> 00:30:03.600
+the different techniques that are
+mentioned in the ARIA specification,
+
+00:30:03.600 --> 00:30:08.410
+like the Roving tab index,
+as well as the ARIA active descent.
+
+00:30:08.410 --> 00:30:13.530
+We will see an example
+for the same as well
+
+00:30:13.530 --> 00:30:21.470
+so that we can understand how focus
+management can be implemented.
+
+00:30:21.470 --> 00:30:28.080
+Now, focus management is going to
+be different for different types
+
+00:30:28.080 --> 00:30:29.420
+of interactions.
+
+00:30:30.530 --> 00:30:34.960
+If a modal is triggered, the focus
+needs to go inside the modal.
+
+00:30:34.960 --> 00:30:38.500
+The focus needs to be
+tracked inside the modal.
+
+00:30:38.500 --> 00:30:41.860
+When you close the modal,
+the focus needs to come back
+
+00:30:41.860 --> 00:30:44.120
+to the triggering element.
+
+00:30:44.120 --> 00:30:47.570
+When you are interacting with a
+menu, the focus needs to go
+
+00:30:47.570 --> 00:30:48.670
+to the first child element.
+
+00:30:50.340 --> 00:30:53.400
+When you are closing the menu,
+the focus needs to go back
+
+00:30:53.400 --> 00:30:55.140
+to the main menu.
+
+00:30:57.370 --> 00:31:02.850
+Likewise, in the case of a list box,
+the focus goes to the button element
+
+00:31:02.850 --> 00:31:07.070
+and from there, users can traverse
+through the different options
+
+00:31:07.070 --> 00:31:08.660
+using the arrow keys.
+
+00:31:09.750 --> 00:31:15.400
+When we are interacting with tab
+interfaces, the focus will go
+
+00:31:15.400 --> 00:31:22.060
+to the current reactive tab and all
+the inactive tabs can be navigated
+
+00:31:22.060 --> 00:31:23.950
+using the arrow keys.
+
+00:31:23.950 --> 00:31:29.030
+Once you select any of the
+inactive tabs, the remaining tabs
+
+00:31:30.220 --> 00:31:33.580
+that will become inactive can be
+navigated using the arrow keys.
+
+00:31:34.630 --> 00:31:41.120
+Focus management is different
+but not difficult to implement.
+
+00:31:41.120 --> 00:31:44.250
+When implemented correctly,
+it will be different.
+
+00:31:44.250 --> 00:31:47.530
+It enhances the user experience
+for keyboard only users,
+
+00:31:47.530 --> 00:31:52.430
+screen reader users, low vision
+users, switch control users
+
+00:31:52.430 --> 00:31:56.410
+and even users who
+are using voice input.
+
+00:32:00.570 --> 00:32:07.400
+So here is an example of tabs being
+implemented on a BarrierBreak blog.
+
+00:32:07.400 --> 00:32:12.800
+There are different tabs from All
+to ADA testing, section 508 testing
+
+00:32:12.800 --> 00:32:13.800
+and so on.
+
+00:32:14.660 --> 00:32:20.610
+Now All is the active tab
+and thus it has the focus
+
+00:32:20.610 --> 00:32:23.450
+not only programmatically
+but also visually.
+
+00:32:25.180 --> 00:32:26.380
+Let's see the markup.
+
+00:32:27.470 --> 00:32:32.150
+We have used the native button tags
+which have been given a role of tab.
+
+00:32:33.930 --> 00:32:36.350
+Even though we have
+used the button tag,
+
+00:32:36.350 --> 00:32:39.530
+you would see we have given
+tabindex zero for each
+
+00:32:39.530 --> 00:32:43.500
+of these buttons which
+have a rule of tab.
+
+00:32:43.500 --> 00:32:46.860
+And for the inactive tabs,
+yes, tabindex is minus one.
+
+00:32:48.000 --> 00:32:53.360
+Because in a tabbed interface,
+if all the tabs are tabbable,
+
+00:32:53.360 --> 00:32:57.990
+then it becomes a poor user
+experience for keyboard-only users.
+
+00:32:57.990 --> 00:33:03.630
+What keyboard-only users are used
+to or a standard interaction method
+
+00:33:03.630 --> 00:33:08.110
+for a tabbed interface is,
+you can tap to the active control
+
+00:33:08.110 --> 00:33:11.420
+and from that point onwards,
+you would use your arrow keys.
+
+00:33:11.420 --> 00:33:14.540
+In an horizontal tab implementation,
+we would use the left
+
+00:33:14.540 --> 00:33:15.930
+and right arrow keys.
+
+00:33:15.930 --> 00:33:19.860
+In a vertical tab implementation,
+it will be up and down arrow keys.
+
+00:33:21.460 --> 00:33:26.560
+Now, it is very important
+that tab index values
+
+00:33:26.560 --> 00:33:30.960
+from zero to minus one are
+toggled with [Inaudible 33:30].
+
+00:33:30.960 --> 00:33:34.870
+And this is done with JavaScript
+and the roving tab index method.
+
+00:33:37.150 --> 00:33:40.920
+So, as we can see in the
+JS code on the screen,
+
+00:33:42.510 --> 00:33:48.100
+tab index values are being toggled
+using the roving tab index method,
+
+00:33:49.850 --> 00:33:52.290
+user focus has been listened to.
+
+00:33:52.290 --> 00:33:54.960
+What are the keys that
+a user is pressing?
+
+00:33:54.960 --> 00:33:59.260
+And accordingly,
+the values are getting changed.
+
+00:33:59.260 --> 00:34:02.790
+Now, when we activate from
+the first tab, when we move
+
+00:34:02.790 --> 00:34:08.480
+to the next tab and activate it,
+that tab will gain a tab index
+
+00:34:08.480 --> 00:34:15.760
+of zero and all the other tabs
+will have a tab index of minus one.
+
+00:34:15.760 --> 00:34:20.430
+Last, we will be talking about
+testing for keyboard access.
+
+00:34:20.430 --> 00:34:25.500
+We can test both using automated
+tools and through manual testing.
+
+00:34:26.540 --> 00:34:29.930
+But I would like to repeat this.
+
+00:34:29.930 --> 00:34:34.460
+I'm sure all of us know this
+in the accessibility space;
+
+00:34:34.460 --> 00:34:39.530
+automated testing can only
+get you to a certain point.
+
+00:34:39.530 --> 00:34:42.498
+Even the best of tools
+can get you somewhere
+
+00:34:42.499 --> 00:34:44.410
+between 30 to 40% of errors.
+
+00:34:44.410 --> 00:34:49.220
+If you want to capture all the bugs
+and enhance the user experience,
+
+00:34:49.220 --> 00:34:50.990
+manual testing is the way to go.
+
+00:34:52.950 --> 00:34:57.350
+Here, I'm going to talk about
+ANDI, accessible name
+
+00:34:57.350 --> 00:34:59.090
+and description inspection tool.
+
+00:35:00.240 --> 00:35:04.670
+With the ANDI bookmarklet, you can
+perform a look for keyboard errors.
+
+00:35:06.000 --> 00:35:12.550
+Once ANDI is installed into
+the select elements option,
+
+00:35:12.550 --> 00:35:16.420
+we have different options
+available, like links and buttons.
+
+00:35:17.830 --> 00:35:19.810
+We have focusable elements.
+
+00:35:19.810 --> 00:35:22.980
+We have hidden content
+and tab order indicators.
+
+00:35:22.980 --> 00:35:28.770
+I will use tab order indicators to
+see what is the tab order defined
+
+00:35:28.770 --> 00:35:32.619
+and how different
+elements receive tab focus
+
+00:35:32.620 --> 00:35:35.100
+and what would be the order.
+
+00:35:35.100 --> 00:35:37.260
+Through links and
+buttons, we can see
+
+00:35:37.260 --> 00:35:43.150
+if they have been (a)
+ordered using native markup,
+
+00:35:43.150 --> 00:35:51.150
+or they have been defined using
+custom scripts to spans and devs.
+
+00:35:52.860 --> 00:35:55.530
+And we can then go
+in and debug further
+
+00:35:55.530 --> 00:35:58.110
+or test further using
+a keyboard manually.
+
+00:36:00.630 --> 00:36:05.020
+Focus indicators, yes, we need
+to see the different elements
+
+00:36:05.020 --> 00:36:08.740
+that are focusable and the
+indicators associated with them.
+
+00:36:11.540 --> 00:36:13.030
+Also the hidden content.
+
+00:36:13.030 --> 00:36:15.090
+Now, what content is hidden?
+
+00:36:15.090 --> 00:36:18.570
+When focusable or tabbable
+elements are hidden,
+
+00:36:18.570 --> 00:36:22.170
+your focus indicator will
+end up in a hidden space
+
+00:36:22.170 --> 00:36:26.840
+and then it will be a very
+confusing experience for users.
+
+00:36:26.840 --> 00:36:31.530
+So all this information
+ANDI can easily provide you
+
+00:36:31.530 --> 00:36:37.980
+and from that you can draw the
+results or draw further analysis
+
+00:36:37.980 --> 00:36:43.490
+of what needs to be done and the code
+level to implement keyboard access.
+
+00:36:45.220 --> 00:36:49.750
+When we talk of testing
+manually, yes, with a keyboard,
+
+00:36:49.750 --> 00:36:54.320
+whether you're using a Windows or
+Mac or any other operating system,
+
+00:36:55.510 --> 00:37:00.920
+use tab to navigate to links,
+buttons, select dropdowns,
+
+00:37:00.920 --> 00:37:06.440
+textareas, previews,
+sliders and so on.
+
+00:37:06.440 --> 00:37:10.920
+Pressing tab will take you
+in the forward direction,
+
+00:37:10.920 --> 00:37:13.330
+shift + tab will take you back.
+
+00:37:13.330 --> 00:37:16.730
+Arrow keys,
+these will help you traverse
+
+00:37:16.730 --> 00:37:20.510
+through the dropdown options,
+menus, preview nodes,
+
+00:37:21.700 --> 00:37:26.380
+adjust the slider values as
+well as scroll through the page.
+
+00:37:26.380 --> 00:37:29.390
+Whether you want to scroll
+horizontally, you can use the left
+
+00:37:29.390 --> 00:37:30.040
+and right arrow.
+
+00:37:30.040 --> 00:37:33.860
+If you want to scroll vertically,
+you will use up and down arrow.
+
+00:37:35.620 --> 00:37:36.820
+What else will you check for?
+
+00:37:38.010 --> 00:37:42.680
+Yes, you will check all the
+content and functionality,
+
+00:37:42.680 --> 00:37:45.740
+has keyboard access,
+check if we can navigate
+
+00:37:45.740 --> 00:37:48.530
+to all the interactive
+elements using the keyboard.
+
+00:37:48.530 --> 00:37:51.590
+You will see if the
+navigation, the focus order,
+
+00:37:51.590 --> 00:37:55.210
+the tabbing order is logical,
+it's not breaking the meaning.
+
+00:37:55.210 --> 00:37:59.590
+We will see if the focus is
+visible, it is clearly visible.
+
+00:38:02.870 --> 00:38:06.890
+If you have not defined the
+focus, here I would like
+
+00:38:06.890 --> 00:38:09.500
+to add this information.
+
+00:38:09.500 --> 00:38:14.170
+If you have not customized the
+focus or interactive elements
+
+00:38:14.170 --> 00:38:20.020
+on your web pages, and it's a default
+browser focus that is visible,
+
+00:38:20.020 --> 00:38:24.250
+and the color contrast is fading
+in case of default browser focus,
+
+00:38:24.250 --> 00:38:28.230
+it's the responsibility of the
+browser developers and not you
+
+00:38:28.230 --> 00:38:32.490
+as a web page developer
+to address that issue,
+
+00:38:32.490 --> 00:38:35.850
+because obviously it
+is not in your control.
+
+00:38:37.710 --> 00:38:42.190
+Next, we will check if all the
+interactive elements are operable
+
+00:38:42.190 --> 00:38:46.880
+with a keyboard, whether these are
+native elements or custom components.
+
+00:38:46.880 --> 00:38:50.680
+We will check if the focus
+is managed correctly.
+
+00:38:50.680 --> 00:38:57.060
+We will check if focus does not
+end up in non-interactive elements.
+
+00:38:57.060 --> 00:39:00.035
+Here, I would like to
+share a tip with regards
+
+00:39:00.036 --> 00:39:01.680
+to screen reader testing.
+
+00:39:01.680 --> 00:39:06.190
+Many people believe every element
+on the page or every piece
+
+00:39:06.190 --> 00:39:08.700
+of content on the page
+needs to be tabbable.
+
+00:39:09.920 --> 00:39:14.210
+Then only a screen reader user
+will be able to access it.
+
+00:39:14.210 --> 00:39:16.530
+Then only they will be
+able to navigate to it
+
+00:39:16.530 --> 00:39:19.180
+and the screen reader
+would read the content.
+
+00:39:19.180 --> 00:39:20.650
+Please, please,
+please don't do that.
+
+00:39:22.470 --> 00:39:26.390
+A, it is a poor experience,
+not only for screen reader users,
+
+00:39:26.390 --> 00:39:31.980
+but B, it kills the focus order
+for keyboard-only users as well.
+
+00:39:33.290 --> 00:39:36.690
+Screen reader users have
+lots and lots of keystrokes
+
+00:39:36.690 --> 00:39:38.700
+to access the content.
+
+00:39:38.700 --> 00:39:43.300
+Just to make sure that the screen
+reader focus lands on the paragraph,
+
+00:39:43.300 --> 00:39:45.330
+do not give it a tab index of zero.
+
+00:39:45.330 --> 00:39:48.990
+It is non-interactive and thus
+it should not be tabbable.
+
+00:39:52.810 --> 00:39:55.880
+With that,
+we come to the end of the session.
+
+00:39:55.880 --> 00:39:59.450
+From my side, obviously, if there
+are any questions, I'll be happy
+
+00:39:59.450 --> 00:40:00.990
+to answer those.
+
+00:40:00.990 --> 00:40:04.660
+If you want to chat with me on
+digital accessibility, you can
+
+00:40:04.660 --> 00:40:08.640
+either shoot me an email at
+priti.rhora@barrierbreak.com
+
+00:40:09.820 --> 00:40:12.478
+or you can find me on
+Twitter @PritiRhora
+
+00:40:12.479 --> 00:40:14.250
+and as well as on LinkedIn.
+
+00:40:15.430 --> 00:40:18.843
+Thank you for listening and yes,
+
+00:40:18.844 --> 00:40:21.020
+ready to take any
+questions if there are.
+
+00:40:24.050 --> 00:40:25.600
+JASON: All right,
+well, thank you, Priti.
+
+00:40:25.600 --> 00:40:27.000
+That was fantastic.
+
+00:40:28.090 --> 00:40:30.184
+So as a reminder for
+those in attendance,
+
+00:40:30.185 --> 00:40:31.630
+you can enter your questions
+
+00:40:31.630 --> 00:40:34.920
+into the Zoom Q&A and we will
+do our best to answer them
+
+00:40:34.920 --> 00:40:36.540
+in the time that we have.
+
+00:40:36.540 --> 00:40:38.120
+We have a couple of
+questions in here, Priti.
+
+00:40:38.120 --> 00:40:40.470
+So I'll start from the top.
+
+00:40:40.470 --> 00:40:44.440
+An individual named Deneb Pulsifer
+asked a couple of questions.
+
+00:40:44.440 --> 00:40:45.830
+So we'll go one at a time.
+
+00:40:47.570 --> 00:40:51.940
+So first, they asked, as far as
+keyboard traps go, there are places
+
+00:40:51.940 --> 00:40:54.650
+where these are acceptable.
+
+00:40:54.650 --> 00:40:56.070
+I'm thinking about pop-ups.
+
+00:40:56.070 --> 00:40:59.530
+My question is, what is the best
+way to let people exit a kind
+
+00:40:59.530 --> 00:41:02.530
+of purposeful keyboard
+trap in this way?
+
+00:41:02.530 --> 00:41:03.970
+Is the best way a close button?
+
+00:41:03.970 --> 00:41:05.660
+Should it be the escape key?
+
+00:41:05.660 --> 00:41:09.280
+Maybe a combination of
+both or an alternative?
+
+00:41:09.280 --> 00:41:11.360
+And are there any
+problems with doing this?
+
+00:41:13.270 --> 00:41:14.820
+PRITI: Thanks, Deneb.
+
+00:41:14.820 --> 00:41:20.310
+So yes, in case of pop-ups,
+in case of modals, it is important
+
+00:41:20.310 --> 00:41:22.630
+to trap the focus inside.
+
+00:41:22.630 --> 00:41:25.710
+And if you are giving
+a closed button,
+
+00:41:25.710 --> 00:41:29.330
+if your design includes a closed
+button, then make sure it works
+
+00:41:29.330 --> 00:41:32.580
+with both the closed button
+as well as the escape key.
+
+00:41:32.580 --> 00:41:39.120
+As far as the escape key is
+concerned, that's the main key
+
+00:41:39.120 --> 00:41:43.370
+that most users would use to
+close a pop-up or a modal.
+
+00:41:46.727 --> 00:41:47.911
+JASON: OK, thank you.
+
+00:41:49.350 --> 00:41:52.690
+So the next question from the
+same person is, how do you feel
+
+00:41:52.690 --> 00:41:55.670
+about sites that use JavaScript
+to show the focus ring moving
+
+00:41:55.670 --> 00:41:57.920
+from one focusable
+element to the next?
+
+00:41:57.920 --> 00:42:00.890
+Is this helpful to distracting
+or is there a better way
+
+00:42:00.890 --> 00:42:03.200
+to keep this super apparent?
+
+00:42:03.200 --> 00:42:05.560
+And then they provided an
+example of the Van Gogh Museum,
+
+00:42:05.560 --> 00:42:13.010
+so we can take a
+look at that later.
+
+00:42:13.010 --> 00:42:17.570
+PRITI: I would recommend that
+we perform user testing to see
+
+00:42:19.140 --> 00:42:24.180
+what is the pulse or how is the
+experience for a keyboard-only user,
+
+00:42:24.180 --> 00:42:25.150
+a low-vision user.
+
+00:42:25.150 --> 00:42:27.030
+We do it with a variety of users.
+
+00:42:27.030 --> 00:42:34.760
+And from an accessibility hack,
+I would say if CSS can do it for you,
+
+00:42:34.760 --> 00:42:36.940
+if HTML can do it for
+you, you do not need
+
+00:42:36.940 --> 00:42:40.950
+to increase your code
+weight with JavaScript.
+
+00:42:40.950 --> 00:42:45.560
+But there are lighter
+solutions available,
+
+00:42:45.560 --> 00:42:51.370
+but I would let users decide
+here what they would prefer,
+
+00:42:51.370 --> 00:42:55.880
+the JavaScript focus ring or
+the default focus visibility.
+
+00:42:57.860 --> 00:43:00.880
+JASON: All right,
+that's great to know.
+
+00:43:00.880 --> 00:43:04.250
+So our next question is, what's
+the best way to get instructions
+
+00:43:04.250 --> 00:43:06.480
+on keyboard operability to users?
+
+00:43:06.480 --> 00:43:09.570
+I know you mentioned that when
+there are kinds of unique controls,
+
+00:43:09.570 --> 00:43:13.520
+how to communicate that to users.
+
+00:43:13.520 --> 00:43:17.990
+So would you consider a tooltip
+type message, something else,
+
+00:43:17.990 --> 00:43:19.860
+maybe a message up at
+the top of the page?
+
+00:43:19.860 --> 00:43:20.740
+I don't know.
+
+00:43:20.740 --> 00:43:21.760
+What would you think?
+
+00:43:23.100 --> 00:43:27.430
+PRITI: I would say whichever
+method you want to adapt
+
+00:43:27.430 --> 00:43:31.200
+as per the design, make sure that
+itself it is keyboard accessible.
+
+00:43:31.200 --> 00:43:33.324
+Believe me,
+we have come across audits
+
+00:43:33.325 --> 00:43:35.230
+where instructions have been added
+
+00:43:35.230 --> 00:43:38.890
+for the benefit of keyboard
+users and screen data users,
+
+00:43:38.890 --> 00:43:43.870
+but those interactions itself
+are not keyboard accessible.
+
+00:43:43.870 --> 00:43:47.420
+So first of all, make sure
+those are keyboard accessible.
+
+00:43:47.420 --> 00:43:49.980
+If it is a tooltip,
+it needs to work with a keyboard.
+
+00:43:51.080 --> 00:43:54.270
+If it is a non-modal, again,
+it needs to work with a keyboard.
+
+00:43:55.470 --> 00:43:58.920
+The decision would largely
+depend on the design.
+
+00:43:58.920 --> 00:44:03.340
+But if you are starting early
+right at the design stage,
+
+00:44:03.340 --> 00:44:07.280
+then obviously please give a brief
+instruction on the page itself
+
+00:44:07.280 --> 00:44:10.660
+and then you can provide users
+with a link or a button to go
+
+00:44:10.660 --> 00:44:14.480
+to the help section or the
+support section for details.
+
+00:44:14.480 --> 00:44:19.470
+But just giving it under the help
+section does not necessarily work
+
+00:44:19.470 --> 00:44:24.000
+at all times because users
+might not even make a note
+
+00:44:24.000 --> 00:44:24.900
+that there is help available.
+
+00:44:28.005 --> 00:44:31.240
+JASON: Yes, that's super
+important, getting design involved
+
+00:44:31.240 --> 00:44:34.070
+and getting everything
+involved as early as possible.
+
+00:44:34.070 --> 00:44:37.460
+In my experience,
+that's a huge, huge thing.
+
+00:44:37.460 --> 00:44:42.660
+So yes, that's definitely
+a great bit of advice.
+
+00:44:42.660 --> 00:44:45.480
+All right,
+so the next question here.
+
+00:44:45.480 --> 00:44:48.700
+This one's a little bit more
+technical, so bear with me.
+
+00:44:48.700 --> 00:44:52.050
+If you change the role of a
+semantic button to tab, does
+
+00:44:52.050 --> 00:44:55.030
+that mess up the understanding
+of people on assistive devices
+
+00:44:55.030 --> 00:44:57.730
+on what they can
+do on that element?
+
+00:44:57.730 --> 00:45:00.820
+Or does the role of tab
+imply all the same abilities?
+
+00:45:00.820 --> 00:45:02.560
+Like enter to select, et cetera.
+
+00:45:02.560 --> 00:45:06.510
+I guess this is a question more
+around keyboard predictability
+
+00:45:06.510 --> 00:45:10.200
+and what roles do to
+kind of impact that?
+
+00:45:10.200 --> 00:45:15.080
+PRITI: Right, so I'll break
+the question down in pieces.
+
+00:45:15.080 --> 00:45:20.120
+The first part, when you define the
+role for a semantic button element,
+
+00:45:20.120 --> 00:45:23.960
+now that is no longer a button for
+us, assistive technology users.
+
+00:45:23.960 --> 00:45:27.210
+For any assistive technology
+user, that will be a tab.
+
+00:45:28.810 --> 00:45:32.680
+As far as the interaction
+goes, the second part of it,
+
+00:45:32.680 --> 00:45:34.760
+it will work with the enter key.
+
+00:45:35.980 --> 00:45:39.020
+And generally, users,
+as they are familiar
+
+00:45:39.020 --> 00:45:40.880
+with the standard
+interaction methods,
+
+00:45:40.880 --> 00:45:44.230
+they would not try the
+space bar key on a tab.
+
+00:45:44.230 --> 00:45:47.300
+As soon as we hear a tab,
+we would press the enter key.
+
+00:45:48.560 --> 00:45:52.210
+So that's why it is important
+to keep the interactions
+
+00:45:52.210 --> 00:45:58.560
+as standard as possible, so that
+users are familiarized with that.
+
+00:45:58.560 --> 00:46:01.250
+And if there are any changes
+in the standard methods,
+
+00:46:01.250 --> 00:46:04.020
+then give them instructions
+about the same.
+
+00:46:07.016 --> 00:46:09.620
+JASON: Great, yes, predictability
+is definitely key when it comes
+
+00:46:09.620 --> 00:46:11.750
+to this sort of stuff.
+
+00:46:12.960 --> 00:46:14.921
+OK, so last question
+I have currently,
+
+00:46:14.922 --> 00:46:16.680
+and we have a couple more minutes.
+
+00:46:16.680 --> 00:46:20.270
+So if anybody has any other
+questions, feel free to drop them in.
+
+00:46:20.270 --> 00:46:22.410
+But this one comes from Beatrice.
+
+00:46:22.410 --> 00:46:27.480
+She says, for the paragraphs
+of the text in the content,
+
+00:46:27.480 --> 00:46:31.230
+is it mandatory to read them using
+a screen reader with the keyboard?
+
+00:46:32.970 --> 00:46:37.080
+PRITI: Yes, because if that
+paragraph has important information,
+
+00:46:37.080 --> 00:46:39.790
+we can read it with a
+keyboard using arrow keys.
+
+00:46:39.790 --> 00:46:44.530
+We do not need to, as I said,
+define a tabindex of zero
+
+00:46:44.530 --> 00:46:48.710
+to make sure, you know,
+the screen reader tab focus lands
+
+00:46:48.710 --> 00:46:49.690
+on that paragraph.
+
+00:46:49.690 --> 00:46:50.870
+We do not need that.
+
+00:46:50.870 --> 00:46:53.480
+So please, please do not do that.
+
+00:46:53.480 --> 00:46:56.000
+OK, that's the advice
+I'll always give.
+
+00:46:56.000 --> 00:47:00.730
+If it is non-interactive, we can
+anyways access it with arrow keys.
+
+00:47:00.730 --> 00:47:06.120
+And as a screen reader user,
+that is not the only key that we use
+
+00:47:06.120 --> 00:47:07.220
+to access content.
+
+00:47:07.220 --> 00:47:09.890
+We have lots and
+lots of keystrokes.
+
+00:47:12.243 --> 00:47:13.400
+JASON: For sure.
+
+00:47:13.400 --> 00:47:14.100
+OK.
+
+00:47:14.100 --> 00:47:18.190
+I think that was the last
+question that we have here.
+
+00:47:18.190 --> 00:47:22.380
+I'll pause for five seconds
+to see if anybody else drops
+
+00:47:22.380 --> 00:47:25.664
+any other questions in,
+but in the meantime,
+
+00:47:25.665 --> 00:47:27.780
+let me say Priti, thank you.
+
+00:47:27.780 --> 00:47:29.520
+This was a really great session.
+
+00:47:29.520 --> 00:47:31.500
+And thank you for answering
+all the questions.
+
+00:47:33.040 --> 00:47:36.570
+And for those of us here,
+we can continue the conversation
+
+00:47:36.570 --> 00:47:44.570
+on chat or on social media using
+the #WPA11Yday and #WPAD2023.
+
+00:47:46.370 --> 00:47:49.510
+All right, Priti.
+
+00:47:49.510 --> 00:47:54.740
+I think it will relieve you
+of all this and I will go on
+
+00:47:54.740 --> 00:47:57.440
+and talk a little bit about
+some of the housekeeping stuff.
+
+00:47:59.540 --> 00:48:04.150
+So those of you attendees,
+we'd also appreciate it if you go
+
+00:48:04.150 --> 00:48:11.430
+to 2023.WPaccessibility.day/feedback
+to provide anonymous feedback
+
+00:48:11.430 --> 00:48:13.580
+for our speakers on
+their presentation.
+
+00:48:13.580 --> 00:48:16.330
+And while you're there,
+you can also enter to win a t-shirt.
+
+00:48:17.570 --> 00:48:20.770
+And please stay tuned for
+building an accessible theme
+
+00:48:20.770 --> 00:48:24.430
+for accessible first sites
+coming up with Gen Herres
+
+00:48:24.430 --> 00:48:29.320
+at 1pm UTC translating to
+whatever your local time zone is.
+
+00:48:29.320 --> 00:48:31.820
+And while you're waiting,
+please don't forget
+
+00:48:31.820 --> 00:48:35.130
+to visit our sponsors pages to
+grab a bunch of virtual swag
+
+00:48:35.130 --> 00:48:38.560
+and enter for a chance
+to win some great prizes.
+
+00:48:38.560 --> 00:48:42.070
+See you all right here at the
+top of the hour after the break.
+
+00:48:42.070 --> 00:48:42.830
+Thanks everyone.
+
+00:48:42.830 --> 00:48:45.430
+PRITI: Thanks Jason
+for the support.
+
+00:48:49.154 --> 00:48:53.430
+ AMBER: Thank you to WordPress
+Accessibility Day 2023 Sponsors.
+
+00:48:53.920 --> 00:48:56.710
+Platinum Sponsor -
+Equalize Digital.
+
+00:48:56.710 --> 00:48:59.440
+Equalize Digital's
+accessibility checker plugin
+
+00:48:59.440 --> 00:49:02.190
+is an automated
+accessibility scanning tool
+
+00:49:02.190 --> 00:49:05.380
+that helps WordPress websites
+become and stay accessible.
+
+00:49:06.640 --> 00:49:09.490
+Platinum Sponsor - Gravity forms.
+
+00:49:09.490 --> 00:49:13.080
+Gravity forms is the professional
+form builder that you need
+
+00:49:13.080 --> 00:49:17.830
+to create beautiful,
+powerful and accessible forms.
+
+00:49:17.830 --> 00:49:24.840
+Gold sponsors - 20i, Deque,
+Empire Caption Solutions, Pressable,
+
+00:49:24.840 --> 00:49:25.930
+and WP Engine.
+
+00:49:27.490 --> 00:49:34.350
+Silver sponsors - Code Geek, Drake
+Cooper, GoDaddy, LoneRock Point,
+
+00:49:34.350 --> 00:49:39.590
+NerdPress, Overnight website by
+Kinetic Iris, Raiola Networks,
+
+00:49:40.920 --> 00:49:43.860
+A11Y Collective, and The Blogsmith.
+
+00:49:45.730 --> 00:49:51.140
+Bronze sponsors - ExcessaCart,
+GreenGeeks Web Hosting,
+
+00:49:51.140 --> 00:50:02.889
+Hall Analysis SEO Consulting,
+HDC, ITX, Ivy Cat, Medabots,
+
+00:50:02.890 --> 00:50:07.810
+Pixel Chefs, Simply Schedule
+Appointments, SiteGround,
+
+00:50:07.811 --> 00:50:13.020
+Termageddon, Underrepresented
+in Tech, Weglot, and Yoast.

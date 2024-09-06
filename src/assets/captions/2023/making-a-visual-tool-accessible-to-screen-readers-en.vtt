@@ -1,0 +1,1078 @@
+﻿WEBVTT
+
+00:00:00.870 --> 00:00:04.489
+ AMBER HINDS: WordPress
+Accessibility Day 2023:
+
+00:00:04.490 --> 00:00:05.720
+Lightning Talk -
+
+00:00:05.720 --> 00:00:10.170
+Making a Visual Tool Accessible
+to Screen readers, with Speakers,
+
+00:00:10.170 --> 00:00:12.780
+Amber Hinds, CEO,
+Equalized Digital.
+
+00:00:13.920 --> 00:00:17.600
+This presentation was
+recorded September 28, 2023.
+
+00:00:19.280 --> 00:00:20.290
+Hello, everyone.
+
+00:00:20.290 --> 00:00:21.790
+My name is Amber Hinds.
+
+00:00:21.790 --> 00:00:25.240
+I'm the CEO of Equalized
+Digital, and I'm excited
+
+00:00:25.240 --> 00:00:28.780
+to be presenting Making
+a Visual Tool Accessible
+
+00:00:28.780 --> 00:00:32.060
+to Screen reader users
+along with Raghavendra.
+
+00:00:32.060 --> 00:00:33.340
+Raghavendra,
+do you want to introduce yourself?
+
+00:00:34.467 --> 00:00:35.160
+ RAGHAVENDRA: Hi, everyone.
+
+00:00:35.160 --> 00:00:36.520
+My name is Raghavendra.
+
+00:00:36.520 --> 00:00:38.490
+I am the founder
+of DigitalA11y.com.
+
+00:00:38.490 --> 00:00:40.730
+I'm a certified professional
+in Web Accessibility.
+
+00:00:44.533 --> 00:00:47.070
+ AMBER: So I'm going to
+start by playing a short video.
+
+00:00:47.070 --> 00:00:48.310
+It doesn't have any sound in it.
+
+00:00:48.310 --> 00:00:51.690
+I'm going to explain what's
+happening and describe it for anyone
+
+00:00:51.690 --> 00:00:52.820
+who can't see.
+
+00:00:52.820 --> 00:00:56.520
+And it is something that
+sort of shows what we built
+
+00:00:56.520 --> 00:01:01.230
+and what we were talking about
+trying to make accessible to people
+
+00:01:01.230 --> 00:01:02.970
+who are screen reader users.
+
+00:01:02.970 --> 00:01:08.460
+So this is the block editor.
+
+00:01:08.460 --> 00:01:10.240
+We're scrolling down
+below the editor.
+
+00:01:10.240 --> 00:01:13.490
+There is a meta box for
+accessibility checker.
+
+00:01:13.490 --> 00:01:15.830
+And then I'm going to the
+Details tab, and I'm just going
+
+00:01:15.830 --> 00:01:19.580
+to click on the Image
+Missing Alternative Text.
+
+00:01:19.580 --> 00:01:23.220
+There are two issues, and I can
+now click a link that says View
+
+00:01:23.220 --> 00:01:27.700
+on Page, and that will take me
+to the front-end of the website,
+
+00:01:27.700 --> 00:01:33.770
+and it will load the issue
+and highlight that image
+
+00:01:33.770 --> 00:01:36.700
+that was missing alternative
+text, to help me find it.
+
+00:01:36.700 --> 00:01:39.080
+Then I go find it up
+in the block editor,
+
+00:01:39.080 --> 00:01:41.230
+and I just add the
+alternative text.
+
+00:01:41.230 --> 00:01:43.840
+So I'm writing...
+This is an image of a person.
+
+00:01:43.840 --> 00:01:45.480
+I tried to type
+David wearing a suit.
+
+00:01:45.480 --> 00:01:47.740
+I had a typo, so I fixed it.
+
+00:01:47.740 --> 00:01:49.020
+And I hit Save.
+
+00:01:49.020 --> 00:01:54.450
+And then if I update my post,
+when I scroll back down,
+
+00:01:56.260 --> 00:01:58.930
+to the Accessibility Checker
+box, updates,
+
+00:01:58.930 --> 00:02:02.490
+and I can see there's only one
+image missing alternative text.
+
+00:02:02.490 --> 00:02:03.630
+Just pausing for a second.
+
+00:02:03.630 --> 00:02:07.040
+This works pretty well for things
+that are in the block editor.
+
+00:02:07.040 --> 00:02:10.630
+Usually it's easy, especially if
+it's an image to see it and say,
+
+00:02:10.630 --> 00:02:12.480
+OK, I know what this is.
+
+00:02:12.480 --> 00:02:17.840
+But we're going to look at
+aria-hidden now, and we'll see...
+
+00:02:18.890 --> 00:02:24.840
+So we'll see if I go,
+I've expanded aria-hidden.
+
+00:02:24.840 --> 00:02:26.140
+I see these social media links.
+
+00:02:26.140 --> 00:02:27.530
+I scroll up.
+
+00:02:27.530 --> 00:02:29.260
+Oh, they're not in my post.
+
+00:02:29.260 --> 00:02:34.330
+So if I click View on Page,
+where this is helpful, it's going
+
+00:02:34.330 --> 00:02:38.200
+to show me again on the
+front end where this shows up
+
+00:02:38.200 --> 00:02:39.860
+and it's down in the footer.
+
+00:02:39.860 --> 00:02:42.530
+So I would know, oh,
+if I want to fix this, I would have
+
+00:02:42.530 --> 00:02:47.130
+to go fix this in my widgets or
+wherever my footer content is created
+
+00:02:47.130 --> 00:02:48.130
+on the post.
+
+00:02:49.610 --> 00:02:56.420
+Now, if I refresh the page,
+I'm going to show you a little bit
+
+00:02:56.420 --> 00:02:59.280
+of what it looks like
+to just walk through
+
+00:03:00.440 --> 00:03:03.450
+the accessibility checker
+issues purely on the front-end
+
+00:03:03.450 --> 00:03:05.970
+without reading them on
+the table on the back-end.
+
+00:03:11.560 --> 00:03:12.260
+It's going to load.
+
+00:03:12.260 --> 00:03:15.080
+It says 20 errors and 6 warnings.
+
+00:03:15.080 --> 00:03:20.490
+There is a box there in the
+bottom right corner, and on it,
+
+00:03:20.490 --> 00:03:23.260
+there's buttons for
+previous and next.
+
+00:03:23.260 --> 00:03:26.580
+And you can click through and
+it will move through each issue.
+
+00:03:26.580 --> 00:03:29.591
+So we're seeing image,
+empty alternative text,
+
+00:03:29.592 --> 00:03:31.000
+improper use of link,
+
+00:03:31.000 --> 00:03:34.270
+incorrect heading order and
+it's jumping through the page
+
+00:03:34.270 --> 00:03:36.940
+and highlighting different
+elements on the page.
+
+00:03:38.840 --> 00:03:41.780
+What if we get to something
+that we're not sure about?
+
+00:03:41.780 --> 00:03:45.720
+So I can see this graduate
+programs, advanced degrees.
+
+00:03:45.720 --> 00:03:47.100
+It's saying improper use of link.
+
+00:03:47.100 --> 00:03:48.330
+And I think, well,
+that's really weird.
+
+00:03:48.330 --> 00:03:50.200
+I think that's a link that works.
+
+00:03:50.200 --> 00:03:53.840
+This is where we added a Show Code
+functionality on the front-end.
+
+00:03:55.490 --> 00:03:58.640
+So I can click Show Code,
+it will show me the link and oh,
+
+00:03:58.640 --> 00:04:01.810
+I see, it says, href.
+
+00:04:01.810 --> 00:04:05.720
+The href on the link is actually
+going to a hashtag, It's not going
+
+00:04:05.720 --> 00:04:08.090
+to an actual link.
+
+00:04:08.090 --> 00:04:10.730
+So that's something where
+I forgot to put in the link
+
+00:04:10.730 --> 00:04:13.120
+where See Events figures
+it's supposed to go.
+
+00:04:13.120 --> 00:04:17.790
+So that explains to me why this
+is saying this isn't a link.
+
+00:04:17.790 --> 00:04:19.110
+Of course,
+it's supposed to be a link.
+
+00:04:19.110 --> 00:04:20.630
+It's just missing the URL.
+
+00:04:26.120 --> 00:04:32.800
+Then sometimes we get things where
+we can't actually see the element
+
+00:04:32.800 --> 00:04:35.800
+because it's hidden,
+and we've added a warning
+
+00:04:35.800 --> 00:04:39.080
+that says the element is not
+visual, try a disabling style.
+
+00:04:39.080 --> 00:04:41.730
+So let me show you how that works.
+
+00:04:41.730 --> 00:04:46.330
+There is a disabled styles button in
+the main accessibility checker panel,
+
+00:04:46.330 --> 00:04:51.610
+and if we click that,
+then it will load the entire page.
+
+00:04:51.610 --> 00:04:55.400
+I can see in this instance
+that it is a search button,
+
+00:04:55.400 --> 00:04:57.330
+which I can see up at
+the top of the page.
+
+00:04:57.330 --> 00:04:58.760
+I have my Skip-to-content link.
+
+00:04:58.760 --> 00:05:02.610
+I have Current Students,
+Maps Directory giving.
+
+00:05:02.610 --> 00:05:08.980
+So if I come back and I enable
+styles again, I get my page
+
+00:05:08.980 --> 00:05:13.590
+and I can see, oh,
+I have a search icon at the top,
+
+00:05:13.590 --> 00:05:18.190
+right next to those other items
+if I click on it, then this is
+
+00:05:18.190 --> 00:05:21.870
+where that button is that
+doesn't have sufficient contrast.
+
+00:05:21.870 --> 00:05:24.770
+It's highlighting what just
+looks like an empty white square,
+
+00:05:24.770 --> 00:05:29.770
+because I think that there is a white
+icon on a white background here.
+
+00:05:29.770 --> 00:05:34.640
+So this is one way that I can help
+find things if they're not visible.
+
+00:05:34.640 --> 00:05:41.040
+And as you can see, it's targeted
+at sighted users, but our goal
+
+00:05:41.040 --> 00:05:46.340
+with this was not to make something
+that only sighted people can use.
+
+00:05:46.340 --> 00:05:49.340
+I want to touch for a
+minute on why we made
+
+00:05:49.340 --> 00:05:53.210
+this tool screen reader accessible
+and why we've been focusing on this.
+
+00:05:53.210 --> 00:05:55.940
+But for us,
+it really aligned with our vision.
+
+00:05:55.940 --> 00:05:59.910
+We really are striving towards a day
+when all people have equal access
+
+00:05:59.910 --> 00:06:01.886
+to information and
+tools on the internet,
+
+00:06:01.887 --> 00:06:03.250
+regardless of their ability.
+
+00:06:03.250 --> 00:06:08.590
+And so because of that,
+it made sense for us to also ensure
+
+00:06:08.590 --> 00:06:15.030
+that even our visual tools work
+for people who don't have sight.
+
+00:06:16.090 --> 00:06:20.400
+I also think that there are use
+cases for screen reader users
+
+00:06:20.400 --> 00:06:24.530
+who want to go through issues
+that the plug-in is identifying
+
+00:06:24.530 --> 00:06:26.140
+in the front-end context.
+
+00:06:26.140 --> 00:06:30.620
+It allows them to reach other
+elements on the website that, maybe,
+
+00:06:30.620 --> 00:06:36.110
+are adjacent to code that's been
+flagged or wrapped around it.
+
+00:06:36.110 --> 00:06:39.630
+And then the other thing is for
+us, this is a step towards building
+
+00:06:39.630 --> 00:06:43.510
+something that allows accessibility
+testers to log issues in the plug-in
+
+00:06:43.510 --> 00:06:44.530
+as they manually test.
+
+00:06:44.530 --> 00:06:47.150
+It's something that we
+know we're going to do.
+
+00:06:47.150 --> 00:06:51.650
+I don't have a timeline for it
+yet, but this is the beginning
+
+00:06:51.650 --> 00:06:57.380
+of being able to show that we
+can have something that functions
+
+00:06:57.380 --> 00:07:01.920
+on the front-end of the website
+on top of the website itself
+
+00:07:01.920 --> 00:07:08.000
+and integrates with the plug-in
+without causing problems
+
+00:07:08.000 --> 00:07:12.610
+for perhaps a blind tester
+who is auditing the website.
+
+00:07:12.610 --> 00:07:15.160
+And then there is a bullet
+point of legal compliance.
+
+00:07:15.160 --> 00:07:18.420
+Legal compliance has nothing
+to do with this on our end,
+
+00:07:18.420 --> 00:07:20.900
+but I wanted to say that because
+if you're trying to justify
+
+00:07:20.900 --> 00:07:24.230
+why a visual tool that you are
+building, whether it's for a client
+
+00:07:24.230 --> 00:07:26.820
+or for your own company,
+and you need to justify that
+
+00:07:26.820 --> 00:07:31.490
+to higher-ups at the company,
+why you're spending your time on it,
+
+00:07:31.490 --> 00:07:35.250
+legal compliance may be a good
+reason to justify investing
+
+00:07:35.250 --> 00:07:37.810
+in accessibility of everything
+you build, even things
+
+00:07:37.810 --> 00:07:40.520
+that you think are
+targeted at sighted users,
+
+00:07:40.520 --> 00:07:42.250
+more than a non-sighted user.
+
+00:07:44.200 --> 00:07:45.400
+So we decided we wanted to do it.
+
+00:07:45.400 --> 00:07:47.490
+How have we tested it so far?
+
+00:07:47.490 --> 00:07:53.600
+All of our devs do accessibility
+testing and then we also come in.
+
+00:07:53.600 --> 00:07:57.460
+I accessibility test,
+and we have people like Raghavendra,
+
+00:07:57.460 --> 00:08:01.030
+an accessibility specialist at our
+company who do accessibility testing.
+
+00:08:01.030 --> 00:08:05.140
+We do manual keyboard
+testing, zoomed into 400%.
+
+00:08:05.140 --> 00:08:07.540
+That modal window that you
+saw, we made sure that
+
+00:08:07.540 --> 00:08:11.080
+even if it is overlaid on top of the
+website and the website is zoomed
+
+00:08:11.080 --> 00:08:14.940
+in 400%, someone who is a low
+vision user, you can't see a lot
+
+00:08:14.940 --> 00:08:19.580
+of the website, but you can still
+interact with all of the content
+
+00:08:19.580 --> 00:08:22.820
+in the modal, it functions
+from a reflow perspective.
+
+00:08:23.900 --> 00:08:26.850
+I did screen reader
+testing voiceover on Mac
+
+00:08:26.850 --> 00:08:31.140
+and Raghavendra did screen
+reader testing in VDM windows
+
+00:08:31.140 --> 00:08:33.860
+and possibly JAWS
+on windows as well.
+
+00:08:33.860 --> 00:08:37.860
+So I want to hand it over to
+Raghavendra now so you can see
+
+00:08:37.860 --> 00:08:42.570
+how he experiences the plug-in
+with his screen reader.
+
+00:08:42.570 --> 00:08:43.920
+Raghavendra,
+do you want to take it away?
+
+00:08:45.367 --> 00:08:47.800
+ RAGHAVENDRA: So since I'm
+demoing the accessibility checkup
+
+00:08:47.800 --> 00:08:50.833
+plug-in here, if I have to go...
+Right now, this is the editor.
+
+00:08:50.833 --> 00:09:01.484
+[Screen Reader Voice]
+
+00:09:01.485 --> 00:09:03.846
+So these are all the blocks
+but if I need to jump
+
+00:09:03.847 --> 00:09:06.066
+just to the accessibility
+checker, I'm going
+
+00:09:06.067 --> 00:09:09.340
+to press the key number
+two on my keyboard
+
+00:09:09.340 --> 00:09:12.900
+and it will take me to the heading
+level two within this editor.
+
+00:09:12.900 --> 00:09:16.028
+[Screen Reader Voice]
+
+00:09:16.028 --> 00:09:17.990
+And which is the
+accessibility checker.
+
+00:09:17.990 --> 00:09:22.400
+The accessibility checker is
+very easy to navigate over here.
+
+00:09:22.400 --> 00:09:26.000
+[Screen Reader Voice]
+
+00:09:26.000 --> 00:09:29.790
+And it is expanded on the content...
+I can collapse the content.
+
+00:09:29.791 --> 00:09:33.125
+[Screen Reader Voice]
+
+00:09:33.126 --> 00:09:34.620
+And the summary,
+[Screen Reader Voice]
+
+00:09:34.620 --> 00:09:36.350
+Details, [Screen Reader Voice]
+
+00:09:36.350 --> 00:09:37.310
+Readability.
+
+00:09:38.248 --> 00:09:41.890
+This is a self-explanatory,
+the summary of issues, the details
+
+00:09:41.890 --> 00:09:45.800
+of issues and the readability
+score, if this content is readable.
+
+00:09:45.800 --> 00:09:49.370
+ AMBER: For the developers
+in the room it's worth noting
+
+00:09:49.370 --> 00:09:52.800
+that this is an element that we
+actually ended up remediating
+
+00:09:52.800 --> 00:09:54.730
+after doing accessibility tests.
+
+00:09:54.730 --> 00:09:58.890
+As you can see in the code here these
+tabs were actually originally coded
+
+00:09:58.890 --> 00:10:01.540
+as links and then we did
+our screen reader testing,
+
+00:10:01.540 --> 00:10:04.580
+and we realized that they
+needed to be buttons.
+
+00:10:04.580 --> 00:10:07.560
+And so we used ARIA
+role equals button
+
+00:10:07.561 --> 00:10:10.310
+and added some button functionality
+
+00:10:10.310 --> 00:10:14.070
+and then we used ARIA current
+equals true, to communicate
+
+00:10:14.070 --> 00:10:18.067
+to screen reader users which
+tab is currently being viewed.
+
+00:10:19.602 --> 00:10:22.333
+ RAGHAVENDRA:
+[Screen Reader Voice]
+
+00:10:22.995 --> 00:10:25.367
+I'm just pressing down
+arrow here just to navigate
+
+00:10:25.367 --> 00:10:26.309
+through the static text.
+
+00:10:26.310 --> 00:10:49.109
+[Screen Reader Voice]
+
+00:10:49.109 --> 00:10:53.067
+So we finished the
+accessibility checker time here.
+
+00:10:53.068 --> 00:10:55.400
+If I need to go back,
+I'm going to press Shift B.
+
+00:10:55.400 --> 00:11:05.169
+" [Screen Reader Voice]
+
+00:11:05.169 --> 00:11:06.833
+So I activated detail.
+
+00:11:06.833 --> 00:11:10.275
+[Screen Reader Voice]
+
+00:11:10.870 --> 00:11:12.300
+So we have headings for each issue.
+
+00:11:12.300 --> 00:11:15.167
+So I'll just navigate between
+the issues using Header H key.
+
+00:11:15.167 --> 00:11:24.461
+[Screen Reader Voice]
+
+00:11:24.461 --> 00:11:28.233
+So another issue that we are going
+to watch; an example here is–
+
+00:11:28.233 --> 00:11:31.042
+[Screen Reader Voice]
+
+00:11:31.042 --> 00:11:37.434
+–images missing alternate text,
+and, [Screen Reader Voice]
+
+00:11:37.434 --> 00:11:39.380
+I expanded the list
+of issues over here.
+
+00:11:39.380 --> 00:11:42.188
+[Screen Reader Voice]
+
+00:11:42.188 --> 00:11:43.833
+We have the issue ID.
+
+00:11:43.833 --> 00:11:46.733
+ AMBER: You'll notice as
+Raghavendra goes through this
+
+00:11:46.733 --> 00:11:48.696
+with the screen reader,
+that you're hearing headings
+
+00:11:48.696 --> 00:11:52.033
+that are not visible on the
+page and also issue IDs.
+
+00:11:52.034 --> 00:11:55.867
+This was another enhancement that
+we made after doing user testing
+
+00:11:55.868 --> 00:11:56.868
+and getting feedback.
+
+00:11:56.869 --> 00:12:01.133
+For a sighted person,
+they don't really need the issue ID
+
+00:12:01.133 --> 00:12:04.200
+and they're seeing this
+displayed as if it's a table,
+
+00:12:04.201 --> 00:12:05.800
+but it couldn't be coded as a table
+
+00:12:05.800 --> 00:12:08.382
+because of some of the complex
+functionality that needs
+
+00:12:08.382 --> 00:12:12.133
+to happen around our ignore
+settings screen visibility.
+
+00:12:12.133 --> 00:12:17.133
+So where we landed was,
+we are pulling the issue ID
+
+00:12:17.133 --> 00:12:23.267
+from the database, and outputting
+that in a heading above each section
+
+00:12:24.473 --> 00:12:27.800
+for screen reader users,
+and then we reference that.
+
+00:12:27.800 --> 00:12:30.733
+So on the image, for example, we
+don't know what the alternative text
+
+00:12:30.733 --> 00:12:34.267
+for this is, because the user
+obviously didn't provide it.
+
+00:12:34.267 --> 00:12:39.633
+So we've given an alternative
+text that references the ID number
+
+00:12:39.633 --> 00:12:43.899
+for the issue, which then makes
+it more clear that this image goes
+
+00:12:43.900 --> 00:12:44.900
+with that issue.
+
+00:12:44.901 --> 00:12:57.233
+[Screen Reader Voice]
+
+00:12:57.233 --> 00:12:59.733
+ RAGHAVENDRA: So when I
+read the testimonial avatar,
+
+00:12:59.733 --> 00:13:04.100
+I knew this is part of the
+testimonial block somewhere.
+
+00:13:04.100 --> 00:13:05.970
+So I can do two things.
+
+00:13:05.970 --> 00:13:10.160
+I can go fix it in the testimonial
+block within the back-end editor,
+
+00:13:10.161 --> 00:13:14.299
+but I would want to check which
+issue is it in the front-end.
+
+00:13:14.299 --> 00:13:19.291
+So what I do is generally...
+[Screen Reader Voice]
+
+00:13:19.291 --> 00:13:21.133
+So I'm going to open it.
+
+00:13:21.133 --> 00:13:27.704
+[Screen Reader Voice]
+
+00:13:27.704 --> 00:13:30.133
+ AMBER: So I think
+it's worth noting here,
+
+00:13:30.133 --> 00:13:33.400
+we had a lot of internal
+conversations about this,
+
+00:13:33.400 --> 00:13:37.633
+and whether or not we'll keep it
+as there's two separate modals,
+
+00:13:37.633 --> 00:13:40.670
+almost that are up over the page.
+
+00:13:40.670 --> 00:13:44.110
+But one thing initially,
+they were jumping focus
+
+00:13:44.110 --> 00:13:48.030
+when you hit that next button
+actually to the element on the page.
+
+00:13:48.030 --> 00:13:50.080
+But then I'm like,
+it's really hard to get back
+
+00:13:50.080 --> 00:13:52.050
+to what the problem actually was.
+
+00:13:52.050 --> 00:13:55.490
+So what I had them do was
+take the focus into the modal
+
+00:13:55.490 --> 00:14:00.940
+that explains the issue,
+which I think works a little better.
+
+00:14:00.940 --> 00:14:02.630
+ RAGHAVENDRA: So
+this is more helpful.
+
+00:14:02.630 --> 00:14:07.280
+The sighted screen reader user who
+is also an accessibility specialist
+
+00:14:07.280 --> 00:14:13.100
+is more interested in the code,
+because they can guide the developer
+
+00:14:13.100 --> 00:14:16.640
+or the person with whom they
+are working towards the code.
+
+00:14:16.640 --> 00:14:19.470
+And for non-technical people,
+a regular WordPress user,
+
+00:14:20.700 --> 00:14:22.730
+the issue gets highlighted.
+
+00:14:22.730 --> 00:14:25.180
+It's easy for them to fix it.
+
+00:14:25.180 --> 00:14:27.820
+As I said,
+my site assistant was a Designer
+
+00:14:27.820 --> 00:14:33.580
+and she never used
+WordPress in her life.
+
+00:14:33.580 --> 00:14:36.748
+And she used WordPress,
+she used Gutenberg,
+
+00:14:36.749 --> 00:14:38.980
+she's able to design websites.
+
+00:14:38.980 --> 00:14:44.310
+This one got her up to speed
+on accessibility much faster
+
+00:14:44.310 --> 00:14:46.950
+rather than any other
+Chrome extension.
+
+00:14:46.950 --> 00:14:50.470
+ AMBER: This was a fast look at
+some of the things we've been doing
+
+00:14:50.470 --> 00:14:54.000
+to make equalized digital
+accessibility checker more accessible
+
+00:14:54.000 --> 00:14:55.590
+for screen reader users.
+
+00:14:55.590 --> 00:14:57.742
+I hope that you've
+found it interesting
+
+00:14:57.743 --> 00:14:59.410
+to see how Raghavendra engages
+
+00:14:59.410 --> 00:15:03.220
+with the plug-in,
+and also that it's inspiring.
+
+00:15:03.220 --> 00:15:05.700
+I want to leave you
+with two action items.
+
+00:15:05.700 --> 00:15:07.760
+The first is for
+plug-in developers.
+
+00:15:07.760 --> 00:15:10.410
+Please test your plug-ins
+with a screen reader,
+
+00:15:10.410 --> 00:15:14.200
+or if you're not sure how,
+hire a tester to test it for you.
+
+00:15:14.200 --> 00:15:16.720
+Decide what you can fix this week.
+
+00:15:16.720 --> 00:15:19.860
+Even if it's small,
+you can make a big difference.
+
+00:15:19.860 --> 00:15:23.100
+Website creators,
+try using a screen reader,
+
+00:15:23.100 --> 00:15:25.580
+or an automated tool like
+accessibility checker.
+
+00:15:25.580 --> 00:15:28.930
+We have a free version on
+WordPress.org to find problems
+
+00:15:28.930 --> 00:15:31.970
+on your website,
+and make a plan for fixes.
+
+00:15:31.970 --> 00:15:34.870
+There are tons of people here
+at WordPress Accessibility Day
+
+00:15:34.870 --> 00:15:38.050
+in the chat or speaking or
+among the organizing team
+
+00:15:38.050 --> 00:15:39.570
+who would be happy to help.
+
+00:15:39.570 --> 00:15:42.280
+Reach out, get started now.
+
+00:15:42.280 --> 00:15:42.860
+Thanks so much.
+
+00:15:42.860 --> 00:15:47.100
+And if you want to learn more
+about me and accessibility checker,
+
+00:15:47.100 --> 00:15:48.230
+visit Equalizedigital.com.
+
+00:15:48.230 --> 00:15:56.230
+Thank you to WordPress
+Accessibility Day 2023 Sponsors.
+
+00:16:01.000 --> 00:16:03.830
+Platinum Sponsor -
+Equalize Digital.
+
+00:16:03.830 --> 00:16:06.610
+Equalize Digital's
+accessibility checker plugin
+
+00:16:06.610 --> 00:16:09.360
+is an automated
+accessibility scanning tool
+
+00:16:09.360 --> 00:16:12.560
+that helps WordPress websites
+become and stay accessible.
+
+00:16:13.810 --> 00:16:16.660
+Platinum Sponsor - Gravity forms.
+
+00:16:16.660 --> 00:16:20.280
+Gravity forms is the professional
+form builder that you need
+
+00:16:20.280 --> 00:16:25.000
+to create beautiful,
+powerful and accessible forms.
+
+00:16:25.000 --> 00:16:32.010
+Gold sponsors - 20i, Deque,
+Empire Caption Solutions, Pressable,
+
+00:16:32.010 --> 00:16:33.100
+and WP Engine.
+
+00:16:34.650 --> 00:16:41.530
+Silver sponsors - Code Geek, Drake
+Cooper, GoDaddy, LoneRock Point,
+
+00:16:41.530 --> 00:16:46.740
+NerdPress, Overnight website by
+Kinetic Iris, Raiola Networks,
+
+00:16:48.030 --> 00:16:51.030
+A11Y Collective, and The Blogsmith.
+
+00:16:52.890 --> 00:16:58.270
+Bronze sponsors - ExcessaCart,
+GreenGeeks Web Hosting,
+
+00:16:58.270 --> 00:17:09.633
+Hall Analysis SEO Consulting,
+HDC, ITX, Ivy Cat, Medabots,
+
+00:17:10.070 --> 00:17:13.131
+Pixel Chefs,
+Simply Schedule Appointments,
+
+00:17:13.131 --> 00:17:16.610
+SiteGround, Termageddon,
+
+00:17:16.610 --> 00:17:20.190
+Underrepresented in
+Tech, Weglot, and Yoast.

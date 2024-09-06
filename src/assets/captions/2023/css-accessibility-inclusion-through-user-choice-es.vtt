@@ -1,0 +1,3741 @@
+WEBVTT
+
+00:00:01.342 --> 00:00:05.199
+AMBER HINDS:
+Día de la Accesibilidad de WordPress 2023.
+
+00:00:05.200 --> 00:00:09.680
+CSS + Accesibilidad:
+Inclusión a través de la elección del usuario,
+
+00:00:09.680 --> 00:00:14.850
+con la oradora Carie Fisher,
+consultora independiente y entrenadora de accesibilidad
+
+00:00:14.850 --> 00:00:19.570
+Esta presentación fue grabada
+el 27 de septiembre de 2023.
+
+00:00:22.200 --> 00:00:23.650
+BEN OGILVIE: Hola a todos.
+
+00:00:23.650 --> 00:00:27.540
+Bienvenidos o bienvenidos de nuevo al
+Día de la Accesibilidad de WordPress 2023.
+
+00:00:27.540 --> 00:00:30.390
+Soy Ben Ogilvie,
+jefe de accesibilidad en Arc Touch.
+
+00:00:30.390 --> 00:00:34.020
+Ayudamos a empresas de todos los tamaños
+a crear aplicaciones personalizadas, sitios web,
+
+00:00:34.020 --> 00:00:36.490
+y experiencias conectadas atractivas
+que utilizan cientos de millones
+
+00:00:36.490 --> 00:00:37.720
+de personas todos los días.
+
+00:00:37.720 --> 00:00:41.110
+Y ayudo a nuestros equipos a hacer ese trabajo
+con un enfoque que prioriza la accesibilidad.
+
+00:00:42.190 --> 00:00:45.870
+Muchas gracias a todos por unirse
+a nosotros en CSS + Accesibilidad:
+
+00:00:45.870 --> 00:00:48.430
+Inclusión a través de
+la elección del usuario, con Carie Fisher.
+
+00:00:48.430 --> 00:00:51.320
+Carie es una autora,
+oradora, capacitadora y desarrolladora experimentada.
+
+00:00:51.320 --> 00:00:54.040
+con más de 15 años de
+experiencia técnica.
+
+00:00:54.040 --> 00:00:56.830
+Y como consultora independiente
+de accesibilidad y UX,
+
+00:00:56.830 --> 00:00:58.860
+ella ayuda tanto
+a individuos como a empresas
+
+00:00:58.860 --> 00:01:01.800
+A alcanzar sus objetivos
+de accesibilidad digital.
+
+00:01:01.800 --> 00:01:05.190
+Carie también es candidata a doctorado
+en Interacciones Persona-Computadora
+
+00:01:05.190 --> 00:01:08.550
+en la Universidad Estatal de Iowa,
+especializándose en tecnología XR,
+
+00:01:08.550 --> 00:01:11.890
+y colaboró ​​notablemente
+con el equipo Web.dev de Google
+
+00:01:11.890 --> 00:01:15.240
+para crear el curso imperecedero de accesibilidad
+llamado Aprenda Accesibilidad,
+
+00:01:15.240 --> 00:01:16.570
+que, por cierto, es increíble.
+
+00:01:17.970 --> 00:01:21.140
+Durante la sesión de hoy,
+por favor agregue sus preguntas
+
+00:01:21.140 --> 00:01:23.358
+a la sección de preguntas y respuestas de Zoom
+y las responderemos
+
+00:01:23.359 --> 00:01:24.660
+al final de la sesión.
+
+00:01:24.660 --> 00:01:28.800
+Y puede usar la sección de chat
+para conectarse con otros asistentes.
+
+00:01:28.800 --> 00:01:30.110
+Con eso, le cedo la palabra a Carie.
+
+00:01:31.640 --> 00:01:32.510
+CARIE FISHER: Gracias, Ben.
+
+00:01:32.510 --> 00:01:35.790
+Y gracias,
+Día de la Accesibilidad de WordPress.
+
+00:01:35.790 --> 00:01:39.180
+No era mi intención usar la camiseta que
+combinara con su logo, pero aquí estamos.
+
+00:01:39.180 --> 00:01:40.110
+[risas]
+
+00:01:40.110 --> 00:01:40.680
+Así que es bastante genial.
+
+00:01:40.680 --> 00:01:42.560
+Muy bien, voy a compartir mi pantalla.
+
+00:01:44.600 --> 00:01:47.630
+Y esa introducción
+también fue un poco desagradable,
+
+00:01:47.630 --> 00:01:49.910
+así que me disculpo por eso también.
+
+00:01:51.200 --> 00:01:52.290
+Estoy ocupada.
+
+00:01:52.290 --> 00:01:55.330
+Hago cosas de accesibilidad
+porque es mi pasión.
+
+00:01:55.330 --> 00:01:57.170
+Realmente me encanta.
+
+00:01:57.170 --> 00:01:59.620
+Pero hoy voy a hablar
+de algo específico.
+
+00:01:59.620 --> 00:02:04.630
+a la accesibilidad digital, que
+se llama Lo que podemos hacer es CSS.
+
+00:02:04.630 --> 00:02:07.340
+Así que dejaré
+las pestañas abiertas
+
+00:02:07.340 --> 00:02:09.890
+porque voy a hacer
+algunas demostraciones durante el día de hoy.
+
+00:02:11.100 --> 00:02:12.800
+Parece que vamos a hacer
+preguntas al final.
+
+00:02:12.800 --> 00:02:16.320
+Así que simplemente repasaré el tema y
+luego haré una pausa para preguntas al final.
+
+00:02:16.320 --> 00:02:19.310 
+Así que, si tienen alguna pregunta,
+no duden en comentarlo.
+
+00:02:19.310 --> 00:02:22.720
+También quiero decir que es la hora
+en la que mis hijos vuelven a casa
+
+00:02:22.720 --> 00:02:25.020
+de la escuela, 
+así que es posible que oigas algo de ruido
+
+00:02:25.020 --> 00:02:27.190
+de fondo temporalmente.
+
+00:02:27.190 --> 00:02:29.180
+Disculpas por ese momento.
+
+00:02:30.640 --> 00:02:31.980
+Mal momento, supongo.
+
+00:02:31.980 --> 00:02:36.100
+Hablando de niños,
+hablemos primero de elección.
+
+00:02:36.100 --> 00:02:38.995
+Cuando era niña, uno de mis
+recuerdos más preciados tiene que ver con
+
+00:02:38.996 --> 00:02:41.970
+estar sentada bajo un
+arce gigante en mi patio
+
+00:02:41.970 --> 00:02:46.800
+y leyendo estos increíbles
+libros de "Elige tu propia aventura".
+
+00:02:46.800 --> 00:02:50.440
+En la pantalla,
+creo que tenemos 10 elementos aquí.
+
+00:02:50.440 --> 00:02:54.300
+Títulos cautivadores como Casa del peligro, 
+Cueva del tiempo,
+
+00:02:54.300 --> 00:02:59.670
+Dentro del OVNI 54-40. 
+Todo tipo de historias geniales
+
+00:02:59.670 --> 00:03:02.230
+de cosas que pasan en estos
+libros de Elige tu propia aventura.
+
+00:03:02.230 --> 00:03:03.660
+En caso de que no estén muy
+familiarizado con ellos,
+
+00:03:03.660 --> 00:03:06.520
+permítanme tomarme un
+segundo para hablar sobre ellos.
+
+00:03:06.520 --> 00:03:10.630
+Son una serie de libros de juegos
+para niños, y la historia está escrita
+
+00:03:10.630 --> 00:03:12.800
+desde un punto de vista de segunda persona.
+
+00:03:12.800 --> 00:03:18.160
+Entonces el lector asume un
+papel protagonista y toma las decisiones.
+
+00:03:18.160 --> 00:03:20.468
+Determina la acción
+del personaje principal,
+
+00:03:20.469 --> 00:03:24.140
+el desenlace de la trama,
+prácticamente toda la historia.
+
+00:03:24.140 --> 00:03:27.470
+Si fueras como yo,
+probablemente habrías avanzado un poco
+
+00:03:27.470 --> 00:03:30.300
+para ver si ibas a morir,
+y luego tomarías una decisión diferente.
+
+00:03:30.300 --> 00:03:33.490
+Puede o puede que no haya hecho trampa
+un par de veces así.
+
+00:03:33.490 --> 00:03:34.850
+Lo realmente genial
+de estos libros;
+
+00:03:34.850 --> 00:03:37.500
+no sólo fueron muy
+populares en los años 80 y 90,
+
+00:03:37.500 --> 00:03:42.280
+pero hoy hay 184 historias, y
+tienen formatos como Braille,
+
+00:03:42.280 --> 00:03:45.390
+y libros de audio interactivos activados por voz,
+por lo que son realmente inclusivos.
+
+00:03:46.870 --> 00:03:49.310
+Avanzamos unos años
+y, por supuesto, estoy encantada
+
+00:03:49.310 --> 00:03:51.750
+de ver a mis propios hijos
+leyendo estos libros.
+
+00:03:51.750 --> 00:03:54.540
+Pero nunca me detuve a
+considerar por qué estos libros eran
+
+00:03:54.540 --> 00:03:57.180
+tan atractivos hasta que
+me convertí en madre.
+
+00:03:57.180 --> 00:03:59.890
+Y ahora veo cómo este tipo
+de libros se hizo tan popular
+
+00:03:59.890 --> 00:04:03.250
+porque realmente se trata de elección
+y de libertad de elección.
+
+00:04:03.250 --> 00:04:05.610
+Así que si piensas
+en cuando eras joven,
+
+00:04:05.610 --> 00:04:08.100
+probablemente no tenías
+mucho control sobre tu vida.
+
+00:04:08.100 --> 00:04:10.390
+Pero cuando lees un
+tipo de libro como este,
+
+00:04:10.390 --> 00:04:12.060
+de repente controlas todo.
+
+00:04:12.060 --> 00:04:15.260
+Tú tomas todas las decisiones,
+tienes poder, eres el dueño
+
+00:04:15.260 --> 00:04:16.260
+de tu propio destino.
+
+00:04:18.660 --> 00:04:22.280
+Por eso tomamos una serie de decisiones
+todos los días: levantarnos temprano, hacer ejercicio
+
+00:04:22.280 --> 00:04:24.190
+y presionar el botón de repetición de alarma.
+
+00:04:24.190 --> 00:04:27.150
+Hoy dormí hasta tarde,
+pero aun así hice ejercicio, así que buen trabajo para mí.
+
+00:04:27.150 --> 00:04:33.070
+Café con leche con doble espuma o un té verde.
+Tabuladores o espacios.
+
+00:04:33.070 --> 00:04:35.180
+Yo soy de las que utilizan tabuladores.
+
+00:04:35.180 --> 00:04:37.910
+Estas elecciones,
+incluso las más insignificantes,
+
+00:04:37.910 --> 00:04:41.310
+dan forma a nuestra identidad y forman
+nuestras perspectivas sobre el mundo.
+
+00:04:41.310 --> 00:04:44.450
+Y en el panorama moderno actual,
+hemos llegado a esperar una amplia gama
+
+00:04:44.450 --> 00:04:47.620
+de opciones independientemente de los productos
+o servicios que estemos considerando.
+
+00:04:47.620 --> 00:04:50.670
+Sin embargo,
+este no siempre ha sido el caso.
+
+00:04:50.670 --> 00:04:52.560
+Viste que tal vez
+apareció en la pantalla,
+
+00:04:52.560 --> 00:04:55.110
+pero tenemos la
+primera familia de fuentes.
+
+00:04:55.110 --> 00:04:59.010
+Antes solo había uno: Johannes
+Gutenberg y la imprenta
+
+00:04:59.010 --> 00:05:00.540
+en 1440.
+
+00:05:01.700 --> 00:05:07.790
+El primer conjunto de colores web, MIT,
+el X10R3, que luego se convirtió en X11.
+
+00:05:07.790 --> 00:05:10.780
+Sólo había 69 tonos básicos.
+
+00:05:10.780 --> 00:05:14.210
+Técnicamente, si cuentas
+cosas como el rojo oscuro, tienes 138,
+
+00:05:14.210 --> 00:05:15.590
+pero solo una paleta limitada.
+
+00:05:16.840 --> 00:05:19.420
+Luego, en 1995,
+un programador estadounidense llamado
+
+00:05:19.421 --> 00:05:20.710
+Brandan Eich desarrolló
+
+00:05:20.710 --> 00:05:24.910
+un nuevo lenguaje de programación llamado
+Mocha, que luego pasó a llamarse LiveScript,
+
+00:05:24.910 --> 00:05:27.360
+y luego también JavaScript.
+
+00:05:29.240 --> 00:05:33.080
+Avancemos hasta el día de hoy
+y tenemos más de 650.000 fuentes web
+
+00:05:33.081 --> 00:05:34.360
+para elegir.
+
+00:05:35.520 --> 00:05:42.760
+La cantidad de colores en el
+sistema HEX ahora es 16.177.216,
+
+00:05:42.760 --> 00:05:43.520
+para ser exactos.
+
+00:05:44.960 --> 00:05:48.380
+Y dije aproximadamente más de
+100, digamos, 
+
+00:05:48.380 --> 00:05:53.330
+bibliotecas y marcos web públicos 
+para JavaScript, ¿cierto?
+
+00:05:53.330 --> 00:05:56.550
+Probablemente haya muchos,
+muchos más que sean propietarios.
+
+00:05:59.080 --> 00:06:02.620
+Pensemos en esos
+conceptos de elección.
+
+00:06:02.620 --> 00:06:04.380
+Todo esto es genial.
+
+00:06:04.380 --> 00:06:06.130
+La vida es la suma de
+todas tus elecciones.
+
+00:06:06.130 --> 00:06:08.460
+Esta cita está en la
+pantalla, de Albert Camus.
+
+00:06:08.460 --> 00:06:11.020
+Es un famoso filósofo francés.
+
+00:06:11.020 --> 00:06:13.710
+Entonces, ¿qué pasa cuando
+no tienes otra opción?
+
+00:06:13.710 --> 00:06:15.840
+¿Qué pasa si nos quitan esa elección?
+
+00:06:15.840 --> 00:06:18.000
+¿Cómo reaccionamos cuando
+no tenemos otra opción?
+
+00:06:18.000 --> 00:06:21.250
+Y no es sorprendente que
+muchos estudios en todo tipo
+
+00:06:21.250 --> 00:06:23.540
+de áreas académicas diferentes
+han demostrado que los sentimientos
+
+00:06:23.540 --> 00:06:27.330
+de impotencia puede conducir a
+resultados negativos como depresión,
+
+00:06:27.330 --> 00:06:30.020
+ansiedad,
+un sentimiento de inutilidad.
+
+00:06:30.020 --> 00:06:33.810
+Así que hay muchos sentimientos negativos
+cuando se elimina la elección
+
+00:06:33.810 --> 00:06:34.810
+de la ecuación.
+
+00:06:35.880 --> 00:06:38.690
+Entonces, con la abundancia de opciones
+a las que estamos acostumbrados hoy en día,
+
+00:06:38.690 --> 00:06:41.160
+y todos los
+aspectos positivos de la elección
+
+00:06:41.160 --> 00:06:44.170
+como han descubierto investigadores independientes,
+¿por qué es que
+
+00:06:44.170 --> 00:06:48.560
+en el espacio digital a menudo
+no damos a nuestros usuarios muchas opciones?
+
+00:06:48.560 --> 00:06:50.260
+Al permitir que nuestros usuarios
+tomen decisiones,
+
+00:06:50.260 --> 00:06:53.800
+podríamos ayudarlos a realizar tareas,
+conectarse más fácilmente con otros,
+
+00:06:53.800 --> 00:06:55.030
+y, en última instancia, empoderarlos.
+
+00:06:58.160 --> 00:07:00.950
+¿Qué significa cuando
+hablamos de elección accesible?
+
+00:07:00.950 --> 00:07:04.160
+Todo eso está muy bien y es
+generalizado en el mundo,
+
+00:07:04.160 --> 00:07:06.250
+pero ¿de qué estamos hablando
+específicamente cuando se trata de
+
+00:07:06.250 --> 00:07:10.160
+la accesibilidad digital,
+y específicamente a CSS?
+
+00:07:10.160 --> 00:07:13.990
+El concepto de elección se vuelve
+más complicado, por supuesto,
+
+00:07:13.990 --> 00:07:16.560
+cuando se incluyen las discapacidades
+en la discusión.
+
+00:07:16.560 --> 00:07:19.450
+Hay que tener en cuenta
+cada tipo de discapacidad,
+
+00:07:19.450 --> 00:07:21.350
+hablando en un sentido muy amplio.
+
+00:07:21.350 --> 00:07:25.250
+Pero también a nivel individual,
+en función del día, el entorno,
+
+00:07:25.250 --> 00:07:30.310
+la tecnología de asistencia, la compatibilidad de dispositivos,
+el sistema operativo, los navegadores, las versiones,
+
+00:07:30.310 --> 00:07:31.890
+las configuraciones, etcétera, etcétera.
+
+00:07:31.890 --> 00:07:34.240
+Puede resultar un poco
+abrumador.
+
+00:07:34.240 --> 00:07:36.260
+Pero depende de nosotros,
+los desarrolladores y diseñadores.
+
+00:07:36.260 --> 00:07:39.510
+considerar estas necesidades complejas
+y ofrecer opciones accesibles.
+
+00:07:40.790 --> 00:07:43.060
+Sólo una nota al margen,
+porque todos tenemos
+
+00:07:43.060 --> 00:07:44.440
+que bajar un poco
+a un agujero de conejo.
+
+00:07:44.440 --> 00:07:47.480
+Pero por elección accesible,
+no me refiero en absoluto a una
+
+00:07:47.480 --> 00:07:49.961
+de las superposiciones de accesibilidad
+de terceros
+
+00:07:49.962 --> 00:07:51.910
+que puedes incluir en tu sitio.
+
+00:07:51.910 --> 00:07:55.970
+En la pantalla, tengo una foto de
+un antiguo [Inaudible 00:07:54] 
+
+00:07:55.970 --> 00:07:57.520
+aceite de serpiente.
+
+00:07:57.520 --> 00:08:00.850
+El problema con las superposiciones de 
+accesibilidad es que simplemente no funcionan.
+
+00:08:02.010 --> 00:08:04.020
+Lo considero un aceite de serpiente.
+
+00:08:04.020 --> 00:08:07.430
+Hayden Pickering acaba de
+hacer un breve video web sobre esto,
+
+00:08:07.430 --> 00:08:09.330
+al que llamó Peor que eso.
+
+00:08:09.330 --> 00:08:13.880
+Así que échale un vistazo si quieres
+ver un poco más de opiniones.
+
+00:08:13.880 --> 00:08:16.620
+De lo contrario,
+cosas como "Las hojas informativas de superposición"
+
+00:08:16.620 --> 00:08:20.500
+y "¿Debería utilizar una
+superposición de accesibilidad?" también son buenas referencias.
+
+00:08:22.680 --> 00:08:24.790
+La razón por la que no nos
+gustan especialmente no es
+
+00:08:24.790 --> 00:08:27.150
+sólo porque no funcionan,
+sino que tampoco mejoran
+
+00:08:27.150 --> 00:08:28.270
+la accesibilidad.
+
+00:08:28.270 --> 00:08:32.750
+Por lo tanto, refuerzan la discriminación,
+violan el uso de la privacidad,
+
+00:08:32.750 --> 00:08:36.110
+reducen tu rendimiento,
+pueden crear nuevas barreras de acceso
+
+00:08:36.110 --> 00:08:37.110
+a tus usuarios.
+
+00:08:38.020 --> 00:08:43.600
+La pregunta que siempre hago es, si tienes
+que usar la superposición de accesibilidad
+
+00:08:43.600 --> 00:08:47.350
+en un sitio, ¿también tienes que
+usarlo en todos los demás sitios?
+
+00:08:47.350 --> 00:08:51.050
+Es decir, si tengo esa necesidad real,
+digamos que necesito
+
+00:08:51.050 --> 00:08:54.070
+aumentar el tamaño de la fuente,
+lo necesito en todos los sitios.
+
+00:08:54.070 --> 00:08:55.760
+También lo necesito en
+mi sistema operativo.
+
+00:08:55.760 --> 00:09:00.000
+Así que podría serme
+útil en un sitio,
+
+00:09:00.000 --> 00:09:04.820
+pero si no tengo esa opción
+más allá, ¿qué sentido tiene?
+
+00:09:04.820 --> 00:09:07.770
+Entonces, si no se supone que
+usemos superposiciones de accesibilidad,
+
+00:09:07.770 --> 00:09:10.990
+¿en qué deberíamos centrarnos para aumentar
+las opciones accesibles que queremos
+
+00:09:10.990 --> 00:09:12.150
+ofrecer?
+
+00:09:12.150 --> 00:09:13.020
+Me alegro de que lo hayas preguntado.
+
+00:09:13.020 --> 00:09:13.700
+[se ríe]
+
+00:09:13.700 --> 00:09:18.020
+Hay mucho de qué hablar,
+pero demasiado para una sola charla.
+
+00:09:18.020 --> 00:09:22.040
+Entonces, en esta charla, realmente estoy
+hablando de aspectos muy específicos
+
+00:09:22.040 --> 00:09:26.450
+en el nivel CSS con el que sus usuarios
+pueden tener más problemas,
+
+00:09:26.450 --> 00:09:28.520
+y tú puedes ayudarlos.
+
+00:09:28.520 --> 00:09:30.480
+Y si aún no lo has
+descubierto,
+
+00:09:30.480 --> 00:09:34.210
+estamos hablando de
+funciones multimedia CSS centradas en el usuario.
+
+00:09:34.210 --> 00:09:35.800
+Hoy
+vamos a hacer un repaso rápido
+
+00:09:35.800 --> 00:09:41.880 
+de todas las funciones multimedia CSS
+actuales dirigidas por el usuario, no consultas,
+
+00:09:41.880 --> 00:09:44.115
+a través de las demostraciones y luego hablaremos
+sobre la compatibilidad actual de los navegadores
+
+00:09:44.116 --> 00:09:44.860
+para cada una.
+
+00:09:46.100 --> 00:09:50.370
+Hice esta charla en la primavera
+y en otra ocasión en WebAIM,
+
+00:09:50.370 --> 00:09:52.580
+y cada vez que estos
+números han cambiado.
+
+00:09:52.580 --> 00:09:56.990
+Entonces es un objetivo en movimiento, y
+algunas de estas cosas, dependiendo de
+
+00:09:56.990 --> 00:09:59.800
+cuando veas esto,
+es posible que haya cambiado nuevamente.
+
+00:09:59.800 --> 00:10:01.790
+Esto es más o menos el promedio
+de lo que hay ahora.
+
+00:10:01.790 --> 00:10:04.200
+Está bien.
+
+00:10:04.200 --> 00:10:06.250
+Primero, el color.
+
+00:10:06.250 --> 00:10:09.370
+El color es el corazón de cada diseño
+y existen numerosos estudios
+
+00:10:09.370 --> 00:10:13.400
+y artículos que muestran que la percepción
+de una marca están ligados a sus colores.
+
+00:10:13.400 --> 00:10:16.730
+Y los estudios muestran que hasta
+el 90% de los juicios precipitados
+
+00:10:16.730 --> 00:10:19.330
+sobre productos puede
+basarse únicamente en el color.
+
+00:10:19.330 --> 00:10:21.530
+Así que el color es muy importante.
+
+00:10:21.530 --> 00:10:22.910
+Entonces, cuando empiezas
+a pensar en cosas
+
+00:10:22.910 --> 00:10:26.510
+como los 300 millones de personas
+en todo el mundo que son daltónicas,
+
+00:10:26.510 --> 00:10:30.190
+esta es un área muy grande donde
+los desarrolladores y diseñadores pueden trabajar directamente
+
+00:10:30.190 --> 00:10:32.860
+e impactarán inmediatamente
+la accesibilidad del sitio web.
+
+00:10:35.380 --> 00:10:36.000
+Está bien.
+
+00:10:36.000 --> 00:10:38.390
+Así que el primero en el que te estoy facilitando
+es probablemente uno
+
+00:10:38.390 --> 00:10:42.540
+que has visto antes,
+este es el modo claro/oscuro.
+
+00:10:42.540 --> 00:10:46.640
+Entonces, el prefiere-esquema-de-colores,
+es la función multimedia CSS
+
+00:10:46.640 --> 00:10:48.000
+que estarías usando.
+
+00:10:48.000 --> 00:10:49.680
+Solía ​​ser tres.
+
+00:10:49.680 --> 00:10:51.580
+Antes, los colores predeterminados 
+eran claro y oscuro.
+
+00:10:51.580 --> 00:10:53.690
+Ahora el valor predeterminado es el claro.
+
+00:10:53.690 --> 00:10:57.670
+Entonces, si no tienes nada que
+sea predeterminado, específicamente,
+
+00:10:57.670 --> 00:11:00.450
+y escribiste en el claro,
+también sería el predeterminado.
+
+00:11:00.450 --> 00:11:03.620
+Entonces, el tema claro es el predeterminado, 
+y eso indica que, el usuario
+
+00:11:03.620 --> 00:11:06.340
+ha expresado preferencia
+por un tema claro,
+
+00:11:06.340 --> 00:11:10.500
+ha expresado su preferencia por un tema claro 
+o no ha expresado activamente una preferencia,
+
+00:11:10.500 --> 00:11:11.500
+por lo que es el predeterminado.
+
+00:11:13.060 --> 00:11:14.740
+Ah, también debería haber pedido 
+disculpas antes de esto,
+
+00:11:14.740 --> 00:11:19.070
+porque hay algunos gifs animados 
+en esta presentación en el medio.
+
+00:11:19.070 --> 00:11:22.680
+Entonces, si tiene algún tipo
+de discapacidad vestibular
+
+00:11:22.680 --> 00:11:27.270
+o cualquier cosa relacionada con el movimiento,
+solo tenlo en cuenta.
+
+00:11:27.270 --> 00:11:32.140
+Intentaré no quedarme allí
+por mucho tiempo como estoy ahora
+
+00:11:32.140 --> 00:11:32.840
+allí por demasiado tiempo.
+
+00:11:32.840 --> 00:11:33.100
+[risas]
+
+00:11:33.100 --> 00:11:33.690
+Pero ahí lo tienes.
+
+00:11:33.690 --> 00:11:36.280
+Muy bien, aquí está el oscuro.
+
+00:11:36.280 --> 00:11:38.490
+Entonces el prefiere-esquema-de-colores oscuro.
+
+00:11:39.660 --> 00:11:42.680
+Básicamente, eso significa que
+el usuario ha expresado una preferencia
+
+00:11:42.680 --> 00:11:45.110
+para esa página como tema oscuro.
+
+00:11:45.110 --> 00:11:51.900
+Y normalmente, tienes
+colores más claros contra un fondo más oscuro.
+
+00:11:51.900 --> 00:11:56.100
+Hay funciones que pueden aparecer
+de hecho, nadie lo sabe
+
+00:11:56.100 --> 00:12:00.110
+con certeza pero cosas como
+tonos sepia o grises, ¿verdad?
+
+00:12:00.110 --> 00:12:03.490 
+Hay muchos esquemas de color diferentes
+que se has propuesto 
+
+00:12:03.490 --> 00:12:06.276
+y comentado,
+pero nada esta sólidamente
+
+00:12:06.277 --> 00:12:08.450
+en proceso, que yo sepa.
+
+00:12:09.560 --> 00:12:12.420
+Pero es bastante emocionante pensar
+que podemos extenderlo
+
+00:12:12.420 --> 00:12:14.700
+más allá de este
+concepto de luz y oscuridad.
+
+00:12:16.260 --> 00:12:18.338
+En la demostración que mostraré,
+es un CodePen,
+
+00:12:18.339 --> 00:12:21.360
+y lo conseguiré para todos ustedes
+si aún no lo habían conseguido.
+
+00:12:21.360 --> 00:12:29.330
+Tal vez uno de los
+moderadores lo haya conseguido.
+
+00:12:29.330 --> 00:12:31.140
+Si no,
+lo conseguiré para ustedes.
+
+00:12:31.140 --> 00:12:33.751
+Pero este concepto de
+esquema de color preferido,
+
+00:12:33.752 --> 00:12:35.430
+también lo puedes revertir.
+
+00:12:35.430 --> 00:12:37.950
+Su valor predeterminado puede ser oscuro
+y puede escribir esto
+
+00:12:37.950 --> 00:12:39.430
+como prefiere-esquema-de-colores claro.
+
+00:12:40.510 --> 00:12:43.930
+Lo realmente bueno de esto
+es que con solo unos pocos...
+
+00:12:43.930 --> 00:12:48.250
+Y este es un ejemplo súper simple,
+pero en realidad,
+
+00:12:48.250 --> 00:12:52.080
+para hacer un tema alternativo
+que va desde, como,
+
+00:12:52.080 --> 00:12:55.330
+cualquiera que sea tu valor predeterminado...
+Si empezó con claro, tu oscuro;
+
+00:12:55.330 --> 00:12:59.100
+o si empiezas con oscuro,
+tu claro... Tema alternativo.
+
+00:12:59.100 --> 00:13:01.860
+No se necesita mucho código,
+porque lo que realmente estás haciendo
+
+00:13:01.860 --> 00:13:04.493
+es que lo estás revirtiendo,
+pero ya has establecido
+
+00:13:04.494 --> 00:13:05.450
+muchas líneas de base.
+
+00:13:05.450 --> 00:13:08.260
+Y siempre que respetes
+las relaciones de contraste de color
+
+00:13:08.260 --> 00:13:10.422
+que necesitas,
+a veces encontrarás
+
+00:13:10.423 --> 00:13:11.990
+que es sorprendentemente fácil.
+
+00:13:11.990 --> 00:13:15.370
+En este ejemplo,
+es una cantidad muy pequeña de código,
+
+00:13:15.370 --> 00:13:19.220
+pero literalmente agregué
+como cuatro líneas adicionales,
+
+00:13:19.220 --> 00:13:20.680
+y ahora tengo un tema completamente nuevo.
+
+00:13:20.680 --> 00:13:25.200
+Así que no es muy difícil para
+ese ejemplo en particular.
+
+00:13:25.200 --> 00:13:30.450
+Así que aquí está el color accesible.
+
+00:13:31.520 --> 00:13:35.480
+Lo tomaré en el
+chat por si acaso.
+
+00:13:37.260 --> 00:13:38.650
+Está bien.
+
+00:13:38.650 --> 00:13:40.250
+Así que deberías poder ver eso.
+
+00:13:40.250 --> 00:13:44.430
+Una cosa con CodePen,
+especialmente cuando estás haciendo pruebas
+
+00:13:44.430 --> 00:13:48.090
+con lectores de pantalla en particular,
+que no estamos haciendo hoy...
+
+00:13:48.090 --> 00:13:53.040
+Pero prueba el modo de depuración o completo que
+generalmente tiene un iframe alrededor.
+
+00:13:53.040 --> 00:13:56.180
+Entonces tiendo a expandirlo.
+
+00:13:56.180 --> 00:13:57.980
+En este color accesible,
+vamos a...
+
+00:13:57.980 --> 00:13:59.920
+tener todos los
+tres colores juntos,
+
+00:13:59.920 --> 00:14:01.860
+y solo les estoy mostrando
+un ejemplo.
+
+00:14:01.860 --> 00:14:05.130
+Así que ahora mismo, mi opción predeterminada es claro.
+
+00:14:05.130 --> 00:14:07.130
+Y normalmente, no es el claro.
+
+00:14:07.130 --> 00:14:10.330
+En realidad, es modo oscuro, en su mayor parte.
+
+00:14:10.330 --> 00:14:11.790
+Pero le di la vuelta a esto sólo por hoy.
+
+00:14:13.270 --> 00:14:14.030
+Está bien.
+
+00:14:14.030 --> 00:14:19.200
+Entonces, si voy a la configuración de mi
+Mac y voy a apariencia,
+
+00:14:19.200 --> 00:14:21.060
+luego simplemente lo cambio a oscuro.
+
+00:14:21.060 --> 00:14:24.430
+Y luego, si miro aquí,
+mi tema ha cambiado.
+
+00:14:24.430 --> 00:14:28.600
+Y si miro los códigos
+específicos solo del modo oscuro...
+
+00:14:28.600 --> 00:14:30.030
+Voy a desplazarme
+un poco por aquí.
+
+00:14:30.030 --> 00:14:36.720
+Puedes ver, otra vez...
+Quizás un par de líneas más que cuatro,
+
+00:14:36.720 --> 00:14:38.240
+pero no mucho más.
+
+00:14:38.240 --> 00:14:41.760
+Esto está en los medios,
+prefiere-esquema-de-colores oscuro.
+
+00:14:41.760 --> 00:14:44.040
+Cambié el
+color de fondo y cambié
+
+00:14:44.040 --> 00:14:49.320
+algunos de los colores de los personajes,
+y eso es todo, lo cual es genial.
+
+00:14:49.320 --> 00:14:50.320
+[risas]
+
+00:14:51.570 --> 00:14:54.960
+Lo realmente genial también en este
+caso es que es súper compatible.
+
+00:14:54.960 --> 00:14:58.470
+Tenemos ese 92,06% de apoyo.
+
+00:14:58.470 --> 00:15:01.920
+Estos son números divertidos porque,
+nuevamente, se filtran solo por...
+
+00:15:01.920 --> 00:15:06.220
+Lo que ves en la pantalla
+es una matriz
+
+00:15:06.220 --> 00:15:10.100 
+de cuales navegadores y versiones
+son compatibles con 
+
+00:15:10.100 --> 00:15:12.520
+esta función multimedia en particular.
+
+00:15:12.520 --> 00:15:16.100
+En este caso, lo tengo filtrado
+por los más populares.
+
+00:15:16.100 --> 00:15:19.210
+Verás algo
+similar en uno diferente,
+
+00:15:19.210 --> 00:15:21.230
+y los números serán
+ligeramente diferentes,
+
+00:15:21.230 --> 00:15:23.330
+porque lo tienes
+filtrado aquí mismo.
+
+00:15:24.840 --> 00:15:28.110
+Aunque esto
+me decía que esencialmente es del 92%.
+
+00:15:28.110 --> 00:15:31.050
+Y miro los
+navegadores más populares y pienso:
+
+00:15:31.050 --> 00:15:32.160
+Esto luce genial.
+
+00:15:32.160 --> 00:15:35.650
+Hay un navegador UC para Android
+que no lo soporta,
+
+00:15:35.650 --> 00:15:40.050
+pero parece que todos los demás
+navegadores principales lo soportan excepto
+
+00:15:40.050 --> 00:15:42.220
+éste y Opera Mini, 
+parece.
+
+00:15:42.220 --> 00:15:43.460
+Eso es genial.
+
+00:15:43.460 --> 00:15:46.140
+Así que me siento bastante segura
+de que puedo usarlo.
+
+00:15:47.750 --> 00:15:53.560
+El siguiente se vuelve un poco
+más experimental a medida que avanzamos, ¿verdad?
+
+00:15:53.560 --> 00:15:55.930
+Así que aquí están los colores forzados.
+
+00:15:55.930 --> 00:16:00.230
+El modo de colores forzados está activo solo
+para los colores que están disponibles
+
+00:16:00.230 --> 00:16:01.770
+al autor de los colores del sistema.
+
+00:16:01.770 --> 00:16:05.530
+Hay ciertas cosas que
+puedes usar con colores forzados
+
+00:16:05.530 --> 00:16:07.550
+y hay ciertas
+cosas que no puedes hacer.
+
+00:16:07.550 --> 00:16:12.070
+Me recuerda al
+modo de alto contraste de Windows de antes.
+
+00:16:13.140 --> 00:16:16.160
+Eric Bailey
+escribió un artículo muy bueno
+
+00:16:16.160 --> 00:16:20.260
+sobre esto llamado
+Modo de alto contraste de Windows, modo de colores forzados,
+
+00:16:20.260 --> 00:16:23.050
+y propiedades personalizadas de CSS,
+que explica esto
+
+00:16:23.050 --> 00:16:25.110
+con muchos más detalles.
+
+00:16:25.110 --> 00:16:30.540
+Pero los conceptos aquí son que
+estamos, nuevamente, en una consulta de medios
+
+00:16:30.540 --> 00:16:32.780
+para colores forzados.
+
+00:16:32.780 --> 00:16:36.390
+Y tenemos ninguno y activo.
+Esos son los dos.
+
+00:16:36.390 --> 00:16:39.810
+Así que es el mismo tipo de concepto donde
+estamos escribiendo un poco de código.
+
+00:16:41.030 --> 00:16:43.030
+Colores forzados es igual a activo.
+
+00:16:43.030 --> 00:16:44.540 
+Le agregamos un 
+poco de estilo.
+
+00:16:44.540 --> 00:16:46.406
+Y luego, presumiblemente,
+tenemos algo
+
+00:16:46.407 --> 00:16:48.080
+que es un poco más emocionante.
+
+00:16:51.060 --> 00:16:56.510
+Algunas de estas cosas que son
+un poco más experimentales,
+
+00:16:56.510 --> 00:17:02.150
+puedes verlas y
+demostrarlas
+
+00:17:02.150 --> 00:17:04.720 
+simplemente usando el navegador de 
+tu sistema operativo normal,
+
+00:17:04.720 --> 00:17:06.810
+como acabamos de hacer con claro/oscuro.
+
+00:17:06.810 --> 00:17:08.580
+Los colores forzados no son uno de
+estos, ¿de acuerdo?
+
+00:17:08.580 --> 00:17:09.880
+Por supuesto que no lo es.
+
+00:17:09.880 --> 00:17:10.730
+¿Por qué no lo sería?
+
+00:17:10.730 --> 00:17:12.210
+¿Por qué sería fácil?
+
+00:17:12.210 --> 00:17:14.940
+Hay un par de
+maneras diferentes en las que puedes usar esto,
+
+00:17:14.940 --> 00:17:16.340
+pero como estoy usando
+el navegador Chrome,
+
+00:17:16.340 --> 00:17:20.530
+voy a usar esta
+cosa llamada pestaña de renderizado.
+
+00:17:20.530 --> 00:17:23.220
+Así que voy aquí
+y solo estoy inspeccionando esto.
+
+00:17:30.770 --> 00:17:32.730
+Esto es algo
+que he instalado.
+
+00:17:33.930 --> 00:17:39.000
+He estado haciendo demostraciones de
+esto, así que lo hago realmente grande,
+
+00:17:39.000 --> 00:17:40.010
+y ahora no encuentro nada.
+
+00:17:40.010 --> 00:17:43.380
+Hagámoslo un poco más pequeño
+para que pueda encontrar mi pestaña de renderizado.
+
+00:17:44.830 --> 00:17:45.830
+No está aquí.
+
+00:17:50.230 --> 00:17:52.300 
+¿Dónde lo puse?
+
+00:17:52.300 --> 00:17:55.780
+A ver si lo encuentro.
+
+00:17:57.810 --> 00:17:59.020
+Quizás tenga que hacer
+esto en el otro.
+
+00:17:59.020 --> 00:18:01.850
+No puedo encontrar mi...
+Creo que está por aquí.
+
+00:18:03.250 --> 00:18:04.800 
+¿Dónde está mi pestaña de renderizado?
+
+00:18:08.165 --> 00:18:09.165
+Ups.
+
+00:18:09.990 --> 00:18:13.260
+Muy bien, déjame agarrar mi
+Canary y hacer eso con ese.
+
+00:18:13.260 --> 00:18:14.890
+Sé que éste también funcionará.
+
+00:18:16.070 --> 00:18:17.350
+Entonces agarraré el otro.
+
+00:18:17.350 --> 00:18:18.350
+Disculpas.
+
+00:18:23.630 --> 00:18:26.890
+Es el mismo concepto de la
+demostración, solo que aquí es diferente.
+
+00:18:26.890 --> 00:18:31.380
+Está bien.
+
+00:18:31.380 --> 00:18:34.500
+Lo siento, he estado haciendo un
+taller y he estado jugando
+
+00:18:34.500 --> 00:18:35.290
+con mis configuraciones aquí.
+
+00:18:35.290 --> 00:18:38.037
+Pero hay una pestaña
+que se llama renderizado
+
+00:18:38.038 --> 00:18:40.130
+aquí en este navegador Chrome.
+
+00:18:40.130 --> 00:18:44.020
+Y nuevamente, hay diferentes maneras
+de hacerlo según quién soporta
+
+00:18:44.020 --> 00:18:47.160
+qué función particular de los medios CSS.
+
+00:18:47.160 --> 00:18:50.640
+Pero este, si me desplazo hacia abajo,
+tienen esta cosa realmente genial.
+
+00:18:50.640 --> 00:18:53.760
+Esto está disponible en
+Chrome normal, pero solo lo estoy mostrando.
+
+00:18:53.760 --> 00:18:57.840
+en Canary porque sé que
+mis configuraciones se establecieron aquí.
+
+00:18:57.840 --> 00:19:00.250
+Entonces puedes ver cosas diferentes,
+como vimos el claro/oscuro,
+
+00:19:00.250 --> 00:19:03.590
+lo cual también podría hacer aquí, 
+esta cosa del renderizado.
+
+00:19:03.590 --> 00:19:05.860
+Pero luego también puedo bajar
+a colores forzados,
+
+00:19:05.860 --> 00:19:08.190
+que es el que estoy
+buscando hoy.
+
+00:19:08.190 --> 00:19:11.540
+Entonces, el valor predeterminado es ninguno
+y los colores forzados están activos.
+
+00:19:11.540 --> 00:19:15.590
+Lo cambiaremos a ese
+fondo amarillo con un texto azulado,
+
+00:19:15.590 --> 00:19:19.220
+y la palabra es como
+de color arándano.
+
+00:19:24.400 --> 00:19:25.850
+Muy bien, volvamos aquí.
+
+00:19:28.140 --> 00:19:31.180
+Si miramos aquí, podemos ver
+la función de medios de colores forzados
+
+00:19:31.180 --> 00:19:33.530
+está bastante respaldado.
+
+00:19:33.530 --> 00:19:36.490
+Este, por cierto,
+en primavera, estaba como al 30%.
+
+00:19:36.490 --> 00:19:39.300
+Así que ahora estamos
+hasta el 87,48%.
+
+00:19:39.300 --> 00:19:43.170
+Muchas cosas han cambiado desde que
+hablamos de esto por primera vez a principios
+
+00:19:43.170 --> 00:19:44.170
+de año.
+
+00:19:44.770 --> 00:19:47.500
+El truco con este y
+algunos de los otros es...
+
+00:19:47.500 --> 00:19:50.870
+que son más experimentales,
+no totalmente compatibles, es que
+
+00:19:50.870 --> 00:19:54.700
+incluso si es totalmente compatible con
+el navegador, su sistema operativo
+
+00:19:54.700 --> 00:19:56.820
+podría no tener esta opción.
+
+00:19:56.820 --> 00:20:00.020
+Cuando se trata de colores forzados,
+Safari tiene esto
+
+00:20:00.020 --> 00:20:05.340
+también en colores forzados.
+
+00:20:05.340 --> 00:20:07.730
+Son colores forzados... Ahí lo tienes.
+
+00:20:09.070 --> 00:20:12.780
+Entonces vaya a Accesibilidad,
+luego a Pantalla,
+
+00:20:12.780 --> 00:20:15.070
+y luego tenemos algunas opciones
+aquí como invertir colores.
+
+00:20:16.140 --> 00:20:21.330
+También tenemos algunos
+colores forzados, pero no los que
+
+00:20:22.470 --> 00:20:26.330
+que tendríamos con las
+máquinas con Windows en modo de alto contraste.
+
+00:20:26.330 --> 00:20:28.990
+Y luego la forma en que puedes
+literalmente hacer cualquier color
+
+00:20:28.990 --> 00:20:30.570
+que desees en el esquema.
+
+00:20:30.570 --> 00:20:32.780
+Entonces, el modo de alto contraste de Windows.
+
+00:20:32.780 --> 00:20:37.810
+Quién sabía cuán vanguardista sería,
+pero esencialmente,
+
+00:20:37.810 --> 00:20:43.680
+ese es casi una réplica del
+concepto de esa función de medios CSS,
+
+00:20:43.680 --> 00:20:44.840
+debería decir.
+
+00:20:44.840 --> 00:20:48.130
+Entonces, el último en colores aquí
+se llama colores invertidos.
+
+00:20:48.130 --> 00:20:52.260
+Éste es muy
+complicado de demostrar
+
+00:20:52.260 --> 00:20:56.450
+porque cuando pones el filtro,
+no podrás ver el cambio.
+
+00:20:56.450 --> 00:20:59.420
+Al menos me han dicho
+que no ves el cambio.
+
+00:20:59.420 --> 00:21:01.020
+Sólo lo ves en
+el sistema operativo.
+
+00:21:01.020 --> 00:21:04.070
+Pero confía en mí, o juega
+con ello y compruébalo por ti mismo.
+
+00:21:04.070 --> 00:21:07.070
+Éste seguro que lo
+podemos ver en Safari y Mac.
+
+00:21:07.070 --> 00:21:09.740
+Y puedes aplicar;
+no necesitas ese filtro.
+
+00:21:09.740 --> 00:21:11.870
+Desafortunadamente,
+el navegador de renderizado Chrome
+
+00:21:11.870 --> 00:21:15.640
+no tiene colores invertidos
+como opción, por lo que es posible que tenga
+
+00:21:15.640 --> 00:21:17.290
+para hacer ese de Safari.
+
+00:21:17.290 --> 00:21:24.210
+Creo que Firefox también
+lo soporta bajo un marco experimental.
+
+00:21:24.210 --> 00:21:27.980
+Esta es la imagen del
+código antes de invertirlo.
+
+00:21:27.980 --> 00:21:32.710
+Entonces, cuando escribo el código, escribo
+esencialmente este fondo verde,
+
+00:21:32.710 --> 00:21:38.990
+texto negro, como un meñique, mira hacia
+aquí, sabiendo que cuando se renderice,
+
+00:21:38.990 --> 00:21:40.250
+se renderizará  
+lo opuesto.
+
+00:21:40.250 --> 00:21:43.470
+Así que tienes que hacer un poco
+de gimnasia mental.
+
+00:21:44.700 --> 00:21:48.370
+Aquí, colores invertidos, invertido,
+lo estoy escribiendo con ese verde
+
+00:21:48.370 --> 00:21:51.380
+y los demás colores en su lugar.
+
+00:21:51.380 --> 00:21:54.350
+Pero cuando pones ese filtro,
+lo que la gente verá en realidad
+
+00:21:54.350 --> 00:21:57.980
+es este
+fondo de RebeccaPurple, y vamos
+
+00:21:57.980 --> 00:22:02.760
+a ver el texto blanco, y esto,
+como, verde azulado "without us".
+
+00:22:02.760 --> 00:22:05.710
+Este, como dije, es un
+poco complicado de demostrar.
+
+00:22:05.710 --> 00:22:09.620
+Y diré también, porque sé
+que alguien va a preguntar esto,
+
+00:22:09.620 --> 00:22:15.110
+Intenté hacer los
+colores invertidos con CSS invert.
+
+00:22:15.110 --> 00:22:20.710
+Es una opción completamente nueva,
+o más nueva, diría yo, en CSS,
+
+00:22:20.710 --> 00:22:23.570
+pero no puedes hacer lo opuesto.
+
+00:22:23.570 --> 00:22:27.490
+Idealmente, lo que quieres escribir
+es este código, como el morado
+
+00:22:27.490 --> 00:22:29.270
+con el blanco y el verde azulado.
+
+00:22:29.270 --> 00:22:32.010
+Y luego puedes hacer
+el CSS invert en él
+
+00:22:32.010 --> 00:22:34.310
+y entonces sería genial,
+pero no funciona así
+
+00:22:34.310 --> 00:22:35.510
+con este filtro en particular.
+
+00:22:36.520 --> 00:22:39.270
+No estoy segura de si eso es algo
+que sucederá en el futuro.
+
+00:22:39.270 --> 00:22:40.500
+Esperemos que así sea.
+
+00:22:42.050 --> 00:22:50.050
+En Safari, si lo hago
+grande... Y, de nuevo,
+
+00:22:50.630 --> 00:22:53.520
+vuelve a la configuración del sistema
+y tráelo aquí.
+
+00:22:54.690 --> 00:23:01.880
+Apariencia, accesibilidad, pantalla.
+Colores invertidos.
+
+00:23:01.880 --> 00:23:05.100
+Tienen uno inteligente y tienen
+uno clásico, ¿verdad?
+
+00:23:05.100 --> 00:23:09.060
+No sé si puedes ver esto o
+no, pero supongo que no puedes.
+
+00:23:09.060 --> 00:23:10.200
+Pero lo que veo es el morado.
+
+00:23:10.200 --> 00:23:11.410
+Así que pruébalo si lo tienes.
+
+00:23:11.410 --> 00:23:14.300
+Si no,
+Firefox tiene uno detrás de una bandera.
+
+00:23:14.300 --> 00:23:17.083
+Y luego también está
+la inversión clásica,
+
+00:23:17.084 --> 00:23:19.310
+de la cual no estoy muy segura
+
+00:23:19.310 --> 00:23:23.300
+cómo hacerlo porque
+no está relacionada con la función de medios CSS
+
+00:23:23.300 --> 00:23:24.750
+del que hemos estado hablando.
+
+00:23:24.750 --> 00:23:30.100
+Muy bien,
+sólo un poco de código.
+
+00:23:30.100 --> 00:23:35.290
+Así que pueden ver aquí en la pantalla,
+nuevamente, esta es una matriz de ¿puedo usar?
+
+00:23:35.290 --> 00:23:39.490
+Solo tenemos el 19,44 %
+que soporta esto.
+
+00:23:39.490 --> 00:23:42.210
+Sin embargo, puedes ver nuevamente
+que hay una bandera debajo de Firefox.
+
+00:23:42.210 --> 00:23:45.470
+Así que también puedes
+hacer eso experimentalmente.
+
+00:23:45.470 --> 00:23:47.170
+Muy genial.
+
+00:23:47.170 --> 00:23:50.260
+Juega con él si
+no tienes Safari y una Mac.
+
+00:23:50.260 --> 00:23:52.090
+Esa es otra manera.
+
+00:23:52.090 --> 00:23:53.920
+Así que sigamos
+un poco más aquí
+
+00:23:53.920 --> 00:23:55.880
+porque no quiero
+quedarme sin tiempo.
+
+00:23:55.880 --> 00:23:59.330
+Prefiere-contraste y
+prefiere-transparencia-reducida.
+
+00:23:59.330 --> 00:24:01.130
+Lo siguiente es el contraste.
+
+00:24:01.130 --> 00:24:03.830
+El contraste funciona en conjunto con
+el color, por supuesto,
+
+00:24:03.830 --> 00:24:06.490
+para proporcionar
+información visual a nuestros usuarios.
+
+00:24:06.490 --> 00:24:08.880
+Sin un buen contraste
+de color, todos esos en su lugar,
+
+00:24:08.880 --> 00:24:12.320
+elementos como texto, íconos
+y otros gráficos importantes son difíciles
+
+00:24:12.320 --> 00:24:13.560
+de discernir.
+
+00:24:13.560 --> 00:24:16.490
+Y esto ocurre principalmente con
+personas que tienen baja visión,
+
+00:24:16.490 --> 00:24:18.640
+que más nos preocupan,
+pero hay otros tipos
+
+00:24:18.640 --> 00:24:23.030
+de trastornos de visión que
+también podrían beneficiarse del alto contraste.
+
+00:24:23.030 --> 00:24:28.090
+Pero los adultos mayores, por ejemplo,
+o las personas que usan pantallas monocromáticas,
+
+00:24:28.090 --> 00:24:30.940
+usuarios en determinadas
+situaciones de iluminación.
+
+00:24:30.940 --> 00:24:33.160
+Alguien con quien hablé
+el otro día dijo:
+
+00:24:33.160 --> 00:24:35.280 
+¿Cuándo usarías una
+pantalla monocromática?
+
+00:24:35.280 --> 00:24:37.950
+Y se le ocurrió la idea
+de, "Oh, tal vez un Kindle, ¿verdad?"
+
+00:24:37.950 --> 00:24:42.690
+Quizás tengas un eReader que esté
+conectado a la web, ¿verdad?
+
+00:24:42.690 --> 00:24:45.400
+Entonces, podría tratarse de una
+situación de visualización monocromática.
+
+00:24:45.400 --> 00:24:50.980
+Muy bien, entonces prefiere-contraste,
+sin preferencia es el valor predeterminado.
+
+00:24:50.980 --> 00:24:54.010
+En la pantalla, tenemos un
+pequeño efecto de arco iris.
+
+00:24:54.010 --> 00:24:57.900
+Encima de esta frase,
+algunas discapacidades son invisibles.
+
+00:24:59.600 --> 00:25:04.170
+Tenemos el código prefiere-contraste
+más y el código relacionado.
+
+00:25:06.830 --> 00:25:10.140
+Nuevamente, conceptos muy similares
+con el claro/oscuro, ya sabes,
+
+00:25:10.140 --> 00:25:13.870
+agregamos un poco de código y podemos
+ver una imagen completamente diferente.
+
+00:25:13.870 --> 00:25:16.970
+Creo que algunas personas saben
+más sobre el código prefiere-contraste
+
+00:25:16.970 --> 00:25:18.600
+porque eso es una configuración.
+
+00:25:18.600 --> 00:25:19.280
+Está en mi Mac.
+
+00:25:19.280 --> 00:25:22.020
+Puedo ver esa configuración,
+y aumentará, y seguirá
+
+00:25:22.020 --> 00:25:23.230
+con esa función de medios.
+
+00:25:24.280 --> 00:25:27.360
+Pero lo que no veo en mi
+sistema operativo son cosas como menos,
+
+00:25:28.640 --> 00:25:32.050
+que es una opción, y personalizado,
+que también es una opción,
+
+00:25:32.050 --> 00:25:33.650
+lo cual me resulta fascinante.
+
+00:25:33.650 --> 00:25:37.940
+Entonces, "personalizado" significa: quiero que
+se use un conjunto específico de colores.
+
+00:25:37.940 --> 00:25:40.610
+Podría decir que quiero que todo
+parezca un arcoíris.
+
+00:25:40.610 --> 00:25:42.740
+Quiero que todo se vea
+naranja, ¿verdad?
+
+00:25:42.740 --> 00:25:46.450
+Cualquier preferencia que desee,
+puedo indicársela al navegador
+
+00:25:46.450 --> 00:25:48.720
+a través de la configuración 
+de mi sistema operativo.
+
+00:25:48.720 --> 00:25:50.190
+Esto es lo que prefiero.
+
+00:25:50.190 --> 00:25:52.610
+Si tienes eso en su lugar,
+puedes servirlo.
+
+00:25:54.020 --> 00:25:59.180
+En este caso, tenemos, nuevamente, más
+detalles sobre prefiere-contraste.
+
+00:25:59.180 --> 00:26:03.660
+Entonces, si voy al contraste,
+por ejemplo, y, de nuevo,
+
+00:26:03.660 --> 00:26:07.710
+eche un vistazo al código, profundice
+un poco más... Veamos
+
+00:26:07.710 --> 00:26:08.830
+si puedo encontrar el chat allí.
+
+00:26:11.690 --> 00:26:14.040
+Quiero que todo se vea
+como [Inaudible 00:26:12].
+
+00:26:14.040 --> 00:26:18.030
+Ese es el único comentario que vi, pero
+sí, sería bastante increíble.
+
+00:26:18.030 --> 00:26:19.340
+[Inaudible 00:26:17]
+
+00:26:19.340 --> 00:26:21.080
+todas las cosas.
+
+00:26:21.806 --> 00:26:22.226
+Está bien.
+
+00:26:22.920 --> 00:26:24.890
+Entonces, modo de depuración, vista completa.
+
+00:26:24.890 --> 00:26:25.570
+Está bien.
+
+00:26:25.570 --> 00:26:28.690
+Así que aquí está uno de esos
+a los que voy
+
+00:26:28.690 --> 00:26:31.550
+a volver a sacar mi Canary
+porque voy
+
+00:26:31.550 --> 00:26:33.010
+a ver muchas más opciones aquí.
+
+00:26:34.060 --> 00:26:38.180
+En mi Mac, y usando
+la configuración de mi sistema operativo, nuevamente,
+
+00:26:38.180 --> 00:26:42.480
+puedo llegar aquí y puedo
+aumentar el contraste.
+
+00:26:42.480 --> 00:26:44.840
+Y cuando haga eso,
+obtendré una imagen
+
+00:26:44.840 --> 00:26:49.700
+que se parece al
+estilo de función de medios CSS que apliqué.
+
+00:26:49.700 --> 00:26:52.770
+Pero puedes ver que en mi configuración,
+al menos, no tengo la opción
+
+00:26:52.770 --> 00:26:55.930
+para cualquier cosa más allá de
+aumentar el contraste.
+
+00:26:55.930 --> 00:26:57.930
+¿Y qué hay si quisiera menos contraste?
+
+00:26:57.930 --> 00:27:02.300
+Quizás me duelen los ojos, o quizás
+simplemente prefiero el efecto arcoíris.
+
+00:27:03.340 --> 00:27:05.140
+Entonces pude volver
+a mi renderizado nuevamente.
+
+00:27:05.140 --> 00:27:13.140
+Muy bien, entonces CSS
+prefiere-contraste, sin emulación.
+
+00:27:14.090 --> 00:27:19.650
+Tenemos lo más sutil; la
+parte invisible se vuelve menos invisible.
+
+00:27:19.650 --> 00:27:23.510
+Tenemos menos, que de repente
+no puedo ver nada, ¿verdad?
+
+00:27:23.510 --> 00:27:27.060
+Y luego tenemos la opción personalizada, que
+es más bien un efecto arcoíris completo.
+
+00:27:28.090 --> 00:27:29.850
+Puedes jugar con esto.
+
+00:27:29.850 --> 00:27:31.710
+Es realmente genial.
+
+00:27:31.710 --> 00:27:34.550
+Es sólo una de esas
+cosas de las que no estoy segura
+
+00:27:34.550 --> 00:27:38.740
+cuando esto sea totalmente compatible
+con el navegador y la configuración.
+
+00:27:38.740 --> 00:27:41.340
+Entonces parece que los navegadores
+están funcionando muy bien, ¿verdad?
+
+00:27:41.340 --> 00:27:42.830
+Están al 90%.
+
+00:27:42.830 --> 00:27:44.780
+Dicen que puedes hacer
+todas estas cosas.
+
+00:27:44.780 --> 00:27:49.180
+Pero la realidad es que, en mi
+sistema operativo, puedo hacer más contraste,
+
+00:27:49.180 --> 00:27:51.150
+y eso es todo.
+
+00:27:51.150 --> 00:27:55.570
+El tuyo podría ser un
+poco diferente.
+
+00:27:55.570 --> 00:27:59.740
+El segundo, relacionado con el contraste, es
+la reducción de transparencia.
+
+00:27:59.740 --> 00:28:01.250
+Entonces no hay preferencia.
+
+00:28:01.250 --> 00:28:04.713
+No elijo
+reducir la transparencia,
+
+00:28:04.714 --> 00:28:07.980
+y luego tengo la opción
+de reducirlo.
+
+00:28:07.980 --> 00:28:13.090
+De nuevo, muy similar en los medios,
+prefiere-transparencia-reducida.
+
+00:28:13.090 --> 00:28:15.130
+Y en este caso,
+simplemente cambié la opacidad
+
+00:28:15.130 --> 00:28:17.200
+y lo hice un
+poco menos brillante.
+
+00:28:20.110 --> 00:28:21.320
+No es compatible en absoluto.
+
+00:28:21.320 --> 00:28:21.620
+[se ríe]
+
+00:28:21.620 --> 00:28:22.070
+cero.
+
+00:28:22.070 --> 00:28:23.480
+Lo siento por eso.
+
+00:28:23.480 --> 00:28:26.830
+Desearía que fuera más compatible,
+pero la transparencia no es
+
+00:28:26.830 --> 00:28:28.060
+compatible.
+
+00:28:28.060 --> 00:28:32.590
+Así que no haré ninguna emulación y vayamos
+a la transparencia aquí.
+
+00:28:35.290 --> 00:28:35.960
+No pasa mucho.
+
+00:28:35.960 --> 00:28:37.760
+Simplemente se vuelve un
+poco más borroso.
+
+00:28:37.760 --> 00:28:45.760
+A ver si lo consigo...
+Sí, vale.
+
+00:28:47.220 --> 00:28:51.730
+Con uno de estos, tendrás que
+actualizar antes de poder verlo.
+
+00:28:51.730 --> 00:28:52.440
+Este podría ser el indicado.
+
+00:28:52.440 --> 00:28:55.030
+Voy a hacer eso
+muy rápido sólo para ver.
+
+00:29:00.220 --> 00:29:03.850
+Voy a cerrar mi
+pestaña de renderizado, lo cual está bien.
+
+00:29:04.930 --> 00:29:05.580
+Está bien.
+
+00:29:05.580 --> 00:29:06.330
+Así que cerraremos esto.
+
+00:29:06.330 --> 00:29:09.910
+Ahora veremos el siguiente,
+la siguiente sección.
+
+00:29:09.910 --> 00:29:12.780
+Está bien.
+
+00:29:12.780 --> 00:29:13.590
+Ya casi terminé.
+
+00:29:13.590 --> 00:29:17.820
+El movimiento es el último en particular
+para las funciones multimedia de CSS.
+
+00:29:17.820 --> 00:29:20.860
+Y nuevamente, estos son todos los
+que existen actualmente.
+
+00:29:20.860 --> 00:29:23.190
+No significa que no haya
+quienes estén a la vuelta de la esquina,
+
+00:29:23.190 --> 00:29:27.820
+o aquellos que la gente esté pensando
+en introducir más adelante.
+
+00:29:27.820 --> 00:29:31.410
+Pero creo que el movimiento
+es muy importante.
+
+00:29:31.410 --> 00:29:32.890
+Me encantan los GIF.
+
+00:29:32.890 --> 00:29:35.080
+Me encantan los SVG interactivos.
+
+00:29:35.080 --> 00:29:38.790
+Me encanta ver videos,
+e incluso esos micro movimientos
+
+00:29:38.790 --> 00:29:40.420
+que tienes en los sitios web.
+
+00:29:40.420 --> 00:29:44.020
+Pero las personas con discapacidades visuales,
+como trastornos convulsivos,
+
+00:29:44.020 --> 00:29:46.850
+podrían tener
+discapacidades situacionales o temporales
+
+00:29:46.850 --> 00:29:51.030
+como [Inaudible 00:29:47], o tengo
+migraña ese día, ¿verdad?
+
+00:29:51.030 --> 00:29:54.880
+Cualquiera que sea la razón por la que no quisiera
+ver este tipo de movimiento,
+
+00:29:54.880 --> 00:29:59.040
+tengo la opción de
+desactivarlo o reducirlo.
+
+00:29:59.040 --> 00:30:00.270
+Este es realmente interesante.
+
+00:30:00.270 --> 00:30:03.010
+Entonces prefiere-movimiento-reducido,
+esa podría ser uno que
+
+00:30:03.010 --> 00:30:05.570 
+con el que también
+estás bastante familiarizado.
+
+00:30:05.570 --> 00:30:07.930
+El valor predeterminado es movimiento completo.
+
+00:30:07.930 --> 00:30:14.130
+Y nuevamente, algunos de estos
+violan los requisitos de moción de WCAG.
+
+00:30:14.130 --> 00:30:15.870
+Tenga en
+cuenta que esto es una demostración,
+
+00:30:15.870 --> 00:30:18.000
+y es por eso que estamos
+en un bucle infinito.
+
+00:30:18.000 --> 00:30:22.580
+Pero lo ideal sería
+que fuera en menos de cinco segundos, ¿no?
+
+00:30:22.580 --> 00:30:24.760
+Entonces prefiere-movimiento-reducido,
+reducir.
+
+00:30:26.350 --> 00:30:30.020
+Y nuevamente, el efecto arcoíris,
+lo hice un poco más lento.
+
+00:30:30.020 --> 00:30:33.300
+Si miras de nuevo, la diferencia
+es que el fondo no cambia
+
+00:30:33.300 --> 00:30:35.820
+en absoluto, y el texto
+se mueve un poco más lento.
+
+00:30:39.190 --> 00:30:40.500
+Así que vayamos a ese.
+
+00:30:45.587 --> 00:30:45.887
+Ah.
+
+00:30:46.270 --> 00:30:48.550
+Debo tener mi configuración
+aún en reducir.
+
+00:30:48.550 --> 00:30:54.630
+Este está en Accesibilidad,
+Visualización, Movimiento Reducido.
+
+00:30:54.630 --> 00:30:58.360
+Entonces supe que lo tenía reducido porque
+ya había comenzado como reducido.
+
+00:30:58.360 --> 00:31:00.460
+Así que aquí está nuestro valor predeterminado.
+
+00:31:00.460 --> 00:31:05.850
+Y luego, cuando activamos el
+movimiento reducido, el fondo cambia,
+
+00:31:05.850 --> 00:31:06.730
+y las palabras cambian.
+
+00:31:06.730 --> 00:31:10.510
+Entonces, si actualizo eso, aparecerá,
+pero a un ritmo más lento.
+
+00:31:10.510 --> 00:31:12.840
+Y así es como
+lo diseñé para esta demostración.
+
+00:31:12.840 --> 00:31:16.220
+Y hay un propósito por
+el cual tiene cierto movimiento.
+
+00:31:16.220 --> 00:31:20.430
+Creo que el gran problema en este momento
+con las preferencias de movimiento reducido es
+
+00:31:20.430 --> 00:31:22.040
+que es todo o nada, ¿no?
+
+00:31:22.040 --> 00:31:25.230
+Y defiendo firmemente
+este concepto
+
+00:31:25.230 --> 00:31:29.850
+de prefiere-movimiento-reducido
+probablemente no debería haber movimiento en absoluto,
+
+00:31:29.850 --> 00:31:32.580
+porque no sabes cuánto
+movimiento va a causar alguien
+
+00:31:32.580 --> 00:31:37.280
+tener una convulsión o una migraña
+o sentir náuseas, ¿verdad?
+
+00:31:37.280 --> 00:31:40.670
+No querrás provocar ningún
+tipo de reacción física
+
+00:31:40.670 --> 00:31:43.320
+a tu gente y a la audiencia.
+
+00:31:43.320 --> 00:31:45.819
+Entonces prefiere-movimiento-reducido, reducir,
+
+00:31:45.820 --> 00:31:48.760
+eso es lo que sugeriría
+ahora mismo,
+
+00:31:49.780 --> 00:31:53.300
+pero una vez que tenemos la idea... Y ésta
+es casi totalmente compatible,
+
+00:31:53.300 --> 00:31:55.380
+92,59%.
+
+00:31:55.380 --> 00:31:57.460
+Muy robusto.
+
+00:31:57.460 --> 00:32:02.530
+En este momento, los valores predeterminados tienen su
+movimiento, prefiere-movimiento-reducido.
+
+00:32:02.530 --> 00:32:04.650
+Quitemos todo el movimiento.
+
+00:32:04.650 --> 00:32:08.240
+Pero una vez que tenemos este concepto
+de prefiere-datos-reducidos,
+
+00:32:08.240 --> 00:32:10.950
+podríamos tener tres
+pasos en nuestra moción,
+
+00:32:10.950 --> 00:32:15.060
+que sería el predeterminado,
+uno reducido, que tiene un poquito
+
+00:32:15.060 --> 00:32:17.220
+de movimiento, pero muy pequeño.
+
+00:32:17.220 --> 00:32:19.740
+Y luego podrías usar
+el prefiere-datos-reducidos
+
+00:32:19.740 --> 00:32:22.880
+para eliminar todo
+el movimiento junto.
+
+00:32:22.880 --> 00:32:25.980
+Entonces este GIF no está roto;
+es sólo una toma fija,
+
+00:32:25.980 --> 00:32:29.160
+porque no ha sucedido nada
+en el prefiere-datos-reducidos.
+
+00:32:30.620 --> 00:32:35.190
+De nuevo, al igual que otras
+consultas de medios, prefiere-datos-reducidos,
+
+00:32:35.190 --> 00:32:36.820
+reducir.
+
+00:32:36.820 --> 00:32:41.540
+En este caso, no tenía
+animación, no pasa nada.
+
+00:32:41.540 --> 00:32:43.940
+Desafortunadamente,
+esto es cero en todo momento.
+
+00:32:43.940 --> 00:32:45.520
+Toneladas y toneladas de banderas.
+
+00:32:45.520 --> 00:32:47.630
+Eso significa que es bueno,
+significa que es experimental,
+
+00:32:47.630 --> 00:32:50.430
+eso significa que tal vez
+lo veamos en el futuro.
+
+00:32:50.430 --> 00:32:54.140
+Este tiene habilidades de amplio alcance
+más allá de lo que estoy mostrando
+
+00:32:54.140 --> 00:32:55.420
+en la configuración de accesibilidad.
+
+00:32:55.420 --> 00:33:01.640
+Y la sensación de ancho de banda y
+ahorro de datos, ayudará mucho
+
+00:33:01.640 --> 00:33:04.600
+a personas en áreas rurales,
+o personas que no tienen planes
+
+00:33:04.600 --> 00:33:06.950
+que admiten datos ilimitados.
+
+00:33:08.140 --> 00:33:11.870
+Muchas cosas realmente interesantes
+están por llegar.
+
+00:33:11.870 --> 00:33:15.330
+Nuevamente, puedes hacer esto
+solo en Canary.
+
+00:33:15.330 --> 00:33:20.550
+Ese es el único que
+aparece ahora mismo en Canary.
+
+00:33:20.550 --> 00:33:23.560
+O puedes conseguir algo de
+Edge y, obviamente, en Opera.
+
+00:33:23.560 --> 00:33:25.680
+Quizás algunas banderas allí;
+banderas experimentales.
+
+00:33:28.470 --> 00:33:32.990
+Solo un resumen rápido, tenemos el
+color: prefiere-esquema-de-colores,
+
+00:33:32.990 --> 00:33:35.980
+colores-forzados y colores invertidos.
+
+00:33:35.980 --> 00:33:38.626
+Tenemos el contraste,
+que es prefiere-contraste,
+
+00:33:38.627 --> 00:33:40.030
+y transparencia reducida.
+
+00:33:41.232 --> 00:33:43.356
+Para el movimiento,
+tenemos prefere-movimiento-reducido,
+
+00:33:43.357 --> 00:33:44.612
+y prefiere-datos-reducidos.
+
+00:33:45.740 --> 00:33:50.770
+Si no utilizas ninguna de estas cosas,
+no tendremos opciones para el usuario.
+
+00:33:50.770 --> 00:33:55.010
+Estás diciendo que sé todo
+sobre tu experiencia de usuario.
+
+00:33:55.010 --> 00:34:00.130
+y no te doy ninguna
+opción, lo cual es, seamos sinceros,
+
+00:34:00.130 --> 00:34:02.090
+la mayoría de los sitios a los que vamos, ¿verdad?
+
+00:34:03.230 --> 00:34:08.230
+Si incorporamos incluso los
+tres que tienen más soporte...
+
+00:34:08.230 --> 00:34:11.300
+Estaba contando eso
+como 90% o más...
+
+00:34:11.300 --> 00:34:15.590
+Eso les da a los usuarios una
+combinación de 16 opciones.
+
+00:34:15.590 --> 00:34:18.460
+Es algo exponencial
+porque tienes múltiples opciones
+
+00:34:18.460 --> 00:34:21.620
+bajo cada categoría diferente.
+
+00:34:21.620 --> 00:34:23.460
+Para dos de las categorías,
+solo tienes dos opciones;
+
+00:34:23.460 --> 00:34:26.210
+pero el contraste de color,
+tienes cuatro, por lo que equivale
+
+00:34:26.210 --> 00:34:28.970
+a 16 opciones de usuario.
+
+00:34:28.970 --> 00:34:32.130
+Hay una, la de los
+colores forzados, que está como al 87%.
+
+00:34:32.130 --> 00:34:36.980
+Entonces, en el futuro, serían incluso
+32 opciones, lo cual es bastante genial.
+
+00:34:38.370 --> 00:34:41.740
+Pero si pensamos en el
+futuro, soñamos con el futuro
+
+00:34:41.740 --> 00:34:45.970
+con configuraciones de navegadores y sistemas operativos
+compatibles con todo esto,
+
+00:34:45.970 --> 00:34:49.690
+tenemos unas asombrosas 256 opciones.
+
+00:34:49.690 --> 00:34:51.560
+Con solo agregarlos,
+¿qué tenemos?
+
+00:34:51.560 --> 00:34:57.040
+¿Tres, cuatro, cinco, seis,
+siete funciones multimedia?
+
+00:34:57.040 --> 00:34:59.410
+Así que es bastante emocionante.
+
+00:34:59.410 --> 00:35:01.680
+Así que hay muchas opciones diferentes.
+
+00:35:01.680 --> 00:35:07.240
+Nuevamente, hay algunas cosas que
+pueden entrar en conflicto, pero esto es mínimo
+
+00:35:07.240 --> 00:35:10.280
+si tuvieras cada uno de ellos,
+porque también puedes combinar cosas
+
+00:35:10.280 --> 00:35:12.690
+para crear escenarios completamente nuevos.
+
+00:35:12.690 --> 00:35:14.960
+Así que podrías tener un
+prefiere-movimiento-reducido.
+
+00:35:14.960 --> 00:35:18.650
+solo para el claro,
+prefiere-movimiento-reducido solo para el oscuro.
+
+00:35:18.650 --> 00:35:23.370
+Puedes imaginar que las combinaciones pueden
+extenderse más allá de las simples.
+
+00:35:23.370 --> 00:35:24.890
+Entonces este sería un número simple.
+
+00:35:24.890 --> 00:35:29.930
+Así que el número realmente podría llegar
+al infinito, si somos honestos.
+
+00:35:29.930 --> 00:35:32.120
+Muy emocionante.
+
+00:35:32.120 --> 00:35:33.000
+Estoy emocionada por ello.
+
+00:35:33.000 --> 00:35:34.770
+Espero haberte
+emocionado un poco.
+
+00:35:34.770 --> 00:35:37.670
+Quizás viste algunas cosas
+que no habías visto antes.
+
+00:35:37.670 --> 00:35:41.577
+Pero realmente, este concepto
+de accesibilidad digital
+
+00:35:41.578 --> 00:35:43.530
+a veces tiene mala reputación
+
+00:35:43.530 --> 00:35:47.530
+en nuestro mundo técnico digital,
+porque la gente está preocupada
+
+00:35:47.530 --> 00:35:51.280
+sobre diseño hermoso
+y funcionalidad de vanguardia.
+
+00:35:51.280 --> 00:35:53.850
+Pero con suerte, hoy vimos que
+no tiene por qué ser así.
+
+00:35:53.850 --> 00:35:55.940
+No tienes que
+elegir uno u otro.
+
+00:35:55.940 --> 00:35:59.580
+Puedes personalizarlo y
+ofrecer opciones a tus usuarios
+
+00:35:59.580 --> 00:36:02.760
+para personalizar su experiencia e
+incluir todas esas cosas increíbles
+
+00:36:02.760 --> 00:36:04.850
+y cosas de vanguardia
+en las que quieras pensar,
+
+00:36:04.850 --> 00:36:07.360
+pero también se lo estás dando
+de manera responsable.
+
+00:36:08.550 --> 00:36:11.950
+Como profesionales de la
+industria tecnológica, realmente deberíamos apuntar
+
+00:36:11.950 --> 00:36:15.320
+para hacer accesibles nuestros proyectos digitales
+y ofrecer opciones
+
+00:36:15.320 --> 00:36:18.250
+a cada individuo para
+personalizar su experiencia.
+
+00:36:18.250 --> 00:36:21.670
+Nuestro trabajo es brindar opciones
+y luego dejar que la gente elija
+
+00:36:21.670 --> 00:36:22.670
+su propia aventura.
+
+00:36:23.910 --> 00:36:25.160
+Está bien.
+
+00:36:25.160 --> 00:36:26.570
+Gracias.
+
+00:36:26.570 --> 00:36:28.200
+Lo siento, estaba tratando de apresurarme
+al final.
+
+00:36:28.200 --> 00:36:29.800
+Ojalá nos hubiera dado
+tiempo para preguntas y respuestas.
+
+00:36:29.800 --> 00:36:31.090
+BEN: Estuviste genial.
+
+00:36:31.090 --> 00:36:32.570
+Tenemos 14 minutos.
+
+00:36:32.570 --> 00:36:34.910
+Eso fue increíble.
+
+00:36:34.910 --> 00:36:37.680
+Si tuviera un
+emoji de cabeza explosiva, [se ríe]
+
+00:36:39.000 --> 00:36:40.000
+ese sería yo ahora mismo.
+
+00:36:42.190 --> 00:36:44.257
+Tenemos muchas preguntas interesantes,
+
+00:36:44.258 --> 00:36:46.750
+y una buena cantidad de
+tiempo para abordarlos.
+
+00:36:46.750 --> 00:36:51.550
+Uno que en realidad fue reabierto
+después de una charla hace unas horas,
+
+00:36:51.550 --> 00:36:53.100
+porque parecía relevante.
+
+00:36:53.100 --> 00:36:59.050
+Faye preguntó: ¿Existe una
+relación de contraste específica para "demasiado alto"?
+
+00:36:59.050 --> 00:37:03.490
+Creo que tocaste eso
+con tu prefiere-contraste menos,
+
+00:37:03.490 --> 00:37:05.460
+pero no sé si hay
+una relación de contraste específica
+
+00:37:05.460 --> 00:37:10.690
+que generalmente se acepte como
+un contraste demasiado alto para algunos usuarios.
+
+00:37:10.690 --> 00:37:13.550
+CARIE: Quiero decir,
+mientras estés dando opciones,
+
+00:37:13.550 --> 00:37:14.790
+yo digo que puedes llegar hasta el final,
+¿verdad?
+
+00:37:14.790 --> 00:37:18.000
+Puedes hacer tu 21 a 1,
+que es tu blanco y negro.
+
+00:37:18.000 --> 00:37:21.470
+Diré, como una pequeña advertencia
+a esto... Y esto es algo
+
+00:37:21.470 --> 00:37:23.600
+que no sé si
+alguien preguntó todavía.
+
+00:37:23.600 --> 00:37:29.230
+Pero si tuviera un prefiere-contraste,
+cualquiera que sea la proporción en el que lo tuviera,
+
+00:37:29.230 --> 00:37:31.450
+y digo: Oh,
+esta es mi versión accesible,
+
+00:37:31.450 --> 00:37:35.590
+y luego
+no se puede acceder a mi versión predeterminada normal,
+
+00:37:35.590 --> 00:37:38.170
+no funciona de esa manera.
+
+00:37:38.170 --> 00:37:41.040
+Ambas versiones deben
+ser accesibles y cumplir
+
+00:37:41.040 --> 00:37:43.740
+a tus requisitos WCAG específicos.
+
+00:37:43.740 --> 00:37:47.720
+Entonces, sea lo que sea lo que estés
+siguiendo, 2.1 AA es típico
+
+00:37:47.720 --> 00:37:52.530
+para la mayoría de los clientes que son
+entidades privadas y cosas así,
+
+00:37:52.530 --> 00:37:53.890
+y no en el espacio gubernamental.
+
+00:37:54.910 --> 00:37:57.140
+A mí también me hacen esa pregunta,
+como: Oh, sí, solo voy
+
+00:37:57.140 --> 00:37:59.450
+a hacer este movimiento-reducido en
+este lado, y esto está bien.
+
+00:37:59.450 --> 00:38:00.470
+Esto es todo lo que tengo que hacer.
+
+00:38:00.470 --> 00:38:02.630
+Es como, No, no,
+tienes que hacer ambas cosas. [risas]
+
+00:38:02.630 --> 00:38:05.240
+Entonces no hay escapatoria.
+
+00:38:05.240 --> 00:38:08.470
+Y tal vez en el futuro,
+WCAG se ponga al día
+
+00:38:08.470 --> 00:38:10.470
+a algo como las
+funciones multimedia CSS,
+
+00:38:10.470 --> 00:38:14.500
+y pueden decir, Oye, sí, si tienes
+la versión con movimiento-reducido
+
+00:38:14.500 --> 00:38:19.770
+de esto, entonces está exento de
+la moción en el estado predeterminado.
+
+00:38:19.770 --> 00:38:23.110
+O quién sabe qué dirán,
+pero esa podría ser una posibilidad.
+
+00:38:24.060 --> 00:38:27.040
+BEN: O tal vez su configuración
+prefiere-constraste-menos
+
+00:38:27.040 --> 00:38:29.270
+debería tener un contraste máximo.
+
+00:38:29.270 --> 00:38:29.960
+CARIE: Sí.
+
+00:38:29.960 --> 00:38:33.190
+En este momento no hay nada que yo
+sepa que sea... Porque, de nuevo,
+
+00:38:33.190 --> 00:38:35.100
+estas son opciones, ¿verdad?
+
+00:38:35.100 --> 00:38:38.780
+Y no está realmente bajo el
+paraguas de accesibilidad per se,
+
+00:38:38.780 --> 00:38:40.930
+pero lo traigo
+allí, porque ¿por qué no?
+
+00:38:40.930 --> 00:38:43.140
+Es algo muy interesante, 
+así que hagámoslo.
+
+00:38:43.734 --> 00:38:44.454
+BEN: Me encanta.
+
+00:38:45.720 --> 00:38:49.150
+Jessica preguntó:
+¿Conoce algún tema de WordPress
+
+00:38:49.150 --> 00:38:53.370
+que ofrezca al usuario la opción de elegir entre
+un tema claro u oscuro listo para usar?
+
+00:38:53.370 --> 00:38:55.320
+CARIE: No podría
+hablar de eso,
+
+00:38:55.320 --> 00:38:59.220
+pero siento que hay mucha
+gente inteligente en WordPress que podría hacerlo.
+
+00:38:59.220 --> 00:38:59.510
+[risas]
+
+00:38:59.510 --> 00:39:00.770
+[diálogo cruzado 00:38:59]
+
+00:39:00.770 --> 00:39:01.770
+Sí.
+
+00:39:02.920 --> 00:39:04.360
+Por favor ayúdenme.
+
+00:39:04.360 --> 00:39:07.780
+Trabajo con diferentes tipos de
+clientes en diferentes marcos,
+
+00:39:07.780 --> 00:39:09.630
+e incluso diferentes CMS.
+
+00:39:12.250 --> 00:39:17.290
+No puedo hablar en profundidad sobre
+eso, pero estoy segura de que los hay,
+
+00:39:17.290 --> 00:39:21.670
+porque hay muchas
+personas realmente geniales en la comunidad de WordPress
+
+00:39:21.670 --> 00:39:23.210
+que están pensando
+en la accesibilidad.
+
+00:39:23.210 --> 00:39:25.610
+Así que supongo que
+ya tienen algo de eso incorporado.
+
+00:39:27.950 --> 00:39:28.540
+BEN: Sí.
+
+00:39:28.540 --> 00:39:32.570
+Daniel preguntó: ¿Hay formas de
+rastrear alguna de estas preferencias
+
+00:39:32.570 --> 00:39:35.460
+o configuraciones en Google
+Analytics versión 4?
+
+00:39:36.980 --> 00:39:38.060
+CARIE: Esa es una buena pregunta.
+
+00:39:38.061 --> 00:39:43.290
+Es como el concepto de...
+Bueno,
+
+00:39:43.290 --> 00:39:44.950
+tal vez no sea simplemente
+el mismo concepto.
+
+00:39:44.950 --> 00:39:49.530
+Pero, por ejemplo, podría
+rastrear a un usuario de lector de pantalla,
+
+00:39:49.530 --> 00:39:53.900
+y podría calcular cuántas
+personas están usando lectores de pantalla
+
+00:39:53.900 --> 00:39:55.190
+en mi sitio.
+
+00:39:55.190 --> 00:39:58.270
+Ahora, creo que fue Twitch
+quien se metió en problemas
+
+00:39:58.270 --> 00:40:01.260
+con eso no hace mucho tiempo,
+donde estaban haciendo eso
+
+00:40:01.260 --> 00:40:03.710
+solo para que pudieran decir:
+Oh, queremos apoyarlos.
+
+00:40:03.710 --> 00:40:05.400
+Lo hacían
+por razones positivas,
+
+00:40:05.400 --> 00:40:07.820
+pero también se podía ver la otra
+cara, como, Oye,
+
+00:40:07.820 --> 00:40:11.160
+nadie está usando esto,
+por lo que no lo soportaremos.
+
+00:40:11.160 --> 00:40:13.260
+Entonces creo que lo mismo
+es cierto aquí,
+
+00:40:13.260 --> 00:40:16.620
+donde me sentiría un poco
+como si, incluso si pudieras hacerlo,
+
+00:40:16.620 --> 00:40:17.870
+¿deberías hacerlo?
+
+00:40:17.870 --> 00:40:20.780
+Porque estás hablando de
+preferencias y elecciones del usuario, y,
+
+00:40:20.780 --> 00:40:25.660
+¿Estoy cometiendo violaciones
+a la privacidad? Por eso me preguntaría
+
+00:40:25.660 --> 00:40:27.330
+si quieres hacerlo.
+
+00:40:27.330 --> 00:40:30.490
+Creo que probablemente podrías,
+de alguna manera, descubrir algo
+
+00:40:30.490 --> 00:40:33.100
+de estas cosas porque
+son estadísticas del navegador.
+
+00:40:33.100 --> 00:40:35.720
+Supongo que
+la gente de Chrome lo sabe,
+
+00:40:35.720 --> 00:40:38.200
+pero si puedes averiguarlo
+es otra cuestión.
+
+00:40:38.200 --> 00:40:39.160
+BEN: Sí.
+
+00:40:39.160 --> 00:40:41.800
+Podría y debería
+a veces son cosas diferentes.
+
+00:40:41.800 --> 00:40:43.220
+CARIE: Definitivamente.
+
+00:40:43.220 --> 00:40:46.060
+BEN: Jerry preguntó: 
+¿Hay pautas de color
+
+00:40:46.060 --> 00:40:49.210
+que coincidan con
+los requisitos WCAG para cada una
+
+00:40:49.210 --> 00:40:51.940
+de las
+consultas de funciones de medios relacionadas con el color?
+
+00:40:52.820 --> 00:40:53.300
+CARIE: Sí.
+
+00:40:53.300 --> 00:40:55.500
+Creo que tal vez respondimos
+a esa pregunta antes.
+
+00:40:55.500 --> 00:40:56.680
+No lo sé.
+
+00:40:56.680 --> 00:40:57.880
+Quiero decir, ahora mismo, no hay.
+
+00:40:57.880 --> 00:41:00.580
+Estas son entidades separadas.
+
+00:41:00.580 --> 00:41:02.400
+Pero podrías aplicar las tuyas propias.
+
+00:41:02.400 --> 00:41:05.100
+Tal vez crear una nueva
+pauta.
+
+00:41:05.100 --> 00:41:06.100
+Eso sería genial.
+
+00:41:08.150 --> 00:41:12.280
+BEN: Andrew preguntó: ¿Ofrecer
+un interruptor de tema en su sitio web
+
+00:41:12.280 --> 00:41:14.920
+para cambiar entre el tema claro o oscuro,
+necesario o excesivo
+
+00:41:14.920 --> 00:41:17.188
+si ya estás usando
+el prefiere-esquema-de-colores
+
+00:41:17.189 --> 00:41:19.760
+para configurar automáticamente los colores
+en tu tema de WordPress?
+
+00:41:19.760 --> 00:41:23.450
+¿O es una buena idea porque
+ayuda a respaldar aún más la elección del usuario?
+
+00:41:23.450 --> 00:41:24.790
+CARIE: Esa es una
+muy buena pregunta.
+
+00:41:24.790 --> 00:41:26.170
+Sí, [Inaudible 00:41:25].
+
+00:41:27.700 --> 00:41:31.750
+Entonces, cuando el modo claro/oscuro no existiera,
+podrías usar un poco
+
+00:41:31.750 --> 00:41:32.860
+de código JavaScript.
+
+00:41:32.860 --> 00:41:36.590
+Por lo general, es como encender y
+apagar clases para básicamente hacer
+
+00:41:36.590 --> 00:41:39.530
+lo que podemos hacer en la
+configuración del sistema operativo ahora mismo.
+
+00:41:39.530 --> 00:41:41.990
+Así que creo que para
+los más experimentales,
+
+00:41:41.990 --> 00:41:47.040
+como prefieres-datos-reducidos,
+los que están alrededor del contraste,
+
+00:41:47.040 --> 00:41:50.320
+pero diferentes opciones, eso sería
+genial porque esas cosas,
+
+00:41:50.320 --> 00:41:53.420
+como vimos en la configuración,
+no siempre están disponibles.
+
+00:41:53.420 --> 00:41:55.790
+Cuando llegas a temas como
+prefiere-movimiento-reducido
+
+00:41:55.790 --> 00:42:00.430
+y en cuanto a los modos claro/oscuro,
+siento que hemos llegado a un punto
+
+00:42:00.430 --> 00:42:02.930
+de saturación donde
+la gente sabe dónde está eso.
+
+00:42:02.930 --> 00:42:04.150
+No quiero hacer suposiciones.
+
+00:42:05.650 --> 00:42:08.430
+Así que tal vez podrías tener
+ambos si quisieras.
+
+00:42:08.430 --> 00:42:11.270
+Pero estoy pensando más en que los
+experimentales son los que
+
+00:42:11.270 --> 00:42:14.430
+que los sistemas operativos y
+navegadores no son totalmente compatibles.
+
+00:42:14.430 --> 00:42:16.110
+Eso sería genial.
+
+00:42:16.110 --> 00:42:18.084
+Porque, al igual que el modo claro/oscuro,
+
+00:42:18.085 --> 00:42:20.340
+así fue como empezamos
+la conversación
+
+00:42:20.340 --> 00:42:21.260
+alrededor de ese.
+
+00:42:21.260 --> 00:42:22.820
+Lo mismo con el movimiento reducido.
+
+00:42:22.820 --> 00:42:25.730
+Así es como conocí
+esos conceptos por primera vez.
+
+00:42:25.730 --> 00:42:26.580
+Es como, Oh, eso es genial.
+
+00:42:26.580 --> 00:42:29.410
+Simplemente lo alternaré. Y ahora
+hay otra función multimedia CSS
+
+00:42:29.410 --> 00:42:30.690
+que hace esto.
+
+00:42:30.690 --> 00:42:33.330 
+Sin embargo, esa es una pregunta realmente 
+complicada, porque se supone
+
+00:42:33.330 --> 00:42:35.790
+que el usuario sepa cómo
+activarlos y desactivarlos
+
+00:42:35.790 --> 00:42:37.140
+en su sistema operativo.
+
+00:42:37.140 --> 00:42:43.610
+BEN: La forma en que lo hemos hecho es
+usar la manera predeterminada del sistema operativo del usuario
+
+00:42:43.610 --> 00:42:46.950
+o de la configuración a nivel de navegador, pero también
+darles un control de anulación.
+
+00:42:46.950 --> 00:42:48.200
+CARIE: Sí, eso está bien, sí.
+
+00:42:48.200 --> 00:42:50.540
+Como una pequeña galleta,
+como una galleta de configuración.
+
+00:42:50.540 --> 00:42:51.030
+BEN: Sí.
+
+00:42:51.030 --> 00:42:54.820
+Entonces, si ese usuario no
+sabe qué es una configuración del sistema operativo,
+
+00:42:54.820 --> 00:42:59.290
+pueden activarlo según
+sus necesidades del día.
+
+00:42:59.290 --> 00:43:01.520
+Aunque, en algunos casos,
+eso puede ser excesivo.
+
+00:43:02.060 --> 00:43:02.940
+CARIE: Habla con Ben.
+
+00:43:02.940 --> 00:43:05.410
+Parece que Ben
+lo tiene resuelto.
+
+00:43:05.410 --> 00:43:05.640
+[risas]
+
+00:43:05.640 --> 00:43:07.870
+Me gusta esa combinación, sí.
+
+00:43:10.070 --> 00:43:15.060
+BEN: Deneb dijo: Gran
+trabajo al mostrar la compatibilidad con el navegador.
+
+00:43:15.060 --> 00:43:18.340
+Tengo curiosidad por saber cuántas personas
+saben realmente cómo editar sus configuraciones
+
+00:43:19.650 --> 00:43:20.860
+para elegir esas aventuras.
+
+00:43:20.860 --> 00:43:21.520
+[Inaudible 00:43:20]
+
+00:43:21.520 --> 00:43:22.670
+es la frecuencia con la que se usan.
+
+00:43:22.670 --> 00:43:24.210
+Así que supongo que eso está
+relacionado con...
+
+00:43:24.210 --> 00:43:26.580
+CARIE: Simplemente 
+hagamos un emoji de encogimiento de hombros.
+
+00:43:26.580 --> 00:43:27.802
+[risas]
+
+00:43:27.802 --> 00:43:30.840
+No sé si esa es una opción
+aquí en el seminario web, pero sí.
+
+00:43:30.840 --> 00:43:33.710
+Algunos de estos, ya sabes,
+más de vanguardia...
+
+00:43:33.710 --> 00:43:36.040
+Y por vanguardia, quiero decir,
+han existido por un tiempo,
+
+00:43:36.040 --> 00:43:39.200
+pero los que están empezando
+a ser adaptados por los sistemas operativos
+
+00:43:39.200 --> 00:43:43.370
+o adoptados por los sistemas operativos y los
+navegadores, es un poco
+
+00:43:43.370 --> 00:43:46.090
+de un divertido Viejo Oeste, donde
+realmente no sabemos cómo va todo
+
+00:43:46.090 --> 00:43:46.770
+a resultar.
+
+00:43:46.770 --> 00:43:48.880
+Y este es el estado actual.
+
+00:43:48.880 --> 00:43:50.690
+Como dije, en la
+primavera,
+
+00:43:50.690 --> 00:43:52.710
+no había soporte para
+los colores-forzados.
+
+00:43:52.710 --> 00:43:56.560
+Y ahora hay como 80 y algo,
+ya sabes, la próxima vez que haga esta charla.
+
+00:43:56.560 --> 00:44:00.280
+Ya sabes, en un par de
+meses, ya sabes, sorpresa,
+
+00:44:00.280 --> 00:44:04.280
+tal vez sea 100%
+en algún lugar o cerca.
+
+00:44:04.280 --> 00:44:04.710
+[risas]
+
+00:44:04.710 --> 00:44:05.670
+BEN: Sí.
+
+00:44:05.670 --> 00:44:08.530
+En realidad, eso
+me recuerda una pregunta que tenía.
+
+00:44:08.530 --> 00:44:10.970
+Hablaste de cómo cada
+vez que das la charla,
+
+00:44:10.970 --> 00:44:12.160
+las funciones han cambiado.
+
+00:44:12.160 --> 00:44:12.540
+CARIE: Sí.
+
+00:44:12.540 --> 00:44:16.790
+BEN: ¿Cómo te mantienes al día con
+la evolución de esas funciones
+
+00:44:16.790 --> 00:44:17.890
+y nuevos lanzamientos?
+
+00:44:17.890 --> 00:44:23.600
+¿Y cómo incorporas eso a
+tu proceso para mantenerte al día
+
+00:44:23.600 --> 00:44:25.170
+en un proyecto más largo?
+
+00:44:25.170 --> 00:44:25.500
+CARIE: Sí.
+
+00:44:25.500 --> 00:44:28.710
+Y esta es sólo la tercera
+vez que doy esta charla.
+
+00:44:28.710 --> 00:44:31.280
+No repito muchas charlas.
+
+00:44:31.280 --> 00:44:32.270
+Este es probablemente el máximo.
+
+00:44:32.270 --> 00:44:34.990
+Quizás haga uno más,
+pero me encanta el concepto.
+
+00:44:34.990 --> 00:44:38.870
+Pero esta idea de puedo
+utilizar va a tener mucha
+
+00:44:38.870 --> 00:44:39.790
+información actualizada.
+
+00:44:39.790 --> 00:44:43.780
+Aunque, si eres un gran nerd
+y quieres estar al tanto de todo,
+
+00:44:43.780 --> 00:44:46.180
+hay todo tipo de comunidades
+a las que puedes unirte específicas
+
+00:44:46.180 --> 00:44:51.380
+para esos navegadores, o investigar sobre esos
+informes de errores, errores de accesibilidad.
+
+00:44:51.380 --> 00:44:54.690
+Obviamente, algunos de ellos en
+el ámbito de los navegadores tienen entre 10,
+
+00:44:54.690 --> 00:44:56.370
+y 14 años, ¿verdad?
+
+00:44:56.370 --> 00:45:00.240
+Así que no te sorprendas al
+ver algunos, ya sabe,
+
+00:45:00.240 --> 00:45:01.570
+resistir contra algunos de ellos.
+
+00:45:01.570 --> 00:45:03.410
+Pero es interesante verlo.
+
+00:45:03.410 --> 00:45:08.450
+Hay algunas personas que están empezando
+a hacerlo, al menos en el lado de Chrome
+
+00:45:08.450 --> 00:45:13.340
+y el lado de Mozilla y el
+lado de Safari, impulsan estas cosas.
+
+00:45:13.340 --> 00:45:15.940
+Y están empezando a ver
+el valor y cómo podría ser
+
+00:45:15.940 --> 00:45:18.300 
+especialmente
+para la accesibilidad digital.
+
+00:45:18.300 --> 00:45:23.260
+Es como darles un
+empujón más.
+
+00:45:23.260 --> 00:45:26.120
+para
+integrar estas cosas en el navegador
+
+00:45:26.120 --> 00:45:27.873
+y sistemas operativos ahora.
+
+00:45:27.873 --> 00:45:28.480
+BEN: Sí.
+
+00:45:30.200 --> 00:45:33.360
+En un momento, también mencionaste
+que algunos de ellos pueden estar en conflicto.
+
+00:45:33.360 --> 00:45:40.060
+Entonces, como desarrollador, ¿tienes que
+hacer algo en tu código
+
+00:45:40.060 --> 00:45:42.960
+para priorizar qué
+preferencias se respetan?
+
+00:45:44.900 --> 00:45:46.130
+¿Cuál es tu responsabilidad allí?
+
+00:45:47.153 --> 00:45:50.380
+CARIE: Quiero decir, realmente, tu
+responsabilidad es lo que quieras
+
+00:45:50.380 --> 00:45:53.200
+ser, porque como dije,
+no tienes ninguna obligación de hacer
+
+00:45:53.200 --> 00:45:54.060
+cualquiera de estas cosas.
+
+00:45:54.060 --> 00:45:57.090
+Entonces es esta idea,
+¿Qué quieres hacer?
+
+00:45:57.090 --> 00:46:00.030
+Y parte de eso es hablar con
+los usuarios y preguntarles,
+
+00:46:00.030 --> 00:46:02.430
+ya sabes, oye,
+¿qué es lo que prefieres?
+
+00:46:02.430 --> 00:46:03.550
+Y luego solucionar eso.
+
+00:46:03.550 --> 00:46:06.460
+Habrá algunos
+como el de prefiere-movimiento-reducido
+
+00:46:06.460 --> 00:46:09.100
+y el modo claro/oscuro
+que creo que son esenciales.
+
+00:46:09.100 --> 00:46:13.140
+Habrá otros como el
+de contraste, más contraste,
+
+00:46:13.140 --> 00:46:14.140
+al menos, ¿verdad?
+
+00:46:14.140 --> 00:46:17.990
+Entonces, esos son los tres que estaba
+pensando como el mínimo indispensable
+
+00:46:17.990 --> 00:46:20.430
+para brindarles a tus usuarios
+esas 16 opciones.
+
+00:46:20.430 --> 00:46:24.730
+No creo que haya ninguna
+obligación de nada.
+
+00:46:24.730 --> 00:46:27.540
+No quiero decir eso,
+pero piensa que es divertido, ¿no?
+
+00:46:27.540 --> 00:46:29.800
+Esta es una de esas áreas
+en las que creo que podemos jugar,
+
+00:46:29.800 --> 00:46:32.440
+especialmente cuando no existen
+reglas estrictas y rápidas.
+
+00:46:32.440 --> 00:46:36.460
+Así que, siempre y cuando te adhieras,
+nuevamente, a tus Criterios de Éxito WCAG,
+
+00:46:36.460 --> 00:46:41.210
+y tus niveles, y todas esas
+cosas buenas, este podría ser un lugar
+
+00:46:41.210 --> 00:46:43.870
+para explorar esas
+opciones y pensar en,
+
+00:46:43.870 --> 00:46:47.100
+¿Cómo podemos hacer que la
+experiencia del usuario sea aún mejor
+
+00:46:47.100 --> 00:46:53.410
+y más agradable y placentera? Como
+una verdadera aventura, no un trabajo pesado.
+
+00:46:53.410 --> 00:46:53.870
+[risas]
+
+00:46:53.870 --> 00:46:55.560
+¿No es ese el sueño?
+
+00:46:55.560 --> 00:47:00.160
+Vas a un sitio web o una aplicación digital
+y dices: Esto es genial.
+
+00:47:00.160 --> 00:47:00.800
+Esto es increíble.
+
+00:47:00.800 --> 00:47:04.490
+Quiero mostrárselo a todos mis amigos.
+BEN: Sí.
+
+00:47:04.490 --> 00:47:09.010
+Pero parece que no hay
+nada en el agente de usuario o
+
+00:47:09.010 --> 00:47:12.070
+en el navegador que necesariamente
+maneja la resolución de conflictos
+
+00:47:12.070 --> 00:47:12.550
+eso es...
+
+00:47:12.550 --> 00:47:14.460
+CARIE: Ah, sí.
+
+00:47:14.460 --> 00:47:18.820
+Hay algunos que he
+leído que pueden separar a otros,
+
+00:47:18.820 --> 00:47:21.370
+pero algunos de ellos
+también están en el nivel elemental.
+
+00:47:21.370 --> 00:47:25.250
+No recuerdo ahora mismo
+cuáles.
+
+00:47:25.250 --> 00:47:30.190
+Hay toda una matriz de, como, Este
+reemplaza a este. Pero como
+
+00:47:30.190 --> 00:47:32.030
+dije que también
+podrías encadenarlos,
+
+00:47:32.030 --> 00:47:35.335
+y podría tener múltiples
+funciones multimedia diferentes
+
+00:47:35.336 --> 00:47:36.620
+en un tema, ¿verdad?
+
+00:47:36.620 --> 00:47:39.860
+Entonces, en este escenario particular,
+estoy cumpliendo esto, ¿verdad?
+
+00:47:39.860 --> 00:47:41.200
+Y en este, estoy sirviendo esto.
+
+00:47:41.200 --> 00:47:43.650
+Como ese
+tipo de concepto exponencial,
+
+00:47:43.650 --> 00:47:46.720
+que ojalá no abrume
+a nadie; que entusiasme a la gente.
+
+00:47:46.720 --> 00:47:51.680
+Pero sí, hay algunos
+alrededor de los colores-forzados
+
+00:47:51.680 --> 00:47:53.090
+que recuerdo haber leído.
+
+00:47:53.090 --> 00:47:55.340
+Pero experimentar es lo que yo haría.
+
+00:47:57.060 --> 00:48:00.040
+BEN: Supongo que eso lleva
+a, ya sabes,
+
+00:48:00.040 --> 00:48:02.930
+Mi equipo de control de calidad se preguntaría:
+"Bien, ¿cómo abordamos la
+
+00:48:02.930 --> 00:48:06.190
+prueba de las combinaciones infinitas?
+Como,
+
+00:48:06.190 --> 00:48:09.780
+¿Dónde trazas el límite
+desde tu perspectiva?
+
+00:48:09.780 --> 00:48:12.750
+CARIE: Sí, quiero decir, siempre hay
+un límite que trazar, seguro.
+
+00:48:12.750 --> 00:48:15.640
+Y, ya sabes, esto es soñar
+un poco y hablar
+
+00:48:15.640 --> 00:48:19.490
+de ello como si fuera un mundo
+en el que elijo exactamente
+
+00:48:19.490 --> 00:48:22.810
+lo que quiero cada vez
+en cada producto digital.
+
+00:48:22.810 --> 00:48:24.860
+Como, vamos [Inaudible 00:48:24]
+
+00:48:24.860 --> 00:48:27.520
+sitios web, e incluso hice un móvil...
+Como todo.
+
+00:48:27.520 --> 00:48:30.500
+Quiero que se vea exactamente
+como yo quería que se viera.
+
+00:48:30.500 --> 00:48:32.520
+Y tal vez lleguemos
+a ese punto algún día.
+
+00:48:32.520 --> 00:48:36.070
+Pero hasta entonces, habrá
+algunas variaciones.
+
+00:48:36.070 --> 00:48:39.230
+Algunas personas probablemente irán
+un poco más allá.
+
+00:48:39.230 --> 00:48:43.360
+Otros se arrastrarán
+a regañadientes detrás de nosotros.
+
+00:48:43.360 --> 00:48:47.980
+y dirán, "Hola, chicos,
+vamos a empezar con esto". Entonces, en algún momento
+
+00:48:47.980 --> 00:48:53.600
+en medio de esos dos escenarios
+es probablemente donde quieres estar.
+
+00:48:53.600 --> 00:48:55.330
+Y ese punto óptimo
+seguirá cambiando
+
+00:48:55.330 --> 00:48:59.580
+a medida que más navegadores soportan esto
+y más usuarios lo solicitan.
+
+00:48:59.580 --> 00:49:01.560
+Porque creo que esa es
+otra parte.
+
+00:49:01.560 --> 00:49:02.609
+Y porque, de nuevo,
+
+00:49:02.610 --> 00:49:05.700
+no queremos que usen
+esas superposiciones de accesibilidad.
+
+00:49:05.700 --> 00:49:08.320
+Queremos que tomen
+sus propias decisiones,
+
+00:49:08.320 --> 00:49:12.350
+y tengan el sistema que desean
+y la interacción visual
+
+00:49:12.350 --> 00:49:16.890
+que ellos quieren, pero que no tengan que
+depender de que usted decida,
+
+00:49:16.890 --> 00:49:19.990
+como si vas a proporcionar
+esto a través de este programa.
+
+00:49:19.990 --> 00:49:23.640
+Y solo tú lo proporcionas,
+así que cuando voy a mi otro sitio,
+
+00:49:23.640 --> 00:49:26.570
+ahora estoy hecho un lío
+y todas mis configuraciones están mal.
+
+00:49:26.570 --> 00:49:29.240
+Nuevamente, esto también es parte de eso.
+
+00:49:30.430 --> 00:49:33.470
+Está evitando algunos de esos
+problemas que surgen con ese tipo
+
+00:49:33.470 --> 00:49:34.210
+de producto también.
+
+00:49:35.279 --> 00:49:36.679
+BEN: Sí.
+
+00:49:36.680 --> 00:49:37.630
+CARIE: Tengo pensamientos.
+
+00:49:37.630 --> 00:49:38.590
+[risas]
+
+00:49:38.590 --> 00:49:39.210
+Lo siento.
+
+00:49:39.210 --> 00:49:41.320
+Tengo muchas ideas sobre eso.
+
+00:49:41.320 --> 00:49:41.600
+[en broma]
+
+00:49:41.600 --> 00:49:44.600
+No quiero que me demanden,
+así que me detendré aquí.
+
+00:49:44.600 --> 00:49:45.600
+BEN: Sí.
+
+00:49:45.600 --> 00:49:50.660
+En ese sentido, eso en realidad
+nos lleva al final de nuestro tiempo.
+
+00:49:51.830 --> 00:49:54.190
+Carie, muchas gracias.
+
+00:49:54.190 --> 00:49:55.240
+Una charla increíble.
+
+00:49:55.240 --> 00:49:58.453
+Y gracias a todos
+por asistir a esta charla.
+
+00:49:58.454 --> 00:49:59.650
+con Carie Fisher.
+
+00:49:59.650 --> 00:50:01.880
+Puedes continuar la
+conversación en el chat
+
+00:50:01.880 --> 00:50:09.560
+o en las redes sociales usando el hashtag
+WPA11Yday y el hashtag WPAD 2023.
+
+00:50:09.560 --> 00:50:15.900
+También agradeceríamos
+2023.wpaccessibility.dayfeedback
+
+00:50:15.900 --> 00:50:20.130
+para brindar comentarios anónimos a
+nuestros oradores sobre sus presentaciones,
+
+00:50:20.130 --> 00:50:23.610
+y también puedes participar para ganar
+una camiseta mientras estás allí.
+
+00:50:23.610 --> 00:50:27.020
+Estén atentos a Vamos a crear una
+página y publicación accesibles en WordPress,
+
+00:50:27.020 --> 00:50:30.800
+a continuación, con Peter
+Ingersoll a las 9:00 p. m. UTC.
+
+00:50:30.800 --> 00:50:33.440
+Mientras esperas, no olvides
+visitar las páginas de nuestros patrocinadores
+
+00:50:33.440 --> 00:50:37.620
+y obtener artículos virtuales y participa
+para tener la oportunidad de ganar grandes premios.
+
+00:50:37.620 --> 00:50:39.380
+Nos vemos aquí de
+nuevo después del descanso.
+
+00:50:40.460 --> 00:50:45.190
+ÁMBAR: Gracias a
+los patrocinadores del Día de la Accesibilidad de WordPress 2023.
+
+00:50:45.190 --> 00:50:48.070
+Patrocinador Platino: Equalize Digital.
+
+00:50:48.070 --> 00:50:50.790 
+El complemento de verificación de accesibilidad
+de Equalize Digital
+
+00:50:50.790 --> 00:50:53.540
+es una
+herramienta de escaneo de accesibilidad automatizada
+
+00:50:53.540 --> 00:50:56.750
+que ayuda a que los sitios web de WordPress
+sean y permanezcan accesibles.
+
+00:50:57.990 --> 00:51:00.850
+Patrocinador Platino: Gravity Forms.
+
+00:51:00.850 --> 00:51:04.470
+Gravity Forms es el
+generador de formularios profesional que necesitas
+
+00:51:04.470 --> 00:51:09.190
+para crear
+formas hermosas, poderosas y accesibles.
+
+00:51:09.190 --> 00:51:16.200
+Patrocinadores de oro: 20i., Deque,
+Empire Caption Solutions, Pressable,
+
+00:51:16.200 --> 00:51:17.280
+y WP Engine.
+
+00:51:18.840 --> 00:51:25.710
+Patrocinadores Plata: Code Geek, Drake
+Cooper, GoDaddy, Lone Rock Point,
+
+00:51:25.710 --> 00:51:26.990
+NerdPress,
+
+00:51:26.990 --> 00:51:34.440
+Overnight Website de Kinetic Iris,
+Raiola Networks, A11y Collective,
+
+00:51:34.440 --> 00:51:35.440
+y The Blogsmith.
+
+00:51:37.090 --> 00:51:42.490
+Patrocinadores de bronce: AccessiCart,
+GreenGeeks Web Hosting,
+
+00:51:42.490 --> 00:51:53.740
+Consultoría SEO de Hall Analysis,
+HDC, ITX, IvyCat, Metabox,
+
+00:51:54.230 --> 00:51:58.640
+PixelChefs, Simply Schedule Appointments, SiteGround,
+
+00:51:59.159 --> 00:52:04.380
+Termageddon, Underrepresented In Tech, Weglot y Yoast.

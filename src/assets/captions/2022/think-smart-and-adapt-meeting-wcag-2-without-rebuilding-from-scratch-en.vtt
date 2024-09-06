@@ -1,0 +1,2866 @@
+﻿WEBVTT
+
+00:00:00.038 --> 00:00:30.864
+[silence]
+
+00:00:30.865 --> 00:00:33.970
+>> JAY MCKAY: Welcome to
+WordPress Accessibility Day.
+
+00:00:33.970 --> 00:00:37.240
+My name is Jay McKay and I'm the
+director of Community Programs
+
+00:00:37.240 --> 00:00:38.770
+at Knowbility.
+
+00:00:38.770 --> 00:00:45.310
+Thank you for joining us for our
+next session, Think smart and adapt:
+
+00:00:45.310 --> 00:00:49.760
+meeting WCAG 2 without rebuilding
+from scratch with Mike Ziemak
+
+00:00:49.760 --> 00:00:51.790
+from Cut2Code.
+
+00:00:51.790 --> 00:00:53.670
+Mike has been on quite a journey.
+
+00:00:53.670 --> 00:00:57.900
+He's fond of new technologies,
+computer games, and good music
+
+00:00:57.900 --> 00:01:01.340
+after graduating from Conservatory,
+he was working as a singer
+
+00:01:01.340 --> 00:01:02.820
+and a music teacher.
+
+00:01:02.820 --> 00:01:05.730
+Then spent a year working
+as a creative director
+
+00:01:05.730 --> 00:01:09.540
+for a boutique e-commerce photo
+studio before falling in love
+
+00:01:09.540 --> 00:01:10.760
+with WordPress.
+
+00:01:10.760 --> 00:01:13.530
+I'm really excited
+for today's session.
+
+00:01:13.530 --> 00:01:18.170
+Please feel free to add your
+questions in the Q&A tab in Slido.
+
+00:01:18.170 --> 00:01:23.390
+We will answer them at the end and
+then use, use the Ideas section
+
+00:01:23.390 --> 00:01:25.160
+to chat with other attendees.
+
+00:01:32.256 --> 00:01:32.880
+>> MIKE ZIEMAK: Hello everyone.
+
+00:01:32.880 --> 00:01:34.480
+It's so great to have you.
+
+00:01:34.480 --> 00:01:37.600
+My name is Mike and I'm a
+project manager at Cut2Code.
+
+00:01:38.650 --> 00:01:40.550
+Just let me quickly
+introduce our company.
+
+00:01:40.550 --> 00:01:44.190
+We are a web development agency
+and we create WebPress sites
+
+00:01:44.190 --> 00:01:45.520
+and Shopify stores.
+
+00:01:45.520 --> 00:01:49.180
+We work with a broad range of
+clients, starting from universities
+
+00:01:49.180 --> 00:01:53.120
+and research companies from the US
+chemistry noble prize laureates,
+
+00:01:53.120 --> 00:01:57.330
+local communities, upcycling
+brands, and NGOs fighting AIDS
+
+00:01:57.330 --> 00:01:59.370
+and the world hunger.
+
+00:01:59.370 --> 00:02:02.970
+The main aim of
+this presentation is
+
+00:02:02.970 --> 00:02:06.640
+to address some of the common
+web accessibility issues
+
+00:02:06.640 --> 00:02:10.070
+and to demonstrate the most
+time and cost-efficient methods
+
+00:02:10.070 --> 00:02:12.820
+of resolving them.
+
+00:02:12.820 --> 00:02:14.940
+At some point of this
+presentation, I would also like
+
+00:02:14.940 --> 00:02:17.180
+to show you the difference
+between the approach
+
+00:02:17.180 --> 00:02:18.550
+we had even two years ago
+
+00:02:18.551 --> 00:02:21.290
+and our current website
+accessibility practices.
+
+00:02:21.290 --> 00:02:24.200
+I will also demonstrate some
+solutions that have been a point
+
+00:02:24.200 --> 00:02:28.150
+of reference and a source
+of inspiration for our work.
+
+00:02:28.150 --> 00:02:31.830
+We'll also go through a couple of
+the most popular WebPress sites
+
+00:02:31.830 --> 00:02:34.660
+to pinpoint good
+and a bad practices.
+
+00:02:34.660 --> 00:02:37.840
+It is understandable that
+people may not want to go
+
+00:02:37.840 --> 00:02:43.450
+through various documentations, which
+they provide an invaluable source
+
+00:02:43.450 --> 00:02:47.480
+of knowledge, might seem daunting
+for an average website owner.
+
+00:02:47.480 --> 00:02:50.140
+This is why rather than
+focusing on theory,
+
+00:02:50.140 --> 00:02:53.320
+my goal was to present the
+content in a practical way,
+
+00:02:53.320 --> 00:02:56.220
+focusing on real-life examples
+and explaining the reasons
+
+00:02:56.220 --> 00:02:58.760
+behind using certain solutions.
+
+00:02:58.760 --> 00:03:01.980
+In the course of this presentation,
+I will be emphasizing the fact
+
+00:03:01.980 --> 00:03:05.540
+that web accessibility is not
+a one-time action or something
+
+00:03:05.540 --> 00:03:09.440
+that you can simply check or
+tick with a particular solution
+
+00:03:09.440 --> 00:03:13.070
+like a plugin, but rather a
+mindset, a one that needs
+
+00:03:13.070 --> 00:03:17.010
+to be adopted and constantly
+taken into consideration.
+
+00:03:17.010 --> 00:03:20.570
+It's an investment, though,
+not necessarily a financial one
+
+00:03:20.570 --> 00:03:23.970
+that basic dividends and equal
+opportunities for a larger group
+
+00:03:23.970 --> 00:03:24.990
+of people.
+
+00:03:24.990 --> 00:03:27.700
+As a result, this will
+translate into increased traffic
+
+00:03:27.700 --> 00:03:32.890
+and these people may have a
+chance to become your clients
+
+00:03:32.890 --> 00:03:34.240
+or customers.
+
+00:03:34.240 --> 00:03:36.540
+Not to mention the fact
+that we can avoid lawsuits,
+
+00:03:36.540 --> 00:03:38.850
+which used to be individual
+cases in the past,
+
+00:03:38.850 --> 00:03:41.660
+but are now becoming more and more
+popular, especially in the US.
+
+00:03:42.870 --> 00:03:46.160
+Another benefit of adopting
+accessibility standards
+
+00:03:46.160 --> 00:03:49.300
+on your website is that it
+simplifies the user experience
+
+00:03:49.300 --> 00:03:52.380
+and makes it easier and more
+pleasant to navigate this site.
+
+00:03:52.380 --> 00:03:55.810
+As an old-school keyboard person
+myself, I'm particularly inclined
+
+00:03:55.810 --> 00:03:58.010
+to websites and web
+apps that allow me
+
+00:03:58.010 --> 00:04:00.680
+to navigate entirely
+using the keyboard.
+
+00:04:00.680 --> 00:04:04.420
+There are other benefits of
+following accessibility standards
+
+00:04:04.420 --> 00:04:06.844
+such as higher ranking
+in search engines,
+
+00:04:06.845 --> 00:04:09.930
+but I will not be covering this
+in this presentation.
+
+00:04:11.830 --> 00:04:13.920
+Okay,
+so let me go to the takeaways.
+
+00:04:15.350 --> 00:04:18.440
+What to know before choosing
+an accessibility plugin?
+
+00:04:20.330 --> 00:04:24.280
+Plugins, since most features
+a WordPress site can offer are
+
+00:04:24.280 --> 00:04:27.010
+usually achieved by the
+use of certain commercial
+
+00:04:27.010 --> 00:04:28.370
+or non-commercial plugins.
+
+00:04:28.370 --> 00:04:31.230
+It's the very first thing that
+comes into mind of a site owner
+
+00:04:31.230 --> 00:04:34.660
+when thinking about implementing
+accessibility solutions.
+
+00:04:34.660 --> 00:04:37.690
+We'll feature some of the most
+popular accessibility plugins
+
+00:04:37.690 --> 00:04:41.460
+and discuss the core acceptance
+criteria that they should meet.
+
+00:04:41.460 --> 00:04:44.610
+You will learn what to pay attention
+to in your choice of plugins
+
+00:04:44.610 --> 00:04:47.460
+and how to differentiate
+between good and bad ones.
+
+00:04:49.330 --> 00:04:51.710
+What are differences
+between bad practices
+
+00:04:51.710 --> 00:04:54.720
+and accessibility-oriented
+solutions?
+
+00:04:54.720 --> 00:04:56.568
+Well, to give you a
+hands-on experience,
+
+00:04:56.569 --> 00:04:57.830
+we'll go through an example
+
+00:04:57.830 --> 00:05:00.680
+of a badly optimized page
+and see what we can do
+
+00:05:00.680 --> 00:05:02.770
+to fix the accessibility
+issues there.
+
+00:05:02.770 --> 00:05:04.840
+This is also the section
+where I'm going to show you
+
+00:05:04.840 --> 00:05:08.690
+a couple of good examples on some
+of the most popular WebPress sites.
+
+00:05:08.690 --> 00:05:10.570
+For legal reasons,
+for obvious reasons,
+
+00:05:10.570 --> 00:05:13.400
+I would be showing you the
+bad examples on live sites,
+
+00:05:13.400 --> 00:05:15.980
+but unfortunately, it doesn't
+really take much to find them
+
+00:05:15.980 --> 00:05:16.980
+on the internet.
+
+00:05:17.750 --> 00:05:19.880
+Now, as to the tips and
+tricks on how to check
+
+00:05:19.880 --> 00:05:23.070
+your current website
+compliance with WCAG 2,
+
+00:05:24.750 --> 00:05:27.080
+a thing on general
+accessibility checkers.
+
+00:05:27.080 --> 00:05:30.430
+There are various tools, both
+commercial and non-commercial ones
+
+00:05:30.430 --> 00:05:33.290
+that allow us to check our
+score and assess the scale
+
+00:05:33.290 --> 00:05:35.920
+of accessibility issues
+and thus can help us plan
+
+00:05:35.920 --> 00:05:37.940
+and prioritize specific actions.
+
+00:05:37.940 --> 00:05:40.610
+Virtually,
+all of these checkers will indicate
+
+00:05:40.610 --> 00:05:44.590
+which issues should be prioritized
+as not all of the issues are
+
+00:05:44.590 --> 00:05:46.160
+of equal severity.
+
+00:05:46.160 --> 00:05:51.010
+I'm sure that you're familiar
+with the three compliance levels.
+
+00:05:51.010 --> 00:05:55.550
+We distinguish three compliance
+levels within the WCAG 2.
+
+00:05:55.550 --> 00:06:00.830
+This is the A, AAA, and AAA,
+and they are minimal, acceptable,
+
+00:06:00.830 --> 00:06:04.300
+and optimal accessibility
+thresholds respectively.
+
+00:06:04.300 --> 00:06:08.250
+Unsurprisingly, you should act on
+the most critical level A issues
+
+00:06:08.250 --> 00:06:10.760
+before addressing AA or AAAA.
+
+00:06:10.760 --> 00:06:11.780
+There's a caveat though.
+
+00:06:11.780 --> 00:06:15.850
+One needs to acknowledge that
+depending on the website content
+
+00:06:15.850 --> 00:06:19.920
+or the layout of the design,
+it may not always be possible
+
+00:06:19.920 --> 00:06:23.410
+to achieve 90% and above score
+in the highest AAA level.
+
+00:06:25.680 --> 00:06:29.630
+Ways to improve accessibility
+on the website or by yourself.
+
+00:06:29.630 --> 00:06:33.030
+When adopting accessibility
+best practices,
+
+00:06:33.030 --> 00:06:35.909
+one needs to remember that
+in installing a plugin
+
+00:06:35.909 --> 00:06:38.665
+or hiring an agency to
+code some functionalities
+
+00:06:38.665 --> 00:06:41.130
+is not the ultimate solution.
+
+00:06:41.130 --> 00:06:43.820
+There are some issues that
+obviously cannot be resolved
+
+00:06:43.820 --> 00:06:45.450
+without web development expertise
+
+00:06:45.450 --> 00:06:47.910
+and it could even potentially
+be dangerous if amended
+
+00:06:47.910 --> 00:06:49.610
+by the site owners themselves.
+
+00:06:49.610 --> 00:06:53.480
+There are certain steps that you
+can and should take by yourself
+
+00:06:53.480 --> 00:06:56.140
+to increase the
+accessibility for all users.
+
+00:06:56.140 --> 00:06:59.510
+While you may not be able to globally
+change font sizes from pixels
+
+00:06:59.510 --> 00:07:04.210
+to REM values or to properly
+structure the HTML scaffolding,
+
+00:07:04.210 --> 00:07:07.090
+you probably know the
+content and the context
+
+00:07:07.090 --> 00:07:09.990
+of your website more
+than any developer.
+
+00:07:09.990 --> 00:07:12.650
+Your contribution should
+not be underestimated.
+
+00:07:12.650 --> 00:07:14.350
+At the latest stage
+of this presentation,
+
+00:07:14.350 --> 00:07:17.150
+you will see that web
+agency can actually give you
+
+00:07:17.150 --> 00:07:20.760
+accessibility-optimized website
+foundations, but the rest is
+
+00:07:20.760 --> 00:07:21.780
+in your hands.
+
+00:07:21.780 --> 00:07:24.540
+That's why it's so crucial
+to remain ever-informed
+
+00:07:24.540 --> 00:07:26.720
+about the best
+practices and understand
+
+00:07:26.720 --> 00:07:32.560
+what this accessibility
+is all about.
+
+00:07:32.560 --> 00:07:36.150
+Now, accessibility in real life,
+we'll go through a case study.
+
+00:07:36.150 --> 00:07:38.940
+In this part of the presentation,
+we're going to showcase
+
+00:07:38.940 --> 00:07:41.950
+a real-life example of a website
+which has been transformed
+
+00:07:41.950 --> 00:07:44.020
+with accessibility in mind.
+
+00:07:44.020 --> 00:07:47.620
+Another digital agency, our
+business partner reached out to us
+
+00:07:47.620 --> 00:07:49.936
+as they needed to improve the
+accessibility score measured
+
+00:07:49.936 --> 00:07:52.600
+by site improve
+on the client's website.
+
+00:07:52.600 --> 00:07:56.780
+The acceptable threshold was 85,
+as that is the industry standard
+
+00:07:56.780 --> 00:07:57.910
+for education.
+
+00:07:57.910 --> 00:08:01.010
+At the time,
+the score was around 60, so well,
+
+00:08:01.010 --> 00:08:03.890
+we roll out the sleeves,
+did some research, and helped them
+
+00:08:03.890 --> 00:08:07.080
+with achieving a more
+than satisfactory score.
+
+00:08:07.080 --> 00:08:09.380
+Actually, the screenshots I
+will be showing are showing
+
+00:08:09.380 --> 00:08:12.030
+a slightly lower score
+than the current one
+
+00:08:12.030 --> 00:08:14.730
+as I was preparing the
+presentation at four.
+
+00:08:14.730 --> 00:08:16.880
+I will run a check on
+this site in real-time
+
+00:08:16.880 --> 00:08:18.660
+to show you how much
+it has improved.
+
+00:08:18.660 --> 00:08:21.690
+Just within a couple of days,
+you'll see that it's possible
+
+00:08:21.690 --> 00:08:23.937
+to significantly improve
+accessibility score
+
+00:08:23.937 --> 00:08:27.580
+and avoid lawsuits without resulting
+to rebuilding website entirely.
+
+00:08:32.120 --> 00:08:35.980
+The pros and cons of accessibility
+plugins, what the check before,
+
+00:08:35.980 --> 00:08:36.980
+choosing one.
+
+00:08:38.500 --> 00:08:42.000
+As to the pros and cons
+of plugins in general,
+
+00:08:42.000 --> 00:08:45.160
+these are usually the same
+regardless of the plugins purpose.
+
+00:08:45.160 --> 00:08:49.060
+The good thing about them
+is that they provide a quick
+
+00:08:49.060 --> 00:08:52.560
+and easy solution to one's
+problems, but unfortunately,
+
+00:08:52.560 --> 00:08:56.210
+they also come with the downsides,
+like the reduced site performance
+
+00:08:56.210 --> 00:08:57.990
+and lack of flexibility.
+
+00:09:02.370 --> 00:09:05.520
+This is the list of plugins,
+a couple of plugins that you can see
+
+00:09:05.520 --> 00:09:07.140
+in the WordPress repository.
+
+00:09:07.140 --> 00:09:09.970
+The first thought that arises when
+we want to improve accessibility
+
+00:09:09.970 --> 00:09:12.580
+without a lot of
+expense are plugins,
+
+00:09:12.580 --> 00:09:17.820
+and there are quite a few of them.
+
+00:09:17.820 --> 00:09:20.980
+First of all, these are the
+questions that we need to ask
+
+00:09:20.980 --> 00:09:23.750
+before you want to utilize a plugin
+
+00:09:23.750 --> 00:09:26.450
+to implement some
+accessibility features.
+
+00:09:26.450 --> 00:09:31.460
+The toolbar, how does it look,
+and is it a keyboard navigable?
+
+00:09:32.550 --> 00:09:35.490
+Let me draw your attention to the
+toolbar as most of the plugins come
+
+00:09:35.490 --> 00:09:36.390
+with one.
+
+00:09:36.390 --> 00:09:39.200
+How does it look and is
+it actually accessible?
+
+00:09:39.200 --> 00:09:41.760
+What needs to test this
+aspect of a plugin?
+
+00:09:41.760 --> 00:09:45.790
+We need to make sure that the plugin
+toolbars are properly visible,
+
+00:09:45.790 --> 00:09:49.300
+they have correct color contrast,
+and that they can be easily navigable
+
+00:09:49.300 --> 00:09:50.600
+using the keyboard.
+
+00:09:50.600 --> 00:09:54.130
+If your plugin doesn't meet
+all of these requirements,
+
+00:09:54.130 --> 00:09:59.050
+it's better to find another one,
+and there's just plenty of them.
+
+00:09:59.050 --> 00:10:02.410
+Another thing, what are its functions
+when we are testing a plugin.
+
+00:10:02.410 --> 00:10:05.570
+Another question is,
+what are the toolbar's functions,
+
+00:10:05.570 --> 00:10:08.740
+and are these features
+working correctly?
+
+00:10:08.740 --> 00:10:13.600
+Believe me or not, I tested various
+plugins prior to this presentation,
+
+00:10:13.600 --> 00:10:19.730
+and I must say that using some
+of them was a complete nightmare.
+
+00:10:19.730 --> 00:10:22.370
+Now think about customization.
+
+00:10:22.370 --> 00:10:25.170
+Is it possible to customize
+the plugin features
+
+00:10:25.170 --> 00:10:27.850
+and can I extend its functionality?
+
+00:10:29.110 --> 00:10:31.500
+Regarding the customization,
+some of the plugins come
+
+00:10:31.500 --> 00:10:35.670
+with extra options that you can
+enable from the admin panel level.
+
+00:10:35.670 --> 00:10:38.640
+The plugin settings
+might give you an ability
+
+00:10:38.640 --> 00:10:42.130
+to increase the phone size
+globally or change the styling
+
+00:10:42.130 --> 00:10:45.010
+of the toolbar itself,
+which is particularly useful,
+
+00:10:45.010 --> 00:10:47.920
+if let's say the
+plugin toolbar is dark
+
+00:10:47.920 --> 00:10:54.400
+and your website theme is using
+dark colors as well or vice versa.
+
+00:10:54.400 --> 00:10:58.400
+Another thing that you can do
+with customizable plugins is,
+
+00:10:58.400 --> 00:11:01.160
+for instance, you can adjust
+the skip to content button.
+
+00:11:02.560 --> 00:11:06.630
+Sometimes we have a situation
+where the ID of the main section
+
+00:11:06.630 --> 00:11:10.000
+on a page might be slightly
+different than usual.
+
+00:11:10.000 --> 00:11:15.630
+It's nice to have an option to
+insert custom IDs so that the skip
+
+00:11:15.630 --> 00:11:17.520
+to content button can
+link to it correctly.
+
+00:11:19.540 --> 00:11:26.640
+Okay, now we're going to-- How
+we going to change the screen?
+
+00:11:26.640 --> 00:11:27.640
+Thank you.
+
+00:11:29.400 --> 00:11:31.620
+I'm using the sandbox
+environment here.
+
+00:11:31.620 --> 00:11:38.280
+Let's go to the admin
+panel and plugins.
+
+00:11:38.280 --> 00:11:41.970
+I'm going to show you just two
+of these plugins, AccessibleWP -
+
+00:11:41.970 --> 00:11:43.340
+Accessibility Toolbar.
+
+00:11:43.340 --> 00:11:45.570
+This one, it's quite common.
+
+00:11:45.570 --> 00:11:46.590
+It's quite popular.
+
+00:11:48.200 --> 00:11:49.210
+Let's activate this plugin.
+
+00:11:52.510 --> 00:11:56.450
+As you can see, there is this sky,
+AccessibleWP disappeared here.
+
+00:11:56.450 --> 00:12:05.080
+Let's go back to the homepage and
+we can notice that there's a toolbar
+
+00:12:05.080 --> 00:12:06.810
+here in the upper left corner.
+
+00:12:09.580 --> 00:12:13.710
+I'm only using the keyboard
+to navigate the site.
+
+00:12:13.710 --> 00:12:15.660
+Let me refresh.
+
+00:12:15.660 --> 00:12:19.510
+I'm only using the keyboard,
+and actually, I'm clicking
+
+00:12:19.510 --> 00:12:26.500
+through the entire admin bar,
+so I can log out, I can skip
+
+00:12:26.500 --> 00:12:27.090
+to content.
+
+00:12:27.090 --> 00:12:30.620
+This skip to content button is
+actually a native functionality
+
+00:12:30.620 --> 00:12:33.050
+of this environment,
+so it's not part of the plugin.
+
+00:12:35.660 --> 00:12:40.110
+Logo homepage, bad example, empty
+item, I'm scrolling through the menu.
+
+00:12:40.110 --> 00:12:44.140
+I'm scrolling through the
+links, some of the items.
+
+00:12:49.970 --> 00:12:52.410
+Basically, I have to scroll
+through the entire site.
+
+00:12:52.410 --> 00:12:54.841
+I have to click through
+the entire site to get
+
+00:12:54.841 --> 00:12:56.890
+to this plugin navigation.
+
+00:12:58.470 --> 00:13:01.500
+That's a huge or rather huge
+disadvantage of this plugin
+
+00:13:02.720 --> 00:13:08.950
+but it has some nice features
+like keyboard navigation.
+
+00:13:08.950 --> 00:13:12.380
+I'm not entirely sure
+how effective it is.
+
+00:13:12.380 --> 00:13:17.100
+I'm not really confident
+that it's very useful
+
+00:13:18.120 --> 00:13:21.550
+as sometimes implementing
+keyboard navigation
+
+00:13:21.551 --> 00:13:22.890
+is not that straightforward.
+
+00:13:24.450 --> 00:13:26.230
+You can also disable animations.
+
+00:13:27.310 --> 00:13:29.070
+You can increase contrast.
+
+00:13:29.070 --> 00:13:34.420
+Actually, as you can see,
+the navigation here is confusing
+
+00:13:34.420 --> 00:13:37.620
+because this should be
+on and actually it's off.
+
+00:13:38.770 --> 00:13:43.120
+The visual indicator shows
+that we are using a function
+
+00:13:43.120 --> 00:13:44.570
+and actually we are not using it.
+
+00:13:44.570 --> 00:13:47.330
+This is confusing.
+
+00:13:47.330 --> 00:13:48.400
+Decrease text.
+
+00:13:48.400 --> 00:13:52.830
+Readable font, I think doesn't
+have any effect on the site.
+
+00:13:55.010 --> 00:13:59.980
+Mark titles, highlight
+things, and buttons.
+
+00:13:59.980 --> 00:14:01.470
+This is cool.
+
+00:14:01.470 --> 00:14:09.450
+In general, I would say that it's not
+the best plugin that I've ever had
+
+00:14:09.450 --> 00:14:13.150
+and it's definitely not
+something that I would recommend
+
+00:14:13.150 --> 00:14:16.020
+because of the fact that
+it's not easily accessible.
+
+00:14:18.340 --> 00:14:19.780
+That's deactivate the plugin.
+
+00:14:22.320 --> 00:14:26.480
+Pages, plugins, deactivate,
+and let's try another one.
+
+00:14:28.430 --> 00:14:30.390
+Another plugin is One
+Click Accessibility.
+
+00:14:33.520 --> 00:14:35.030
+Let's go to the homepage.
+
+00:14:36.710 --> 00:14:40.970
+There was a very subtle rectangle
+here in the upper left corner.
+
+00:14:44.370 --> 00:14:47.050
+Let me just refresh the site.
+
+00:14:47.050 --> 00:14:50.700
+I press tab once and I have
+the skip to content button,
+
+00:14:50.700 --> 00:14:54.170
+which is an actual
+functionality of this plugin.
+
+00:14:54.170 --> 00:14:57.760
+It's not the original skip to
+content button and the other tab.
+
+00:14:59.260 --> 00:15:01.970
+One more tab further,
+I'm in accessibility tool
+
+00:15:01.970 --> 00:15:04.860
+so I can reach the
+toolbar quite easily.
+
+00:15:04.860 --> 00:15:06.540
+It's very useful.
+
+00:15:06.540 --> 00:15:09.300
+I can click through
+or scroll through,
+
+00:15:09.300 --> 00:15:13.930
+click through these
+functionalities, increase text.
+
+00:15:16.290 --> 00:15:18.350
+I can do it repeatedly.
+
+00:15:19.370 --> 00:15:25.290
+I can decrease text,
+get back to the original one.
+
+00:15:25.290 --> 00:15:29.420
+Grayscale,
+high contrast comes in handy.
+
+00:15:29.420 --> 00:15:31.780
+Negative contrast comes in handy.
+
+00:15:31.780 --> 00:15:36.140
+Light background, links on the
+line, it's very important.
+
+00:15:36.140 --> 00:15:38.120
+As you can see,
+it makes a huge difference.
+
+00:15:38.120 --> 00:15:43.860
+It's a very important aspect
+of implementing accessibility
+
+00:15:43.860 --> 00:15:44.900
+on your website.
+
+00:15:44.900 --> 00:15:49.340
+Links, you should never rely
+on the color differences
+
+00:15:49.340 --> 00:15:52.280
+between plain text and the links.
+
+00:15:52.280 --> 00:15:54.810
+They should always have
+some additional indication
+
+00:15:54.810 --> 00:15:57.580
+that they are actually
+links and not just text.
+
+00:15:58.800 --> 00:16:04.140
+Readable font, either full and
+reset to reset all the features.
+
+00:16:06.090 --> 00:16:08.170
+I would say that it's
+a really good plugin.
+
+00:16:08.170 --> 00:16:10.450
+It's a really nice solution.
+
+00:16:10.450 --> 00:16:12.880
+It's quite lightweight, very lean.
+
+00:16:14.180 --> 00:16:18.980
+Maybe if I were really,
+really want to exigent,
+
+00:16:18.980 --> 00:16:28.950
+I would say that the toolbar
+Icon is too subtle for my taste,
+
+00:16:28.950 --> 00:16:34.550
+but still, within the reach
+of two clicks, you can get
+
+00:16:34.550 --> 00:16:37.140
+into the accessibility tools.
+
+00:16:37.140 --> 00:16:37.810
+That's really cool.
+
+00:16:37.810 --> 00:16:39.930
+That's a very useful plugin.
+
+00:16:39.930 --> 00:16:43.930
+If you're looking for an easy
+way, a quick, and free way
+
+00:16:43.930 --> 00:16:46.136
+to improve your
+website accessibility,
+
+00:16:46.137 --> 00:16:48.108
+you should definitely go
+for this one.
+
+00:16:51.480 --> 00:16:51.890
+Okay.
+
+00:16:51.890 --> 00:16:53.120
+let me deactivate the plugin.
+
+00:17:01.410 --> 00:17:02.410
+Deactivate.
+
+00:17:08.460 --> 00:17:09.270
+All right.
+
+00:17:09.270 --> 00:17:12.530
+Let's get back to the slideshow.
+
+00:17:17.418 --> 00:17:17.890
+Thank you.
+
+00:17:21.460 --> 00:17:25.250
+A thing about good and bad
+practices, dos and don'ts
+
+00:17:25.250 --> 00:17:26.710
+of accessibility development.
+
+00:17:28.300 --> 00:17:31.060
+In this section,
+I'm going to show you a couple
+
+00:17:31.060 --> 00:17:34.070
+of truly evident
+accessibility errors.
+
+00:17:34.070 --> 00:17:38.000
+I've created a sandbox site where
+I will demonstrate bad practices
+
+00:17:38.000 --> 00:17:41.680
+and show some tips and tricks on
+how to fix them efficiently using
+
+00:17:41.680 --> 00:17:43.540
+just the Gutenberg editor.
+
+00:17:43.540 --> 00:17:48.480
+I can't say that I've had a vast
+experience with heavyweight builders
+
+00:17:48.480 --> 00:17:53.260
+like Elementor and the
+like, but I'm pretty sure
+
+00:17:53.260 --> 00:17:56.140
+that they should
+provide similar options.
+
+00:17:56.140 --> 00:17:59.040
+I'm quite confident that
+you'll have basic functions
+
+00:17:59.040 --> 00:18:04.110
+like alternative text
+for images and so on.
+
+00:18:07.530 --> 00:18:09.890
+We need to go back to the site.
+
+00:18:09.890 --> 00:18:15.790
+Thank you.
+
+00:18:19.050 --> 00:18:21.140
+Let me open the bad example here.
+
+00:18:26.950 --> 00:18:32.130
+Well, let's take a look at
+the hero image on this page.
+
+00:18:32.130 --> 00:18:35.880
+The text reads, "Have yourself a
+little coffee, you deserve it."
+
+00:18:35.880 --> 00:18:40.060
+Beside the fact that it's cheesy
+and that the color contrast
+
+00:18:40.060 --> 00:18:42.160
+here is simply outrageous.
+
+00:18:42.160 --> 00:18:47.780
+You may notice that nothing happens
+when I'm trying to grab this text.
+
+00:18:47.780 --> 00:18:51.204
+I'm trying to select the
+text with the mouse cursor,
+
+00:18:51.205 --> 00:18:52.560
+but nothing happens.
+
+00:18:53.980 --> 00:18:58.620
+This is because the dreaded image
+of text and it's a huge no-no
+
+00:18:58.620 --> 00:19:00.880
+for any respectable content editor.
+
+00:19:00.880 --> 00:19:03.150
+It's definitely something
+that we should avoid.
+
+00:19:05.710 --> 00:19:10.160
+If we scroll down further
+a bit to the text section,
+
+00:19:10.160 --> 00:19:13.050
+we'll notice that
+there are no margins.
+
+00:19:13.050 --> 00:19:17.840
+The letters adhere directly to the
+viewport and it's just a torture
+
+00:19:17.840 --> 00:19:18.690
+to read.
+
+00:19:18.690 --> 00:19:20.870
+It's important to add some margins.
+
+00:19:20.870 --> 00:19:24.340
+In WordPress, especially in
+Gutenberg editor, you can do so
+
+00:19:24.340 --> 00:19:26.800
+by inserting the text
+into a container.
+
+00:19:28.530 --> 00:19:35.790
+Sometimes it's not easily
+noticeable, but I think in this case,
+
+00:19:35.790 --> 00:19:38.950
+it's rather evident that the headings
+don't have a correct hierarchy.
+
+00:19:38.950 --> 00:19:43.520
+As you can see, the first one here
+is a bit smaller, sample heading.
+
+00:19:43.520 --> 00:19:45.680
+This sample heading
+is a bit larger.
+
+00:19:47.455 --> 00:19:56.049
+The correct hierarchy is H1 to H6,
+without skipping any heading levels
+
+00:19:56.050 --> 00:19:59.520
+in between, doesn't necessarily
+mean that you have to use all
+
+00:19:59.520 --> 00:20:02.660
+of the heading levels on
+all of pages that you have.
+
+00:20:03.910 --> 00:20:08.930
+If we are using, let's say,
+H2 and H4, let's make sure
+
+00:20:08.930 --> 00:20:10.500
+that there is an H3 in between.
+
+00:20:13.040 --> 00:20:14.860
+Another good practice
+for the headings,
+
+00:20:14.860 --> 00:20:19.210
+is that there should be only one
+H1 level heading for the page.
+
+00:20:19.210 --> 00:20:26.880
+It's also important from the
+reader's mode standpoint,
+
+00:20:26.880 --> 00:20:31.130
+and it helps the screen readers
+to render the sites properly.
+
+00:20:33.610 --> 00:20:37.030
+Let's scroll to this one.
+
+00:20:37.030 --> 00:20:40.910
+Well, another thing that should be
+amended here, is the color contrast.
+
+00:20:40.910 --> 00:20:45.980
+While these examples are flagrantly
+illegible, even for people
+
+00:20:45.980 --> 00:20:50.380
+with perfect vision, even if you're
+a-- I don't know, a [inaudible],
+
+00:20:50.380 --> 00:20:53.360
+there are some color issues here.
+
+00:20:53.360 --> 00:20:57.860
+There are some color combinations,
+which might look okay
+
+00:20:57.860 --> 00:21:02.030
+at the first glance,
+but will be unreadable by people
+
+00:21:02.030 --> 00:21:04.250
+with various types
+of color blindness.
+
+00:21:04.250 --> 00:21:07.570
+This is why a color contrast
+checker is an absolute must
+
+00:21:07.570 --> 00:21:10.270
+before we add any
+content to our website.
+
+00:21:11.850 --> 00:21:13.760
+Now, for the upper case text, well,
+
+00:21:14.960 --> 00:21:18.850
+not only that it's particularly
+annoying in my opinion at least,
+
+00:21:18.850 --> 00:21:21.600
+but it's also difficult to read.
+
+00:21:21.600 --> 00:21:26.850
+I think we should definitely reduce
+it to an absolute bare minimum.
+
+00:21:26.850 --> 00:21:29.310
+If we really have to
+use the uppercase text,
+
+00:21:29.310 --> 00:21:33.560
+let's make sure that we use it
+for emphasizing certain words,
+
+00:21:33.560 --> 00:21:39.100
+not for emphasizing an entire
+paragraph just like we have it here.
+
+00:21:39.100 --> 00:21:44.720
+Another thing, if your copy
+contains URLs, like we have here,
+
+00:21:47.680 --> 00:21:53.470
+https://google.com, well, I can't
+really do anything with the zero,
+
+00:21:53.470 --> 00:21:55.700
+as it's not a correct link.
+
+00:21:55.700 --> 00:21:58.630
+Make sure,
+if your copy contains URLs,
+
+00:21:58.630 --> 00:22:01.470
+you need to make sure that
+they're not plain text,
+
+00:22:01.470 --> 00:22:06.020
+they need the actual links so
+that they can be easily accessed.
+
+00:22:06.020 --> 00:22:11.420
+The same thing goes for email
+addresses and the telephone numbers.
+
+00:22:13.380 --> 00:22:20.620
+The email addresses, we need to make
+sure that they are using the mailto:
+
+00:22:21.710 --> 00:22:25.410
+prefix in the href value.
+
+00:22:25.410 --> 00:22:28.440
+For the phone numbers,
+these should be using a tel:
+
+00:22:29.550 --> 00:22:33.150
+prefix in the href value as well.
+
+00:22:33.150 --> 00:22:36.090
+Usually, the Gutenberg
+editor can help us with this,
+
+00:22:36.090 --> 00:22:40.590
+as it should turn URLs and email
+addresses into actual links
+
+00:22:40.590 --> 00:22:41.810
+without any prompt.
+
+00:22:41.810 --> 00:22:43.820
+It just does it automatically.
+
+00:22:44.930 --> 00:22:49.120
+The phone numbers though, they're
+not rendered by default as links,
+
+00:22:49.120 --> 00:22:51.870
+because also they have
+slightly different formatting,
+
+00:22:51.870 --> 00:22:55.560
+because of the country
+codes and so on and so on.
+
+00:22:55.560 --> 00:22:59.300
+They are usually not rendered as
+links, and they might need more,
+
+00:22:59.300 --> 00:23:02.580
+let's say,
+manual input from the editors.
+
+00:23:05.310 --> 00:23:13.650
+Even if we amend the link
+here, okay, let's get busy.
+
+00:23:13.650 --> 00:23:15.920
+Let's try to fix this page.
+
+00:23:15.920 --> 00:23:21.820
+I'm going to Edit Page and
+change some of these things.
+
+00:23:23.540 --> 00:23:30.070
+First of all, I would get rid
+of this image and replace it
+
+00:23:30.070 --> 00:23:34.500
+with an actual image
+without any text.
+
+00:23:38.690 --> 00:23:39.670
+All right.
+
+00:23:39.670 --> 00:23:41.610
+We have alternative text.
+
+00:23:41.610 --> 00:23:44.760
+We can insert some
+old text here like
+
+00:23:44.760 --> 00:23:47.259
+"a coffee maker and
+a cup of coffee".
+
+00:23:53.180 --> 00:23:53.830
+What else?
+
+00:23:53.830 --> 00:23:57.090
+We can add text over the image.
+
+00:23:57.090 --> 00:24:01.100
+This is what Gutenberg
+editor allows us to do.
+
+00:24:01.100 --> 00:24:02.270
+Add text over the image.
+
+00:24:09.780 --> 00:24:13.210
+I want to make it a heading.
+
+00:24:20.170 --> 00:24:23.840
+Let's make it Heading 1.
+
+00:24:26.770 --> 00:24:29.060
+"Have yourself a little coffee."
+
+00:24:29.060 --> 00:24:31.990
+I think we could get
+rid of the overlay.
+
+00:24:31.990 --> 00:24:33.170
+We don't need it.
+
+00:24:33.170 --> 00:24:37.870
+Sometimes it's useful, especially
+if we have tons of various colors
+
+00:24:37.870 --> 00:24:40.050
+in the image itself,
+and we want to make sure
+
+00:24:41.890 --> 00:24:50.000
+that the text is readable, then
+we can apply some capacity filter
+
+00:24:50.000 --> 00:24:50.790
+on that.
+
+00:24:50.790 --> 00:24:53.300
+In this case, I don't think
+I'm going to use it that much.
+
+00:24:58.420 --> 00:25:05.330
+I'll just make sure that
+dimensions are right.
+
+00:25:05.330 --> 00:25:11.340
+The dimensions are
+right and looks good.
+
+00:25:11.340 --> 00:25:14.930
+It's not perfect, but it's definitely
+readable, and its actual text,
+
+00:25:14.930 --> 00:25:16.170
+so that's cool.
+
+00:25:21.070 --> 00:25:22.490
+Online text left.
+
+00:25:22.490 --> 00:25:27.570
+Another thing that I would like to
+amend here would be the containers
+
+00:25:27.570 --> 00:25:29.730
+or rather the lack of containers.
+
+00:25:29.730 --> 00:25:31.840
+It's easy to do it.
+
+00:25:31.840 --> 00:25:37.820
+I always use this list view,
+so it helps me with determining
+
+00:25:37.820 --> 00:25:40.700
+which parent and child
+element I'm using.
+
+00:25:44.220 --> 00:25:50.970
+Let's add a container here,
+insert before container.
+
+00:25:58.510 --> 00:26:05.260
+We can just Control-Command.
+
+00:26:05.260 --> 00:26:11.540
+If you're using Mac,
+Command-Shift, the entire text.
+
+00:26:11.540 --> 00:26:13.472
+All of these blocks,
+they are selected,
+
+00:26:13.472 --> 00:26:16.730
+and we can just do Command-X
+
+00:26:16.730 --> 00:26:23.890
+to cut them, and now we can
+insert them into the container.
+
+00:26:29.340 --> 00:26:32.890
+As you can see, we have the container
+here, and inside this container,
+
+00:26:32.890 --> 00:26:37.000
+we have the heading,
+paragraph, and so on.
+
+00:26:37.000 --> 00:26:39.150
+Everything that we need.
+
+00:26:43.330 --> 00:26:45.150
+This should be helpful.
+
+00:26:46.320 --> 00:26:52.470
+Just let me check if we have-- Let's
+see if we have the margin sign.
+
+00:26:53.950 --> 00:26:56.190
+It's good to check what it
+looks like on the front end.
+
+00:27:00.020 --> 00:27:05.060
+We are missing the heading here but
+it's not relevant at the moment,
+
+00:27:05.060 --> 00:27:08.860
+but we are definitely,
+we've made some improvement,
+
+00:27:08.860 --> 00:27:15.220
+as we can see that we have the
+margins now, so it's easy to read,
+
+00:27:15.220 --> 00:27:19.400
+but of course, what is not easy to
+read here is the color contrast.
+
+00:27:19.400 --> 00:27:21.650
+Let's make sure that we are
+using the right color contrast.
+
+00:27:26.890 --> 00:27:27.890
+Let's make it black.
+
+00:27:32.580 --> 00:27:34.250
+Let's make this a H2.
+
+00:27:38.949 --> 00:27:40.859
+Let's make it black as well.
+
+00:27:45.630 --> 00:27:46.410
+What is it?
+
+00:27:46.410 --> 00:27:48.370
+It's an H2 as well.
+
+00:27:48.370 --> 00:27:49.680
+Let's make it H3.
+
+00:27:51.300 --> 00:27:53.170
+It's not black.
+
+00:27:53.170 --> 00:27:57.950
+Let's get back here,
+and make sure that it's black.
+
+00:27:57.950 --> 00:28:04.320
+It should be black now.
+
+00:28:04.320 --> 00:28:07.080
+H6, H3 here, H6 here.
+
+00:28:07.080 --> 00:28:09.510
+Well, that's a huge leap.
+
+00:28:09.510 --> 00:28:10.850
+Let's make it an H4.
+
+00:28:13.300 --> 00:28:20.490
+Let's change the text color here, and
+let's make sure it's not upper case.
+
+00:28:22.210 --> 00:28:23.210
+Switch the default.
+
+00:28:25.190 --> 00:28:27.880
+Now it's a regular
+text, normal text.
+
+00:28:27.880 --> 00:28:28.640
+Let's make sure
+
+00:28:28.640 --> 00:28:33.870
+that this https://google.com,
+is an actual link.
+
+00:28:33.870 --> 00:28:40.840
+I'm just going to click link,
+and automatically it becomes a link
+
+00:28:40.840 --> 00:28:44.650
+without manually inserting the URL.
+
+00:28:44.650 --> 00:28:45.970
+It's quite intelligent.
+
+00:28:47.630 --> 00:28:53.990
+Let's do the same for
+the email address.
+
+00:28:55.590 --> 00:28:59.090
+As you can see, Gutenberg
+editor automatically added mail
+
+00:28:59.090 --> 00:29:00.560
+to support@mailbox.com.
+
+00:29:02.680 --> 00:29:06.140
+I don't think it's going to be
+that easy with the phone number,
+
+00:29:06.140 --> 00:29:10.230
+but let's give it a try.
+
+00:29:11.780 --> 00:29:12.780
+It's not that easy.
+
+00:29:13.700 --> 00:29:26.630
+Let me just copy with Command-C
+and link tel, this is going
+
+00:29:26.630 --> 00:29:30.770
+to be an actual telephone link.
+
+00:29:30.770 --> 00:29:32.570
+Sample heading, well, H3.
+
+00:29:32.570 --> 00:29:35.120
+We don't want a H3 here.
+
+00:29:35.120 --> 00:29:41.330
+Let's make it an H4,
+for instance, heading H6,
+
+00:29:41.330 --> 00:29:43.890
+I think we are lacking
+H5, so let's make it H5.
+
+00:29:51.902 --> 00:29:53.847
+Same thing about the email here.
+
+00:30:05.880 --> 00:30:09.140
+All right, now it looks much better
+where we still have this guy here,
+
+00:30:11.730 --> 00:30:16.920
+let's just make sure that we're
+using an actual image and text
+
+00:30:16.920 --> 00:30:19.570
+instead of an image of text.
+
+00:30:19.570 --> 00:30:21.880
+I'm going to change this image.
+
+00:30:48.790 --> 00:30:54.900
+If we really didn't need it, we don't
+have to put the text on the image.
+
+00:30:58.940 --> 00:31:00.170
+Should look much better now.
+
+00:31:15.720 --> 00:31:20.080
+This was how we were able to--
+Sorry, sample heading,
+
+00:31:20.080 --> 00:31:23.680
+it get out of the container,
+let me quickly fix it.
+
+00:31:33.460 --> 00:31:35.793
+Let's put it into the container.
+
+00:31:42.410 --> 00:31:44.187
+Let's make it H2.
+
+00:31:58.540 --> 00:32:03.870
+In just a couple of steps, we were
+able to improve the accessibility
+
+00:32:03.870 --> 00:32:04.870
+of the site.
+
+00:32:06.710 --> 00:32:07.930
+This is what it looks like now.
+
+00:32:09.060 --> 00:32:13.580
+Let me get back to the slideshow.
+
+00:32:17.130 --> 00:32:20.060
+Let's discuss a couple
+of action items.
+
+00:32:20.060 --> 00:32:21.760
+What can I do to fix it?
+
+00:32:21.760 --> 00:32:24.490
+What can I do to fix the
+accessibility issues?
+
+00:32:28.400 --> 00:32:32.900
+First of all, you can add alternative
+text to images is really important.
+
+00:32:33.940 --> 00:32:35.740
+When are we adding
+alternative texts,
+
+00:32:35.740 --> 00:32:42.110
+it's important not to duplicate
+the actual text, the actual copy.
+
+00:32:42.110 --> 00:32:49.520
+Let's say that we have John Doe,
+and we have a picture of John Doe.
+
+00:32:49.520 --> 00:32:55.250
+Let's make sure not to use
+John Doe as the alt text
+
+00:32:55.250 --> 00:32:59.330
+because the actual text will also
+say John Doe so we have John Doe,
+
+00:32:59.330 --> 00:33:05.020
+John Doe, read by the screen readers,
+and that's kind of confusing.
+
+00:33:07.460 --> 00:33:11.128
+We should make sure that we
+are descriptions and subtitles
+
+00:33:11.128 --> 00:33:12.424
+to each video.
+
+00:33:13.540 --> 00:33:18.700
+Actually, you can do so with
+help of most of the video tools
+
+00:33:18.700 --> 00:33:22.410
+like YouTube, Vimeo, and so on.
+
+00:33:22.410 --> 00:33:31.042
+They offer all the services
+offer over this functionality.
+
+00:33:31.960 --> 00:33:33.680
+Make sure that the only
+files are subtitled.
+
+00:33:34.900 --> 00:33:37.120
+This one is pretty
+self-explanatory.
+
+00:33:37.120 --> 00:33:41.690
+It's pretty much the same as with
+the videos, and check the structure
+
+00:33:41.690 --> 00:33:42.440
+of the headings.
+
+00:33:42.440 --> 00:33:47.860
+This is what we just done,
+we've made sure that we have coming
+
+00:33:47.860 --> 00:33:51.720
+from H1 to H6 or to H4
+but we're not skipping
+
+00:33:51.720 --> 00:33:52.970
+any of the heading levels.
+
+00:33:58.780 --> 00:34:00.590
+What else can you do by yourself?
+
+00:34:00.590 --> 00:34:02.350
+Choose a font size
+that is easy to read.
+
+00:34:04.390 --> 00:34:09.120
+We want to make sure that the font
+size that we have is easy to read.
+
+00:34:09.120 --> 00:34:12.050
+Refrain from inserting
+images as links.
+
+00:34:14.120 --> 00:34:19.970
+It can also be confusing for people
+who are using screen readers,
+
+00:34:19.970 --> 00:34:24.000
+and make sure you're not using
+an illegible font family,
+
+00:34:24.000 --> 00:34:26.850
+that's a rather important one.
+
+00:34:26.850 --> 00:34:29.880
+If you go to any of the site
+checkers like Siteimprove,
+
+00:34:29.880 --> 00:34:38.100
+you can check what font
+families are recommended
+
+00:34:38.100 --> 00:34:42.600
+and what font families are
+not recommended and take care
+
+00:34:42.600 --> 00:34:44.560
+of the color contrast.
+
+00:34:44.560 --> 00:34:47.877
+As I said previously,
+the color contrast checkers
+
+00:34:47.877 --> 00:34:51.022
+are an absolute must
+whenever we insert,
+
+00:34:51.022 --> 00:34:53.792
+whenever we add new
+content to our website.
+
+00:34:57.230 --> 00:34:57.834
+All right.
+
+00:35:02.520 --> 00:35:05.790
+The thing on the
+accessibility checkers.
+
+00:35:07.530 --> 00:35:11.090
+Before we jump into this
+subject, just a short caveat,
+
+00:35:11.090 --> 00:35:13.540
+from my experience,
+if your goal is to make sure
+
+00:35:13.540 --> 00:35:18.840
+that your website is only
+compliant with the standards
+
+00:35:18.840 --> 00:35:22.460
+to avoid lawsuits, you'll probably
+be fine with using just one
+
+00:35:22.460 --> 00:35:23.220
+of them.
+
+00:35:23.220 --> 00:35:25.030
+Having said that,
+if you really want
+
+00:35:25.030 --> 00:35:29.670
+to improve the website
+accessibility, it makes more sense
+
+00:35:29.670 --> 00:35:33.020
+to compare the results of
+at least two of these tools,
+
+00:35:33.020 --> 00:35:34.110
+as they will be slightly different.
+
+00:35:35.150 --> 00:35:37.730
+One tool might pinpoint
+a specific error
+
+00:35:37.730 --> 00:35:40.920
+and another one might
+just completely ignore.
+
+00:35:40.920 --> 00:35:46.310
+The first one that comes into
+mind, I have the list here,
+
+00:35:46.310 --> 00:35:50.510
+so we have a list of a couple
+of accessibility checkers,
+
+00:35:50.510 --> 00:35:54.570
+we have Siteimprove, IBM Equal Access
+Toolkit, Wave, and QualityLogic.
+
+00:35:58.410 --> 00:36:02.210
+Siteimprove, it's an excellent tool,
+which provides very default insights.
+
+00:36:02.210 --> 00:36:03.940
+I've used it on my
+couple of occasions,
+
+00:36:03.940 --> 00:36:06.010
+and I can't recommend
+it highly enough.
+
+00:36:06.010 --> 00:36:08.210
+One needs to keep in mind
+that it's a commercial service
+
+00:36:08.210 --> 00:36:10.180
+so if you've got to have your
+website checked for free,
+
+00:36:10.180 --> 00:36:12.640
+there are some
+alternatives to that.
+
+00:36:12.640 --> 00:36:16.810
+Lighthouse accessibility
+checker comes in a bundle
+
+00:36:16.810 --> 00:36:18.710
+with Google PageSpeed Insights.
+
+00:36:18.710 --> 00:36:22.890
+It will show you the most critical
+errors, as overall quite lenient
+
+00:36:22.890 --> 00:36:25.560
+that compared to other
+accessibility checkers.
+
+00:36:25.560 --> 00:36:27.910
+I personally never use it
+as a point of reference
+
+00:36:27.910 --> 00:36:29.920
+for improving website
+accessibility.
+
+00:36:29.920 --> 00:36:33.500
+It's nice to know that
+you can also use it.
+
+00:36:33.500 --> 00:36:36.790
+Another one on the list is
+coming from WebAccessibility.com,
+
+00:36:36.790 --> 00:36:38.870
+and its main functionality
+is just basic score check
+
+00:36:40.210 --> 00:36:44.050
+but they provide some
+commercial browser extensions.
+
+00:36:44.050 --> 00:36:47.400
+Interestingly,
+they have tools that can help you
+
+00:36:47.400 --> 00:36:50.790
+with software development
+lifecycle, so you can integrate them
+
+00:36:50.790 --> 00:36:54.500
+into your workflow, if you're
+using tools for testing automation,
+
+00:36:54.500 --> 00:36:57.980
+like Selenium or Cypress,
+this is something definitely worth
+
+00:36:57.980 --> 00:36:59.530
+developers' attention.
+
+00:36:59.530 --> 00:37:01.160
+Another thing that comes
+into mind in regard
+
+00:37:01.160 --> 00:37:04.830
+to the free alternatives,
+is the accessibilitychecker.org,
+
+00:37:04.830 --> 00:37:07.530
+which provides a rather detailed
+report on the exact elements.
+
+00:37:09.860 --> 00:37:13.060
+The cool thing is that
+you can actually choose
+
+00:37:13.060 --> 00:37:15.650
+which standards you'd like to
+follow depending on your location.
+
+00:37:15.650 --> 00:37:18.130
+This is particularly
+useful if your goal is
+
+00:37:18.130 --> 00:37:21.090
+to make sure that your website
+is observing legal regulations
+
+00:37:21.090 --> 00:37:22.090
+in a specific country.
+
+00:37:23.260 --> 00:37:25.780
+My personal favorite
+is WAVE by WebAIM.
+
+00:37:25.780 --> 00:37:28.950
+I'm not even sure if there's a
+commercial option of this tool,
+
+00:37:28.950 --> 00:37:31.530
+because the free version
+provides so much insight,
+
+00:37:31.530 --> 00:37:33.150
+I've never really
+given it a thought.
+
+00:37:33.150 --> 00:37:36.290
+You can generate a detailed live
+report which allows you to interact
+
+00:37:36.290 --> 00:37:39.970
+with it in real-time,
+you can switch to other pages,
+
+00:37:39.970 --> 00:37:43.200
+it pinpoints all errors, warnings,
+ARIA attributes, and so on,
+
+00:37:43.200 --> 00:37:45.220
+and so on.
+
+00:37:45.220 --> 00:37:48.410
+I'm just being conscious of
+time, we're running out of time,
+
+00:37:48.410 --> 00:37:53.250
+but so I'm not going to go through
+all of these accessibility checkers.
+
+00:37:57.430 --> 00:38:00.270
+Let's just quickly discuss
+the benefits of things.
+
+00:38:00.270 --> 00:38:03.860
+They clearly show you what needs
+to be fixed, at least some,
+
+00:38:03.860 --> 00:38:07.470
+if not most of them, they show
+you what needs to be fixed,
+
+00:38:07.470 --> 00:38:08.920
+they usually show
+you their priority.
+
+00:38:16.210 --> 00:38:19.330
+They also provide
+suggestions on how to fix it.
+
+00:38:21.120 --> 00:38:25.160
+whenever you have an issue,
+you can expand the issue,
+
+00:38:25.160 --> 00:38:30.620
+they have some dropdowns and
+they can point you directly
+
+00:38:30.620 --> 00:38:36.720
+to the W3 reference where
+you can see the documentation
+
+00:38:38.410 --> 00:38:42.110
+and you can check what
+exactly needs to be fixed.
+
+00:38:42.110 --> 00:38:47.710
+They also help you with understanding
+why certain things are considered
+
+00:38:47.710 --> 00:38:48.780
+as errors.
+
+00:38:48.780 --> 00:38:53.530
+It's also nice to have in
+terms of educating yourself
+
+00:38:53.530 --> 00:38:55.350
+and staying other informed.
+
+00:38:56.940 --> 00:38:59.000
+Well, that goes without
+saying they're compatible
+
+00:38:59.000 --> 00:39:00.930
+with the latest WCAG requirements.
+
+00:39:04.750 --> 00:39:07.040
+Sometimes using
+accessibility checkers,
+
+00:39:08.650 --> 00:39:12.040
+like running a full website
+check would be an overkill.
+
+00:39:12.040 --> 00:39:16.100
+If we want to check certain color
+combinations, we can just opt
+
+00:39:16.100 --> 00:39:23.620
+for a contrast checker like
+the WebAIM contrast checker
+
+00:39:23.620 --> 00:39:25.060
+or Siteimprove contrast checker.
+
+00:39:25.060 --> 00:39:28.620
+I think we have the
+site of group one here.
+
+00:39:28.620 --> 00:39:37.310
+As you can see, the ratio is
+below 3:1, all of us will be held.
+
+00:39:37.310 --> 00:39:44.020
+We have the ratio here, 2.13:1,
+and we're just failing all
+
+00:39:46.220 --> 00:39:49.820
+of the standards, we're not
+meeting any of the standards.
+
+00:39:51.340 --> 00:39:59.290
+In this case, the ratio is 5.63 to
+1, and actually, as you can see,
+
+00:39:59.290 --> 00:40:05.000
+we are almost, we're meeting
+almost all of the standards.
+
+00:40:05.000 --> 00:40:08.940
+We have AA for normal text.
+
+00:40:08.940 --> 00:40:11.740
+We are not meeting the
+AAA for normal text.
+
+00:40:11.740 --> 00:40:17.460
+We're meeting AA for large text, AAA
+for large text, and AA for graphics.
+
+00:40:20.160 --> 00:40:21.030
+All right.
+
+00:40:21.820 --> 00:40:23.330
+I'm just being conscious of time.
+
+00:40:23.330 --> 00:40:26.230
+Let me proceed to the case study.
+
+00:40:27.670 --> 00:40:31.370
+One of the universities in the
+US reached out to our clients,
+
+00:40:31.370 --> 00:40:33.280
+our agency clients
+as they needed help
+
+00:40:34.320 --> 00:40:37.460
+with making their website
+compliant with WCAG 2.
+
+00:40:37.460 --> 00:40:42.070
+They emphasized that the score
+needed to be 85 points or above
+
+00:40:42.070 --> 00:40:44.880
+to make sure that the
+website was fully accessible
+
+00:40:44.880 --> 00:40:48.540
+and to avoid legal actions
+be taken against them.
+
+00:40:48.540 --> 00:40:51.250
+This is a chart,
+let me show you the chart.
+
+00:40:52.440 --> 00:40:59.300
+This is a chart of the score history,
+the score and the issue history.
+
+00:40:59.300 --> 00:41:03.140
+When we started our work,
+the overall score was 66,
+
+00:41:03.140 --> 00:41:06.240
+and there were several critical
+A-level issues on the site,
+
+00:41:06.240 --> 00:41:09.840
+which as you can imagine, made it
+virtually impossible to be read
+
+00:41:09.840 --> 00:41:11.170
+with assistive technologies.
+
+00:41:13.260 --> 00:41:17.760
+I'm just going to quickly list
+some of the issues that we had.
+
+00:41:17.760 --> 00:41:20.760
+Some of the pages didn't have any
+titles or they were extremely long.
+
+00:41:22.130 --> 00:41:27.630
+Actually, the page titles
+are quite easily resolved
+
+00:41:27.630 --> 00:41:34.050
+with workers basically to
+set the main website title.
+
+00:41:34.050 --> 00:41:40.380
+You just go to the general settings
+and you have the respective fuel
+
+00:41:41.640 --> 00:41:42.070
+for that.
+
+00:41:42.070 --> 00:41:46.130
+The same thing with
+individual pages.
+
+00:41:46.130 --> 00:41:51.010
+The very first heading of a page,
+at least in Gutenberg editor.
+
+00:41:51.010 --> 00:41:55.270
+The very first heading of a
+page is an actual HTML title.
+
+00:41:57.310 --> 00:42:01.910
+Also, there are no aria
+labels to use and well,
+
+00:42:01.910 --> 00:42:07.270
+that makes it very difficult
+if not impossible at all
+
+00:42:07.270 --> 00:42:11.845
+to navigate website of
+using assistive technologies
+
+00:42:11.846 --> 00:42:13.370
+and many images.
+
+00:42:13.370 --> 00:42:19.240
+Were lacking old text,
+so that's also a big no-no.
+
+00:42:19.240 --> 00:42:21.180
+The power contrast
+needed to be improved.
+
+00:42:21.180 --> 00:42:26.490
+There was some places where
+we had very low contrast
+
+00:42:26.490 --> 00:42:28.210
+and it was just difficult.
+
+00:42:28.210 --> 00:42:29.780
+It was fairly readable.
+
+00:42:30.950 --> 00:42:34.400
+When we finished working on the
+site, the score was 87
+
+00:42:34.400 --> 00:42:39.010
+and then came the new content,
+which introduced some minor issues,
+
+00:42:39.010 --> 00:42:40.940
+and reduced the score to 84.
+
+00:42:40.940 --> 00:42:45.310
+This was a very valuable lesson
+for us as it proved it's crucial
+
+00:42:45.310 --> 00:42:48.100
+to stay ever-informed
+about best practices.
+
+00:42:48.100 --> 00:42:51.790
+Our reaction was, first of
+all, to make some revisions and
+
+00:42:51.790 --> 00:42:54.390
+to fix the issues,
+and then to educate the client on
+
+00:42:54.390 --> 00:42:56.320
+how to keep the score high.
+
+00:42:56.320 --> 00:42:59.000
+At the moment, the site improved
+score is slightly above 90,
+
+00:42:59.000 --> 00:43:04.350
+and the A and AA level issues have
+been reduced to the bare minimum
+
+00:43:04.350 --> 00:43:07.640
+because of the design layout
+and also some complex features,
+
+00:43:07.640 --> 00:43:12.580
+it wasn't possible to
+squeeze the maximum of it
+
+00:43:12.580 --> 00:43:16.470
+and to entirely get rid
+of AAA level issues.
+
+00:43:16.470 --> 00:43:20.380
+This story clearly shows that
+with the right tools and attitude,
+
+00:43:20.380 --> 00:43:23.990
+you can transform an average
+site into a perfectly accessible
+
+00:43:23.990 --> 00:43:25.310
+and optimized website.
+
+00:43:29.207 --> 00:43:30.090
+>> JAY: All right.
+
+00:43:30.090 --> 00:43:31.530
+Thank you, Mike.
+
+00:43:31.530 --> 00:43:32.210
+This has been great.
+
+00:43:32.210 --> 00:43:35.180
+We have a couple of questions.
+
+00:43:35.180 --> 00:43:37.170
+This one came in twice.
+
+00:43:37.170 --> 00:43:41.710
+Does the grouping in containers
+have an effect on an accessibility
+
+00:43:41.710 --> 00:43:44.010
+or the behavior of screen readers?
+
+00:43:45.990 --> 00:43:51.920
+>> MIKE: Well, I think it's important
+to keep the right structure.
+
+00:43:53.100 --> 00:43:56.450
+Let's say the-- so how
+do you mean grouping?
+
+00:43:58.269 --> 00:44:03.490
+>> JAY: I think when you were
+looking at the, let me see
+
+00:44:03.490 --> 00:44:05.140
+if there was any
+additional information.
+
+00:44:07.240 --> 00:44:09.480
+Oh, that's all I have,
+just repeated twice.
+
+00:44:10.648 --> 00:44:11.420
+>> MIKE: All right.
+
+00:44:11.420 --> 00:44:14.960
+If the person asking the
+question could elaborate on this,
+
+00:44:14.960 --> 00:44:18.860
+I'll be more than happy
+to answer this question.
+
+00:44:18.860 --> 00:44:29.970
+Generally saying, well, the more
+complex the container structure is,
+
+00:44:29.970 --> 00:44:35.710
+the more difficult it is for the
+editors to keep it accessible, right?
+
+00:44:35.710 --> 00:44:39.690
+We should definitely,
+I think simplicity is the key here.
+
+00:44:39.690 --> 00:44:42.940
+If we can do something in
+an easy way, in a simple,
+
+00:44:42.940 --> 00:44:44.870
+straightforward way,
+let's just opt for it.
+
+00:44:47.590 --> 00:44:50.780
+>> JAY: Then another
+question about plugins.
+
+00:44:50.780 --> 00:44:53.480
+Are some plugins better for scale?
+
+00:44:53.480 --> 00:44:58.560
+Do some work better for smaller
+sites and one or two operators,
+
+00:44:58.560 --> 00:45:02.910
+or maybe some work better for large
+sites with multiple operators?
+
+00:45:04.744 --> 00:45:05.327
+>> MIKE: Sorry.
+
+00:45:06.180 --> 00:45:07.490
+How do you mean operators?
+
+00:45:13.111 --> 00:45:16.390
+>> JAY: Again,
+I'm just reading as it's provided.
+
+00:45:16.390 --> 00:45:17.390
+>> MIKE: Oh.
+
+00:45:18.600 --> 00:45:24.340
+Yes, I think, well, with the
+plugins, I think if they are simple
+
+00:45:24.340 --> 00:45:32.100
+and they are accessible,
+then there is really no reason to.
+
+00:45:33.898 --> 00:45:34.497
+>> JAY: Oh.
+
+00:45:34.498 --> 00:45:36.050
+Just to clarify [crosstalk]
+
+00:45:36.050 --> 00:45:37.490
+>> MIKE: Operators as users.
+
+00:45:37.490 --> 00:45:38.000
+>> JAY: There we go.
+
+00:45:38.000 --> 00:45:38.900
+>> MIKE: Operators as users.
+
+00:45:38.900 --> 00:45:40.060
+Okay, that makes sense.
+
+00:45:40.060 --> 00:45:41.205
+All right.
+
+00:45:43.500 --> 00:45:48.850
+I think also from the site
+performance perspective,
+
+00:45:48.850 --> 00:45:52.330
+it's better to keep the plugins
+as simple as possible, right?
+
+00:45:54.710 --> 00:45:59.060
+If using, let's say a heavyweight
+plugin, which might be useful
+
+00:45:59.060 --> 00:46:03.140
+for implementing some of the
+features on your website,
+
+00:46:03.140 --> 00:46:07.850
+if it's a complex one, you need
+to take into account the fact
+
+00:46:07.850 --> 00:46:10.350
+that it's going to affect
+the site performance.
+
+00:46:11.940 --> 00:46:14.410
+It's also something that
+we need to keep in mind.
+
+00:46:16.073 --> 00:46:16.610
+>> JAY: Right.
+
+00:46:16.610 --> 00:46:20.840
+Then we have a couple questions
+about the accessibility checkers.
+
+00:46:20.840 --> 00:46:24.790
+The first one is just, "Are there
+some checkers that are better
+
+00:46:24.790 --> 00:46:26.984
+for bigger websites
+versus smaller?"
+
+00:46:33.090 --> 00:46:35.190
+>> MIKE: Yes,
+that's a good question.
+
+00:46:35.190 --> 00:46:43.800
+I would say that there are, basically
+if you are using the free checkers,
+
+00:46:43.800 --> 00:46:48.680
+you are just running a check
+against a single URL usually, right?
+
+00:46:51.240 --> 00:46:56.180
+It just takes more, let's
+say, manual input to use,
+
+00:46:56.180 --> 00:46:59.720
+to enter all the euros and
+make sure that all the pages
+
+00:46:59.720 --> 00:47:03.820
+that you're interested in that all
+the pages are accessible, right?
+
+00:47:03.820 --> 00:47:07.840
+Whereas if you use
+commercial services,
+
+00:47:07.840 --> 00:47:11.150
+which most of these
+plugins really offer,
+
+00:47:11.150 --> 00:47:16.380
+if you use commercial services, well,
+you basically have better support.
+
+00:47:16.380 --> 00:47:21.060
+You have a full site audit,
+so you actually have people
+
+00:47:21.060 --> 00:47:25.190
+who are running the check for you.
+
+00:47:25.190 --> 00:47:29.130
+It's a matter of compromise
+between doing a lot of manual work
+
+00:47:29.130 --> 00:47:33.990
+versus paying some money
+for the check, right?
+
+00:47:35.880 --> 00:47:38.944
+>> JAY: Then there was
+a comment referring
+
+00:47:38.945 --> 00:47:42.600
+to the accessibility checkers
+that you mentioned.
+
+00:47:42.600 --> 00:47:45.300
+They're saying,
+"Given that only about 30%
+
+00:47:45.300 --> 00:47:48.880
+of accessibility issues
+are testable by automation,
+
+00:47:48.880 --> 00:47:52.560
+how do you claim that a test
+with the checker can allow you
+
+00:47:52.560 --> 00:47:55.820
+to reach that WCAG compliance?"
+
+00:47:55.820 --> 00:47:58.075
+>> MIKE: I totally agree with that.
+
+00:47:59.190 --> 00:48:01.350
+That's absolutely true.
+
+00:48:01.350 --> 00:48:06.920
+Well, we need to realize that
+there are certain limitations
+
+00:48:06.920 --> 00:48:08.350
+to these checkers, right?
+
+00:48:08.350 --> 00:48:13.720
+They are not as much as the
+developers of these checkers may try.
+
+00:48:13.720 --> 00:48:15.230
+They're not intelligent at all.
+
+00:48:17.490 --> 00:48:26.840
+We should always rely on someone who
+has more, someone who has expertise.
+
+00:48:26.840 --> 00:48:31.480
+We should refer to
+the documentation.
+
+00:48:31.480 --> 00:48:34.410
+There are tons of educational
+materials that you can read
+
+00:48:34.410 --> 00:48:39.050
+on the internet, and I think that
+they provide much more insight
+
+00:48:41.140 --> 00:48:45.450
+than just running a check on
+the website and then you think
+
+00:48:45.450 --> 00:48:46.550
+that you are done.
+
+00:48:46.550 --> 00:48:47.690
+That's completely not true.
+
+00:48:49.830 --> 00:48:55.610
+I think that's the most
+important factor here.
+
+00:48:55.610 --> 00:48:58.080
+The human contribution, right?
+
+00:48:58.080 --> 00:49:00.830
+It's absolutely essential.
+
+00:49:01.930 --> 00:49:05.790
+I personally know a lot of sites,
+I've been doing a lot of research
+
+00:49:05.790 --> 00:49:09.440
+on some of the most popular
+sites, and I know a lot of sites
+
+00:49:09.440 --> 00:49:15.410
+which have tremendous scores,
+which have really great scores,
+
+00:49:15.410 --> 00:49:19.470
+like above 90 on most of
+the accessibility checkers,
+
+00:49:19.470 --> 00:49:25.380
+but they have basic,
+really, really basic issues
+
+00:49:25.380 --> 00:49:28.040
+with keyboard navigation.
+
+00:49:28.040 --> 00:49:32.560
+We shouldn't only rely on
+the checkers themselves,
+
+00:49:32.560 --> 00:49:35.670
+and we shouldn't treat them
+as an absolute source of truth
+
+00:49:35.670 --> 00:49:38.600
+and a point of reference.
+
+00:49:38.600 --> 00:49:42.170
+It's a nice addition
+and it's useful.
+
+00:49:42.170 --> 00:49:46.760
+I would say it's useful primarily
+if your goal is to avoid lawsuits,
+
+00:49:46.760 --> 00:49:51.640
+just to get a certificate,
+to show, to demonstrate
+
+00:49:51.640 --> 00:49:53.530
+that your website is
+compliant, right?
+
+00:49:53.530 --> 00:49:56.880
+There is a huge difference between
+compliance and accessibility itself.
+
+00:49:56.880 --> 00:49:59.820
+I also know sites which
+are super accessible,
+
+00:49:59.820 --> 00:50:03.400
+which have tons of functionalities,
+all the aria labels,
+
+00:50:03.400 --> 00:50:06.740
+descriptions keyboard
+navigation, and so on and so on.
+
+00:50:06.740 --> 00:50:11.220
+At the same time, they have
+a score of 70 which is okay
+
+00:50:11.220 --> 00:50:14.310
+but nothing's spectacular.
+
+00:50:15.710 --> 00:50:18.330
+I think it's super important.
+
+00:50:18.330 --> 00:50:19.100
+>> JAY: Right.
+
+00:50:19.100 --> 00:50:23.050
+Well, we are out of time but if
+you have an answer to this question
+
+00:50:23.050 --> 00:50:27.360
+in 20 seconds,
+do you recommend a particular plugin
+
+00:50:27.360 --> 00:50:28.610
+for eCommerce sites?
+
+00:50:30.090 --> 00:50:31.690
+>> MIKE: It would depends.
+
+00:50:31.690 --> 00:50:35.490
+If you mean WooCommerce,
+then I would say that the plugin
+
+00:50:35.490 --> 00:50:37.180
+that I was showcasing
+would be okay.
+
+00:50:38.900 --> 00:50:44.750
+Shopify, there are tons of different
+platforms of eCommerce platforms.
+
+00:50:46.710 --> 00:50:49.890
+There is no one
+straight answer to that.
+
+00:50:49.890 --> 00:50:50.300
+Sorry.
+
+00:50:50.300 --> 00:50:51.960
+>> JAY: Not a problem.
+
+00:50:51.960 --> 00:50:52.210
+All right.
+
+00:50:52.210 --> 00:50:56.660
+Well, thank you for the
+session, and thank you everyone
+
+00:50:56.660 --> 00:51:00.490
+for attending the
+session with Mike Ziemak.
+
+00:51:00.490 --> 00:51:03.880
+You can continue this
+conversation in the chat or
+
+00:51:03.880 --> 00:51:15.120
+on social media using the
+#WPA11yDay and #WP2022.
+
+00:51:15.120 --> 00:51:15.980
+We appreciate it.
+
+00:51:15.980 --> 00:51:21.745
+If you do go to
+WPaccessibility.day/feedback
+
+00:51:21.745 --> 00:51:25.616
+to provide anonymous feedback for
+our speakers on their presentation.
+
+00:51:25.616 --> 00:51:30.190
+I believe there's also a way for
+you to enter in for a free t-shirt.
+
+00:51:30.190 --> 00:51:35.520
+Please stay tuned for our Lightning
+Talks: Round 2 coming up next
+
+00:51:35.520 --> 00:51:40.300
+with Robert Jacobi, Nick Croft,
+and Katie Gleason, that will be
+
+00:51:40.300 --> 00:51:41.740
+at 5:00 PM.
+
+00:51:41.740 --> 00:51:45.260
+While you're waiting, please don't
+forget to visit our sponsors' pages
+
+00:51:45.260 --> 00:51:48.450
+to grab some virtual swag
+and enter for a chance
+
+00:51:48.450 --> 00:51:50.070
+to win some great prizes.
+
+00:51:50.071 --> 00:51:52.882
+Thank you and we'll see you
+right here after the break.

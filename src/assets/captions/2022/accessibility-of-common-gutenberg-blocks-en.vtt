@@ -1,0 +1,3085 @@
+﻿WEBVTT
+
+00:00:00.001 --> 00:00:32.232
+[silence]
+
+00:00:32.232 --> 00:00:33.901
+>> DANIELLE ZARCARO:
+Hello again and welcome
+
+00:00:33.901 --> 00:00:36.640
+to WordPress Accessibility Day.
+
+00:00:36.640 --> 00:00:40.760
+My name is Danielle and I'm the
+founder of Overnight Website
+
+00:00:40.760 --> 00:00:43.910
+and Kinetic Iris Web
+Development Studio.
+
+00:00:43.910 --> 00:00:46.496
+Thank you for joining
+us for Accessibility
+
+00:00:46.497 --> 00:00:49.890
+of Common Gutenberg blocks
+with Graham Armfield.
+
+00:00:49.890 --> 00:00:53.830
+Graham works with organizations to
+help them improve the accessibility
+
+00:00:53.830 --> 00:00:57.180
+of their websites, testing the
+websites for accessibility,
+
+00:00:57.180 --> 00:00:59.526
+and advising the
+designers and developers
+
+00:00:59.526 --> 00:01:01.720
+on how to fix issues found.
+
+00:01:01.720 --> 00:01:04.710
+He has written detailed training
+courses on accessibility
+
+00:01:04.710 --> 00:01:08.740
+for developers, which he
+presents on a regular basis.
+
+00:01:08.740 --> 00:01:12.240
+Please feel free to add your
+questions in the Q&A tab next
+
+00:01:12.240 --> 00:01:15.470
+to the video, and we'll answer
+them at the end of the session
+
+00:01:15.470 --> 00:01:19.790
+and use the ideas section to
+chat with other attendees.
+
+00:01:19.790 --> 00:01:21.048
+Take it away, Graham.
+
+00:01:22.950 --> 00:01:26.930
+>> GRAHAM ARMFIELD: Thanks
+Danielle, and welcome everyone
+
+00:01:26.930 --> 00:01:31.160
+to Accessibility of
+Common Gutenberg blocks.
+
+00:01:33.420 --> 00:01:36.280
+It was a good
+introduction and [laughs]
+
+00:01:36.280 --> 00:01:37.820
+so I don't need to
+say anymore here.
+
+00:01:37.820 --> 00:01:41.088
+I've built many,
+many accessible websites
+
+00:01:41.089 --> 00:01:43.500
+using WordPress over the years
+
+00:01:44.860 --> 00:01:48.870
+and have contributed something
+to accessibility in the core.
+
+00:01:48.870 --> 00:01:51.050
+I've still got a couple of
+things in there which are
+
+00:01:51.050 --> 00:01:53.130
+for improved accessibility.
+
+00:01:53.130 --> 00:01:55.650
+I don't need to say
+anything more about myself.
+
+00:01:55.650 --> 00:01:58.160
+Let's just get straight in.
+
+00:01:58.160 --> 00:02:01.830
+Firstly, I want to talk about what
+this presentation is not about.
+
+00:02:01.830 --> 00:02:05.450
+Over the years since Gutenberg
+first arrived on the scene,
+
+00:02:05.450 --> 00:02:09.960
+there's been a lot of talk about
+the accessibility of the editor
+
+00:02:09.960 --> 00:02:12.660
+in the admin area.
+
+00:02:12.660 --> 00:02:15.540
+Yes, it was a bit of a
+dreadful mess to start with.
+
+00:02:15.540 --> 00:02:18.570
+It has been improved over the
+years, I'm pleased to say,
+
+00:02:18.570 --> 00:02:21.370
+but it put me off
+using Gutenberg really,
+
+00:02:21.370 --> 00:02:24.010
+and I've never really
+done much with it.
+
+00:02:24.010 --> 00:02:31.210
+One of my own websites
+needs a bit of TLC
+
+00:02:31.210 --> 00:02:35.300
+and so I thought maybe it's time
+to start embracing Gutenberg.
+
+00:02:35.300 --> 00:02:41.170
+I just wanted to see what it was like
+from an accessibility perspective.
+
+00:02:41.170 --> 00:02:45.080
+Most of the clients that I've
+worked with over the years
+
+00:02:45.080 --> 00:02:47.020
+are not at all technical people.
+
+00:02:47.020 --> 00:02:51.680
+They don't really know much
+about HTML or anything like that,
+
+00:02:51.680 --> 00:02:56.140
+or Gutenberg or accessibility,
+they just want it to work
+
+00:02:56.140 --> 00:02:59.270
+and to sell their
+products and services.
+
+00:02:59.270 --> 00:03:02.040
+I wanted to see what it would
+be like if I just picked up
+
+00:03:02.040 --> 00:03:07.950
+some of the Gutenberg blocks and
+actually saw what accessible delivery
+
+00:03:07.950 --> 00:03:09.370
+that enabled.
+
+00:03:09.370 --> 00:03:12.320
+Stuff that the site visitor
+actually gets in the browser.
+
+00:03:12.320 --> 00:03:15.000
+I'm not going to talk about
+the admin area at all apart
+
+00:03:15.000 --> 00:03:17.420
+from enabling and
+disabling some plugins.
+
+00:03:19.990 --> 00:03:21.650
+Why accessibility is important.
+
+00:03:21.650 --> 00:03:25.400
+I'm sure you've had people talking
+about this throughout the sessions.
+
+00:03:27.970 --> 00:03:31.080
+Companies get involved in
+accessibility for two reasons.
+
+00:03:31.080 --> 00:03:35.015
+Partly, they don't want to
+get sued and the other reason,
+
+00:03:35.015 --> 00:03:37.752
+which is perhaps the more
+positive reason is that
+
+00:03:37.752 --> 00:03:41.340
+they want to increase their customer
+base or the potential customer base
+
+00:03:41.340 --> 00:03:44.900
+because when you add up all the
+people who have access needs
+
+00:03:44.900 --> 00:03:47.330
+that are perhaps different to
+yours, it's maybe
+
+00:03:47.330 --> 00:03:52.560
+about 20% of the population and
+accessibility can help everybody.
+
+00:03:52.560 --> 00:03:57.030
+This picture here is the hill
+that leads up from the Thames
+
+00:03:57.030 --> 00:03:58.230
+in London up to St.
+
+00:03:58.230 --> 00:04:00.410
+Paul's Cathedral in the background.
+
+00:04:00.410 --> 00:04:04.870
+It was originally a road, but when
+the Millennium Bridge was finished,
+
+00:04:04.870 --> 00:04:08.610
+it was turned into like a gentle
+staircase, but they also put
+
+00:04:08.610 --> 00:04:12.340
+in this ramp that you can
+see crossing the photograph.
+
+00:04:12.340 --> 00:04:16.780
+It's there for wheelchair
+users and people using buggies,
+
+00:04:16.780 --> 00:04:17.780
+pushchairs, whatever.
+
+00:04:18.710 --> 00:04:21.880
+If you stand here on this wet
+November afternoon about three
+
+00:04:21.880 --> 00:04:25.250
+or four years ago, you can see
+that actually most people prefer
+
+00:04:25.250 --> 00:04:28.230
+to use the ramp rather
+than the stairs.
+
+00:04:28.230 --> 00:04:32.460
+It's showing you that these
+features are used by many people,
+
+00:04:32.460 --> 00:04:34.620
+perhaps more than was
+originally intended.
+
+00:04:36.220 --> 00:04:40.070
+The test that I did,
+most of this presentation's going
+
+00:04:40.070 --> 00:04:44.060
+to be a little bit of a live
+presentation on some screens
+
+00:04:44.060 --> 00:04:45.510
+in my browser.
+
+00:04:45.510 --> 00:04:49.960
+I did some detailed tests
+using my Windows 10 laptop,
+
+00:04:49.960 --> 00:04:52.590
+the latest Firefox,
+and Chrome browsers.
+
+00:04:52.590 --> 00:04:56.620
+I had WordPress 6.0.2 running,
+I know that's not the latest version,
+
+00:04:56.620 --> 00:05:01.180
+but when I did the tests,
+it was the latest version.
+
+00:05:01.879 --> 00:05:11.110
+I was using Twenty Twenty-One Theme
+and Screen Reader was NVDA 2022.2.3
+
+00:05:11.110 --> 00:05:12.780
+which is almost the latest version.
+
+00:05:14.630 --> 00:05:20.180
+Now, there are hundreds and
+hundreds of Gutenberg blocks.
+
+00:05:20.180 --> 00:05:22.500
+I couldn't cover all
+of them obviously.
+
+00:05:22.500 --> 00:05:26.520
+I did tech pick up some of
+the core ones to start with
+
+00:05:26.520 --> 00:05:29.318
+and these were ones that are
+available in every install
+
+00:05:29.318 --> 00:05:30.697
+of WordPress now.
+
+00:05:31.510 --> 00:05:34.170
+Also, I reached out
+and asked some people
+
+00:05:34.170 --> 00:05:39.460
+which were the other popular ones,
+and I chose some from Coblocks,
+
+00:05:39.460 --> 00:05:42.110
+some from Stackable,
+and some from Kadence.
+
+00:05:42.110 --> 00:05:45.760
+I certainly didn't choose all
+of the blocks that are available
+
+00:05:45.760 --> 00:05:46.760
+from these people.
+
+00:05:47.660 --> 00:05:51.160
+We'll see what we
+have time to cover.
+
+00:05:51.160 --> 00:05:54.620
+I've only got a short time
+so I can't cover everything
+
+00:05:54.620 --> 00:05:58.640
+and so I'm only going to cover
+some common accessibility issues.
+
+00:06:00.590 --> 00:06:03.770
+I'm focusing more on keyboard
+interaction because a lot
+
+00:06:03.770 --> 00:06:07.480
+of people actually choose
+to or have to use a keyboard
+
+00:06:07.480 --> 00:06:10.730
+instead of a mouse or a trackpad.
+
+00:06:10.730 --> 00:06:14.920
+I also did some tests
+with NVDA Screen Reader,
+
+00:06:14.920 --> 00:06:17.680
+it's a popular screen reader
+that's free to download
+
+00:06:17.680 --> 00:06:20.290
+on Windows machines and
+there's one or two other things
+
+00:06:20.290 --> 00:06:21.710
+that I might mention as well.
+
+00:06:24.010 --> 00:06:25.200
+Let's get going.
+
+00:06:25.200 --> 00:06:27.490
+I'm going to come out
+on the presentation now
+
+00:06:27.490 --> 00:06:31.660
+and you can see a screen
+on a test WordPress website
+
+00:06:31.660 --> 00:06:33.010
+that I've put together.
+
+00:06:33.010 --> 00:06:35.870
+The first page we are
+looking at is simple stuff.
+
+00:06:35.870 --> 00:06:40.460
+I've pulled together some of the
+simpler building block type blocks
+
+00:06:40.460 --> 00:06:46.570
+from the core, from these
+core Coblocks on this page.
+
+00:06:46.570 --> 00:06:50.300
+We've got a list of items,
+we've got some headings here,
+
+00:06:50.300 --> 00:06:55.160
+heading level 2, heading level
+3, et cetera paragraphs
+
+00:06:55.160 --> 00:06:58.390
+as an ordered list, like a
+numbered list, it was a bullet list
+
+00:06:58.390 --> 00:07:02.120
+at the top and then
+block quotes and verses.
+
+00:07:02.120 --> 00:07:05.550
+Now, this is all simple stuff
+and you'll be pleased to know
+
+00:07:05.550 --> 00:07:10.730
+that all of this basic building block
+stuff is all perfectly accessible.
+
+00:07:10.730 --> 00:07:14.000
+I'm not going to talk
+anymore about that really.
+
+00:07:14.000 --> 00:07:18.290
+Let's move on to the next one
+where I've got the opportunity
+
+00:07:18.290 --> 00:07:22.850
+of putting tables into a
+page that is a core block.
+
+00:07:22.850 --> 00:07:24.980
+I can do a table like this.
+
+00:07:24.980 --> 00:07:26.330
+I've mocked this up.
+
+00:07:26.330 --> 00:07:29.130
+It's a list of events
+that are happening
+
+00:07:29.131 --> 00:07:31.110
+at the Student Union campus.
+
+00:07:32.600 --> 00:07:36.340
+I've got a table and I was
+able, using the core block,
+
+00:07:36.340 --> 00:07:38.750
+to add column headers.
+
+00:07:38.750 --> 00:07:40.430
+Now I need to look at my notes.
+
+00:07:40.430 --> 00:07:41.430
+Where are they?
+
+00:07:44.490 --> 00:07:47.660
+There's no way to add a
+caption to this table.
+
+00:07:47.660 --> 00:07:53.010
+Though using the block, a caption is
+like the alternate text list table.
+
+00:07:53.010 --> 00:07:57.030
+It's basically a label that
+you can set on the table to say
+
+00:07:57.030 --> 00:07:58.840
+what this table is showing you.
+
+00:07:58.840 --> 00:08:02.560
+Something like a list of the
+events in the student campus
+
+00:08:02.560 --> 00:08:03.450
+or something like that.
+
+00:08:03.450 --> 00:08:07.820
+There's no way of doing
+that using the block itself.
+
+00:08:09.900 --> 00:08:11.050
+That's not great.
+
+00:08:11.050 --> 00:08:14.120
+Also, these heading cells,
+they are marked up as headers,
+
+00:08:14.120 --> 00:08:18.460
+but it's missing the scope
+attributes, which would be useful
+
+00:08:18.460 --> 00:08:19.530
+for some screen readers.
+
+00:08:19.530 --> 00:08:23.100
+Some screen readers cope with
+that fine, others maybe not.
+
+00:08:23.100 --> 00:08:27.930
+I've also tried to create a table,
+like a product comparison table
+
+00:08:27.930 --> 00:08:32.290
+would be where I've got
+features down the left-hand side
+
+00:08:32.290 --> 00:08:36.180
+and some products across the top.
+
+00:08:36.180 --> 00:08:39.900
+Obviously, once again put
+together just as an example here.
+
+00:08:41.830 --> 00:08:44.940
+Here I've got column headers,
+like Feature, Austin Mini,
+
+00:08:44.940 --> 00:08:49.600
+and Escort Mark 1 van,
+and then I have row headers.
+
+00:08:49.600 --> 00:08:54.620
+Now, sadly in the plugin at the
+moment, sorry, the core block,
+
+00:08:54.620 --> 00:08:58.630
+there is no way of
+adding row headers.
+
+00:08:58.630 --> 00:09:02.790
+This table, I actually put
+these in by hand just to see
+
+00:09:02.790 --> 00:09:05.010
+if it was feasible that way.
+
+00:09:05.010 --> 00:09:08.700
+It is, but using the block
+itself and if someone
+
+00:09:08.700 --> 00:09:12.170
+has no technical knowledge and
+they won't know what to do,
+
+00:09:12.170 --> 00:09:15.450
+then there's no way of
+doing a suitable something
+
+00:09:15.450 --> 00:09:17.500
+like a product comparison table.
+
+00:09:19.070 --> 00:09:19.660
+Moving on.
+
+00:09:19.660 --> 00:09:21.840
+That's all about tables
+I'm going to talk about.
+
+00:09:21.840 --> 00:09:28.470
+The next one I'm going to look at is
+media, which is effectively images.
+
+00:09:28.470 --> 00:09:33.230
+I've added some images to the
+site, to this page.
+
+00:09:33.230 --> 00:09:36.180
+I've got a plain image with
+a caption, I've also set
+
+00:09:36.180 --> 00:09:39.450
+the alternate text and that
+is revealed there so it's good
+
+00:09:39.450 --> 00:09:41.740
+for screen reader users as well.
+
+00:09:41.740 --> 00:09:44.350
+The next one I tried
+was the cover image.
+
+00:09:44.350 --> 00:09:49.880
+Now, this puts text directly
+on top of an image, so I chose
+
+00:09:49.880 --> 00:09:55.050
+to actually darken the user
+darker overlay on the image
+
+00:09:55.050 --> 00:09:57.760
+just to make the text
+visible because of course
+
+00:09:57.760 --> 00:10:00.850
+if you have a light
+image with light text,
+
+00:10:00.850 --> 00:10:03.210
+then it can make the text
+quite difficult to read
+
+00:10:03.210 --> 00:10:06.430
+but I was able to sort that
+out, so that's good.
+
+00:10:06.430 --> 00:10:09.530
+The next one I've got is
+this media and text block.
+
+00:10:09.530 --> 00:10:13.610
+I've got a picture of a guitar
+here with some texts next to it.
+
+00:10:14.880 --> 00:10:21.140
+Down the bottom here I've got the
+gallery and these are quite good
+
+00:10:21.140 --> 00:10:26.570
+because two of these are interactive
+elements because I set them up
+
+00:10:26.570 --> 00:10:28.240
+to show you.
+
+00:10:28.240 --> 00:10:30.560
+This one shows you
+the larger image.
+
+00:10:30.560 --> 00:10:34.570
+You can see I've tabs
+to this and it has got
+
+00:10:34.570 --> 00:10:36.840
+a good focus indication there.
+
+00:10:36.840 --> 00:10:41.210
+If I press the tab key again,
+once again a good focus indication.
+
+00:10:41.210 --> 00:10:45.450
+The third image doesn't have any
+functionality attached to it.
+
+00:10:45.450 --> 00:10:49.610
+If I go to Wembury Beach
+and the alternate text
+
+00:10:49.610 --> 00:10:54.470
+for this image is set appropriately
+if I press the enter key now,
+
+00:10:54.470 --> 00:10:59.270
+you can see it shows
+me a full-size image.
+
+00:10:59.270 --> 00:11:07.280
+However, if you look on the
+underlying code here, which I shall,
+
+00:11:07.280 --> 00:11:10.070
+the image itself,
+the alt attribute, which is
+
+00:11:10.070 --> 00:11:14.180
+how you set the alternate
+text, is actually set to a URL.
+
+00:11:14.180 --> 00:11:18.280
+This is no good at all and
+it really ought to be set
+
+00:11:18.280 --> 00:11:23.150
+to the alternate text that's
+stored in the database.
+
+00:11:23.150 --> 00:11:26.370
+WordPress has alternate text
+stored against this image,
+
+00:11:26.370 --> 00:11:28.080
+but it's not retrieving it.
+
+00:11:28.080 --> 00:11:29.690
+That's a slight issue.
+
+00:11:29.690 --> 00:11:31.680
+It's better than perhaps
+the classic editor
+
+00:11:31.680 --> 00:11:35.300
+because there was no all attribute
+there at all in the classic editor,
+
+00:11:35.300 --> 00:11:37.840
+but it could be better definitely.
+
+00:11:37.840 --> 00:11:42.730
+Okay, so let's get rid of that
+and go back to where I was before.
+
+00:11:42.730 --> 00:11:48.510
+That's all the images and that's
+all of the core Gutenberg blocks
+
+00:11:48.510 --> 00:11:50.440
+that I looked at.
+
+00:11:50.440 --> 00:11:54.080
+I have three other pages
+that I've set up for,
+
+00:11:54.080 --> 00:11:56.370
+the other blocks
+that I'm looking at.
+
+00:11:56.370 --> 00:11:59.800
+What I'll need to do first is
+enable the plugins for these.
+
+00:11:59.800 --> 00:12:03.850
+Let's do the Coblocks ones first,
+so let's activate that one.
+
+00:12:05.860 --> 00:12:09.600
+Slightly frustratingly, if I have
+all of these plugins going at once,
+
+00:12:09.600 --> 00:12:12.820
+they do kind of contend with
+each other a little bit,
+
+00:12:12.820 --> 00:12:15.120
+so that's a bit unfortunate.
+
+00:12:15.120 --> 00:12:19.370
+If you want to use some Coblocks
+blocks, some Stackable blocks,
+
+00:12:19.370 --> 00:12:23.050
+and some Kadence blocks,
+I guess one day that will help.
+
+00:12:23.050 --> 00:12:26.270
+Okay, so here we are
+on the Cooblocks page.
+
+00:12:26.270 --> 00:12:29.440
+Now the first one I've
+got is a hero image.
+
+00:12:29.440 --> 00:12:31.250
+Where's my notes again?
+
+00:12:31.250 --> 00:12:34.400
+Once again I've got text
+directly on the image,
+
+00:12:34.400 --> 00:12:38.370
+but I've specifically
+chosen a darker image here.
+
+00:12:38.370 --> 00:12:43.300
+This was taken almost at sunset and
+so the text shows up quite nicely.
+
+00:12:43.300 --> 00:12:46.750
+If you had a light image, I'm sure
+it's possible to change the color
+
+00:12:46.750 --> 00:12:48.310
+of this text appropriately.
+
+00:12:48.310 --> 00:12:52.490
+It would be nice to be able to put
+some kind of underlay under there.
+
+00:12:52.490 --> 00:12:53.550
+I've got these links here.
+
+00:12:53.550 --> 00:12:56.760
+The first one, I don't know why
+the hover means it disappears.
+
+00:12:56.760 --> 00:12:58.900
+I'll have to investigate
+further why that is.
+
+00:13:00.010 --> 00:13:03.260
+Also, they do have a
+good focus indication.
+
+00:13:03.260 --> 00:13:08.320
+I've tabs to the first link now
+and then the second one and this,
+
+00:13:08.320 --> 00:13:12.720
+you can set the link text
+however you want, so that's okay.
+
+00:13:12.720 --> 00:13:18.600
+The next elements are
+accordions and you this uses the
+
+00:13:18.600 --> 00:13:22.100
+more modern HTML 5 summary
+in details elements,
+
+00:13:22.100 --> 00:13:24.950
+which are now widely
+supported by browsers
+
+00:13:24.950 --> 00:13:28.520
+and also assisted technologies
+like screen readers.
+
+00:13:28.520 --> 00:13:33.670
+That's good I can click on
+these things and that works okay
+
+00:13:33.670 --> 00:13:35.770
+and they do work fine
+in screen readers.
+
+00:13:37.740 --> 00:13:40.360
+The actual keyboard
+focus that's set on this
+
+00:13:40.360 --> 00:13:42.750
+and I couldn't change
+this is very subtle.
+
+00:13:42.750 --> 00:13:47.050
+You can see if there's a focus ring
+around this more information one,
+
+00:13:47.050 --> 00:13:50.870
+if I do shift that, you can see
+where I've made the accordion
+
+00:13:50.870 --> 00:13:53.140
+have a dark background.
+
+00:13:53.140 --> 00:13:55.134
+The keyboard focus indication
+
+00:13:55.134 --> 00:13:58.370
+is completely almost
+invisible basically.
+
+00:13:59.640 --> 00:14:02.500
+The next thing on this page is
+highlighted text and literally,
+
+00:14:02.500 --> 00:14:04.440
+it's just changing
+the color of the text.
+
+00:14:05.920 --> 00:14:06.840
+That's not a problem.
+
+00:14:06.840 --> 00:14:11.840
+You can choose combinations
+that work for you.
+
+00:14:11.840 --> 00:14:13.330
+After that would say, "Tweet this."
+
+00:14:13.330 --> 00:14:18.880
+What this actually does is it tweets
+this page so it's like a share thing.
+
+00:14:18.880 --> 00:14:23.680
+If I tab to that,
+it actually disappears
+
+00:14:23.680 --> 00:14:27.100
+because it sets the background
+image of the button to white
+
+00:14:27.100 --> 00:14:29.020
+and there's white
+text on top of it.
+
+00:14:29.020 --> 00:14:34.580
+Maybe there's a way of changing
+that, but I haven't found it yet.
+
+00:14:34.580 --> 00:14:38.780
+Also for screen readers,
+this is not that informative really
+
+00:14:38.780 --> 00:14:43.520
+to just say tweet as
+the link text here.
+
+00:14:43.520 --> 00:14:44.980
+It's not really telling me enough.
+
+00:14:44.980 --> 00:14:49.350
+It doesn't tell me exactly
+what it does, but there we go.
+
+00:14:49.350 --> 00:14:50.690
+That could be better.
+
+00:14:50.690 --> 00:14:53.670
+The next thing we've got on
+this page is the carousel.
+
+00:14:53.670 --> 00:14:58.590
+A nice big wide image here and
+if I click on these images,
+
+00:14:58.590 --> 00:15:00.850
+you can see it changes them.
+
+00:15:00.850 --> 00:15:05.140
+Now you'll notice that there's
+a subtle focus indication there.
+
+00:15:05.140 --> 00:15:09.410
+Notice the white dots, when I
+hover over it, they turn black.
+
+00:15:09.410 --> 00:15:14.440
+If I press the tab key, quite
+difficult to see, but they do work.
+
+00:15:17.370 --> 00:15:20.360
+If I press the enter key now
+it does change [inaudible].
+
+00:15:20.360 --> 00:15:23.520
+The keyboard functionality is
+quite good there, except that
+
+00:15:23.520 --> 00:15:27.060
+if I do shift-tab and
+then shift-tab again,
+
+00:15:28.590 --> 00:15:31.160
+I have moved keyboard
+focus up the page.
+
+00:15:31.160 --> 00:15:36.700
+You can't tell, but it is now
+this big image here has got focus.
+
+00:15:37.710 --> 00:15:41.710
+I don't know why they've done that
+because there's no functionality.
+
+00:15:41.710 --> 00:15:46.060
+I'm clicking on this image at the
+moment and nothing's happening.
+
+00:15:46.060 --> 00:15:49.420
+A screen reader user will,
+when they arrive at this image,
+
+00:15:49.420 --> 00:15:54.410
+they'll get the alternate text okay,
+but it'll tell them it's clickable
+
+00:15:54.410 --> 00:16:00.030
+because there is some kind of
+trigger that says they thin,
+
+00:16:00.030 --> 00:16:04.130
+"Actually something happens here,"
+because images wouldn't normally
+
+00:16:04.130 --> 00:16:05.550
+get focus.
+
+00:16:05.550 --> 00:16:08.820
+That's a little bit confusing.
+
+00:16:08.820 --> 00:16:12.138
+Let's move focus down here
+so I know where it is.
+
+00:16:12.138 --> 00:16:14.807
+I haven't got anything
+else to say about that.
+
+00:16:19.045 --> 00:16:20.046
+Oh yes.
+
+00:16:20.046 --> 00:16:21.080
+That's right.
+
+00:16:22.840 --> 00:16:27.600
+From a screen reader user's
+perspective, these images here are
+
+00:16:27.600 --> 00:16:30.590
+in a button, which is good
+because buttons are things
+
+00:16:30.590 --> 00:16:32.650
+that trigger functionality.
+
+00:16:32.650 --> 00:16:37.460
+The image itself has some
+appropriate alternate text
+
+00:16:37.460 --> 00:16:38.270
+if only I could find it.
+
+00:16:38.270 --> 00:16:38.910
+There we go.
+
+00:16:38.910 --> 00:16:41.900
+Wembury Beach [inaudible].
+
+00:16:41.900 --> 00:16:47.010
+However, the button itself,
+they've actually given it aria-label.
+
+00:16:47.010 --> 00:16:52.760
+Now, aria-label is useful thing to
+give something an accessible label,
+
+00:16:52.760 --> 00:16:55.229
+but what it does is it overrides
+
+00:16:55.230 --> 00:16:58.470
+whatever was the
+accessible label before
+
+00:16:58.470 --> 00:17:02.260
+in this case, which was Wembury
+Beach, but now the aria-label
+
+00:17:02.260 --> 00:17:05.610
+for all of these buttons is
+set to gallery thumbnail.
+
+00:17:05.610 --> 00:17:09.600
+That's much less useful
+for screen reader users
+
+00:17:09.600 --> 00:17:12.100
+because they don't get to
+hear Wembury Beach, they get
+
+00:17:12.100 --> 00:17:15.060
+to hear that it's a button
+for gallery thumbnail.
+
+00:17:15.060 --> 00:17:18.200
+There's also a tab index
+of zero on that unnecessary
+
+00:17:18.200 --> 00:17:20.330
+since buttons get focused anyway.
+
+00:17:21.930 --> 00:17:25.420
+We'll keep the code
+window open for a bit.
+
+00:17:25.420 --> 00:17:26.580
+Let's move down to here.
+
+00:17:27.720 --> 00:17:30.830
+Keyboard focus is currently
+on this image here.
+
+00:17:30.830 --> 00:17:34.990
+If I tab and tab again, it's on
+the last of those three images.
+
+00:17:34.990 --> 00:17:38.970
+What's next on the page is--
+actually we'll get rid of that--
+
+00:17:38.970 --> 00:17:42.290
+is this offset with lightbox
+block where I can do,
+
+00:17:42.290 --> 00:17:45.960
+there's like a gallery,
+but I can actually click on these
+
+00:17:45.960 --> 00:17:48.340
+and it shows me a lightbox.
+
+00:17:48.340 --> 00:17:49.070
+That's fine.
+
+00:17:49.070 --> 00:17:51.600
+Mouse users are catered for.
+
+00:17:51.600 --> 00:17:55.840
+Now if I press the tab key focus
+is actually on this image up here.
+
+00:17:55.840 --> 00:18:00.870
+I'd expect these images to get
+focus because I want keyboard users
+
+00:18:00.870 --> 00:18:05.550
+to be able to trigger the lightbox
+too but if I press tab key,
+
+00:18:05.550 --> 00:18:09.930
+you'll see the focus ends
+up on the Coblocks form.
+
+00:18:09.930 --> 00:18:12.480
+It's completely missed
+out all of these images,
+
+00:18:12.480 --> 00:18:16.930
+even though they are actually
+interactive elements.
+
+00:18:16.930 --> 00:18:19.570
+That's the huge problem
+for keyboard users here.
+
+00:18:19.570 --> 00:18:20.670
+If I click on this one.
+
+00:18:20.670 --> 00:18:24.580
+You can see it does
+deliver a lightbox.
+
+00:18:24.580 --> 00:18:28.810
+Now ironically when this is
+open, I can actually use the left
+
+00:18:28.810 --> 00:18:33.580
+and right arrow keys to actually
+swivel through the images.
+
+00:18:33.580 --> 00:18:36.350
+There's nothing to tell me that
+that happens, but of course,
+
+00:18:37.630 --> 00:18:39.520
+as a Keyboard user,
+I wouldn't ever be here
+
+00:18:39.520 --> 00:18:42.110
+because I can't
+trigger the lightbox.
+
+00:18:42.110 --> 00:18:44.130
+Also for screen readers.
+
+00:18:46.600 --> 00:18:48.740
+What's the note about
+screen readers here?
+
+00:18:53.230 --> 00:18:55.920
+We have the wrong bit.
+
+00:18:55.920 --> 00:19:00.240
+Okay, these images have no alt
+attribute, which is not good
+
+00:19:00.240 --> 00:19:05.200
+and because focus is not transferred
+into the lightbox, it's still
+
+00:19:05.200 --> 00:19:09.910
+on the underlying page, so I
+can't access these buttons at all.
+
+00:19:11.020 --> 00:19:12.020
+That's not great.
+
+00:19:13.290 --> 00:19:14.530
+Let's get rid of that.
+
+00:19:14.530 --> 00:19:16.080
+It does listen out
+for this gate key.
+
+00:19:16.080 --> 00:19:20.840
+Some keyboard accessibility is coded
+for, but just not letting you get
+
+00:19:20.840 --> 00:19:23.330
+into the lightbox
+in the first place.
+
+00:19:23.330 --> 00:19:25.760
+Let's move focus onto the form.
+
+00:19:25.760 --> 00:19:28.580
+The next thing I've got here,
+I've created this little form
+
+00:19:28.580 --> 00:19:33.490
+in using Coblocks rock and it's
+got name first and last, phone,
+
+00:19:33.490 --> 00:19:34.720
+email, et cetera.
+
+00:19:34.720 --> 00:19:39.150
+Now happily,
+most of this form is pretty good
+
+00:19:39.150 --> 00:19:40.790
+from an accessibility perspective.
+
+00:19:40.790 --> 00:19:42.540
+The focus indication is good.
+
+00:19:42.540 --> 00:19:48.140
+You can see a nice clear
+dotted line around that thing,
+
+00:19:48.140 --> 00:19:49.940
+around the input field.
+
+00:19:49.940 --> 00:19:53.890
+For screen reading users, there's
+a problem with this first one.
+
+00:19:53.890 --> 00:19:57.980
+There is actually a code error
+in the block, which means
+
+00:19:57.980 --> 00:20:04.290
+that the first and last name,
+which is a common thing you'll see
+
+00:20:04.290 --> 00:20:08.630
+in websites, these are not
+linked up with the label.
+
+00:20:08.630 --> 00:20:11.270
+What's important when you are
+putting a form together is
+
+00:20:11.270 --> 00:20:15.980
+that the label here, the prompt for
+the form is programmatically linked
+
+00:20:15.980 --> 00:20:17.450
+to the input field.
+
+00:20:17.450 --> 00:20:19.050
+That's not the case
+with these two because
+
+00:20:19.050 --> 00:20:22.320
+there's obviously been a mistake
+in the way it's been put together.
+
+00:20:22.320 --> 00:20:27.020
+I don't get any useful information
+from the first and last name bits
+
+00:20:27.020 --> 00:20:27.960
+at the top.
+
+00:20:27.960 --> 00:20:31.560
+The other problem with
+this form is that here,
+
+00:20:31.560 --> 00:20:33.340
+I've got a radio button
+group that I added.
+
+00:20:33.340 --> 00:20:36.240
+It's asking me whether I
+want sugar in my coffee,
+
+00:20:36.240 --> 00:20:38.160
+so I've got a yes-no option there.
+
+00:20:39.210 --> 00:20:42.710
+When I tab to this or move
+to this in a screen reader,
+
+00:20:42.710 --> 00:20:46.470
+it will tell me that the label
+for this radio button is yes
+
+00:20:46.470 --> 00:20:50.080
+and then no,
+but it doesn't read out the question
+
+00:20:50.080 --> 00:20:55.060
+when I'm using NVDA, because it's
+not in a fieldset, in a legend.
+
+00:20:55.060 --> 00:20:58.170
+Whenever you've got a radio button
+group, you need to use fieldset
+
+00:20:58.170 --> 00:21:02.910
+and legend to help everyone
+understand what's going on.
+
+00:21:02.910 --> 00:21:03.910
+There we go.
+
+00:21:04.970 --> 00:21:06.110
+The form's pretty good.
+
+00:21:06.110 --> 00:21:08.100
+There's a bit button
+is fine as well.
+
+00:21:10.060 --> 00:21:14.460
+Then the only other Coblocks block
+I used was this pricing table
+
+00:21:14.460 --> 00:21:16.040
+just to see how it put out.
+
+00:21:16.040 --> 00:21:18.600
+It's all plain text
+with these links here.
+
+00:21:18.600 --> 00:21:21.740
+Then this is down to how,
+however, you choose the link text,
+
+00:21:21.740 --> 00:21:23.520
+whether or not that's accessible.
+
+00:21:23.520 --> 00:21:25.450
+That's all fine.
+
+00:21:25.450 --> 00:21:25.940
+There we go.
+
+00:21:25.940 --> 00:21:28.360
+That's the Coblocks blocks.
+
+00:21:28.360 --> 00:21:33.790
+Now before we move on to Stackable,
+I'll need to deactivate Coblocks.
+
+00:21:33.790 --> 00:21:37.830
+This is a little bit annoying
+every time you deactivate Coblocks,
+
+00:21:37.830 --> 00:21:42.690
+it wants to know why.
+
+00:21:42.690 --> 00:21:44.200
+Which one was I going to do next?
+
+00:21:44.200 --> 00:21:45.220
+Stackable.
+
+00:21:45.220 --> 00:21:46.480
+Let's find that one.
+
+00:21:50.300 --> 00:21:51.980
+Okay, Stackable's running now.
+
+00:21:51.980 --> 00:21:53.720
+We can go to the Stackable page.
+
+00:21:55.870 --> 00:22:01.810
+First one I chose was the hero title
+block and a similar sort of thing.
+
+00:22:01.810 --> 00:22:03.310
+I've used an image as a background.
+
+00:22:03.310 --> 00:22:07.960
+Then I've got some text
+and a link on top of that.
+
+00:22:07.960 --> 00:22:10.240
+You can customize the
+colors how you want.
+
+00:22:11.450 --> 00:22:12.890
+That's good.
+
+00:22:12.890 --> 00:22:14.630
+I could quite easily set that up.
+
+00:22:14.630 --> 00:22:17.930
+It was hard to read the text
+on the image but actually,
+
+00:22:17.930 --> 00:22:22.220
+assuming you have the good
+enough contrast, it's fine.
+
+00:22:22.220 --> 00:22:23.720
+Let's move down in my notes.
+
+00:22:24.800 --> 00:22:27.680
+The next one I'm going to talk
+about is these accordions.
+
+00:22:27.680 --> 00:22:31.440
+Once again, these are done
+using the HTML 5 summary
+
+00:22:31.440 --> 00:22:33.510
+and details elements
+and that's good.
+
+00:22:33.510 --> 00:22:38.450
+If I tab to them, most very
+clear keyboard focus indication
+
+00:22:38.450 --> 00:22:43.320
+and action number there, any problems
+and screen readers all support,
+
+00:22:43.320 --> 00:22:45.180
+summary and details now.
+
+00:22:45.180 --> 00:22:47.180
+That's all good.
+
+00:22:47.180 --> 00:22:50.780
+The next one's an interesting
+one, the show more or less.
+
+00:22:50.780 --> 00:22:53.500
+If I tap there to that, good.
+
+00:22:53.500 --> 00:22:57.060
+There's a focus indication there
+and this works a little bit
+
+00:22:57.060 --> 00:23:00.090
+like an accordion,
+but if you look the text above here,
+
+00:23:01.270 --> 00:23:07.530
+when I press the enter key, what it
+does is it actually replaces the text
+
+00:23:07.530 --> 00:23:10.800
+that was here earlier
+with some newer text,
+
+00:23:10.800 --> 00:23:14.500
+presumably some more expanded
+text, but focus stays on button,
+
+00:23:14.500 --> 00:23:16.020
+which is very good.
+
+00:23:16.020 --> 00:23:20.990
+The only problem with this is
+that screen reader users like
+
+00:23:20.990 --> 00:23:24.040
+if it's an accordion,
+when you open an accordion,
+
+00:23:24.040 --> 00:23:28.680
+the new content appears beneath and
+most screen reader users will assume
+
+00:23:28.680 --> 00:23:31.070
+that the new content is
+going to appear beneath.
+
+00:23:31.070 --> 00:23:35.860
+In this case, the content is changed
+above where you are on the screen.
+
+00:23:35.860 --> 00:23:40.040
+A lot of screen reader users
+will not find the amended text.
+
+00:23:41.680 --> 00:23:44.760
+Next one, button group.
+
+00:23:44.760 --> 00:23:50.150
+How are we doing for time?
+
+00:23:50.150 --> 00:23:56.400
+These button groups, you can see
+that these are all for social media.
+
+00:23:56.400 --> 00:23:59.760
+The social media icons on the
+page, Facebook, Twitter,
+
+00:24:01.260 --> 00:24:03.130
+that's Instagram and then YouTube.
+
+00:24:04.200 --> 00:24:08.550
+If I hover over these, there's a
+subtle change for hover focuses
+
+00:24:08.550 --> 00:24:10.970
+on here at the moment.
+
+00:24:12.050 --> 00:24:13.430
+Let me do a tab key.
+
+00:24:14.780 --> 00:24:16.550
+Now you probably won't
+be able to see it.
+
+00:24:16.550 --> 00:24:18.270
+I can only just see it.
+
+00:24:18.270 --> 00:24:21.910
+Focus is now on the Facebook icon.
+
+00:24:21.910 --> 00:24:27.270
+If I press the tab key again,
+there's a very, very brief change
+
+00:24:27.270 --> 00:24:32.900
+of the sort of like I think it's
+the border of the thing itself
+
+00:24:32.900 --> 00:24:36.740
+or maybe it grows I size slightly,
+I I press the tab key again.
+
+00:24:36.740 --> 00:24:39.580
+That is not good from
+a keyboard perspective.
+
+00:24:39.580 --> 00:24:40.770
+These links are active.
+
+00:24:40.770 --> 00:24:45.670
+I could actually take you to--
+If I'm on the YouTube one,
+
+00:24:45.670 --> 00:24:49.867
+if I press the enter key,
+it will actually take me
+
+00:24:49.868 --> 00:24:51.760
+to my YouTube channel.
+
+00:24:51.760 --> 00:24:53.450
+Let's go back to where we were.
+
+00:24:54.650 --> 00:24:58.180
+I think I need to ensure that
+we're in the right place now.
+
+00:25:00.460 --> 00:25:06.180
+On some of these things, focus seems
+to disappear all over the place
+
+00:25:06.180 --> 00:25:08.260
+which is not good from a
+keyboard user's perspective.
+
+00:25:10.460 --> 00:25:17.170
+Keyboard users can use these but
+the real problem is what happens
+
+00:25:17.170 --> 00:25:18.410
+for screen reader users.
+
+00:25:18.410 --> 00:25:24.430
+If we look at these
+elements, they are links
+
+00:25:26.260 --> 00:25:31.410
+but what the link
+contains is an SVG file.
+
+00:25:31.410 --> 00:25:37.740
+Now that's not a surprise
+to you but at the SVG file
+
+00:25:37.740 --> 00:25:41.750
+as it's defined here,
+has no accessible content at all.
+
+00:25:42.910 --> 00:25:46.540
+A screen reader user will
+know that there's a link there
+
+00:25:46.540 --> 00:25:50.020
+because the screen reader
+will recognize the a-tag
+
+00:25:50.020 --> 00:25:54.950
+but there is nothing
+meaningful inside that link
+
+00:25:54.950 --> 00:25:57.450
+to tell screen reader
+users what it's for.
+
+00:25:57.450 --> 00:26:02.460
+That is a completely useless block
+from an accessibility perspective
+
+00:26:03.470 --> 00:26:05.870
+because it's not really
+good for keyboard users
+
+00:26:05.870 --> 00:26:09.580
+and it certainly isn't good
+for screen reader users either.
+
+00:26:10.810 --> 00:26:14.190
+What else have we got on this page?
+
+00:26:14.190 --> 00:26:18.040
+The other block I've chosen is cards
+and I've put two of these together.
+
+00:26:18.040 --> 00:26:21.160
+Let's move that out the way.
+
+00:26:21.160 --> 00:26:21.880
+These are fine.
+
+00:26:21.880 --> 00:26:25.140
+It's got an image at the top that's
+got the correct alternate text
+
+00:26:25.140 --> 00:26:26.170
+attached to it.
+
+00:26:26.170 --> 00:26:29.350
+I've got a heading in here
+and then some plain text.
+
+00:26:29.350 --> 00:26:35.750
+I put a link in this one and these
+also are links at the bottom.
+
+00:26:35.750 --> 00:26:41.280
+Interestingly if I tab to
+it, these links disappear.
+
+00:26:41.280 --> 00:26:44.990
+Once again, this seems to be a
+problem with some of these blocks
+
+00:26:44.990 --> 00:26:47.690
+or maybe it's just the theme
+settings, I don't know.
+
+00:26:47.690 --> 00:26:51.540
+When I tab these things
+they just disappear
+
+00:26:51.540 --> 00:26:55.590
+because the background color changes
+to the same as the font color.
+
+00:26:56.940 --> 00:27:00.020
+which is a bit awkward really.
+
+00:27:00.020 --> 00:27:03.350
+That is all of the Stackable
+ones that I'm going to demo.
+
+00:27:03.350 --> 00:27:07.160
+I've got some time left so
+I'm going to have a quick look
+
+00:27:07.160 --> 00:27:08.590
+at some Kadence blocks.
+
+00:27:10.100 --> 00:27:12.180
+Once again, going back to plugins.
+
+00:27:13.420 --> 00:27:21.550
+Let's get Stackable and deactivate
+that and activate Kadence
+
+00:27:25.350 --> 00:27:27.090
+and we'll move to the Kadence page.
+
+00:27:30.070 --> 00:27:34.240
+Some good stuff in here actually,
+I was pleased to discover.
+
+00:27:34.240 --> 00:27:38.920
+The first thing is what they've got
+a block called table of contents,
+
+00:27:38.920 --> 00:27:41.990
+which is a nice idea if you've
+got a very long blog post
+
+00:27:43.470 --> 00:27:44.600
+with lots of headings.
+
+00:27:46.000 --> 00:27:48.130
+This is the block for you.
+
+00:27:48.130 --> 00:27:51.650
+It helps people find parts of the
+page they might be interested in
+
+00:27:51.650 --> 00:27:54.230
+because there are in-page
+links down to the headings
+
+00:27:54.230 --> 00:27:55.690
+and that works quite nicely.
+
+00:27:57.920 --> 00:28:00.130
+As long as you've got headings
+set up properly that is,
+
+00:28:00.130 --> 00:28:03.730
+including it takes into account
+like your heading levels,
+
+00:28:03.730 --> 00:28:05.030
+your heading hierarchy.
+
+00:28:05.030 --> 00:28:05.970
+That's quite good.
+
+00:28:05.970 --> 00:28:09.110
+The only thing that's wrong
+here really with this is that
+
+00:28:09.110 --> 00:28:13.260
+that is an obvious candidate to
+be made heading, but it isn't.
+
+00:28:13.260 --> 00:28:15.130
+It's just bold text.
+
+00:28:15.130 --> 00:28:17.810
+That's my only criticism of
+the table of contents thing.
+
+00:28:20.440 --> 00:28:22.480
+Further down the page
+we've got accordions.
+
+00:28:22.480 --> 00:28:24.660
+Now, these are not done
+with summary and details.
+
+00:28:24.660 --> 00:28:29.320
+These are done with the old,
+older, slightly older method
+
+00:28:29.320 --> 00:28:32.680
+of doing accordions but they
+are perfectly accessible.
+
+00:28:32.680 --> 00:28:35.780
+If I was building an accordion
+myself and not using summary
+
+00:28:35.780 --> 00:28:38.680
+and details,
+this is exactly how I would do it.
+
+00:28:38.680 --> 00:28:44.910
+I could click on them and they've got
+a nice good keybard focus indication
+
+00:28:44.910 --> 00:28:47.280
+and they are good for
+screen readers as well
+
+00:28:47.280 --> 00:28:51.090
+because they use all the
+necessary ARIA attributes
+
+00:28:51.090 --> 00:28:53.910
+to make it perfectly
+accessible, which is good.
+
+00:28:55.470 --> 00:28:56.470
+Moving on.
+
+00:28:56.880 --> 00:28:59.280
+Next one I've got is a tab panel.
+
+00:28:59.280 --> 00:29:01.290
+There's a slight problem with
+the appearance of this one
+
+00:29:01.290 --> 00:29:05.170
+because tab 3 is not as
+high as the other two
+
+00:29:05.170 --> 00:29:09.530
+but this is pretty good
+where keyboard focus is here.
+
+00:29:09.530 --> 00:29:15.480
+If I tab to the tab panel, the
+focus is there, it's on this panel
+
+00:29:15.480 --> 00:29:16.340
+at the moment.
+
+00:29:16.340 --> 00:29:18.900
+It disappears immediately
+though, that's the problem
+
+00:29:18.900 --> 00:29:22.860
+because you're not certain
+now where keyboard focus is.
+
+00:29:22.860 --> 00:29:27.470
+It actually uses the official
+way of doing tab panels
+
+00:29:27.470 --> 00:29:31.480
+from keyboard operability
+and accessibility.
+
+00:29:31.480 --> 00:29:33.740
+I've tabbed to the
+first tab header.
+
+00:29:33.740 --> 00:29:38.290
+If I want to move to any of the
+other tab headers using a keyboard,
+
+00:29:38.290 --> 00:29:41.290
+I will actually use the
+left and right arrow keys.
+
+00:29:41.290 --> 00:29:46.150
+I'll press the right arrow key
+now and we can see that it's moved
+
+00:29:46.150 --> 00:29:50.910
+to the second one and
+then the third one.
+
+00:29:50.910 --> 00:29:54.420
+I'm using the left arrow key to
+move back to where I was before.
+
+00:29:56.180 --> 00:29:58.030
+That's pretty good.
+
+00:29:58.030 --> 00:30:02.030
+That's exactly how you should
+build a tab panel to work.
+
+00:30:02.030 --> 00:30:07.330
+Also, the ARIA underneath is
+absolutely correct as well.
+
+00:30:11.410 --> 00:30:13.520
+Yes, so that's
+pretty good actually.
+
+00:30:13.520 --> 00:30:17.600
+Apart from the slight appearance
+problem here, and the fact
+
+00:30:17.600 --> 00:30:20.200
+that the keyboard focus
+disappears very quickly.
+
+00:30:21.230 --> 00:30:24.820
+Okay, underneath, it's a testimonial
+block, there's nothing much going on
+
+00:30:24.820 --> 00:30:29.360
+in here, so I won't say
+anything more about that.
+
+00:30:29.360 --> 00:30:33.320
+Now, we've got the gallery,
+and lightbox, click on that,
+
+00:30:33.320 --> 00:30:37.080
+and it shows me a lightbox
+again, which is good.
+
+00:30:37.080 --> 00:30:38.860
+Let's get rid of that.
+
+00:30:38.860 --> 00:30:42.790
+Now, I'm going to put the focus
+back up here so I know exactly,
+
+00:30:42.790 --> 00:30:44.040
+where focus is.
+
+00:30:44.040 --> 00:30:46.340
+Focus is on the tab
+panel at the moment.
+
+00:30:46.340 --> 00:30:50.300
+If I press the tab key,
+I would expect focus to end up here.
+
+00:30:50.300 --> 00:30:53.730
+There's nothing in the
+testimonial that's interactive.
+
+00:30:53.730 --> 00:30:58.730
+I would expect focus to end up
+here when I press the tab key.
+
+00:30:58.730 --> 00:31:01.090
+Now, focus does end
+up on that image,
+
+00:31:01.090 --> 00:31:05.510
+but it has absolutely no
+focus indication, okay?
+
+00:31:05.510 --> 00:31:13.610
+I can press the enter key,
+and it does show me the lightbox.
+
+00:31:13.610 --> 00:31:17.150
+Now, if I press the tab key to
+try, and move to any of these
+
+00:31:17.150 --> 00:31:20.340
+as if I'm a sighted keyboard
+user, I want to potentially get
+
+00:31:20.340 --> 00:31:24.280
+to these buttons to move through
+the images, or close the lightbox.
+
+00:31:24.280 --> 00:31:29.860
+If I press the tab key nothing
+happens, but actually, I'm still
+
+00:31:29.860 --> 00:31:31.100
+on the underlying page.
+
+00:31:31.100 --> 00:31:32.830
+That is a problem.
+
+00:31:32.830 --> 00:31:37.240
+With the lightbox, you always
+want, when I open the lightbox
+
+00:31:37.240 --> 00:31:40.130
+for focus to be put
+inside the lightbox.
+
+00:31:40.130 --> 00:31:42.850
+Otherwise, keyboard users
+are not really going to know
+
+00:31:42.850 --> 00:31:46.530
+what's going on,
+and they can't really use it.
+
+00:31:46.530 --> 00:31:50.090
+Now, it does have the left
+and right arrow functionality
+
+00:31:50.090 --> 00:31:53.160
+as the other one I showed
+you before did have,
+
+00:31:53.160 --> 00:31:55.150
+and also I can press
+the escape key.
+
+00:31:56.650 --> 00:32:01.040
+It kind of is keyboard accessible,
+but there's nothing anywhere
+
+00:32:01.040 --> 00:32:03.980
+to tell the user what
+keystrokes are relevant.
+
+00:32:05.170 --> 00:32:11.000
+Also, the focus indication on
+the actual images could be nice.
+
+00:32:12.860 --> 00:32:16.810
+I'm thinking that focus indication's
+going to be on that first image.
+
+00:32:16.810 --> 00:32:18.250
+There it is.
+
+00:32:18.250 --> 00:32:21.740
+Now, the next thing that's going
+to get focus is this info box here,
+
+00:32:21.740 --> 00:32:24.330
+which is effectively one big link.
+
+00:32:26.160 --> 00:32:29.480
+Let me press the tab key
+again, and again.
+
+00:32:29.480 --> 00:32:33.630
+Now, when I press the tab key,
+focus will go to the info box.
+
+00:32:35.010 --> 00:32:38.210
+Notice that the focus
+indication is there in ABLE,
+
+00:32:38.210 --> 00:32:42.340
+you might not even have seen
+it across the web there.
+
+00:32:42.340 --> 00:32:44.060
+It flashes very, very briefly.
+
+00:32:44.060 --> 00:32:45.900
+It's less than a second.
+
+00:32:45.900 --> 00:32:49.070
+Focus indications if they
+just immediately disappear,
+
+00:32:49.070 --> 00:32:52.300
+that's not at all helpful, okay?
+
+00:32:52.300 --> 00:32:53.610
+Now, focus, it's on that.
+
+00:32:53.610 --> 00:32:55.010
+It actually is a link.
+
+00:32:55.010 --> 00:32:59.470
+The whole thing is a link
+back to the simple stuff page.
+
+00:33:00.810 --> 00:33:03.880
+Whatever you put in here
+effectively becomes the link text.
+
+00:33:05.310 --> 00:33:07.420
+Since it's going back to one
+of the other block pages,
+
+00:33:07.420 --> 00:33:10.720
+that's probably, not appropriate
+text, but that's down
+
+00:33:10.720 --> 00:33:13.130
+to what you choose to put in it.
+
+00:33:13.130 --> 00:33:14.430
+How am I doing for time?
+
+00:33:14.430 --> 00:33:16.030
+I think I'm okay.
+
+00:33:16.030 --> 00:33:19.720
+Let's move down, and look,
+I've done a form here as well,
+
+00:33:19.720 --> 00:33:23.510
+and I'm very pleased to relate
+that this form is generally,
+
+00:33:23.510 --> 00:33:26.290
+pretty good from an
+accessibility perspective.
+
+00:33:26.290 --> 00:33:30.380
+I've got nice focus indication going
+on here on all of these things,
+
+00:33:30.380 --> 00:33:34.350
+I can tab to each of
+them, and this works okay.
+
+00:33:34.350 --> 00:33:35.420
+That's a selection.
+
+00:33:36.890 --> 00:33:41.880
+The only slight problem
+here is these radio buttons.
+
+00:33:41.880 --> 00:33:43.900
+They're very, very tiny.
+
+00:33:43.900 --> 00:33:46.840
+They're almost tinier than
+perhaps the native ones.
+
+00:33:46.840 --> 00:33:48.780
+I don't know, I'm not quite sure
+how that's done, but they're very,
+
+00:33:48.780 --> 00:33:49.780
+very small.
+
+00:33:51.420 --> 00:33:55.200
+They work okay, except for
+the fact that the other form
+
+00:33:55.200 --> 00:34:00.590
+I showed you before, these are
+not contained in the fieldset
+
+00:34:00.590 --> 00:34:01.590
+or with a legend.
+
+00:34:03.160 --> 00:34:07.660
+Yes, I will hear that this radio
+button is for eating take away,
+
+00:34:07.660 --> 00:34:08.740
+and delivery.
+
+00:34:08.740 --> 00:34:14.250
+Now, I might guess that
+that is about my options for
+
+00:34:14.250 --> 00:34:18.470
+how I want my food, but it
+doesn't read out eating options
+
+00:34:18.470 --> 00:34:23.140
+in a screen reader, because it's
+not marked up in a fieldset,
+
+00:34:23.140 --> 00:34:24.150
+in a legend.
+
+00:34:24.150 --> 00:34:25.560
+That would be really nice.
+
+00:34:25.560 --> 00:34:28.940
+Otherwise, this form is very good,
+because if I submit this form,
+
+00:34:28.940 --> 00:34:33.120
+having indicated that these
+fields are all mandatory
+
+00:34:33.120 --> 00:34:35.680
+and that it could be slightly
+better from a screen reader user
+
+00:34:35.680 --> 00:34:36.460
+perspective.
+
+00:34:36.460 --> 00:34:39.260
+If they used ARIA
+required on there.
+
+00:34:39.260 --> 00:34:44.330
+If I submit the form, it produces
+appropriate error messages,
+
+00:34:44.330 --> 00:34:48.240
+and these are all accessible
+as well to a screen reader.
+
+00:34:48.240 --> 00:34:49.870
+That is really, really good.
+
+00:34:49.870 --> 00:34:54.180
+Yes, that's nice.
+
+00:34:57.540 --> 00:34:59.060
+What else can I say about this?
+
+00:34:59.060 --> 00:35:00.200
+That's it.
+
+00:35:00.200 --> 00:35:04.210
+Okay, so that's all of the
+Kadence blocks that I've covered.
+
+00:35:05.860 --> 00:35:06.880
+There we go.
+
+00:35:06.880 --> 00:35:08.130
+That's pretty good actually.
+
+00:35:08.130 --> 00:35:09.720
+Most of that stuff's pretty good.
+
+00:35:09.720 --> 00:35:11.550
+Few tweaks here, and there.
+
+00:35:11.550 --> 00:35:13.460
+That could be much better.
+
+00:35:13.460 --> 00:35:21.980
+Now, let's move back
+into my presentation.
+
+00:35:21.980 --> 00:35:24.330
+It's a bit early in the morning
+here, half asleep still.
+
+00:35:24.330 --> 00:35:25.540
+Sorry.
+
+00:35:25.540 --> 00:35:29.540
+Yes, now, I have found some issues,
+and I started doing the testing
+
+00:35:29.540 --> 00:35:35.830
+a few weeks ago, and I found
+some issues, and I have reported
+
+00:35:35.830 --> 00:35:39.430
+some of them,
+and already some have been fixed.
+
+00:35:39.430 --> 00:35:41.180
+I think in the Coblocks
+ones, a couple
+
+00:35:41.180 --> 00:35:44.100
+of the issues have already
+been fixed, which is nice.
+
+00:35:44.100 --> 00:35:47.040
+It's good that the plugin
+authors are responding to that.
+
+00:35:47.040 --> 00:35:50.460
+There are some, which I haven't
+reported yet, which I will.
+
+00:35:50.460 --> 00:35:53.150
+There are others I think
+it's-- I can't remember.
+
+00:35:53.150 --> 00:35:56.370
+I'm not going to say who,
+but where I did get pushback
+
+00:35:56.370 --> 00:35:59.440
+on something, so I'm going
+to have to work a bit harder
+
+00:35:59.440 --> 00:36:01.460
+to get people to
+actually improve stuff.
+
+00:36:03.860 --> 00:36:05.030
+There we go.
+
+00:36:05.030 --> 00:36:11.110
+That is my quick demo of some
+and some Gutenberg blocks looking
+
+00:36:11.110 --> 00:36:14.400
+at the accessibility
+for your site visitors.
+
+00:36:15.520 --> 00:36:19.110
+That is it for my presentation.
+
+00:36:28.019 --> 00:36:28.730
+>> DANIELLE: Awesome.
+
+00:36:28.730 --> 00:36:33.130
+Thank you so much for all of
+the really useful information.
+
+00:36:33.130 --> 00:36:39.600
+I find it, especially, useful for
+the block libraries, these plugins,
+
+00:36:39.600 --> 00:36:44.460
+because I won't often
+install other random ones.
+
+00:36:44.460 --> 00:36:47.300
+I tend to stick with the core ones.
+
+00:36:47.300 --> 00:36:51.560
+I really liked the walkthrough
+and seeing which one is ahead
+
+00:36:51.560 --> 00:36:53.960
+of the others for right now.
+
+00:36:53.960 --> 00:36:57.790
+>> GRAHAM: Yes, it's interesting,
+and it's a bit of a frustration
+
+00:36:57.790 --> 00:37:01.090
+as I mentioned that,
+if you want some Coblocks ones,
+
+00:37:01.090 --> 00:37:02.710
+and some Stackable
+ones, and some Kadence,
+
+00:37:02.710 --> 00:37:05.570
+if you have all three
+plugins running, some of them
+
+00:37:05.570 --> 00:37:09.200
+just don't work properly,
+which is the real pain basically.
+
+00:37:09.200 --> 00:37:09.600
+>> DANIELLE: Yes.
+
+00:37:09.600 --> 00:37:10.890
+Really interesting.
+
+00:37:10.890 --> 00:37:14.970
+I'm sure there's lots of
+workarounds that people are starting
+
+00:37:14.970 --> 00:37:15.970
+to figure out.
+
+00:37:17.050 --> 00:37:20.210
+Yes, we have a couple
+of questions for now.
+
+00:37:20.210 --> 00:37:23.670
+As a reminder to anyone watching,
+you can enter your questions
+
+00:37:23.670 --> 00:37:28.070
+in the Q&A tab next
+to the Livestream.
+
+00:37:28.070 --> 00:37:33.730
+Our first question is, do any of
+the block providers give information
+
+00:37:33.730 --> 00:37:36.810
+about the accessibility of
+the blocks in their libraries,
+
+00:37:36.810 --> 00:37:39.800
+or was all of this,
+start-- you had no idea
+
+00:37:39.800 --> 00:37:40.890
+what you were getting into?
+
+00:37:42.260 --> 00:37:44.260
+>> GRAHAM: It was
+really the latter there.
+
+00:37:44.260 --> 00:37:46.360
+I had no idea what
+I was getting into.
+
+00:37:46.360 --> 00:37:51.380
+As I mentioned before,
+I kind of stayed away from Gutenburg
+
+00:37:51.380 --> 00:37:56.860
+because I was so disenchanted with
+the accessibility of the admin area.
+
+00:37:57.880 --> 00:37:59.140
+I kind of avoided using it.
+
+00:37:59.140 --> 00:38:01.900
+I'm still using the classic
+editor on most of the websites
+
+00:38:01.900 --> 00:38:05.770
+that I'm doing, all of the
+websites I that I built for myself.
+
+00:38:08.340 --> 00:38:13.600
+I had no information at all,
+and I chose those three plugins.
+
+00:38:13.600 --> 00:38:16.430
+I did look at a couple of others
+as well, but these were nice.
+
+00:38:16.430 --> 00:38:22.370
+Good ones to look at,
+based on advice from other people.
+
+00:38:22.370 --> 00:38:29.150
+I have found no information at all
+on those plugins about accessibility.
+
+00:38:29.150 --> 00:38:32.560
+Now, I'm not saying there isn't any,
+but I haven't found any information.
+
+00:38:34.480 --> 00:38:38.820
+Yes, a lot of people are still
+learning about accessibility,
+
+00:38:38.820 --> 00:38:43.340
+and it's good they are learning,
+but it's not still quite
+
+00:38:43.340 --> 00:38:45.680
+in the mainstream enough really.
+
+00:38:46.524 --> 00:38:51.860
+>> DANIELLE: Yes, our next question
+is, you've answered it a bit.
+
+00:38:51.860 --> 00:38:54.970
+Do you recommend Gutenberg for
+accessibility, or will people
+
+00:38:54.970 --> 00:38:56.420
+to check somewhere else?
+
+00:38:59.170 --> 00:39:00.550
+It's kind of a loaded question.
+
+00:39:01.172 --> 00:39:02.240
+>> GRAHAM: [laughs]
+
+00:39:02.240 --> 00:39:07.800
+Yes, if you are running a
+website, and you're setting up
+
+00:39:07.800 --> 00:39:12.200
+a brand new website for your
+company, you can certainly,
+
+00:39:12.200 --> 00:39:15.480
+just pick up like I did
+one of the default themes,
+
+00:39:15.480 --> 00:39:19.540
+were press default themes,
+and start using it straight away,
+
+00:39:19.540 --> 00:39:21.640
+and you can get a good output.
+
+00:39:22.740 --> 00:39:27.280
+If you stick with the core blocks,
+then generally, that's pretty good.
+
+00:39:27.280 --> 00:39:31.120
+I mentioned with the tables one,
+there's some limitations there
+
+00:39:31.120 --> 00:39:32.230
+as to what you can do.
+
+00:39:33.440 --> 00:39:38.130
+I didn't obviously,
+do every single core block,
+
+00:39:38.130 --> 00:39:42.040
+but that's pretty good,
+and you can style them how you want.
+
+00:39:42.040 --> 00:39:47.740
+Now, given its site editing rather
+than content editing, I suppose
+
+00:39:47.740 --> 00:39:53.480
+if you persevered, you could
+actually, end up with a good website
+
+00:39:53.480 --> 00:39:56.450
+that was fairly good from an
+accessibility perspective.
+
+00:39:56.450 --> 00:40:00.830
+In the olden days, with the
+classic editor you would need
+
+00:40:00.830 --> 00:40:04.150
+to get a developer like me
+and like thousands of others
+
+00:40:04.150 --> 00:40:06.670
+to actually build you a theme.
+
+00:40:06.670 --> 00:40:10.650
+Then the accessibility of your
+website is governed partly
+
+00:40:10.650 --> 00:40:15.040
+by your own content author
+knowledge of accessibility but also
+
+00:40:15.040 --> 00:40:18.370
+how the theme developer
+has put the theme together.
+
+00:40:18.370 --> 00:40:25.610
+It's quite easy to bake inaccessible
+features into a WordPress theme.
+
+00:40:25.610 --> 00:40:27.540
+The default themes are
+generally pretty good.
+
+00:40:30.330 --> 00:40:37.510
+I think yes it's probably not
+one that you want to avoid.
+
+00:40:37.510 --> 00:40:42.650
+If you stick with the core elements,
+then the chances are you're going
+
+00:40:42.650 --> 00:40:46.190
+to end up with a pretty
+accessible website.
+
+00:40:46.190 --> 00:40:49.310
+>> DANIELLE: Because they're
+core they're easier to extend
+
+00:40:49.310 --> 00:40:51.600
+in those different ways.
+
+00:40:51.600 --> 00:40:55.430
+We have a question about can I
+put ARIA values in WordPress?
+
+00:40:55.430 --> 00:40:58.590
+I don't recall there being
+a way to go that deep.
+
+00:40:58.590 --> 00:41:02.380
+I know there's a plugin that
+allows you to do screen reader text
+
+00:41:02.380 --> 00:41:03.380
+and different things.
+
+00:41:04.550 --> 00:41:08.980
+I would assume that hooking into
+these blocks would allow you
+
+00:41:08.980 --> 00:41:12.620
+to manipulate them and
+add those ARIA values.
+
+00:41:13.280 --> 00:41:19.280
+>> GRAHAM: Then obviously you
+can-- if you've got the knowledge,
+
+00:41:19.280 --> 00:41:22.290
+then you can go and
+edit the code yourself.
+
+00:41:23.480 --> 00:41:25.950
+With ARIA,
+I would be very cautious.
+
+00:41:25.950 --> 00:41:30.500
+I've trained a lot of people, a
+lot of developers in accessibility,
+
+00:41:30.500 --> 00:41:33.320
+and I've reviewed a lot of
+websites for accessibility.
+
+00:41:33.320 --> 00:41:37.330
+One of the common problems
+is that people use ARIA
+
+00:41:37.330 --> 00:41:41.360
+in the wrong place,
+and the wrong ARIA attributes.
+
+00:41:41.360 --> 00:41:46.430
+If you use ARIA incorrectly
+it can be often a lot worse
+
+00:41:46.430 --> 00:41:50.150
+for accessibility than
+just not using it at all.
+
+00:41:50.150 --> 00:41:54.000
+I'd be very, very cautious about
+adding your own ARIA values.
+
+00:41:54.000 --> 00:41:58.490
+Also, in the case of the old
+wave way of doing an accordion,
+
+00:41:59.850 --> 00:42:03.570
+you need to tweak the values
+of the ARIA attributes
+
+00:42:03.570 --> 00:42:06.390
+when the accordion opens
+and when it closes.
+
+00:42:06.390 --> 00:42:10.220
+Now that's something that's done
+in scripting so you'd have to get
+
+00:42:10.220 --> 00:42:14.590
+into the actual JavaScript
+to actually start making sure
+
+00:42:14.590 --> 00:42:17.090
+that the ARIA has the
+correct values there.
+
+00:42:17.090 --> 00:42:19.280
+That's if you know
+what you're doing.
+
+00:42:19.280 --> 00:42:20.440
+Yes of course you can do it.
+
+00:42:20.440 --> 00:42:23.600
+If you don't know what you're doing,
+I would caution against doing that.
+
+00:42:23.600 --> 00:42:24.830
+>> DANIELLE: Yes.
+
+00:42:24.830 --> 00:42:29.570
+I think there's that balance
+between giving the users the ability
+
+00:42:29.570 --> 00:42:31.850
+to do anything in the editor.
+
+00:42:31.850 --> 00:42:34.370
+Then should we put this?
+
+00:42:34.370 --> 00:42:34.740
+[laughs]
+
+00:42:34.740 --> 00:42:37.110
+Is this the thing we should
+be adding in the first place?
+
+00:42:37.110 --> 00:42:37.720
+[laughs]
+
+00:42:37.720 --> 00:42:38.589
+>> GRAHAM: Yes.
+
+00:42:38.589 --> 00:42:41.810
+With those ones with the accordions
+I think it was the Kadence blocks
+
+00:42:41.810 --> 00:42:46.880
+that I looked at the accordion and
+the tab panel, someone has put a lot
+
+00:42:46.880 --> 00:42:48.660
+of effort into getting that right.
+
+00:42:48.660 --> 00:42:50.520
+From an accessibility perspective.
+
+00:42:50.520 --> 00:42:52.770
+I didn't change any of
+the code on that at all.
+
+00:42:54.940 --> 00:43:00.990
+The ARIA is correct and it's tweaked
+by the JavaScript appropriately
+
+00:43:00.990 --> 00:43:02.780
+when the views change.
+
+00:43:02.780 --> 00:43:06.110
+Someone that he's put in some
+effort in somewhere for certainly
+
+00:43:06.110 --> 00:43:08.810
+for Kadence definitely.
+
+00:43:08.810 --> 00:43:10.870
+Some of the other ones as well.
+
+00:43:10.870 --> 00:43:14.090
+Whether it was done by accident
+or whether it was done on purpose
+
+00:43:14.090 --> 00:43:15.159
+in another matter.
+
+00:43:15.159 --> 00:43:15.725
+>> DANIELLE: [laughs]
+
+00:43:15.725 --> 00:43:16.870
+All right.
+
+00:43:16.870 --> 00:43:21.250
+Yes, that's obviously something
+to look out for as a developer
+
+00:43:21.250 --> 00:43:23.640
+if you're looking to manipulate
+those values maybe try
+
+00:43:23.640 --> 00:43:27.800
+to find some kind of plugin that
+lets you do that, but still hides it
+
+00:43:27.800 --> 00:43:29.870
+from the users kind of thing.
+
+00:43:29.870 --> 00:43:32.080
+Yes, I had a question.
+
+00:43:36.750 --> 00:43:40.050
+The blocks that you showed
+us, are these the ones
+
+00:43:40.050 --> 00:43:43.710
+that you would recommend
+testing on any library?
+
+00:43:43.710 --> 00:43:47.290
+If some were to pop out of
+nowhere, are these the ones
+
+00:43:47.290 --> 00:43:52.230
+you would recommend to get an
+overall feel for how they're doing?
+
+00:43:57.135 --> 00:43:58.150
+>> GRAHAM: Perhaps, yes.
+
+00:43:58.150 --> 00:44:00.300
+I did look at a couple
+of other plugins.
+
+00:44:00.300 --> 00:44:03.620
+I haven't got the notes
+to hand to which ones,
+
+00:44:03.620 --> 00:44:08.300
+but the blocks I chose I
+thought about all the websites
+
+00:44:08.300 --> 00:44:12.810
+that I've built for people and all
+the websites that I run myself,
+
+00:44:12.810 --> 00:44:15.760
+the functionality
+that I'd want to do.
+
+00:44:15.760 --> 00:44:21.370
+For example, obviously,
+the simple stuff having a data table
+
+00:44:21.370 --> 00:44:26.000
+or a product comparison table I've
+done that for people on a website.
+
+00:44:27.200 --> 00:44:30.180
+Having the lightbox
+functionality with a gallery,
+
+00:44:31.320 --> 00:44:34.370
+if people have got lots
+of pictures to show,
+
+00:44:34.370 --> 00:44:36.190
+that's a good way of doing it.
+
+00:44:36.190 --> 00:44:40.300
+To have forms obviously because
+if you want to do something
+
+00:44:40.300 --> 00:44:44.760
+that's not the standard comment
+on a blog form, but if you want
+
+00:44:44.760 --> 00:44:48.240
+to do a contact us form,
+that's quite an important thing
+
+00:44:48.240 --> 00:44:49.520
+that you want to see.
+
+00:44:49.520 --> 00:44:55.500
+I chose the blocks to represent the
+functionality I would like to see
+
+00:44:55.500 --> 00:45:00.230
+on a website and tested them then.
+
+00:45:00.230 --> 00:45:04.210
+I didn't do so much ones
+that I thought were a bit--
+
+00:45:04.210 --> 00:45:05.970
+who's ever going
+to use that really.
+
+00:45:05.970 --> 00:45:06.300
+>> DANIELLE: [laugh].
+
+00:45:06.300 --> 00:45:08.470
+>> GRAHAM: That's
+my view obviously.
+
+00:45:08.470 --> 00:45:11.700
+Some people put a lot of
+effort into these blocks,
+
+00:45:11.700 --> 00:45:13.820
+and there's probably a
+good use case for them
+
+00:45:13.820 --> 00:45:17.060
+but I just chose the ones that
+I thought would be the ones
+
+00:45:17.060 --> 00:45:18.440
+that I'd want to use myself.
+
+00:45:19.610 --> 00:45:24.640
+If I was picking up another
+plugin-- if someone wants to say,
+
+00:45:24.640 --> 00:45:29.270
+"Graham you should be trying
+the such and such block plugin."
+
+00:45:29.270 --> 00:45:29.580
+Sure.
+
+00:45:29.580 --> 00:45:31.430
+I'll give it a go and
+I'll probably be looking
+
+00:45:31.430 --> 00:45:36.980
+for a similar tick list of
+functionality in testing that really.
+
+00:45:36.980 --> 00:45:39.050
+Does that answer your
+question, Danielle?
+
+00:45:39.050 --> 00:45:40.010
+>> DANIELLE: Yes definitely.
+
+00:45:40.010 --> 00:45:40.390
+For sure.
+
+00:45:40.390 --> 00:45:40.920
+>> GRAHAM: Good.
+
+00:45:42.240 --> 00:45:46.480
+>> DANIELLE: Overall would you
+say you were pleasantly surprised
+
+00:45:46.480 --> 00:45:49.480
+about what you expected?
+
+00:45:49.480 --> 00:45:51.100
+Were you disappointed?
+
+00:45:51.100 --> 00:45:54.050
+How do you feel about
+the status of both core
+
+00:45:54.051 --> 00:45:55.910
+and some of these libraries?
+
+00:45:55.910 --> 00:45:59.890
+>> GRAHAM: I think with core
+there's been a lot of work done.
+
+00:45:59.890 --> 00:46:00.890
+I know.
+
+00:46:01.680 --> 00:46:02.980
+I think that was pretty good.
+
+00:46:02.980 --> 00:46:09.680
+I was expecting the simple stuff
+to be okay but that was good.
+
+00:46:09.680 --> 00:46:11.730
+I was pleased about that.
+
+00:46:11.730 --> 00:46:16.300
+I was a bit picky about the table
+with row headers not being able
+
+00:46:16.300 --> 00:46:20.340
+to do that with that could be added
+quite easily I should imagine.
+
+00:46:20.340 --> 00:46:27.060
+The other ones, with Kadence,
+I am going to mention that actually,
+
+00:46:27.060 --> 00:46:29.620
+there's been a lot of effort
+put in as I mentioned before,
+
+00:46:29.620 --> 00:46:30.620
+so that's pretty good.
+
+00:46:32.990 --> 00:46:34.060
+Yes, I was quite pleased.
+
+00:46:34.060 --> 00:46:36.570
+There's good bits about all
+of the ones that I featured.
+
+00:46:36.570 --> 00:46:40.120
+I don't want to go down on
+any of the plugin authors
+
+00:46:40.120 --> 00:46:43.680
+or companies that I featured here.
+
+00:46:43.680 --> 00:46:48.780
+I just chose those ones because
+I was asked or I chose these
+
+00:46:48.780 --> 00:46:51.110
+because of ones that
+I got suggested.
+
+00:46:52.890 --> 00:46:57.720
+I think it's generally slightly
+better than I expected,
+
+00:46:57.720 --> 00:47:01.720
+but I'm also not surprised,
+to find that there are
+
+00:47:01.720 --> 00:47:03.300
+still some big problems.
+
+00:47:03.300 --> 00:47:07.520
+Keyboard accessibility is such
+an easy thing to get right,
+
+00:47:07.520 --> 00:47:08.620
+and it's such an important thing.
+
+00:47:08.620 --> 00:47:13.010
+There's many more people,
+who are keyboard-only users
+
+00:47:13.010 --> 00:47:15.230
+than there are users
+of screen readers.
+
+00:47:15.230 --> 00:47:18.170
+A lot of people think
+that accessibility is
+
+00:47:18.170 --> 00:47:20.640
+all about blind people
+using screen readers.
+
+00:47:21.650 --> 00:47:25.350
+Yes, obviously, that's a big
+thing but there are a lot
+
+00:47:25.350 --> 00:47:27.990
+of other people out there who
+don't use a screen reader,
+
+00:47:27.990 --> 00:47:29.120
+but who do use a keyboard.
+
+00:47:31.020 --> 00:47:35.550
+Things like focus indication and
+moving focus when a lightbox opens
+
+00:47:35.550 --> 00:47:36.420
+and stuff like that.
+
+00:47:36.420 --> 00:47:39.570
+That's the easy stuff to get right.
+
+00:47:43.995 --> 00:47:47.010
+>> DANIELLE: I think that's
+it for our questions.
+
+00:47:48.400 --> 00:47:50.240
+I just wanted to say thank you.
+
+00:47:50.240 --> 00:47:55.430
+I love people testing stuff
+and watching them test things.
+
+00:47:55.430 --> 00:48:00.350
+I think it's nice to look
+over the shoulder of somebody
+
+00:48:00.350 --> 00:48:04.550
+and see how they test versus
+how I test and I enjoy it.
+
+00:48:04.550 --> 00:48:05.223
+Thank you.
+
+00:48:05.819 --> 00:48:07.240
+>> GRAHAM: Thanks, Danielle.
+
+00:48:07.240 --> 00:48:08.830
+Yes, it is been good.
+
+00:48:08.830 --> 00:48:10.621
+Hopefully,
+everyone found it useful.
+
+00:48:10.621 --> 00:48:11.217
+>> DANIELLE: Yes.
+
+00:48:11.217 --> 00:48:11.989
+Awesome.
+
+00:48:12.840 --> 00:48:16.480
+Thank you for attending this
+session with Graham Armfield.
+
+00:48:16.480 --> 00:48:21.070
+You can continue the conversation
+in the chat or on social media.
+
+00:48:21.070 --> 00:48:32.176
+We have a couple of hashtags
+#WPA11yDay and #WPAD2022.
+
+00:48:33.020 --> 00:48:37.910
+We also would appreciate it if you
+go to wpaccessibility.day/feedback
+
+00:48:39.900 --> 00:48:43.930
+to provide anonymous feedback for
+our speakers on their presentations.
+
+00:48:45.640 --> 00:48:47.810
+Stay tuned for our next session.
+
+00:48:47.810 --> 00:48:53.230
+Inclusive Coding and Design,
+comes up next at 8:00 AM UTC
+
+00:48:53.230 --> 00:48:54.700
+and 3:00 AM Central.
+
+00:48:55.750 --> 00:48:59.640
+While you're waiting don't forget
+to visit our sponsor's pages
+
+00:48:59.640 --> 00:49:01.470
+to grab virtual swag.
+
+00:49:01.470 --> 00:49:03.550
+Enter for a chance
+to win great prizes
+
+00:49:03.550 --> 00:49:05.740
+and we will see you right
+here after the break.

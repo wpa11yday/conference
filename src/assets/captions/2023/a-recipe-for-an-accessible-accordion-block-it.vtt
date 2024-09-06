@@ -1,0 +1,3373 @@
+WEBVTT
+
+00:00:01.380 --> 00:00:05.740
+AMBER HINDS: WordPress
+Accessibility Day 2023: La ricetta
+
+00:00:05.740 --> 00:00:10.330
+per blocchi accordion accessibili.
+Ne parlano Aurooba Ahmed,
+
+00:00:10.330 --> 00:00:15.450
+Sviluppatrice web per Aurooba Makes, e
+Brian Coords, sviluppatore WordPress.
+
+00:00:15.450 --> 00:00:19.110
+Questa presentazione è stata
+registrata il 28 settembre 2023.
+
+00:00:19.110 --> 00:00:22.580
+JULIE JOHNSON: Vi do il benvenuto al
+WordPress Accessibility Day.
+
+00:00:22.580 --> 00:00:24.290
+Mi chiamo Julie Johnson.
+
+00:00:24.290 --> 00:00:27.580
+Sono una specialista dell'e-learning 
+per l'accessibilità,
+
+00:00:27.580 --> 00:00:32.450
+e aiuto a gestire una piattaforma chiamata
+Integrate Trauma Informed Network.
+
+00:00:32.450 --> 00:00:36.490
+Grazie per essere
+qui con noi, con Aurooba Ahmed
+
+00:00:36.490 --> 00:00:42.330
+e Brian Coords che parleranno di
+blocchi accordion accessibili.
+
+00:00:42.330 --> 00:00:45.920
+Quindi Aurooba [Inudibile 00:45]
+
+00:00:45.920 --> 00:00:49.680
+un decennio di esperienza nella creazione
+di progetti WordPress personalizzati
+
+00:00:49.680 --> 00:00:52.360
+da piccoli
+plugin WordPress open source
+
+00:00:52.360 --> 00:00:55.590
+alle grandi
+piattaforme comunitarie personalizzate.
+
+00:00:55.590 --> 00:01:00.290
+È anche co-conduttrice di View Source,
+uno show settimanale sullo sviluppo di WordPress,
+
+00:01:00.290 --> 00:01:04.100
+e co-creatrice di Open
+Source Framework Tangent.
+
+00:01:04.100 --> 00:01:06.710
+Originaria di Calgary, Canada,
+è facile trovarla immersa
+
+00:01:06.710 --> 00:01:09.080
+nella lettura di un buon libro o
+in un'escursione nelle Montagne Rocciose
+
+00:01:09.080 --> 00:01:12.020
+quando non si sta concentrando
+su qualche pezzo del suo computer.
+
+00:01:13.270 --> 00:01:14.510
+Qualcosa in più su Brian.
+
+00:01:16.440 --> 00:01:19.660
+Brian Coords è sviluppatore,
+scrittore e formatore WordPress.
+
+00:01:19.660 --> 00:01:21.950
+Nel suo lavoro quotidiano,
+Brian è il direttore della tecnologia
+
+00:01:21.950 --> 00:01:25.080
+presso WordPress Development
+Agency, HDC.
+
+00:01:25.080 --> 00:01:28.330
+Fuori dal lavoro, co-conduce uno
+show settimanale sullo sviluppo di WordPress
+
+00:01:28.330 --> 00:01:29.680
+chiamato View Source.
+
+00:01:29.680 --> 00:01:34.210
+Potete anche trovare i suoi scritti su
+pubblicazioni del settore come Master WP,
+
+00:01:34.210 --> 00:01:41.640
+The WP Minute
+e sul suo blog personale di tecnologia.
+
+00:01:42.980 --> 00:01:46.990
+Aggiungete liberamente le vostre
+domande alla sezione Q&A di Zoom
+
+00:01:46.990 --> 00:01:49.350
+e risponderemo
+alla fine della sessione.
+
+00:01:49.350 --> 00:01:54.920
+Usate la chat per commentare e per entrare 
+in contatto con gli altri partecipanti.
+
+00:01:54.920 --> 00:01:56.160
+Torniamo ad Aurooba e Brian.
+
+00:01:56.160 --> 00:02:02.900
+AUROOBA AHMED: 
+Bene, ciao!
+
+00:02:02.900 --> 00:02:07.800
+Brian e io siamo davvero felici di
+approfondire questo argomento con tutti voi.
+
+00:02:07.800 --> 00:02:09.620
+Blocchi accordion accessibili.
+
+00:02:09.620 --> 00:02:12.270
+Una ricetta per
+blocchi accordion accessibili.
+
+00:02:12.270 --> 00:02:18.690
+Inizieremo capendo prima di tutto
+
+00:02:18.690 --> 00:02:23.280
+cos'è realmente un accordion (fisarmonica) 
+e cosa lo rende accessibile.
+
+00:02:23.280 --> 00:02:27.100
+Una volta stabilito questo, 
+analizzeremo attentamente il codice
+
+00:02:27.100 --> 00:02:30.331
+che porta quell'accordion
+sia nella parte anteriore
+
+00:02:30.332 --> 00:02:31.980
+che nell'editor a blocchi.
+
+00:02:31.980 --> 00:02:34.960
+Allora Brian, cos'è un accordion?
+
+00:02:36.140 --> 00:02:36.940
+BRIAN COORDS: Grazie, Aurooba.
+
+00:02:36.940 --> 00:02:39.940
+Inizierò con
+la definizione da dizionario
+
+00:02:39.940 --> 00:02:42.030
+e poi approfondiremo
+un po'.
+
+00:02:42.030 --> 00:02:46.040
+In termini di sviluppo e progettazione web, 
+un accordion o fisarmonica è,
+
+00:02:46.040 --> 00:02:49.460
+come vedi qui, un set di pannelli
+pieghevoli che si possono usare
+
+00:02:49.460 --> 00:02:51.830
+per mostrare e nascondere del contenuto.
+
+00:02:51.830 --> 00:02:55.310
+Sembra piuttosto vago, ma
+credo che possiamo approfondire un po' di più.
+
+00:02:55.310 --> 00:02:57.860
+Quando pensiamo a un accordion,
+la prima cosa che vogliamo,
+
+00:02:57.860 --> 00:02:59.850
+la cosa a cui pensare, è che
+si tratta di un gruppo di elementi.
+
+00:02:59.850 --> 00:03:03.350
+Non è solo un pezzo di contenuto
+che viene mostrato o nascosto,
+
+00:03:03.350 --> 00:03:04.000
+è un gruppo.
+
+00:03:04.000 --> 00:03:08.370
+Come potete vedere qui, abbiamo
+più sezioni nel nostro accordion
+
+00:03:08.370 --> 00:03:11.690
+e ciascuna di queste sezioni ha
+un'intestazione e questo è qualcosa
+
+00:03:11.690 --> 00:03:13.030
+con cui possiamo interagire.
+
+00:03:13.030 --> 00:03:15.969
+Lo possiamo selezionare,
+e una volta selezionato,
+
+00:03:15.970 --> 00:03:17.840
+il pannello, per usare il termine,
+
+00:03:17.840 --> 00:03:20.980
+è il tipo di contenuto qui sotto
+che verrà mostrato o nascosto.
+
+00:03:20.980 --> 00:03:24.030
+Quindi è uno schema piuttosto comune.
+
+00:03:24.030 --> 00:03:28.170
+Uno di quegli elementi di 
+design che riconosci subito.
+
+00:03:28.170 --> 00:03:31.258
+Se avete dedicato del tempo
+alla creazione di siti web WordPress
+
+00:03:31.259 --> 00:03:33.960
+probabilmente ne avete costruito
+più di uno.
+
+00:03:33.960 --> 00:03:38.500 
+Ma a volte si può confondere
+un po' la semantica.
+
+00:03:38.500 --> 00:03:41.780
+E questa è una delle
+cose che andiamo ad approfondire.
+
+00:03:41.780 --> 00:03:45.420
+Vediamo velocemente
+cosa NON è un accordion.
+
+00:03:45.420 --> 00:03:48.940
+E questo è chiamato 
+Elemento Dettagli in HTML.
+
+00:03:48.940 --> 00:03:52.200
+Quindi c'è un elemento
+chiamato Elemento Dettagli.
+
+00:03:52.200 --> 00:03:55.650
+Si tratta di un elemento 
+semantico molto utile
+
+00:03:55.650 --> 00:04:00.340
+e il core di WordPress ha recentemente
+creato un blocco Dettagli
+
+00:04:00.340 --> 00:04:02.850
+nell'editor a blocchi
+che potete utilizzare.
+
+00:04:02.850 --> 00:04:07.060
+È molto pratico,
+è accessibile, è semantico.
+
+00:04:07.060 --> 00:04:11.070
+Tecnicamente non è
+un accordion nel senso
+
+00:04:11.070 --> 00:04:12.520
+di come viene definita un accordion.
+
+00:04:13.770 --> 00:04:17.440
+Ci sono alcune differenze
+tra ciò che potete fare
+
+00:04:17.440 --> 00:04:20.040
+con un elemento Dettagli e cosa
+si può fare con un accordion.
+
+00:04:20.040 --> 00:04:23.850
+E penso che i due su cui ci concentreremo
+maggiormente siano il numero uno;
+
+00:04:25.240 --> 00:04:28.930
+gli elementi dei dettagli non 
+sono raggruppati, sono indipendenti.
+
+00:04:28.930 --> 00:04:30.840
+Esistono semplicemente come
+elemento a sé stante.
+
+00:04:30.840 --> 00:04:33.990
+Come potete vedere qui, abbiamo
+due diversi Elementi Dettaglio.
+
+00:04:33.990 --> 00:04:34.770
+Potete espanderli.
+
+00:04:34.770 --> 00:04:37.860
+È possibile comprimerli, ma
+in realtà non funzionano insieme.
+
+00:04:37.860 --> 00:04:41.420
+Nella maggior parte dei casi il
+modello ad accordion ha l'aspettativa
+
+00:04:41.420 --> 00:04:44.300
+che ad esempio, chiudendo 
+una parte dell'accordion
+
+00:04:44.300 --> 00:04:46.980
+oppure espandendolo
+si muovono anche gli altri.
+
+00:04:46.980 --> 00:04:51.760
+Molte specifiche di progettazione vogliono che
+un accordion rimanga sempre aperto.
+
+00:04:51.760 --> 00:04:54.670
+Quindi non potrete mai chiuderlo.
+
+00:04:54.670 --> 00:04:57.290
+Potete sempre averne almeno
+uno visibile in ogni momento.
+
+00:04:57.290 --> 00:04:58.750
+Quindi ci sono alcune
+distinzioni diverse.
+
+00:04:58.750 --> 00:05:03.790
+L'altro è quella
+barra verde, il livello superiore
+
+00:05:03.790 --> 00:05:06.490
+dell'Elemento Dettagli è
+chiamato tag riepilogo.
+
+00:05:06.490 --> 00:05:11.550
+E questo è l'elemento selezionabile
+che attiverà la visibilità
+
+00:05:11.550 --> 00:05:12.200
+del contenuto.
+
+00:05:12.200 --> 00:05:18.470
+Tuttavia, in un accordion, molto
+spesso vogliamo usare un titolo semantico
+
+00:05:18.470 --> 00:05:21.340
+perché vogliamo
+una gerarchia nei nostri contenuti.
+
+00:05:21.340 --> 00:05:25.450
+Questo è un titolo ed ecco del
+contenuto sotto quel titolo.
+
+00:05:25.450 --> 00:05:28.250
+Se usiamo l'Elemento Dettagli, 
+il risultato è molto piatto.
+
+00:05:28.250 --> 00:05:30.850
+Potete dargli uno stile, 
+ma non è proprio così,
+
+00:05:30.850 --> 00:05:34.090
+è esattamente la stessa cosa che
+modificare strutturalmente l'elemento del titolo.
+
+00:05:34.090 --> 00:05:36.680
+Per il modo in cui
+funziona l'elemento dettagli,
+
+00:05:36.680 --> 00:05:40.150
+fisicamente non potete mettere
+niente lì dentro, tranne
+
+00:05:40.150 --> 00:05:41.620
+che il testo.
+
+00:05:41.620 --> 00:05:44.720
+Quindi è davvero una
+differenza strutturale.
+
+00:05:44.720 --> 00:05:47.430
+I dettagli sono un elemento importante,
+è fantastico che siano al centro.
+
+00:05:47.430 --> 00:05:49.530
+Semplicemente non sono titoli o
+semplicemente non sono accordion
+
+00:05:49.530 --> 00:05:52.130
+per il contesto di questo discorso.
+
+00:05:52.130 --> 00:05:57.950
+Quindi parliamo di cosa
+sia un accordion e, ancora più importante,
+
+00:05:57.950 --> 00:05:59.410
+cosa lo rende accessibile.
+
+00:05:59.410 --> 00:06:00.620
+Aurooba, lascio la parola a te.
+
+00:06:00.620 --> 00:06:02.470
+AUROOBA: Sì.
+
+00:06:02.470 --> 00:06:05.800
+Ora che sappiamo, per esempio,
+
+00:06:05.800 --> 00:06:08.965
+che l'Elemento Dettagli
+non è un accordion,
+
+00:06:08.966 --> 00:06:11.280
+ma che si tratta di una cosa
+
+00:06:11.280 --> 00:06:14.942
+che espande e comprime le informazioni,
+
+00:06:14.943 --> 00:06:17.780
+ci sono fondamentalmente quattro
+
+00:06:17.780 --> 00:06:21.760
+elementi della checklist che
+dovete coprire ed essere in grado
+
+00:06:21.760 --> 00:06:26.350
+di spuntare per rendere
+accessibile un accordion.
+
+00:06:26.350 --> 00:06:29.890
+La prima è che si dovrebbe 
+poterla usare tramite tastiera.
+
+00:06:29.890 --> 00:06:35.260
+Potete navigare tra le
+sezioni dell'accordion e il contenuto
+
+00:06:35.260 --> 00:06:39.550
+che costituisce il pannello per
+ogni sezione con la vostra tastiera?
+
+00:06:39.550 --> 00:06:43.270
+La cosa davvero grandiosa è che,
+una volta che iniziate
+
+00:06:43.270 --> 00:06:45.690
+a rendere qualcosa utilizzabile 
+tramite tastiera, state facendo il primo
+
+00:06:45.690 --> 00:06:51.460
+passo per renderla accessibile
+anche ad altri dispositivi di assistenza;
+
+00:06:51.460 --> 00:06:53.760
+questa è l'altra cosa
+che vogliamo che
+
+00:06:53.760 --> 00:06:57.660
+il nostro accordion possa fare,
+cioè che i dispositivi di assistenza
+
+00:06:57.660 --> 00:07:00.940
+possano navigare nei 
+nostri contenuti accordion.
+
+00:07:00.940 --> 00:07:01.940
+Quindi, ecco il punto.
+
+00:07:02.990 --> 00:07:05.250
+Pensate a quando
+usate un accordion.
+
+00:07:05.250 --> 00:07:07.070
+Spesso quando
+avete un accordion
+
+00:07:07.070 --> 00:07:11.050
+con più sezioni, questi
+contengono molti contenuti.
+
+00:07:11.050 --> 00:07:14.590
+Quindi, per uno screen reader o
+un altro dispositivo di assistenza,
+
+00:07:14.590 --> 00:07:17.040
+un accordion accessibile sarà
+in grado di delineare
+
+00:07:17.040 --> 00:07:20.830
+cosa sono quelle sezioni di accordion
+e poi aiutarle a saltare
+
+00:07:20.830 --> 00:07:24.780
+alla sezione che vogliono
+esplorare e leggere il contenuto
+
+00:07:24.780 --> 00:07:26.860
+di o comprenderne il contenuto.
+
+00:07:26.860 --> 00:07:30.450
+E per fare ciò, ci sono 
+alcune cose 
+
+00:07:30.450 --> 00:07:31.660
+da tenere in considerazione.
+
+00:07:32.900 --> 00:07:34.830
+La prossima cosa di cui vogliamo essere
+certi è, ovviamente, 
+
+00:07:34.830 --> 00:07:36.440
+siamo sempre sul web digitale,
+
+00:07:36.440 --> 00:07:38.810
+che il nostro accordion sia responsive.
+
+00:07:38.810 --> 00:07:39.980
+Che funzioni dal telefono.
+
+00:07:39.980 --> 00:07:41.050
+Che funzioni da desktop.
+
+00:07:41.050 --> 00:07:44.100
+Che funzioni anche su tutti 
+gli schermi intermedi.
+
+00:07:44.100 --> 00:07:47.070
+E infine, vogliamo
+assicurarci che l'accordion
+
+00:07:47.070 --> 00:07:49.880
+sia visivamente disegnato come una fisarmonica.
+
+00:07:49.880 --> 00:07:51.751
+Quindi vogliamo essere sicuri di pensare
+
+00:07:51.752 --> 00:07:54.090
+all'accessibilità
+in modo molto olistico.
+
+00:07:54.090 --> 00:07:58.250
+Stiamo pensando ai
+lettori di schermo e stiamo pensando a
+
+00:07:58.250 --> 00:08:01.750
+come appare visivamente e come
+qualcuno potrebbe usarlo a seconda
+
+00:08:01.750 --> 00:08:04.560
+delle diverse capacità motorie
+a loro disposizione.
+
+00:08:04.560 --> 00:08:07.950
+Assicurandoci di dare uno
+stile visivo a un accordion –
+
+00:08:07.950 --> 00:08:10.290
+e questo è uno
+schema molto comune che vediamo –
+
+00:08:10.290 --> 00:08:14.740
+stiamo assicurando ad esempio che
+l'intestazione dell'accordion abbia un indicatore
+
+00:08:14.740 --> 00:08:17.900
+che ci aiuta a identificare
+se il contenuto connesso
+
+00:08:17.900 --> 00:08:20.730
+a quell'intestazione è nascosto o meno.
+
+00:08:20.730 --> 00:08:24.560
+Quindi a volte vedrete un
+piccolo triangolo che ruota
+
+00:08:24.560 --> 00:08:28.470
+quando aprite il
+pannello accordion o un + che
+
+00:08:28.470 --> 00:08:30.550
+diventa un segno -, cose del genere.
+
+00:08:30.550 --> 00:08:34.550
+Sono davvero, davvero importanti
+quando si tratta di assicurarsi
+
+00:08:34.550 --> 00:08:39.360
+che visivamente parlando qualcuno può
+dire che sì, questo è un contenuto
+
+00:08:39.360 --> 00:08:43.140
+e se ci faccio clic sopra,
+si aprono ancora più contenuti.
+
+00:08:43.140 --> 00:08:47.020
+Ora che abbiamo capito
+essenzialmente cos'è un accordion
+
+00:08:47.020 --> 00:08:51.730
+e cosa dobbiamo fare per
+renderlo accessibile,
+
+00:08:51.730 --> 00:08:53.709
+Brian, vuoi condividere con noi
+
+00:08:53.710 --> 00:08:55.970
+come appare nel front-end?
+
+00:08:57.140 --> 00:09:00.110
+BRIAN: Sì, farò una
+rapida condivisione dello schermo
+
+00:09:00.110 --> 00:09:02.300
+di un ambiente di sviluppo locale.
+
+00:09:02.300 --> 00:09:04.810
+Quindi, per un po' di contesto,
+quello che abbiamo fatto
+
+00:09:04.810 --> 00:09:06.960
+per questa presentazione
+è stato codificare
+
+00:09:06.960 --> 00:09:11.980
+un blocco Gutenberg di WordPress che è
+un accordion che potreste scaricare.
+
+00:09:11.980 --> 00:09:15.740
+Il codice sarà disponibile su
+GitHub, qui ci sono i link.
+
+00:09:15.740 --> 00:09:17.730
+E potete usarlo come
+vostro punto di partenza
+
+00:09:17.730 --> 00:09:19.700
+oppure potete semplicemente usarlo
+voi stessi, ma noi lo faremo
+
+00:09:19.700 --> 00:09:23.870
+per avere una visione d'insieme di
+che tipo di considerazioni vanno fatte
+
+00:09:23.870 --> 00:09:26.030
+quando si costruisce questo
+blocco perché come ho detto,
+
+00:09:26.030 --> 00:09:27.640
+non è propriamente un blocco centrale.
+
+00:09:27.640 --> 00:09:31.520
+Quindi ho questo piccolo
+ambiente di sviluppo locale in esecuzione.
+
+00:09:31.520 --> 00:09:35.780
+Ha il tema predefinito di WordPress
+e quel post predefinito Hello World
+
+00:09:35.780 --> 00:09:38.740
+e abbiamo qui del 
+contenuto dove ho aggiunto
+
+00:09:38.740 --> 00:09:40.550
+tre diverse sezioni di accordion.
+
+00:09:40.550 --> 00:09:43.650
+Quindi un accordion con tre
+sezioni uniche al suo interno.
+
+00:09:43.650 --> 00:09:48.560
+E ognuno di questi funziona in modo che posso
+selezionare quell'area dell'intestazione.
+
+00:09:48.560 --> 00:09:51.830
+Così facendo, espando il pannello 
+dei contenuti al suo interno.
+
+00:09:53.380 --> 00:09:56.830
+Se mi sposto in un'altra sezione
+e faccio clic sull'intestazione
+
+00:09:56.830 --> 00:09:59.440
+lo zoom di quel pannello si espande e
+l'altro pannello si contrae.
+
+00:09:59.440 --> 00:10:05.640
+Quindi, idealmente, sembra
+funzionare e dà la sensazione di una fisarmonica.
+
+00:10:05.640 --> 00:10:09.330
+L'altro pezzo importante
+è il tipo di tastiera
+
+00:10:09.330 --> 00:10:11.160
+o di navigazione assistita dalla macchina.
+
+00:10:11.160 --> 00:10:15.060
+Quindi se sto scorrendo il
+sito, sto tirando dentro
+
+00:10:15.060 --> 00:10:17.300
+alcuni degli stili predefiniti
+di questo tema WordPress.
+
+00:10:17.300 --> 00:10:19.200
+Penso che siamo nel 2023.
+
+00:10:19.200 --> 00:10:22.380
+Se arrivo al punto in cui
+sono arrivato a questo pannello,
+
+00:10:22.380 --> 00:10:25.160
+potete vedere che
+appare l'indicatore di messa a fuoco.
+
+00:10:25.160 --> 00:10:29.200
+Posso fare clic ed
+espandere il contenuto verso il basso.
+
+00:10:29.200 --> 00:10:32.320
+E poi posso continuare a
+navigare attraverso il contenuto stesso.
+
+00:10:32.320 --> 00:10:34.400
+Questo è davvero importante.
+
+00:10:34.400 --> 00:10:36.690
+Se mi trovo dentro,
+vorrò navigare
+
+00:10:36.690 --> 00:10:38.010
+attraverso quel contenuto.
+
+00:10:38.010 --> 00:10:39.870
+Se non lo sono, se
+l'ho chiuso, voglio essere in grado
+
+00:10:39.870 --> 00:10:41.580
+di passare alla
+sezione successiva.
+
+00:10:41.580 --> 00:10:46.060
+Tutte queste considerazioni entrano
+in gioco nel realizzare cioè che
+
+00:10:46.060 --> 00:10:50.180
+vogliamo avere nel front-end del nostro sito
+come elemento semantico accordion.
+
+00:10:50.180 --> 00:10:53.770
+Ora torno a
+quella presentazione e
+
+00:10:53.770 --> 00:10:57.040
+diamo un'occhiata un po' più approfondita
+ad alcuni degli HTML
+
+00:10:57.040 --> 00:10:58.460
+che costituiscono questa vista frontale.
+
+00:10:59.740 --> 00:11:02.960
+OK, quindi
+funzionalmente è così.
+
+00:11:02.960 --> 00:11:06.480
+Parliamo di cosa succede
+in termini di HTML.
+
+00:11:06.480 --> 00:11:08.770
+Costruiremo un blocco.
+
+00:11:08.770 --> 00:11:13.620
+Il nostro blocco avrà un wrapper
+div che è essenzialmente l'accordion.
+
+00:11:13.620 --> 00:11:18.120
+Potete vederlo sullo schermo
+e abbiamo anche questo codice
+
+00:11:18.120 --> 00:11:19.300
+nella presentazione.
+
+00:11:19.300 --> 00:11:21.890
+Essenzialmente,
+avremo un wrapper div,
+
+00:11:21.890 --> 00:11:25.520
+quella classe avrà
+quel prefisso wp-block
+
+00:11:25.520 --> 00:11:28.090
+perché questi sono blocchi
+che escono dall'editor di blocchi.
+
+00:11:28.090 --> 00:11:32.720
+E abbiamo quella
+classe accordion per quel wrapper.
+
+00:11:32.720 --> 00:11:35.070
+E poi all'interno avremo
+più div, un div
+
+00:11:35.070 --> 00:11:37.050
+per ogni sezione dell'accordion.
+
+00:11:37.050 --> 00:11:39.980
+E questo perché si tratta di
+blocchi individuali all'interno di WordPress.
+
+00:11:39.980 --> 00:11:42.350
+E approfondiremo il motivo 
+per cui si tratta di blocchi diversi
+
+00:11:42.350 --> 00:11:44.010
+e come funzionano.
+
+00:11:44.010 --> 00:11:47.570
+All'interno di ogni sezione
+ci sono in realtà due parti chiave.
+
+00:11:47.570 --> 00:11:51.270
+Stiamo ingrandendo una sezione
+dell'accordion, un'intestazione,
+
+00:11:51.270 --> 00:11:52.270
+un pannello.
+
+00:11:53.000 --> 00:11:56.290
+Potete vedere qui che
+essenzialmente abbiamo la sezione.
+
+00:11:56.290 --> 00:12:00.520
+Abbiamo un elemento 
+di intestazione, un H2.
+
+00:12:00.520 --> 00:12:04.540
+All'interno di quell'elemento di intestazione,
+abbiamo un elemento pulsante
+
+00:12:04.540 --> 00:12:06.030
+e questo è davvero importante.
+
+00:12:06.030 --> 00:12:09.280
+Se avete già costruito 
+un sacco di accordion
+
+00:12:09.280 --> 00:12:14.570
+da zero, potreste
+avere dubbi su cosa fa l'intestazione
+
+00:12:14.570 --> 00:12:18.340
+e cosa non fa l'intestazione,
+che è il nome effettivo
+
+00:12:18.340 --> 00:12:20.030
+per il pannello complessivo.
+
+00:12:20.030 --> 00:12:22.280
+Abbiamo poi il pulsante.
+
+00:12:22.280 --> 00:12:24.330
+Abbiamo alcuni attributi Aria.
+
+00:12:24.330 --> 00:12:27.100
+Per esempio, aria-expanded,
+ci farà sapere che
+
+00:12:27.100 --> 00:12:28.968
+quando raggiungiamo quel
+pulsante è il contenuto
+
+00:12:28.969 --> 00:12:30.670
+che controlla, espanso
+o meno.
+
+00:12:30.670 --> 00:12:32.040
+Avremo un ID univoco.
+
+00:12:32.040 --> 00:12:34.824
+Avremo quell'attributo
+aria-control
+
+00:12:34.825 --> 00:12:39.370
+che sarà collegato all'ID
+di un pannello div più in basso.
+
+00:12:39.370 --> 00:12:42.940
+E poi vedrete che a partire
+dalla riga 13, abbiamo un altro div.
+
+00:12:42.940 --> 00:12:45.040
+Questa sarà
+la sezione del pannello.
+
+00:12:45.040 --> 00:12:48.480
+E allo stesso modo, avrà
+tutti gli attributi corretti,
+
+00:12:48.480 --> 00:12:52.160
+incluso aria-labelledby che fa
+riferimento all'ID di quel pulsante.
+
+00:12:53.250 --> 00:12:55.570
+E poi anche la classe
+per quel pannello accordion.
+
+00:12:55.570 --> 00:12:59.660
+E penso che sia la cosa più importante
+qui, a parte il fatto
+
+00:12:59.660 --> 00:13:05.210
+che il pulsante e il pannello
+sono davvero i più importanti
+
+00:13:05.210 --> 00:13:07.810
+e quei due hanno molti degli
+attributi che collegano
+
+00:13:07.810 --> 00:13:12.060
+l'uno all'altro, e poi perché è
+un accordion e noi abbiamo il markup,
+
+00:13:12.060 --> 00:13:15.240
+possiamo racchiudere quel pulsante
+in un paragrafo H2 e H3,
+
+00:13:15.240 --> 00:13:18.880
+tutto ciò di cui abbiamo bisogno per
+valorizzare al meglio il contenuto della nostra pagina.
+
+00:13:20.100 --> 00:13:21.770
+Quindi questo è il front-end HTML.
+
+00:13:21.770 --> 00:13:24.620
+AUROOBA ci guiderà
+con il JavaScript
+
+00:13:24.620 --> 00:13:25.820
+e come funziona
+con un accordion.
+
+00:13:25.820 --> 00:13:27.500
+AUROOBA: Sì.
+
+00:13:27.500 --> 00:13:32.550
+Ora che abbiamo sistemato
+tutte le cose giuste nell'HTML,
+
+00:13:32.550 --> 00:13:35.760
+dobbiamo aggiungere un po'
+di JavaScript e un po'
+
+00:13:35.760 --> 00:13:38.930
+di CSS per rendere davvero
+interattiva quell'accordion.
+
+00:13:38.930 --> 00:13:42.320
+Vogliamo usare gli
+attributi Aria che sono nell'HTML
+
+00:13:42.320 --> 00:13:47.500
+il più possibile per utilizzarli
+come fonte di stato.
+
+00:13:47.500 --> 00:13:51.060
+Quindi con JavaScript, quello 
+che faremo è andare
+
+00:13:51.060 --> 00:13:55.630
+ad ascoltare le interazioni dei nostri utenti
+con l'intero accordion.
+
+00:13:55.630 --> 00:13:58.710
+Questo non è il codice 
+JavaScript al completo.
+
+00:13:58.710 --> 00:14:01.980
+Tutto il codice sarà disponibile
+nel repository
+
+00:14:01.980 --> 00:14:03.150
+che stiamo condividendo.
+
+00:14:03.150 --> 00:14:05.770
+E tutto ciò che lo circonda e che
+non siamo in grado di condividere,
+
+00:14:05.770 --> 00:14:08.080
+tutto questo sarà disponibile
+così ci potete giocare.
+
+00:14:08.080 --> 00:14:13.119
+Volevo evidenziare questa
+parte fondamentale del JavaScript.
+
+00:14:13.120 --> 00:14:17.450
+E quello che stiamo facendo qui
+è che ogni volta che qualcuno fa clic
+
+00:14:17.450 --> 00:14:19.950
+in una sezione dell'accordion, diciamo OK,
+
+00:14:19.950 --> 00:14:22.190
+quindi questa è la sezione accordion
+su cui avete cliccato.
+
+00:14:22.190 --> 00:14:26.970
+Quindi sulla riga 9, quello che stiamo
+facendo è controllare, è questo,
+
+00:14:26.970 --> 00:14:28.390
+Sezione accordion aperta o no.
+
+00:14:28.390 --> 00:14:31.320
+Quindi controlliamo 
+l'attributo aria-expanded.
+
+00:14:31.320 --> 00:14:34.690
+E se non è aperto, allora
+quello che facciamo è, OK, vogliamo
+
+00:14:34.690 --> 00:14:38.730
+aprire questa, ma prima di questa, 
+qualsiasi altra sezione dell'accordion
+
+00:14:38.730 --> 00:14:41.900
+è aperta, vogliamo scorrerla
+e vogliamo chiuderla.
+
+00:14:41.900 --> 00:14:45.370
+Quindi, a partire dalla riga 11,
+quello che facciamo è prendere
+
+00:14:45.370 --> 00:14:47.250
+tutte le sezioni dell'accordion 
+eccetto quella
+
+00:14:47.250 --> 00:14:49.940
+su cui abbiamo fatto clic 
+in questo momento, 
+
+00:14:49.940 --> 00:14:53.520
+e modifichiamo l'attributo 
+aria-expanded su ciascuna di quelle sezioni
+
+00:14:53.520 --> 00:14:54.570
+su false.
+
+00:14:54.570 --> 00:14:58.950
+Quindi quello che facciamo è,
+sulla riga 22, aggiungere
+
+00:14:58.950 --> 00:15:03.060
+una classe CSS chiamata IsSelected;
+tornerà davvero utile.
+
+00:15:03.060 --> 00:15:07.590
+E noi, naturalmente, trasformiamo questa,
+la sezione attuale dell'accordion
+
+00:15:07.590 --> 00:15:11.920
+con cui stiamo interagendo, apritelo
+modificando aria-expanded in true.
+
+00:15:12.950 --> 00:15:17.900
+Quindi, una volta che JavaScript ha fatto
+la sua piccola magia, possiamo andare
+
+00:15:17.900 --> 00:15:19.240
+nel CSS.
+
+00:15:19.240 --> 00:15:21.520
+Il CSS è composto da due parti.
+
+00:15:21.520 --> 00:15:27.520
+Uno è lo stile dell'intestazione di cui
+voglio parlare per primo.
+
+00:15:27.520 --> 00:15:32.140
+E fondamentalmente questo sarà
+simile a qualsiasi tipo
+
+00:15:32.140 --> 00:15:35.380
+di stili di intestazione che vedrete
+su qualsiasi accordion accessibile.
+
+00:15:35.380 --> 00:15:40.530
+Il motivo è che l'intestazione
+di una sezione accordion ha un pulsante
+
+00:15:40.530 --> 00:15:43.620
+dentro, come diceva Brian, 
+non volete quasi mai
+
+00:15:43.620 --> 00:15:45.550
+che sembri un pulsante.
+
+00:15:45.550 --> 00:15:48.570
+Invece, se rimuoviamo 
+tutti gli stili dei pulsanti
+
+00:15:48.570 --> 00:15:51.840
+e in questo caso particolare,
+poiché è racchiuso in un titolo,
+
+00:15:51.840 --> 00:15:55.390
+quello che possiamo fare è ereditare
+tutti gli stili dell'elemento
+
+00:15:55.390 --> 00:15:56.480
+in cui è avvolto.
+
+00:15:56.480 --> 00:15:59.910
+Ecco cosa potete vedere accadere, 
+diciamo, alla riga 11 e alla riga 12.
+
+00:15:59.910 --> 00:16:04.760
+Stiamo ereditando quella dimensione del carattere,
+stiamo ereditando l'allineamento del testo.
+
+00:16:04.760 --> 00:16:08.580
+E in questo modo lo facciamo sembrare
+l'elemento principale e non il pulsante,
+
+00:16:08.580 --> 00:16:12.710
+ma mantenendo comunque le interazioni
+di cui abbiamo bisogno da un pulsante.
+
+00:16:12.710 --> 00:16:16.210
+Quindi, come abbiamo detto in quella
+rubrica, vogliamo essere sicuri
+
+00:16:16.210 --> 00:16:19.480
+che l'intestazione dell'accordion sia
+formattata correttamente, in modo accessibile,
+
+00:16:19.480 --> 00:16:21.610
+che indica che
+si tratta di un accordion.
+
+00:16:21.610 --> 00:16:23.608
+Quindi stiamo aggiungendo un elemento pseudo
+
+00:16:23.609 --> 00:16:26.090
+che aggiunge un piccolo
+triangolo alla fine.
+
+00:16:26.090 --> 00:16:27.432
+In questo modo, qualcuno lo sa
+
+00:16:27.433 --> 00:16:30.350
+che questa sezione dell'accordion
+è attualmente chiusa.
+
+00:16:30.350 --> 00:16:33.440
+Tuttavia,
+se questa sezione accordion corrente
+
+00:16:33.440 --> 00:16:36.810
+ha l'attributo
+aria-expanded impostato su true,
+
+00:16:36.810 --> 00:16:39.010
+quello che facciamo è
+aggiungere una piccola animazione
+
+00:16:39.010 --> 00:16:43.920
+e ruotare quel triangolo verso il basso
+per indicare che è aperto.
+
+00:16:43.920 --> 00:16:49.130
+Questa è la prima parte del CSS
+per una sezione accordion accessibile.
+
+00:16:49.130 --> 00:16:53.560
+Il prossimo sarà il
+pannello vero e proprio, il contenuto.
+
+00:16:53.560 --> 00:16:56.520
+Quindi questo è in realtà
+un CSS molto semplice.
+
+00:16:56.520 --> 00:16:59.640
+Inizialmente, vogliamo che il
+contenuto del pannello sia nascosto.
+
+00:16:59.640 --> 00:17:03.540
+Ma poi quando aggiungiamo la
+classe isSelected con JavaScript
+
+00:17:03.540 --> 00:17:07.220
+di cui abbiamo parlato,
+rendiamo semplicemente visibile quel contenuto
+
+00:17:07.220 --> 00:17:08.500
+con blocco di visualizzazione.
+
+00:17:08.500 --> 00:17:11.910
+Ora, questo è il CSS più elementare di cui
+avete bisogno per realizzare questo progetto.
+
+00:17:11.910 --> 00:17:14.940
+Ma naturalmente, potete sbizzarrirvi,
+aggiungere qualche transizione,
+
+00:17:14.940 --> 00:17:17.700
+ci sono un sacco di cose diverse
+che potreste aggiungere.
+
+00:17:17.700 --> 00:17:20.690
+In sostanza, questo è il piccolo
+pezzo di CSS di cui avete bisogno
+
+00:17:20.690 --> 00:17:26.030
+per nascondere e rivelare
+il contenuto del pannello in base
+
+00:17:26.030 --> 00:17:28.230
+a quell'attributo aria-expanded.
+
+00:17:30.570 --> 00:17:34.330
+Ora abbiamo parlato della
+parte anteriore del blocco.
+
+00:17:34.330 --> 00:17:38.080
+Come appare un accordion accessibile
+nella parte anteriore
+
+00:17:38.080 --> 00:17:39.890
+con cui il vostro utente interagirà?
+
+00:17:39.890 --> 00:17:42.680
+Ora vogliamo fare un passo 
+indietro e guardare
+
+00:17:42.680 --> 00:17:45.160
+come appare nell'editor.
+
+00:17:45.160 --> 00:17:51.560
+Per fare ciò, vogliamo prima
+considerare una struttura di alto livello
+
+00:17:51.560 --> 00:17:52.630
+dell'accordion.
+
+00:17:52.630 --> 00:17:55.940
+Quindi abbiamo parlato dei
+diversi pezzi dell'accordion,
+
+00:17:55.940 --> 00:17:57.840
+immaginiamolo un po'.
+
+00:17:59.160 --> 00:18:02.810
+Avete un accordion, che è
+fondamentalmente questo grande involucro,
+
+00:18:02.810 --> 00:18:05.580
+e al suo interno
+c'è una sezione accordion.
+
+00:18:05.580 --> 00:18:09.210
+Quella sezione accordion è il
+secondo livello, ed è lì che tutti
+
+00:18:09.210 --> 00:18:11.600
+i vostri contenuti sono effettivamente attivi.
+
+00:18:11.600 --> 00:18:16.080
+All'interno di quella sezione accordion,
+avete un'intestazione che vi dice
+
+00:18:16.080 --> 00:18:19.380 
+di cosa tratta il contenuto
+della sezione accordion
+
+00:18:19.380 --> 00:18:23.360
+e poi avete il pannello della 
+sezione accordion, il contenuto effettivo
+
+00:18:23.360 --> 00:18:28.240
+che vogliamo includere
+e condividere con i nostri utenti.
+
+00:18:28.240 --> 00:18:32.050
+Ora che abbiamo esaminato questa
+struttura di alto livello, Brian,
+
+00:18:32.050 --> 00:18:34.540
+vuoi portarci
+nell'editor e mostrarci
+
+00:18:34.540 --> 00:18:38.150
+come appare realmente
+e come dargli vita?
+
+00:18:38.150 --> 00:18:40.840
+BRIAN: Sì,
+condividerò il mio schermo.
+
+00:18:43.770 --> 00:18:44.150
+Ecco fatto.
+
+00:18:44.150 --> 00:18:48.050
+Ora stiamo osservando
+lo stesso editor a blocchi.
+
+00:18:48.050 --> 00:18:49.390 
+Questo è lo stesso sito di sviluppo
+locale di prima.
+
+00:18:49.390 --> 00:18:52.650
+Siamo solo nell'editor a blocchi
+per questa pagina specifica.
+
+00:18:52.650 --> 00:18:56.770
+E ci sono alcune cose
+che voglio mostrare,
+
+00:18:56.770 --> 00:19:00.210
+ma per chiarire: sullo schermo
+in questo momento ho la visualizzazione elenco
+
+00:19:00.210 --> 00:19:02.630
+sul lato sinistro espanso,
+e la visualizzazione elenco ci mostra
+
+00:19:02.630 --> 00:19:05.850
+quali blocchi sono attualmente presenti
+in questo post del blog.
+
+00:19:05.850 --> 00:19:08.570
+Abbiamo un blocco di paragrafi,
+che è il testo predefinito Hello World
+
+00:19:08.570 --> 00:19:11.350
+che tutti noi otteniamo con le nostre
+installazioni iniziali di WordPress,
+
+00:19:11.350 --> 00:19:13.400
+e poi abbiamo
+il blocco accordion.
+
+00:19:13.400 --> 00:19:16.680
+Il blocco accordion è solo l'involucro.
+
+00:19:16.680 --> 00:19:19.840
+È quel blocco genitore, e quindi
+approfondiremo cosa significa
+
+00:19:19.840 --> 00:19:21.280
+essere un blocco genitore.
+
+00:19:21.280 --> 00:19:24.740
+Ma se lo espando, posso vedere
+che all'interno del mio accordion,
+
+00:19:24.740 --> 00:19:27.140
+Ho tre blocchi di sezione accordion.
+
+00:19:27.140 --> 00:19:28.973
+E quando seleziono
+uno di quei blocchi,
+
+00:19:28.974 --> 00:19:30.430
+uno di quei blocchi è attivo,
+
+00:19:30.430 --> 00:19:33.860
+posso effettivamente vedere ed
+esplorare tutto il contenuto
+
+00:19:33.860 --> 00:19:35.560
+che si trova all'interno di
+quel blocco di sezione.
+
+00:19:35.560 --> 00:19:40.690
+Quindi il pannello si espande, e parte
+di ciò avviene prestando attenzione
+
+00:19:40.690 --> 00:19:42.730
+a quell'esperienza editoriale
+e assicurandosi che
+
+00:19:42.730 --> 00:19:47.130
+quel contesto venga costantemente fornito
+per ciò che state modificando e dove.
+
+00:19:47.130 --> 00:19:51.450
+All'interno di quella sezione accordion,
+a quel punto, ho carta bianca
+
+00:19:51.450 --> 00:19:54.260
+affinché il pannello possa essere costruito
+con tutti i blocchi che desidero.
+
+00:19:54.260 --> 00:19:55.900
+Posso aggiungere blocchi di immagini.
+
+00:19:55.900 --> 00:19:58.220
+Posso aggiungere qualsiasi altro contenuto
+lì, ed esisterà
+
+00:19:58.220 --> 00:20:01.850
+all'interno delle
+sezioni separate dell'accordion.
+
+00:20:04.510 --> 00:20:08.320
+È qui che abbiamo iniziato
+a diventare un po' creativi su
+
+00:20:08.320 --> 00:20:10.400
+come stavamo gestendo la nostra
+esperienza di modifica dei blocchi,
+
+00:20:10.400 --> 00:20:13.273
+perché una cosa è creare markup
+
+00:20:13.274 --> 00:20:15.630
+per il front-end di un sito web,
+
+00:20:15.630 --> 00:20:17.860
+ma dovete anche
+impegnarvi molto
+
+00:20:17.860 --> 00:20:20.710
+su chi utilizzerà i vostri
+contenuti, chi andrà
+
+00:20:20.710 --> 00:20:23.500
+a modificarlo e assicurarvi
+che sia accessibile.
+
+00:20:23.500 --> 00:20:25.570
+Una delle cose che abbiamo
+fatto, la evidenzierò,
+
+00:20:25.570 --> 00:20:27.800
+abbiamo fatto un paio di ritocchi extra.
+
+00:20:27.800 --> 00:20:30.610
+E la cosa grandiosa è che 
+abbiamo utilizzato tutti i componenti
+
+00:20:30.610 --> 00:20:31.840
+dall'editor a blocchi.
+
+00:20:31.840 --> 00:20:33.981
+Se state costruendo blocchi personalizzati,
+
+00:20:33.982 --> 00:20:36.500
+queste sono tutte cose
+che sono fornite
+
+00:20:36.500 --> 00:20:40.070
+da WordPress e
+li mettete insieme come i Lego,
+
+00:20:40.070 --> 00:20:41.260
+ecco come funzionano questi componenti.
+
+00:20:41.260 --> 00:20:45.040
+Quindi abbiamo un editor di testo avanzato
+dove siamo arrivati o dove ci stiamo dirigendo.
+
+00:20:45.040 --> 00:20:46.860
+E noterete che
+abbiamo un menu a discesa qui
+
+00:20:46.860 --> 00:20:49.210
+dove possiamo cambiare il livello
+della nostra intestazione e i livelli
+
+00:20:49.210 --> 00:20:52.330
+H1, H2, H3, H4.
+
+00:20:52.330 --> 00:20:56.290
+La cosa bella qui è che non sapete 
+mai dove sta andando il vostro utente
+
+00:20:56.290 --> 00:20:58.160
+per inserire un blocco in una pagina.
+
+00:20:58.160 --> 00:21:00.870
+Non si sa mai quale
+sarà il contesto.
+
+00:21:00.870 --> 00:21:04.800
+Quindi è bello poter dire, beh,
+in questo caso, non ho un H2.
+
+00:21:04.800 --> 00:21:09.570
+Quindi voglio davvero che i miei blocchi siano
+un H2 a livello di intestazione
+
+00:21:09.570 --> 00:21:11.610
+di tutte le sezioni dell'accordion.
+
+00:21:11.610 --> 00:21:15.150
+E poi posso creare il mio contenuto
+al suo interno, in base a ciò.
+
+00:21:15.150 --> 00:21:19.250
+Quindi dare all'editor
+questa sorta di libertà di controllo:
+
+00:21:19.250 --> 00:21:22.720
+alcuni di quegli elementi sono
+molto utili e penso che ci siano
+
+00:21:22.720 --> 00:21:27.740
+molti effetti che possiamo realizzare, e questo
+utilizzando componenti WordPress personalizzati.
+
+00:21:27.740 --> 00:21:31.990
+Allo stesso modo, se avete mai avuto
+a che fare con l'aggiunta di contenuti
+
+00:21:31.990 --> 00:21:35.480
+con l'icona dell'inseritore di blocchi,
+a volte può essere un po' complicato
+
+00:21:35.480 --> 00:21:37.340
+sapere dove state
+modificando il contenuto.
+
+00:21:37.340 --> 00:21:39.720
+Per esempio, stavo
+stavo modificando questo prima
+
+00:21:39.720 --> 00:21:42.340
+e pensavo di scrivere il
+contenuto all'interno dell'accordion,
+
+00:21:42.340 --> 00:21:44.930
+ma in realtà ero appena
+più in basso nel post del blog,
+
+00:21:44.930 --> 00:21:47.460
+senza nemmeno modificare il contenuto giusto.
+
+00:21:47.460 --> 00:21:50.420
+È davvero importante
+che esista quel contesto.
+
+00:21:50.420 --> 00:21:53.980
+Quindi abbiamo aggiunto un pulsante
+qui dove si può cliccare
+
+00:21:53.980 --> 00:21:56.350
+e aggiungere una nuova
+sezione accordion nel mezzo
+
+00:21:56.350 --> 00:21:59.010
+dei vostri contenuti, e
+vi porterà proprio lì.
+
+00:21:59.010 --> 00:22:01.800
+Si concentrerà su questo, 
+lo porterà in primo piano,
+
+00:22:01.800 --> 00:22:04.920
+e sarà molto più facile 
+aggiungere quel contenuto.
+
+00:22:04.920 --> 00:22:08.480
+Stiamo cercando di adattare il
+paradigma dell'editor a blocchi
+
+00:22:08.480 --> 00:22:11.670
+e utilizzare i componenti
+che abbiamo a disposizione.
+
+00:22:11.670 --> 00:22:13.670
+Quindi a volte è necessario
+un piccolo codice extra,
+
+00:22:13.670 --> 00:22:17.840
+ma è anche molto importante
+perché quell'esperienza di editing
+
+00:22:17.840 --> 00:22:18.840
+è molto importante.
+
+00:22:20.440 --> 00:22:24.110
+Poi, vogliamo fare un rapido
+salto per capire in cosa consiste
+
+00:22:24.110 --> 00:22:25.550
+per modificare alcuni di questi blocchi.
+
+00:22:25.550 --> 00:22:27.260
+Quindi smetterò di condividere
+il mio schermo e tornerò indietro
+
+00:22:27.260 --> 00:22:28.260
+alla presentazione.
+
+00:22:29.630 --> 00:22:30.390
+Fantastico.
+
+00:22:30.390 --> 00:22:34.605
+Abbiamo quindi visto come
+funziona un blocco accordion accessibile
+
+00:22:34.606 --> 00:22:36.010
+nell'editor.
+
+00:22:36.010 --> 00:22:38.910
+Quello che verrà dopo riguarda in realtà
+cosa stiamo facendo
+
+00:22:38.910 --> 00:22:43.300
+per costruire strutturalmente questo blocco come
+un blocco personalizzato su misura per un cliente.
+
+00:22:43.300 --> 00:22:46.990
+Come abbiamo detto,
+in realtà abbiamo costruito due blocchi.
+
+00:22:46.990 --> 00:22:49.870
+Abbiamo costruito un blocco genitore
+e poi un blocco figlio
+
+00:22:49.870 --> 00:22:52.910
+e devono lavorare insieme
+perché c'è bisogno di un genitore,
+
+00:22:52.910 --> 00:22:55.560
+che è l'accordion e
+hai bisogno di un sacco di figli
+
+00:22:55.560 --> 00:22:57.740
+e devono davvero
+esistere solo l'uno con l'altro.
+
+00:22:57.740 --> 00:23:03.050
+Quindi il miglior paradigma
+con cui fare un confronto è il blocco colonne
+
+00:23:03.050 --> 00:23:04.070
+nell'editor di WordPress.
+
+00:23:04.070 --> 00:23:09.490
+Quando aggiungete colonne al
+vostro contenuto in WordPress,
+
+00:23:09.490 --> 00:23:13.030
+aggiungete il blocco Colonne 
+(plurale), che poi vi dà
+
+00:23:13.030 --> 00:23:16.010
+blocchi multipli Colonna
+al suo interno.
+
+00:23:16.010 --> 00:23:18.110
+Non è possibile avere
+l'uno senza l'altro.
+
+00:23:18.110 --> 00:23:21.840
+Non potete aggiungere una colonna se
+non è all'interno delle colonne
+
+00:23:21.840 --> 00:23:22.860
+e viceversa.
+
+00:23:22.860 --> 00:23:26.020
+Quindi se state facendo questo
+tipo di sviluppo a blocchi,
+
+00:23:26.020 --> 00:23:32.020
+questo è davvero un
+blocco chiave che potete guardare
+
+00:23:32.020 --> 00:23:34.000
+come un ottimo
+esempio di come funziona
+
+00:23:34.000 --> 00:23:36.640
+per realizzare questo tipo di
+blocchi genitore e figlio.
+
+00:23:36.640 --> 00:23:42.260
+Direi subito che si tratta semplicemente di
+un giusto avvertimento per la prossima sezione.
+
+00:23:42.260 --> 00:23:45.640
+Daremo per scontato un
+po' di familiarità
+
+00:23:45.640 --> 00:23:47.120
+con sviluppo di blocchi personalizzati.
+
+00:23:47.120 --> 00:23:49.310
+Quindi se non avete mai creato
+blocchi personalizzati prima,
+
+00:23:49.310 --> 00:23:51.490
+potete sicuramente ottenere
+qualcosa da questo,
+
+00:23:51.490 --> 00:23:54.080
+ma si suppone
+che a questo punto,
+
+00:23:54.080 --> 00:23:55.870
+in realtà state costruendo
+un blocco personalizzato e avete
+
+00:23:55.870 --> 00:23:59.990
+forse già fatto cose come scrivere
+blocchi personalizzati per WordPress in precedenza.
+
+00:23:59.990 --> 00:24:02.430
+Vi ricordo che il
+codice per tutto questo è su GitHub
+
+00:24:02.430 --> 00:24:04.910
+e potete prenderlo,
+giocarci, provarlo.
+
+00:24:04.910 --> 00:24:07.900
+Abbiamo inserito un link WP insta così
+potete provarlo con un solo clic
+
+00:24:07.900 --> 00:24:10.190
+in un'installazione di WordPress.
+
+00:24:10.190 --> 00:24:12.640
+Il codice è tutto lì,
+pronto per essere analizzato.
+
+00:24:12.640 --> 00:24:17.330
+Diamo un'occhiata a come abbiamo
+registrato questo blocco genitore
+
+00:24:17.330 --> 00:24:20.220
+e poi lascerò che Aurooba
+prenda il controllo di quel blocco figlio.
+
+00:24:20.220 --> 00:24:23.580
+Quindi registrando il blocco genitore,
+se avete costruito un blocco
+
+00:24:23.580 --> 00:24:25.600
+con WordPress prima,
+probabilmente avete usato
+
+00:24:25.600 --> 00:24:27.310
+il pacchetto di creazione blocchi di WordPress.
+
+00:24:27.310 --> 00:24:28.340
+È davvero comodo.
+
+00:24:28.340 --> 00:24:31.440
+Crea un'impalcatura con tutti i file di cui avete
+bisogno, vi fornisce il processo di compilazione,
+
+00:24:31.440 --> 00:24:31.890
+tutto.
+
+00:24:31.890 --> 00:24:34.470
+Ecco cosa abbiamo usato
+per costruire questo blocco.
+
+00:24:34.470 --> 00:24:37.860
+Vorrei solo evidenziare due
+cose fondamentali che abbiamo fatto
+
+00:24:37.860 --> 00:24:41.450
+per quel blocco accordion 
+genitore, perché alla fine 
+
+00:24:41.450 --> 00:24:44.280
+non era necessario quasi nessun codice.
+
+00:24:44.280 --> 00:24:47.750
+La prima cosa che abbiamo dovuto
+modificare è il file block.json.
+
+00:24:47.750 --> 00:24:50.390
+Ed è qui che state facendo
+sapere a WordPress qual è il nome
+
+00:24:50.390 --> 00:24:51.360
+del vostro blocco.
+
+00:24:51.360 --> 00:24:53.170
+Ecco a cosa ci si
+riferirà.
+
+00:24:53.170 --> 00:24:54.730
+Ecco come dovrebbero
+apparire nell'editor
+
+00:24:54.730 --> 00:24:56.130
+tutte queste cose.
+
+00:24:56.130 --> 00:24:59.280
+Due cose fondamentali che stiamo
+aggiungendo al nostro blocco,
+
+00:24:59.280 --> 00:25:04.210
+a partire dalla quinta riga, è la
+chiave degli attributi nel block.json.
+
+00:25:04.210 --> 00:25:08.630
+Gli attributi sono come 
+pezzi di dati personalizzati che
+
+00:25:08.630 --> 00:25:12.780
+volete salvare e volete
+mantenere memorizzati con il vostro blocco,
+
+00:25:12.780 --> 00:25:15.360
+quasi come campi personalizzati o
+metadati personalizzati, ma sono semplicemente legati
+
+00:25:15.360 --> 00:25:16.600
+a quel blocco.
+
+00:25:16.600 --> 00:25:19.870
+E quindi in questo caso abbiamo
+un attributo che stiamo salvando
+
+00:25:19.870 --> 00:25:22.890
+con il nostro accordion,
+e questo è l'attributo di livello.
+
+00:25:22.890 --> 00:25:25.610
+Quindi se vi ricordate
+quando stavamo modificando
+
+00:25:25.610 --> 00:25:28.720
+nel back-end dell'editor,
+siamo stati in grado di cambiare il livello
+
+00:25:28.720 --> 00:25:32.620
+dell'elemento di intestazione
+come H1, H2, H3.
+
+00:25:32.620 --> 00:25:34.530
+È qui che effettivamente 
+memorizzeremo quei dati.
+
+00:25:34.530 --> 00:25:38.480
+Lo memorizzeremo nel
+blocco padre perché abbiamo deciso che
+
+00:25:38.480 --> 00:25:41.760
+in questa versione del nostro
+blocco, vogliamo che siate in grado
+
+00:25:41.760 --> 00:25:44.090
+di modificare l'intestazione in un blocco.
+
+00:25:44.090 --> 00:25:48.640
+E tutte le altre sezioni accordion
+in quell'accordion stanno tutte andando
+
+00:25:48.640 --> 00:25:50.060
+a prendere la stessa direzione.
+
+00:25:50.060 --> 00:25:55.170
+Quindi useremo quel livello
+come attributo salvato sul genitore.
+
+00:25:55.170 --> 00:25:57.590
+E lo faremo archiviare lì
+
+00:25:57.590 --> 00:26:00.510
+in modo che tutti i blocchi interni
+vi abbiano accesso.
+
+00:26:00.510 --> 00:26:02.771
+E il modo in cui lo facciamo
+è con una cosa che
+
+00:26:02.772 --> 00:26:04.370
+in WordPress è chiamato contesto.
+
+00:26:04.370 --> 00:26:08.950
+Il contesto è fondamentalmente un modo per
+dire: Ehi, ho dei dati qui.
+
+00:26:08.950 --> 00:26:12.880
+E voglio fornirlo
+più in basso, ad altri blocchi.
+
+00:26:12.880 --> 00:26:15.600
+E voglio condividere questa
+informazione più avanti.
+
+00:26:15.600 --> 00:26:17.730
+E il contesto è il
+modo in cui lo si fa.
+
+00:26:17.730 --> 00:26:20.660
+Ed è un modo per mantenere il vostro
+blocco super performante.
+
+00:26:20.660 --> 00:26:24.800
+Quindi in questo caso, alla riga 12,
+stiamo fondamentalmente dicendo: Ehi,
+
+00:26:24.800 --> 00:26:27.910
+il nostro blocco genitore sta salvando
+qualcosa chiamato livello, e vogliamo
+
+00:26:27.910 --> 00:26:31.290
+fornire un contesto
+ai nostri blocchi interiori.
+
+00:26:31.290 --> 00:26:33.280
+E poi quando arriviamo
+agli interblocchi,
+
+00:26:33.281 --> 00:26:34.930
+vedremo che aspetto avrà.
+
+00:26:34.930 --> 00:26:39.100
+E poi daremo un'occhiata
+all'altro lato,
+
+00:26:39.100 --> 00:26:41.480
+e anche questo codice è disponibile.
+
+00:26:41.480 --> 00:26:44.460
+Questa è la funzione di 
+modifica per quel blocco.
+
+00:26:45.530 --> 00:26:48.540
+Vorremmo solo sottolineare una
+o due cose importanti qui.
+
+00:26:48.540 --> 00:26:52.900
+Come abbiamo detto, stiamo usando un blocco
+con blocchi interni al suo interno,
+
+00:26:52.900 --> 00:26:54.620
+che ha dei blocchi interni al suo interno.
+
+00:26:54.620 --> 00:26:58.640
+Il nostro accordion ha
+alcuni blocchi interni.
+
+00:26:58.640 --> 00:27:01.950
+E stiamo chiarendo alcune
+regole su quei blocchi interni.
+
+00:27:01.950 --> 00:27:04.610
+Per esempio, sulla
+riga 5, stiamo dicendo: Ehi,
+
+00:27:04.610 --> 00:27:06.450
+l'unico blocco che sarà
+consentito
+
+00:27:06.450 --> 00:27:10.240
+nel nostro accordion genitore
+è la nostra sezione accordion.
+
+00:27:10.240 --> 00:27:13.700
+Questo è l'unico blocco che può essere
+posizionato proprio all'interno del nostro accordion.
+
+00:27:13.700 --> 00:27:15.300
+Proprio come l'unico
+blocco che si trova all'interno
+
+00:27:15.300 --> 00:27:18.100
+delle colonne è
+il blocco di una colonna.
+
+00:27:18.100 --> 00:27:20.030
+Quindi l'abbiamo fatto.
+
+00:27:20.030 --> 00:27:22.480
+Alla riga 6, abbiamo impostato
+un template, abbiamo detto,
+
+00:27:22.480 --> 00:27:28.140
+Ehi, quando questo blocco viene caricato,
+vogliamo fondamentalmente quel template
+
+00:27:28.140 --> 00:27:30.620
+per iniziare con una
+sezione pronta all'uso.
+
+00:27:30.620 --> 00:27:35.230
+E poi sulla riga 7, quel template inserisce 
+l'attributo di selezione dell'aggiornamento,
+
+00:27:35.230 --> 00:27:40.030
+stiamo fondamentalmente dicendo che
+quando inserite un template,
+
+00:27:41.120 --> 00:27:43.100
+ci dovete concentrare proprio sul primo.
+
+00:27:43.100 --> 00:27:46.810
+Quindi vanno direttamente alla modifica
+della prima sezione dell'accordion.
+
+00:27:46.810 --> 00:27:50.680
+E quindi queste sono impostazioni che sono
+integrate nel modo in cui si costruiscono i blocchi
+
+00:27:50.680 --> 00:27:51.470
+su WordPress.
+
+00:27:51.470 --> 00:27:56.670
+Queste 11 righe di codice contengono 
+davvero tutto ciò di cui avete bisogno
+
+00:27:56.670 --> 00:27:59.190
+per quel blocco accordion genitore.
+
+00:27:59.190 --> 00:28:02.010
+E questo prepara l'utente a
+un'esperienza di editing davvero fantastica.
+
+00:28:02.010 --> 00:28:05.560
+Quindi vale davvero la pena approfondire
+il funzionamento di queste cose.
+
+00:28:05.560 --> 00:28:07.230
+Questo è tutto per
+il blocco genitore.
+
+00:28:07.230 --> 00:28:10.050
+È un blocco molto semplice,
+è solo un wrapper
+
+00:28:10.050 --> 00:28:12.030
+per tutte quelle sezioni di accordion.
+
+00:28:12.030 --> 00:28:16.420
+Aurooba, vuoi
+approfondire i blocchi figlio?
+
+00:28:16.420 --> 00:28:17.620
+AUROOBA: Sì.
+
+00:28:17.620 --> 00:28:20.920
+Quindi, come ha detto Brian,
+quello era il blocco genitore.
+
+00:28:20.920 --> 00:28:22.140
+Semplicissimo.
+
+00:28:22.140 --> 00:28:25.180
+Ed è nel blocco figlio che
+avviene la magia.
+
+00:28:25.180 --> 00:28:27.720
+C'è molta
+attività in corso qui.
+
+00:28:27.720 --> 00:28:30.320
+Quindi ancora una volta,
+questa è una visione parziale
+
+00:28:30.320 --> 00:28:33.400
+di quel file JSON di 
+registrazione dei blocchi.
+
+00:28:33.400 --> 00:28:36.860
+Potete vedere l'intero
+codice nel repository più tardi.
+
+00:28:36.860 --> 00:28:41.290
+Quello che sta succedendo qui è che, ovviamente
+gli stiamo dando una bella lezione.
+
+00:28:41.290 --> 00:28:47.420
+Stiamo aggiungendo un titolo, ma poi alla
+sesta riga, stiamo aggiungendo una chiave genitore.
+
+00:28:47.420 --> 00:28:51.220
+Questa chiave genitore è
+ciò che consente a questo blocco
+
+00:28:51.220 --> 00:28:55.580
+di essere disponibile solo all'interno
+del blocco accordion genitore.
+
+00:28:55.580 --> 00:28:59.530
+Quindi, proprio come per il blocco colonne,
+se aprite la libreria dei blocchi
+
+00:28:59.530 --> 00:29:04.260
+e digitate colonna, vedrete solo
+il blocco Colonne (plurale).
+
+00:29:04.260 --> 00:29:07.710
+Non vedete mai quel blocco di 
+Colonna singola disponibile lì
+
+00:29:07.710 --> 00:29:09.840
+a causa di questa chiave genitore.
+
+00:29:09.840 --> 00:29:11.438
+Quindi questa è la 
+prima cosa che facciamo
+
+00:29:11.439 --> 00:29:13.500
+perché non vogliamo usare 
+questo blocco figlio
+
+00:29:13.500 --> 00:29:15.880
+al di fuori del blocco genitore.
+
+00:29:15.880 --> 00:29:17.990
+Altrimenti non funzionerebbe davvero.
+
+00:29:17.990 --> 00:29:22.370
+La prossima cosa che facciamo è
+avere molti più attributi qui
+
+00:29:22.370 --> 00:29:24.510
+rispetto al blocco genitore
+perché abbiamo molto di più
+
+00:29:24.510 --> 00:29:27.560
+per tenere traccia di ogni
+sezione accordion.
+
+00:29:27.560 --> 00:29:30.340
+La prima cosa in assoluto è
+ovviamente il testo dell'intestazione.
+
+00:29:30.340 --> 00:29:33.740
+Sappiamo che l'intestazione
+della sezione accordion
+
+00:29:33.740 --> 00:29:34.640
+è importante.
+
+00:29:34.640 --> 00:29:36.310
+Quindi ne teniamo traccia.
+
+00:29:36.310 --> 00:29:38.520
+Ora teniamo traccia del livello.
+
+00:29:38.520 --> 00:29:41.030
+Di questo viene tenuto traccia
+nel blocco genitore, sì,
+
+00:29:41.030 --> 00:29:45.530
+ma anche a livello di ogni singola
+sezione del titolo.
+
+00:29:45.530 --> 00:29:48.930
+Poi abbiamo l'ID perché
+abbiamo bisogno di un modo univoco
+
+00:29:48.930 --> 00:29:53.097
+per identificare grazie
+al nostro JavaScript,
+
+00:29:53.098 --> 00:29:56.410
+quale interazione stiamo facendo
+
+00:29:56.410 --> 00:29:58.860
+quando clicchiamo su una
+sezione accordion.
+
+00:29:58.860 --> 00:30:03.930
+E poi il lato del complimento
+che fornisce la chiave di contesto,
+
+00:30:03.930 --> 00:30:07.160
+di cui parlava Brian,
+abbiamo il contesto degli utenti.
+
+00:30:07.160 --> 00:30:09.590
+Quindi quello che stiamo facendo nel
+blocco figlio è dire: Ehi,
+
+00:30:09.590 --> 00:30:13.820
+prendi le informazioni, quel
+livello di intestazione dal blocco genitore.
+
+00:30:13.820 --> 00:30:15.080
+Vogliamo usare queste informazioni.
+
+00:30:15.080 --> 00:30:19.890
+E poi lo memorizziamo e salviamo
+anche a livello di sezione.
+
+00:30:21.210 --> 00:30:24.830
+Ecco cosa dobbiamo fare per
+registrare il blocco figlio.
+
+00:30:24.830 --> 00:30:28.680 
+Ora nella sezione di modifica
+stanno succedendo un sacco di cose,
+
+00:30:28.680 --> 00:30:31.790
+l'esperienza editoriale
+del blocco figlio.
+
+00:30:31.790 --> 00:30:35.770
+Qui, invece di guidarvi
+attraverso la sezione di modifica,
+
+00:30:35.770 --> 00:30:38.370
+vi stiamo mostrando come
+appare quella funzione di salvataggio
+
+00:30:38.370 --> 00:30:43.490
+perché articola davvero
+molto bene tutte le cose
+
+00:30:43.490 --> 00:30:47.780
+che il blocco deve fare per
+creare l'output finale.
+
+00:30:47.780 --> 00:30:51.460
+La prima cosa che noterete
+è che prendiamo quel livello
+
+00:30:51.460 --> 00:30:55.700
+da quegli attributi e creiamo
+un tag di intestazione da esso.
+
+00:30:55.700 --> 00:30:59.300
+Poi abbiamo il nostro wrapper
+della sezione accordion, ovviamente,
+
+00:30:59.300 --> 00:31:02.070
+e al suo interno abbiamo
+l'intestazione accordion,
+
+00:31:02.070 --> 00:31:05.890
+che utilizza quel nome di tag
+connesso a quell'attributo di livello,
+
+00:31:05.890 --> 00:31:09.980
+che è globale in tutto
+il blocco genitore dell'accordion
+
+00:31:09.980 --> 00:31:11.760
+e tutte quelle sezioni.
+
+00:31:11.760 --> 00:31:16.220
+Qui impostiamo l'aria
+espansa per il pulsante,
+
+00:31:16.220 --> 00:31:20.760
+impostiamo il testo effettivo dell'intestazione
+e gli diamo un identificatore univoco.
+
+00:31:20.760 --> 00:31:25.300
+E poi sotto abbiamo un
+involucro per quel pannello accordion.
+
+00:31:25.300 --> 00:31:29.020
+Ed è lì che vivono i blocchi 
+interni flessibili e molto liberi.
+
+00:31:29.020 --> 00:31:32.670
+Mentre siamo nel blocco genitore,
+il componente dei blocchi interni,
+
+00:31:32.670 --> 00:31:35.370
+che è assolutamente
+incredibile, una cosa grandiosa,
+
+00:31:35.370 --> 00:31:38.950
+abbiamo integrato proprio lì in
+WordPress l'editor a blocchi.
+
+00:31:38.950 --> 00:31:41.300
+Nel blocco genitore era limitante,
+
+00:31:41.300 --> 00:31:45.230
+stavamo dicendo di consentire solo a un
+certo blocco di avere questo template,
+
+00:31:45.230 --> 00:31:48.370
+ma nel contenuto del pannello 
+accordion, vogliamo che voi siate in grado
+
+00:31:48.370 --> 00:31:49.780
+di aggiungere quello che volete.
+
+00:31:49.780 --> 00:31:54.740
+Quindi è solo un semplice componente
+di blocchi interni, senza restrizioni.
+
+00:31:55.890 --> 00:31:59.140
+Ecco cosa costituisce
+il blocco figlio.
+
+00:31:59.140 --> 00:32:05.250
+Ma poi, come Brian aveva dimostrato,
+abbiamo aggiunto qualche modifica in più
+
+00:32:05.250 --> 00:32:08.380
+per rendere l'esperienza di editing
+un po' più accessibile,
+
+00:32:08.380 --> 00:32:11.150
+un po' più facile da usare.
+
+00:32:11.150 --> 00:32:14.640
+Quindi la prima cosa da sapere in
+termini di navigazione tramite tastiera
+
+00:32:14.640 --> 00:32:20.660
+e l'usabilità generale dell'editor a blocchi
+è che c'è una scorciatoia globale,
+
+00:32:20.660 --> 00:32:26.100
+che è alt + ctrl + y
+o opzione + command + y,
+
+00:32:26.100 --> 00:32:27.800
+se usate un Mac.
+
+00:32:27.800 --> 00:32:30.260
+E questo vi consente
+di aggiungere un nuovo blocco.
+
+00:32:30.260 --> 00:32:33.950
+Quando premete quella
+scorciatoia, in sostanza,
+
+00:32:33.950 --> 00:32:37.940
+il blocco crea uno spazio vuoto
+in cui ora potete aggiungere un nuovo blocco.
+
+00:32:37.940 --> 00:32:43.070
+Ma all'interno del blocco accordion, non potete 
+aggiungere un blocco qualsiasi in qualsiasi punto.
+
+00:32:43.070 --> 00:32:45.960
+Se siete nel genitore,
+potete solo aggiungere
+
+00:32:45.960 --> 00:32:48.180
+un'altra sezione accordion.
+
+00:32:48.180 --> 00:32:52.800
+Solo all'interno del pannello accordion
+potete aggiungere qualsiasi blocco vogliate.
+
+00:32:52.800 --> 00:32:57.710
+Quella scorciatoia non funziona
+come previsto all'interno di questo blocco.
+
+00:32:57.710 --> 00:32:59.520
+Quindi abbiamo deciso di risolvere il problema.
+
+00:32:59.520 --> 00:33:03.280
+E il modo in cui lo risolviamo è,
+prima di tutto, nella barra degli strumenti aggiungendo
+
+00:33:03.280 --> 00:33:06.770
+quel pulsante + che
+lo aggiunge, ma in realtà è legato
+
+00:33:06.770 --> 00:33:12.860
+alla stessa scorciatoia alt + ctrl + y 
+o opzione + command + y su Mac.
+
+00:33:12.860 --> 00:33:16.520
+E se vi trovate all'interno di
+una sezione accordion
+
+00:33:16.520 --> 00:33:20.410
+e vi state concentrando sull'area
+dell'intestazione dell'accordion,
+
+00:33:20.410 --> 00:33:26.130
+quel componente di testo avanzato personalizzato in cui
+inserite le informazioni dell'intestazione
+
+00:33:26.130 --> 00:33:32.890
+e premete quei tasti per creare quella
+scorciatoia, farà la stessa cosa.
+
+00:33:32.890 --> 00:33:36.070
+Aggiungerà una nuova
+sezione accordion per voi.
+
+00:33:36.070 --> 00:33:40.160
+Quindi, a volte bastano poche cose qua e là,
+tutto ciò di cui avete bisogno
+
+00:33:40.160 --> 00:33:42.830
+per migliorare semplicemente quell'esperienza
+
+00:33:42.830 --> 00:33:45.620
+per la personalizzare un po' 
+di più la vostra creazione.
+
+00:33:45.620 --> 00:33:48.610
+Oltre a fare queste modifiche all'accessibilità,
+
+00:33:48.610 --> 00:33:51.490
+ci sono anche altre cose
+che dobbiamo fare stilisticamente
+
+00:33:51.490 --> 00:33:53.790
+quasi sempre per qualsiasi blocco personalizzato.
+
+00:33:53.790 --> 00:33:54.950
+Brian ci spiegherà tutto.
+
+00:33:54.950 --> 00:34:00.510
+BRIAN: Quindi quando si crea un blocco
+in WordPress, e in particolare
+
+00:34:00.510 --> 00:34:04.490
+se si usa la convenzione
+dello scaffold di creazione blocchi,
+
+00:34:04.490 --> 00:34:07.080
+in genere avrete
+due fogli di stile.
+
+00:34:07.080 --> 00:34:10.370
+Un foglio di stile carica con il vostro
+blocco sul front-end e sul back-end
+
+00:34:10.370 --> 00:34:10.960
+di WordPress.
+
+00:34:10.960 --> 00:34:14.610
+Quindi il blocco viene visualizzato,
+il foglio di stile viene visualizzato,
+
+00:34:14.610 --> 00:34:17.670
+quando l'utente utilizza il blocco sul
+front-end del sito web,
+
+00:34:17.670 --> 00:34:19.940
+ma si nota anche nell'esperienza
+dell'editor.
+
+00:34:19.940 --> 00:34:23.125
+Tuttavia,
+a volte l'esperienza dell'editor
+
+00:34:23.126 --> 00:34:25.610
+non è realmente un vero uno a uno
+
+00:34:25.610 --> 00:34:27.390
+del front-end del
+sito web, perché quando siete
+
+00:34:27.390 --> 00:34:30.940
+nell'editor a blocchi, ci sono
+barre degli strumenti, pulsanti e UX in Chrome
+
+00:34:30.940 --> 00:34:33.630
+e tutti i tipi di interazioni
+che devono avvenire.
+
+00:34:33.630 --> 00:34:37.390
+E a volte non è così
+vicino come vorreste che fosse
+
+00:34:37.390 --> 00:34:40.210
+in termini di semplice struttura semantica
+dell'HTML.
+
+00:34:40.210 --> 00:34:43.680
+Quindi il blocco caricherà 
+generalmente un secondo foglio di stile solo
+
+00:34:43.680 --> 00:34:47.040
+per l'editor dove potete
+aggiungere alcuni override personalizzati.
+
+00:34:47.040 --> 00:34:49.520
+Quindi nel nostro caso, nel 
+front-end, abbiamo parlato di
+
+00:34:49.520 --> 00:34:53.460
+come il testo dell'intestazione doveva
+essere in un elemento pulsante
+
+00:34:53.460 --> 00:34:55.530
+perché vogliamo davvero
+che sia cliccabile.
+
+00:34:55.530 --> 00:34:58.300
+Non vogliamo fare qualcosa come
+prendere un div e trasformarlo in un pulsante.
+
+00:34:58.300 --> 00:35:02.920
+Vogliamo le stesse cose selezionabili,
+focalizzabili, tutti i tipi di cose
+
+00:35:02.920 --> 00:35:03.860
+che ci fornisce un pulsante.
+
+00:35:03.860 --> 00:35:06.740
+Quando siamo nell'esperienza
+di modifica del backend,
+
+00:35:06.740 --> 00:35:09.170
+stiamo utilizzando un componente
+fornito da WordPress
+
+00:35:09.170 --> 00:35:11.590
+chiamato rich text component.
+
+00:35:11.590 --> 00:35:14.140
+Questo vi consente davvero di
+scrivere quell'intestazione.
+
+00:35:14.140 --> 00:35:17.370
+Lo svantaggio è che
+potrebbe essere in realtà un pulsante.
+
+00:35:17.370 --> 00:35:18.650
+È un componente completamente diverso.
+
+00:35:18.650 --> 00:35:21.050
+Quindi tutti quegli stili che
+vi abbiamo mostrato per il pulsante,
+
+00:35:21.050 --> 00:35:22.850
+semplicemente non funzionavano davvero
+sul backend di WordPress
+
+00:35:22.850 --> 00:35:23.780
+perché non c'era nessun pulsante.
+
+00:35:23.780 --> 00:35:29.840
+Una volta terminato il frontend
+del vostro blocco, andate
+
+00:35:29.840 --> 00:35:32.850
+al backend, e vedete; gli
+stili corrispondono uno a uno,
+
+00:35:32.850 --> 00:35:35.600
+gli elementi corrispondono uno a
+uno, cosa posso fare per ottenerlo
+
+00:35:35.600 --> 00:35:39.280 
+per sentirmi il più vicino possibile
+alla parte anteriore e anche
+
+00:35:39.280 --> 00:35:41.180
+il più accessibile possibile?
+
+00:35:41.180 --> 00:35:43.873
+Se non aggiungessimo
+questi stili personalizzati,
+
+00:35:43.874 --> 00:35:46.220
+poi tutto sarebbe cambiato in modo strano
+
+00:35:46.220 --> 00:35:49.290
+e non potreste capire cosa stavate
+modificando, cose del genere.
+
+00:35:49.290 --> 00:35:53.930
+Quindi è davvero importante entrare
+e aggiungere alcuni stili nello specifico
+
+00:35:53.930 --> 00:35:58.490
+affinché quel backend ottenga la corrispondenza 
+perfetta tra front e back.
+
+00:35:58.490 --> 00:36:02.930
+Nel complesso, queste
+sono molte delle cose
+
+00:36:02.930 --> 00:36:04.760
+che penso si debbano considerare
+
+00:36:04.760 --> 00:36:09.780
+quando si crea
+un blocco personalizzato.
+
+00:36:09.780 --> 00:36:12.740
+E usiamo l'accordion
+perché è un pattern di progettazione
+
+00:36:12.740 --> 00:36:15.080
+che credo venga usato molto spesso.
+
+00:36:15.080 --> 00:36:16.710
+Credo che se avete
+creato siti web personalizzati,
+
+00:36:16.710 --> 00:36:18.850
+state creando suggerimenti fondamentali
+più spesso di quanto pensate,
+
+00:36:18.850 --> 00:36:23.310 
+e a questo punto non è 
+ancora un blocco fondamentale di WordPress.
+
+00:36:23.310 --> 00:36:24.630
+C'è un blocco dettagli ed è fantastico.
+
+00:36:24.630 --> 00:36:27.380
+Non è proprio la stessa cosa.
+
+00:36:27.380 --> 00:36:30.290
+Se lo avete già fatto, probabilmente 
+ci avete già battagliato.
+
+00:36:30.290 --> 00:36:33.670
+È davvero importante
+pensare, strutturalmente,
+
+00:36:33.670 --> 00:36:38.370
+quale HTML voglio veramente,
+quali attributi sono veramente importanti.
+
+00:36:38.370 --> 00:36:41.280
+Sto usando le cose come
+previsto dal browser?
+
+00:36:41.280 --> 00:36:43.700
+È davvero tutto
+facile da raggiungere?
+
+00:36:43.700 --> 00:36:48.430
+Fondamentalmente impiegherete
+la stessa quantità di tempo sul back-end
+
+00:36:48.430 --> 00:36:49.580
+mentre siete nel front-end.
+
+00:36:49.580 --> 00:36:53.380
+Dovete davvero pianificare
+quel tempo in modo appropriato
+
+00:36:53.380 --> 00:36:55.750
+per offrire la migliore
+esperienza e assicurarvi
+
+00:36:55.750 --> 00:36:59.160
+che non state costruendo qualcosa
+che non è realmente accessibile
+
+00:36:59.160 --> 00:37:02.780
+perché è qualcosa
+che riguarda davvero chiunque
+
+00:37:02.780 --> 00:37:04.620
+inserisca contenuti
+in un sito web.
+
+00:37:04.620 --> 00:37:06.720
+Seguendo gli standard
+e quelle pratiche,
+
+00:37:06.720 --> 00:37:08.850
+è qualcosa che in
+un certo senso aiuta chiunque.
+
+00:37:10.480 --> 00:37:14.690
+AUROOBA: Sì, e l'altra
+cosa che voglio tenere a mente,
+
+00:37:14.690 --> 00:37:18.970
+che voglio ricordare a tutti è
+che questo è un approccio
+
+00:37:18.970 --> 00:37:21.658
+è una base fondamentale di accessibilità
+
+00:37:21.659 --> 00:37:23.430
+a cui vorreste aggiungere
+
+00:37:23.430 --> 00:37:27.230
+non solo un blocco personalizzato, 
+ma un blocco accordion.
+
+00:37:27.230 --> 00:37:31.180
+Bisogna considerare
+la situazione e il contesto
+
+00:37:31.180 --> 00:37:33.830
+su come i creatori dei vostro contenuti
+useranno il vostro blocco.
+
+00:37:33.830 --> 00:37:37.770
+Per esempio, prima abbiamo parlato di
+come si potrebbe avere un accordion
+
+00:37:37.770 --> 00:37:40.700
+che ha una relazione
+in cui si apre una sezione
+
+00:37:40.700 --> 00:37:44.110
+mentre l'altra rimane chiusa;
+o potresti avere una situazione
+
+00:37:44.110 --> 00:37:45.830
+dove è necessario
+averle tutte aperte.
+
+00:37:45.830 --> 00:37:48.680
+Volete che le persone possano
+aprire e chiudere le sezioni
+
+00:37:48.680 --> 00:37:52.800
+a piacimento e in autonomia,
+o potreste sempre volere
+
+00:37:52.800 --> 00:37:55.430
+mantenere aperta una particolare 
+sezione accordion.
+
+00:37:55.430 --> 00:37:57.710
+Tutte queste cose
+cambieranno il modo in cui
+
+00:37:57.710 --> 00:38:02.460
+create quell'esperienza di editor di blocchi
+e quell'output front-end
+
+00:38:02.460 --> 00:38:04.410
+per renderlo
+più accessibile.
+
+00:38:04.410 --> 00:38:07.670
+Anche se questa è una buona
+base da cui partire, volete
+
+00:38:07.670 --> 00:38:11.720
+contestualizzarlo in base
+alla vostra situazione particolare
+
+00:38:11.720 --> 00:38:14.150
+o al progetto specifico
+su cui state lavorando.
+
+00:38:15.280 --> 00:38:17.130
+Per cui grazie.
+
+00:38:17.130 --> 00:38:22.780
+Abbiamo parlato molto dell'accessibilità 
+degli accordion, ma siamo qui
+
+00:38:22.780 --> 00:38:24.640
+per rispondere a qualsiasi domanda.
+
+00:38:24.640 --> 00:38:27.320
+E mettiamo a disposizione 
+tutto il codice per voi
+
+00:38:27.320 --> 00:38:31.050
+così come questa presentazione,
+che fa parte dello stesso repository.
+
+00:38:31.050 --> 00:38:33.840
+Potrete verificarlo
+dopo la presentazione.
+
+00:38:35.010 --> 00:38:36.820
+BRIAN: Credo che abbiamo
+un paio di domande
+
+00:38:36.820 --> 00:38:38.510
+a cui saremo più
+che felici di rispondere.
+
+00:38:38.510 --> 00:38:43.120
+E come ho detto, potete usare
+le slide per arrivarci prima
+
+00:38:43.120 --> 00:38:45.960
+invece che stare a giocare 
+con il blocco o farlo girare
+
+00:38:45.960 --> 00:38:46.960
+dal repository.
+
+00:38:51.540 --> 00:38:54.910
+JULIE: Ci sono altre
+domande nella chat?
+
+00:38:56.230 --> 00:38:57.820
+Ne vedo un altro paio.
+
+00:38:59.000 --> 00:39:01.300
+Penso che le abbiamo tutte.
+
+00:39:01.300 --> 00:39:02.300
+Va bene.
+
+00:39:04.200 --> 00:39:06.870
+Bene, grazie per la vostra partecipazione.
+
+00:39:08.580 --> 00:39:10.420
+SPEAKER: Ci sono alcune
+domande nella sezione Q&A, Julie.
+
+00:39:10.420 --> 00:39:11.650
+JULIE: Ok, grazie.
+
+00:39:12.830 --> 00:39:13.430
+Ce ne sono.
+
+00:39:13.430 --> 00:39:13.770
+Va bene.
+
+00:39:13.770 --> 00:39:14.190
+Ora le vedo.
+
+00:39:14.190 --> 00:39:20.620
+Quando aggiungiamo un elemento pseudo
+nell'esempio CSS, la freccia,
+
+00:39:20.620 --> 00:39:24.340
+come possiamo aggiungere un testo alternativo?
+
+00:39:26.215 --> 00:39:27.600
+AUROOBA: Questa è una bella domanda.
+
+00:39:27.600 --> 00:39:28.440
+Brian, vuoi rispondere tu?
+
+00:39:28.900 --> 00:39:29.320
+BRIAN: Certo.
+
+00:39:29.320 --> 00:39:32.640
+Onestamente, questa è una
+domanda che credo di aver avuto
+
+00:39:32.640 --> 00:39:36.650
+quando per la prima volta abbiamo fatto
+qualcosa di simile un po' di tempo fa,
+
+00:39:36.650 --> 00:39:38.050
+costruendo un blocco accordion.
+
+00:39:38.050 --> 00:39:42.330
+E sai, in realtà è un indicatore visivo
+
+00:39:42.330 --> 00:39:45.670
+ed è corretto che non
+abbia alcun testo, ma è parte
+
+00:39:45.670 --> 00:39:48.250
+di quell'elemento pulsante
+che ha quei ruoli aria.
+
+00:39:48.250 --> 00:39:51.200
+E quindi queste saranno in realtà
+la parte degli elementi
+
+00:39:51.200 --> 00:39:54.550
+che verranno letti
+e che faranno sapere all'utente
+
+00:39:54.550 --> 00:39:57.810
+che c'è già interattività e come 
+
+00:39:57.810 --> 00:39:59.140
+si comporterà.
+
+00:39:59.140 --> 00:40:02.970
+Questo è solo un indicatore visivo,
+ma non è quello effettivo...
+
+00:40:02.970 --> 00:40:06.980
+L'elemento contiene già il testo
+per il tipo di tecnologia assistiva
+
+00:40:06.980 --> 00:40:07.870
+per gestirlo.
+
+00:40:07.870 --> 00:40:09.780 
+In quel caso
+non dovete aggiungere nulla.
+
+00:40:11.250 --> 00:40:13.990
+JULIE: OK,
+le fisarmoniche possono essere annidate?
+
+00:40:15.700 --> 00:40:17.300
+AUROOBA: Sì, è possibile.
+
+00:40:17.300 --> 00:40:20.870
+Voglio dire, quando stavamo creando questo
+blocco, ne abbiamo effettivamente discusso.
+
+00:40:20.870 --> 00:40:24.080
+Vogliamo consentire che un accordion
+venga aggiunto a un altro accordion?
+
+00:40:24.080 --> 00:40:26.310
+Potete farlo sicuramente,
+ma dovete assicurarvi che
+
+00:40:26.310 --> 00:40:29.480
+non state davvero creando una
+situazione di bambola russa extra
+
+00:40:29.480 --> 00:40:32.900
+dove avete un accordion dentro
+un accordion dentro un accordion.
+
+00:40:32.900 --> 00:40:37.640
+Direi che come regola generale,
+sarebbe meglio non farlo,
+
+00:40:37.640 --> 00:40:40.180
+ma ho visto situazioni
+in cui ha senso.
+
+00:40:40.180 --> 00:40:42.580
+Come se avessi un accordion
+con un sacco di contenuti al suo interno,
+
+00:40:42.580 --> 00:40:44.430
+che contiene molte informazioni,
+e poi alla fine
+
+00:40:44.430 --> 00:40:47.320
+potreste ritrovarvi con un accordion che
+in realtà contiene alcune domande frequenti,
+
+00:40:47.320 --> 00:40:48.340
+per esempio.
+
+00:40:48.340 --> 00:40:51.270
+Quindi penso che oltre a passare
+a due livelli di accordion,
+
+00:40:51.270 --> 00:40:54.000
+non sarebbe una buona idea,
+ma fino a due probabilmente andranno bene.
+
+00:40:56.100 --> 00:40:57.250
+JULIE: Grazie per la risposta.
+
+00:40:57.250 --> 00:40:58.160
+OK, un'altra domanda.
+
+00:40:58.160 --> 00:41:00.500
+Come si rende
+ricercabile un accordion?
+
+00:41:02.269 --> 00:41:04.000
+BRIAN: Oh, questa è bella.
+
+00:41:07.120 --> 00:41:11.500
+La cosa interessante di un accordion
+è che il contenuto è tecnicamente
+
+00:41:11.500 --> 00:41:12.230
+nel documento.
+
+00:41:12.230 --> 00:41:13.620
+È sulla pagina.
+
+00:41:13.620 --> 00:41:16.350
+Non è come una situazione in cui 
+JavaScript viene effettivamente rimosso.
+
+00:41:16.350 --> 00:41:19.580
+Quindi il contenuto c'è, ma inserendolo
+in quel display none,
+
+00:41:19.580 --> 00:41:22.960
+non verrà letto ad alta voce e
+non verrà nemmeno scansionato.
+
+00:41:22.960 --> 00:41:27.390
+In realtà non ho mai pensato
+a cosa sarebbe successo
+
+00:41:27.390 --> 00:41:28.950
+se facessimo delle ricerche vere e proprie.
+
+00:41:28.950 --> 00:41:31.680
+È come se stessi dicendo:
+sono nella parte anteriore del sito web,
+
+00:41:31.680 --> 00:41:35.010
+e mi piace usare il comando F per
+cercare una parola nel documento.
+
+00:41:35.010 --> 00:41:36.710
+In realtà non ne sono sicuro.
+
+00:41:36.710 --> 00:41:39.910
+Da quello che ho capito,
+conosco i dettagli, per esempio,
+
+00:41:39.910 --> 00:41:42.670
+gli Elementi Dettagliati si
+espanderanno automaticamente.
+
+00:41:42.670 --> 00:41:45.390
+Quindi questo sarebbe un buon
+caso d'uso da testare.
+
+00:41:45.390 --> 00:41:47.530
+Penserei che si
+espanderebbero automaticamente,
+
+00:41:47.530 --> 00:41:52.040
+ma potreste doverlo adattare
+al vostro codice.
+
+00:41:52.040 --> 00:41:53.330
+Aurooba, hai
+qualcosa da aggiungere?
+
+00:41:54.940 --> 00:41:57.580
+AUROOBA: So che se hai fatto
+una ricerca su WordPress, funzionerà,
+
+00:41:57.580 --> 00:42:00.561
+perché non gli importa
+della parte JavaScript,
+
+00:42:00.562 --> 00:42:01.880
+e quindi lo troverà.
+
+00:42:01.880 --> 00:42:04.080
+E anche se è impostato 
+per non visualizzarne nessuno,
+
+00:42:04.080 --> 00:42:10.580
+la maggior parte dei motori di ricerca di parole
+sono in grado di identificare
+
+00:42:10.580 --> 00:42:12.140
+e trovare anche quel contenuto.
+
+00:42:12.140 --> 00:42:15.720
+Quindi dipende davvero da cosa
+intendi quando dici ricercabile.
+
+00:42:15.720 --> 00:42:18.010
+In certi contesti lo è, e in
+certi contesti potresti aver bisogno
+
+00:42:18.010 --> 00:42:18.930
+di aggiungere qualcos'altro.
+
+00:42:23.231 --> 00:42:24.320
+JULIE: Ci sono
+altre due domande.
+
+00:42:24.320 --> 00:42:24.770
+È così?
+
+00:42:25.500 --> 00:42:25.910
+C'è qualcos'altro?
+
+00:42:25.910 --> 00:42:27.400
+AUROOBA: Ancora una, credo.
+
+00:42:27.400 --> 00:42:27.840
+JULIE: Ancora una.
+
+00:42:27.840 --> 00:42:28.360
+Va bene.
+
+00:42:28.915 --> 00:42:29.555
+Va bene.
+
+00:42:31.290 --> 00:42:32.810
+Per qualche motivo non compare.
+
+00:42:32.810 --> 00:42:33.970
+Ti dispiacerebbe
+leggere la domanda?
+
+00:42:33.970 --> 00:42:36.030
+Non so perché
+il mio non si apre?
+
+00:42:36.030 --> 00:42:36.780
+AUROOBA: Sì.
+
+00:42:36.780 --> 00:42:40.850
+La domanda è: è possibile
+annidare una griglia in un accordion?
+
+00:42:40.850 --> 00:42:41.640
+JULIE: Ecco fatto.
+
+00:42:41.640 --> 00:42:42.640
+Grazie.
+
+00:42:45.500 --> 00:42:47.320
+BRIAN: Vuoi che risponda io?
+
+00:42:47.320 --> 00:42:49.889
+Voglio dire, l'abbiamo costruito 
+quindi in questa situazione
+
+00:42:49.890 --> 00:42:51.880
+potresti annidarci qualsiasi cosa.
+
+00:42:51.880 --> 00:42:56.540
+Ovviamente, sai,
+non c'è motivo per non farlo.
+
+00:42:58.850 --> 00:43:01.082
+Il design responsive è
+molto importante se 
+
+00:43:01.083 --> 00:43:02.083
+hai contenuti.
+
+00:43:03.340 --> 00:43:08.390
+L'altra cosa di un accordion  
+è, in genere,
+
+00:43:08.390 --> 00:43:10.820
+dal punto di vista del marketing,
+non dovreste metterci nulla
+
+00:43:10.820 --> 00:43:13.530
+che rimanga nascosto lì 
+a un livello molto alto;
+
+00:43:13.530 --> 00:43:16.630
+in realtà è pensato per
+blocchi di testo molto più lunghi
+
+00:43:16.630 --> 00:43:18.440
+o forme molto lunghe
+o qualcosa del genere.
+
+00:43:18.440 --> 00:43:22.300
+Ma molte volte lo vedrai,
+penso anche a
+
+00:43:22.300 --> 00:43:28.160
+come W3 è una forma molto lunga
+all'interno di un accordion
+
+00:43:28.160 --> 00:43:30.760
+in modo che ogni sezione sia comprimibile
+e questo è un ottimo esempio
+
+00:43:30.760 --> 00:43:32.880
+dove probabilmente usereste
+molte griglie per disporre i vostri
+
+00:43:32.880 --> 00:43:33.830
+elementi del modulo o qualcosa del genere.
+
+00:43:37.020 --> 00:43:38.820
+JULIE: Bene, ne abbiamo un altro.
+
+00:43:38.820 --> 00:43:41.770
+Qual è stata la parte più impegnativa
+nella creazione di questo plugin?
+
+00:43:48.140 --> 00:43:50.460
+AUROOBA: Allora, Brian e io abbiamo costruito
+un sacco di accordion quest'anno.
+
+00:43:51.530 --> 00:43:55.580
+Quindi non so quale sia stata
+la sfida più grande.
+
+00:43:55.580 --> 00:44:01.940
+Forse tenere conto delle modifiche sull'accessibilità 
+apportate all'editor, forse quello.
+
+00:44:01.940 --> 00:44:03.400
+E tu, Brian?
+
+00:44:03.400 --> 00:44:06.250
+BRIAN: Penso che
+una cosa che succede
+
+00:44:06.250 --> 00:44:10.210
+a molti sviluppatori è che a volte
+non c'è una risposta giusta
+
+00:44:10.210 --> 00:44:11.740
+quando si ha a che fare
+con l'accessibilità.
+
+00:44:11.740 --> 00:44:14.840
+Esiste semplicemente la risposta migliore e
+a volte non ne se ne è nemmeno sicuri.
+
+00:44:14.840 --> 00:44:16.540
+E quindi penso che trovare
+queste informazioni
+
+00:44:16.540 --> 00:44:20.370
+e imparare e formarsi sia
+sempre la parte più difficile.
+
+00:44:20.370 --> 00:44:21.770
+Perché non volete 
+sbagliarvi e non volete
+
+00:44:21.770 --> 00:44:23.550
+far vivere a qualcuno una
+brutta esperienza utente.
+
+00:44:23.550 --> 00:44:27.840
+E penso che fare i compiti
+quando stiamo imparando
+
+00:44:27.840 --> 00:44:28.510
+è sempre stato difficile.
+
+00:44:28.510 --> 00:44:31.400
+E quindi trovare buone risorse
+e assicurarsi di star
+
+00:44:31.400 --> 00:44:33.500
+usando le informazioni 
+migliori e più aggiornate
+
+00:44:33.500 --> 00:44:36.120
+da utenti reali è
+ciò che aiuta davvero.
+
+00:44:36.120 --> 00:44:37.710
+Penso che per me questa sia 
+stata la parte più difficile.
+
+00:44:39.140 --> 00:44:40.320
+AUROOBA: Sono d'accordo.
+
+00:44:40.320 --> 00:44:44.010
+Credo di averlo paragonato alla scrittura
+di un saggio in inglese.
+
+00:44:44.010 --> 00:44:45.570
+Sai, il briefing è chiaro.
+
+00:44:45.570 --> 00:44:48.340
+Tutti possiamo scrivere un saggio,
+ma il modo in cui si arriva effettivamente
+
+00:44:48.340 --> 00:44:52.820
+alla risposta potrebbe essere molto
+diverso a seconda dell'approccio.
+
+00:44:52.820 --> 00:44:53.820
+Giusto.
+
+00:44:55.780 --> 00:45:00.120
+JULIE: Bene, grazie per aver partecipato
+a questa sessione con Aurooba e Brian.
+
+00:45:00.120 --> 00:45:05.370
+Potete continuare la conversazione
+sui social media usando #WPA11YDAY
+
+00:45:05.370 --> 00:45:08.000
+e #WPAD2023.
+
+00:45:08.000 --> 00:45:13.280
+Ci farebbe piacere anche
+se voleste andare
+
+00:45:13.280 --> 00:45:20.160
+su 2023.wpaccaccessibilityday/feedback
+
+00:45:20.160 --> 00:45:21.280
+per fornire feedback anonimi
+
+00:45:21.320 --> 00:45:23.317
+sui nostri speaker e le 
+loro presentazioni
+
+00:45:23.318 --> 00:45:25.950
+e partecipare per vincere una maglietta.
+
+00:45:25.950 --> 00:45:29.390
+Restate sintonizzati per l'intervento di 
+Joni Halabi, che si intitola
+
+00:45:29.390 --> 00:45:32.810
+Traccia una rotta!:
+
+00:45:32.810 --> 00:45:35.720
+Creare grafici SVG accessibili
+in WordPress.
+
+00:45:36.880 --> 00:45:39.870
+Non dimenticate di visitare le nostre
+pagine degli sponsor per accaparrarvi gadget virtuali
+
+00:45:39.870 --> 00:45:42.830
+e avere la possibilità
+di vincere fantastici premi.
+
+00:45:42.830 --> 00:45:45.370
+Ci vediamo qui dopo la pausa.
+
+00:45:48.500 --> 00:45:53.150
+AMBER: Grazie agli sponsor del 
+WordPress Accessibility Day 2023.
+
+00:45:53.150 --> 00:45:55.980
+Sponsor Platinum -
+Equalize Digital.
+
+00:45:55.980 --> 00:45:58.750 
+Il plugin di verifica dell'accessibilità
+di Equalize Digital
+
+00:45:58.750 --> 00:46:01.510
+è uno strumento di scansione 
+automatizzata dell'accessibilità
+
+00:46:01.510 --> 00:46:04.690
+che aiuta i siti WordPress
+a diventare e rimanere accessibili.
+
+00:46:05.960 --> 00:46:08.810
+Sponsor Platinum - Gravity Forms.
+
+00:46:08.810 --> 00:46:12.400
+Gravity Forms è il costruttore di 
+moduli professionale di cui avete bisogno
+
+00:46:12.400 --> 00:46:17.150
+per creare moduli belli, potenti e accessibili.
+
+00:46:17.150 --> 00:46:24.160
+Sponsor Gold - 20i, Deque,
+Empire Caption Solutions, Pressable,
+
+00:46:24.160 --> 00:46:25.220
+e WP Engine.
+
+00:46:26.820 --> 00:46:33.670
+Sponsor Silver - Code Geek, Drake
+Cooper, GoDaddy, LoneRock Point,
+
+00:46:33.670 --> 00:46:38.880
+NerdPress, Overnight website by
+Kinetic Iris, Raiola Networks,
+
+00:46:40.210 --> 00:46:43.161
+A11Y Collective e The Blogsmith.
+
+00:46:45.060 --> 00:46:50.400
+Sponsor Bronzo - ExcessaCart,
+GreenGeeks Web Hosting,
+
+00:46:50.400 --> 00:47:01.660
+Hall Analysis SEO Consulting,
+HDC, ITX, Ivy Cat, Medabots,
+
+00:47:02.220 --> 00:47:07.118
+Pixel Chefs, Simply Schedule
+Appointments, SiteGround,
+
+00:47:07.119 --> 00:47:12.250
+Termageddon, Underrepresented
+in Tech, Weglot e Yoast.

@@ -1,0 +1,2536 @@
+﻿WEBVTT
+
+00:00:00.055 --> 00:00:30.364
+[silence]
+
+00:00:30.364 --> 00:00:30.915
+>> KIM COLEMAN: Welcome back
+
+00:00:30.915 --> 00:00:33.211
+to WordPress Accessibility
+Day, everyone.
+
+00:00:33.212 --> 00:00:36.880
+I'm Kim Coleman, and I'm excited
+to announce our next session,
+
+00:00:36.880 --> 00:00:41.390
+my last session as your host,
+How we made Joomla 4 accessible.
+
+00:00:41.390 --> 00:00:43.730
+Presented by Carlos Camara.
+
+00:00:43.730 --> 00:00:48.380
+Carlos is a web developer that
+specializes in Joomla, PrestaShop,
+
+00:00:48.380 --> 00:00:50.350
+WordPress, and Laravel.
+
+00:00:50.350 --> 00:00:54.600
+Carlos has been involved in the
+Joomla accessibility team since 2017
+
+00:00:54.600 --> 00:00:56.920
+and was the team leader in 2020.
+
+00:00:56.920 --> 00:01:00.520
+As a developer, Carlos creates
+custom solutions for Joomla,
+
+00:01:00.520 --> 00:01:02.760
+PrestaShop, and WordPress.
+
+00:01:02.760 --> 00:01:06.720
+He also maintains the Joomla
+podcast, mastermindjoomla.com,
+
+00:01:06.720 --> 00:01:09.370
+and a PrestaShop
+podcast, prestaradio.com.
+
+00:01:10.530 --> 00:01:13.830
+Please feel free like before
+to add any questions for Carlos
+
+00:01:13.830 --> 00:01:17.130
+in the Q&A tab of the chat
+area, and we'll answer them
+
+00:01:17.130 --> 00:01:18.630
+at the end of this session.
+
+00:01:18.630 --> 00:01:22.130
+You can also use the Ideas section
+to chat with other attendees.
+
+00:01:22.130 --> 00:01:24.985
+Without further ado,
+here we welcome Carlos Camara.
+
+00:01:26.787 --> 00:01:30.270
+>> CARLOS CAMARA: Thank you very
+much for this great presentation.
+
+00:01:33.270 --> 00:01:39.130
+I think my camera just can't.
+
+00:01:39.130 --> 00:01:40.680
+Okay, oh, sorry.
+
+00:01:40.680 --> 00:01:41.680
+Okay.
+
+00:01:41.980 --> 00:01:44.070
+How we made Joomla 4 accessible.
+
+00:01:44.070 --> 00:01:47.970
+I'm sorry, my camera just freeze.
+
+00:01:47.970 --> 00:01:50.344
+Let's go with my picture.
+
+00:01:52.640 --> 00:01:53.140
+Okay.
+
+00:01:53.140 --> 00:01:59.160
+A quick outline of what we are
+going to see on this session.
+
+00:01:59.160 --> 00:02:03.410
+We are going to see a bit of
+me, although Kim
+
+00:02:03.410 --> 00:02:08.050
+just made a great presentation,
+so that will be quick.
+
+00:02:08.050 --> 00:02:12.110
+We will also do a quick Joomla
+intro, especially for knowing
+
+00:02:12.110 --> 00:02:16.690
+what is the project and
+some key concepts and works
+
+00:02:16.690 --> 00:02:18.340
+that I think would be interesting.
+
+00:02:19.380 --> 00:02:24.560
+We'll see how accessibility
+has been into Joomla project
+
+00:02:24.560 --> 00:02:31.070
+since the beginning, but not so
+easy to see it, but it's been there.
+
+00:02:32.650 --> 00:02:38.890
+We will see how we made it in
+Joomla 4, where one of our flagship
+
+00:02:38.890 --> 00:02:41.680
+in this release is
+accessibility actually.
+
+00:02:42.780 --> 00:02:47.050
+Finally, the decisions we
+have to make, and we will see
+
+00:02:47.050 --> 00:02:48.560
+what's the future for Joomla.
+
+00:02:49.660 --> 00:02:53.560
+I would like to give a piece of
+advice to this great community
+
+00:02:54.970 --> 00:02:55.970
+of WordPress.
+
+00:02:57.930 --> 00:03:02.460
+About me, I speak PrestaShop,
+Joomla, and a bit of WordPress.
+
+00:03:02.460 --> 00:03:09.050
+I actually been released a
+plugin for a customer last week,
+
+00:03:09.050 --> 00:03:13.050
+a WordPress plugin, so I know
+a little bit about WordPress,
+
+00:03:13.050 --> 00:03:15.330
+but just from a
+developer point of view.
+
+00:03:16.460 --> 00:03:21.450
+I do not usually build
+websites with WordPress.
+
+00:03:21.450 --> 00:03:26.200
+Anyway, I know how to move in
+the WordPress administrator
+
+00:03:26.200 --> 00:03:28.440
+on some key concepts.
+
+00:03:28.440 --> 00:03:33.990
+I am not an accessibility
+expert either, so I don't know
+
+00:03:33.990 --> 00:03:37.420
+what I'm doing here,
+as I am not a WordPress expert
+
+00:03:37.420 --> 00:03:40.540
+and I am not an
+accessibility expert.
+
+00:03:40.540 --> 00:03:44.120
+Anyway, I'm really interested
+in a web for everyone.
+
+00:03:45.570 --> 00:03:48.280
+I guess that's why I am here.
+
+00:03:48.280 --> 00:03:56.160
+I have been involved in Joomla
+governance in some higher spheres
+
+00:03:56.160 --> 00:04:00.070
+like the board, the Joomla
+board that make decisions,
+
+00:04:00.070 --> 00:04:05.490
+and also in more practical aspects
+like the Joomla accessibility team.
+
+00:04:06.880 --> 00:04:12.100
+Finally, very important,
+I am the human of two dogs,
+
+00:04:12.100 --> 00:04:17.000
+and I just became father of my
+third kid, and also I like running.
+
+00:04:17.000 --> 00:04:23.960
+Maybe you may see me on
+many marathons in your city.
+
+00:04:23.960 --> 00:04:26.900
+A little bit of Joomla
+politics or Joomla history.
+
+00:04:27.910 --> 00:04:29.890
+Joomla is actually a fork.
+
+00:04:31.430 --> 00:04:38.920
+Joomla is a fork of content
+management system called Mambo,
+
+00:04:38.920 --> 00:04:43.410
+which was really
+popular at that point.
+
+00:04:43.410 --> 00:04:47.740
+It was developed by an
+Australian company called Miro.
+
+00:04:48.750 --> 00:04:56.970
+They decided to stop doing it
+open source and doing it propriety
+
+00:04:56.970 --> 00:04:59.920
+or changing sometimes in the code.
+
+00:04:59.920 --> 00:05:06.980
+The core developers of Mambo decided
+that it was not the way to go,
+
+00:05:06.980 --> 00:05:14.930
+and they created this fork
+to have an open-source
+
+00:05:14.930 --> 00:05:18.860
+content management system
+because that's how they thought
+
+00:05:18.860 --> 00:05:19.970
+the web should be.
+
+00:05:21.650 --> 00:05:26.550
+Personally, that move was
+well, and they even got a name,
+
+00:05:26.550 --> 00:05:33.410
+which is the Swahili word Jumla,
+which means "all together"
+
+00:05:33.410 --> 00:05:39.810
+or "as a whole", it depends on
+where you look for the translation.
+
+00:05:39.810 --> 00:05:43.500
+I do not speak Swahili,
+so I cannot tell you for sure.
+
+00:05:43.500 --> 00:05:47.910
+Anyway, to create this
+or to make this happen,
+
+00:05:47.910 --> 00:05:50.317
+they created a
+non-profit organization
+
+00:05:50.317 --> 00:05:53.750
+called Open Source Matters.
+
+00:05:53.750 --> 00:06:00.010
+This is the legal entity that covers
+Joomla in the financial aspects.
+
+00:06:00.010 --> 00:06:08.200
+It protects the Joomla copyright, and
+also they made some high decisions
+
+00:06:08.200 --> 00:06:14.510
+about the structure,
+how the project should be doing.
+
+00:06:14.510 --> 00:06:19.920
+The board of Open Source Matters
+is four by four, is formed
+
+00:06:19.920 --> 00:06:23.880
+by four elected members, president,
+vice president, treasurer,
+
+00:06:23.880 --> 00:06:31.170
+and secretary, and all the
+working department leaders
+
+00:06:31.170 --> 00:06:35.900
+of the different working
+structure of Joomla.
+
+00:06:35.900 --> 00:06:39.470
+We have different
+departments for events.
+
+00:06:39.470 --> 00:06:44.760
+We have a department for production,
+that is mainly the core of the code.
+
+00:06:44.760 --> 00:06:48.160
+We have a department for marketing.
+
+00:06:48.160 --> 00:06:49.720
+We have several departments.
+
+00:06:49.720 --> 00:06:50.950
+Okay.
+
+00:06:50.950 --> 00:06:53.360
+Then every leader of
+these departments,
+
+00:06:55.200 --> 00:06:57.780
+from the Open Source Matters board.
+
+00:06:57.780 --> 00:07:02.390
+Also, the departments are
+splitted or are divided in teams.
+
+00:07:02.390 --> 00:07:05.500
+For instance, the Joomla
+accessibility team is part
+
+00:07:05.500 --> 00:07:11.390
+of the production department.
+
+00:07:11.390 --> 00:07:14.590
+A little bit of Joomla wants.
+
+00:07:14.590 --> 00:07:18.550
+What you can see here
+if you have a screen
+
+00:07:18.550 --> 00:07:23.840
+or you can see my slides,
+is the Joomla backend
+
+00:07:25.300 --> 00:07:29.570
+because in Joomla we have
+two different applications.
+
+00:07:30.810 --> 00:07:35.980
+We have the Joomla administrator,
+which is what they called backend,
+
+00:07:35.980 --> 00:07:42.420
+and it's independent from
+what visitors of the site see,
+
+00:07:42.420 --> 00:07:45.080
+that is the Joomla front.
+
+00:07:45.080 --> 00:07:48.600
+We call it front.
+
+00:07:48.600 --> 00:07:54.600
+In this talk, I will try to
+name Joomla administrator,
+
+00:07:54.600 --> 00:07:59.610
+but at some point, I might say
+Joomla backend, so sorry for that.
+
+00:07:59.610 --> 00:08:04.610
+In Joomla,
+we also have plugins and widgets.
+
+00:08:05.830 --> 00:08:11.590
+We call plugins, plugins, but for
+widgets, we use the word modules.
+
+00:08:13.120 --> 00:08:15.220
+We also have themes.
+
+00:08:15.220 --> 00:08:21.250
+For themes we use the word templates,
+but basically it's the same.
+
+00:08:23.190 --> 00:08:27.980
+In Joomla,
+we have a concept which is override.
+
+00:08:27.980 --> 00:08:33.390
+It's a very
+programming-minded concept.
+
+00:08:33.390 --> 00:08:39.700
+It means that no matter what a
+plugin gives you in the front end,
+
+00:08:39.700 --> 00:08:46.890
+in the view, you can change it using
+a specific path to put your changes,
+
+00:08:46.890 --> 00:08:50.980
+and then it change the output.
+
+00:08:50.980 --> 00:08:56.070
+You can replace what the developer
+have in mind with your own code,
+
+00:08:56.070 --> 00:08:57.020
+and it will work.
+
+00:08:57.020 --> 00:09:00.210
+It's just for aesthetics.
+
+00:09:00.210 --> 00:09:03.580
+It's just for the structure,
+VH domain structure, and the CSS
+
+00:09:03.580 --> 00:09:09.750
+of what people see.
+
+00:09:09.750 --> 00:09:15.350
+Joomla is also fully featured
+with interesting extensions.
+
+00:09:17.140 --> 00:09:21.380
+The Joomla code has
+probably everything you need
+
+00:09:21.380 --> 00:09:26.320
+to create a website,
+a corporate website
+
+00:09:26.320 --> 00:09:30.780
+with no third-party extensions,
+no third-party plugins.
+
+00:09:30.780 --> 00:09:35.200
+Just with Joomla,
+you can develop a great website.
+
+00:09:35.200 --> 00:09:40.260
+We actually had last month,
+a challenge in our marquee,
+
+00:09:41.540 --> 00:09:47.470
+which was how to build a
+website just using Joomla code,
+
+00:09:47.470 --> 00:09:51.930
+without any third-party plugins.
+
+00:09:53.180 --> 00:09:58.750
+It's something you can do and you can
+do great things just using Joomla,
+
+00:09:58.750 --> 00:09:59.820
+what Joomla provides.
+
+00:10:01.270 --> 00:10:08.840
+Anyway, even so, we also have
+components or different extensions,
+
+00:10:08.840 --> 00:10:11.200
+components, libraries, plugins.
+
+00:10:11.200 --> 00:10:16.260
+We have third parties and other
+developers that provide plugins
+
+00:10:16.260 --> 00:10:18.480
+to Joomla to make it rich.
+
+00:10:22.770 --> 00:10:26.610
+Since the beginning, Joomla
+has had accessibility in mind.
+
+00:10:26.610 --> 00:10:30.890
+Actually, I was surprised when
+I started learning about this
+
+00:10:30.890 --> 00:10:34.290
+because I have been involved in
+Joomla, have been using Joomla
+
+00:10:34.290 --> 00:10:40.410
+since Mambo times, but when you
+were not aware of accessibility
+
+00:10:40.410 --> 00:10:46.890
+or all the aspects, you do not
+pay that much attention to them.
+
+00:10:46.890 --> 00:10:53.140
+Actually, when Joomla splitted from
+Mambo, when Joomla was started,
+
+00:10:53.140 --> 00:10:57.810
+it was basically Mambo
+code and it was Joomla 1.0
+
+00:10:57.810 --> 00:11:02.970
+and there was not that much
+accessibility features.
+
+00:11:02.970 --> 00:11:05.800
+Just the ones that
+were in core Mambo.
+
+00:11:07.250 --> 00:11:13.160
+The first release, you can consider
+a Joomla, 100% Joomla, more or less.
+
+00:11:13.160 --> 00:11:20.500
+Is the Joomla 1.5 release and that
+release in the Joomla framework,
+
+00:11:20.500 --> 00:11:24.470
+another aspect of Joomla.
+
+00:11:24.470 --> 00:11:30.850
+It also came with one template,
+one theme called Beez.
+
+00:11:32.410 --> 00:11:43.030
+This theme was a fully
+accessible theme.
+
+00:11:44.140 --> 00:11:47.190
+It also came with a
+couple of extra themes,
+
+00:11:47.190 --> 00:11:52.490
+but this one is interesting because
+it was a fully accessible theme
+
+00:11:52.490 --> 00:11:55.150
+by the standards we
+had at that moment.
+
+00:11:56.680 --> 00:11:58.550
+Interesting features it had.
+
+00:11:58.550 --> 00:12:01.550
+It provided a font size selector.
+
+00:12:01.550 --> 00:12:03.400
+It had very good contrast.
+
+00:12:04.700 --> 00:12:12.880
+At that point Joomla 1.5, 2008,
+Joomla was showing all the code
+
+00:12:12.880 --> 00:12:17.340
+or creating HTML code still
+with some tables in it.
+
+00:12:17.340 --> 00:12:21.870
+Our team developers were still
+showing tables to a structure
+
+00:12:21.870 --> 00:12:29.140
+to lay out the content,
+but the Beez theme had no tables.
+
+00:12:29.140 --> 00:12:33.090
+It was a fully or very
+nice great template.
+
+00:12:34.220 --> 00:12:42.070
+In my opinion,
+Beez has one problem that made it,
+
+00:12:42.070 --> 00:12:44.870
+not everyone like it
+or not everyone use it.
+
+00:12:44.870 --> 00:12:48.250
+It was a very student design.
+
+00:12:48.250 --> 00:12:53.780
+It was a very pinky, very violent
+purple theme with some bees
+
+00:12:53.780 --> 00:12:56.040
+that were very nice than cartoons.
+
+00:12:58.220 --> 00:13:04.220
+That makes people thought, this is
+not a serious option for my website.
+
+00:13:04.220 --> 00:13:08.810
+Especially, it was a time where
+everyone wanted a corporate website
+
+00:13:08.810 --> 00:13:13.710
+that was great to sell or to
+tell how good your company was.
+
+00:13:13.710 --> 00:13:18.970
+This was not the best template
+for that because of this design
+
+00:13:18.970 --> 00:13:24.370
+that made some people thought
+it was not a serious proposal.
+
+00:13:24.370 --> 00:13:30.700
+Anyway, those developers who were
+aware of the accessibility features
+
+00:13:30.700 --> 00:13:36.670
+in Beez who really had access
+reading mind when developing website
+
+00:13:36.670 --> 00:13:41.150
+still kept using it.
+
+00:13:41.150 --> 00:13:48.294
+I can tell you that one of
+the judicial systems website
+
+00:13:48.294 --> 00:13:50.613
+in Australia,
+I don't remember exactly
+
+00:13:50.613 --> 00:13:55.960
+which ones had
+exactly this template,
+
+00:13:55.960 --> 00:13:57.350
+this theme installed.
+
+00:13:59.300 --> 00:14:02.920
+You could recognize some of
+the layouts on the features,
+
+00:14:02.920 --> 00:14:06.700
+but obviously, it has a more
+server option for columns,
+
+00:14:06.700 --> 00:14:09.690
+that was so pinky.
+
+00:14:09.690 --> 00:14:17.030
+It was interesting in that
+sense, so people could use it
+
+00:14:17.030 --> 00:14:19.540
+even though it was so sustained.
+
+00:14:20.880 --> 00:14:25.440
+One interesting thing about
+this team is, it was blacked
+
+00:14:25.440 --> 00:14:29.960
+with overrides like it over-ridded
+everything to make it accessible.
+
+00:14:29.960 --> 00:14:35.290
+It was also a good experiment
+for theme developers
+
+00:14:35.290 --> 00:14:38.940
+to create their own
+versions of software.
+
+00:14:38.940 --> 00:14:46.790
+Anyway, as I mentioned, it was not
+the most popular theme for Joomla.
+
+00:14:46.790 --> 00:14:49.500
+After Joomla 1.5,
+we got Joomla 2.5 and Joomla 3,
+
+00:14:49.500 --> 00:14:55.070
+and those two releases came
+with Beez 2 and Beez 3.
+
+00:14:56.100 --> 00:15:00.563
+These Beez themes
+still were accessible,
+
+00:15:00.563 --> 00:15:08.107
+still were a nice templates, nice
+themes in the sense of accessibility,
+
+00:15:08.587 --> 00:15:11.900
+but they were more boring.
+
+00:15:13.560 --> 00:15:18.510
+They abandoned the pinky theme,
+the pink colors, the string colors,
+
+00:15:19.620 --> 00:15:22.670
+and it they made them more sober.
+
+00:15:24.530 --> 00:15:30.210
+Anyway, they were at that
+point, really had
+
+00:15:30.210 --> 00:15:36.450
+a really strong internal efforts in
+Joomla to be compliant with ATAG 2.0.
+
+00:15:39.870 --> 00:15:46.080
+Some people in the UX team, like
+Angie Radtke, which was a developer
+
+00:15:46.080 --> 00:15:50.180
+of the big templates, were
+really pushing for accessibility.
+
+00:15:54.120 --> 00:15:58.270
+One thing I have to mention
+about Joomla historically is that
+
+00:15:58.270 --> 00:16:02.890
+even though it was an open-source
+system since the beginning,
+
+00:16:02.890 --> 00:16:08.560
+and actually the reason
+we have Joomla today is
+
+00:16:08.560 --> 00:16:13.010
+because the developers really
+wanted it to be open-source.
+
+00:16:14.300 --> 00:16:18.670
+Historically, it's not being
+easy to send changes to Joomla.
+
+00:16:18.670 --> 00:16:24.060
+People who have tried or who
+tried contributing the early 2000
+
+00:16:24.060 --> 00:16:30.760
+at the beginning of the
+century, were not very welcome
+
+00:16:30.760 --> 00:16:33.090
+to make changes to the code.
+
+00:16:34.760 --> 00:16:39.000
+Only the code team in Joomla were
+able to make changes to the CMS.
+
+00:16:40.220 --> 00:16:43.430
+We're still using SVN.
+
+00:16:43.430 --> 00:16:46.020
+It was not easy.
+
+00:16:46.020 --> 00:16:49.690
+We had some communications, you
+could propose changes, but you have
+
+00:16:49.690 --> 00:16:51.000
+to send them by email.
+
+00:16:51.000 --> 00:16:57.460
+It was not like a very good way
+of getting new contributions
+
+00:16:57.460 --> 00:17:02.110
+to the project.
+
+00:17:02.110 --> 00:17:09.460
+There were in a case some changes
+in the project and at some point,
+
+00:17:09.460 --> 00:17:10.930
+they decided to change that.
+
+00:17:12.390 --> 00:17:13.480
+We moved to GitHub.
+
+00:17:15.500 --> 00:17:23.050
+Now everyone, every user of the
+internet, can submit approve requests
+
+00:17:23.050 --> 00:17:27.850
+and if it's good enough or it has
+no problems, it solves an issue
+
+00:17:29.100 --> 00:17:35.240
+and it's tested correctly,
+it can be incorporated into Joomla.
+
+00:17:35.240 --> 00:17:38.230
+There's no issue for that.
+
+00:17:38.230 --> 00:17:44.160
+Right now, the Joomla production
+team keeps checking all the code
+
+00:17:44.160 --> 00:17:48.690
+that is submitted into
+Joomla, but it's much easier
+
+00:17:48.690 --> 00:17:54.660
+to get your changes
+into the project.
+
+00:17:54.660 --> 00:18:00.740
+Also, this came with lots
+of changes in the project.
+
+00:18:00.740 --> 00:18:09.021
+We have lots of politics,
+political changes.
+
+00:18:15.410 --> 00:18:20.000
+At some point,
+we started to think about Joomla 4.
+
+00:18:20.000 --> 00:18:26.940
+I say, at some point, because Joomla
+4 has been in development since 2013.
+
+00:18:30.360 --> 00:18:32.540
+This has been huge.
+
+00:18:32.540 --> 00:18:38.720
+I mean, it's been like more than
+eight years working in Joomla 4.
+
+00:18:38.720 --> 00:18:48.540
+It means that lots of things you
+plant in 2013 did not even make it
+
+00:18:48.540 --> 00:18:50.540
+to 2016.
+
+00:18:50.540 --> 00:18:56.000
+It's like, the standard changes,
+you know how the [inaudible]
+
+00:18:56.000 --> 00:18:57.000
+is.
+
+00:18:57.850 --> 00:19:03.620
+It's like, everything was moved
+and we changed lots of things.
+
+00:19:03.620 --> 00:19:07.480
+We made different
+template, different themes.
+
+00:19:07.480 --> 00:19:11.710
+We made lots of change.
+
+00:19:11.710 --> 00:19:17.050
+In all this process since
+2013, we changed the structure,
+
+00:19:17.050 --> 00:19:18.680
+the political structure in Joomla.
+
+00:19:20.410 --> 00:19:25.728
+We established the Joomla
+accessibility theme was created
+
+00:19:25.729 --> 00:19:27.500
+in 2016.
+
+00:19:28.870 --> 00:19:36.050
+Since 2005 to 2016, we did not
+have any accessibility theme
+
+00:19:36.050 --> 00:19:41.600
+or anyone in charge of checking
+accessibility into the project.
+
+00:19:41.600 --> 00:19:46.440
+We only had volunteers who
+wanted it to be accessible
+
+00:19:46.440 --> 00:19:49.940
+but we didn't have an accessibility
+team or a team dedicated
+
+00:19:49.940 --> 00:19:50.940
+to accessibility.
+
+00:19:54.180 --> 00:20:03.080
+Since 2016 till 2019, the new
+created accessibility team made
+
+00:20:03.080 --> 00:20:09.150
+a huge effort in generating lots
+of documentation and raising issues
+
+00:20:09.150 --> 00:20:14.920
+for the new themes we were developing
+for Joomla 4 and participating
+
+00:20:14.920 --> 00:20:20.760
+in some decisions we made.
+
+00:20:20.760 --> 00:20:25.570
+Before talking about hard decisions
+we made, I forgot to mention
+
+00:20:27.190 --> 00:20:32.560
+in the introduction that Joomla had
+several themes for the front end,
+
+00:20:32.560 --> 00:20:34.680
+and one of them was Beez.
+
+00:20:34.680 --> 00:20:37.650
+We have talked a lot about Beez.
+
+00:20:39.630 --> 00:20:43.700
+For the back-end, for Joomla
+administrator, we also have themes
+
+00:20:44.780 --> 00:20:47.650
+and we have the history gallery.
+
+00:20:47.650 --> 00:20:51.290
+We have had at least two themes
+for the Joomla administrator.
+
+00:20:53.600 --> 00:20:59.680
+One is the default one,
+which was not created or developed
+
+00:20:59.680 --> 00:21:01.250
+with accessibility in mind.
+
+00:21:01.250 --> 00:21:05.480
+The other one, which was a
+simplified version of the first one,
+
+00:21:06.552 --> 00:21:15.972
+which was not fully accessible, but
+we like it to think it was accessible
+
+00:21:15.980 --> 00:21:17.080
+because it was simpler.
+
+00:21:19.170 --> 00:21:23.410
+Anyway, it was like
+what we thought we had
+
+00:21:23.410 --> 00:21:26.250
+or why we had that
+theme in Joomla 4.
+
+00:21:26.250 --> 00:21:31.970
+In Joomla 4, we did some decisions,
+which some of them were harder
+
+00:21:31.970 --> 00:21:38.190
+because it meant to put lots of
+people in the same direction,
+
+00:21:38.190 --> 00:21:41.110
+but I think we were
+the correct one.
+
+00:21:41.110 --> 00:21:44.900
+First of all,
+we do not need an accessible theme.
+
+00:21:46.040 --> 00:21:50.300
+We do not need an accessible theme
+for the Joomla administrator,
+
+00:21:50.300 --> 00:21:54.480
+and we do not need an accessible
+theme for the public path
+
+00:21:54.480 --> 00:21:56.920
+or as a default theme.
+
+00:21:58.010 --> 00:22:06.630
+We need the one administrator
+theme we release
+
+00:22:06.630 --> 00:22:11.220
+and the one front-end theme
+we released at accessible.
+
+00:22:11.220 --> 00:22:16.200
+We did not need two themes,
+so people can choose if they want
+
+00:22:16.200 --> 00:22:19.130
+to be accessible or if they
+like the other designs.
+
+00:22:20.210 --> 00:22:25.900
+We need everything that is developed
+in Joomla to be accessible.
+
+00:22:27.090 --> 00:22:30.660
+That was the first decision.
+
+00:22:30.660 --> 00:22:34.520
+We worked through having just
+one theme for the back end
+
+00:22:34.520 --> 00:22:41.727
+and one theme for the front end, and
+both of them have got accessibility.
+
+00:22:44.090 --> 00:22:51.990
+Both administrator and front-end
+themes are right now accessible.
+
+00:22:51.990 --> 00:22:59.360
+We made them compliant
+with the WCAG 2.1 level AA.
+
+00:23:01.540 --> 00:23:10.600
+We made it making designers
+UX experts to work together
+
+00:23:10.600 --> 00:23:14.880
+with accessibility members, raising
+out their accessibility issues.
+
+00:23:14.880 --> 00:23:20.350
+This has not been a work of
+the accessibility team alone.
+
+00:23:20.350 --> 00:23:25.280
+We have the great
+contributions in the community.
+
+00:23:26.740 --> 00:23:33.620
+That we can have both themes,
+back-end and front-end,
+
+00:23:33.620 --> 00:23:36.950
+accessible in the
+higher standards we set.
+
+00:23:37.960 --> 00:23:42.800
+We also added some
+features for Joomla 4,
+
+00:23:42.800 --> 00:23:48.280
+like a accessibility settings so
+that when people have an account
+
+00:23:48.280 --> 00:23:52.820
+in your site, they can decide
+if they want to see the site
+
+00:23:52.820 --> 00:23:58.500
+in monochrome, if they want a
+bigger font size, a higher contrast,
+
+00:23:58.500 --> 00:24:02.770
+or highlight the
+links, all the links.
+
+00:24:02.770 --> 00:24:06.110
+That is a decision they made
+in their account settings.
+
+00:24:07.310 --> 00:24:10.840
+They just log in and we have
+all the settings they want.
+
+00:24:12.380 --> 00:24:18.100
+We also have some nice plugins
+like the skip to links.
+
+00:24:18.100 --> 00:24:22.640
+This plugin allows you
+the skip to button.
+
+00:24:22.640 --> 00:24:27.440
+When you are navigating
+a Joomla 4 website
+
+00:24:27.440 --> 00:24:33.810
+and you click the tabular
+key, the Tab key, you see,
+
+00:24:33.810 --> 00:24:39.010
+I skip to menu that automatically
+detects the structure of your page,
+
+00:24:39.010 --> 00:24:46.670
+your landmarks, and allows you to
+jump to the landmark you choose.
+
+00:24:47.730 --> 00:24:53.590
+Also, one thing that is funny,
+we packed Joomla 4 with an overlay.
+
+00:24:55.060 --> 00:25:00.030
+I know they are very controversial,
+and today we agree overlays
+
+00:25:00.030 --> 00:25:05.250
+are not the need or what
+sort of accessibility.
+
+00:25:05.250 --> 00:25:11.190
+We also thought that overlays
+can help in some cases
+
+00:25:11.190 --> 00:25:20.070
+where users do not have the
+required ability to manage a website
+
+00:25:21.340 --> 00:25:25.060
+or to manage the accessibility
+settings in their browser or they are
+
+00:25:25.060 --> 00:25:26.750
+in a different browser.
+
+00:25:26.750 --> 00:25:31.580
+Maybe overlays can help at
+some point to some users.
+
+00:25:31.580 --> 00:25:35.550
+We packed Joomla with this
+overlay plugin, which is optional,
+
+00:25:35.550 --> 00:25:40.900
+and we actually discourage
+people to use it as a replacement
+
+00:25:40.900 --> 00:25:44.380
+for our fully accessible website.
+
+00:25:44.380 --> 00:25:47.680
+I guess, we think it
+might be useful as well.
+
+00:25:50.020 --> 00:25:58.625
+Also, another thing we have
+accomplished in Joomla 4
+
+00:25:58.625 --> 00:26:04.063
+is that right now,
+Joomla confirms ATAG 2.0.
+
+00:26:05.440 --> 00:26:10.590
+We have made easier for people
+to develop accessible content.
+
+00:26:10.590 --> 00:26:17.400
+We have paid high attention
+to images when you need
+
+00:26:17.400 --> 00:26:22.370
+to use alt descriptions.
+
+00:26:24.420 --> 00:26:29.450
+We have made alt description of
+choice a real choice for people
+
+00:26:29.450 --> 00:26:32.130
+so that they need
+to specifically say,
+
+00:26:32.130 --> 00:26:35.960
+"No, we do not need another
+description for this image."
+
+00:26:35.960 --> 00:26:38.790
+If they do not provide
+an alt description,
+
+00:26:38.790 --> 00:26:46.540
+and they do not say that they need
+another description, they need
+
+00:26:46.540 --> 00:26:47.890
+to add another description.
+
+00:26:47.890 --> 00:26:54.310
+It's like, we are trying to make
+it easier for content directors
+
+00:26:54.310 --> 00:26:57.940
+to have a more accessible website.
+
+00:26:57.940 --> 00:27:02.730
+Joomla 4 is packed
+with TinyMCE editor.
+
+00:27:04.500 --> 00:27:10.550
+We have added some nice features
+to make it more accessible.
+
+00:27:11.920 --> 00:27:14.750
+Finally, we have a fork.
+
+00:27:14.750 --> 00:27:23.100
+A couple of plugins in GitHub to
+provide an accessibility test there.
+
+00:27:23.100 --> 00:27:27.590
+Right now in Joomla when you are
+writing a post, you can click
+
+00:27:27.590 --> 00:27:31.490
+on test accessibility
+button, and then you will see
+
+00:27:31.490 --> 00:27:35.660
+how accessible is the
+content you are writing.
+
+00:27:35.660 --> 00:27:40.430
+Actually, that accessibility test
+can test your whole front end
+
+00:27:40.430 --> 00:27:44.760
+if you want, so it's really nice.
+
+00:27:44.760 --> 00:27:49.000
+Also in Joomla 4.2,
+we have added keyboard shortcuts
+
+00:27:49.000 --> 00:27:55.810
+that will help people to move
+faster through the Joomla site
+
+00:27:55.810 --> 00:27:59.600
+and make it easier to
+make whatever they need.
+
+00:28:01.260 --> 00:28:08.260
+We are trying to make sure
+that every new addition we put
+
+00:28:08.260 --> 00:28:10.290
+into Joomla is accessible.
+
+00:28:13.970 --> 00:28:17.040
+Finally, the future of Joomla.
+
+00:28:17.040 --> 00:28:24.120
+We already have plans for Joomla 5,
+but one of the biggest intention,
+
+00:28:24.120 --> 00:28:28.350
+one of our biggest goal is to
+audit any new addition we do
+
+00:28:28.350 --> 00:28:32.860
+into the code, so that whenever
+a new feature is added,
+
+00:28:32.860 --> 00:28:36.560
+we are sure that it
+is fully accessible.
+
+00:28:36.560 --> 00:28:42.560
+In Joomla, the structure of
+the plugins and deploying
+
+00:28:42.560 --> 00:28:46.400
+when you have lots of settings
+or you have to manage content
+
+00:28:46.400 --> 00:28:50.610
+in the plugins is very standard.
+
+00:28:50.610 --> 00:28:57.520
+It's like very few people
+try to add their own designs
+
+00:28:57.520 --> 00:29:02.570
+because Joomla provides
+with an easy-to-use way
+
+00:29:02.571 --> 00:29:03.680
+to create their views.
+
+00:29:04.700 --> 00:29:08.650
+They do not need to
+create their own views.
+
+00:29:10.710 --> 00:29:17.540
+Even though we are trying to
+help or to be to ensure that
+
+00:29:17.540 --> 00:29:23.560
+when people add new features into
+Joomla, these are accessible.
+
+00:29:24.610 --> 00:29:29.750
+We want to keep doing improvements
+in the way people create content
+
+00:29:31.260 --> 00:29:32.780
+in Joomla.
+
+00:29:32.780 --> 00:29:37.550
+Recently, we have created
+a new user experience team.
+
+00:29:38.720 --> 00:29:42.400
+We have a tight connection
+between this team
+
+00:29:42.400 --> 00:29:45.370
+and the Joomla accessibility
+team so that we can--
+
+00:29:47.350 --> 00:29:50.630
+I think from my point of
+view, user experience
+
+00:29:50.630 --> 00:29:57.590
+and accessibility is probably
+two sides of the same coin.
+
+00:29:57.590 --> 00:30:04.800
+You just want people to use your
+website in the best way possible.
+
+00:30:04.800 --> 00:30:10.500
+It makes lots of sense to
+have a tight relationship
+
+00:30:10.500 --> 00:30:14.513
+between this user experience
+team and the accessibility team.
+
+00:30:16.366 --> 00:30:30.590
+We are committed to develop
+lots of documentation, focus on
+
+00:30:30.590 --> 00:30:34.530
+how to make Joomla or the
+content we create for Joomla
+
+00:30:34.530 --> 00:30:38.060
+or the clients you develop
+for Joomla more accessible.
+
+00:30:38.060 --> 00:30:39.500
+We have lot of [inaudible]
+
+00:30:39.500 --> 00:30:45.670
+we need to check, edit,
+and publish the new documentation.
+
+00:30:45.670 --> 00:30:48.270
+We have all of that.
+
+00:30:48.270 --> 00:30:54.470
+We really want to have this
+documentation where people know
+
+00:30:54.470 --> 00:30:59.080
+how they can create more
+accessible features.
+
+00:31:00.160 --> 00:31:05.690
+Also, we want to
+teach or keep teaching
+
+00:31:05.690 --> 00:31:09.970
+or promoting accessibility
+between web integrators.
+
+00:31:09.970 --> 00:31:13.450
+People who use Joomla to
+develop their own website
+
+00:31:13.450 --> 00:31:15.610
+or their client's websites.
+
+00:31:15.610 --> 00:31:22.580
+We want to keep raising the
+voice and making our point
+
+00:31:22.580 --> 00:31:26.330
+in accessibility so that
+they are aware that they need
+
+00:31:26.330 --> 00:31:29.960
+to have accessibility in mind
+when developing our website.
+
+00:31:32.680 --> 00:31:40.230
+Seems until right now, we have
+focused on making Joomla accessible
+
+00:31:40.230 --> 00:31:43.020
+for people who visit the website.
+
+00:31:43.020 --> 00:31:47.770
+We have also made it so
+that Joomla can be used
+
+00:31:47.770 --> 00:31:50.710
+to develop this accessible content.
+
+00:31:50.710 --> 00:32:00.760
+We have made it so that
+Joomla can be used by everyone
+
+00:32:00.760 --> 00:32:03.580
+to create content, so it's
+accessible to create content.
+
+00:32:05.010 --> 00:32:16.220
+Now we really want to make
+Joomla easier to code by people
+
+00:32:16.220 --> 00:32:19.220
+in accessible way,
+for instance, [inaudible]
+
+00:32:19.220 --> 00:32:25.410
+we recently abide to PSR-12.
+
+00:32:25.410 --> 00:32:32.780
+That PSR-12 is using tabs instead
+of spaces or maybe we need
+
+00:32:32.780 --> 00:32:36.510
+to teach that because
+when you are programming,
+
+00:32:36.510 --> 00:32:38.480
+spaces are more accessible.
+
+00:32:38.480 --> 00:32:40.550
+That's all.
+
+00:32:40.550 --> 00:32:45.910
+We really need to check on that
+make it even easier to contribute
+
+00:32:45.910 --> 00:32:56.950
+for everyone, because as we have in
+our name, Joomla is all together.
+
+00:32:56.950 --> 00:33:01.760
+All together means that everyone
+needs to be able to create content,
+
+00:33:01.760 --> 00:33:06.200
+to access the content,
+and also to develop the tools
+
+00:33:08.730 --> 00:33:10.630
+that you are using
+to write the content.
+
+00:33:13.325 --> 00:33:22.229
+Finally, I want to show you
+a little piece of advice.
+
+00:33:30.330 --> 00:33:36.780
+Sorry, I got the title of this
+slide with a Spanish saying
+
+00:33:36.780 --> 00:33:39.550
+and it's Spanish.
+
+00:33:39.550 --> 00:33:41.740
+I will just say the translation.
+
+00:33:41.740 --> 00:33:45.870
+I sell tips and for
+me, I don't have.
+
+00:33:45.870 --> 00:33:52.850
+In English, you will translate it
+as, do as I say, and not as I do.
+
+00:33:52.850 --> 00:33:57.000
+Joomla community, it's a community.
+
+00:33:57.000 --> 00:34:01.590
+I'm not that into WordPress
+community, so I cannot speak
+
+00:34:01.590 --> 00:34:02.574
+about your community.
+
+00:34:02.574 --> 00:34:04.940
+In Joomla, we fight.
+
+00:34:04.940 --> 00:34:06.320
+We fight a lot.
+
+00:34:06.320 --> 00:34:08.513
+[inaudible].
+
+00:34:08.513 --> 00:34:15.710
+Luckily,
+we have not physical violence yet.
+
+00:34:15.710 --> 00:34:19.000
+We have issues as in any community.
+
+00:34:20.060 --> 00:34:29.080
+We also have tried to solve these
+issues, but even so, it's hard
+
+00:34:29.080 --> 00:34:36.200
+to keep this community.
+
+00:34:36.200 --> 00:34:40.300
+That should not make
+you to stop contributing
+
+00:34:40.300 --> 00:34:45.430
+because people have
+bad days every day.
+
+00:34:45.430 --> 00:34:52.380
+When someone tell you something
+different than you were expecting
+
+00:34:52.380 --> 00:34:54.520
+and then you got discouraged.
+
+00:34:54.520 --> 00:34:57.810
+That is not great.
+
+00:34:57.810 --> 00:35:01.250
+Please keep contributing
+with accessibility.
+
+00:35:01.250 --> 00:35:08.280
+Also, everything you get
+new to WordPress, test it.
+
+00:35:08.280 --> 00:35:10.080
+Test it with accessibility in mind.
+
+00:35:10.080 --> 00:35:14.110
+You cannot probably
+make the perfect test
+
+00:35:14.110 --> 00:35:18.880
+and you might oversee
+something, but you can test it.
+
+00:35:18.880 --> 00:35:22.410
+WordPress is also open
+source, is free software.
+
+00:35:23.550 --> 00:35:28.350
+You can check the new goal,
+test it, and raise the issue
+
+00:35:28.350 --> 00:35:32.040
+so that it can be fixed.
+
+00:35:33.370 --> 00:35:38.060
+Also, you have these great
+events, like the Contributors Day,
+
+00:35:38.060 --> 00:35:42.340
+where you can work on
+this kind of stuff.
+
+00:35:42.340 --> 00:35:54.660
+Test any new addition and not accept
+or not allow any new integration
+
+00:35:54.660 --> 00:35:56.721
+into WordPress that
+is not accessible,
+
+00:35:57.247 --> 00:35:59.950
+because everything developed
+
+00:35:59.950 --> 00:36:04.660
+for content management systems
+nowadays should be made
+
+00:36:04.660 --> 00:36:07.140
+with accessibility in mind.
+
+00:36:07.140 --> 00:36:08.170
+Please keep doing that.
+
+00:36:10.030 --> 00:36:13.800
+Also, this event is great, is huge.
+
+00:36:13.800 --> 00:36:16.140
+Keep promoting and
+teaching accessibility.
+
+00:36:17.310 --> 00:36:24.050
+Yesterday, I was speaking with
+a friend, a developer friend
+
+00:36:24.050 --> 00:36:30.555
+who was not aware of how
+awful skating links is bad
+
+00:36:30.555 --> 00:36:35.910
+for accessibility or how bad
+it is to have bad contrast.
+
+00:36:35.910 --> 00:36:42.040
+I keep having clients who,
+in their brand design system
+
+00:36:42.040 --> 00:36:48.430
+have inaccessible color,
+so color combinations.
+
+00:36:48.430 --> 00:36:52.000
+Keep promoting and teaching
+accessibility for everyone,
+
+00:36:52.000 --> 00:36:56.090
+for developers, for designers,
+for people writing content,
+
+00:36:56.090 --> 00:36:57.090
+for everyone.
+
+00:36:57.680 --> 00:37:02.960
+Also, do not allow commercial
+interests to destruct your tools.
+
+00:37:02.960 --> 00:37:06.820
+I know that at some
+point, we, as a community,
+
+00:37:06.820 --> 00:37:13.220
+do not have that much
+strength, but please,
+
+00:37:13.220 --> 00:37:20.710
+keep fighting against those decisions
+that make your system unaccessible.
+
+00:37:21.910 --> 00:37:27.250
+WordPress, I think has more
+than 40% of the web, or 70%
+
+00:37:27.250 --> 00:37:29.630
+of the web is
+developed on WordPress.
+
+00:37:29.630 --> 00:37:32.510
+You do have a responsibility
+for what is happening.
+
+00:37:33.750 --> 00:37:39.120
+At least, when something is
+introduced that is not accessible,
+
+00:37:39.120 --> 00:37:43.810
+just rest assured that you
+have fight against that.
+
+00:37:45.240 --> 00:37:51.300
+That is what I think
+at least you could do.
+
+00:37:51.300 --> 00:37:55.070
+It's not what they can you can
+do, is just what they would hope
+
+00:37:56.090 --> 00:37:59.110
+for me to do if they
+were in this community.
+
+00:38:01.020 --> 00:38:02.590
+Finally, aim for more.
+
+00:38:02.590 --> 00:38:06.770
+There is not a way or a place
+where you can say WordPress
+
+00:38:06.770 --> 00:38:09.570
+is fully accessible
+because it is not.
+
+00:38:09.570 --> 00:38:13.610
+There are always issues and you
+know when working in accessibility,
+
+00:38:13.610 --> 00:38:17.640
+some stuff that is working
+fine for some users,
+
+00:38:17.640 --> 00:38:23.590
+for other users is a problem
+because it's making them painful,
+
+00:38:23.590 --> 00:38:25.120
+or more painful process.
+
+00:38:26.353 --> 00:38:35.233
+Just try to always keep vigilant,
+and aim for more accessible website
+
+00:38:35.233 --> 00:38:37.115
+and more accessible content.
+
+00:38:39.500 --> 00:38:40.760
+That's all I have.
+
+00:38:40.760 --> 00:38:43.160
+A big thank you to all of you.
+
+00:38:43.160 --> 00:38:46.450
+A big thank you for the
+organization who allowed me
+
+00:38:46.450 --> 00:38:51.220
+to give this talk, and a big thank
+you for all these communities.
+
+00:38:51.220 --> 00:38:54.400
+I have been involved in my
+local community in WordPress,
+
+00:38:54.400 --> 00:38:56.580
+and everything is great.
+
+00:38:56.580 --> 00:38:59.770
+Thank you very much for
+everyone who attended this talk
+
+00:39:01.640 --> 00:39:07.540
+to learn a bit more about how we
+did in Joomla to make it accessible.
+
+00:39:10.044 --> 00:39:11.900
+>> KIM: Thank you so much, Carlos.
+
+00:39:11.900 --> 00:39:15.670
+Yes, the WordPress community
+also fights, and we also need
+
+00:39:15.670 --> 00:39:17.820
+to look out for
+commercial interests.
+
+00:39:17.820 --> 00:39:19.880
+Your last slide absolutely
+hit all the marks
+
+00:39:19.880 --> 00:39:22.010
+for the WordPress
+community as well.
+
+00:39:22.010 --> 00:39:24.170
+I really appreciate that.
+
+00:39:24.170 --> 00:39:26.640
+If you're watching live and you
+have questions, you can put them
+
+00:39:26.640 --> 00:39:29.420
+into the Q&A section
+in the chat area.
+
+00:39:29.420 --> 00:39:30.770
+I have a couple to start with.
+
+00:39:31.820 --> 00:39:35.950
+First, Carlos, because your camera's
+frozen, just give me a heads up
+
+00:39:35.950 --> 00:39:39.600
+or say like, "Okay," to switch back
+and forth so I don't cut you off
+
+00:39:39.600 --> 00:39:40.790
+when you're responding.
+
+00:39:40.790 --> 00:39:45.710
+Amber asks about your accessibility
+test or the JAT that's built-in
+
+00:39:45.710 --> 00:39:46.560
+with Joomla.
+
+00:39:46.560 --> 00:39:49.030
+Can you talk more about
+what it checks for
+
+00:39:49.030 --> 00:39:52.740
+and what the reports look like and
+how you've improved it over time?
+
+00:39:54.793 --> 00:39:55.345
+>> CARLOS: Yes.
+
+00:39:55.653 --> 00:39:57.135
+I'm looking for it.
+
+00:40:01.120 --> 00:40:02.200
+Joally, Joomla.
+
+00:40:02.200 --> 00:40:13.990
+We call it joally because it's up
+on between the letters Joomla and--
+
+00:40:17.990 --> 00:40:25.070
+Let me go here to check it because
+I think we have a link here.
+
+00:40:25.070 --> 00:40:26.420
+It's between Joomla and ally.
+
+00:40:26.420 --> 00:40:27.420
+Here it is.
+
+00:40:41.180 --> 00:40:43.700
+Joomla accessibility checker.
+
+00:40:45.000 --> 00:40:48.830
+Here it is.
+
+00:40:48.830 --> 00:40:55.110
+If you can see my screen,
+it's an overlay but it's not intended
+
+00:40:55.110 --> 00:40:55.940
+for your users.
+
+00:40:55.940 --> 00:41:01.350
+It's intended just for you
+as a checker of the content.
+
+00:41:01.350 --> 00:41:05.830
+I think we have a demo here.
+
+00:41:05.830 --> 00:41:07.560
+Let's share if it's working.
+
+00:41:12.160 --> 00:41:12.500
+No.
+
+00:41:12.500 --> 00:41:13.838
+Here examples.
+
+00:41:23.490 --> 00:41:26.310
+This is basically a sequel.
+
+00:41:26.310 --> 00:41:29.490
+This was a GitHub project we found.
+
+00:41:29.490 --> 00:41:34.090
+It was an accessibility checker
+by JavaScript, and we contributed
+
+00:41:34.090 --> 00:41:41.530
+to it so that we remove the
+jQuery dependence of the project
+
+00:41:41.530 --> 00:41:44.370
+and then we incorporated
+it into you.
+
+00:41:44.370 --> 00:41:49.440
+Obviously, we contributed back
+these features to the alpha.
+
+00:41:49.440 --> 00:41:56.120
+I don't know if he added them
+to the project, but actually,
+
+00:41:56.120 --> 00:41:59.100
+when he was good enough,
+we were interested in it.
+
+00:41:59.100 --> 00:42:04.310
+Whenever you load your article,
+the preview of the article,
+
+00:42:04.310 --> 00:42:07.480
+this line loads here,
+and it informs you
+
+00:42:07.480 --> 00:42:12.970
+of the accessibility
+errors you can't see.
+
+00:42:12.970 --> 00:42:16.250
+It's an automated
+test, so you can expect
+
+00:42:16.250 --> 00:42:18.880
+as much as an automated test goes.
+
+00:42:21.050 --> 00:42:26.040
+It helps you or non-savvy
+users to not take users
+
+00:42:26.040 --> 00:42:29.140
+to check the accessibility
+more or less easily,
+
+00:42:30.250 --> 00:42:33.500
+at least the basic assessment.
+
+00:42:33.500 --> 00:42:38.380
+Here we have that the taxonomy
+evolution it's strong.
+
+00:42:38.380 --> 00:42:41.360
+We have different issues.
+
+00:42:41.360 --> 00:42:47.250
+When you hover over the danger
+icon, you see the image is
+
+00:42:47.250 --> 00:42:49.670
+being used as a link,
+with surrounding text,
+
+00:42:49.670 --> 00:42:53.680
+although reality attributes
+should be marked as the current.
+
+00:42:53.680 --> 00:42:55.610
+Here are some issues.
+
+00:42:55.610 --> 00:42:57.480
+Let's check another one.
+
+00:42:57.480 --> 00:43:02.280
+Link text may not be descriptive
+enough out of the context.
+
+00:43:02.280 --> 00:43:05.920
+Learn more link here
+is also an issue.
+
+00:43:05.920 --> 00:43:10.270
+We might have one creating
+this content like this.
+
+00:43:10.270 --> 00:43:16.340
+The H4 in this content,
+nonconsecutive heading level used.
+
+00:43:16.340 --> 00:43:20.298
+Headings should never skip levels
+or go from Heading 2 to Heading 4.
+
+00:43:25.157 --> 00:43:29.590
+You can configure this to be
+shown only to author so people
+
+00:43:29.590 --> 00:43:32.900
+with high permissions on your site.
+
+00:43:34.580 --> 00:43:40.680
+You can even set some
+configuration directly
+
+00:43:40.680 --> 00:43:43.810
+from the link test like
+checking for the contrast.
+
+00:43:43.810 --> 00:43:45.740
+Then we have here a contrast issue.
+
+00:43:45.740 --> 00:43:50.000
+You can also check the form levels.
+
+00:43:50.000 --> 00:43:55.070
+I don't think we
+have any form here.
+
+00:43:55.070 --> 00:44:00.860
+You can check for three-level CA's
+performance or for readability.
+
+00:44:00.860 --> 00:44:05.490
+Finally, [inaudible].
+
+00:44:05.490 --> 00:44:09.370
+Basically,
+the checker checks the whole page.
+
+00:44:11.190 --> 00:44:14.730
+You can't even use it when
+you are not in your articles.
+
+00:44:14.730 --> 00:44:18.210
+It's like you can't even check
+a development you are doing
+
+00:44:18.210 --> 00:44:20.800
+at a website that is
+not about a [inaudible].
+
+00:44:20.800 --> 00:44:23.540
+You're just creating
+a corporative website.
+
+00:44:23.540 --> 00:44:26.250
+You can't use Joally to
+test the accessibility
+
+00:44:26.250 --> 00:44:30.001
+or at least the basic automated
+accessibility that they can provide.
+
+00:44:32.020 --> 00:44:32.900
+That's it, I guess.
+
+00:44:32.900 --> 00:44:34.180
+>> KIM: That's great.
+
+00:44:34.180 --> 00:44:37.350
+I think Amber was curious whether
+it was a developer-focused tool
+
+00:44:37.350 --> 00:44:40.630
+or for the content creators and I
+think we can see in this example,
+
+00:44:40.630 --> 00:44:43.290
+it's mostly for the
+content creators.
+
+00:44:43.290 --> 00:44:44.510
+We have a follow-up question.
+
+00:44:46.260 --> 00:44:49.280
+As a Joomla community,
+I think there are still extensions,
+
+00:44:49.280 --> 00:44:52.210
+almost like our plugin
+repository with WordPress.
+
+00:44:52.210 --> 00:44:56.610
+How do you provide documentation
+or any testing for the plugins
+
+00:44:56.610 --> 00:44:58.670
+and extensions that
+are made for Joomla?
+
+00:44:58.670 --> 00:45:01.990
+How do you enforce that
+and maintain the standard?
+
+00:45:05.002 --> 00:45:06.450
+>> CARLOS: Simply we, we cannot.
+
+00:45:08.820 --> 00:45:15.700
+It's not that we do not want, we
+have made some checks about testing.
+
+00:45:15.700 --> 00:45:19.120
+Well, let me go the whole process.
+
+00:45:19.120 --> 00:45:22.150
+In Joomla,
+we have these extensions repository.
+
+00:45:23.470 --> 00:45:29.350
+It is the Joomla extensions
+directory where the users can share
+
+00:45:29.350 --> 00:45:33.920
+or submit their plugins
+or their extensions.
+
+00:45:41.000 --> 00:45:43.720
+This does not host the page.
+
+00:45:44.740 --> 00:45:47.580
+This is just advertisement.
+
+00:45:47.580 --> 00:45:51.090
+It's just a directory who
+links to the page of the offer.
+
+00:45:52.890 --> 00:45:59.280
+You do not download them from Joomla,
+you download from the alpha page.
+
+00:45:59.280 --> 00:46:07.460
+This is just like an "advertisement"
+for these extensions.
+
+00:46:07.460 --> 00:46:10.790
+It's like you need an extension
+and you can't find here
+
+00:46:10.790 --> 00:46:14.060
+whatever you need and then
+you check with the alpha.
+
+00:46:14.060 --> 00:46:17.860
+Any case, every extensions
+in this directory need to be
+
+00:46:17.860 --> 00:46:24.130
+or must be free software compatible
+with GPL, exactly as you do
+
+00:46:24.130 --> 00:46:25.470
+in WordPress.
+
+00:46:25.470 --> 00:46:28.540
+In WordPress,
+I think you have high requirements
+
+00:46:28.540 --> 00:46:36.320
+because you also need the
+developer to upload the plugin
+
+00:46:36.320 --> 00:46:39.900
+to the SVN or to your
+SVN and other stuff.
+
+00:46:39.900 --> 00:46:41.740
+In Joomla, we do not do that.
+
+00:46:41.740 --> 00:46:46.930
+We do check that the plugin is GPL.
+
+00:46:46.930 --> 00:46:53.210
+Also, we do some basic tests,
+most of them are automated.
+
+00:46:54.970 --> 00:46:59.850
+This test checks
+for basic security.
+
+00:46:59.850 --> 00:47:05.020
+We check that the extensions
+do not load external content
+
+00:47:05.020 --> 00:47:08.330
+without checking that.
+
+00:47:08.330 --> 00:47:13.260
+We do some basic checks,
+but we cannot check accessibility
+
+00:47:13.260 --> 00:47:16.640
+because as you know
+accessibility is not something
+
+00:47:16.640 --> 00:47:19.300
+you can test automatically.
+
+00:47:19.300 --> 00:47:20.300
+We have some plans.
+
+00:47:20.300 --> 00:47:27.090
+We have some ideas of introducing
+Joally into the testing process.
+
+00:47:27.090 --> 00:47:33.910
+We could use Joally to test
+the extensions and the result
+
+00:47:33.910 --> 00:47:35.330
+of the extensions.
+
+00:47:35.330 --> 00:47:39.340
+The problem with these
+Joomla extensions is that
+
+00:47:39.340 --> 00:47:44.660
+some of them are very very
+complex and they generate lots
+
+00:47:44.660 --> 00:47:46.390
+of different views.
+
+00:47:46.390 --> 00:47:48.940
+It's not so easy to check.
+
+00:47:48.940 --> 00:47:51.380
+We are discussing
+how we could make it
+
+00:47:51.380 --> 00:48:01.500
+so that people can provide some
+extension or some accessibility
+
+00:48:01.500 --> 00:48:04.260
+that manifests or declaration.
+
+00:48:04.260 --> 00:48:07.100
+We do not have a theme directory.
+
+00:48:07.100 --> 00:48:11.680
+I think WordPress have a theme
+directory, but we do not have it.
+
+00:48:12.750 --> 00:48:15.950
+In that sense, that is
+probably the most critical part
+
+00:48:15.950 --> 00:48:17.600
+regarding accessibility.
+
+00:48:17.600 --> 00:48:19.260
+We cannot check.
+
+00:48:20.264 --> 00:48:21.540
+I guess that is.
+
+00:48:22.618 --> 00:48:23.708
+Thank you.
+
+00:48:23.920 --> 00:48:24.840
+>> KIM: No, totally.
+
+00:48:24.840 --> 00:48:28.560
+I would think that the community's
+focus on accessibility,
+
+00:48:28.560 --> 00:48:32.480
+in general, might imply that
+the extensions themselves carry
+
+00:48:32.480 --> 00:48:36.300
+through that same spirit and focus.
+
+00:48:36.300 --> 00:48:40.490
+To that end, could you speak to
+how the focus on accessibility
+
+00:48:40.490 --> 00:48:43.060
+from Joomla from
+such an early start?
+
+00:48:43.060 --> 00:48:45.000
+You said that it's
+always been a focus.
+
+00:48:45.000 --> 00:48:47.690
+How do you think that's
+contributed to the success
+
+00:48:47.690 --> 00:48:50.720
+and the public opinion of the CMS?
+
+00:48:52.807 --> 00:48:59.190
+>> CARLOS: Well, to be
+honest, my impression
+
+00:48:59.190 --> 00:49:05.720
+about how accessibility has helped
+Joomla historical is not that much
+
+00:49:05.720 --> 00:49:10.100
+because I don't think people
+or developers were interested
+
+00:49:10.100 --> 00:49:11.510
+in accessibility.
+
+00:49:11.510 --> 00:49:15.453
+For me,
+those involved in accessibility
+
+00:49:15.453 --> 00:49:19.860
+in Joomla since 2005 are heroes,
+
+00:49:19.860 --> 00:49:24.410
+are complete heroes because they
+were fighting against the sea
+
+00:49:24.410 --> 00:49:28.060
+and against everything
+that was there.
+
+00:49:28.060 --> 00:49:31.030
+For me, they are real heroes.
+
+00:49:34.330 --> 00:49:41.340
+I think at that moment, it was
+something extra that you Joomla had
+
+00:49:41.340 --> 00:49:50.020
+and some people who were developing
+websites for public institutions
+
+00:49:50.020 --> 00:49:52.310
+or public organizations,
+they might need it.
+
+00:49:52.310 --> 00:49:54.880
+Then they started
+looking into that.
+
+00:49:54.880 --> 00:49:59.080
+There are some theme providers
+for Joomla that are focused,
+
+00:49:59.080 --> 00:50:04.650
+or they have some accessible
+themes and that is great,
+
+00:50:04.650 --> 00:50:07.430
+but there are some, not that many.
+
+00:50:07.430 --> 00:50:12.900
+It's a bitty, but commercially, I
+don't think accessibility has helped
+
+00:50:12.900 --> 00:50:13.940
+in any sense.
+
+00:50:15.470 --> 00:50:22.840
+Said so, I think that right
+now accessibility is in focus.
+
+00:50:22.840 --> 00:50:27.530
+I mean,
+we have big organizations like WC
+
+00:50:27.530 --> 00:50:32.270
+and all these accessibility
+organizations are working
+
+00:50:32.270 --> 00:50:34.580
+so that the web is more accessible.
+
+00:50:36.420 --> 00:50:43.350
+Every month we have an accessibility
+legal case where someone has
+
+00:50:43.350 --> 00:50:47.410
+to pay lots of money because
+their website was not accessible.
+
+00:50:47.410 --> 00:50:54.930
+I hope that accessibility is
+something that we can demand
+
+00:50:54.930 --> 00:50:58.778
+for everyone in the future
+and obviously for Joomla
+
+00:50:58.778 --> 00:51:02.560
+and for WordPress and Drupal and
+PrestaShop and all this stuff.
+
+00:51:04.695 --> 00:51:05.340
+>> KIM: I love that.
+
+00:51:05.340 --> 00:51:06.230
+I love that.
+
+00:51:06.230 --> 00:51:08.960
+We have one quick question if
+you could speak to it quickly?
+
+00:51:08.960 --> 00:51:12.280
+How do people get in touch and get
+involved in the Joomla community?
+
+00:51:12.280 --> 00:51:13.830
+We know where we do
+this with WordPress,
+
+00:51:13.830 --> 00:51:17.620
+but if you're having an issue
+with your files or your website
+
+00:51:17.620 --> 00:51:20.500
+or things like that, what are
+the best ways to get involved
+
+00:51:20.500 --> 00:51:23.780
+in and immersed in
+the Joomla community?
+
+00:51:23.780 --> 00:51:27.270
+>> CARLOS: Well,
+I think one of the best options.
+
+00:51:27.270 --> 00:51:29.450
+If you're having an
+issue with Joomla,
+
+00:51:29.450 --> 00:51:33.570
+I think the best option is
+going to- you go to joomla.org
+
+00:51:33.570 --> 00:51:39.370
+and you will see
+this nice top menu.
+
+00:51:39.370 --> 00:51:43.090
+One of the entries is
+community and support.
+
+00:51:43.090 --> 00:51:49.470
+Under that community and support menu
+entry, you can see some sub-menus,
+
+00:51:49.470 --> 00:51:53.660
+and one of them is the forum,
+where you can request help
+
+00:51:53.660 --> 00:51:55.790
+or search for help.
+
+00:51:55.790 --> 00:51:59.430
+If you are looking for a more
+professional help, you can go
+
+00:51:59.430 --> 00:52:04.330
+to the service providers
+directory under the same menu.
+
+00:52:04.330 --> 00:52:09.490
+Also, if you just want to
+help or start contributing
+
+00:52:09.490 --> 00:52:15.410
+to a Joomla project,
+you can go to the volunteers portal,
+
+00:52:15.410 --> 00:52:18.335
+which is also under the
+community and support menu.
+
+00:52:18.335 --> 00:52:19.720
+>> KIM: It's perfect.
+
+00:52:19.720 --> 00:52:22.820
+>> CARLOS: I will go to that
+community and support menu,
+
+00:52:22.820 --> 00:52:24.870
+and I think it's
+everything we need.
+
+00:52:24.870 --> 00:52:32.320
+Also, this year we were
+honored with the Google Summer
+
+00:52:32.320 --> 00:52:37.100
+of Code contribution or project.
+
+00:52:37.100 --> 00:52:43.900
+We had some students working to
+develop some features for Joomla.
+
+00:52:47.510 --> 00:52:53.340
+That's also a good way of
+starting to contribute to Joomla
+
+00:52:53.340 --> 00:52:57.540
+because you get all the benefits
+of the Google Summer of Code.
+
+00:52:57.540 --> 00:53:02.460
+If you want to get involved into
+accessibility, we usually try
+
+00:53:02.460 --> 00:53:06.480
+to have an accessibility
+project in our school or Summer
+
+00:53:06.480 --> 00:53:07.785
+of Code projects.
+
+00:53:08.240 --> 00:53:09.220
+>> KIM: Perfect.
+
+00:53:09.220 --> 00:53:10.490
+Well, thank you so much, Carlos.
+
+00:53:10.490 --> 00:53:11.840
+We have to end it here.
+
+00:53:11.840 --> 00:53:14.390
+I hope everyone
+enjoyed this session.
+
+00:53:14.390 --> 00:53:18.480
+You can continue chatting using
+our hashtags on social media.
+
+00:53:18.480 --> 00:53:21.887
+Provide feedback at
+@wpaccessibility.day,
+
+00:53:21.888 --> 00:53:23.510
+get a free t-shirt.
+
+00:53:23.510 --> 00:53:24.400
+I'm checking out as host.
+
+00:53:24.400 --> 00:53:27.440
+We have Devon Edgar coming
+up next with a presentation
+
+00:53:27.440 --> 00:53:32.670
+on boosting up conversions with
+accessible e-commerce at 12:00 UTC.
+
+00:53:32.670 --> 00:53:36.510
+While you're waiting,
+grab some swag at the sponsor pages,
+
+00:53:36.510 --> 00:53:39.180
+enter to win great prizes, and
+we'll see you here after the break.

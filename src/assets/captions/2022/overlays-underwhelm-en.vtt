@@ -1,0 +1,3084 @@
+﻿WEBVTT
+
+00:00:00.007 --> 00:00:32.266
+[silence]
+
+00:00:32.266 --> 00:00:35.400
+>> CARRIE DILLS: Welcome to
+WordPress Accessibility Day.
+
+00:00:35.400 --> 00:00:38.820
+My name is Carrie Dills and I'm
+a freelance WordPress developer
+
+00:00:38.820 --> 00:00:41.920
+and instructor,
+and I appreciate you joining me
+
+00:00:41.920 --> 00:00:47.460
+for this session Overlays
+Underwhelm with Adrian Roselli.
+
+00:00:47.460 --> 00:00:50.570
+Adrian has written articles
+for trade journals, websites,
+
+00:00:50.570 --> 00:00:54.750
+and participated as an author
+and editor on five books.
+
+00:00:54.750 --> 00:00:58.800
+In 1998, he co-founded a software
+development consulting firm
+
+00:00:58.800 --> 00:01:00.910
+before leading at
+the start of 2016.
+
+00:01:02.550 --> 00:01:06.580
+He was a member of the W3C
+Web Platform Working Group.
+
+00:01:07.920 --> 00:01:15.370
+W3C ARIA Working Group,
+and W3C Accessibility Task Force.
+
+00:01:15.370 --> 00:01:19.910
+Some may recognize Adrian from
+his days helping to run evolt.org,
+
+00:01:19.910 --> 00:01:22.650
+one of the first communities
+for web developers.
+
+00:01:22.650 --> 00:01:26.920
+Adrian has been developing
+for the Web since 1993.
+
+00:01:26.920 --> 00:01:27.900
+That is so awesome.
+
+00:01:27.900 --> 00:01:29.460
+I'm excited to have you, Adrian.
+
+00:01:29.460 --> 00:01:33.520
+If anybody has questions, feel
+free to drop those in the Q&A tab
+
+00:01:33.520 --> 00:01:39.730
+of Slido and you can use that idea
+section to chat with other attendees.
+
+00:01:39.730 --> 00:01:40.330
+Welcome, Adrian.
+
+00:01:41.702 --> 00:01:43.450
+>> ADRIAN ROSELLI: Hi, there.
+
+00:01:43.450 --> 00:01:44.538
+Thanks for having me.
+
+00:01:46.350 --> 00:01:47.720
+I guess I just started going.
+
+00:01:47.720 --> 00:01:49.620
+All right, cool.
+
+00:01:49.620 --> 00:01:54.010
+The title of this talk
+is Overlays Underwhelm.
+
+00:01:54.010 --> 00:01:57.820
+I had the title, but before I
+had the content, so I'm trying
+
+00:01:57.820 --> 00:02:01.990
+to shoehorn this over under-theme
+into the talk throughout.
+
+00:02:01.990 --> 00:02:05.860
+Thanks to the magic of one-way
+audio, I will not hear your grunts
+
+00:02:05.860 --> 00:02:06.860
+of disapproval.
+
+00:02:08.330 --> 00:02:09.330
+This is a good thing.
+
+00:02:10.780 --> 00:02:13.800
+I include this ego slide to
+give you the barest indication
+
+00:02:13.800 --> 00:02:16.780
+that I have some experience, you
+already heard a bunch of this though.
+
+00:02:16.780 --> 00:02:18.490
+I want my arguments
+to stand on the merit,
+
+00:02:18.490 --> 00:02:22.240
+but I understand you want to know
+my chops, so business books, sites,
+
+00:02:22.240 --> 00:02:23.390
+articles, et cetera.
+
+00:02:23.390 --> 00:02:25.630
+You can look me up to confirm
+all of this stuff of course.
+
+00:02:27.250 --> 00:02:30.530
+Now into the meat of the
+talk, we should consider
+
+00:02:30.530 --> 00:02:33.290
+what gaps accessibility
+overlays are filling.
+
+00:02:33.290 --> 00:02:37.000
+The web has lots of accessibility
+bits built in already.
+
+00:02:37.000 --> 00:02:39.810
+There are more tools and
+features available to developers
+
+00:02:39.810 --> 00:02:41.450
+and users than ever before.
+
+00:02:42.850 --> 00:02:48.660
+After all, as Tim Berners-Lee said,
+"The B4520 gets you there faster
+
+00:02:48.660 --> 00:02:51.450
+and bypasses that nasty
+roundabout outside Swindon."
+
+00:02:53.020 --> 00:02:54.650
+I also may have that quote wrong.
+
+00:02:56.760 --> 00:03:00.040
+Let's first ask,
+what is an overlay?
+
+00:03:00.040 --> 00:03:03.270
+An overlay is a tool that
+provides some accessibility
+
+00:03:03.270 --> 00:03:07.590
+or usability feature that may not
+be built into the underlying site.
+
+00:03:07.590 --> 00:03:10.460
+Sometimes it replicates native
+features and sometimes it offers
+
+00:03:10.460 --> 00:03:12.270
+some other affordance.
+
+00:03:12.270 --> 00:03:15.150
+Often does the work in the
+end-user's browser relying
+
+00:03:15.150 --> 00:03:17.480
+on each user's computer
+to replicate the same work
+
+00:03:17.480 --> 00:03:19.870
+as every other user's computer.
+
+00:03:19.870 --> 00:03:23.240
+They can also be referred to as
+widgets, toolbars, or add-ons.
+
+00:03:24.570 --> 00:03:27.410
+There were many tools that
+predated native features
+
+00:03:27.410 --> 00:03:30.000
+or that were created to
+fill gaps in technology,
+
+00:03:30.000 --> 00:03:32.070
+including assistive technology.
+
+00:03:32.070 --> 00:03:34.990
+Some techniques and standards
+may not have been defined
+
+00:03:34.990 --> 00:03:38.590
+or even well-supported when
+these tools were created.
+
+00:03:38.590 --> 00:03:41.700
+The risk is that these tools
+required users to learn them anew
+
+00:03:41.700 --> 00:03:45.710
+for every site with features that
+would not carry across sites.
+
+00:03:48.680 --> 00:03:50.740
+This might be loud, I'm hoping not.
+
+00:03:52.050 --> 00:03:54.060
+BrowseAloud is an early example.
+
+00:03:54.060 --> 00:03:56.090
+It converts the text
+on a page to speech.
+
+00:03:56.090 --> 00:04:01.708
+>> AI: Change Region, Product,
+For Education, Read&Write,
+
+00:04:02.309 --> 00:04:10.940
+EquatIO, Speechstream, WriQ,
+Fluency Tutor, OrbitNote.
+
+00:04:10.940 --> 00:04:13.186
+For Work, Read&Write.
+
+00:04:14.330 --> 00:04:18.200
+>> ADRIAN: This as you can
+see or hear offers no context
+
+00:04:18.200 --> 00:04:20.350
+for what is being
+read, visible or not.
+
+00:04:20.350 --> 00:04:23.580
+It was never meant to
+replicate screen readers.
+
+00:04:23.580 --> 00:04:26.930
+Instead, it's akin to a feature you
+can find built into browsers today,
+
+00:04:26.930 --> 00:04:29.550
+such as Edge's Immersive Reader.
+
+00:04:29.550 --> 00:04:32.130
+BrowserAloud requires a
+third-party embedded script,
+
+00:04:32.130 --> 00:04:35.920
+and back in 2018 was briefly
+hacked to mine cryptocurrencies.
+
+00:04:37.572 --> 00:04:40.246
+Some widgets made an effort
+to replicate features already
+
+00:04:40.247 --> 00:04:42.110
+in browsers
+and operating systems.
+
+00:04:42.110 --> 00:04:45.660
+These ranged from text sizing
+to contrast and lightness,
+
+00:04:45.660 --> 00:04:48.980
+to motion control and even
+zooming and magnification.
+
+00:04:50.370 --> 00:04:53.220
+This text sizing widget
+shows how they can go wrong,
+
+00:04:53.220 --> 00:04:55.610
+is no longer available on the site.
+
+00:04:55.610 --> 00:04:57.820
+Assuming you could find
+it behind a gear icon,
+
+00:04:57.820 --> 00:05:01.060
+the control only appeared when
+you were at the top of the page.
+
+00:05:01.060 --> 00:05:04.310
+The widget only resized
+article content, not headlines,
+
+00:05:04.310 --> 00:05:06.630
+not navigation, nothing else.
+
+00:05:06.630 --> 00:05:09.220
+Since that article content
+was outside the viewport,
+
+00:05:09.220 --> 00:05:13.050
+it also made it near impossible
+to compare sizing options.
+
+00:05:13.050 --> 00:05:15.680
+It does not retain the size
+as you navigate the site
+
+00:05:15.680 --> 00:05:19.460
+and when you return to the site
+or even for the print styles.
+
+00:05:19.460 --> 00:05:22.520
+Better implementations have shown
+users how to change their browser
+
+00:05:22.520 --> 00:05:25.030
+or operating systems instead.
+
+00:05:25.030 --> 00:05:28.020
+However, this could be a useful
+stop-gap feature to gauge
+
+00:05:28.020 --> 00:05:32.080
+if users regularly scale text
+and perhaps adjust those defaults
+
+00:05:32.080 --> 00:05:33.460
+on your site as a result.
+
+00:05:35.820 --> 00:05:38.740
+Some widgets exist because
+there is no native equivalent
+
+00:05:38.740 --> 00:05:43.260
+or the needs are not well
+represented in what exists.
+
+00:05:43.260 --> 00:05:46.150
+Success for those widgets comes
+down to how well they perform.
+
+00:05:47.920 --> 00:05:49.760
+Hand Talk is another add-on.
+
+00:05:49.760 --> 00:05:53.770
+It will load an animated avatar
+to sign the content of a page,
+
+00:05:53.770 --> 00:05:56.880
+like the text-to-speech example
+earlier, it presents the content
+
+00:05:56.880 --> 00:05:59.050
+of the page in sign language.
+
+00:05:59.050 --> 00:06:01.061
+It still cannot offer
+the same context
+
+00:06:01.062 --> 00:06:02.660
+for what content is associated
+
+00:06:02.660 --> 00:06:06.690
+with what other content, so the
+user may need to also read along.
+
+00:06:07.740 --> 00:06:11.070
+I did not explore how many
+sign languages it supports.
+
+00:06:11.070 --> 00:06:13.328
+To its credit,
+it is not finger-spelling everything
+
+00:06:13.329 --> 00:06:17.050
+it encounters, but I leave it to
+the audience to judge its value.
+
+00:06:19.960 --> 00:06:21.614
+The current list of
+overlay vendors is
+
+00:06:21.615 --> 00:06:23.140
+not necessarily filling these gaps,
+
+00:06:23.140 --> 00:06:26.870
+however, they are capitalizing on
+a general lack of understanding
+
+00:06:26.870 --> 00:06:30.060
+of people and needs,
+focusing on selling quick fixes
+
+00:06:30.060 --> 00:06:31.960
+to businesses instead.
+
+00:06:31.960 --> 00:06:37.250
+These companies include AccessiBe,
+AccessiWay, Adally, AudioEye,
+
+00:06:37.250 --> 00:06:43.450
+redacted, FACIL'iti, MaxAccess,
+Poloda AI, Purple Lens, redacted,
+
+00:06:43.450 --> 00:06:44.860
+and UserWay.
+
+00:06:44.860 --> 00:06:47.520
+There are also vendors that
+white-label some of these products.
+
+00:06:49.310 --> 00:06:52.090
+Overlays tend to
+overstate their abilities.
+
+00:06:52.090 --> 00:06:54.860
+In technical reviews,
+they consistently underperform.
+
+00:06:56.700 --> 00:06:59.470
+Automated accessibility
+testing tools are not perfect,
+
+00:06:59.470 --> 00:07:01.140
+but we can use them
+to get a sense of
+
+00:07:01.140 --> 00:07:05.490
+whether or not an overlay has
+improved WCAG compliance of the page.
+
+00:07:05.490 --> 00:07:08.560
+I used an automated checker to
+compare the number of errors before
+
+00:07:08.560 --> 00:07:11.120
+and after an overlay was activated.
+
+00:07:11.120 --> 00:07:14.600
+The page had more detectable
+WCAG errors after.
+
+00:07:14.600 --> 00:07:16.870
+The examples that follow
+are about a year old.
+
+00:07:16.870 --> 00:07:19.520
+I opted not to retest
+because I have no interest
+
+00:07:19.520 --> 00:07:21.510
+in providing free testing.
+
+00:07:21.510 --> 00:07:24.970
+Besides, these vendors were claiming
+WCAG compliance when I tested.
+
+00:07:24.970 --> 00:07:28.470
+If they were lying then, there's no
+reason to assume they would stop now.
+
+00:07:30.380 --> 00:07:34.410
+Deque's Axe browser plugin prides
+itself on no false positives.
+
+00:07:34.410 --> 00:07:38.120
+As a result, it may be more lenient
+than a human tester would be.
+
+00:07:38.120 --> 00:07:41.230
+After running an overlay on the
+vendor's own page, the number
+
+00:07:41.230 --> 00:07:45.750
+of detectable errors identified
+by Axe tripled, from 4 to 12.
+
+00:07:47.310 --> 00:07:51.410
+TPGI's ARC toolkit plugin is
+less likely to be lenient.
+
+00:07:51.410 --> 00:07:55.050
+When testing the same page, the
+number of detectable errors doubled,
+
+00:07:55.050 --> 00:07:58.060
+jumping from 19 to 38 when
+the overlay was activated.
+
+00:07:59.360 --> 00:08:04.330
+ARC also jumped from
+164 warnings to 193.
+
+00:08:04.330 --> 00:08:06.680
+These do not represent
+clear WCAG violations,
+
+00:08:06.680 --> 00:08:08.900
+but instead warrant some
+form of manual testing.
+
+00:08:10.590 --> 00:08:13.870
+WebAIM's WAVE checker browser
+plugin returned no violations
+
+00:08:13.870 --> 00:08:15.820
+without the overlay active.
+
+00:08:15.820 --> 00:08:19.370
+After the overlay was activated,
+a single contrast violation appeared.
+
+00:08:20.500 --> 00:08:23.290
+I've written about my concerns
+at AccessiBe was spoofing WAVE,
+
+00:08:23.290 --> 00:08:26.630
+though I cannot wade into
+that code to confirm this.
+
+00:08:26.630 --> 00:08:31.580
+WAVE used to display a message, "The
+third party AccessiBe integration
+
+00:08:31.580 --> 00:08:36.290
+on this page may temporarily modify
+content when WAVE is activated,
+
+00:08:36.290 --> 00:08:38.380
+resulting in interference
+with WAVE detection
+
+00:08:38.380 --> 00:08:42.110
+of/and accuracy identifying
+accessibility and compliance issues."
+
+00:08:45.420 --> 00:08:49.070
+We know that automated accessibility
+testing tools only identify
+
+00:08:49.070 --> 00:08:51.320
+about 30% of issues.
+
+00:08:51.320 --> 00:08:53.950
+That number shifts based on
+complexity and other factors.
+
+00:08:54.960 --> 00:08:57.130
+That 30% number
+acknowledges that much
+
+00:08:57.130 --> 00:09:01.270
+of WCAG requires human
+judgment based on context.
+
+00:09:01.270 --> 00:09:04.920
+Overlay vendors claim they
+can address the other 70%.
+
+00:09:04.920 --> 00:09:06.590
+That is a bold claim.
+
+00:09:06.590 --> 00:09:08.150
+It is also easy to disprove.
+
+00:09:10.210 --> 00:09:12.900
+The stop animations button
+on this overlay fails
+
+00:09:12.900 --> 00:09:15.640
+to stop the auto-playing
+background video.
+
+00:09:15.640 --> 00:09:19.290
+To compound the confusion, the button
+changes only its accessible name
+
+00:09:19.290 --> 00:09:21.500
+when pressed,
+it does not use aria-press
+
+00:09:21.500 --> 00:09:22.970
+to indicate it has been activated.
+
+00:09:24.000 --> 00:09:27.420
+That brief flash you saw was simply
+from the YouTube video looping.
+
+00:09:30.470 --> 00:09:33.490
+I tried the keyboard navigation
+feature of one vendor
+
+00:09:33.490 --> 00:09:38.820
+since its unaddressed navigation
+violates 1.4.13 content on hover
+
+00:09:38.820 --> 00:09:41.910
+and 2.4.7 focus visible.
+
+00:09:41.910 --> 00:09:45.880
+Even after I activate the feature,
+focus styles are still missing.
+
+00:09:45.880 --> 00:09:49.280
+Eventually, a new box
+appears with different links.
+
+00:09:49.280 --> 00:09:50.580
+I was tapping so much already.
+
+00:09:50.580 --> 00:09:54.170
+I tapped past the item that
+displayed the instructions.
+
+00:09:54.170 --> 00:09:58.000
+To drive home the point, it drops
+me into a de facto keyboard trap
+
+00:09:58.000 --> 00:09:59.000
+and it's cookie popup.
+
+00:10:02.720 --> 00:10:05.450
+It's not just the claimed
+fixes that do not work.
+
+00:10:05.450 --> 00:10:08.370
+The tools themselves
+present barriers.
+
+00:10:08.370 --> 00:10:11.370
+The button in the background
+video is one example.
+
+00:10:11.370 --> 00:10:14.370
+In other cases, screen reader
+users have noted they hear sounds
+
+00:10:14.370 --> 00:10:16.690
+from the overlay with no
+explanation what they mean.
+
+00:10:17.700 --> 00:10:20.100
+The tools don't even
+prevent their own customer
+
+00:10:20.100 --> 00:10:21.980
+from making new WCAG violations.
+
+00:10:23.400 --> 00:10:25.159
+Here, the overlay is very tall,
+
+00:10:25.160 --> 00:10:27.600
+so this image captures
+four screen fulls.
+
+00:10:27.600 --> 00:10:31.900
+It shows how the contrast of the
+controls is so light, it is hard
+
+00:10:31.900 --> 00:10:35.850
+to determine if one is active
+or at what degree it is active.
+
+00:10:35.850 --> 00:10:38.890
+Some of the text and
+icons are illegible.
+
+00:10:38.890 --> 00:10:42.320
+The language selector, which
+commits the internationalization sin
+
+00:10:42.320 --> 00:10:46.030
+of using flags to choose language,
+provides no alt attributes
+
+00:10:46.030 --> 00:10:47.680
+for those flags.
+
+00:10:47.680 --> 00:10:51.360
+The overlay violates at least
+three WCAG success criteria
+
+00:10:51.360 --> 00:10:53.140
+from just a few
+seconds of examination.
+
+00:10:54.720 --> 00:10:56.850
+Part of this is because
+the configuration options
+
+00:10:56.850 --> 00:10:59.410
+for the overlay customer
+do not prevent them
+
+00:10:59.410 --> 00:11:02.890
+from choosing colors that
+clearly fail contrast checks.
+
+00:11:02.890 --> 00:11:06.040
+Here, the white text on the pink
+white background has a contrast ratio
+
+00:11:06.040 --> 00:11:07.870
+of 1.2 to 1.
+
+00:11:07.870 --> 00:11:10.630
+The overlay vendor allowed
+its customer to do this.
+
+00:11:13.670 --> 00:11:17.410
+Here, we can see that the browser's
+default focus ring is active,
+
+00:11:17.410 --> 00:11:19.390
+but then the browser
+alert prompting the user
+
+00:11:19.390 --> 00:11:21.950
+to activate the overlay appears.
+
+00:11:21.950 --> 00:11:25.590
+If the user declines,
+that focus ring is somehow removed.
+
+00:11:26.800 --> 00:11:30.790
+The only clue that focus is changing
+is in the browser status bar
+
+00:11:30.790 --> 00:11:33.310
+or when the page eventually
+jumps to scroll down.
+
+00:11:37.010 --> 00:11:40.840
+Here, I navigate an overlay vendor
+site and as the new page was loading,
+
+00:11:40.840 --> 00:11:43.490
+it grazed itself as if
+a model will appear,
+
+00:11:43.490 --> 00:11:45.700
+and then some hidden
+audio starts playing.
+
+00:11:47.207 --> 00:11:47.960
+>> RONNIE: Hi.
+
+00:11:47.960 --> 00:11:51.990
+I'm Ronnie from AccessiBe,
+the number one fully automated ADA
+
+00:11:51.990 --> 00:11:54.060
+and WCAG compliance solution.
+
+00:11:54.060 --> 00:11:58.150
+In this video, we'll learn how
+AccessiBe AI-powered technology takes
+
+00:11:58.150 --> 00:12:02.910
+any website accessible and compliance
+with the WCAG 2.1, the ADA.
+
+00:12:03.723 --> 00:12:07.770
+>> ADRIAN: You could see potentially
+that I clicked on the gray
+
+00:12:07.770 --> 00:12:11.270
+in the hopes that maybe a hidden
+video model would disappear.
+
+00:12:11.270 --> 00:12:14.150
+I scrolled around the page
+looking for player controls.
+
+00:12:14.150 --> 00:12:16.640
+I also hit the escape
+key with no look.
+
+00:12:16.640 --> 00:12:21.100
+The page itself is a good example
+of a 1.4.2 audio control violation
+
+00:12:21.100 --> 00:12:25.530
+and 1.2.1 audio-only and
+video-only prerecorded violation.
+
+00:12:27.960 --> 00:12:31.070
+Here is an overlay button trigger
+with an icon of a paper boat
+
+00:12:31.070 --> 00:12:35.720
+or a hat and the visible text,
+customized accessibility,
+
+00:12:35.720 --> 00:12:39.620
+the browser dev tools
+indicated has focus, but thanks
+
+00:12:39.620 --> 00:12:44.260
+to an outline, non-important,
+there's no visible style.
+
+00:12:44.260 --> 00:12:47.133
+That's a 2.4.7 focus
+visible failure.
+
+00:12:50.200 --> 00:12:53.340
+The boat icon image has alt text.
+
+00:12:53.340 --> 00:12:55.730
+The alt text does not
+describe the image,
+
+00:12:55.730 --> 00:12:59.280
+instead it reads manage
+display settings.
+
+00:12:59.280 --> 00:13:02.590
+That feels like a 1.1.1
+non-text content failure to me.
+
+00:13:03.780 --> 00:13:05.910
+That makes the full
+accessible name of the button
+
+00:13:07.080 --> 00:13:09.820
+"Manage display settings
+Customized Accessibility",
+
+00:13:11.324 --> 00:13:13.029
+but the button has an ARIA label,
+
+00:13:13.029 --> 00:13:15.995
+reading FACIL'iti
+colon adapt display,
+
+00:13:16.880 --> 00:13:20.880
+which overrides the text we can
+see, which is a 2.5.3 label
+
+00:13:20.880 --> 00:13:21.880
+and name failure.
+
+00:13:22.730 --> 00:13:24.980
+That's three WCAG
+failures on the button
+
+00:13:24.980 --> 00:13:28.620
+that triggers the accessibility
+features from the overlay vendor.
+
+00:13:31.180 --> 00:13:33.810
+The following examples
+are from AccessiBe.
+
+00:13:33.810 --> 00:13:37.110
+The reason AccessiBe is more
+prominent in my tweets and posts is
+
+00:13:37.110 --> 00:13:39.960
+because it seems to be the loudest
+at using its venture funding
+
+00:13:39.960 --> 00:13:41.870
+to promote its product.
+
+00:13:41.870 --> 00:13:44.090
+It took a year for AccessiBe
+to update the terms
+
+00:13:44.090 --> 00:13:46.350
+on its site after I flagged these.
+
+00:13:46.350 --> 00:13:48.690
+I have no idea what terms are
+written into their contracts,
+
+00:13:49.910 --> 00:13:53.900
+certainly not now, and those
+contracts may retain this language.
+
+00:13:53.900 --> 00:13:56.390
+Other vendors have made
+similar compliance promises
+
+00:13:56.390 --> 00:13:59.510
+and may have similarly mooted
+those promises in their terms.
+
+00:14:00.870 --> 00:14:05.570
+From the AccessiBe homepage, does
+AccessiBe protect me from lawsuits?
+
+00:14:05.570 --> 00:14:06.420
+Absolutely.
+
+00:14:06.420 --> 00:14:09.130
+AccessiBe turns inaccessible
+websites into WICAG
+
+00:14:09.130 --> 00:14:13.470
+and ADA-compliant websites, but not
+only that, AccessiBe provides you
+
+00:14:13.470 --> 00:14:15.880
+with a litigation support
+package in case you need
+
+00:14:15.880 --> 00:14:19.550
+to prove your ADA website compliance
+and guides you through the process.
+
+00:14:20.860 --> 00:14:23.970
+Another one from the
+homepage, does AccessiBe cover
+
+00:14:23.970 --> 00:14:26.200
+all accessibility requirements?
+
+00:14:26.200 --> 00:14:28.880
+Yes, exclamation mark.
+
+00:14:28.880 --> 00:14:32.860
+AccessiBe covers the WCAG,
+Web Content Accessibility Guidelines,
+
+00:14:32.860 --> 00:14:37.940
+version 2.1 at the AA level success
+criteria and in certain areas,
+
+00:14:37.940 --> 00:14:39.760
+even level AAA.
+
+00:14:39.760 --> 00:14:42.260
+This is a step beyond
+what legislation requires,
+
+00:14:44.770 --> 00:14:46.860
+but that is different
+from the AccessiBe terms
+
+00:14:46.860 --> 00:14:51.340
+and conditions page here
+captured from December 2020.
+
+00:14:51.340 --> 00:14:54.790
+In this section, AccessiBe is
+defining the word "standard"
+
+00:14:54.790 --> 00:14:59.640
+to mean specifically "WCAG 2.1
+level AA success criteria".
+
+00:15:01.860 --> 00:15:05.360
+From the AccessiBe
+terms, "The functionality
+
+00:15:05.360 --> 00:15:08.220
+of the AccessiBe systems requires
+that the licensee website
+
+00:15:08.220 --> 00:15:13.050
+in which they are embedded the
+websites based solely on HTML files
+
+00:15:13.050 --> 00:15:16.860
+and tags, and that the source
+code be written according
+
+00:15:16.860 --> 00:15:21.460
+to the standard of the World
+Wide Web Consortium, W3C,
+
+00:15:21.460 --> 00:15:24.540
+without any errors
+or validation warning
+
+00:15:24.540 --> 00:15:26.980
+in W3C's troubleshooting
+inspections.
+
+00:15:28.090 --> 00:15:30.790
+Please note that licensee
+changes to such website
+
+00:15:30.790 --> 00:15:33.850
+may impact the functionality
+of the service.
+
+00:15:33.850 --> 00:15:38.000
+By way of example, AccessiBe systems
+do not support other components
+
+00:15:38.000 --> 00:15:41.120
+such as Canvas, Flash, and/or SVG."
+
+00:15:43.760 --> 00:15:46.680
+Essentially, AccessiBe states
+that its customer websites
+
+00:15:46.680 --> 00:15:50.770
+must already meet the
+standard, which we confirmed is
+
+00:15:50.770 --> 00:15:56.520
+defined as WCAG 2.1 AA with no errors
+or even warnings from the validator.
+
+00:15:58.220 --> 00:16:01.640
+Again, essentially your site
+must be WCAG compliant to conform
+
+00:16:01.640 --> 00:16:05.380
+to AccessiBe's terms for
+a product guaranteeing
+
+00:16:05.380 --> 00:16:06.910
+to make your site WCAG-compliant.
+
+00:16:07.920 --> 00:16:11.550
+AccessiBe then goes on to
+exempt PDFs, Flash, SVG files,
+
+00:16:11.550 --> 00:16:16.090
+and even any mobile devices not
+running Android 8 or iOS 10.
+
+00:16:18.960 --> 00:16:22.430
+To remind you that AccessiBe is not
+the only one making these claims,
+
+00:16:22.430 --> 00:16:24.310
+here is UserWay site.
+
+00:16:24.310 --> 00:16:28.450
+It says it will make your site
+ADA-compliant, which is not a thing.
+
+00:16:28.450 --> 00:16:31.380
+It brags about the lack
+of lawsuits mentioning it.
+
+00:16:31.380 --> 00:16:35.010
+It claims to have a strong reputation
+in the disability community.
+
+00:16:35.010 --> 00:16:38.480
+It asserts its privacy chops
+and it claims it is secured
+
+00:16:38.480 --> 00:16:40.410
+by not tracking people
+with disabilities.
+
+00:16:42.670 --> 00:16:44.750
+I do not have a Lexus
+Nexus subscription
+
+00:16:44.750 --> 00:16:47.670
+to confirm UserWay's
+claim about lawsuits,
+
+00:16:47.670 --> 00:16:50.070
+but I know Yieldstreet
+was unable to use UserWay
+
+00:16:50.070 --> 00:16:51.820
+to get its lawsuit dismissed.
+
+00:16:52.880 --> 00:16:57.170
+However, I can say that many lawsuits
+do not name the overlay vendor.
+
+00:16:57.170 --> 00:16:59.500
+Many of these vendors claim
+they can protect their customers
+
+00:16:59.500 --> 00:17:00.820
+from lawsuits.
+
+00:17:00.820 --> 00:17:02.989
+AccessiBe's CEO has even written
+
+00:17:02.989 --> 00:17:06.570
+"Never not once had
+encountered a company
+
+00:17:06.570 --> 00:17:11.330
+that got sued because of
+AccessiBe." Yet in 2020,
+
+00:17:11.330 --> 00:17:15.840
+over 250 companies were sued
+after investing in overlays.
+
+00:17:15.840 --> 00:17:19.650
+The lawsuit pace picked up to almost
+one per day by the end of the year.
+
+00:17:21.610 --> 00:17:23.010
+Here are just five examples.
+
+00:17:23.010 --> 00:17:25.840
+At least one of which
+mentioned the vendor by name.
+
+00:17:25.840 --> 00:17:29.040
+Four of them mentioned AccessiBe
+despite its CEO's claims.
+
+00:17:30.160 --> 00:17:34.230
+They are Kolesar v.
+ByIt, LLC, Thomas Klaus
+
+00:17:34.230 --> 00:17:37.550
+and Robert Jahoda v.
+Upright Technologies, Blair
+
+00:17:37.550 --> 00:17:43.030
+Douglas v. Masterbuilt Manufacturing,
+LLC, Murphy v. Eyebobs, LLC,
+
+00:17:44.370 --> 00:17:49.430
+Fischler et al v. Dorai Homes,
+and LightHouse et al v. ADP.
+
+00:17:50.850 --> 00:17:55.650
+The LightHouse-ADP case goes
+further and explicitly states that
+
+00:17:56.880 --> 00:18:00.250
+"For the purpose of this
+agreement, overlay solutions
+
+00:18:00.250 --> 00:18:04.030
+such as those currently provided
+by companies such as AudioEye
+
+00:18:04.030 --> 00:18:08.090
+and AccessiBe will not suffice
+to achieve accessibility."
+
+00:18:11.810 --> 00:18:14.760
+The Eyebobs case concluded in
+a settlement where Eyebobs has
+
+00:18:14.760 --> 00:18:17.800
+to create an accessibility
+team, perform an audit,
+
+00:18:17.800 --> 00:18:21.930
+adopt a policy statement,
+implement an accessibility strategy
+
+00:18:21.930 --> 00:18:24.420
+and provide accessibility training.
+
+00:18:24.420 --> 00:18:26.310
+The overlay did not
+protect Eyebobs.
+
+00:18:27.760 --> 00:18:32.560
+WIRED wrote an article titled This
+Company Tapped AI for its Website
+
+00:18:32.560 --> 00:18:33.560
+and Landed in Court.
+
+00:18:34.560 --> 00:18:36.870
+I'm going to read a bit
+from the article now.
+
+00:18:38.230 --> 00:18:40.520
+"In a statement,
+AccessiBe's head of Marketing.
+
+00:18:40.520 --> 00:18:44.620
+Gil Magen, said the company
+had analyzed Eyebobs' website
+
+00:18:44.620 --> 00:18:47.610
+and found it complied with
+the accessibility standards.
+
+00:18:47.610 --> 00:18:50.550
+AccessiBe offers clients
+assistance with litigations,
+
+00:18:50.550 --> 00:18:53.310
+but Eyebobs declined,
+the statement said.
+
+00:18:53.310 --> 00:18:56.440
+In its own statement, Eyebobs
+said AccessiBe failed to respond
+
+00:18:56.440 --> 00:18:58.390
+to request for meetings
+with its lawyers.
+
+00:18:59.920 --> 00:19:03.600
+'Eyebobs is no longer working with
+AccessiBe nor will we in the future."
+
+00:19:03.600 --> 00:19:04.760
+the statement said.
+
+00:19:08.150 --> 00:19:10.990
+Sometimes a company relies on
+the overlay as its only way
+
+00:19:10.990 --> 00:19:13.990
+to become accessible to
+customers, but what happens
+
+00:19:13.990 --> 00:19:15.980
+when the script will not load?
+
+00:19:15.980 --> 00:19:17.630
+Malwarebytes has blocked them.
+
+00:19:17.630 --> 00:19:19.290
+Ad blockers have blocked them.
+
+00:19:19.290 --> 00:19:22.700
+Firefox-enhanced privacy
+protection blocks them.
+
+00:19:22.700 --> 00:19:25.910
+What if the script has an
+error or the network chunks?
+
+00:19:25.910 --> 00:19:27.670
+Is your site "protected"?
+
+00:19:29.030 --> 00:19:30.030
+Are the users helped?
+
+00:19:32.310 --> 00:19:34.610
+This screenshot of
+browser dev tools shows
+
+00:19:34.610 --> 00:19:37.160
+that the overlay
+script has not loaded.
+
+00:19:37.160 --> 00:19:40.180
+Worse, that accessibility link
+in the footer is just a div
+
+00:19:40.180 --> 00:19:42.310
+with a tab index and a button roll.
+
+00:19:42.310 --> 00:19:43.820
+It does nothing else when clicked
+
+00:19:43.821 --> 00:19:45.650
+because the overlay
+script is supposed
+
+00:19:45.650 --> 00:19:47.040
+to replace it with a real control.
+
+00:19:49.520 --> 00:19:52.430
+On the Malwarebytes' forum,
+a user wanted to know if the script
+
+00:19:52.430 --> 00:19:55.240
+from an overlay vendor
+was a tracker or not.
+
+00:19:55.240 --> 00:19:58.680
+The Malwarebytes staff
+acknowledged it had been blocked.
+
+00:19:58.680 --> 00:20:02.800
+Until the user asked the question,
+Malwarebytes had blocked the overlay
+
+00:20:02.800 --> 00:20:05.560
+for all its customers
+for potentially years.
+
+00:20:11.290 --> 00:20:14.040
+The claims of no privacy
+risk are spurious at best.
+
+00:20:15.060 --> 00:20:18.920
+Data Protection Impact
+Assessment or DPIA is a process
+
+00:20:18.920 --> 00:20:23.290
+to help you identify and minimize the
+data protection risks of a project.
+
+00:20:23.290 --> 00:20:26.480
+You must do a DPIA for processing
+information that is likely
+
+00:20:26.480 --> 00:20:29.400
+to result in a high
+risk to individuals.
+
+00:20:29.400 --> 00:20:31.460
+The vendors do not provide one.
+
+00:20:31.460 --> 00:20:36.010
+As a result, any claimed GDPR
+compliance is in question.
+
+00:20:36.010 --> 00:20:38.950
+Remember that these overlay
+scripts must parse all the content
+
+00:20:38.950 --> 00:20:41.440
+on the page, essentially
+reading what you are surfing.
+
+00:20:42.520 --> 00:20:44.660
+Some of them keep your
+settings from site to site
+
+00:20:44.660 --> 00:20:45.810
+by setting tracking cookies.
+
+00:20:47.430 --> 00:20:49.780
+Here in a tweet,
+Léonie Watson demonstrates
+
+00:20:49.780 --> 00:20:52.380
+how cavalierly overly vendors
+treat this compliance.
+
+00:20:53.710 --> 00:20:56.710
+The tweet, "Hello, AccessiBe.
+
+00:20:56.710 --> 00:20:59.140
+I've asked you by DM
+and by phone for a copy
+
+00:20:59.140 --> 00:21:00.726
+of your Data Protection
+Impact Assessment
+
+00:21:00.726 --> 00:21:02.580
+and you have not responded.
+
+00:21:02.580 --> 00:21:05.580
+Since asking discreetly has not
+worked, I am now asking openly
+
+00:21:05.580 --> 00:21:09.780
+for you to share your DPIA since
+you claim GDPR conformance.
+
+00:21:09.780 --> 00:21:10.780
+Thank you."
+
+00:21:11.710 --> 00:21:15.430
+She asked on April 1st, 2021,
+and is still not heard back
+
+00:21:15.430 --> 00:21:16.740
+and it has been more than a year.
+
+00:21:17.850 --> 00:21:20.350
+I'm not a lawyer,
+but this might be a GDPR violation.
+
+00:21:23.040 --> 00:21:27.080
+The DSW site uses redacted
+assistive overlay.
+
+00:21:27.080 --> 00:21:29.520
+Though instead of an
+accessibility icon in the corner,
+
+00:21:29.520 --> 00:21:33.325
+it uses the text
+"Enable Accessibility"
+
+00:21:33.325 --> 00:21:36.499
+in gray on gray
+located in the header.
+
+00:21:36.500 --> 00:21:39.560
+If you block third-party cookies,
+you get the following browser alert
+
+00:21:39.560 --> 00:21:40.600
+when you try to activate it.
+
+00:21:41.790 --> 00:21:45.390
+An embedded page at
+A40.redacted.com says
+
+00:21:45.390 --> 00:21:48.780
+your web browser privacy settings
+are preventing the accessibility mode
+
+00:21:48.780 --> 00:21:50.510
+to stay enabled.
+
+00:21:50.510 --> 00:21:54.360
+Try enabling third-party cookies to
+ensure you receive accessible updates
+
+00:21:54.360 --> 00:21:55.360
+to the website.
+
+00:21:56.440 --> 00:21:58.800
+This presents a false
+choice between security
+
+00:21:58.800 --> 00:22:01.990
+and what may be a more
+accessible experience.
+
+00:22:01.990 --> 00:22:04.750
+Nowhere does the user have
+the opportunity to understand
+
+00:22:04.750 --> 00:22:07.290
+how those third-party
+cookies will be used,
+
+00:22:07.290 --> 00:22:08.690
+what information will be shared.
+
+00:22:10.140 --> 00:22:13.660
+Essentially, a user has to disclose
+a disability or access need
+
+00:22:13.660 --> 00:22:16.650
+with no indication how that
+information will persist.
+
+00:22:17.730 --> 00:22:19.780
+It is also a reminder that
+these products don't make
+
+00:22:19.780 --> 00:22:27.170
+a site more accessible, instead
+these products make your computer try
+
+00:22:27.170 --> 00:22:28.540
+to make a site less broken.
+
+00:22:31.130 --> 00:22:34.155
+In August 2022, the Federal
+Trade Commission announced
+
+00:22:34.155 --> 00:22:37.456
+an advanced notice of proposed
+rule-making for a rule
+
+00:22:37.456 --> 00:22:39.990
+on commercial surveillance
+and data security.
+
+00:22:40.940 --> 00:22:43.960
+I left the comment specifically
+about the non-HIPAA health data
+
+00:22:43.960 --> 00:22:46.780
+to which overlays have
+access, along with my concern
+
+00:22:46.780 --> 00:22:49.170
+that they can sell
+it to data brokers.
+
+00:22:49.170 --> 00:22:54.850
+Since 99.98% of Americans can be
+identified from an anonymized dataset
+
+00:22:54.850 --> 00:22:59.320
+with only 15 data points,
+this should be a genuine concern.
+
+00:22:59.320 --> 00:23:01.580
+I hope the FTC treats it as such.
+
+00:23:04.610 --> 00:23:07.930
+Overlay vendors will over-promise
+in their marketing, making claims
+
+00:23:07.930 --> 00:23:11.060
+about their utility and popularity
+while under-delivering on them.
+
+00:23:12.330 --> 00:23:16.090
+These vendors rely on a combination
+of fear, uncertainty, and doubt.
+
+00:23:16.090 --> 00:23:20.210
+They know how many website owners do
+not understand accessibility laws.
+
+00:23:20.210 --> 00:23:22.660
+Even as users complain about the
+problems with these products,
+
+00:23:22.660 --> 00:23:25.220
+the vendors use astroturfing
+techniques to drown it out.
+
+00:23:26.660 --> 00:23:29.780
+This is an advertisement for
+one of the overlay vendors.
+
+00:23:29.780 --> 00:23:32.320
+It is a cartoon of a man at
+computer happily exclaiming,
+
+00:23:32.320 --> 00:23:34.290
+"Finally, my website is up."
+
+00:23:34.290 --> 00:23:37.320
+Two men in suits suddenly appear
+next to him holding legal papers
+
+00:23:37.320 --> 00:23:38.810
+and say, "Not so fast.
+
+00:23:38.810 --> 00:23:40.800
+Nice website,
+but it's not accessible.
+
+00:23:40.800 --> 00:23:42.480
+You've been served."
+
+00:23:42.480 --> 00:23:45.450
+The website owner now crying,
+hands up in the air says,
+
+00:23:45.450 --> 00:23:47.550
+"I'm broke now, why bother?"
+
+00:23:47.550 --> 00:23:50.560
+In the background, the two men can
+be seen walking away carrying bags
+
+00:23:50.560 --> 00:23:51.560
+of money.
+
+00:23:52.230 --> 00:23:55.760
+Overlay vendors use fear of
+lawsuits to sell their product,
+
+00:23:55.760 --> 00:23:57.600
+not a desire to help users.
+
+00:23:57.600 --> 00:24:00.620
+The cartoon is careful not to show
+disabled people as the villains,
+
+00:24:00.620 --> 00:24:02.440
+but the implication is clear.
+
+00:24:02.440 --> 00:24:05.550
+The laws that protect disabled
+people will cost you money
+
+00:24:05.550 --> 00:24:06.960
+unless you pay for
+the vendor's help.
+
+00:24:09.690 --> 00:24:14.050
+One vendor cited that a
+"silent majority" of users
+
+00:24:14.050 --> 00:24:16.160
+like the overlay product
+and that as a result,
+
+00:24:16.160 --> 00:24:19.960
+the complaints that appear
+online are only exceptions.
+
+00:24:19.960 --> 00:24:20.580
+Here are Chancey.
+
+00:24:20.580 --> 00:24:21.790
+Fleet tweets.
+
+00:24:21.790 --> 00:24:24.790
+"The founders of AccessiBe are
+interpreting the complacency
+
+00:24:24.790 --> 00:24:29.090
+of non-disabled customers and the
+bone-deep fatigue of disabled users
+
+00:24:29.090 --> 00:24:33.510
+to mean that a silent majority,
+their actual words, is grateful for
+
+00:24:33.510 --> 00:24:36.720
+and enjoys AccessiBe.
+
+00:24:36.720 --> 00:24:37.810
+Let's not be silent then."
+
+00:24:39.220 --> 00:24:42.730
+That was in reply to a tweet
+from Marco Salsiccia who says,
+
+00:24:42.730 --> 00:24:45.420
+"Pretty much, as well as citing
+their silent majority of blind users
+
+00:24:45.420 --> 00:24:49.670
+who approve and test their
+product, I ran into so many issues
+
+00:24:49.670 --> 00:24:51.960
+just going through their
+example sites alone.
+
+00:24:51.960 --> 00:24:53.940
+I didn't want to give
+them a fully free audit
+
+00:24:53.940 --> 00:24:55.370
+of how much they were doing wrong."
+
+00:24:57.840 --> 00:25:01.100
+In addition, these vendors have a
+history of astroturfing review sites,
+
+00:25:01.100 --> 00:25:03.870
+social media and
+the web In general.
+
+00:25:03.870 --> 00:25:07.910
+The effort is to ensure
+only their message appears,
+
+00:25:07.910 --> 00:25:11.050
+and they have the money SEO chops
+and lack of integrity to do it.
+
+00:25:12.180 --> 00:25:14.400
+I have links to Twitter
+spam, medium articles,
+
+00:25:14.400 --> 00:25:17.600
+paid promotion pieces and industry
+sites, questionable reviews
+
+00:25:17.600 --> 00:25:20.640
+on other platforms, even Wikipedia
+entries that were flagged
+
+00:25:20.640 --> 00:25:23.110
+by the moderators as spam.
+
+00:25:23.110 --> 00:25:25.460
+The image here shows a
+headline from WP Tavern
+
+00:25:25.460 --> 00:25:30.680
+when one vendor had all the fake
+reviews for its plugin removed.
+
+00:25:33.160 --> 00:25:36.130
+In addition to individual complaints,
+there has been press coverage
+
+00:25:36.130 --> 00:25:37.660
+of these companies.
+
+00:25:37.660 --> 00:25:40.420
+Users with some standing in the
+disability community have spoken
+
+00:25:40.420 --> 00:25:43.000
+about overlay failures in general.
+
+00:25:43.000 --> 00:25:45.978
+Some users are so frustrated
+they share tips and tools
+
+00:25:45.978 --> 00:25:47.350
+to block overlays.
+
+00:25:47.350 --> 00:25:49.740
+Two vendors have even
+threatened users with lawsuits.
+
+00:25:51.640 --> 00:25:54.710
+NBC News ran a story with
+the headline Blind People,
+
+00:25:54.710 --> 00:25:58.910
+Advocates Slam Company Claiming
+to Make Websites ADA Compliant.
+
+00:25:59.970 --> 00:26:02.450
+Vice also ran an
+article headlined People
+
+00:26:02.450 --> 00:26:05.980
+With Disabilities Say This AI Tool
+is Making the Web Worse for Them.
+
+00:26:07.380 --> 00:26:10.030
+The New York Times published
+one over the summer,
+
+00:26:10.030 --> 00:26:13.090
+For Blind Internet Users,
+the Fix Can Be Worse Than the Flaws.
+
+00:26:14.720 --> 00:26:18.210
+The Mosen At Large podcast devoted
+an entire episode to the question
+
+00:26:18.210 --> 00:26:20.090
+of the value of overlays.
+
+00:26:20.090 --> 00:26:24.100
+Episode 105 asked, "Can AI
+make the web fully accessible
+
+00:26:24.100 --> 00:26:27.270
+in a few short years,
+or might it make matters worse?"
+
+00:26:28.310 --> 00:26:31.250
+A chunk of a follow-up episode
+was devoted to more frustrations
+
+00:26:31.250 --> 00:26:32.360
+from users.
+
+00:26:32.360 --> 00:26:34.900
+Other community podcasts have
+discussed these tools as well.
+
+00:26:36.510 --> 00:26:39.610
+Some users are so frustrated
+that they have written tools
+
+00:26:39.610 --> 00:26:41.400
+to block overlays.
+
+00:26:41.400 --> 00:26:45.110
+Accessibegone gives instructions
+for how to block overlays
+
+00:26:45.110 --> 00:26:48.150
+using ad blockers or by
+editing your host file.
+
+00:26:48.150 --> 00:26:51.970
+AccessiByeBye is a browser extension
+to disable overlays in the browser.
+
+00:26:54.630 --> 00:26:57.360
+One overlay has
+opted to fight back.
+
+00:26:57.360 --> 00:27:01.010
+In April, 2021, FACIL'iti's
+attorneys started sending letters
+
+00:27:01.010 --> 00:27:02.840
+demanding removal of any criticism.
+
+00:27:03.880 --> 00:27:08.120
+This letter to, probably going
+to get the name wrong here,
+
+00:27:08.120 --> 00:27:11.640
+pronunciation wrong, this
+letter to Koena shows two tweets
+
+00:27:11.640 --> 00:27:12.640
+about FACIL'iti.
+
+00:27:15.330 --> 00:27:19.070
+Koena declined to comply with
+the request and wrote about why.
+
+00:27:19.070 --> 00:27:21.260
+Another disabled user
+who I'm not naming here,
+
+00:27:21.260 --> 00:27:24.210
+but I've shared their plight on
+Twitter, was subpoenaed to appear
+
+00:27:24.210 --> 00:27:25.510
+in court.
+
+00:27:25.510 --> 00:27:31.100
+FACIL'iti had asked for 5,000
+in damages, 55,000 and fines,
+
+00:27:31.100 --> 00:27:33.280
+and in order to cease
+comments that may
+
+00:27:33.280 --> 00:27:35.854
+"discredit the FACIL'iti solution."
+
+00:27:37.150 --> 00:27:38.750
+I cannot think of a
+better way to prove
+
+00:27:38.750 --> 00:27:42.520
+that your product helps disabled
+users than by suing disabled people
+
+00:27:42.520 --> 00:27:43.520
+who say it does not.
+
+00:27:45.530 --> 00:27:48.760
+That story got some press
+in France in Numerama
+
+00:27:48.760 --> 00:27:52.440
+with the machine translated
+headline, FACIL'iti, the Solution
+
+00:27:52.440 --> 00:27:55.030
+for Online Inclusion
+That Refuses Criticism?
+
+00:27:57.240 --> 00:28:00.390
+Another overlay vendor threatened
+a lawsuit for valid criticism,
+
+00:28:00.390 --> 00:28:02.690
+specifically AudioEye.
+
+00:28:02.690 --> 00:28:05.430
+You can read the AudioEye's
+cease and desist letter to me,
+
+00:28:05.430 --> 00:28:11.950
+along with my response on my site,
+which I do believe I link at the end.
+
+00:28:14.740 --> 00:28:18.250
+Overlay vendors also claim
+that organizations love them,
+
+00:28:18.250 --> 00:28:20.770
+but community and industry
+organizations have been clear
+
+00:28:20.771 --> 00:28:21.610
+that they do not.
+
+00:28:23.530 --> 00:28:26.790
+National Federation of the Blind
+after accepting one as a sponsor
+
+00:28:26.790 --> 00:28:30.260
+for its annual event went so far
+as to not only drop the sponsor,
+
+00:28:30.260 --> 00:28:34.250
+but to then issue a statement
+rebuking its very existence.
+
+00:28:34.250 --> 00:28:35.670
+This part of the
+statement stood out to me.
+
+00:28:36.890 --> 00:28:39.150
+"In particular,
+it is the opinion of the board
+
+00:28:39.150 --> 00:28:43.200
+that AccessiBe peremptorily
+and scornfully dismisses
+
+00:28:43.200 --> 00:28:46.560
+the concerns blind people have
+about its products and its approach
+
+00:28:46.560 --> 00:28:48.040
+to accessibility.
+
+00:28:48.040 --> 00:28:51.750
+The nation's blind will not be
+placated, bullied, or bought off.
+
+00:28:51.750 --> 00:28:54.251
+Therefore, the board revoked
+AccessiBe's sponsorship
+
+00:28:54.252 --> 00:28:57.340
+of the convention
+On June 22, 2021.""
+
+00:29:00.980 --> 00:29:03.670
+The CSUN Assisted Technology
+Conference briefly had an overlay
+
+00:29:03.670 --> 00:29:07.090
+on its site and was met with
+such rapid and vocal anger
+
+00:29:07.090 --> 00:29:09.240
+that it was dropped immediately.
+
+00:29:09.240 --> 00:29:10.882
+It may very well
+have been implemented
+
+00:29:10.882 --> 00:29:12.280
+without anybody's knowledge,
+
+00:29:12.280 --> 00:29:16.070
+and based on this tweet which
+reads, "The accessibility overlay
+
+00:29:16.070 --> 00:29:16.830
+has been removed.
+
+00:29:16.830 --> 00:29:18.890
+It was implemented
+without our approval.
+
+00:29:18.890 --> 00:29:21.720
+The Conference does not endorse
+this product and we apologize
+
+00:29:21.720 --> 00:29:24.310
+for the situation,
+which has now been corrected."
+
+00:29:26.910 --> 00:29:30.380
+The Olympic Committee created
+the WeThe15 site in an effort
+
+00:29:30.380 --> 00:29:34.390
+to promote the Paralympics,
+but in doing so, used an overlay.
+
+00:29:34.390 --> 00:29:37.100
+After responses from users
+in the disability community,
+
+00:29:37.100 --> 00:29:39.640
+the overlay was removed
+within a couple days.
+
+00:29:39.640 --> 00:29:42.690
+That same overlay is still
+on the Main Olympics website,
+
+00:29:42.690 --> 00:29:45.200
+which may be a function of the
+vendor promoting it so heavily
+
+00:29:45.200 --> 00:29:46.430
+in its marketing materials.
+
+00:29:47.610 --> 00:29:51.920
+One of the WeThe15's tweets in
+response, "Thank you for alerting us
+
+00:29:51.920 --> 00:29:53.110
+about these issues.
+
+00:29:53.110 --> 00:29:56.020
+We're disappointed too that
+we've fallen short in this area.
+
+00:29:56.020 --> 00:29:57.682
+We've gathered together
+some new experts
+
+00:29:57.683 --> 00:29:58.980
+who are helping us to fix this.
+
+00:29:58.980 --> 00:30:00.830
+It would be great to have
+your support going forward
+
+00:30:00.830 --> 00:30:03.250
+to make the next iteration
+a complete success."
+
+00:30:06.260 --> 00:30:08.930
+Many overlay vendors claimed
+that detractors are really
+
+00:30:08.930 --> 00:30:11.370
+just frustrated competitors.
+
+00:30:11.370 --> 00:30:12.950
+The Overlay Fact
+Sheet disproves that.
+
+00:30:13.970 --> 00:30:17.360
+Over 750 people have
+signed it so far.
+
+00:30:17.360 --> 00:30:19.770
+You could sign it after this talk.
+
+00:30:19.770 --> 00:30:22.310
+They represent web
+specification contributors,
+
+00:30:22.310 --> 00:30:26.080
+internal accessibility experts
+from companies in higher education,
+
+00:30:26.080 --> 00:30:29.710
+lawyers for the disabled,
+contributors to assistive technology,
+
+00:30:29.710 --> 00:30:31.090
+and end users with disabilities.
+
+00:30:32.350 --> 00:30:35.340
+I encourage you to visit the
+site at overlayfactsheet.com
+
+00:30:35.340 --> 00:30:38.760
+and read through the information
+and links that identify strengths
+
+00:30:38.760 --> 00:30:42.070
+and weaknesses of overlay
+widgets and automated repair.
+
+00:30:42.070 --> 00:30:45.270
+It also touches on technical
+and privacy concerns.
+
+00:30:45.270 --> 00:30:47.830
+In addition to the signatures,
+there are statements from users.
+
+00:30:50.360 --> 00:30:52.140
+There is one
+professional organization
+
+00:30:52.140 --> 00:30:54.730
+for digital accessibility
+practitioners.
+
+00:30:54.730 --> 00:30:58.120
+International Association of
+Accessibility Professionals, IAAP,
+
+00:30:59.600 --> 00:31:04.340
+is a division of G3ict, the Global
+Initiative for Inclusive Information
+
+00:31:04.340 --> 00:31:06.640
+and Communication Technologies.
+
+00:31:06.640 --> 00:31:08.450
+It allows membership
+for overlay vendors.
+
+00:31:09.510 --> 00:31:12.211
+Overlay vendors then brand
+their marketing materials
+
+00:31:12.211 --> 00:31:13.572
+with the IAAP logo.
+
+00:31:14.670 --> 00:31:17.530
+Similarly,
+the W3C allows for anyone to set up
+
+00:31:17.530 --> 00:31:19.190
+an unaffiliated community group.
+
+00:31:20.340 --> 00:31:23.690
+Overlay vendors use these
+as veneers of credibility.
+
+00:31:25.400 --> 00:31:29.030
+Some organizations display
+the IAAP logo in their footer.
+
+00:31:29.030 --> 00:31:32.180
+UserWay and Max Access
+each do so using the weight
+
+00:31:32.180 --> 00:31:34.620
+of accessibility professionals
+as a marketing boost.
+
+00:31:35.720 --> 00:31:41.740
+Others might get promotional
+consideration as AudioEye did
+
+00:31:41.740 --> 00:31:47.260
+when IAAP tweeted an AudioEye post,
+a post incidentally arguably lifted
+
+00:31:47.260 --> 00:31:48.860
+from W3C documents.
+
+00:31:50.670 --> 00:31:53.810
+There was finally some
+fallout though for IAAP.
+
+00:31:53.810 --> 00:32:01.610
+On January 17, few months ago,
+IAAP promised a "proactive" response
+
+00:32:01.610 --> 00:32:05.550
+to that tweet and overlay membership,
+even though I raised the concern
+
+00:32:05.550 --> 00:32:09.190
+in September along with
+others, in September of 2021.
+
+00:32:10.260 --> 00:32:12.770
+It produced a survey from
+members and non-members.
+
+00:32:12.770 --> 00:32:15.270
+The results of that survey
+were posted on Friday,
+
+00:32:15.270 --> 00:32:17.950
+February 25th of this year.
+
+00:32:17.950 --> 00:32:24.280
+Of the 609 responses 591,
+97% were not overlay vendors.
+
+00:32:24.280 --> 00:32:30.000
+81% of them, 478 responses state they
+do not compete with overlay vendors.
+
+00:32:31.160 --> 00:32:37.340
+549 responses or 90% say they have
+seen false claims by overlay vendors,
+
+00:32:37.340 --> 00:32:42.430
+and 533 responses or 86%
+believe IAAP should comment
+
+00:32:42.430 --> 00:32:44.710
+on marketing claims in general.
+
+00:32:44.710 --> 00:32:49.040
+Also 90%, 549 respondents
+believe IAAP should comment
+
+00:32:49.040 --> 00:32:51.400
+on overlay marketing
+claims specifically.
+
+00:32:54.430 --> 00:32:57.690
+In May, representatives from
+UserWay and AudiEye proposed
+
+00:32:57.690 --> 00:33:02.490
+an overlay community group to the
+W3C and got the votes approval
+
+00:33:02.490 --> 00:33:05.820
+and call for participation
+of in 12 hours.
+
+00:33:05.820 --> 00:33:09.180
+The next day it deleted the call
+for participation and sat dormant.
+
+00:33:10.340 --> 00:33:14.640
+Almost a month later, it renamed
+itself to Accessibility at the Edge
+
+00:33:14.640 --> 00:33:18.020
+and used a novel interpretation
+of Edge computing to justify
+
+00:33:18.020 --> 00:33:20.550
+and obfuscate its purpose.
+
+00:33:20.550 --> 00:33:23.960
+Two months after that, it reposted
+its call for participation,
+
+00:33:23.960 --> 00:33:27.220
+this time framing it as an
+accessibility community group
+
+00:33:27.220 --> 00:33:31.610
+that just happens to include
+overlays, and so overlays veneer
+
+00:33:31.610 --> 00:33:34.100
+of a W3C blessing is complete.
+
+00:33:35.920 --> 00:33:38.995
+This community group
+then got a breakout slot
+
+00:33:38.996 --> 00:33:40.800
+at W3C's Technical Plenary
+
+00:33:40.800 --> 00:33:45.130
+and Advisory Committee or
+TPAC session in September.
+
+00:33:45.130 --> 00:33:48.270
+There, the UserWay COO
+took three opportunities
+
+00:33:48.270 --> 00:33:51.290
+to promote its own
+product in this session.
+
+00:33:51.290 --> 00:33:54.140
+This despite every
+attendee, except for one
+
+00:33:54.140 --> 00:33:56.348
+of the community
+groups invited guests,
+
+00:33:56.349 --> 00:34:00.410
+voicing their broad opposition
+to overlays for an hour.
+
+00:34:03.190 --> 00:34:06.200
+As we have seen,
+overlays cannot make your site
+
+00:34:06.200 --> 00:34:07.620
+or your brand better overnight.
+
+00:34:08.750 --> 00:34:12.110
+To wrap up this talk, I want to
+cover some steps you can undertake
+
+00:34:12.110 --> 00:34:13.150
+without overlays.
+
+00:34:14.900 --> 00:34:15.900
+Plan ahead.
+
+00:34:17.530 --> 00:34:18.530
+Have a drink of water.
+
+00:34:21.860 --> 00:34:22.860
+Excuse me.
+
+00:34:23.940 --> 00:34:24.850
+Plan ahead.
+
+00:34:24.850 --> 00:34:28.180
+Hire a consultant who has
+some experience in the space.
+
+00:34:28.180 --> 00:34:31.600
+They can help you choose a vendor
+who prioritizes accessibility
+
+00:34:31.600 --> 00:34:33.490
+and write this into your contracts.
+
+00:34:33.490 --> 00:34:36.910
+They can also direct you to
+technologies that have been vetted.
+
+00:34:36.910 --> 00:34:39.870
+Some platforms have
+accessible features already.
+
+00:34:39.870 --> 00:34:45.350
+Last I checked, WordPress offers 114
+free accessibility-ready themes built
+
+00:34:45.350 --> 00:34:47.460
+with a baseline of
+compliance already in place.
+
+00:34:48.960 --> 00:34:55.310
+Some free online resources, when you
+create content, use those resources.
+
+00:34:55.310 --> 00:34:58.000
+They may have all you
+need to get going.
+
+00:34:58.000 --> 00:35:00.680
+There is even a free tool to
+generate an accessibility statement
+
+00:35:00.680 --> 00:35:03.590
+for your site provided
+by the very organization
+
+00:35:03.590 --> 00:35:05.200
+that sets accessibility standards.
+
+00:35:07.290 --> 00:35:09.270
+What if you already have a site?
+
+00:35:09.270 --> 00:35:12.260
+You can use one of the many free
+automated accessibility checkers
+
+00:35:12.260 --> 00:35:14.720
+on the market, assuming you
+aren't interested in getting
+
+00:35:14.720 --> 00:35:16.740
+into the browser's own tools.
+
+00:35:16.740 --> 00:35:21.920
+There's ARC, Axe, Lighthouse,
+WAVE, and webhint among others.
+
+00:35:21.920 --> 00:35:25.300
+While they will not catch all
+the issues, maybe only about 30%,
+
+00:35:25.300 --> 00:35:27.640
+they will at least give you
+a sense where you stand.
+
+00:35:28.970 --> 00:35:31.180
+Where you have gaps, document them.
+
+00:35:31.180 --> 00:35:33.900
+Identify what is wrong and put
+together a plan and timeline
+
+00:35:33.900 --> 00:35:35.300
+to address them.
+
+00:35:35.300 --> 00:35:39.380
+Publish that on your site when you
+generate an accessibility statement.
+
+00:35:39.380 --> 00:35:42.100
+As long as you're under the
+timelines you provide, you can choose
+
+00:35:42.100 --> 00:35:45.060
+what your ongoing budget
+will be to address them,
+
+00:35:45.060 --> 00:35:46.720
+even if it's only $1,000 per year.
+
+00:35:49.520 --> 00:35:51.920
+If you are affected by
+overlays as a consumer,
+
+00:35:51.920 --> 00:35:53.930
+then you can take some action.
+
+00:35:53.930 --> 00:35:57.010
+In the US, the Federal Trade
+Commission has rules that advertising
+
+00:35:57.010 --> 00:36:01.930
+must not be deceptive, must include
+evidence and cannot be unfair.
+
+00:36:01.930 --> 00:36:04.830
+Overlayfalseclaims.com
+provides documented examples
+
+00:36:04.830 --> 00:36:10.070
+of overlay vendor false claims, along
+with consumer complaint resources
+
+00:36:10.070 --> 00:36:14.250
+for the US, Federal and State,
+Canada, and New Zealand.
+
+00:36:14.250 --> 00:36:17.890
+You can use information there to
+file a false advertising complaint.
+
+00:36:17.890 --> 00:36:21.520
+You can also open up here to submit
+information for filing complaints
+
+00:36:21.520 --> 00:36:22.520
+in other countries.
+
+00:36:24.540 --> 00:36:26.860
+To wrap up the session,
+I have posted links to
+
+00:36:26.860 --> 00:36:30.050
+some of the material I referenced
+throughout, you can get to it
+
+00:36:30.050 --> 00:36:34.740
+by scanning the QR code,
+no, pointing the wrong way,
+
+00:36:34.740 --> 00:36:37.430
+scanning the QR code
+over there or by going
+
+00:36:37.430 --> 00:36:47.439
+to the URL rosel.li/WPa11yDay-22.
+
+00:36:48.540 --> 00:36:50.608
+I'm going to say that again
+because it was sloppy.
+
+00:36:51.276 --> 00:36:59.570
+That's rosel.li/WPa11yDay-22.
+
+00:37:02.380 --> 00:37:02.890
+That's it.
+
+00:37:02.890 --> 00:37:03.290
+Thank you.
+
+00:37:03.290 --> 00:37:05.750
+Feel free to ask me some questions.
+
+00:37:05.750 --> 00:37:07.310
+I think I finished
+a little bit early.
+
+00:37:08.440 --> 00:37:09.440
+Awkward.
+
+00:37:10.395 --> 00:37:13.470
+>> CARRIE: Hey,
+thank you so much, Adrian.
+
+00:37:13.470 --> 00:37:15.310
+That's fascinating.
+
+00:37:15.310 --> 00:37:17.286
+I actually feel a
+little bit gross hearing
+
+00:37:17.287 --> 00:37:18.710
+about some of those practices.
+
+00:37:18.710 --> 00:37:21.150
+Thank you for educating us.
+
+00:37:21.150 --> 00:37:24.450
+We've got some great
+questions coming in.
+
+00:37:24.450 --> 00:37:27.230
+Early on, you mentioned that
+the text resizer might be used
+
+00:37:27.230 --> 00:37:31.220
+to gather data about how
+many users want larger fonts.
+
+00:37:31.220 --> 00:37:35.390
+Have you ever seen data on usage
+of these features like text resize,
+
+00:37:35.390 --> 00:37:38.050
+contrast, or dark mode toggles?
+
+00:37:38.050 --> 00:37:41.730
+I can't find any and when I look
+and I suspect custom coding needs
+
+00:37:41.730 --> 00:37:42.730
+is not worth the effort.
+
+00:37:45.030 --> 00:37:50.530
+>> ADRIAN: I have had a couple of
+clients who have put widgets on it.
+
+00:37:50.530 --> 00:37:53.094
+They rolled their own
+text resizing widget,
+
+00:37:53.095 --> 00:37:54.900
+which was the example I cited.
+
+00:37:54.900 --> 00:37:58.090
+They tracked how
+often people used it.
+
+00:37:58.090 --> 00:38:01.770
+They took that information, quickly
+found out their text was too small,
+
+00:38:01.770 --> 00:38:03.340
+and then addressed it.
+
+00:38:03.340 --> 00:38:06.410
+As for pre-existing tools
+or scripts that do that,
+
+00:38:06.410 --> 00:38:11.090
+you pretty much have to custom roll
+your own for your site is my guess.
+
+00:38:11.090 --> 00:38:12.983
+That might be a really
+nifty WordPress plugin
+
+00:38:12.984 --> 00:38:15.950
+for somebody to build,
+just saying.
+
+00:38:15.950 --> 00:38:16.569
+>> CARRIE: There you go.
+
+00:38:18.520 --> 00:38:20.390
+Another question
+for you about IAAP.
+
+00:38:21.600 --> 00:38:24.030
+Is there any update
+whether they will continue
+
+00:38:24.030 --> 00:38:27.740
+to allow overlay companies to
+be members who exploit this
+
+00:38:27.740 --> 00:38:28.740
+for credibility?
+
+00:38:31.209 --> 00:38:33.240
+>> ADRIAN: What I like about
+that question is there are
+
+00:38:33.240 --> 00:38:35.180
+a few different ways
+I could answer that.
+
+00:38:35.180 --> 00:38:40.760
+I think the simplest is
+that IAAP hired Ken Nakata,
+
+00:38:40.760 --> 00:38:44.800
+contracted Ken Nakata, I think
+he's converged accessibility,
+
+00:38:44.800 --> 00:38:52.060
+to gather information and start
+to put together a rough framework
+
+00:38:52.060 --> 00:38:58.410
+for best practices for how members
+should behave in the marketplace.
+
+00:38:58.410 --> 00:39:01.920
+Overlay vendors were included
+with that, as well as me
+
+00:39:01.920 --> 00:39:05.160
+and some people who've
+been critical of overlays.
+
+00:39:05.160 --> 00:39:08.630
+Ken did a great job of keeping
+us apart from each other.
+
+00:39:08.630 --> 00:39:13.210
+Go, Ken,
+but that's still in a draft stage
+
+00:39:13.210 --> 00:39:18.140
+and I am not an IAAP member,
+I'm not planning to be one.
+
+00:39:18.140 --> 00:39:22.000
+I don't have any insight
+internally on where it is
+
+00:39:22.000 --> 00:39:25.070
+in their final editing
+or approvals process.
+
+00:39:25.964 --> 00:39:26.780
+>> CARRIE: Makes sense.
+
+00:39:26.780 --> 00:39:29.160
+Do you think that was a
+sufficient response from them
+
+00:39:29.160 --> 00:39:30.580
+or would you have liked
+to have seen more?
+
+00:39:31.993 --> 00:39:37.880
+>> ADRIAN: I feel that I would
+have liked to have seen more.
+
+00:39:37.880 --> 00:39:43.440
+I would have liked a stronger stance
+prior to allowing the membership.
+
+00:39:44.460 --> 00:39:46.290
+That's just my personal opinion.
+
+00:39:46.290 --> 00:39:48.840
+My strongly held belief which
+is a clause I put in there
+
+00:39:48.840 --> 00:39:50.490
+because of litigious
+overlay vendors.
+
+00:39:51.830 --> 00:39:52.830
+>> CARRIE: Thank you.
+
+00:39:53.970 --> 00:39:54.620
+Let's see.
+
+00:39:54.620 --> 00:39:58.200
+AccessiBe offers free
+ADA site testing.
+
+00:39:58.200 --> 00:40:00.220
+I'm assuming we can't
+trust this testing.
+
+00:40:00.220 --> 00:40:02.530
+What should we use
+to test our sites?
+
+00:40:02.530 --> 00:40:05.550
+>> ADRIAN: I listed a
+bunch toward the end there.
+
+00:40:06.730 --> 00:40:14.900
+Axe, webhint, ARC,
+TPGi's ARC product, WebAim's WAVE.
+
+00:40:14.900 --> 00:40:18.990
+Those are all good tools that
+have some history behind them,
+
+00:40:18.990 --> 00:40:21.640
+and the companies that built
+them have practitioners
+
+00:40:21.641 --> 00:40:23.930
+in there who've been
+in the space for a long time.
+
+00:40:25.090 --> 00:40:28.810
+The issue with
+AccessiBe's own checker,
+
+00:40:28.810 --> 00:40:31.340
+because I've done some
+side-by-side comparison,
+
+00:40:31.340 --> 00:40:39.800
+is it finds issues I would not
+flag that map directly to features
+
+00:40:39.800 --> 00:40:41.500
+of their own product.
+
+00:40:41.500 --> 00:40:43.710
+They raised issues that
+aren't really issues.
+
+00:40:43.710 --> 00:40:46.140
+I've documented some
+of that on my site,
+
+00:40:46.140 --> 00:40:49.380
+and I think some of it is
+linked from that QR code,
+
+00:40:49.380 --> 00:40:51.600
+which I don't think
+is displaying anymore.
+
+00:40:51.600 --> 00:40:54.650
+There's some additional
+information there.
+
+00:40:54.650 --> 00:40:57.510
+I'm good to answer
+some more questions.
+
+00:40:57.510 --> 00:40:58.950
+I don't want us to run over time.
+
+00:41:00.158 --> 00:41:00.440
+>> CARRIE: Yes.
+
+00:41:00.440 --> 00:41:03.270
+We've got a few minutes,
+if you don't mind hanging with me-
+
+00:41:03.270 --> 00:41:04.120
+>> ADRIAN: Yes, happy to do it.
+
+00:41:04.120 --> 00:41:05.245
+>> CARRIE: -people
+still have questions.
+
+00:41:06.790 --> 00:41:11.740
+Can you talk about why you
+had redacted in your talk?
+
+00:41:11.740 --> 00:41:12.971
+>> ADRIAN: Oh, yes.
+
+00:41:13.850 --> 00:41:19.077
+Specifically, there were two
+vendors-- well, three actually,
+
+00:41:19.077 --> 00:41:23.927
+so I had to remove redacted
+and redacted because redacted,
+
+00:41:23.928 --> 00:41:28.040
+so I opted not to leave them
+in there because redacted.
+
+00:41:28.040 --> 00:41:32.870
+Then the third vendor was
+listed in one of the screenshots
+
+00:41:32.870 --> 00:41:38.270
+and redacted had some issues
+with that, so I redacted.
+
+00:41:40.698 --> 00:41:43.220
+>> CARRIE: That's
+a lot of sharpies.
+
+00:41:43.220 --> 00:41:43.835
+>> ADRIAN: Yes.
+
+00:41:43.835 --> 00:41:46.190
+>> CARRIE: [laughs]
+
+00:41:46.190 --> 00:41:48.510
+>> ADRIAN: In case nobody
+noticed, there was a whole slide
+
+00:41:48.510 --> 00:41:51.150
+in there where I was sent
+a cease-and-desist letter
+
+00:41:51.150 --> 00:41:55.760
+by a highly paid law firm,
+so yes, I am this one guy.
+
+00:41:55.760 --> 00:41:59.080
+>> CARRIE: I look forward to
+checking out those slides.
+
+00:42:02.970 --> 00:42:08.440
+If somebody were to, I don't
+know, had a client-- or I guess
+
+00:42:08.440 --> 00:42:11.680
+if you had someone that was
+interested in using an overlay
+
+00:42:11.680 --> 00:42:15.570
+and a consultant was trying
+to convince a client that
+
+00:42:15.570 --> 00:42:19.710
+that's a terrible idea,
+if you have the elevator pitch
+
+00:42:19.710 --> 00:42:24.820
+of how a consultant could
+describe that to a client?
+
+00:42:26.144 --> 00:42:28.370
+>> ADRIAN: Could describe
+the risk [crosstalk]
+
+00:42:28.370 --> 00:42:30.340
+>> CARRIE: That they
+should not use the overlay.
+
+00:42:32.762 --> 00:42:35.520
+>> ADRIAN: This very much depends
+on the person I'm talking to.
+
+00:42:36.640 --> 00:42:39.300
+Overlay vendors have a pretty
+clear marketing message
+
+00:42:39.300 --> 00:42:45.280
+where they're using FUD,
+fear, uncertainty, and doubt,
+
+00:42:45.280 --> 00:42:47.130
+and it's all about
+threat of lawsuit.
+
+00:42:49.090 --> 00:42:51.560
+If I identify the person I'm
+talking to is just trying
+
+00:42:51.560 --> 00:42:55.150
+to avoid lawsuits,
+I explain to them how easy it is
+
+00:42:55.150 --> 00:42:58.920
+to set up a process
+to dodge the lawsuit.
+
+00:42:58.920 --> 00:43:03.420
+By "dodge", I mean do some
+checks, make some fixes,
+
+00:43:03.420 --> 00:43:06.870
+document what you have to do,
+and do it on whatever timeline
+
+00:43:06.870 --> 00:43:08.990
+as long as you document it.
+
+00:43:08.990 --> 00:43:12.570
+It is startlingly easy
+to avoid getting sued.
+
+00:43:13.780 --> 00:43:18.420
+It's a lot harder to go
+through and fix every detail.
+
+00:43:18.420 --> 00:43:22.140
+Léonie Watson has said this
+famously a couple times,
+
+00:43:22.140 --> 00:43:25.950
+"It's not about," and I'm
+horribly paraphrasing it,
+
+00:43:25.950 --> 00:43:27.900
+"It's not about getting
+everything right today,
+
+00:43:27.900 --> 00:43:29.850
+it's just about doing
+better each day.
+
+00:43:29.850 --> 00:43:32.200
+A little bit better each day."
+
+00:43:32.200 --> 00:43:34.970
+If a company is committed
+to it and doesn't look at it
+
+00:43:34.970 --> 00:43:38.580
+as a legal risk,
+they'll generally be fine.
+
+00:43:38.580 --> 00:43:42.380
+I think my fourth last slide,
+which I mentioned in the blog post,
+
+00:43:42.380 --> 00:43:45.970
+just four quick bullets
+and you're in good shape.
+
+00:43:45.970 --> 00:43:48.660
+That's the kind of
+conversation I have with
+
+00:43:48.660 --> 00:43:52.370
+some potentially worried clients.
+
+00:43:52.370 --> 00:43:53.420
+>> CARRIE: Thank you.
+
+00:43:55.440 --> 00:43:57.630
+Here's one, a great
+question, "I'm fairly new
+
+00:43:57.630 --> 00:44:00.010
+to the whole overlays concept.
+
+00:44:00.010 --> 00:44:02.810
+Why did this end up as a
+growing tech in the first place,
+
+00:44:02.810 --> 00:44:04.130
+and was it ever useful?"
+
+00:44:06.539 --> 00:44:08.110
+>> ADRIAN: To answer
+the second part,
+
+00:44:08.110 --> 00:44:10.850
+evidence suggests they
+were never useful.
+
+00:44:10.850 --> 00:44:13.880
+Even going back 10 years to
+Browsealoud and some of the others,
+
+00:44:13.880 --> 00:44:15.430
+they weren't useful.
+
+00:44:15.430 --> 00:44:20.250
+They are a growing technology
+simply because somebody made
+
+00:44:20.250 --> 00:44:23.325
+a business case about,
+"Here's how many disabled people are
+
+00:44:23.326 --> 00:44:24.350
+in the world.
+
+00:44:24.350 --> 00:44:26.840
+Here's an entire market
+we could tap into
+
+00:44:26.840 --> 00:44:29.690
+just by selling this
+overlay product.
+
+00:44:29.690 --> 00:44:33.780
+We will pitch it as
+legal-risk mitigation."
+
+00:44:33.780 --> 00:44:34.650
+That's really it.
+
+00:44:34.650 --> 00:44:39.530
+They didn't have the experience, they
+didn't understand all the aspects
+
+00:44:39.530 --> 00:44:42.319
+of it,
+which is evident in the tooling,
+
+00:44:42.320 --> 00:44:44.410
+and they got venture funding.
+
+00:44:44.410 --> 00:44:47.430
+As we know,
+a lot of businesses that are backed
+
+00:44:47.430 --> 00:44:52.010
+by venture funds aren't
+necessarily fully fleshed out.
+
+00:44:52.010 --> 00:44:55.440
+In many cases, they're still building
+the airplane as they're falling
+
+00:44:55.440 --> 00:44:56.580
+out of the sky.
+
+00:44:56.580 --> 00:44:59.100
+I think that's sort of the
+scenario that we're seeing here.
+
+00:44:59.100 --> 00:45:04.800
+When you have a startup culture,
+the move-fast-and-break-things model
+
+00:45:04.800 --> 00:45:10.080
+doesn't apply to the kind of rigor
+that is necessary for dealing
+
+00:45:10.080 --> 00:45:11.240
+with humans.
+
+00:45:11.240 --> 00:45:13.629
+Accessibility is not really
+a technology problem,
+
+00:45:13.630 --> 00:45:14.680
+it's a human problem.
+
+00:45:15.840 --> 00:45:16.630
+That's where we have it.
+
+00:45:17.915 --> 00:45:18.640
+>> CARRIE: It makes sense.
+
+00:45:18.640 --> 00:45:19.640
+Thank you.
+
+00:45:20.460 --> 00:45:23.470
+We will go ahead and wrap up.
+
+00:45:23.470 --> 00:45:25.720
+Thank you so much, Adrian,
+for sharing your knowledge
+
+00:45:25.720 --> 00:45:27.660
+and sharing your slides.
+
+00:45:27.660 --> 00:45:29.350
+I really enjoyed that.
+
+00:45:29.350 --> 00:45:33.060
+Thank you everyone who tuned
+in for attending this session
+
+00:45:33.060 --> 00:45:34.480
+with Adrian Roselli.
+
+00:45:34.480 --> 00:45:37.310
+You can continue the
+conversation on chat
+
+00:45:37.310 --> 00:45:46.660
+or social media using the
+hashtag WPA11Day and WPAD2022.
+
+00:45:48.379 --> 00:45:50.290
+We also really appreciate
+if you would go
+
+00:45:50.290 --> 00:45:53.390
+to wpaccessibility.day/feedback
+
+00:45:55.030 --> 00:45:59.200
+to provide anonymous feedback for
+our speakers on the presentation.
+
+00:45:59.200 --> 00:46:03.360
+You can also enter to win a free
+cool t-shirt while you're there.
+
+00:46:03.360 --> 00:46:04.310
+Stay tuned.
+
+00:46:04.310 --> 00:46:07.590
+Up next, we've got Beyond
+Colors and Captions:
+
+00:46:07.590 --> 00:46:11.390
+How to Provide More Inclusive
+Accessibility, and that is
+
+00:46:11.390 --> 00:46:14.700
+with Bela Gaytan at 5:00 UTC.
+
+00:46:14.700 --> 00:46:17.720
+While you're waiting, don't forget
+to check out our sponsors pages
+
+00:46:17.720 --> 00:46:21.870
+for cool virtual swag and for
+a chance to win great prizes.
+
+00:46:21.870 --> 00:46:23.890
+We'll see you right
+here after the break.
+
+00:46:23.890 --> 00:46:24.350
+Thanks, y'all.
+
+00:46:25.049 --> 00:46:25.628
+>> ADRIAN: Bye.

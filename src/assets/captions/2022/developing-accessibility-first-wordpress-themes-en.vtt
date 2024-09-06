@@ -1,0 +1,2900 @@
+﻿WEBVTT
+
+00:00:31.016 --> 00:00:32.609
+>> DANIELLE ZARCARO: Hello.
+
+00:00:32.610 --> 00:00:35.650
+Welcome to WordPress
+Accessibility Day.
+
+00:00:35.650 --> 00:00:39.150
+My name is Danielle and I'm the
+founder of Overnight Website
+
+00:00:39.150 --> 00:00:41.850
+and Kinetic Iris Web
+Development Studio.
+
+00:00:41.850 --> 00:00:46.080
+Thank you for joining us for
+Developing Accessibility-First
+
+00:00:46.080 --> 00:00:49.960
+WordPress themes with Nikole
+Garcia and Annie Heckel.
+
+00:00:51.210 --> 00:00:52.210
+A little bit about them.
+
+00:00:53.340 --> 00:00:57.450
+Nikole works with local
+educators and community partners
+
+00:00:57.450 --> 00:01:01.740
+to teach technology to students and
+those who are new to the industry.
+
+00:01:02.890 --> 00:01:08.330
+Annie is web accessibility specialist
+and educator currently working
+
+00:01:08.330 --> 00:01:12.330
+to ensure that Cornell
+University's web properties have
+
+00:01:12.330 --> 00:01:15.130
+as few accessibility
+barriers as possible.
+
+00:01:18.020 --> 00:01:22.190
+Please feel free to add your
+questions in the Q&A tab next
+
+00:01:22.190 --> 00:01:25.200
+to the video, and we'll answer
+them at the end of the session.
+
+00:01:25.200 --> 00:01:29.540
+You can also use the idea section
+to chat with other attendees.
+
+00:01:40.717 --> 00:01:44.113
+>> NIKOLE GARCIA:
+Hi, it's live now?
+
+00:01:47.686 --> 00:01:48.136
+Hi.
+
+00:01:49.026 --> 00:01:50.076
+Sorry.
+
+00:01:53.747 --> 00:01:54.920
+As I move through my slideshow.
+
+00:01:56.210 --> 00:02:00.880
+First of all, I'm Nikole, and this
+is Annie, as we were introduced.
+
+00:02:00.881 --> 00:02:02.441
+>> ANNIE HECKEL: Hello.
+
+00:02:05.125 --> 00:02:07.810
+>> NIKOLE: When I told Annie
+that I wanted to do a talk
+
+00:02:07.810 --> 00:02:11.510
+about making accessibility-first
+themes, she was a little surprised.
+
+00:02:12.800 --> 00:02:14.710
+She was from the [inaudible]
+
+00:02:14.710 --> 00:02:18.670
+and everything is
+accessibility-first for her.
+
+00:02:18.670 --> 00:02:20.540
+I said this is not
+this way in development
+
+00:02:20.540 --> 00:02:24.010
+where accessibility is added
+on after long in the form
+
+00:02:24.010 --> 00:02:28.590
+of a checklist or especially for
+clients, if it's added on at all.
+
+00:02:30.540 --> 00:02:33.200
+Usually developers have no
+workflow to allow the space
+
+00:02:33.200 --> 00:02:36.670
+for accessibility or the
+process to architect or test it,
+
+00:02:36.670 --> 00:02:40.420
+and so hopefully this talk will
+help everyone gain a new insight
+
+00:02:40.420 --> 00:02:43.750
+in how we can make this
+work for agencies and teams.
+
+00:02:43.750 --> 00:02:47.090
+I also want to show the audience
+that accessibility auditors
+
+00:02:47.090 --> 00:02:50.600
+and the developers who
+have to perform the code,
+
+00:02:50.600 --> 00:02:52.210
+editing aren't really
+against each other.
+
+00:02:52.210 --> 00:02:56.910
+In our former jobs, I even survived
+an audit done by Annie's company,
+
+00:02:56.910 --> 00:03:01.350
+and we're still friends,
+so that is a possible thing.
+
+00:03:05.960 --> 00:03:07.860
+Accessibility-first.
+
+00:03:07.860 --> 00:03:11.820
+What do we mean when we say
+accessibility-first in the context
+
+00:03:11.820 --> 00:03:15.400
+of this talk?
+
+00:03:15.400 --> 00:03:19.840
+I'm looking for an architecture that
+provides the best user experience
+
+00:03:19.840 --> 00:03:20.840
+for all users.
+
+00:03:21.900 --> 00:03:25.740
+The architecture puts accessibility
+before coding and design is done
+
+00:03:25.740 --> 00:03:28.820
+to save money and time as
+the components won't need
+
+00:03:28.820 --> 00:03:32.220
+to be recoded or redesigned
+after they're already created
+
+00:03:32.220 --> 00:03:33.520
+in a non-accessible way.
+
+00:03:35.090 --> 00:03:37.550
+Putting that effort into
+the architecture guides
+
+00:03:37.550 --> 00:03:40.300
+the overall development process
+with all the stakeholders
+
+00:03:40.300 --> 00:03:44.424
+from content to marketing,
+to design and development.
+
+00:03:49.250 --> 00:03:50.850
+>> ANNIE: Here we go.
+
+00:03:50.850 --> 00:03:55.060
+Nikole's going to go over a number
+of different possible approaches
+
+00:03:55.060 --> 00:03:58.490
+as we get into the presentation
+here, but no matter
+
+00:03:58.490 --> 00:04:02.320
+which of the following approaches
+you use, keeping these basic elements
+
+00:04:02.320 --> 00:04:06.220
+of accessibility in the forefront as
+you create your theme will help you
+
+00:04:06.220 --> 00:04:08.700
+to make good decisions.
+
+00:04:08.700 --> 00:04:10.554
+Following the principles
+of perceivable,
+
+00:04:10.555 --> 00:04:11.730
+operable, understandable,
+
+00:04:11.730 --> 00:04:16.340
+and robust which made guiding
+concepts for WCAG version 2,
+
+00:04:16.340 --> 00:04:21.160
+as everybody who knows WCAG
+will know, and Then falling back
+
+00:04:21.160 --> 00:04:24.650
+on the WCAG can make it a lot
+easier to ensure that you're
+
+00:04:24.650 --> 00:04:27.620
+at the very least meeting
+the accessibility baseline.
+
+00:04:29.180 --> 00:04:32.580
+Then build for the end user's
+needs and not for the needs
+
+00:04:32.580 --> 00:04:34.310
+of developers and designers.
+
+00:04:34.310 --> 00:04:37.640
+If you think about end user needs,
+you're more likely to shift away
+
+00:04:37.640 --> 00:04:41.630
+from the minimum accessibility
+and get into actual usability.
+
+00:04:41.630 --> 00:04:48.290
+Just going beyond that baseline
+that we get when we adhere to WCAG.
+
+00:04:48.290 --> 00:04:54.970
+Then of course as always, semantic
+HTML is always the big thing.
+
+00:04:54.970 --> 00:04:58.110
+Whenever you can use it,
+whenever you can build again,
+
+00:04:58.110 --> 00:05:02.600
+always do since it usually has the
+accessibility support built right in.
+
+00:05:04.010 --> 00:05:08.130
+That said, do keep in mind
+you can't cover all the bases.
+
+00:05:08.130 --> 00:05:10.420
+There are going to be some
+things where designers
+
+00:05:10.420 --> 00:05:13.740
+and content creators have to
+step up and take responsibility.
+
+00:05:13.740 --> 00:05:17.110
+This is a lesson I learned in my
+previous life as a college professor.
+
+00:05:17.110 --> 00:05:20.140
+I could never anticipate all of my
+students mistakes, so I just had
+
+00:05:20.140 --> 00:05:23.480
+to be able to roll with it and deal
+with whatever they threw at me.
+
+00:05:24.610 --> 00:05:27.750
+Of course, you won't be able
+to stop the users of your theme
+
+00:05:27.750 --> 00:05:32.120
+from making some bad choices in
+terms of design or content entry.
+
+00:05:32.120 --> 00:05:37.300
+Things like poor color contrasts,
+misusing the heading tags.
+
+00:05:38.420 --> 00:05:41.890
+If your theme's base framework
+is built for accessibility,
+
+00:05:41.890 --> 00:05:45.600
+that'll make the end user experience
+better pretty much by default.
+
+00:05:51.150 --> 00:05:52.150
+Back over to Nikole.
+
+00:05:57.157 --> 00:06:02.020
+>> NIKOLE: Which brings us to,
+speaking of designing for users
+
+00:06:02.020 --> 00:06:05.480
+and not the people who have
+to use the site, the people
+
+00:06:05.480 --> 00:06:08.740
+who own the site,
+WordPress site builders.
+
+00:06:09.790 --> 00:06:12.210
+A lot of times people talk
+about building themes.
+
+00:06:12.210 --> 00:06:14.800
+We talk about how they're
+going to be assembled,
+
+00:06:14.800 --> 00:06:18.720
+and site builders is one of the
+ways in which many people choose
+
+00:06:18.720 --> 00:06:20.160
+to build a WordPress site.
+
+00:06:23.060 --> 00:06:23.990
+They're very popular.
+
+00:06:23.990 --> 00:06:26.930
+A lot of clients ask for
+them, but they come with a lot
+
+00:06:26.930 --> 00:06:28.140
+of accessibility problems.
+
+00:06:30.260 --> 00:06:33.870
+Like Annie was saying,
+if you give anybody the ability
+
+00:06:33.870 --> 00:06:37.700
+to just style things at will,
+some really bad things can happen.
+
+00:06:39.480 --> 00:06:44.950
+For example,
+this might be some of the code
+
+00:06:44.950 --> 00:06:48.030
+that you generate the site builder.
+
+00:06:48.030 --> 00:06:52.580
+The editor for the concept can
+come along and they can add things.
+
+00:06:52.580 --> 00:06:56.010
+These two things could look
+the same on the frontend
+
+00:06:57.270 --> 00:07:03.680
+to the person editing the stuff,
+but for a accessibility view,
+
+00:07:03.680 --> 00:07:05.660
+these are very, very,
+very different things.
+
+00:07:05.660 --> 00:07:09.760
+Obviously, they don't have
+the semantic tags to them.
+
+00:07:11.810 --> 00:07:15.220
+They can have very different
+meanings when you look at them
+
+00:07:15.220 --> 00:07:16.540
+in different devices.
+
+00:07:16.540 --> 00:07:20.060
+That's where we're trying to move
+away from the style of development.
+
+00:07:25.090 --> 00:07:28.190
+For avoiding the site builders,
+what should we use instead?
+
+00:07:29.870 --> 00:07:33.620
+For the best accessibility
+and a truly built-in process,
+
+00:07:33.620 --> 00:07:36.780
+and I'm going to go back
+through this several times
+
+00:07:36.780 --> 00:07:39.720
+about having a built-in process,
+because the more you can have
+
+00:07:39.720 --> 00:07:44.140
+a built-in process, the less you
+have wiggle room for accessibility
+
+00:07:44.140 --> 00:07:46.290
+to go very wrong.
+
+00:07:46.290 --> 00:07:48.450
+For a built-in process,
+you're probably going to need
+
+00:07:48.450 --> 00:07:50.230
+to go the development route.
+
+00:07:50.230 --> 00:07:53.980
+We're going to go through
+a few paths today to try
+
+00:07:53.980 --> 00:07:56.770
+and figure out what
+that looks like to make
+
+00:07:56.770 --> 00:07:58.480
+a truly accessible
+development process.
+
+00:08:03.100 --> 00:08:04.460
+One of the options is headless.
+
+00:08:06.120 --> 00:08:09.200
+Headless sites separate the
+WordPress content management
+
+00:08:09.200 --> 00:08:10.540
+from the frontend delivery.
+
+00:08:11.980 --> 00:08:15.340
+You have your content being
+served with a normal WordPress
+
+00:08:15.340 --> 00:08:21.160
+content manager, and then you pull
+it out via REST or [inaudible]
+
+00:08:22.370 --> 00:08:26.050
+Most of the frontends for
+headless are now JavaScript apps
+
+00:08:26.050 --> 00:08:29.210
+or static HTML sites,
+which are lightning fast.
+
+00:08:31.740 --> 00:08:35.980
+The biggest argument for that is
+that at least for accessibility
+
+00:08:35.980 --> 00:08:39.510
+as you can give your users options
+on what frontend they would want
+
+00:08:39.510 --> 00:08:42.500
+to see, or you can change the
+default based on what device
+
+00:08:42.500 --> 00:08:45.900
+or browser the user has.
+
+00:08:45.900 --> 00:08:49.780
+While headless is the most
+development-intensive,
+
+00:08:50.880 --> 00:08:54.230
+I do believe it can be streamlined
+into being much easier.
+
+00:08:54.230 --> 00:08:58.200
+There are many hosting services that
+make headless deployment easier like,
+
+00:08:58.200 --> 00:09:00.090
+WP Engine has a
+service called Atlas.
+
+00:09:01.880 --> 00:09:05.980
+With headless, you can also
+separate design from content,
+
+00:09:05.980 --> 00:09:10.100
+and limit the content into ways that
+make accessibility support easier,
+
+00:09:10.100 --> 00:09:11.600
+which we're going to
+talk a little bit later.
+
+00:09:12.910 --> 00:09:15.760
+Most of the headless sites now
+use reactor view in the frontend.
+
+00:09:15.760 --> 00:09:19.660
+Although, I've recently been enjoying
+doing some Gatsby static sites,
+
+00:09:20.980 --> 00:09:22.460
+so that's another option too.
+
+00:09:25.720 --> 00:09:26.720
+Custom themes.
+
+00:09:28.160 --> 00:09:31.810
+When it comes to custom themes
+in accessibility, what you want
+
+00:09:31.810 --> 00:09:34.310
+to do is not recreate
+the wheel every time.
+
+00:09:34.310 --> 00:09:36.230
+If you start with an existing
+theme, and have
+
+00:09:36.230 --> 00:09:40.040
+to add on all your support in a
+piecemeal way like add a plugin here,
+
+00:09:40.040 --> 00:09:44.400
+plugin there, change a few things,
+things are bound to get left out,
+
+00:09:44.400 --> 00:09:46.660
+and the process takes
+a really long time.
+
+00:09:46.660 --> 00:09:49.120
+Then companies start to complain
+about the development cycle
+
+00:09:49.120 --> 00:09:52.240
+being too long,
+about things going wrong.
+
+00:09:52.240 --> 00:09:53.250
+That's when it really goes wrong.
+
+00:09:54.710 --> 00:09:59.620
+If you aim for a build process,
+if you like building a theme by hand,
+
+00:09:59.620 --> 00:10:02.090
+you can add in the accessibility
+supports without having
+
+00:10:02.090 --> 00:10:03.840
+to create them from scratch.
+
+00:10:05.160 --> 00:10:07.930
+You then replicate
+your base each time
+
+00:10:07.930 --> 00:10:10.530
+and then add your final touches
+with styles and components
+
+00:10:10.530 --> 00:10:13.030
+to create a unique site.
+
+00:10:13.030 --> 00:10:19.030
+Much like this GIF of building
+the car, you take this blueprint
+
+00:10:19.030 --> 00:10:22.700
+that builds your base car,
+and then you get to add the paint
+
+00:10:22.700 --> 00:10:24.390
+and trim to make each car unique.
+
+00:10:26.650 --> 00:10:30.080
+In the resources in the
+end, I've added some links
+
+00:10:30.080 --> 00:10:34.360
+to a few theme frameworks
+you can use to get started
+
+00:10:34.360 --> 00:10:39.220
+with this route in the repo.
+
+00:10:40.780 --> 00:10:45.380
+If you start with a base that has
+a built-in process like WP Rig
+
+00:10:45.380 --> 00:10:47.990
+or Sage, you can add
+your components to that
+
+00:10:47.990 --> 00:10:52.020
+and keep building new themes on top
+of it, each site looking unique,
+
+00:10:52.020 --> 00:10:57.070
+but sticking with the same
+base accessibility components
+
+00:10:57.070 --> 00:10:59.292
+that you have set for.
+
+00:11:06.630 --> 00:11:08.860
+Sorry, I'm struggling with
+my braces and they stick
+
+00:11:08.860 --> 00:11:15.320
+to my lips every once in a while.
+
+00:11:15.320 --> 00:11:16.180
+Framework flow.
+
+00:11:16.180 --> 00:11:18.360
+How do we put this together and
+make it easier for an agency
+
+00:11:18.360 --> 00:11:22.480
+to have the custom building process
+while also adding in accessibility?
+
+00:11:24.420 --> 00:11:27.250
+Your first step is to identify
+the common elements used
+
+00:11:27.250 --> 00:11:31.100
+in multiple sites and put
+them together in one place.
+
+00:11:31.100 --> 00:11:38.810
+This could be headers or menus,
+or footers, call-out boxes, forms,
+
+00:11:38.810 --> 00:11:39.810
+and so on.
+
+00:11:40.730 --> 00:11:44.790
+It's important to lay down the
+scaffolding for accessibility
+
+00:11:44.790 --> 00:11:49.600
+and styling, but not to assign
+specific styles to your base.
+
+00:11:49.600 --> 00:11:52.770
+You're going to add the specific
+styles later, the individual theme.
+
+00:11:52.770 --> 00:11:56.980
+You just want to create your base
+that has all of your components
+
+00:11:56.980 --> 00:11:57.980
+that you want.
+
+00:11:58.990 --> 00:12:02.100
+The idea here is that
+accessibility supports are built
+
+00:12:02.100 --> 00:12:05.760
+into the process and the
+framework, they won't get left out.
+
+00:12:05.760 --> 00:12:08.350
+Making them default makes
+them included in the end.
+
+00:12:10.370 --> 00:12:13.360
+You can also include the list
+of plugins you're going to label
+
+00:12:13.360 --> 00:12:19.030
+as must use such as advanced
+custom fields, which we'll talk
+
+00:12:19.030 --> 00:12:22.530
+about a little bit if you want
+to use that, or say you want
+
+00:12:22.530 --> 00:12:26.430
+to require Yoast to make
+an automated site map
+
+00:12:26.430 --> 00:12:29.070
+to add new pages to, because
+that's very good for accessibility.
+
+00:12:37.910 --> 00:12:42.810
+This is what it might look like.
+
+00:12:42.810 --> 00:12:48.250
+On the top here, you have your
+base theme building materials,
+
+00:12:48.250 --> 00:12:52.110
+your components, your supports,
+your must-use plugins,
+
+00:12:52.110 --> 00:12:54.060
+and your base styles.
+
+00:12:54.060 --> 00:12:57.310
+That is your base repository
+that you're going to start all
+
+00:12:57.310 --> 00:12:58.310
+of your themes from.
+
+00:12:59.250 --> 00:13:01.500
+Then on the bottom,
+you're going to add in per site
+
+00:13:01.500 --> 00:13:06.420
+that you have your custom
+styles and your images.
+
+00:13:06.420 --> 00:13:07.970
+That's going to be on
+a per project basis.
+
+00:13:09.125 --> 00:13:11.424
+You then combine them
+into a build process
+
+00:13:11.424 --> 00:13:15.930
+to make each individual theme.
+
+00:13:15.930 --> 00:13:20.440
+This process is nearly the same for
+headless and for custom theme sites.
+
+00:13:20.440 --> 00:13:24.550
+For headless, you might have
+two build processes outlined.
+
+00:13:24.550 --> 00:13:31.500
+You might have one for the
+actual theme, and then there one
+
+00:13:31.500 --> 00:13:33.750
+might be one for the frontend.
+
+00:13:33.750 --> 00:13:36.330
+Then for the custom theme,
+you might just have one build process
+
+00:13:36.330 --> 00:13:37.330
+for the theme.
+
+00:13:38.770 --> 00:13:41.250
+Then you might need a document
+that outlines the setup
+
+00:13:41.250 --> 00:13:43.110
+of your site and any plugins.
+
+00:13:52.730 --> 00:13:56.040
+Limiting content, and this is
+the part we get in a little bit
+
+00:13:56.040 --> 00:13:59.490
+of trouble with the other
+departments in an agency.
+
+00:14:01.220 --> 00:14:04.070
+Why would we want to do that,
+and what does that mean?
+
+00:14:04.070 --> 00:14:09.050
+When we were talking about the
+site builders, we're talking about
+
+00:14:09.050 --> 00:14:12.310
+how users can do some crazy things.
+
+00:14:12.310 --> 00:14:15.620
+What we're trying to do is
+we're trying to guide and shape,
+
+00:14:15.620 --> 00:14:21.440
+and give them some rules about
+what they can and can't put
+
+00:14:21.440 --> 00:14:23.250
+into the pages.
+
+00:14:25.460 --> 00:14:28.180
+We're limiting the number of
+inputs that they can be added
+
+00:14:28.180 --> 00:14:29.980
+to the editing screens.
+
+00:14:29.980 --> 00:14:33.810
+They can't free-build the thing
+and then hurt accessibility.
+
+00:14:33.810 --> 00:14:38.280
+All of the code or all the content
+would be pulled into a code layer
+
+00:14:38.280 --> 00:14:40.260
+so it's separating the
+code and the content.
+
+00:14:41.880 --> 00:14:49.090
+We can also use this to add
+functionality automatically
+
+00:14:49.090 --> 00:14:53.780
+to the content, such as adding
+"read more" links to the headings,
+
+00:14:54.830 --> 00:14:57.760
+because we have the content
+providers just add in the words
+
+00:14:57.760 --> 00:14:59.260
+and not make links themselves.
+
+00:15:01.160 --> 00:15:03.080
+We're going to do
+two examples of this.
+
+00:15:03.080 --> 00:15:08.270
+One is a Gutenberg example of the
+Gutenberg builder in WordPress.
+
+00:15:08.270 --> 00:15:11.840
+The other one is with ACF
+or advanced custom fields.
+
+00:15:21.730 --> 00:15:25.510
+If I wanted someone to make
+an alert box in the content,
+
+00:15:27.080 --> 00:15:31.170
+I could tell them to do a standard
+code block and put some code
+
+00:15:31.170 --> 00:15:32.220
+in the editor like this.
+
+00:15:34.530 --> 00:15:37.630
+It might get the job done,
+but it's also not very standardized
+
+00:15:37.630 --> 00:15:39.650
+and it allows for a lot of error.
+
+00:15:39.650 --> 00:15:47.530
+If I want to add in other
+supports of this, I can't do that
+
+00:15:49.290 --> 00:15:54.710
+because we have these code blocks
+and they're set to the content.
+
+00:15:57.350 --> 00:16:03.620
+Alternatively, if I could
+make a custom Gutenberg block.
+
+00:16:03.620 --> 00:16:08.760
+This is when they're
+doing the page editing.
+
+00:16:08.760 --> 00:16:12.690
+They would add this block,
+and their only options are to choose
+
+00:16:12.690 --> 00:16:20.040
+what kind of alert they want
+and to put the text in there.
+
+00:16:20.040 --> 00:16:22.010
+They don't have the option
+of just free-coding it.
+
+00:16:22.010 --> 00:16:26.580
+They don't have the option of
+reinventing their own wheels here.
+
+00:16:26.580 --> 00:16:30.470
+They can only do this.
+
+00:16:30.470 --> 00:16:31.620
+This helps for two things.
+
+00:16:31.620 --> 00:16:35.350
+One is that, like I said,
+they don't have the option
+
+00:16:35.350 --> 00:16:36.980
+of just making it up there.
+
+00:16:38.560 --> 00:16:44.610
+Two, say if the accessibility
+standards change later,
+
+00:16:44.610 --> 00:16:46.670
+I can just change the
+block in one place
+
+00:16:46.670 --> 00:16:49.960
+and make this thing appear
+differently later, and I don't have
+
+00:16:49.960 --> 00:16:55.540
+to go through every post and find
+every block that we use that way.
+
+00:16:55.540 --> 00:16:58.910
+We're not going to specifically
+discuss how to make the blocks
+
+00:16:58.910 --> 00:17:03.120
+in this talk, but I did post
+some of the resources the repo
+
+00:17:03.120 --> 00:17:10.420
+for this talk, if you were interested
+in learning how to do those.
+
+00:17:10.420 --> 00:17:12.360
+Here's our other example.
+
+00:17:12.360 --> 00:17:13.610
+It's advanced custom fields.
+
+00:17:15.640 --> 00:17:19.750
+This is nice because it's a
+much more user-friendly thing.
+
+00:17:19.750 --> 00:17:23.350
+You don't have to have people
+with coding knowledge who can go
+
+00:17:23.350 --> 00:17:25.290
+in there and be able
+to add the fields.
+
+00:17:28.230 --> 00:17:30.260
+Here, say we have a
+post and at the bottom
+
+00:17:30.260 --> 00:17:33.280
+of the post we have these special
+fields for our run details,
+
+00:17:33.280 --> 00:17:36.980
+and we have a purpose and a
+distance, and it limits
+
+00:17:36.980 --> 00:17:40.180
+how people can inter-text in
+here because they don't have
+
+00:17:40.180 --> 00:17:41.830
+to remember to add the
+distance, they don't have
+
+00:17:41.830 --> 00:17:46.030
+to remember purpose, but it also
+pulls their content in a way
+
+00:17:46.030 --> 00:17:50.800
+that if I wanted to link the
+distance to a chart or something,
+
+00:17:50.800 --> 00:17:52.100
+I can do that.
+
+00:17:52.100 --> 00:17:55.140
+I can also add any supports
+I need to the content
+
+00:17:55.140 --> 00:17:56.190
+that gets pulled out in that way.
+
+00:17:58.160 --> 00:18:04.920
+It separates the content from
+the presentation, basically.
+
+00:18:04.920 --> 00:18:09.620
+ACF also makes blocks now with
+the latest pro edition of ACF.
+
+00:18:10.680 --> 00:18:14.160
+You can make these custom
+blocks that you can use
+
+00:18:14.160 --> 00:18:18.540
+with a WordPress post or the
+site editor, full site editing.
+
+00:18:18.540 --> 00:18:28.240
+Here, the developer has defined
+a quote block that someone
+
+00:18:28.240 --> 00:18:33.300
+who is using this quote block
+can only make the quote text
+
+00:18:33.300 --> 00:18:37.700
+and the author, and the
+title, and then add an image.
+
+00:18:37.700 --> 00:18:39.970
+They can't do anything
+else with the block.
+
+00:18:39.970 --> 00:18:44.530
+This block can have supports built
+in to the frontend to display
+
+00:18:44.530 --> 00:18:47.810
+in a proper way based
+on user preference.
+
+00:18:49.280 --> 00:18:52.630
+If the user wants dark text,
+light text, larger text,
+
+00:18:52.630 --> 00:18:56.330
+they can do all that because
+it's not locked into the content.
+
+00:18:58.530 --> 00:19:09.630
+The nice thing about the ACF
+and the ACF blocks, sorry,
+
+00:19:09.630 --> 00:19:15.290
+braces sticking, are that they
+allow you to export the fields
+
+00:19:15.290 --> 00:19:16.960
+and the other structures
+that you create.
+
+00:19:18.020 --> 00:19:20.060
+They can be used on multiple
+sites without someone having
+
+00:19:20.060 --> 00:19:24.880
+to manually enter the
+stuff on all the sites.
+
+00:19:26.040 --> 00:19:30.560
+It's part of the build process to
+include these fields and blocks
+
+00:19:31.640 --> 00:19:34.850
+in your theme, and not a manual
+of one thing that makes it easier
+
+00:19:34.850 --> 00:19:36.960
+for you to not leave anything out.
+
+00:19:46.610 --> 00:19:51.480
+>> ANNIE: Just some general
+tips to start wrapping up.
+
+00:19:51.480 --> 00:19:56.790
+One that I had to get in as the
+accessibility person is a warning
+
+00:19:56.790 --> 00:19:58.060
+about ARIA.
+
+00:19:58.060 --> 00:20:01.200
+Because one of probably
+the most common things
+
+00:20:01.200 --> 00:20:05.571
+I see causing a big failure
+when someone's been trying
+
+00:20:05.571 --> 00:20:09.100
+to make something accessible
+is that they heard
+
+00:20:09.100 --> 00:20:12.000
+about ARIA somewhere somehow,
+and somebody told them
+
+00:20:12.000 --> 00:20:14.320
+that ARIA can make it all better.
+
+00:20:14.320 --> 00:20:19.200
+It can make it communicate with the
+screen reader and it'll be all great.
+
+00:20:20.880 --> 00:20:24.820
+People will just take ARIA and
+sprinkle it in like some kind
+
+00:20:24.820 --> 00:20:28.660
+of magic accessibility
+dust, which it is not.
+
+00:20:28.660 --> 00:20:33.398
+ARIA is awesome, but the first rule
+
+00:20:33.399 --> 00:20:37.050
+of ARIA is essentially
+don't use ARIA.
+
+00:20:39.080 --> 00:20:43.820
+More realistically,
+it's don't use ARIA for something
+
+00:20:43.820 --> 00:20:47.280
+where you can actually
+use HTML instead.
+
+00:20:47.280 --> 00:20:51.120
+If you've got semantic HTML that
+will do whatever it is you're trying
+
+00:20:51.120 --> 00:20:56.780
+to do with ARIA,
+always use the HTML, not the ARIA.
+
+00:20:56.780 --> 00:21:00.230
+If for some reason you can't
+use the semantic HTML to do
+
+00:21:00.230 --> 00:21:04.070
+whatever it is you need to do, that's
+when you start to bring in ARIA.
+
+00:21:06.030 --> 00:21:10.400
+If you bring in ARIA, make sure
+that you know how to use it.
+
+00:21:10.400 --> 00:21:12.120
+It's very exacting.
+
+00:21:12.120 --> 00:21:14.360
+It's got its own specification.
+
+00:21:14.360 --> 00:21:18.290
+If you want to use ARIA,
+you got to make sure you go learn
+
+00:21:18.290 --> 00:21:22.720
+the ARIA specification, figure
+out what the relationships are,
+
+00:21:22.720 --> 00:21:26.480
+what different ARIA roles can be used
+on, and what different ARIA states
+
+00:21:26.480 --> 00:21:27.400
+and properties.
+
+00:21:28.287 --> 00:21:31.000
+Can you use it on
+this component or not?
+
+00:21:31.000 --> 00:21:34.220
+Can you use it on this
+HTML element or not?
+
+00:21:34.220 --> 00:21:39.890
+Because there's a lot of
+rules, and ARIA states
+
+00:21:39.890 --> 00:21:42.480
+and properties are not all global.
+
+00:21:42.480 --> 00:21:45.260
+Some of them are very,
+very limited and can only be applied
+
+00:21:45.260 --> 00:21:46.260
+to certain things.
+
+00:21:48.250 --> 00:21:52.790
+With that, no ARIA is better
+than using ARIA badly.
+
+00:21:55.240 --> 00:21:59.250
+I don't think I've yet seen
+anybody really mess things up
+
+00:21:59.250 --> 00:22:05.250
+by inappropriately applying ARIA,
+but you can make things confusing.
+
+00:22:05.250 --> 00:22:10.730
+A good for instance on this
+is that the ARIA label is one
+
+00:22:10.730 --> 00:22:13.470
+of the things that probably
+pops up the most often.
+
+00:22:14.850 --> 00:22:19.480
+It's an attribute that you
+can use to add an invisible
+
+00:22:19.480 --> 00:22:22.400
+and accessible name that
+you won't see on the screen,
+
+00:22:22.400 --> 00:22:24.070
+but that'll get picked
+up by assisting tech.
+
+00:22:25.230 --> 00:22:28.860
+The thing that people don't always
+realize about ARIA labels, aside
+
+00:22:28.860 --> 00:22:30.670
+from the fact that
+you could only use it
+
+00:22:30.670 --> 00:22:35.180
+on interactive user
+interface components, is that
+
+00:22:35.180 --> 00:22:37.240
+if you put an ARIA
+label on a component
+
+00:22:38.760 --> 00:22:44.600
+and you already had a visible label
+for that component, like say a link,
+
+00:22:44.600 --> 00:22:49.020
+you had a link that was
+actually around some actual text
+
+00:22:49.020 --> 00:22:53.340
+and then you put an ARIA label on
+the link, the ARIA label's going
+
+00:22:53.340 --> 00:22:56.370
+to take the place of the
+link text that was visible.
+
+00:22:56.370 --> 00:22:58.820
+If you have something different
+in the ARIA label than you had had
+
+00:22:58.820 --> 00:23:02.430
+in the visible text,
+that can get really, really weird
+
+00:23:02.430 --> 00:23:05.840
+for sighted users who happen
+to also use a screen reader
+
+00:23:05.840 --> 00:23:07.720
+for whatever problem.
+
+00:23:07.720 --> 00:23:10.680
+No ARIA is better than bad ARIA.
+
+00:23:10.680 --> 00:23:14.180
+If you're going to use ARIA,
+make sure you know how you use it,
+
+00:23:14.180 --> 00:23:16.720
+go look up the specification
+and be careful.
+
+00:23:18.420 --> 00:23:22.150
+The other general tip
+is that less is more.
+
+00:23:22.150 --> 00:23:26.740
+Don't try to do too much
+with any one component.
+
+00:23:26.740 --> 00:23:33.030
+The good example here is don't
+have your main navigation add
+
+00:23:34.530 --> 00:23:37.170
+every single page
+that you come up with.
+
+00:23:37.170 --> 00:23:39.900
+Because if you have a really
+gigantic main navigation,
+
+00:23:39.900 --> 00:23:42.650
+and we all know how mega menus
+feel, when you try to get into them
+
+00:23:42.650 --> 00:23:44.700
+and you can't find that
+one thing that you want,
+
+00:23:45.760 --> 00:23:49.710
+imagine having that happen if you can
+only hear the page coming through.
+
+00:23:50.900 --> 00:23:53.350
+Instead of seeing the
+giant mess of text,
+
+00:23:53.350 --> 00:23:57.450
+instead you're just hearing
+more and more, and more choices.
+
+00:23:59.030 --> 00:24:02.550
+You wouldn't want to have a main
+menu that has all the things in it.
+
+00:24:03.860 --> 00:24:07.190
+You do need to satisfy multiple ways,
+so instead you do something like
+
+00:24:07.190 --> 00:24:10.490
+what Nikole mentioned
+earlier, having a site map
+
+00:24:10.490 --> 00:24:14.540
+that automatically creates links
+to new pages as you add them.
+
+00:24:14.540 --> 00:24:18.440
+That way you've got all of the
+content and all of the links there
+
+00:24:18.440 --> 00:24:24.910
+for multiple ways fulfillment,
+but it's not always front and center
+
+00:24:24.910 --> 00:24:27.410
+where it's going to hit your
+user, the end users
+
+00:24:27.410 --> 00:24:30.470
+with cognitive overload
+every single time.
+
+00:24:31.640 --> 00:24:34.130
+Make sure you're careful
+how you're using components.
+
+00:24:34.130 --> 00:24:37.980
+Don't overload any single component,
+and just consider carefully
+
+00:24:39.111 --> 00:24:43.216
+how it might come across to end
+users before you do too much.
+
+00:24:58.364 --> 00:25:01.380
+>> NIKOLE: Sometimes I get
+some pushback from clients,
+
+00:25:01.380 --> 00:25:04.580
+like they want a specific thing
+that is not good for accessibility,
+
+00:25:06.140 --> 00:25:12.150
+or they're asking me to do something
+that may not be the best idea.
+
+00:25:12.150 --> 00:25:15.550
+I do recognize that in the
+end, they are the customer
+
+00:25:15.550 --> 00:25:17.390
+and I can provide them
+with the strong arguments,
+
+00:25:17.390 --> 00:25:19.390
+but I can't always win those.
+
+00:25:21.280 --> 00:25:27.290
+I can move into the compromise phase,
+like how can I get the end result
+
+00:25:27.290 --> 00:25:32.140
+that I want quality,
+the client have what they want.
+
+00:25:32.140 --> 00:25:37.030
+Say they want a site builder,
+can you build training
+
+00:25:37.030 --> 00:25:39.610
+or documentation materials
+into your handoff process
+
+00:25:39.610 --> 00:25:44.100
+to get them some best practices?
+
+00:25:44.100 --> 00:25:47.320
+If they want functionality
+that is not friendly to all,
+
+00:25:47.320 --> 00:25:51.750
+can you build alternatives into
+your scope and pricing structure
+
+00:25:51.750 --> 00:25:54.090
+so that you are giving
+a complete package
+
+00:25:54.090 --> 00:25:58.040
+whether or not they asked for it?
+
+00:25:58.040 --> 00:26:03.280
+If you can talk them into certain
+functionality by pointing out facts
+
+00:26:03.280 --> 00:26:06.180
+of the potential problems created
+by ignoring accessibility,
+
+00:26:06.180 --> 00:26:10.240
+or show them additional benefits
+maybe, like for example,
+
+00:26:11.880 --> 00:26:15.730
+this piece helps both accessibility
+and mobile users navigate your site,
+
+00:26:15.730 --> 00:26:19.430
+which represents whatever
+percentage of your traffic.
+
+00:26:19.430 --> 00:26:21.870
+That might be a good
+convincing argument for them.
+
+00:26:24.620 --> 00:26:28.960
+>> ANNIE: I always like to also--
+We've got the carrots in like,
+
+00:26:28.960 --> 00:26:33.430
+this will bring more traffic,
+this could be really good in this way
+
+00:26:33.430 --> 00:26:38.420
+and this way, this sometimes we do
+also have to hit with a stick of it.
+
+00:26:38.420 --> 00:26:42.600
+One of the ones I like
+to start with is guilt.
+
+00:26:42.600 --> 00:26:45.560
+That's if they're being
+really resistant to something
+
+00:26:45.560 --> 00:26:48.300
+that's a particularly important
+accessibility support.
+
+00:26:48.300 --> 00:26:50.600
+If they really want to
+use this one component
+
+00:26:50.600 --> 00:26:54.380
+that they have found somewhere from
+another vendor and they're like,
+
+00:26:54.380 --> 00:26:59.900
+"This is so cool," but it's
+they're not keyboard accessible,
+
+00:26:59.900 --> 00:27:03.370
+and then they keep at it,
+you start by asking them,
+
+00:27:03.370 --> 00:27:08.920
+so what users are you
+comfortable excluding here?
+
+00:27:08.920 --> 00:27:12.240
+Are there people that you don't
+want to be able to use your site?
+
+00:27:14.210 --> 00:27:18.660
+Getting into that,
+it's an empathy exercise,
+
+00:27:18.660 --> 00:27:22.430
+but also just making them
+understand how people are going
+
+00:27:22.430 --> 00:27:28.170
+to want to use the site,
+need to use the site, you don't want
+
+00:27:28.170 --> 00:27:29.060
+to exclude users.
+
+00:27:29.060 --> 00:27:33.160
+Usually, if you ask a client,
+who are you comfortable blocking off
+
+00:27:33.160 --> 00:27:36.360
+from your site so that they
+can't be here, they can't use it,
+
+00:27:36.360 --> 00:27:39.750
+they can't look at your product,
+they can't look at your content?
+
+00:27:39.750 --> 00:27:43.500
+Often they'll startle and go, wait,
+I don't want to block anybody,
+
+00:27:43.500 --> 00:27:47.670
+because why would you
+want to block anybody?
+
+00:27:47.670 --> 00:27:52.270
+Having them start to understand
+how many people actually
+
+00:27:52.270 --> 00:27:57.830
+do have disabilities, at any one
+given time it's something like 26%
+
+00:27:57.830 --> 00:28:02.170
+of the US population has a
+disability, whether it's permanent
+
+00:28:02.170 --> 00:28:04.040
+or temporary or situational.
+
+00:28:05.980 --> 00:28:10.390
+If you can make them understand that
+having accessibility barriers means
+
+00:28:10.390 --> 00:28:14.930
+that actual, real people who are
+just trying to do whatever it is
+
+00:28:14.930 --> 00:28:17.890
+that's being offered on the site,
+trying to access this service,
+
+00:28:17.890 --> 00:28:21.620
+trying to access this product,
+trying to access this content,
+
+00:28:21.620 --> 00:28:25.020
+they just want to be able
+to do the same thing,
+
+00:28:26.370 --> 00:28:28.215
+if you can get your
+clients to understand
+
+00:28:28.216 --> 00:28:29.620
+that they are putting a barrier
+
+00:28:29.620 --> 00:28:33.550
+in the way of somebody
+that can often help a lot.
+
+00:28:33.550 --> 00:28:36.730
+Because nobody really wants
+to cut anybody out that way.
+
+00:28:38.050 --> 00:28:42.050
+There is also, of course,
+the final big stick of,
+
+00:28:42.050 --> 00:28:45.610
+somebody might get mad and sue
+you, but apparently
+
+00:28:45.610 --> 00:28:48.620
+from the studies that have been done
+recently, that doesn't have nearly
+
+00:28:48.620 --> 00:28:52.980
+as much of a positive effect
+as just reminding them, yes,
+
+00:28:52.980 --> 00:28:55.950
+people want to use your site
+and they won't be able to
+
+00:28:55.950 --> 00:28:59.220
+if you do this thing.
+
+00:28:59.220 --> 00:29:02.940
+Reminding them of the real people,
+the real end users who are going
+
+00:29:02.940 --> 00:29:05.420
+to want to use their site
+and who could be blocked
+
+00:29:05.420 --> 00:29:08.570
+from using it is really
+always a great approach
+
+00:29:08.570 --> 00:29:13.320
+to use because accessibility
+support isn't special.
+
+00:29:13.320 --> 00:29:16.820
+It shouldn't be seen as something
+special because the people
+
+00:29:16.820 --> 00:29:20.470
+who need the accessibility supports
+are just trying to live their lives
+
+00:29:20.470 --> 00:29:23.050
+and do the same things
+as everybody else.
+
+00:29:28.500 --> 00:29:33.040
+>> NIKOLE: I do get a little
+pushback sometimes from designers
+
+00:29:33.040 --> 00:29:41.040
+because as a developer, I want
+to make things that are flexible
+
+00:29:41.040 --> 00:29:42.550
+and responsive.
+
+00:29:42.550 --> 00:29:45.550
+If someone wants to put in
+their own user style sheet
+
+00:29:45.550 --> 00:29:48.190
+and they want to adjust the
+fonts on there, and they want
+
+00:29:48.190 --> 00:29:52.210
+to change them, and they want to
+change colors, I'm totally okay
+
+00:29:52.210 --> 00:29:53.170
+with all of that.
+
+00:29:53.170 --> 00:29:59.990
+This is their artwork,
+but it's also a consumable art
+
+00:29:59.990 --> 00:30:02.280
+that is dictated by
+company policies.
+
+00:30:02.280 --> 00:30:09.450
+If you work together as a company
+to build in the requirements,
+
+00:30:09.450 --> 00:30:13.490
+like favoring these flexible,
+responsive designs over perfect,
+
+00:30:13.490 --> 00:30:18.890
+or you build in certain requirements
+about buttons or spacing
+
+00:30:18.890 --> 00:30:23.850
+or menus, or things like
+that, you can serve everyone
+
+00:30:23.850 --> 00:30:25.200
+on every device better.
+
+00:30:27.030 --> 00:30:29.580
+If everyone can learn to,
+as a company, like I said,
+
+00:30:29.580 --> 00:30:32.440
+just make a compromise,
+then they can work together
+
+00:30:32.440 --> 00:30:34.299
+and get some of the stuff done.
+
+00:30:43.075 --> 00:30:52.200
+I did put up a resource list and
+code snippets in the [inaudible]
+
+00:30:52.200 --> 00:30:55.320
+If anyone wants to go
+look at those things,
+
+00:30:55.320 --> 00:30:58.790
+we'll sure have the link
+available for you too.
+
+00:30:58.790 --> 00:30:59.790
+Thanks.
+
+00:31:03.860 --> 00:31:08.890
+Those are our contact information
+if you want to find us.
+
+00:31:08.890 --> 00:31:12.970
+I do apologize if anything that
+I was saying is not very clear,
+
+00:31:12.970 --> 00:31:14.600
+because still struggling
+with the braces.
+
+00:31:14.600 --> 00:31:17.550
+If there was anything not clear,
+please feel free to find me later
+
+00:31:17.550 --> 00:31:18.550
+and ask me.
+
+00:31:22.314 --> 00:31:24.730
+>> ANNIE: Looks
+like we do have Q&A.
+
+00:31:27.653 --> 00:31:28.987
+>> DANIELLE: All right.
+
+00:31:34.150 --> 00:31:37.980
+I just want to take a second
+to thank you both so much
+
+00:31:37.980 --> 00:31:40.320
+for your presentation.
+
+00:31:40.320 --> 00:31:45.110
+As a reminder, you can enter your
+questions in the Slido Q&A tab.
+
+00:31:45.110 --> 00:31:48.200
+We do have a few questions
+that have come in.
+
+00:31:48.200 --> 00:31:52.063
+The first one,
+we'll get your perspective on
+
+00:31:52.064 --> 00:31:54.380
+and see if anything about.
+
+00:31:56.120 --> 00:32:02.500
+The question is, how do you handle
+site maps for very large websites?
+
+00:32:02.500 --> 00:32:06.240
+Sometimes I've seen site maps
+that are just giant alphabetical
+
+00:32:06.240 --> 00:32:08.000
+or date-ordered lists.
+
+00:32:08.000 --> 00:32:09.200
+How do you guys handle those?
+
+00:32:11.396 --> 00:32:13.040
+>> ANNIE: Nikole,
+did you have anything?
+
+00:32:13.040 --> 00:32:16.270
+Because I've got one I can
+probably pop, good example.
+
+00:32:17.436 --> 00:32:17.969
+>> NIKOLE: Go ahead.
+
+00:32:17.970 --> 00:32:19.060
+>> ANNIE: Okay.
+
+00:32:19.800 --> 00:32:22.650
+One of the things that
+we worked on recently
+
+00:32:22.650 --> 00:32:26.410
+at Cornell is the
+university newspaper.
+
+00:32:26.410 --> 00:32:31.450
+As you can guess, there's
+tons of articles all the time.
+
+00:32:31.450 --> 00:32:35.630
+We don't have a site map that
+has every single article.
+
+00:32:38.090 --> 00:32:44.650
+Instead, what the site map does is
+it organizes things by category.
+
+00:32:44.650 --> 00:32:49.390
+The site map, there are certain
+tags that articles will have,
+
+00:32:49.390 --> 00:32:56.020
+and every single article that gets
+put up will have one or more tags
+
+00:32:56.020 --> 00:32:57.020
+on it.
+
+00:32:57.550 --> 00:33:01.970
+The site map does tags,
+it has those tags that are used
+
+00:33:01.970 --> 00:33:03.800
+to categorize the articles.
+
+00:33:03.800 --> 00:33:06.890
+If you click on one of those
+tags, it'll take you to a list
+
+00:33:06.890 --> 00:33:09.680
+of all of the articles
+that have that tag.
+
+00:33:09.680 --> 00:33:13.960
+When you have that,
+you combine it with a site search,
+
+00:33:13.960 --> 00:33:17.710
+and that gives you the way
+to satisfy the multiple ways
+
+00:33:17.710 --> 00:33:21.460
+requirement without, again,
+serious cognitive overload
+
+00:33:21.460 --> 00:33:25.940
+because you're smacking your end
+users with everything all at once,
+
+00:33:25.940 --> 00:33:29.570
+because yes, sure enough
+medical date-ordered lists are--
+
+00:33:31.210 --> 00:33:35.140
+They're technically
+accessible, I don't think.
+
+00:33:35.140 --> 00:33:38.500
+WCAG doesn't have anything
+that says they're a failure.
+
+00:33:38.500 --> 00:33:41.820
+They're just cognitive overload.
+
+00:33:42.817 --> 00:33:47.160
+>> DANIELLE: Do you have
+a user style sheet thing
+
+00:33:47.160 --> 00:33:51.390
+and then an XML version
+for search engines,
+
+00:33:51.390 --> 00:33:54.310
+or do you just use the one and
+it just links the categories?
+
+00:33:55.620 --> 00:33:56.500
+>> ANNIE: I am not sure.
+
+00:33:56.500 --> 00:33:58.400
+I would have to go
+ask our design team.
+
+00:33:58.400 --> 00:34:01.540
+>> DANIELLE: I'm always curious about
+how people handle their site maps
+
+00:34:01.540 --> 00:34:02.160
+as well.
+
+00:34:02.769 --> 00:34:06.850
+>> ANNIE: I've gotten too far out
+of the actual day-to-day work.
+
+00:34:06.850 --> 00:34:10.050
+I know that they have the things
+that they've built to do this
+
+00:34:10.050 --> 00:34:12.640
+and do it right, and do it
+accessibly, but I don't know exactly
+
+00:34:12.640 --> 00:34:13.370
+how they would.
+
+00:34:15.687 --> 00:34:17.890
+>> NIKOLE: I would definitely
+say that kind of stuff begins
+
+00:34:17.890 --> 00:34:25.210
+with a content strategy because
+if your site maps are just a bunch
+
+00:34:25.210 --> 00:34:28.790
+of giant stuff dumped there,
+you probably haven't thought out
+
+00:34:28.790 --> 00:34:32.020
+through content strategy very
+well to categorize and tag,
+
+00:34:32.020 --> 00:34:34.210
+and whatever else those things.
+
+00:34:36.280 --> 00:34:38.340
+There's probably better
+ways of breaking up content,
+
+00:34:39.350 --> 00:34:43.190
+and that's leaving an
+accessibility thing.
+
+00:34:43.190 --> 00:34:47.060
+It's like an every problem.
+
+00:34:47.060 --> 00:34:49.960
+Because if you haven't broken your
+content in a way that it's easy
+
+00:34:49.960 --> 00:34:53.592
+for people to digest, then you
+probably have a bigger problem
+
+00:34:53.592 --> 00:34:56.820
+with the thing.
+
+00:34:58.330 --> 00:34:59.530
+>> DANIELLE: Totally.
+
+00:34:59.530 --> 00:35:02.010
+That definitely makes some sense.
+
+00:35:02.010 --> 00:35:05.020
+The next question
+here that we have.
+
+00:35:06.650 --> 00:35:10.190
+When you're building from an
+accessibility-first perspective,
+
+00:35:10.190 --> 00:35:12.890
+are there certain themes
+or plugins that are part
+
+00:35:12.890 --> 00:35:17.820
+of your default starter theme,
+or do you just build everything
+
+00:35:17.820 --> 00:35:18.820
+from scratch?
+
+00:35:18.820 --> 00:35:20.619
+>> NIKOLE: No.
+
+00:35:28.110 --> 00:35:32.070
+The two things I built out
+recently, one was using WP Rig,
+
+00:35:32.070 --> 00:35:37.140
+which, it's a you start with your
+base thing and then you can add
+
+00:35:37.140 --> 00:35:41.460
+in all your accessibility for
+your menus and the footers,
+
+00:35:41.460 --> 00:35:42.660
+and add functions in it.
+
+00:35:42.660 --> 00:35:44.910
+Then it just becomes
+a build process.
+
+00:35:44.910 --> 00:35:48.590
+Say I have the rig set
+up and it's customized
+
+00:35:48.590 --> 00:35:50.520
+for whatever the
+company's doing with it.
+
+00:35:51.970 --> 00:35:57.820
+Then I can add in specific things
+that one site needs, run the build,
+
+00:35:57.820 --> 00:35:58.900
+it makes the theme.
+
+00:35:58.900 --> 00:36:01.500
+Then I can switch out those
+components for a different site,
+
+00:36:01.500 --> 00:36:04.900
+like add in new components,
+run the build, it makes the theme.
+
+00:36:04.900 --> 00:36:07.840
+It's like a little factory
+blueprint that way.
+
+00:36:08.980 --> 00:36:13.600
+The other thing that I've been doing
+a lot of stuff with lately is Gatsby.
+
+00:36:13.600 --> 00:36:18.500
+Gatsby has a lot of
+accessibility supports built in.
+
+00:36:18.500 --> 00:36:21.260
+You make your WordPress site.
+
+00:36:21.260 --> 00:36:23.710
+You make your little Gatsby site,
+it pulls it all out and it makes
+
+00:36:23.710 --> 00:36:24.530
+into a static site.
+
+00:36:24.530 --> 00:36:26.380
+It has all these little
+supports that are built in
+
+00:36:26.380 --> 00:36:28.520
+so you can make the process
+and then you can keep
+
+00:36:28.520 --> 00:36:30.830
+on replicating that
+process for new sites.
+
+00:36:32.424 --> 00:36:32.790
+>> DANIELLE: Cool.
+
+00:36:34.860 --> 00:36:36.160
+Makes sense.
+
+00:36:36.160 --> 00:36:38.730
+Just to double back
+real quick on site maps,
+
+00:36:38.730 --> 00:36:41.090
+we got another
+question in for that.
+
+00:36:42.370 --> 00:36:44.660
+They are often in the
+footer of a website.
+
+00:36:44.660 --> 00:36:48.870
+Should it be visually located
+somewhere else or does it make sense
+
+00:36:48.870 --> 00:36:50.430
+that it's always in the footer?
+
+00:36:51.580 --> 00:36:56.070
+>> ANNIE: I would not put an
+entire site map in the footer.
+
+00:36:56.070 --> 00:36:59.450
+It's like you wouldn't want to have
+the entire site map in the main nav.
+
+00:36:59.450 --> 00:37:02.320
+Anything that somebody's going
+to have to go all the way through
+
+00:37:03.640 --> 00:37:06.710
+to get to other stuff,
+and footers count for this
+
+00:37:06.710 --> 00:37:08.570
+because there's often stuff
+at the very end of the page
+
+00:37:08.570 --> 00:37:12.620
+that people would want to get to like
+terms, privacy, things like that.
+
+00:37:13.990 --> 00:37:16.450
+If you don't have a giant
+site, sure you could have
+
+00:37:16.450 --> 00:37:20.410
+all the page links there,
+but if you've got a big site,
+
+00:37:20.410 --> 00:37:22.690
+you'll want to have the
+site map be a separate page.
+
+00:37:22.690 --> 00:37:25.160
+You can link to that
+from the footer.
+
+00:37:25.160 --> 00:37:26.810
+That's completely personal.
+
+00:37:26.810 --> 00:37:29.350
+>> NIKOLE: Would you put
+it somewhere else too?
+
+00:37:29.350 --> 00:37:32.380
+I think I would actually put--
+if I was trying to do something
+
+00:37:33.652 --> 00:37:35.253
+to make it most accessible,
+
+00:37:35.253 --> 00:37:39.100
+especially if I had a
+mobile menu situation
+
+00:37:39.100 --> 00:37:41.030
+where you could just drop down
+the thing, I'd probably put it
+
+00:37:41.030 --> 00:37:44.530
+at the end of the menu too,
+so that you could hit it
+
+00:37:44.530 --> 00:37:46.010
+from the top and the bottom.
+
+00:37:46.010 --> 00:37:48.810
+It's not in the way of
+anything, but it's nice if I'm--
+
+00:37:48.810 --> 00:37:53.960
+I don't really want to make someone
+have to go through an entire page
+
+00:37:53.960 --> 00:37:56.720
+to find the site map, and I don't
+want to have to make them click
+
+00:37:56.720 --> 00:37:58.900
+through 75 things to
+find the site map.
+
+00:38:00.490 --> 00:38:04.920
+Making it from the dropdown
+menu or from the footer is fine.
+
+00:38:04.920 --> 00:38:08.030
+>> ANNIE: Again, multiple ways
+requirements, so they're nice.
+
+00:38:08.030 --> 00:38:10.190
+You put in the main menu
+and then in the footer too.
+
+00:38:11.156 --> 00:38:12.991
+Different spots you
+can get to it from.
+
+00:38:14.415 --> 00:38:15.799
+>> DANIELLE: Awesome.
+
+00:38:16.010 --> 00:38:17.920
+Totally, that makes sense.
+
+00:38:17.920 --> 00:38:21.160
+It's hard because you don't
+want to break patterns too much
+
+00:38:21.160 --> 00:38:23.030
+because people come to
+expect certain things,
+
+00:38:23.030 --> 00:38:26.530
+but then there are pattern
+breakers and rule breakers,
+
+00:38:26.530 --> 00:38:29.940
+and that tends to
+set up new trends.
+
+00:38:29.940 --> 00:38:33.160
+Maybe we're developing a whole new
+trend here by putting site maps
+
+00:38:33.160 --> 00:38:34.830
+into the mobile
+menus in the header.
+
+00:38:36.090 --> 00:38:37.660
+I like it.
+
+00:38:37.660 --> 00:38:39.984
+If we move on to
+when you were talking
+
+00:38:39.984 --> 00:38:43.170
+about designers seeing their work
+
+00:38:43.170 --> 00:38:48.050
+as art, what are your strategies
+for working with them who see it
+
+00:38:48.050 --> 00:38:51.120
+as art rather than a way
+of sharing information?
+
+00:38:51.120 --> 00:38:54.330
+Do you have specific scripts
+that you fall back on,
+
+00:38:54.330 --> 00:38:57.800
+or other strategies that you use?
+
+00:38:59.204 --> 00:39:02.310
+>> NIKOLE: That really needs
+to be a company decision.
+
+00:39:02.310 --> 00:39:04.620
+It can't come from the
+developers because no one goes
+
+00:39:04.620 --> 00:39:05.620
+to the developers anyways.
+
+00:39:07.890 --> 00:39:09.690
+That needs to be a
+top-down decision.
+
+00:39:09.690 --> 00:39:14.590
+We've put people first,
+then we need to put people first
+
+00:39:14.590 --> 00:39:16.930
+as a company decision thing.
+
+00:39:18.730 --> 00:39:23.990
+That would trickle down to
+everybody of how they see things.
+
+00:39:23.990 --> 00:39:31.250
+I think a lot of companies that will
+invest in UX designers will tend
+
+00:39:31.250 --> 00:39:35.510
+to have more interest in how
+people are experiencing the site.
+
+00:39:38.410 --> 00:39:41.430
+Looking for companies that
+are doing user experience more
+
+00:39:41.430 --> 00:39:46.190
+than we make pretty stuff,
+is definitely important.
+
+00:39:46.190 --> 00:39:50.840
+I definitely think that like I
+said, no one goes to the developer.
+
+00:39:50.840 --> 00:39:54.520
+It needs to be a top-down
+thing from the product managers
+
+00:39:54.520 --> 00:39:58.340
+or down from the CEO.
+
+00:39:58.340 --> 00:40:01.610
+It just has to go all the
+way down from the top,
+
+00:40:01.610 --> 00:40:04.380
+and be a company decision.
+
+00:40:04.380 --> 00:40:07.800
+>> ANNIE: It's also a place where
+the very mean accessibility people
+
+00:40:07.800 --> 00:40:08.660
+can come in.
+
+00:40:08.660 --> 00:40:11.570
+If we have to use the stick
+of, no, we're not allowed
+
+00:40:11.570 --> 00:40:15.430
+to do this because accessibility,
+it'll sometimes raise some hackles,
+
+00:40:15.430 --> 00:40:16.550
+but it can get through.
+
+00:40:19.230 --> 00:40:23.660
+The "who are you willing to exclude"
+approach can also work there.
+
+00:40:23.660 --> 00:40:28.220
+It's, okay, this is your art,
+but are you really wanting
+
+00:40:28.220 --> 00:40:30.860
+to put a barrier in that
+will keep some people from
+
+00:40:30.860 --> 00:40:32.670
+being able to use this?
+
+00:40:32.670 --> 00:40:35.650
+If you've got this really
+complex line design
+
+00:40:35.650 --> 00:40:39.690
+that's got some neat depth
+perception stuff, are you really okay
+
+00:40:39.690 --> 00:40:42.450
+with the fact that some people
+will look at this and get dizzy,
+
+00:40:42.450 --> 00:40:44.240
+and not be able to go
+further into the site?
+
+00:40:45.510 --> 00:40:47.040
+There's also the design challenge.
+
+00:40:48.190 --> 00:40:53.130
+Are you the kind of designer who
+can't rise to the design challenge
+
+00:40:53.130 --> 00:40:57.130
+of making attractive
+but accessible design?
+
+00:40:57.130 --> 00:41:00.320
+I think we can use the same
+stick on developers too.
+
+00:41:01.460 --> 00:41:04.050
+This is a challenge for you,
+and if you're a good designer
+
+00:41:04.050 --> 00:41:06.530
+and a good developer, you should
+be able to make this work.
+
+00:41:07.790 --> 00:41:09.320
+I know you can do this.
+
+00:41:09.320 --> 00:41:11.060
+>> DANIELLE: I love that approach
+
+00:41:11.060 --> 00:41:13.000
+>> ANNIE: You can try it
+a little bit going there,
+
+00:41:13.000 --> 00:41:15.610
+and that can work
+in your favor a bit.
+
+00:41:15.610 --> 00:41:18.234
+>> DANIELLE: Challenging
+their intellect
+
+00:41:18.235 --> 00:41:20.090
+and they'll prove you wrong.
+
+00:41:22.920 --> 00:41:24.590
+I love it.
+
+00:41:24.590 --> 00:41:27.170
+This is another
+question that came in.
+
+00:41:27.170 --> 00:41:30.590
+It feels a lot to me that custom
+blocks are really the future
+
+00:41:30.590 --> 00:41:34.560
+for making components the most
+user-friendly and accessible.
+
+00:41:34.560 --> 00:41:37.460
+Has your experience
+at Cornell found this?
+
+00:41:37.460 --> 00:41:41.270
+I would add onto that the
+idea that they literally
+
+00:41:41.270 --> 00:41:46.460
+just launched the block-locking
+features and things like that.
+
+00:41:46.460 --> 00:41:50.440
+Does that make you skew
+towards custom blocks
+
+00:41:50.440 --> 00:41:53.444
+or do you still stick with ACF?
+
+00:41:53.444 --> 00:41:54.720
+How do you approach that?
+
+00:41:54.720 --> 00:41:58.480
+>> NIKOLE: I would say
+that yes the block stuff in
+
+00:41:58.480 --> 00:42:00.800
+in WordPress 6.1 is
+going to be huge.
+
+00:42:00.800 --> 00:42:07.140
+As a developer, it's both
+fascinating and it's also scary,
+
+00:42:07.140 --> 00:42:09.860
+because it's like,
+you can now full site editor.
+
+00:42:09.860 --> 00:42:12.450
+I'm like, "Oh no, oh no.
+
+00:42:14.230 --> 00:42:15.230
+Look what they're doing now."
+
+00:42:18.260 --> 00:42:24.100
+I don't think ACF is
+against the blocks.
+
+00:42:24.100 --> 00:42:27.390
+I actually think it would work
+with it, and I think they're about
+
+00:42:27.390 --> 00:42:30.770
+to update all their stuff to
+work with WordPress 6.1.2.
+
+00:42:30.770 --> 00:42:36.050
+I've been using the nightly
+build or whatever of WordPress
+
+00:42:36.050 --> 00:42:39.690
+for a little while to play with
+it and it's working really great.
+
+00:42:39.690 --> 00:42:42.640
+I don't think it's against
+it, but I definitely think
+
+00:42:42.640 --> 00:42:45.750
+that we're going to see-- I
+think that WordPress is starting
+
+00:42:45.750 --> 00:42:48.320
+to learn from the rest of
+the development community,
+
+00:42:48.320 --> 00:42:49.800
+and they're starting
+to learn components
+
+00:42:49.800 --> 00:42:52.515
+and things like that that
+other languages have been doing
+
+00:42:52.516 --> 00:42:53.420
+for a while.
+
+00:42:55.340 --> 00:42:59.610
+Definitely, it's going to be
+what we're going to be doing.
+
+00:42:59.610 --> 00:43:02.760
+I do think that ACF or a tool like
+that makes it a little bit easier
+
+00:43:02.760 --> 00:43:06.120
+for the rest of the team,
+because they can just build stuff out
+
+00:43:06.120 --> 00:43:07.160
+the way they want it.
+
+00:43:07.160 --> 00:43:09.960
+Then the developer consistent
+export the JSON file,
+
+00:43:09.960 --> 00:43:12.480
+and then they can put it the--
+that just makes it easier
+
+00:43:12.480 --> 00:43:15.440
+rather than making it like,
+you got to give me a list
+
+00:43:15.440 --> 00:43:17.750
+of the things that you
+want on the content page.
+
+00:43:18.940 --> 00:43:21.540
+That makes those processes easier.
+
+00:43:21.540 --> 00:43:23.690
+For a workflow thing,
+it might be easier,
+
+00:43:23.690 --> 00:43:26.700
+but definitely everything's
+going to be about blocks
+
+00:43:26.700 --> 00:43:36.280
+and how to make custom blocks,
+and how to just make that easier.
+
+00:43:36.280 --> 00:43:38.630
+I'm still trying to work
+out how it's going to work
+
+00:43:38.630 --> 00:43:39.560
+with a full site editor.
+
+00:43:39.560 --> 00:43:42.190
+That's going to be a
+little bit scary and weird.
+
+00:43:42.190 --> 00:43:45.290
+>> DANIELLE: It sounds like
+the answer is it depends
+
+00:43:45.290 --> 00:43:49.110
+on the requirements of
+the project as always.
+
+00:43:49.110 --> 00:43:52.810
+>> NIKOLE: No,
+it's going to go much--
+
+00:43:52.810 --> 00:43:56.130
+if you're not already doing custom
+blocks, it's going to be the thing
+
+00:43:56.130 --> 00:43:57.710
+that everybody's
+going to be doing now.
+
+00:43:57.710 --> 00:44:01.220
+They're just going to be selling
+custom blocks as a service thing.
+
+00:44:04.289 --> 00:44:06.799
+>> ANNIE: Our custom development
+team at Cornell does,
+
+00:44:06.800 --> 00:44:10.910
+we do custom components and have
+a demo site where it's like,
+
+00:44:10.910 --> 00:44:13.820
+you can have this,
+you can have this.
+
+00:44:13.820 --> 00:44:17.340
+They've got things that
+our clients can go look at
+
+00:44:17.340 --> 00:44:19.950
+and they can make a choice
+about what it is they want
+
+00:44:19.950 --> 00:44:24.410
+to include on their site,
+and we'll do minimal modifications
+
+00:44:24.410 --> 00:44:27.710
+because they've already
+made them accessible.
+
+00:44:27.710 --> 00:44:32.690
+It helps a lot, at least for the
+parts of the university that come
+
+00:44:32.690 --> 00:44:35.670
+to us for their sites,
+which is not everybody,
+
+00:44:35.670 --> 00:44:38.470
+universities being
+decentralized as they are.
+
+00:44:38.470 --> 00:44:43.130
+>> DANIELLE: Speaking of that,
+we have one last question.
+
+00:44:43.130 --> 00:44:47.140
+How does Cornell handle enforcing
+accessibility standards?
+
+00:44:47.140 --> 00:44:51.020
+Is there a review team before
+a new website can go live?
+
+00:44:51.020 --> 00:44:52.123
+How does that work?
+
+00:44:52.123 --> 00:44:55.059
+>> ANNIE: That is difficult.
+
+00:44:57.400 --> 00:45:00.150
+Universities are
+really decentralized.
+
+00:45:00.150 --> 00:45:04.510
+This is probably one of the most
+challenging parts of my position
+
+00:45:04.510 --> 00:45:10.070
+because I'm basically the top
+dedicated web accessibility person
+
+00:45:10.070 --> 00:45:15.800
+at Cornell, and so I'm the person
+everybody's supposed to come to,
+
+00:45:15.800 --> 00:45:21.600
+web accessibility information and
+things, but I don't have a lot
+
+00:45:21.600 --> 00:45:23.800
+of enforcement mechanisms.
+
+00:45:23.800 --> 00:45:28.610
+We have a policy, an official policy
+that says everything is supposed
+
+00:45:28.610 --> 00:45:35.910
+to meet WCAG 2.1 level AA as a
+baseline, but they don't have
+
+00:45:35.910 --> 00:45:39.960
+to go through the custom development
+team that I'm housed under
+
+00:45:39.960 --> 00:45:40.780
+in our central IT.
+
+00:45:40.780 --> 00:45:43.260
+They don't have to use us
+to build their websites.
+
+00:45:43.260 --> 00:45:46.470
+They can hire an outside
+vendor to build a website,
+
+00:45:48.570 --> 00:45:55.100
+because we have literally thousands
+of websites at the university,
+
+00:45:55.100 --> 00:45:57.680
+thousands of different properties.
+
+00:45:57.680 --> 00:46:03.780
+We have some core university
+websites that get checked
+
+00:46:03.780 --> 00:46:08.790
+on a regular basis anywhere from
+once a year to every 18 months or so,
+
+00:46:09.920 --> 00:46:14.350
+that my team does an accessibility
+review of those sites
+
+00:46:14.350 --> 00:46:15.660
+as often as we can manage it.
+
+00:46:17.730 --> 00:46:21.080
+If the site's not covered under
+that set of core university sites,
+
+00:46:21.080 --> 00:46:25.060
+it is the responsibility of
+the unit that owns the site,
+
+00:46:25.060 --> 00:46:27.010
+like the particular
+college that owns the site.
+
+00:46:27.010 --> 00:46:31.070
+It's their responsibility to make
+sure that it stays up to date,
+
+00:46:31.070 --> 00:46:35.920
+stays accessible,
+doesn't have problems.
+
+00:46:36.980 --> 00:46:40.660
+Ideally, yes, there is a
+review before it goes live, and
+
+00:46:40.660 --> 00:46:44.020
+that's one of the services that
+we try to make sure everybody
+
+00:46:44.020 --> 00:46:46.620
+at the university is aware of.
+
+00:46:46.620 --> 00:46:50.270
+Realistically, it doesn't
+always happen because there is
+
+00:46:50.270 --> 00:46:53.550
+just so much activity going on.
+
+00:46:55.040 --> 00:46:56.230
+It's hard.
+
+00:46:56.230 --> 00:47:01.250
+That and vended products is my
+other bug bear, because I deal
+
+00:47:01.250 --> 00:47:04.020
+with a lot vended products.
+
+00:47:04.020 --> 00:47:07.960
+We try to make sure that everybody
+gets some accessibility review.
+
+00:47:07.960 --> 00:47:10.370
+Everybody is responsible
+for keeping them up to date
+
+00:47:10.370 --> 00:47:16.290
+and at least at WCAG baseline,
+but when there's so much of it,
+
+00:47:16.290 --> 00:47:18.750
+it's really, really hard.
+
+00:47:19.403 --> 00:47:22.550
+>> DANIELLE: Do you have
+any resources that you give
+
+00:47:22.550 --> 00:47:26.800
+to people in regards to that
+where if they say, "You're going
+
+00:47:26.800 --> 00:47:30.247
+with someone else, make sure they do
+this," to at least make it easier?
+
+00:47:30.247 --> 00:47:31.250
+>> ANNIE: Yes.
+
+00:47:31.250 --> 00:47:34.110
+We do have a university-wide
+site improve subscription
+
+00:47:34.110 --> 00:47:37.060
+so that they can do at least
+the basic automated checks
+
+00:47:37.060 --> 00:47:39.910
+because that's a pretty good job
+of catching what you can catch
+
+00:47:39.910 --> 00:47:40.910
+with automated stuff.
+
+00:47:42.130 --> 00:47:45.240
+We have a WCAG checklist
+that we developed
+
+00:47:45.240 --> 00:47:49.520
+for the accessibility teams
+use, but that we make available
+
+00:47:49.520 --> 00:47:52.740
+to the rest of the university
+along with an explanation
+
+00:47:52.740 --> 00:47:54.790
+of how to test everything.
+
+00:47:54.790 --> 00:47:55.480
+There's that.
+
+00:47:55.480 --> 00:48:01.820
+Then trainings, offering
+trainings every single month on
+
+00:48:01.820 --> 00:48:03.560
+how to do testing basically.
+
+00:48:03.560 --> 00:48:05.630
+Automated tools, manual testing.
+
+00:48:06.750 --> 00:48:11.530
+I get at least a half dozen people
+in each of those every month.
+
+00:48:11.530 --> 00:48:12.390
+They're interested.
+
+00:48:12.390 --> 00:48:16.010
+Everybody wants to do it and they're
+taking advantage of the resources.
+
+00:48:16.010 --> 00:48:17.340
+>> DANIELLE: That's encouraging.
+
+00:48:17.340 --> 00:48:19.710
+>> ANNIE: Make it
+everybody's responsibility,
+
+00:48:19.710 --> 00:48:22.540
+and then make sure they can get
+the information they need to do it.
+
+00:48:22.540 --> 00:48:25.703
+It's really the way to go.
+
+00:48:26.460 --> 00:48:27.360
+>> DANIELLE: Awesome.
+
+00:48:27.360 --> 00:48:32.180
+That's awesome and super
+helpful perspectives on small
+
+00:48:32.180 --> 00:48:34.470
+and large teams, and all of that.
+
+00:48:34.470 --> 00:48:37.350
+I just want to say thank
+you again both of you
+
+00:48:37.350 --> 00:48:42.440
+for having an extra long
+Q&A so that we can ask you
+
+00:48:42.440 --> 00:48:44.200
+some of these very
+important questions.
+
+00:48:46.850 --> 00:48:51.800
+Thank you for attending this session
+with Nikole Garcia and Annie Heckel.
+
+00:48:51.800 --> 00:48:54.680
+You can continue the
+conversation in the chat
+
+00:48:54.680 --> 00:49:05.643
+or on social media using
+#WPA11Y day and #WP2022.
+
+00:49:06.390 --> 00:49:13.109
+We also appreciate it if you go
+to wpaccessibility.day/feedback
+
+00:49:13.110 --> 00:49:17.800
+to provide anonymous feedback for
+our speakers on their presentation.
+
+00:49:17.800 --> 00:49:23.730
+Stay tuned for our next topic, which
+is accessibility is a partnership
+
+00:49:23.730 --> 00:49:25.620
+that requires communication.
+
+00:49:25.620 --> 00:49:32.030
+It's coming up next with Maxwell
+Ivey at 1:00 AM UTC, 8:00 PM Central.
+
+00:49:32.030 --> 00:49:35.250
+While you're waiting, don't forget
+to visit our sponsors' pages
+
+00:49:35.250 --> 00:49:40.150
+to grab virtual swag and enter
+for a chance to win great prizes.
+
+00:49:40.151 --> 00:49:41.980
+See you here right after the break.

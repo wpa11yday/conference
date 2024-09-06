@@ -1,0 +1,743 @@
+﻿WEBVTT
+
+00:00:33.266 --> 00:00:34.620
+JAY MCKAY: Hello, everyone.
+
+00:00:34.620 --> 00:00:37.750
+Welcome to WordPress
+Accessibility Day.
+
+00:00:37.750 --> 00:00:41.500
+My name is Jay McKay, and I am
+the Director of Community Programs
+
+00:00:41.500 --> 00:00:43.180
+at Nobility.
+
+00:00:43.180 --> 00:00:47.640
+This session is going to be a
+lightning round of three short talks
+
+00:00:47.640 --> 00:00:49.920
+that have been prerecorded.
+
+00:00:49.920 --> 00:00:54.590
+Our first talk will be Can the
+Cloud Accelerate Accessibility,
+
+00:00:54.590 --> 00:00:59.310
+presented by, Robert Jacobi, who’s
+Director of WordPress, Cloudways.
+
+00:00:59.310 --> 00:01:04.530
+The second talk will be Aria
+State Management and Modern CSS,
+
+00:01:04.530 --> 00:01:08.460
+presented by, Nick Croft,
+Lead Developer at Reaktiv Studios,
+
+00:01:09.510 --> 00:01:13.310
+and the third session will
+be Introducing Accessibility
+
+00:01:13.310 --> 00:01:17.580
+to Existing Designs, presented
+by, Katie Gleason, Web Designer
+
+00:01:17.580 --> 00:01:18.760
+at WP Engine.
+
+00:01:19.840 --> 00:01:24.390
+For this session, there will not be
+a Q&A during the lightning round,
+
+00:01:24.390 --> 00:01:28.100
+but please feel free to use
+the ideas section to chat
+
+00:01:28.100 --> 00:01:29.340
+with other attendees.
+
+00:01:42.209 --> 00:01:43.390
+ROBERT JACOBI: Hello, everyone.
+
+00:01:43.390 --> 00:01:46.360
+I'm Robert Jacobi,
+Director of WordPress at Cloudways,
+
+00:01:46.360 --> 00:01:49.550
+and it's my great
+pleasure to talk about
+
+00:01:49.550 --> 00:01:52.920
+whether the cloud can
+accelerate accessibility.
+
+00:01:54.720 --> 00:01:55.970
+Let's jump right into it.
+
+00:02:01.200 --> 00:02:02.930
+What cloud are we talking about?
+
+00:02:04.130 --> 00:02:06.850
+I like to look at the cloud
+in a couple of different ways.
+
+00:02:07.990 --> 00:02:11.010
+There are some of the more
+traditional understandings
+
+00:02:11.010 --> 00:02:16.960
+of what the cloud is, and then a
+couple of other parts and pieces.
+
+00:02:16.960 --> 00:02:21.420
+I like to think about it first and
+foremost from a hosting perspective.
+
+00:02:21.420 --> 00:02:22.040
+Why?
+
+00:02:22.040 --> 00:02:24.060
+Because everything
+is hosted somewhere.
+
+00:02:25.180 --> 00:02:30.350
+No matter what kind of application,
+whether it's on, you know, AWS,
+
+00:02:30.351 --> 00:02:35.050
+Digital Ocean, Cloudways,
+or self-hosted, some other kind
+
+00:02:35.050 --> 00:02:38.900
+of virtual private server,
+everything is hosted somewhere.
+
+00:02:39.606 --> 00:02:44.430
+Hosting is the critical component
+of everything that's online.
+
+00:02:44.430 --> 00:02:47.720
+I know it's probably pretty
+self-explanatory and obvious,
+
+00:02:47.720 --> 00:02:54.100
+but this means that folks who are
+in hosting have a critical role
+
+00:02:54.100 --> 00:02:57.000
+in how quickly
+accessibility is adopted.
+
+00:02:59.339 --> 00:03:02.630
+My next cloud is the cloud
+of interaction social media.
+
+00:03:03.266 --> 00:03:05.150
+Tons of user generated content.
+
+00:03:05.150 --> 00:03:09.730
+This is the place where folks
+come in and out to drop in videos,
+
+00:03:09.730 --> 00:03:14.120
+images, texts, audio, everything.
+
+00:03:14.120 --> 00:03:20.367
+Of course, we’re talking about
+Instagram, twitter, Pinterest.
+
+00:03:20.367 --> 00:03:22.502
+Whatever is out there [chuckle]
+
+00:03:22.502 --> 00:03:27.370
+that can really be
+considered social.
+
+00:03:27.370 --> 00:03:28.880
+It's hugely important.
+
+00:03:28.880 --> 00:03:31.310
+So much information is
+going back and forth.
+
+00:03:31.310 --> 00:03:35.260
+So, we have our hosting cloud,
+sort of our social media cloud,
+
+00:03:36.950 --> 00:03:38.650
+and then software
+as a service cloud.
+
+00:03:39.586 --> 00:03:44.290
+Every other application online,
+and we use these things all the time.
+
+00:03:44.290 --> 00:03:51.550
+Everything from our banks, you know,
+QuickBooks, Adobe's Creative Cloud.
+
+00:03:51.550 --> 00:03:54.300
+All kinds of applications.
+
+00:03:54.300 --> 00:03:59.560
+Microsoft 365, Google Workspace,
+you know, that's that software
+
+00:03:59.560 --> 00:04:01.480
+as a service cloud.
+
+00:04:01.480 --> 00:04:05.612
+It tries to cover all of
+those more niche applications
+
+00:04:05.612 --> 00:04:12.700
+that I wouldn't say that are
+typically hosting or social media.
+
+00:04:15.088 --> 00:04:20.793
+Our next question is, does the cloud
+actually understand accessibility?
+
+00:04:20.794 --> 00:04:22.010
+What do I mean by that?
+
+00:04:22.010 --> 00:04:26.240
+Have they done some of that
+homework that's even necessary
+
+00:04:26.240 --> 00:04:33.650
+to really ramp up and accelerate
+accessibility for everyone?
+
+00:04:34.908 --> 00:04:39.460
+Let's take a look at a
+couple of quick items.
+
+00:04:41.709 --> 00:04:44.860
+Is that cloud provider,
+whether it's a hosting company,
+
+00:04:44.860 --> 00:04:48.920
+social media company,
+some other software as a service,
+
+00:04:50.057 --> 00:04:51.310
+is their site accessible?
+
+00:04:52.693 --> 00:04:58.320
+Are they doing some of the legwork
+to implement accessibility,
+
+00:04:58.320 --> 00:05:00.040
+you know, on their own?
+
+00:05:00.040 --> 00:05:03.590
+That's usually a first step for
+a lot of projects in development.
+
+00:05:03.590 --> 00:05:05.990
+You're going to try things
+out on your own and see
+
+00:05:05.990 --> 00:05:07.260
+what best practices are.
+
+00:05:07.260 --> 00:05:12.320
+So, one way to see whether
+that cloud provider is looking
+
+00:05:12.320 --> 00:05:20.400
+to the future around being
+taking accessibility seriously is
+
+00:05:20.400 --> 00:05:22.050
+whether their site is
+actually assessable.
+
+00:05:24.664 --> 00:05:26.250
+Do they have an accessibility team?
+
+00:05:26.250 --> 00:05:30.390
+Now this is critical for a small
+to medium to large size business.
+
+00:05:30.390 --> 00:05:34.730
+A lot of times that team can
+be outsourced, of course.
+
+00:05:34.730 --> 00:05:39.570
+I recommend having human participants
+on that accessibility team.
+
+00:05:39.570 --> 00:05:46.480
+A lot of the software
+solutions are I find today are
+
+00:05:46.480 --> 00:05:51.510
+still much riskier than having
+folks who are completely embedded
+
+00:05:51.510 --> 00:05:55.400
+and understand what the necessary
+requirements for accessibility are
+
+00:05:55.400 --> 00:05:57.560
+so other accessibility
+experts on staff.
+
+00:05:57.560 --> 00:06:02.600
+Again, we are looking at, you
+know, where cloud providers, again,
+
+00:06:02.600 --> 00:06:08.160
+hosting social media, SES,
+whether, you know, whether they're
+
+00:06:08.160 --> 00:06:11.650
+on the road to being successful
+on accessibility to see
+
+00:06:11.650 --> 00:06:15.390
+how quickly they will support
+some of the ideas I have
+
+00:06:15.390 --> 00:06:17.040
+for accessibility in the future.
+
+00:06:18.378 --> 00:06:22.470
+So other accessibility experts
+on staff and then sort of almost
+
+00:06:24.251 --> 00:06:28.424
+at the furthest level,
+is there actual assessable support
+
+00:06:28.424 --> 00:06:29.689
+for customers?
+
+00:06:30.056 --> 00:06:36.120
+Is this some kind of chat
+bot that really doesn't work
+
+00:06:36.120 --> 00:06:38.490
+with all sorts of
+assessable applications?
+
+00:06:38.490 --> 00:06:43.260
+Is it completely incompatible
+with screen readers?
+
+00:06:43.260 --> 00:06:49.120
+Is there an understanding
+on support teams that they
+
+00:06:49.120 --> 00:06:52.020
+may be interacting with someone
+who has assessable requirements?
+
+00:06:52.020 --> 00:06:54.900
+So, you know,
+understanding, again, where
+
+00:06:54.900 --> 00:06:57.920
+on the spectrum a cloud provider
+might be, I think is critical,
+
+00:06:59.312 --> 00:07:02.130
+because the cloud can help a lot.
+
+00:07:03.521 --> 00:07:04.840
+Where could the cloud help?
+
+00:07:04.840 --> 00:07:11.800
+In literally everything,
+and it's interesting how especially
+
+00:07:11.800 --> 00:07:15.835
+how it can benefit
+WordPress, developers,
+
+00:07:15.835 --> 00:07:17.850
+agencies, and even end users.
+
+00:07:19.005 --> 00:07:21.640
+The cloud can help,
+first and foremost,
+
+00:07:21.640 --> 00:07:24.630
+by enforcing front-end
+accessibility.
+
+00:07:24.630 --> 00:07:28.680
+I mentioned user created
+content earlier, because I think
+
+00:07:28.680 --> 00:07:35.440
+that it's almost a quick and
+dirty way to start dropping
+
+00:07:35.440 --> 00:07:45.430
+in some type of accessibility that
+is clear, easy, understood well.
+
+00:07:45.430 --> 00:07:51.040
+My favorite example is if you
+are going to upload an image,
+
+00:07:52.441 --> 00:07:56.710
+that image can't be uploaded
+without proper tagging, period.
+
+00:07:59.079 --> 00:08:01.300
+The cloud can enforce this.
+
+00:08:01.882 --> 00:08:05.830
+I mean, it's so easy for all
+of these applications that,
+
+00:08:05.830 --> 00:08:08.660
+you know, tie into your camera
+and just be like, upload away,
+
+00:08:08.660 --> 00:08:12.440
+upload away, but the cloud can
+force front-end accessibility
+
+00:08:12.440 --> 00:08:16.230
+and say, Thanks for your
+image, we can't publish this
+
+00:08:16.230 --> 00:08:19.910
+until you fill out
+assessable content.
+
+00:08:19.910 --> 00:08:25.980
+That move in itself would
+greatly benefit the Internet
+
+00:08:25.980 --> 00:08:28.730
+for accessibility requirements.
+
+00:08:28.730 --> 00:08:33.770
+We can do that with all
+sorts of content, obviously.
+
+00:08:33.770 --> 00:08:37.420
+So, if we are looking at,
+you know, I mentioned images,
+
+00:08:37.420 --> 00:08:41.350
+because I think that's probably one
+of the easiest enforceability aspects
+
+00:08:41.350 --> 00:08:49.840
+on the front-end, but also obviously
+video, audio, going through
+
+00:08:49.840 --> 00:08:50.800
+some of that legwork.
+
+00:08:50.800 --> 00:08:56.420
+Maybe even offering it as some
+type of upsell to make sure
+
+00:08:56.420 --> 00:08:57.750
+that it's done right.
+
+00:08:57.750 --> 00:09:00.770
+I mentioned I'm not a big
+fan of automated solutions,
+
+00:09:00.770 --> 00:09:02.790
+but they're sometimes
+better than nothing, right?
+
+00:09:02.790 --> 00:09:08.730
+So, again, having a level of
+front-end accessibility enforcement
+
+00:09:08.730 --> 00:09:12.730
+I think is critical to the
+success of the Internet,
+
+00:09:12.730 --> 00:09:17.200
+as well as something that can
+dramatically accelerate the adoption
+
+00:09:17.200 --> 00:09:22.470
+of good accessibility on the
+Internet by these cloud providers.
+
+00:09:22.470 --> 00:09:23.330
+[clears throat]
+
+00:09:23.330 --> 00:09:26.750
+That’s right, hosting companies
+can make that requirement.
+
+00:09:26.750 --> 00:09:33.280
+It's really education for
+both developers and end-users
+
+00:09:33.280 --> 00:09:37.370
+that this is going to be part
+of the process, you know,
+
+00:09:37.370 --> 00:09:44.010
+we don't allow bad tagging anymore
+in HTML for that same reason.
+
+00:09:44.010 --> 00:09:46.890
+It's going to take
+me to the next bit
+
+00:09:46.890 --> 00:09:49.490
+of the conversation is enforcing
+infrastructure accessibility,
+
+00:09:49.490 --> 00:09:50.930
+render with standards.
+
+00:09:50.930 --> 00:10:00.060
+Everything should be, you know,
+run through some kind of code checker
+
+00:10:00.060 --> 00:10:03.760
+and enforcing on the
+backend is really important
+
+00:10:03.760 --> 00:10:09.380
+that improves the quality of
+code, obviously,
+
+00:10:10.944 --> 00:10:15.570
+and makes that code also assessable
+to folks who want to update it.
+
+00:10:15.570 --> 00:10:18.900
+So, if you think about that in
+the open-source space, but can
+
+00:10:21.280 --> 00:10:25.650
+from sort of a bottom-up
+start percolating
+
+00:10:25.650 --> 00:10:30.640
+on the earlier side talking about
+enforcing front-end standards.
+
+00:10:30.640 --> 00:10:34.280
+Going one step, one step at a time.
+
+00:10:34.280 --> 00:10:36.660
+Tied very closely to
+infrastructure, of course,
+
+00:10:36.660 --> 00:10:39.000
+is third-party accessibility.
+
+00:10:40.158 --> 00:10:42.160
+The cloud can enforce
+third-party accessibility.
+
+00:10:42.160 --> 00:10:47.280
+Don't accept Plugins,
+JavaScripts, and APIs
+
+00:10:47.280 --> 00:10:48.770
+that have not been
+thoroughly vetted.
+
+00:10:48.770 --> 00:10:52.280
+The cloud can make sure that
+happens either as a provider
+
+00:10:52.280 --> 00:10:57.030
+of those services or as a,
+you know, a recipient end-user
+
+00:10:57.030 --> 00:10:57.740
+of those services.
+
+00:10:57.740 --> 00:11:01.030
+We don't need WordPress
+Plugins that aren't successful.
+
+00:11:01.030 --> 00:11:05.500
+We don't need bad JavaScript
+that screws up page rendering.
+
+00:11:05.500 --> 00:11:09.550
+We don't need APIs that
+don't spit out data
+
+00:11:09.550 --> 00:11:17.370
+that isn't accessibly tagged,
+that isn't ready to be repurposed
+
+00:11:18.460 --> 00:11:19.780
+in an assessable standard.
+
+00:11:19.780 --> 00:11:23.470
+So many times, we are getting
+content images, media directly
+
+00:11:23.470 --> 00:11:25.650
+from the API,
+and that's all we are getting.
+
+00:11:25.650 --> 00:11:27.500
+We are not getting all of
+the metadata around that
+
+00:11:27.500 --> 00:11:32.180
+that could actually utilize to create
+a much more assessable experience
+
+00:11:32.180 --> 00:11:40.180
+for folks, and really accessibility
+improves the web all around.
+
+00:11:40.180 --> 00:11:44.460
+If you think about the enforcement
+of front-end, back-end,
+
+00:11:44.460 --> 00:11:51.390
+and third-party integrations,
+that enforcement
+
+00:11:51.390 --> 00:11:54.130
+would dramatically
+accelerate the web.
+
+00:11:54.130 --> 00:11:59.060
+If you look at all the
+opportunities that would be created,
+
+00:11:59.060 --> 00:12:03.710
+you know, even simple things for
+folks who don't need accessibility,
+
+00:12:03.710 --> 00:12:08.550
+they don't realize how sometimes
+there may be situations
+
+00:12:08.550 --> 00:12:12.280
+where if they were working
+from an assessable site,
+
+00:12:12.280 --> 00:12:14.430
+their experience would
+be dramatically improved.
+
+00:12:14.430 --> 00:12:17.310
+Maybe it's on a mobile
+phone on a bright day
+
+00:12:17.310 --> 00:12:24.510
+and the contrast is actually
+good enough, and it has
+
+00:12:24.510 --> 00:12:27.590
+maybe improved it, I should
+say, by an accessible website,
+
+00:12:27.590 --> 00:12:31.340
+rather than on a site that's
+all cluttered and garbagy,
+
+00:12:31.340 --> 00:12:33.070
+and then you still can't
+utilize the experience.
+
+00:12:33.070 --> 00:12:35.620
+Obviously,
+good tagging for everything improves
+
+00:12:35.620 --> 00:12:36.700
+search engine optimizations.
+
+00:12:36.700 --> 00:12:40.130
+It clarifies content.
+
+00:12:40.130 --> 00:12:43.930
+It helps create taxonomies of data.
+
+00:12:43.930 --> 00:12:47.830
+So, it's very exciting for me
+the opportunities that exist,
+
+00:12:47.830 --> 00:12:54.500
+that exist for the cloud to
+really accelerate adoption
+
+00:12:54.500 --> 00:12:58.240
+that's accessibility through
+enforcement, front-end, back-end,
+
+00:12:58.240 --> 00:12:59.240
+and third-party.
+
+00:12:59.240 --> 00:13:06.650
+I hope that we can all start poking,
+prodding, and really demanding
+
+00:13:06.650 --> 00:13:11.030
+at the end of the day that those
+types of standards are ones
+
+00:13:11.030 --> 00:13:16.310
+that should be, you know,
+the commonplace across the Internet,
+
+00:13:16.310 --> 00:13:17.710
+not an exception of the rule.
+
+00:13:17.710 --> 00:13:23.170
+We don't need bad sass,
+bad hosting, bad social from
+
+00:13:23.170 --> 00:13:24.250
+and accessibility perspective.
+
+00:13:24.250 --> 00:13:28.270
+It only hinders communication
+and at the end of the day,
+
+00:13:28.270 --> 00:13:30.820
+I find that accessibility
+improvements
+
+00:13:30.820 --> 00:13:32.590
+are really communication
+improvements.
+
+00:13:32.590 --> 00:13:35.610
+So, thank you very much.
+
+00:13:35.610 --> 00:13:37.720
+I am Robert Jacobi from Cloudways.
+
+00:13:37.721 --> 00:13:47.759
+You can reach me at my e-mail
+, on Twitter @robertjacobi,
+
+00:13:49.329 --> 00:13:51.970
+and on my phone number.
+
+00:13:51.970 --> 00:13:54.560
+Yep, I actually put that in there.
+
+00:13:54.560 --> 00:13:59.950
+That's 847-687-5860 US.
+
+00:14:00.573 --> 00:14:03.280
+I can't guarantee I’ll answer
+everyone's text [chuckle].
+
+00:14:03.280 --> 00:14:06.870
+Thank you very much, and have a
+great WordPress Accessibility Day.

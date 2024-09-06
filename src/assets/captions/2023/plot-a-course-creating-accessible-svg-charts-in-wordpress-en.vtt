@@ -1,0 +1,2913 @@
+﻿WEBVTT
+
+00:00:01.351 --> 00:00:05.130
+ AMBER HINDS: WordPress
+Accessibility Day 2023:
+
+00:00:05.131 --> 00:00:06.390
+Plot a Course:
+
+00:00:06.390 --> 00:00:11.560
+Accessible SVG Charts in WordPress
+with Speaker, Joni Halabi,
+
+00:00:11.560 --> 00:00:15.040
+Senior Web Developer
+Georgetown University.
+
+00:00:15.040 --> 00:00:18.840
+This presentation was
+recorded September 28th, 2023.
+
+00:00:20.051 --> 00:00:22.390
+JULIE JOHNSON: My
+name is Julie Johnson.
+
+00:00:22.390 --> 00:00:24.910
+I am an e-learning
+accessibility specialist.
+
+00:00:24.910 --> 00:00:28.890
+And again, welcome to WordPress
+Accessibility Day 2023.
+
+00:00:28.890 --> 00:00:33.530
+Thank you for joining us for
+Joni Halabi's presentation,
+
+00:00:33.530 --> 00:00:37.350
+Creating Accessible SVG
+Charts in WordPress.
+
+00:00:37.350 --> 00:00:42.420
+Joni is a middle-end web
+developer at Georgetown University
+
+00:00:42.420 --> 00:00:46.680
+who likes to write code, commit
+often, and make up her own titles.
+
+00:00:46.680 --> 00:00:50.480
+She has spent the last 20
+years developing solutions
+
+00:00:50.480 --> 00:00:53.400
+for a wide variety of
+industries and organizations.
+
+00:00:53.400 --> 00:00:56.550
+She currently specializes
+in developing CMS themes
+
+00:00:56.550 --> 00:00:59.080
+and WordPress editor
+customizations.
+
+00:00:59.080 --> 00:01:03.010
+Joni has also taught continuing
+education coding classes, and spoken
+
+00:01:03.010 --> 00:01:05.400
+at a number of
+technical conferences.
+
+00:01:05.400 --> 00:01:08.700
+When Joni is not writing code,
+she is writing technical articles
+
+00:01:08.700 --> 00:01:13.340
+and creative works focusing on
+life as a single mother by choice.
+
+00:01:13.340 --> 00:01:16.760
+She enjoys running,
+practicing yoga, reading,
+
+00:01:16.760 --> 00:01:20.280
+and seeing live music near
+her home in Washington, D.C.
+
+00:01:22.350 --> 00:01:26.360
+Please feel free to add your
+questions to the Zoom Q&A
+
+00:01:26.360 --> 00:01:28.440
+and we will answer them
+at the end of the session.
+
+00:01:28.440 --> 00:01:34.400
+You can use the chat to
+connect to other attendees.
+
+00:01:36.040 --> 00:01:36.860
+Go ahead and go, Joni.
+
+00:01:38.300 --> 00:01:39.370
+JONI HALABI: Thank you so much.
+
+00:01:39.370 --> 00:01:40.670
+Hi, I am just going
+to share my screen.
+
+00:01:45.300 --> 00:01:47.110
+All right, there we go.
+
+00:01:47.110 --> 00:01:48.780
+So, hi, everybody.
+
+00:01:48.780 --> 00:01:53.440
+Welcome to Plot a Course: Creating
+Accessible SVG Charts in WordPress.
+
+00:01:54.500 --> 00:01:57.850
+My name is Joni Halabi,
+and just like in the introduction,
+
+00:01:57.850 --> 00:02:00.890
+I am a Senior Web
+Developer at Georgetown.
+
+00:02:00.890 --> 00:02:04.900
+You can find me on most
+social media at Joni Halabi.
+
+00:02:04.900 --> 00:02:09.040
+And regardless of what happens with
+social media, you can always find me
+
+00:02:09.040 --> 00:02:11.810
+on the web at jhalabi.com.
+
+00:02:13.980 --> 00:02:18.570
+So I am mom to a five year old
+and she likes to say, enough.
+
+00:02:18.570 --> 00:02:21.350
+So we have a lot to talk
+about and we've got 40 minutes
+
+00:02:21.350 --> 00:02:23.870
+to get through it,
+so let's get down to business.
+
+00:02:26.350 --> 00:02:31.450
+So today's journey, I'm just
+going to pose a story to everybody
+
+00:02:31.450 --> 00:02:32.700
+to start us out.
+
+00:02:32.700 --> 00:02:38.360
+So university admissions comes to
+us and says we want a visualization,
+
+00:02:38.360 --> 00:02:42.500
+a chart on our website that
+will show us how many students
+
+00:02:42.500 --> 00:02:45.930
+from each state in the United
+States who are returning
+
+00:02:45.930 --> 00:02:46.930
+to campus this fall.
+
+00:02:48.380 --> 00:02:55.260
+And university admissions has an
+incredibly large spreadsheet of data.
+
+00:02:56.540 --> 00:02:58.800
+So what do we do with this?
+
+00:02:58.800 --> 00:03:03.680
+Our mission is to make
+this visualization
+
+00:03:03.680 --> 00:03:05.030
+on our WordPress website.
+
+00:03:05.030 --> 00:03:09.710
+So we're going to write a custom
+Gutenberg block to both interpret
+
+00:03:09.710 --> 00:03:12.050
+and create a chart
+out of this data.
+
+00:03:14.890 --> 00:03:16.750
+So let's set a course.
+
+00:03:16.750 --> 00:03:19.930
+So, this presentation is
+going to be in three parts.
+
+00:03:21.120 --> 00:03:24.120
+Step one, we are going to
+create that Gutenberg block
+
+00:03:24.120 --> 00:03:29.230
+so that we can read the spreadsheet
+data directly from our Google Sheets.
+
+00:03:29.230 --> 00:03:32.130
+Step two, we are going to
+process that data in a way
+
+00:03:32.130 --> 00:03:35.720
+that we can use it to
+create a visualization.
+
+00:03:35.720 --> 00:03:38.440
+And step three is to
+actually make this chart.
+
+00:03:38.440 --> 00:03:41.070
+So we are going to make it
+accessible and we are going
+
+00:03:41.070 --> 00:03:42.070
+to make it responsive.
+
+00:03:44.210 --> 00:03:45.920
+So step one,
+let's create this block.
+
+00:03:47.570 --> 00:03:50.100
+So we have two choices really.
+
+00:03:50.100 --> 00:03:54.880
+We could manually enter all
+that data from our Google Sheet
+
+00:03:54.880 --> 00:03:58.830
+or we could automatically
+import it from Google.
+
+00:04:01.250 --> 00:04:03.520
+I know which choice I would make.
+
+00:04:05.060 --> 00:04:07.780
+That automatic import
+sounds so much better.
+
+00:04:09.110 --> 00:04:13.180
+If we automatically hook up
+WordPress into Google Sheets,
+
+00:04:13.180 --> 00:04:16.910
+our data will update automatically
+whenever admissions goes in
+
+00:04:16.910 --> 00:04:18.780
+and updates that spreadsheet.
+
+00:04:20.650 --> 00:04:23.300
+However,
+there are a couple of trade-offs.
+
+00:04:23.300 --> 00:04:28.930
+So we will need to acquire
+an API key from Google.
+
+00:04:28.930 --> 00:04:32.940
+And it also means that our website
+now has an external dependency,
+
+00:04:32.940 --> 00:04:35.610
+which I know can be a deal
+breaker for some sites.
+
+00:04:35.610 --> 00:04:37.940
+So it's something to
+just keep in mind.
+
+00:04:37.940 --> 00:04:41.060
+If you like to keep your
+site very contained,
+
+00:04:41.060 --> 00:04:43.510
+this might not be a great
+option, but if you are OK
+
+00:04:43.510 --> 00:04:47.110
+with external dependencies, but if
+you’re OK with external dependencies,
+
+00:04:47.110 --> 00:04:48.810
+having that dependency
+on a Google product.
+
+00:04:50.540 --> 00:04:56.890
+This is a really nice automatic
+solution, so let's dive in.
+
+00:04:56.890 --> 00:05:02.050
+So our Gutenberg block setup,
+it is going to be a dynamic block,
+
+00:05:02.050 --> 00:05:09.310
+meaning that the content and
+the markup will be rendered
+
+00:05:09.310 --> 00:05:13.260
+on the fly, on page load,
+by the website's backend.
+
+00:05:13.260 --> 00:05:15.910
+And this is because
+we have dynamic data.
+
+00:05:15.910 --> 00:05:18.240
+This data could change,
+It's coming from a sheet
+
+00:05:18.240 --> 00:05:20.950
+that could possibly
+be edited at any time.
+
+00:05:20.950 --> 00:05:22.480
+So we're going to
+create a dynamic block.
+
+00:05:23.680 --> 00:05:29.640
+We are going to utilize a
+block .json and we are going
+
+00:05:29.640 --> 00:05:32.340
+to have a few attributes
+that we are going to define
+
+00:05:32.340 --> 00:05:34.000
+in this dynamic block.
+
+00:05:34.000 --> 00:05:38.670
+So we are going to define the
+URL of our sheets, which column
+
+00:05:38.670 --> 00:05:45.200
+to create a chart out of, and a title
+for our chart and also a caption,
+
+00:05:45.200 --> 00:05:48.330
+just to give this chart a little
+bit more context and we will go
+
+00:05:48.330 --> 00:05:51.610
+into each of those as this
+presentation progresses.
+
+00:05:54.350 --> 00:05:57.440
+So I am not going to dive too deep
+
+00:05:57.440 --> 00:06:03.670
+into the dynamic block creation
+just because I really want
+
+00:06:03.670 --> 00:06:08.530
+to concentrate on the chart
+creation, but here is a snippet
+
+00:06:08.530 --> 00:06:13.370
+of how the block will
+be created in code.
+
+00:06:13.370 --> 00:06:16.220
+So we have our index.javascript.
+
+00:06:16.220 --> 00:06:18.540
+JavaScript is going to be
+the driver of our block.
+
+00:06:18.540 --> 00:06:22.400
+We are going to register
+our block from block.json.
+
+00:06:24.260 --> 00:06:30.520
+Our block.json is really the big
+driver of the block definition.
+
+00:06:30.520 --> 00:06:34.100
+It defines the name of my
+chart, the name of my block,
+
+00:06:34.100 --> 00:06:35.520
+which I am calling chart.
+
+00:06:36.630 --> 00:06:40.620
+Creatively the title,
+and then those four attributes
+
+00:06:40.620 --> 00:06:41.760
+that I called out earlier.
+
+00:06:41.760 --> 00:06:47.900
+So the data, which is going to
+be our sheet URL, the column
+
+00:06:47.900 --> 00:06:50.810
+that we are gonna create the
+chart out of, our chart title
+
+00:06:50.810 --> 00:06:51.630
+and our chart caption.
+
+00:06:51.630 --> 00:06:54.770
+And all of these are
+going to be strings.
+
+00:06:59.860 --> 00:07:04.580
+Our edit interface is going to
+use primarily the text control
+
+00:07:04.580 --> 00:07:07.450
+because we are dealing with text,
+we are dealing with strings.
+
+00:07:07.450 --> 00:07:09.510
+So I am just going to
+have text controls,
+
+00:07:09.510 --> 00:07:13.370
+which is the Gutenberg fancy way
+of saying, I want an input field.
+
+00:07:13.370 --> 00:07:16.080
+So we are going to have
+a separate text control
+
+00:07:16.080 --> 00:07:18.730
+for our Google Sheets
+URL, our column,
+
+00:07:18.731 --> 00:07:21.040
+and then also I did not have room
+
+00:07:21.040 --> 00:07:25.330
+to fit this on the slide,
+but also the title on the caption.
+
+00:07:26.490 --> 00:07:30.000
+And our edit UI is going to
+look something like this.
+
+00:07:31.510 --> 00:07:39.290
+So what I chose to do is have
+all of these text controls
+
+00:07:39.290 --> 00:07:45.680
+in the inspector panel, off to
+the side, leaving the editor UI
+
+00:07:45.680 --> 00:07:50.650
+as a home for a placeholder
+for where the chart will go.
+
+00:07:50.650 --> 00:07:56.770
+You can type in the caption over
+here at the bottom below the block.
+
+00:07:59.030 --> 00:08:03.720
+And the content editor can just add
+this block into the WordPress site
+
+00:08:03.720 --> 00:08:05.200
+and go.
+
+00:08:08.560 --> 00:08:13.370
+It was a super quick overview of
+dynamic blocks and I apologize
+
+00:08:13.370 --> 00:08:18.750
+because I really want to get into
+step two, which is processing all
+
+00:08:18.750 --> 00:08:21.130
+of the data from our Google Sheets.
+
+00:08:23.020 --> 00:08:25.830
+So, the strategy that
+we are going to use
+
+00:08:25.830 --> 00:08:31.660
+because we just created a
+dynamic block, and we are going
+
+00:08:31.660 --> 00:08:38.310
+to be rendering the dynamic block on
+the front-end using the server side,
+
+00:08:38.310 --> 00:08:40.069
+we want to do all of
+our data processing
+
+00:08:40.070 --> 00:08:41.270
+on the server side as well.
+
+00:08:41.270 --> 00:08:43.690
+So we are going to
+process all of this in PHP
+
+00:08:43.690 --> 00:08:47.080
+because that is the back-end
+language that WordPress runs on.
+
+00:08:47.080 --> 00:08:53.560
+And we're going to use a really neat
+class in WordPress called wp_http.
+
+00:08:53.560 --> 00:08:59.350
+And we are going to use that
+class to read the data directly
+
+00:08:59.350 --> 00:09:00.350
+from Google Sheets.
+
+00:09:04.480 --> 00:09:07.970
+So in the PHP, we are going to get
+some data from the block attributes.
+
+00:09:07.970 --> 00:09:13.060
+The first piece of data that we
+are going to need is that API key.
+
+00:09:13.060 --> 00:09:19.290
+So you can go into
+your Google account,
+
+00:09:19.290 --> 00:09:22.390
+and your Google account
+will let you get into kind
+
+00:09:22.390 --> 00:09:26.920
+of like a developer mode, and it
+will let you create an API key.
+
+00:09:28.340 --> 00:09:30.820
+You will need to store
+that API key somewhere.
+
+00:09:30.820 --> 00:09:33.330
+You have a few options to do that.
+
+00:09:34.410 --> 00:09:40.010
+I personally like having a
+custom setting that I also define
+
+00:09:40.010 --> 00:09:43.560
+in WordPress, where a content
+editor, for example, can go
+
+00:09:43.560 --> 00:09:46.170
+and store that API key, and then
+it's just saved to your site.
+
+00:09:48.530 --> 00:09:52.820
+You could also add it
+to your code directly,
+
+00:09:52.820 --> 00:09:55.100
+that's not exactly super secure.
+
+00:09:55.100 --> 00:09:59.490
+You could also add that
+as a GitHub secrets,
+
+00:09:59.490 --> 00:10:01.480
+which is a little bit more secure.
+
+00:10:01.480 --> 00:10:08.430
+That option is up to you, but in
+order to use that wp_http class
+
+00:10:08.430 --> 00:10:13.630
+to read information from Google,
+you will need that API key.
+
+00:10:13.630 --> 00:10:16.320
+And then the other data I
+am going to need to be able
+
+00:10:16.320 --> 00:10:20.900
+to read this Google sheet is
+first the URL of the Google sheet,
+
+00:10:20.900 --> 00:10:24.120
+and then also that column that we
+want to create the chart out of.
+
+00:10:26.610 --> 00:10:31.150
+So what I am going to do
+is extract the sheet ID
+
+00:10:31.150 --> 00:10:37.090
+from the Google Sheets URL,
+and all of these sheet URLs,
+
+00:10:37.090 --> 00:10:40.920
+if you take a look at the URL
+when you are in Google Sheets,
+
+00:10:40.920 --> 00:10:43.790
+they all have the same format.
+
+00:10:43.790 --> 00:10:48.162
+So it's always
+docs.google.com/spreadsheets/...
+
+00:10:48.163 --> 00:10:51.260
+and then a bunch
+of characters.
+
+00:10:52.280 --> 00:10:55.960
+Those bunch of characters
+are the sheet ID.
+
+00:10:55.960 --> 00:10:59.080
+So we want to extract that so
+that we can get that information
+
+00:10:59.080 --> 00:11:00.080
+via the API.
+
+00:11:03.370 --> 00:11:07.060
+The next piece of information that
+we are going to need is the range
+
+00:11:07.060 --> 00:11:10.610
+of data from the spreadsheet that
+we want to create the chart out of.
+
+00:11:10.610 --> 00:11:12.070
+And this is where column comes in.
+
+00:11:13.460 --> 00:11:20.980
+So I make an assumption that
+these sheets, the first row
+
+00:11:20.980 --> 00:11:25.030
+of the sheet is basically
+like a title header row
+
+00:11:25.030 --> 00:11:29.460
+where from the Google sheet
+that I put on the screen
+
+00:11:29.460 --> 00:11:35.500
+before that title row had
+name, states, major,
+
+00:11:36.830 --> 00:11:40.760
+forget what other columns there are,
+but that first row is not really part
+
+00:11:40.760 --> 00:11:45.800
+of our data that's more
+defining the columns.
+
+00:11:45.800 --> 00:11:50.940
+So what I want to do is set
+my range from the second row
+
+00:11:50.940 --> 00:11:56.400
+to something that is large enough to
+capture all the data in the sheets.
+
+00:11:56.400 --> 00:11:58.220
+In this example,
+I chose a thousand.
+
+00:11:59.750 --> 00:12:03.270
+You might want to take a look
+at your sheet to see what number
+
+00:12:03.270 --> 00:12:04.396
+might be best for you,
+
+00:12:04.397 --> 00:12:07.110
+but you want to make that
+last number really large.
+
+00:12:11.560 --> 00:12:17.680
+And then this all sets us up to make
+that call to Google to get our data.
+
+00:12:18.730 --> 00:12:22.180
+So the snippet of code
+that I have on the screen
+
+00:12:22.180 --> 00:12:27.370
+at first creates a new
+instance of that wp_http class.
+
+00:12:29.590 --> 00:12:35.230
+It sets up the URL that we are
+going to use to call the Google API.
+
+00:12:35.230 --> 00:12:39.000
+So that Google API always starts
+with sheets.googleapis.com.
+
+00:12:40.340 --> 00:12:45.010
+And then we are going to add our our
+sheet ID that we extracted before.
+
+00:12:46.140 --> 00:12:52.480
+And then the range of data from
+the column that we are reading
+
+00:12:52.480 --> 00:12:54.860
+and then, finally our API key.
+
+00:12:54.860 --> 00:12:57.220
+And that API key is
+like the lock that sort
+
+00:12:57.220 --> 00:12:59.000
+of unlocks all the
+data from Google.
+
+00:13:02.200 --> 00:13:10.200
+So we are going to get our raw
+data by calling the get function
+
+00:13:13.180 --> 00:13:15.380
+from the wp_http class.
+
+00:13:15.380 --> 00:13:21.800
+And then we are going to
+decode all of this raw data,
+
+00:13:21.800 --> 00:13:23.830
+so it comes in as a JSON string.
+
+00:13:23.830 --> 00:13:29.570
+We are going to decode all of
+this data and we will get an array
+
+00:13:29.570 --> 00:13:32.360
+that looks something like this.
+
+00:13:32.360 --> 00:13:36.170
+So it's an associative array.
+
+00:13:36.170 --> 00:13:43.220
+So the array is going to first
+tell us our range, which is where
+
+00:13:43.220 --> 00:13:47.140
+in the sheet that we
+extracted all of this data.
+
+00:13:47.140 --> 00:13:52.860
+So I extracted data from
+a sheet called class data
+
+00:13:52.860 --> 00:13:57.800
+from column C row two through 101.
+
+00:13:57.800 --> 00:14:03.190
+And then following that,
+it's showing me all of my values.
+
+00:14:03.190 --> 00:14:06.330
+So all of my values are
+the different states
+
+00:14:06.330 --> 00:14:08.000
+where these students
+are coming from.
+
+00:14:08.000 --> 00:14:13.930
+So my first student is coming from
+California, the second one is coming
+
+00:14:13.930 --> 00:14:17.510
+from South Dakota, for the next
+one is North Carolina, and so on.
+
+00:14:20.980 --> 00:14:25.880
+So we have our data from our Google
+sheets, but we are not done yet.
+
+00:14:25.880 --> 00:14:30.630
+What we really need to create our
+visualization is to count the number
+
+00:14:30.630 --> 00:14:33.590
+of students from each state.
+
+00:14:33.590 --> 00:14:35.890
+I do not mean each major,
+I really do mean each state.
+
+00:14:35.890 --> 00:14:43.000
+So we are going to need another
+PHP function to count all
+
+00:14:43.000 --> 00:14:47.170
+of the unique values in that data
+that we just extracted from Google.
+
+00:14:47.170 --> 00:14:51.100
+So we are going to have a
+for loop and we are going
+
+00:14:51.100 --> 00:14:54.360
+to create a for loop that will
+loop through all of the values
+
+00:14:54.360 --> 00:14:57.000
+in our raw data.
+
+00:14:57.000 --> 00:15:02.450
+And we are going to say, OK,
+well, if we come across a state
+
+00:15:02.450 --> 00:15:05.830
+that we have already come
+across, then we are just going
+
+00:15:05.830 --> 00:15:07.700
+to create a counter for that
+state and we are just going
+
+00:15:07.700 --> 00:15:09.930
+to keep adding one,
+adding one, adding one.
+
+00:15:09.930 --> 00:15:14.910
+So if we go through this loop and
+we say, OK my first student is
+
+00:15:14.910 --> 00:15:19.030
+from California, I already
+have somebody from California,
+
+00:15:19.030 --> 00:15:22.140
+so I will add one to that bucket.
+
+00:15:22.140 --> 00:15:24.640
+If I do not have somebody
+from California yet,
+
+00:15:24.640 --> 00:15:26.560
+if I have not come across
+somebody from California,
+
+00:15:26.560 --> 00:15:29.270
+I am going to create a new
+California bucket and say, OK well,
+
+00:15:29.270 --> 00:15:32.370
+I have one person from California,
+and then I have one person
+
+00:15:32.370 --> 00:15:34.820
+from North Carolina, and then,
+oh, look, I have another person
+
+00:15:34.820 --> 00:15:37.080
+from California, so I am up to two.
+
+00:15:37.080 --> 00:15:44.880
+So eventually this for loop
+will count all of the students
+
+00:15:44.880 --> 00:15:46.690
+from all of these states.
+
+00:15:46.690 --> 00:15:52.550
+And I will end up with a much
+nicer looking array that,
+
+00:15:52.550 --> 00:15:56.060
+again, is an associative
+array, but now it's saying, OK,
+
+00:15:56.060 --> 00:15:59.570
+I have six students from California
+and six from North Carolina
+
+00:15:59.570 --> 00:16:02.310
+and two from Maryland
+and so on and so on.
+
+00:16:04.160 --> 00:16:07.110
+So this is something we can
+work with to create a chart.
+
+00:16:08.590 --> 00:16:13.910
+There was a whole lot of work, but
+now we can actually create our chart
+
+00:16:13.910 --> 00:16:15.810
+because now we have data
+that we can work with.
+
+00:16:18.560 --> 00:16:24.210
+So circling back to our
+charting requirements, we want
+
+00:16:24.210 --> 00:16:28.170
+to make this chart accessible
+so that the largest number
+
+00:16:28.170 --> 00:16:31.920
+of people can access this
+data, and understand this data.
+
+00:16:31.920 --> 00:16:39.480
+We want to make it responsive so
+that people can look at this data
+
+00:16:39.480 --> 00:16:43.030
+and find this data on
+whatever device they are on.
+
+00:16:43.030 --> 00:16:46.870
+If somebody is on a
+laptop, a tablet, a phone.
+
+00:16:48.270 --> 00:16:52.790
+And this particular example is a
+fairly simple example, so we want
+
+00:16:52.790 --> 00:16:54.820
+to keep our visualization
+fairly simple.
+
+00:16:54.820 --> 00:16:58.040
+So today we are going to
+create a horizontal bar chart.
+
+00:17:00.320 --> 00:17:02.830
+So something that looks like
+what I have on the screen.
+
+00:17:02.830 --> 00:17:09.210
+So on the left-hand side, I have
+the list of all of the states,
+
+00:17:09.210 --> 00:17:17.140
+and going from left to right,
+I have bars that will visually show
+
+00:17:18.440 --> 00:17:21.230
+how many students
+are from each state.
+
+00:17:21.230 --> 00:17:23.480
+So how many students
+are from California?
+
+00:17:23.480 --> 00:17:26.410
+There's quite a few from
+California and North Carolina,
+
+00:17:26.410 --> 00:17:28.760
+maybe not so many from Wisconsin.
+
+00:17:28.760 --> 00:17:34.890
+At the bottom of this chart,
+I have my X-axis showing a sense
+
+00:17:34.890 --> 00:17:36.470
+of scale, so zero to six.
+
+00:17:37.560 --> 00:17:40.300
+Because the most I have
+from any given state is 6.
+
+00:17:40.300 --> 00:17:42.990
+This is obviously a very
+small university here.
+
+00:17:42.990 --> 00:17:48.010
+And then finally at the bottom
+we have a caption saying all
+
+00:17:48.010 --> 00:17:52.180
+of our students come from
+all over the United States.
+
+00:17:52.180 --> 00:17:55.800
+And this fall, most of our
+students are coming from 1
+
+00:17:55.800 --> 00:17:57.340
+of 4 different states.
+
+00:17:57.340 --> 00:18:01.110
+So let us figure out
+how to make this.
+
+00:18:03.810 --> 00:18:06.490
+So there are a few options.
+
+00:18:06.490 --> 00:18:12.980
+There are a lot of libraries that
+somebody can use to create SVGs.
+
+00:18:14.360 --> 00:18:17.240
+D3 is one of them,
+it is a really great one.
+
+00:18:17.240 --> 00:18:20.880
+But in this talk I really want to
+talk about how to create a chart
+
+00:18:20.880 --> 00:18:23.140
+from scratch using SVG.
+
+00:18:23.140 --> 00:18:27.910
+So the first question
+is, what on earth is SVG?
+
+00:18:30.490 --> 00:18:34.040
+So SVG stands for
+Scalable Vector Graphic.
+
+00:18:34.040 --> 00:18:41.030
+And it is based in XML, which is
+a markup language fairly similar
+
+00:18:41.030 --> 00:18:46.050
+in structure to HTML for folks
+who are familiar with that.
+
+00:18:46.050 --> 00:18:52.460
+And it is specifically a standard
+that helps you create images
+
+00:18:52.460 --> 00:18:55.480
+for anything that
+is two dimensional.
+
+00:18:55.480 --> 00:18:59.700
+So SVG unlike other image
+formats, it is all code.
+
+00:18:59.700 --> 00:19:04.100
+If you open up an SVG file in
+a text editor you will see code
+
+00:19:04.100 --> 00:19:05.620
+that you can read.
+
+00:19:05.620 --> 00:19:10.380
+In contrast if you open up a JPEG
+in a text editor you are going
+
+00:19:10.380 --> 00:19:14.980
+to see a lot of characters that
+might not even be recognizable,
+
+00:19:14.980 --> 00:19:20.210
+and it's going to be
+a giant looking mess.
+
+00:19:20.210 --> 00:19:25.870
+So SVG is all code that a human
+can read if you know the language
+
+00:19:25.870 --> 00:19:28.210
+and we are going to go into
+that language a little bit here.
+
+00:19:29.660 --> 00:19:34.490
+There is no image loss because
+code scales very nicely.
+
+00:19:35.580 --> 00:19:38.480
+In an SVG you can say,
+I want to create a rectangle.
+
+00:19:38.480 --> 00:19:42.310
+And these are the general
+proportions of my rectangle.
+
+00:19:42.310 --> 00:19:46.160
+I want it to be twice
+as wide as it is high.
+
+00:19:46.160 --> 00:19:52.080
+And you can scale that very easily
+on a small screen or a large screen.
+
+00:19:52.080 --> 00:19:54.310
+So you do not get any image
+loss that you would if you tried
+
+00:19:54.310 --> 00:19:56.770
+to like zoom in on a
+JPEG, for example.
+
+00:19:58.300 --> 00:20:04.310
+Also because an SVG is all code,
+it tends to have a smaller file size
+
+00:20:04.310 --> 00:20:07.740
+than something like a
+JPEG, or a PNG or a GIF.
+
+00:20:07.740 --> 00:20:10.000
+And that code is semantic.
+
+00:20:10.000 --> 00:20:15.470
+You can make a semantic SVG
+by using the correct tags,
+
+00:20:15.470 --> 00:20:17.230
+just like you would in HTML.
+
+00:20:17.230 --> 00:20:20.730
+And you can also add Aria
+attributes and roles to these tags
+
+00:20:20.730 --> 00:20:24.350
+to make your code readable to
+the widest possible audience.
+
+00:20:26.730 --> 00:20:34.730
+So let's dive further in and
+write some of this SVG code.
+
+00:20:35.090 --> 00:20:39.620
+As general overview, SVG,
+you start with the SVG tag,
+
+00:20:40.930 --> 00:20:47.460
+and you start out with this
+XML and S-standard URL.
+
+00:20:47.460 --> 00:20:50.110
+But the points that
+I want to point out
+
+00:20:50.110 --> 00:20:54.830
+in this SVG tag are the Aria labeled
+by and the width and the height.
+
+00:20:54.830 --> 00:20:57.559
+So the width and the
+height are really important
+
+00:20:57.560 --> 00:20:58.840
+for browser rendering.
+
+00:20:58.840 --> 00:21:02.100
+So it tells the browser
+exactly how big,
+
+00:21:02.100 --> 00:21:06.300
+how much space does this
+SVG need to take up.
+
+00:21:06.300 --> 00:21:10.680
+And if you are familiar
+with the image tag in HTML,
+
+00:21:10.680 --> 00:21:13.740
+this is very similar to setting
+a width and height there
+
+00:21:13.740 --> 00:21:18.780
+because it's a much nicer experience
+if the browser already knows
+
+00:21:18.780 --> 00:21:21.060
+how big this particular
+image is going to be.
+
+00:21:22.960 --> 00:21:30.570
+Now, the Aria labeled by
+attribute here is a pointer
+
+00:21:30.570 --> 00:21:36.150
+to what I have in this
+particular example to my title.
+
+00:21:36.150 --> 00:21:41.530
+So I am in my SVG tag,
+I am saying this SVG is labeled
+
+00:21:41.530 --> 00:21:46.140
+by the elements inside my SVG
+that has the ID of my dash chart,
+
+00:21:47.240 --> 00:21:49.150
+which just happens
+to be my title tag.
+
+00:21:49.150 --> 00:21:53.470
+So this SVG, when it is read
+by a screen reader agent,
+
+00:21:53.470 --> 00:21:56.790
+it's going to say, OK,
+the label for this SVG is the title.
+
+00:21:56.790 --> 00:22:01.270
+So I am going to read out
+whatever is inside my title tag
+
+00:22:01.270 --> 00:22:07.810
+as the label, as the descriptor
+for this particular SVG image.
+
+00:22:07.810 --> 00:22:12.230
+So that is really the
+first step in making sure
+
+00:22:12.230 --> 00:22:17.300
+that a screen reader user will
+be able to understand the context
+
+00:22:17.300 --> 00:22:18.320
+of what is in this chart.
+
+00:22:19.610 --> 00:22:22.040
+So one of the keys of this
+title is that you really want
+
+00:22:22.040 --> 00:22:27.500
+to set up that context for what
+kind of visualization you have.
+
+00:22:27.500 --> 00:22:31.590
+So in this case, I am saying
+I have a horizontal bar chart.
+
+00:22:31.590 --> 00:22:34.100
+So I am describing what's
+going to be on the screen.
+
+00:22:34.100 --> 00:22:36.480
+And this is depicting
+the number of users
+
+00:22:36.480 --> 00:22:39.360
+that are attending our
+university from each US state.
+
+00:22:39.360 --> 00:22:43.100
+So it's also setting up the
+expectation of what is going to go
+
+00:22:43.100 --> 00:22:45.450
+into this chart.
+
+00:22:45.450 --> 00:22:51.190
+After that title, you can put
+all of the shapes that are going
+
+00:22:51.190 --> 00:22:54.110
+to go into creating this chart.
+
+00:22:57.070 --> 00:23:01.970
+So before we get into shapes,
+we do need to set that SVG height.
+
+00:23:01.970 --> 00:23:05.830
+So on my previous screen,
+you saw like I had heights,
+
+00:23:05.830 --> 00:23:08.900
+but I did not really specify a
+number because I need to calculate
+
+00:23:08.900 --> 00:23:11.860
+how tall this chart is going to be.
+
+00:23:13.430 --> 00:23:14.800
+So the fun thing about charts,
+
+00:23:14.800 --> 00:23:18.680
+especially when you
+are creating a chart
+
+00:23:18.680 --> 00:23:21.700
+from some dynamic data,
+is that you do not really know
+
+00:23:21.700 --> 00:23:24.550
+how many bars are going
+to be in that chart
+
+00:23:24.550 --> 00:23:26.600
+until you really take a
+look at the data and see
+
+00:23:26.600 --> 00:23:28.120
+how many unique values you have.
+
+00:23:29.220 --> 00:23:32.630
+So we need to do that calculation.
+
+00:23:32.630 --> 00:23:38.730
+So now that we know that we
+have 10 or 12 different states
+
+00:23:38.730 --> 00:23:40.280
+that we need to chart out.
+
+00:23:40.280 --> 00:23:42.630
+We need to do that calculation.
+
+00:23:42.630 --> 00:23:46.960
+So we need to say that our chart
+height has to be the number
+
+00:23:46.960 --> 00:23:49.760
+of unique values in our charts.
+
+00:23:49.760 --> 00:23:54.340
+And we are going to
+multiply that by how tall,
+
+00:23:54.340 --> 00:23:59.280
+like how physically tall we
+want each horizontal bar to be.
+
+00:23:59.280 --> 00:24:06.060
+Plus how much space do we want in
+between each bar in our charts.
+
+00:24:06.060 --> 00:24:13.750
+And if we do that multiplication and
+we give just a little bit more room,
+
+00:24:14.880 --> 00:24:19.080
+so my first line of code is
+doing that multiplication.
+
+00:24:19.080 --> 00:24:21.730
+The second line of code is saying,
+I want to take that chart height.
+
+00:24:21.730 --> 00:24:26.590
+So the sum of all of the
+heights of the bars plus all
+
+00:24:26.590 --> 00:24:27.840
+of the gaps in between.
+
+00:24:27.840 --> 00:24:30.310
+And I am going to add
+another 40 pixels to that
+
+00:24:30.310 --> 00:24:34.060
+to give myself a little bit more
+space for something like the X-axis
+
+00:24:34.060 --> 00:24:35.690
+and the caption.
+
+00:24:37.200 --> 00:24:40.280
+That chart height plus my
+little bit of extra is going
+
+00:24:40.280 --> 00:24:41.620
+to be the height of my SVG.
+
+00:24:44.070 --> 00:24:50.130
+So my SVG declaration with my
+height is going to look like this.
+
+00:24:50.130 --> 00:24:55.640
+I'll have my SVG tag, my Aria
+labeled attribute going to my chart,
+
+00:24:55.640 --> 00:24:56.170
+my width.
+
+00:24:56.170 --> 00:25:02.040
+I want this chart to take
+up 100% of its container.
+
+00:25:02.040 --> 00:25:06.350
+And then the height is going
+to equal that SVG height
+
+00:25:06.350 --> 00:25:07.720
+that I just calculated.
+
+00:25:10.080 --> 00:25:14.090
+So next up we want to
+create those X and Y axes,
+
+00:25:14.090 --> 00:25:18.030
+to give our chart a
+little bit of shape.
+
+00:25:20.410 --> 00:25:26.990
+Geometry reminder, the X-axis
+goes across, from left to right,
+
+00:25:26.990 --> 00:25:29.420
+the Y-axis goes up and down.
+
+00:25:29.420 --> 00:25:34.530
+And the X-axis in particular,
+on this particular chart is going
+
+00:25:34.530 --> 00:25:38.020
+to be aligned with the
+bottom of our chart.
+
+00:25:38.020 --> 00:25:43.370
+And I did Google this axis,
+spelled kind of looks like axes,
+
+00:25:43.370 --> 00:25:45.590
+is the plural of axis singular.
+
+00:25:45.590 --> 00:25:51.240
+So I just found that very
+fun bit of English grammar.
+
+00:25:53.100 --> 00:26:01.100
+So anyway, the way that an
+SVG defines the coordinates
+
+00:26:01.330 --> 00:26:07.770
+of the elements inside of
+it, is that the top left
+
+00:26:08.810 --> 00:26:16.810
+of our SVG image is the zero
+width pixel on your X-axis
+
+00:26:18.160 --> 00:26:23.020
+and zero width pixel
+on your Y-axis.
+
+00:26:23.020 --> 00:26:31.020
+So you start in the top left at
+zero, zero, and all the way across
+
+00:26:32.280 --> 00:26:37.890
+to your right is what
+I'm calling max X here.
+
+00:26:39.690 --> 00:26:44.750
+Max X is the width of our SVG,
+max Y is the height of our SVG.
+
+00:26:44.750 --> 00:26:49.230
+So this is going to be relevant when
+we start drawing these SVG shapes.
+
+00:26:56.550 --> 00:27:01.420
+In order to create the X-axis
+and the Y-axis in a chart,
+
+00:27:01.420 --> 00:27:05.240
+they are basically just lines.
+
+00:27:05.240 --> 00:27:10.310
+The SVG markup has a line element.
+
+00:27:10.310 --> 00:27:12.750
+So it just says,
+I want to create a line and I want
+
+00:27:12.750 --> 00:27:16.840
+to start this line at
+this XY coordinate.
+
+00:27:16.840 --> 00:27:21.210
+And I want to end this line
+at this other XY coordinate.
+
+00:27:21.210 --> 00:27:25.040
+And all you have to do to
+create a line, going again,
+
+00:27:25.040 --> 00:27:31.250
+channeling geometry class,
+is to set our two points.
+
+00:27:31.250 --> 00:27:35.860
+And this line element will just draw
+a line in between the two points
+
+00:27:35.860 --> 00:27:36.860
+that we define.
+
+00:27:39.950 --> 00:27:45.090
+So the first point is defined
+with the attributes X1 and Y1.
+
+00:27:45.090 --> 00:27:46.220
+So that is our first point.
+
+00:27:46.220 --> 00:27:51.270
+So we want to say, all right,
+I want the Y-axis to start 20%
+
+00:27:51.270 --> 00:27:52.270
+of the way in.
+
+00:27:53.490 --> 00:28:01.490
+And I want my Y-axis to start up top
+and go all the way to the bottom.
+
+00:28:01.880 --> 00:28:06.650
+So my first point is going
+to be 20% of the way in,
+
+00:28:06.650 --> 00:28:11.450
+and zero for my y values.
+
+00:28:11.450 --> 00:28:13.520
+It's going to start
+all the way at the top.
+
+00:28:13.520 --> 00:28:17.910
+And then my second point is going
+to be, again, 20% of the way in
+
+00:28:17.910 --> 00:28:23.030
+from the left-hand side of the SVG,
+and it is going to go all the way
+
+00:28:23.030 --> 00:28:24.720
+to the bottom of our chart.
+
+00:28:24.720 --> 00:28:28.620
+So I have that as a variable
+of chart height here.
+
+00:28:28.620 --> 00:28:32.380
+So chart height is really going to
+be that multiplication that we did
+
+00:28:32.380 --> 00:28:33.780
+in that earlier slide.
+
+00:28:33.780 --> 00:28:41.780
+So chart height is the number of bars
+times the bar width plus bar gap.
+
+00:28:44.220 --> 00:28:50.340
+Stroke just tells me the what
+color I want this axis to be.
+
+00:28:50.340 --> 00:28:55.590
+So I am choosing black,
+which is defined in hex as 000,
+
+00:28:55.590 --> 00:29:00.080
+and I want my axis to have
+a width of two pixels.
+
+00:29:00.080 --> 00:29:02.630
+So that's my stroke width.
+
+00:29:02.630 --> 00:29:05.150
+I am giving this line
+a role of presentation
+
+00:29:05.150 --> 00:29:13.150
+because I do not really want the
+screen reader to call out both
+
+00:29:13.170 --> 00:29:16.140
+of my axes.
+
+00:29:16.140 --> 00:29:20.160
+I do not necessarily want the screen
+reader to say there is a line here
+
+00:29:20.160 --> 00:29:22.970
+that is my Y-axis, there is
+a line here that is my X-axis
+
+00:29:22.970 --> 00:29:25.980
+because that's too much
+information for somebody.
+
+00:29:25.980 --> 00:29:28.000
+That's just a lot of information.
+
+00:29:28.000 --> 00:29:30.730
+It's a lot of unnecessary information
+and it's not exactly germane
+
+00:29:30.730 --> 00:29:32.390
+to the data in our chart.
+
+00:29:33.530 --> 00:29:37.850
+So a roll of presentation will
+allow the screen reader to just say,
+
+00:29:37.850 --> 00:29:39.070
+OK this is presentation.
+
+00:29:39.070 --> 00:29:44.750
+This is not actual data,
+I don't have to read this out.
+
+00:29:44.750 --> 00:29:49.130
+My X-axis is drawn in
+a very similar way.
+
+00:29:49.130 --> 00:29:52.140
+It also has that roll of
+presentation and it's going
+
+00:29:52.140 --> 00:29:55.620
+to go straight across the bottom.
+
+00:29:55.620 --> 00:30:00.790
+So my first point is going to
+be, again, 20% of the way in,
+
+00:30:00.790 --> 00:30:04.220
+and it's going to go all
+the way to the bottom.
+
+00:30:04.220 --> 00:30:07.040
+So both y-values are going
+to be the chart heights.
+
+00:30:07.040 --> 00:30:08.370
+Make sure it stays on the bottom.
+
+00:30:08.370 --> 00:30:13.420
+So this line is going to
+go 20% of the way to 100%
+
+00:30:13.420 --> 00:30:18.830
+of the way down or
+across my SVG chart.
+
+00:30:18.830 --> 00:30:23.860
+And again, I want this to be
+a two pixel wide black line
+
+00:30:23.860 --> 00:30:25.070
+because it's my axis line.
+
+00:30:25.070 --> 00:30:26.200
+I want it to be fairly neutral.
+
+00:30:28.830 --> 00:30:32.790
+And then I also want to have
+my scale along the X-axis.
+
+00:30:32.790 --> 00:30:39.900
+So my scale is going to be
+from zero to the maximum number
+
+00:30:39.900 --> 00:30:43.510
+of people who are from
+a particular state.
+
+00:30:43.510 --> 00:30:44.670
+In this example, it's six.
+
+00:30:45.850 --> 00:30:49.860
+So I want to depict this in my
+SVG and I am going to use this
+
+00:30:49.860 --> 00:30:52.490
+with another element called text.
+
+00:30:52.490 --> 00:30:56.730
+So the cool thing about SVGs is you
+can put text in it and it's so great.
+
+00:30:56.730 --> 00:31:01.600
+I am also giving this text
+element a roll of presentation
+
+00:31:01.600 --> 00:31:06.390
+because I do not necessarily
+want a screen reader agent
+
+00:31:06.390 --> 00:31:10.740
+to read this particular
+piece of text out because all
+
+00:31:10.740 --> 00:31:13.070
+of a sudden somebody's
+going to come across this
+
+00:31:13.070 --> 00:31:16.230
+and the screen reader is going
+to say zero or it's going
+
+00:31:16.230 --> 00:31:17.780
+to say six.
+
+00:31:17.780 --> 00:31:22.540
+And there's not a whole lot of
+context and it's also not the point
+
+00:31:22.540 --> 00:31:26.310
+of the chart.
+
+00:31:26.310 --> 00:31:29.300
+The the chart has other information
+in the bars that we are going
+
+00:31:29.300 --> 00:31:30.170
+to get to in a little bit.
+
+00:31:30.170 --> 00:31:38.170
+So I am going to have my text
+at this role of presentation
+
+00:31:39.100 --> 00:31:43.640
+just so the screen reader can
+present it to somebody who's visual,
+
+00:31:43.640 --> 00:31:49.690
+but they are going to get that
+information through the bars
+
+00:31:49.690 --> 00:31:51.250
+that we will see in just a second.
+
+00:31:51.250 --> 00:31:56.360
+So I am going to set my scale
+from zero to my X value,
+
+00:31:56.360 --> 00:31:58.270
+in this case it's six.
+
+00:31:58.270 --> 00:32:01.480
+And this is what everything
+looks like together.
+
+00:32:01.480 --> 00:32:08.050
+So what I want to do is group all
+of these with the SVG G element,
+
+00:32:08.050 --> 00:32:12.350
+so G for group, is just a
+little abbreviation for that.
+
+00:32:12.350 --> 00:32:19.200
+And I'm going to put all of
+these lines, and my text scale
+
+00:32:19.200 --> 00:32:20.510
+into this particular group.
+
+00:32:23.180 --> 00:32:24.920
+Now we're at the fun part.
+
+00:32:24.920 --> 00:32:27.600
+Now, this is the part where
+we create the actual bars
+
+00:32:27.600 --> 00:32:31.390
+that has the actual data
+that everybody cares about.
+
+00:32:33.570 --> 00:32:37.190
+So the first thing that we want
+to do is use this G element
+
+00:32:37.190 --> 00:32:40.870
+to create a second group that's
+going to house all of these bars.
+
+00:32:40.870 --> 00:32:43.790
+And this group is the important
+group that has all of our data.
+
+00:32:43.790 --> 00:32:45.790
+So this one is going
+to get an Aria label.
+
+00:32:47.740 --> 00:32:52.280
+For brevity, I just put an
+Aria label here of chart data.
+
+00:32:52.280 --> 00:32:57.340
+I highly recommend being as detailed
+as possible with your Aria labels,
+
+00:32:57.340 --> 00:32:59.355
+especially if you have
+a lot of information,
+
+00:32:59.356 --> 00:33:02.120
+if there's a lot going on
+in your particular visualization.
+
+00:33:04.740 --> 00:33:08.970
+There are a lot of
+people who will argue
+
+00:33:08.970 --> 00:33:11.490
+that short Aria labels
+are really good.
+
+00:33:11.490 --> 00:33:14.530
+I will argue that if you
+have something to say
+
+00:33:14.530 --> 00:33:17.996
+and if there is very
+particular information
+
+00:33:17.997 --> 00:33:20.360
+or very important information
+
+00:33:20.360 --> 00:33:22.310
+that you want to convey,
+make that Aria label
+
+00:33:22.310 --> 00:33:23.520
+as long as you need to.
+
+00:33:23.520 --> 00:33:25.820
+You do not need to go overboard.
+
+00:33:25.820 --> 00:33:28.780
+More is not necessarily better,
+but if you have a lot of information,
+
+00:33:28.780 --> 00:33:34.140
+more might be sometimes better.
+
+00:33:34.140 --> 00:33:38.990
+So to create the actual bars, we
+are going to loop through that array
+
+00:33:38.990 --> 00:33:41.140
+of data that we processed earlier.
+
+00:33:41.140 --> 00:33:44.240
+And we are actually going to
+create a subgroup for each bar
+
+00:33:44.240 --> 00:33:48.670
+that's going to contain the
+bar itself, a text label,
+
+00:33:48.670 --> 00:33:52.730
+and an Aria description that will
+describe exactly what is going on
+
+00:33:52.730 --> 00:33:56.610
+with these bars and what
+each bar in this graph means.
+
+00:33:58.680 --> 00:34:04.410
+So the subgroup for each bar
+element is going to have a role
+
+00:34:04.410 --> 00:34:07.440
+of list item, because this is
+basically a list of information.
+
+00:34:07.440 --> 00:34:10.710
+We are going to have an
+Aria label that's going
+
+00:34:10.710 --> 00:34:16.180
+to be automatically generated, in
+my case, it says there are a number
+
+00:34:16.180 --> 00:34:18.220
+of items and trees under label.
+
+00:34:18.220 --> 00:34:20.390
+So what this is really going
+to sound like in real life
+
+00:34:20.390 --> 00:34:26.420
+through this chart is there are
+six entries under California.
+
+00:34:26.420 --> 00:34:29.760
+There are four entries
+under Maryland.
+
+00:34:31.100 --> 00:34:32.910
+This Aria label is very generic.
+
+00:34:32.910 --> 00:34:36.080
+If you are in a position where you
+know that you can be more specific
+
+00:34:36.080 --> 00:34:40.130
+with this Aria label,
+I highly encourage you to do that
+
+00:34:40.130 --> 00:34:43.790
+and say like, there are six
+students from California.
+
+00:34:43.790 --> 00:34:45.940
+There are four
+students from Maryland.
+
+00:34:47.530 --> 00:34:52.760
+And the last attribute I have in
+this group is a tab index of zero.
+
+00:34:52.760 --> 00:34:57.840
+This tab index is very important
+because it allows a keyboard user
+
+00:34:57.840 --> 00:35:04.840
+to be able to tab into
+the SVG and focus on each
+
+00:35:04.840 --> 00:35:07.430
+of these bar elements
+within the SVG.
+
+00:35:07.430 --> 00:35:11.990
+So because an SVG is code,
+just like with your HTML code,
+
+00:35:11.990 --> 00:35:14.090
+you can tab to a link.
+
+00:35:14.090 --> 00:35:22.090
+You can navigate with a keyboard
+to any sort of focusable item,
+
+00:35:23.240 --> 00:35:28.660
+and this tab index of
+zero will allow this group
+
+00:35:28.660 --> 00:35:30.670
+to become a focusable item.
+
+00:35:32.350 --> 00:35:34.400
+So inside this group, we are
+going to have our bar elements
+
+00:35:34.400 --> 00:35:35.430
+and our label elements.
+
+00:35:37.160 --> 00:35:42.180
+So the bar is going to be a
+rectangle, which conveniently,
+
+00:35:42.180 --> 00:35:45.810
+SVG has a tag for rectangles.
+
+00:35:45.810 --> 00:35:48.810
+It's abbreviated to rect, R-E-C-T.
+
+00:35:48.810 --> 00:35:53.130
+We are going to give that
+rectangle a role of presentation
+
+00:35:53.130 --> 00:35:58.430
+because the group that the rectangle
+is in, is what contains all
+
+00:35:58.430 --> 00:36:01.380
+of that information for
+this particular bar.
+
+00:36:01.380 --> 00:36:09.380
+So because we are grouping the
+summary of what this bar represents
+
+00:36:10.250 --> 00:36:16.980
+in our group, we can let
+the rectangle take that more
+
+00:36:16.980 --> 00:36:20.060
+of a presentational role.
+
+00:36:22.680 --> 00:36:26.520
+There are four attributes that
+you need to create a rectangle.
+
+00:36:26.520 --> 00:36:31.910
+So the first attribute is your X
+value, where your rectangle is going
+
+00:36:31.910 --> 00:36:32.310
+to start.
+
+00:36:32.310 --> 00:36:37.730
+So that's going to be the top
+left corner of your rectangle,
+
+00:36:37.730 --> 00:36:45.090
+so the X and Y coordinates
+of that top left point.
+
+00:36:45.090 --> 00:36:49.870
+The X is just going to be the
+offset, like how far into the SVG
+
+00:36:49.870 --> 00:36:55.330
+as a whole,
+I want this rectangle to start.
+
+00:36:55.330 --> 00:37:00.670
+So if you remember from my axis,
+I have my axis 20% of the way in
+
+00:37:00.670 --> 00:37:01.740
+from the edge of my SVG.
+
+00:37:01.740 --> 00:37:06.720
+So maybe this rectangle could start
+at like 22% to give a little bit
+
+00:37:06.720 --> 00:37:08.830
+of space between the
+rectangle and the bar.
+
+00:37:08.830 --> 00:37:09.900
+It depends on your aesthetic.
+
+00:37:10.980 --> 00:37:14.310
+My Y value is going to depend
+because it's going to depend on
+
+00:37:14.310 --> 00:37:16.570
+where this bar lives in the SVG.
+
+00:37:16.570 --> 00:37:20.390
+So the Y value is going to be
+another calculation of the number
+
+00:37:20.390 --> 00:37:25.890
+of bars I've rendered so
+far, times the height
+
+00:37:25.890 --> 00:37:28.190
+of each bar plus the
+gap between each bars.
+
+00:37:31.480 --> 00:37:36.200
+And then the last two
+attributes to create a rectangle
+
+00:37:36.200 --> 00:37:39.130
+in SVG are the width
+and the height values.
+
+00:37:39.130 --> 00:37:41.960
+So we want to know how wide
+this rectangle is going to be
+
+00:37:41.960 --> 00:37:43.950
+and how high this
+rectangle is going to be.
+
+00:37:43.950 --> 00:37:46.770
+And the SVG is going to start
+drawing this rectangle starting
+
+00:37:46.770 --> 00:37:49.120
+from that top left point.
+
+00:37:49.120 --> 00:37:53.060
+It's going to draw it out by its
+width and down by its height.
+
+00:37:53.060 --> 00:37:56.690
+So the width is going to be the
+width of this particular bar
+
+00:37:56.690 --> 00:38:01.090
+and that is calculated
+based on the data.
+
+00:38:01.090 --> 00:38:09.090
+So the largest number
+of..the pieces of data
+
+00:38:09.760 --> 00:38:16.010
+that have the greatest value,
+that data is going to take up 100%
+
+00:38:16.010 --> 00:38:19.580
+of the width of my SVG.
+
+00:38:19.580 --> 00:38:23.920
+California had the most, so that
+had six people, so that is going
+
+00:38:23.920 --> 00:38:26.080
+to take up the entire
+width of my SVG.
+
+00:38:26.080 --> 00:38:30.400
+Maybe another state that had only
+three people will take up 50%.
+
+00:38:31.800 --> 00:38:36.390
+So that is going to be automatically
+calculated based on the data.
+
+00:38:36.390 --> 00:38:40.150
+And the height is a fixed
+height, because we want each bar,
+
+00:38:40.150 --> 00:38:41.550
+it’s a horizontal bar chart.
+
+00:38:41.550 --> 00:38:44.960
+So the width varies, but we want the
+height of each bar to stay the same.
+
+00:38:44.960 --> 00:38:47.610
+So the bar height is
+whatever we want to set.
+
+00:38:47.610 --> 00:38:49.490
+And then finally, I have my fill.
+
+00:38:49.490 --> 00:38:52.950
+The fill is the attribute for what
+color I want my rectangle to be,
+
+00:38:52.950 --> 00:38:54.990
+and in this case, I chose purple.
+
+00:38:54.990 --> 00:38:57.240
+So that is a the X value of 00F.
+
+00:39:00.210 --> 00:39:05.040
+So to again, circle back about
+that bar width, the width
+
+00:39:05.040 --> 00:39:07.680
+of each bar is going
+to be a percentage.
+
+00:39:07.680 --> 00:39:12.710
+It's going to be how many students
+are coming from the state,
+
+00:39:12.710 --> 00:39:16.180
+and it's going to be calculated
+as a percentage of value divided
+
+00:39:16.180 --> 00:39:19.370
+by my X value times 100
+to make that a percentage.
+
+00:39:21.670 --> 00:39:23.480
+And then my bar label.
+
+00:39:24.600 --> 00:39:28.600
+In the example SVG that I showed,
+the bar label was all the way
+
+00:39:28.600 --> 00:39:30.330
+on the left-hand side of the SVG.
+
+00:39:30.330 --> 00:39:33.270
+So again, I am going to
+use that text elements.
+
+00:39:33.270 --> 00:39:35.270
+I am going to give it
+a roll of presentation
+
+00:39:35.270 --> 00:39:40.810
+because the group that this text
+element lives in has the Aria label
+
+00:39:40.810 --> 00:39:43.620
+that describes what is
+going on with both the bar
+
+00:39:43.620 --> 00:39:45.140
+and this particular label.
+
+00:39:46.530 --> 00:39:52.470
+My X and Y coordinates set
+where this label lives.
+
+00:39:52.470 --> 00:39:57.360
+So just like the bar had
+a Y value of the number
+
+00:39:57.360 --> 00:40:01.290
+of bars so far times
+the bar height plus gap,
+
+00:40:01.290 --> 00:40:04.260
+this text label has
+that same Y value.
+
+00:40:04.260 --> 00:40:08.530
+I want it to be black bar text.
+
+00:40:08.530 --> 00:40:09.870
+So that's my text fill.
+
+00:40:09.870 --> 00:40:12.740
+I can also set a font
+size for a text element.
+
+00:40:12.740 --> 00:40:15.060
+I'm going to set a
+font size of 16 pixels.
+
+00:40:15.060 --> 00:40:17.580
+The font size in a SVG
+is always set by pixels.
+
+00:40:18.630 --> 00:40:22.490
+And then inside this text element,
+I am just going to put in my label.
+
+00:40:22.490 --> 00:40:27.280
+Again, calculated from,
+or grabbed from the array
+
+00:40:27.280 --> 00:40:28.410
+that I processed earlier.
+
+00:40:30.860 --> 00:40:36.170
+So, all together I have my
+container group that is going
+
+00:40:36.170 --> 00:40:42.020
+to have that role of list
+because we have a list of items
+
+00:40:42.020 --> 00:40:42.950
+that we are going
+to be going through.
+
+00:40:42.950 --> 00:40:48.940
+So that will semantically say,
+OK, I have a list of states
+
+00:40:48.940 --> 00:40:53.420
+that is showing me where
+all of my students are from.
+
+00:40:53.420 --> 00:40:58.970
+And then each individual bar is
+going to be its own subgroup inside
+
+00:40:58.970 --> 00:41:02.110
+of this container list group.
+
+00:41:02.110 --> 00:41:05.980
+And each of these subgroups
+has a role of list item.
+
+00:41:05.980 --> 00:41:09.720
+Each of these subgroups also have an
+Aria label that describes everything.
+
+00:41:09.720 --> 00:41:13.410
+And these groups will contain
+both the rectangle elements
+
+00:41:13.410 --> 00:41:16.330
+that will draw my bar,
+and my text element
+
+00:41:16.330 --> 00:41:18.880
+that will provide my
+bar a visual label.
+
+00:41:21.470 --> 00:41:25.570
+And then finally, the last
+part of this SVG that will kind
+
+00:41:25.570 --> 00:41:28.680
+of tie everything together is that
+caption element that we are going
+
+00:41:28.680 --> 00:41:33.400
+to put all the way at
+the bottom of the SVG.
+
+00:41:33.400 --> 00:41:37.790
+So it's actually
+what I chose to do.
+
+00:41:37.790 --> 00:41:41.670
+You have a couple of choices
+when it comes to the caption.
+
+00:41:41.670 --> 00:41:48.400
+You can use that text elements that
+comes with SVG to put the caption
+
+00:41:48.400 --> 00:41:53.730
+as an element at the bottom and draw
+it in at the bottom of your SVG.
+
+00:41:54.890 --> 00:41:59.650
+What I figured is more semantic
+is to wrap the entire charts
+
+00:41:59.650 --> 00:42:03.400
+in an HTML figure tag.
+
+00:42:03.400 --> 00:42:08.620
+So the figure will say, OK, I have
+this image element that is my SVG,
+
+00:42:08.620 --> 00:42:10.650
+it’s the SVG that I just drew.
+
+00:42:10.650 --> 00:42:18.310
+And then my thick caption, I can
+use my thick caption HTML elements
+
+00:42:18.310 --> 00:42:20.220
+to write out this caption.
+
+00:42:20.220 --> 00:42:25.730
+And that will also semantically tie
+my SVG to this particular caption.
+
+00:42:25.730 --> 00:42:31.130
+And that caption can give my SVG
+even more context than it had.
+
+00:42:31.130 --> 00:42:33.090
+So we have the title
+giving a context.
+
+00:42:33.090 --> 00:42:35.550
+We have this big caption
+giving a context.
+
+00:42:35.550 --> 00:42:37.810
+And then we have all of
+the information inside
+
+00:42:37.810 --> 00:42:42.140
+of the SVG code giving each
+individual piece of data context.
+
+00:42:44.410 --> 00:42:50.910
+And then on the front-end,
+we have this bar chart that has all
+
+00:42:50.910 --> 00:42:54.760
+of our bars, it has all of our
+labels, and it has our caption
+
+00:42:54.760 --> 00:42:55.960
+at the bottom.
+
+00:42:55.960 --> 00:42:59.550
+And I don't really have time
+to give an interactive demo,
+
+00:42:59.550 --> 00:43:04.360
+but a keyboard user, a screen
+reader agent can go and navigate
+
+00:43:04.360 --> 00:43:10.920
+through each element of this
+bar chart to get the information
+
+00:43:10.920 --> 00:43:13.470
+from each individual
+state in this case.
+
+00:43:13.470 --> 00:43:18.640
+Just a few more quick
+accessibility tips.
+
+00:43:20.560 --> 00:43:22.850
+As with everything else on a
+website, please pay attention
+
+00:43:22.850 --> 00:43:23.800
+to color contrast.
+
+00:43:23.800 --> 00:43:25.930
+Color contrast is super
+important, especially
+
+00:43:28.350 --> 00:43:31.210
+if you have a more compleXbar
+chart that has two bars next
+
+00:43:31.210 --> 00:43:34.910
+to each other, you want to make sure
+that those two bars also contrast
+
+00:43:34.910 --> 00:43:36.870
+with each other so somebody
+can tell the difference
+
+00:43:38.630 --> 00:43:42.240
+between like a green bar and a
+red bar versus like green bar
+
+00:43:42.240 --> 00:43:45.290
+and a yellow bar or
+green bar and a blue bar.
+
+00:43:45.290 --> 00:43:48.030
+There are definitely colors
+that sort of blend in
+
+00:43:48.030 --> 00:43:50.140
+with each other more than others.
+
+00:43:50.140 --> 00:43:52.849
+I highly recommend
+limiting animations
+
+00:43:52.850 --> 00:43:57.090
+because it can be very distracting
+for a lot of people.
+
+00:43:58.610 --> 00:44:02.050
+Myself included, I find
+animations incredibly distracting.
+
+00:44:02.050 --> 00:44:09.470
+You can add the bar values within
+the SVG as text to each bar.
+
+00:44:09.470 --> 00:44:11.840
+That was a little bit much for
+this particular presentation.
+
+00:44:12.970 --> 00:44:18.530
+Another nice trick that I have seen
+is including a HTML table alternative
+
+00:44:18.530 --> 00:44:23.510
+to the bar chart and, that,
+just to give another presentation
+
+00:44:23.510 --> 00:44:26.540
+of this data as an
+actual data table.
+
+00:44:28.130 --> 00:44:30.806
+Like I said before,
+writing meaningful labels,
+
+00:44:30.807 --> 00:44:32.230
+writing detailed labels.
+
+00:44:33.810 --> 00:44:40.650
+As much information and context
+as you have, I find very valuable
+
+00:44:40.650 --> 00:44:43.870
+because a picture has a lot of
+inferences in it, a chart has a lot
+
+00:44:43.870 --> 00:44:48.080
+of inferences in it that if you
+can not physically see the charts,
+
+00:44:48.080 --> 00:44:53.690
+it is helpful to write out
+those inferences as a label.
+
+00:44:55.000 --> 00:44:57.670
+So I find writing Aria
+labels more of an art.
+
+00:44:57.670 --> 00:45:02.910
+So I think that that's just
+something that I enjoy doing.
+
+00:45:02.910 --> 00:45:05.560
+And also test, test, test.
+
+00:45:05.560 --> 00:45:07.250
+Find as many devices as you can.
+
+00:45:07.250 --> 00:45:10.420
+Find as many agents,
+like user agents as you can.
+
+00:45:10.420 --> 00:45:12.970
+Find as many screen
+readers as you can.
+
+00:45:12.970 --> 00:45:14.790
+And find as many people as you can.
+
+00:45:14.790 --> 00:45:16.970
+The more people the
+more perspectives
+
+00:45:16.970 --> 00:45:22.220
+that you have looking at your charts,
+looking at your visualizations,
+
+00:45:22.220 --> 00:45:24.960
+you get a lot of different
+perspectives from people
+
+00:45:24.960 --> 00:45:27.520
+and you learn about
+different use cases that way.
+
+00:45:28.800 --> 00:45:32.720
+Do not shortchange your testing.
+
+00:45:35.340 --> 00:45:36.080
+And that is it.
+
+00:45:36.080 --> 00:45:37.080
+We made it.
+
+00:45:37.820 --> 00:45:40.190
+This, again, is my
+five-year-old when she was four.
+
+00:45:40.190 --> 00:45:43.480
+But thank you, everybody.
+
+00:45:43.480 --> 00:45:45.120
+This was quite a lot.
+
+00:45:45.120 --> 00:45:50.530
+You can see this in action,
+I wrote a plug-in called BeesonBock.
+
+00:45:51.700 --> 00:45:54.580
+All of these links will
+be available in my slides.
+
+00:45:54.580 --> 00:45:59.530
+My slides are publicly available,
+I have a bunch of reference material.
+
+00:45:59.530 --> 00:46:02.160
+And finally, I know I am
+running really short on time,
+
+00:46:02.160 --> 00:46:03.250
+but please stay in touch.
+
+00:46:03.250 --> 00:46:11.250
+These slides are available at
+talks.jhalabi.com./svg-in-wordpress.
+
+00:46:11.830 --> 00:46:16.600
+And again, you can find me on
+most socials at Joni Halabi.
+
+00:46:16.600 --> 00:46:18.110
+Thank you so much, everybody.
+
+00:46:18.110 --> 00:46:22.420
+JULIE: All right, hold on,
+we have something in the chat.
+
+00:46:22.420 --> 00:46:24.580
+I was making sure... Thank you.
+
+00:46:24.580 --> 00:46:27.390
+And then we had a
+couple of questions.
+
+00:46:28.710 --> 00:46:31.420
+Do we have time for questions
+just out of curiosity?
+
+00:46:35.600 --> 00:46:37.290
+I do not know, OK.
+
+00:46:37.290 --> 00:46:38.320
+Let's do one question.
+
+00:46:38.320 --> 00:46:40.400
+JONI: I'm sorry, I ran over.
+
+00:46:40.400 --> 00:46:40.640
+I know.
+
+00:46:40.640 --> 00:46:41.330
+ JULIE: Oh, no, it's OK.
+
+00:46:41.330 --> 00:46:43.940
+I just want to make sure
+one of these gets answered.
+
+00:46:43.940 --> 00:46:45.890
+Three minutes, OK,
+we have three minutes.
+
+00:46:45.890 --> 00:46:48.810
+if I want to make the bars
+grow in vertical direction,
+
+00:46:48.810 --> 00:46:54.360
+I only need to invert in the width
+and height or are there more steps?
+
+00:46:55.800 --> 00:46:57.580
+ JONI: That's most of
+it, actually.
+
+00:46:57.580 --> 00:47:00.070
+I did write an inversion
+to do a vertical chart.
+
+00:47:00.070 --> 00:47:01.870
+And I think that's a good question.
+
+00:47:01.870 --> 00:47:04.050
+So for the bars
+themselves, yes, you do.
+
+00:47:04.050 --> 00:47:07.380
+You basically just invert your X
+and your Y values and you are most
+
+00:47:07.380 --> 00:47:08.860
+of the way there.
+
+00:47:08.860 --> 00:47:13.860
+More of the work comes
+with drawing the axes.
+
+00:47:13.860 --> 00:47:18.250
+So you do have to pay
+attention and move the scale.
+
+00:47:18.250 --> 00:47:22.578
+So on the horizontal bar chart,
+I have the scale obviously
+
+00:47:22.579 --> 00:47:24.020
+on the X-axis.
+
+00:47:24.020 --> 00:47:27.970
+When you flip everything over, you
+want that scale on the on the Y axis.
+
+00:47:27.970 --> 00:47:30.050
+So you do have to do a bit of
+flipping and a bit of math,
+
+00:47:30.050 --> 00:47:32.610
+but it is relatively simple
+to switch between the two.
+
+00:47:32.610 --> 00:47:36.570
+JULIE: Will it be an issue if
+font size only set in pixel
+
+00:47:36.570 --> 00:47:38.550
+and SVG rather than using EM?
+
+00:47:38.550 --> 00:47:40.270
+JONI: Probably.
+
+00:47:41.340 --> 00:47:46.700
+Not going to lie, I definitely
+prefer EM or REMs to pixels.
+
+00:47:47.770 --> 00:47:49.640
+Sometimes it depends
+on the browser.
+
+00:47:49.640 --> 00:47:52.000
+Sometimes the font size
+does get a little bit weird.
+
+00:47:53.150 --> 00:47:57.130
+Especially if you're zooming in, like
+if you're using the browser zoom,
+
+00:47:58.480 --> 00:48:05.880
+you could probably do
+something in JavaScript.
+
+00:48:05.880 --> 00:48:07.050
+I have not really
+played around with that.
+
+00:48:07.050 --> 00:48:08.730
+That's a really
+interesting question.
+
+00:48:08.730 --> 00:48:13.410
+You could probably do something in
+JavaScript to change the font sizes.
+
+00:48:14.730 --> 00:48:18.150
+If you can read the zoom level
+too, because just like
+
+00:48:18.150 --> 00:48:22.970
+just like an HTML element, you can
+use JavaScript targets an element
+
+00:48:22.970 --> 00:48:28.410
+inside the SVG because you are
+basically just targeting selectors.
+
+00:48:32.360 --> 00:48:33.410
+JULIE: All right.
+
+00:48:33.410 --> 00:48:34.340
+One more quick one.
+
+00:48:34.340 --> 00:48:35.070
+I must have missed it.
+
+00:48:35.070 --> 00:48:39.090
+Where's the graph accessing the
+data, state, number of students?
+
+00:48:39.090 --> 00:48:42.116
+JONI: Oh,
+so that particular spreadsheet
+
+00:48:42.117 --> 00:48:45.150
+was just a random spreadsheet
+in Google sheets.
+
+00:48:45.150 --> 00:48:47.310
+This example was
+from Google sheets.
+
+00:48:47.310 --> 00:48:51.500
+It has to be a publicly
+accessible Google Sheets.
+
+00:48:51.500 --> 00:48:54.850
+But as long as you have a
+publicly accessible Google sheet,
+
+00:48:54.850 --> 00:48:55.920
+you can do something like this.
+
+00:48:57.190 --> 00:49:01.221
+You could probably also
+work with WordPress
+
+00:49:01.222 --> 00:49:06.800
+and open up the media library
+to import CSV.
+
+00:49:06.800 --> 00:49:11.040
+And you would have to adjust the
+algorithm to read from the CSV
+
+00:49:11.040 --> 00:49:12.590
+and WordPress if you
+want to go that way.
+
+00:49:14.170 --> 00:49:16.540
+But yes, I was using Google Sheets
+for this particular example.
+
+00:49:17.740 --> 00:49:21.660
+JULIE: All right, well, thank you
+for attending this session with Joni.
+
+00:49:21.660 --> 00:49:24.850
+You can continue the conversation
+in the chat on social media
+
+00:49:24.850 --> 00:49:29.920
+with #WPA11day and #WPAD2023.
+
+00:49:29.920 --> 00:49:37.210
+We also appreciate it if you go to
+2023.waccessibility.com/feedback
+
+00:49:37.210 --> 00:49:40.410
+to provide any anonymous
+feedback to our speakers,
+
+00:49:40.410 --> 00:49:43.440
+then you can enter to win a
+t-shirt while you are there.
+
+00:49:43.440 --> 00:49:47.900
+The other thing you want to know
+is when you close this session,
+
+00:49:47.900 --> 00:49:53.250
+the WordPress accessibility
+day admin wants to share that
+
+00:49:53.250 --> 00:49:55.560
+due to technical difficulties,
+this Zoom webinar...
+
+00:49:55.560 --> 00:50:00.020
+they did send out a new webinar link
+in your email, it'll be from Zoom.
+
+00:50:01.080 --> 00:50:04.760
+So it's not from WordPress,
+it's from Zoom, with a new URL,
+
+00:50:04.760 --> 00:50:08.220
+so you are going to want to join
+that one for the next session,
+
+00:50:08.220 --> 00:50:15.910
+which is on animation, something with
+WordPress animation, I know that.
+
+00:50:15.910 --> 00:50:20.650
+So please leave this webinar and join
+the new one for the next webinar.
+
+00:50:20.650 --> 00:50:24.650
+So thank you all so much,
+and please leave that
+
+00:50:24.650 --> 00:50:32.650
+anonymous feedback @2023WebEXor
+@WPACAccessBelief/ feedback,
+
+00:50:36.250 --> 00:50:41.320
+and then stay tuned for the next
+session that starts in 10 minutes.
+
+00:50:41.320 --> 00:50:44.310
+And do not forget to
+visit our sponsors' pages.
+
+00:50:44.310 --> 00:50:44.980
+Thank you, everyone.
+
+00:50:46.380 --> 00:50:50.990
+ AMBER: Thank you to WordPress
+Accessibility Day 2023 Sponsors.
+
+00:50:50.990 --> 00:50:53.810
+Platinum Sponsor -
+Equalize Digital.
+
+00:50:53.810 --> 00:50:56.600
+Equalize Digital's
+accessibility checker plugin
+
+00:50:56.600 --> 00:50:59.350
+is an automated
+accessibility scanning tool
+
+00:50:59.350 --> 00:51:02.560
+that helps WordPress websites
+become and stay accessible.
+
+00:51:03.790 --> 00:51:06.650
+Platinum Sponsor - Gravity forms.
+
+00:51:06.650 --> 00:51:10.270
+Gravity forms is the professional
+form builder that you need
+
+00:51:10.270 --> 00:51:14.990
+to create beautiful,
+powerful and accessible forms.
+
+00:51:14.990 --> 00:51:22.000
+Gold sponsors - 20i, Deque,
+Empire Caption Solutions, Pressable,
+
+00:51:22.000 --> 00:51:23.090
+and WP Engine.
+
+00:51:24.650 --> 00:51:31.510
+Silver sponsors - Code Geek, Drake
+Cooper, GoDaddy, LoneRock Point,
+
+00:51:31.510 --> 00:51:36.740
+NerdPress, Overnight website by
+Kinetic Iris, Raiola Networks,
+
+00:51:38.010 --> 00:51:41.020
+A11Y Collective, and The Blogsmith.
+
+00:51:42.900 --> 00:51:48.300
+Bronze sponsors - ExcessaCart,
+GreenGeeks Web Hosting,
+
+00:51:48.300 --> 00:51:59.600
+Hall Analysis SEO Consulting,
+HDC, ITX, Ivy Cat, Medabots,
+
+00:52:00.050 --> 00:52:03.160
+Pixel Chefs,
+Simply Schedule Appointments,
+
+00:52:03.160 --> 00:52:06.600
+SiteGround, Termageddon,
+
+00:52:06.600 --> 00:52:10.180
+Underrepresented in
+Tech, Weglot, and Yoast.

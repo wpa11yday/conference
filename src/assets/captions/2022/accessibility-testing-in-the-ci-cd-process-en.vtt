@@ -1,0 +1,2821 @@
+﻿WEBVTT
+
+00:00:00.039 --> 00:00:30.140
+[pause ]
+
+00:00:30.140 --> 00:00:31.480
+>> KIM COLEMAN:
+Welcome back everybody.
+
+00:00:31.480 --> 00:00:32.730
+I'm Kim Coleman.
+
+00:00:32.730 --> 00:00:36.410
+I'll be your host for the next three
+hours here at WP Accessibility Day.
+
+00:00:36.410 --> 00:00:38.990
+I've been in the WordPress
+community for over 15 years,
+
+00:00:38.990 --> 00:00:42.250
+and when I'm not supporting community
+events like this, I'm working
+
+00:00:42.250 --> 00:00:45.160
+on my membership plugin
+Paid Memberships Pro.
+
+00:00:45.160 --> 00:00:49.250
+I'm excited to announce our next
+session Accessibility Testing
+
+00:00:49.250 --> 00:00:53.670
+in the CI/CD process
+with Maciek Palmowski.
+
+00:00:53.670 --> 00:00:58.390
+Maciek spends his days at Kinsta
+as a development advocate analyst.
+
+00:00:58.390 --> 00:01:00.500
+After hours,
+he spends most of his time trying
+
+00:01:00.500 --> 00:01:05.310
+to find interesting news for the
+WP Owls newsletter or cycling.
+
+00:01:05.310 --> 00:01:08.050
+Please feel free to add your
+questions in the Q&A tab
+
+00:01:08.050 --> 00:01:11.720
+in the chat area, and we'll answer
+them at the end of this session.
+
+00:01:11.720 --> 00:01:15.560
+You can also use the ideas section
+to chat with other attendees.
+
+00:01:15.560 --> 00:01:16.190
+That's it for me.
+
+00:01:16.190 --> 00:01:17.650
+We welcome Maciek to the stream.
+
+00:01:22.715 --> 00:01:24.890
+>> MACIEK PALMOWSKI: Hi, Kim.
+
+00:01:24.890 --> 00:01:29.260
+First of all, Kim, big thanks for
+pronouncing my name so nicely.
+
+00:01:29.260 --> 00:01:31.880
+I know it's not easy
+so kudos for you.
+
+00:01:34.100 --> 00:01:37.760
+Before I start, I want to
+start with a small anecdote,
+
+00:01:37.760 --> 00:01:44.970
+because when I submitted my talk for
+WP Accessibility Day I was so sure
+
+00:01:44.970 --> 00:01:47.560
+I submitted for the Lightning Talk.
+
+00:01:47.560 --> 00:01:50.740
+I was surprised that of
+course, I made a mistake.
+
+00:01:52.290 --> 00:01:55.930
+I can say that this will be the
+Accessibility testing as a part
+
+00:01:55.930 --> 00:01:58.350
+of CI/CD process the
+extended version.
+
+00:01:59.800 --> 00:02:03.300
+Let's talk about
+how to automate it.
+
+00:02:03.300 --> 00:02:05.510
+As Kim mentioned,
+my name is Maciek Palmowski.
+
+00:02:05.510 --> 00:02:12.090
+I work at Kinsta as a [inaudible],
+but at heart, I am a developer.
+
+00:02:12.090 --> 00:02:16.790
+I always have been a developer.
+
+00:02:16.790 --> 00:02:23.560
+This I think brings a bit different
+perspective for me especially
+
+00:02:23.560 --> 00:02:29.540
+in this accessibility space, because
+I won't lie accessibility wasn't
+
+00:02:29.540 --> 00:02:37.140
+a thing that I was interested in
+for quite a while but it changed.
+
+00:02:37.140 --> 00:02:38.300
+It changed at some point.
+
+00:02:38.300 --> 00:02:43.620
+First of all,
+there were two reasons that caused
+
+00:02:43.620 --> 00:02:45.270
+that I got interested
+in accessibility.
+
+00:02:45.270 --> 00:02:49.350
+First of all, I'm a cyclist and
+I don't know if you've ever been
+
+00:02:49.350 --> 00:02:54.100
+in Poland but the infrastructure
+there isn't the best.
+
+00:02:54.100 --> 00:03:02.590
+On and on, I had to either
+carry my bike or move
+
+00:03:02.590 --> 00:03:08.090
+from one place to another
+in quite a weird manner.
+
+00:03:09.200 --> 00:03:14.360
+In short, it wasn't something easy.
+
+00:03:14.360 --> 00:03:18.170
+I started to understand
+that okay I am a cyclist.
+
+00:03:18.170 --> 00:03:23.260
+It's not a big problem for me
+but for some people it might be.
+
+00:03:24.890 --> 00:03:27.750
+Also, I became a parent.
+
+00:03:29.370 --> 00:03:31.640
+Again together with my
+wife, we don't have a car.
+
+00:03:31.640 --> 00:03:35.235
+We mostly use either
+public transportation
+
+00:03:35.236 --> 00:03:39.610
+or we are using our bicycles
+or going on foot.
+
+00:03:40.700 --> 00:03:44.840
+Thanks to using a
+stroller, we understand
+
+00:03:44.840 --> 00:03:52.900
+how some disabled people have to feel
+using the whole city infrastructure.
+
+00:03:52.900 --> 00:03:57.090
+It's a horrible experience and
+it really, really opened my eyes,
+
+00:03:57.090 --> 00:04:03.630
+because I understood that
+while at some point our kid
+
+00:04:03.630 --> 00:04:06.820
+will stop using this stroller.
+
+00:04:06.820 --> 00:04:12.470
+We won't have to go around
+with it all the time,
+
+00:04:12.470 --> 00:04:15.640
+but we never know what
+will happen tomorrow.
+
+00:04:15.640 --> 00:04:21.050
+Maybe some of us will get
+into an accident or something
+
+00:04:21.050 --> 00:04:26.800
+and we'll be disabled for the rest
+of our lives, and we will have
+
+00:04:26.800 --> 00:04:31.720
+to live in this infrastructure.
+
+00:04:31.720 --> 00:04:34.950
+This was really true
+eye-opener for me.
+
+00:04:34.950 --> 00:04:39.980
+That it's really worth
+investing in accessibility
+
+00:04:41.320 --> 00:04:46.040
+because you never know
+what tomorrow will be.
+
+00:04:46.040 --> 00:04:52.870
+This was the reason why I
+got interested in the topic.
+
+00:04:52.870 --> 00:04:56.510
+First, I want to tell a bit about
+how accessibility testing looks
+
+00:04:56.510 --> 00:04:57.790
+from a developer's perspective.
+
+00:04:57.790 --> 00:05:03.820
+The sad news is especially at
+those places I had a chance
+
+00:05:03.820 --> 00:05:07.660
+to work with, suddenly it doesn't.
+
+00:05:07.660 --> 00:05:18.150
+It's just like that because
+for most agencies accessibility
+
+00:05:18.150 --> 00:05:23.720
+is a separate task that is
+in most cases left on the end
+
+00:05:25.160 --> 00:05:26.160
+of the whole process.
+
+00:05:28.210 --> 00:05:32.370
+Also, many companies still
+don't fully understand
+
+00:05:32.370 --> 00:05:36.190
+who should be responsible for
+it, who should take care of it.
+
+00:05:36.190 --> 00:05:40.370
+For some reason, I saw that many
+companies like to push it only
+
+00:05:40.370 --> 00:05:44.050
+on developers,
+and they still don't understand
+
+00:05:44.050 --> 00:05:50.360
+this very important argument that
+accessibility is provided by everyone
+
+00:05:50.360 --> 00:05:51.550
+on the team.
+
+00:05:51.550 --> 00:05:55.910
+Every part of the team has to
+add something from the design,
+
+00:05:55.910 --> 00:05:58.700
+through developers,
+through the content team,
+
+00:05:58.700 --> 00:06:03.540
+because accessibility is something
+more than just a few lines of code
+
+00:06:03.540 --> 00:06:07.770
+or an overlay like some
+companies try to convince us.
+
+00:06:09.570 --> 00:06:12.320
+Also quite often there
+is this sad argument
+
+00:06:12.320 --> 00:06:15.920
+that we have more
+important things to do.
+
+00:06:15.920 --> 00:06:18.920
+I'm very happy that
+at least I see that
+
+00:06:18.920 --> 00:06:23.610
+in Poland there is this change
+that every public site has
+
+00:06:23.610 --> 00:06:28.470
+to go through these WPCAG norms.
+
+00:06:31.320 --> 00:06:37.100
+This was the first time where
+many companies start understanding
+
+00:06:37.100 --> 00:06:44.370
+that accessibility is a must because
+without it they won't get the money.
+
+00:06:44.370 --> 00:06:50.640
+While this is a bit forcing
+those agency to get interested
+
+00:06:50.640 --> 00:06:55.910
+in accessibility,
+it works so it's good.
+
+00:06:55.910 --> 00:06:57.570
+The constant problem of
+the lack of education.
+
+00:07:00.590 --> 00:07:03.130
+Developers has to learn
+all of their life.
+
+00:07:03.130 --> 00:07:06.050
+There are so many new
+technologies, so many new things
+
+00:07:06.050 --> 00:07:08.530
+that appear every day.
+
+00:07:10.110 --> 00:07:16.720
+I can understand why some of them
+just don't have the resources,
+
+00:07:16.720 --> 00:07:21.470
+the time to continue
+education in another field.
+
+00:07:23.350 --> 00:07:27.570
+Again that's why everyone
+on the team should take care
+
+00:07:27.570 --> 00:07:31.850
+of accessibility thanks
+to this like a hive.
+
+00:07:33.400 --> 00:07:37.331
+Such an agency or company
+should learn accessibility
+
+00:07:37.332 --> 00:07:38.740
+just step by step.
+
+00:07:40.970 --> 00:07:45.230
+From my perspective I see
+that sometimes it's enough
+
+00:07:45.230 --> 00:07:51.290
+to understand the problem, just not
+to pretend that it doesn't exist,
+
+00:07:51.290 --> 00:07:56.510
+just to try to know that it's
+there and it'll already be easier
+
+00:07:56.510 --> 00:08:00.030
+to continue with
+your own education.
+
+00:08:01.620 --> 00:08:07.280
+I mentioned this weird term in the
+title, CI/CD, what does it mean?
+
+00:08:07.280 --> 00:08:12.580
+CI/CD is nothing else than continuous
+integration/continuous deployment
+
+00:08:12.580 --> 00:08:13.580
+or development.
+
+00:08:15.780 --> 00:08:18.940
+It's not a tool it's a
+methodology of how we work.
+
+00:08:20.390 --> 00:08:26.120
+While it can be a bit
+complicated at some point,
+
+00:08:26.120 --> 00:08:29.480
+the whole idea behind
+this is very simple.
+
+00:08:29.480 --> 00:08:31.410
+It's all about constant testing.
+
+00:08:31.410 --> 00:08:37.170
+Every time we create a
+change in our code base,
+
+00:08:37.170 --> 00:08:39.190
+we are running all the
+tests that we have.
+
+00:08:40.300 --> 00:08:44.060
+A typical developer would say okay
+so we'll be running unit tests,
+
+00:08:44.060 --> 00:08:48.560
+functional tests, end-to-end tests
+from different sites from PHP
+
+00:08:48.560 --> 00:08:49.560
+from JavaScript.
+
+00:08:51.740 --> 00:08:54.820
+Why not to add one more
+test to the equation?
+
+00:08:54.820 --> 00:08:57.730
+Maybe let's add
+accessibility as one of them
+
+00:08:57.730 --> 00:09:01.980
+because well a test is a test,
+so there is no difference.
+
+00:09:03.100 --> 00:09:07.090
+Of course, it's also responsible
+for the build and deploy process,
+
+00:09:07.090 --> 00:09:11.250
+and it's also very important
+that without passing the test
+
+00:09:11.250 --> 00:09:17.150
+we never will deploy our application
+or our website to production.
+
+00:09:17.150 --> 00:09:20.120
+Which would mean that if we
+would add accessibility testing
+
+00:09:22.080 --> 00:09:32.750
+as a part of this CI/CD,
+if we will encounter an error
+
+00:09:32.750 --> 00:09:37.300
+from the accessibility point of
+view, we won't push it to production,
+
+00:09:37.300 --> 00:09:41.830
+because it's an error and we
+shouldn't push pages with bugs.
+
+00:09:44.130 --> 00:09:45.590
+What are the problems?
+
+00:09:45.590 --> 00:09:47.240
+First of all, no one is using it.
+
+00:09:47.240 --> 00:09:52.440
+At my previous company because
+before Kinsta, I worked at Buddy
+
+00:09:52.440 --> 00:09:56.660
+which develops a CI/CD
+platform and I was responsible
+
+00:09:59.230 --> 00:10:04.150
+for trying to get people from
+the workspace a bit more popular
+
+00:10:04.150 --> 00:10:05.990
+about deployment automation.
+
+00:10:07.510 --> 00:10:13.200
+I learned that it's not so
+popular, especially that workers
+
+00:10:13.200 --> 00:10:17.270
+are pushing more and more towards
+this no-code local approach.
+
+00:10:17.270 --> 00:10:22.810
+Although the big companies,
+the big agencies are using CI/CD.
+
+00:10:26.300 --> 00:10:29.400
+Yes, it's here it's not as
+popular as it should be.
+
+00:10:31.440 --> 00:10:34.640
+Also, many agencies
+and companies will say
+
+00:10:34.640 --> 00:10:36.670
+that we have more
+important things to do,
+
+00:10:36.670 --> 00:10:42.590
+which is a weird argument
+because I would make it,
+
+00:10:42.590 --> 00:10:46.490
+we have more important things
+to do than waste our time
+
+00:10:46.490 --> 00:10:52.500
+on repeating manual actions,
+but it's their choice, their money.
+
+00:10:52.500 --> 00:10:57.760
+The last very popular argument,
+we don't have time which results
+
+00:10:57.760 --> 00:11:01.740
+to we don't have time to automate
+our tests, but we will have a lot
+
+00:11:01.740 --> 00:11:05.810
+of time to fix everything
+on production very short.
+
+00:11:08.280 --> 00:11:11.870
+How we can add accessibility testing
+to a pipeline is very simple.
+
+00:11:13.430 --> 00:11:18.300
+Thanks to CLI tools like
+XCLI P accessibility,
+
+00:11:18.300 --> 00:11:26.530
+or Google Lighthouse we can test
+our website just by installing this
+
+00:11:26.530 --> 00:11:27.750
+and passing few arguments.
+
+00:11:27.750 --> 00:11:32.190
+Mostly the URL of the website we want
+to test and some configuration file.
+
+00:11:32.190 --> 00:11:33.510
+That's it, it's that simple.
+
+00:11:36.310 --> 00:11:40.440
+This is how a pipeline can look
+like a true enormous pipeline.
+
+00:11:40.440 --> 00:11:42.260
+You see,
+we are running all the tests.
+
+00:11:42.260 --> 00:11:46.590
+We are running PHP stand,
+PHP unit, integration test,
+
+00:11:46.590 --> 00:11:48.340
+deploying to staging server.
+
+00:11:48.340 --> 00:11:52.280
+Then we are running the XCLI then
+we are running some other tests.
+
+00:11:52.280 --> 00:11:58.110
+What's important, if any of
+those tests at some point fails,
+
+00:11:58.110 --> 00:12:03.630
+we will never reach the last steps
+so transfer files to production.
+
+00:12:03.630 --> 00:12:08.230
+If there is an error somewhere,
+it will never reach the production.
+
+00:12:08.230 --> 00:12:19.520
+It's very important, and this is an
+example how an X can return error
+
+00:12:19.520 --> 00:12:21.180
+if it'll find one.
+
+00:12:21.180 --> 00:12:26.950
+I was testing dequeuniversity.com
+and we can see
+
+00:12:26.950 --> 00:12:29.816
+that there was a violation
+of duplicate ID active
+
+00:12:29.816 --> 00:12:31.830
+with one occurrences.
+
+00:12:31.830 --> 00:12:32.830
+That's it.
+
+00:12:32.830 --> 00:12:37.040
+We have a bug, we know where
+to find it, and we know
+
+00:12:37.040 --> 00:12:39.090
+that the action failed.
+
+00:12:39.090 --> 00:12:43.770
+If we would be developing the site,
+it wouldn't ever reach the production
+
+00:12:43.770 --> 00:12:44.800
+until we fix it.
+
+00:12:46.150 --> 00:12:47.690
+This is on what we argued.
+
+00:12:50.170 --> 00:12:55.240
+What are the biggest pros of
+automating accessibility testing?
+
+00:12:55.240 --> 00:13:00.120
+First of all, the problem
+is I cannot find this tweet,
+
+00:13:00.120 --> 00:13:04.630
+but I remember that the queue,
+so the company behind X responded
+
+00:13:04.630 --> 00:13:07.870
+on Twitter to me and they
+mentioned that we can find
+
+00:13:07.870 --> 00:13:10.480
+about 60% issues that way.
+
+00:13:10.480 --> 00:13:10.930
+That's great.
+
+00:13:10.930 --> 00:13:16.920
+That's the majority of issues
+there, there are so amazing.
+
+00:13:16.920 --> 00:13:20.240
+On the other hand, the testing
+will always, always happen
+
+00:13:20.240 --> 00:13:21.040
+in the background.
+
+00:13:21.040 --> 00:13:25.240
+Every time we will push our
+change, the tests will run.
+
+00:13:25.240 --> 00:13:29.480
+There is no way that
+we can prevent it.
+
+00:13:29.480 --> 00:13:32.370
+On the other hand,
+we can just push our thing
+
+00:13:32.370 --> 00:13:35.810
+and start doing something else,
+the tests still will happen.
+
+00:13:37.140 --> 00:13:41.590
+Also, it's a great way to
+get a very quick response,
+
+00:13:41.590 --> 00:13:44.750
+whether the app is
+good to go or not.
+
+00:13:44.750 --> 00:13:49.480
+Of course, let's remember in the
+60% of issue that it'll find.
+
+00:13:49.480 --> 00:13:56.350
+I would consider that, CIC that this
+automatic testing can provide us
+
+00:13:56.350 --> 00:14:00.990
+with let's call it a
+good enough approach.
+
+00:14:00.990 --> 00:14:06.960
+If it passes, it's good enough,
+although we still should take care
+
+00:14:06.960 --> 00:14:07.960
+of the rest.
+
+00:14:10.590 --> 00:14:14.400
+For me, I think this is
+the most important thing
+
+00:14:14.400 --> 00:14:16.200
+about this automated testing.
+
+00:14:17.510 --> 00:14:20.780
+It can be a true eye-opener
+for many developers
+
+00:14:20.780 --> 00:14:24.080
+because like I mentioned,
+this testing will happen
+
+00:14:24.080 --> 00:14:26.680
+whether the developer
+wants it or not.
+
+00:14:28.180 --> 00:14:31.480
+If at some point such
+a developer will see
+
+00:14:31.480 --> 00:14:38.050
+that this website has like 100
+errors, that's not something good.
+
+00:14:38.050 --> 00:14:45.070
+After the initial frustration
+yes, there is 100 bugs.
+
+00:14:45.070 --> 00:14:50.550
+We can create tasks, we can start
+fixing it, and while fixing them,
+
+00:14:50.550 --> 00:14:51.550
+we can learn.
+
+00:14:52.860 --> 00:15:00.570
+If someone didn't ever care about
+accessibility seeing this log full
+
+00:15:00.570 --> 00:15:08.320
+of errors might open some
+eyes and change the approach
+
+00:15:08.320 --> 00:15:09.790
+towards accessibility.
+
+00:15:11.540 --> 00:15:19.190
+Of course, this automatic
+testing is not a silver bullet.
+
+00:15:19.190 --> 00:15:21.590
+We can only find
+60% issues that way.
+
+00:15:21.590 --> 00:15:26.520
+There are still 40% issues
+left, so this means
+
+00:15:26.520 --> 00:15:30.470
+that now we won't
+automate everything.
+
+00:15:30.470 --> 00:15:37.970
+We still have to hire people that
+know how to deal with accessibility.
+
+00:15:39.910 --> 00:15:46.760
+Also, those checks only happen when
+we push a code change, only then.
+
+00:15:47.980 --> 00:15:53.110
+If we are developing something,
+we are developing it in the dark.
+
+00:15:53.110 --> 00:15:56.820
+That's why it's also
+important to use other tools.
+
+00:15:56.820 --> 00:16:00.990
+I will mention them in a moment.
+
+00:16:00.990 --> 00:16:06.360
+It's also important to explain
+why we added those tests
+
+00:16:06.360 --> 00:16:09.830
+because I mentioned there
+is a huge possibility
+
+00:16:09.830 --> 00:16:13.880
+that if you will run it for
+the first time, your website
+
+00:16:13.880 --> 00:16:16.931
+might not be too accessible,
+
+00:16:16.932 --> 00:16:23.470
+especially if you never
+set a priority on it.
+
+00:16:23.470 --> 00:16:28.860
+When you get a return of
+100 potential errors to fix,
+
+00:16:28.860 --> 00:16:31.410
+you might get a bit frustrated.
+
+00:16:31.410 --> 00:16:33.140
+You might get mad.
+
+00:16:33.140 --> 00:16:38.880
+This is why it's important
+to tell why we are doing it,
+
+00:16:38.880 --> 00:16:40.980
+why accessibility is important.
+
+00:16:42.960 --> 00:16:47.450
+Yes, this is the role of
+the agency of the company.
+
+00:16:51.470 --> 00:16:53.940
+Like I mentioned,
+there are also browser tools
+
+00:16:53.940 --> 00:16:55.910
+and probably most of
+you are using them.
+
+00:16:57.630 --> 00:17:01.050
+Just a quick example
+of how X works.
+
+00:17:01.050 --> 00:17:06.400
+Probably most of you use it
+every day, but just to make sure,
+
+00:17:06.400 --> 00:17:09.890
+we are just testing
+the workers.org website
+
+00:17:09.890 --> 00:17:13.250
+and after a few seconds
+after pressing the button
+
+00:17:13.250 --> 00:17:20.400
+to scan our site we will get
+the list of all the issues,
+
+00:17:21.550 --> 00:17:25.880
+we see their descriptions,
+where they are located, what to do
+
+00:17:25.880 --> 00:17:27.250
+to solve them.
+
+00:17:27.250 --> 00:17:28.250
+Beautiful.
+
+00:17:30.390 --> 00:17:34.970
+What is the difference between
+those browser tools versus CI/CD?
+
+00:17:36.040 --> 00:17:40.040
+First of all, browser tools
+are much faster to work with
+
+00:17:40.040 --> 00:17:42.120
+because like I mentioned
+with CI/CD tools, we have
+
+00:17:42.120 --> 00:17:46.300
+to push a code change to our Git
+Repository and then it'll run
+
+00:17:46.300 --> 00:17:49.500
+in the background,
+and then we'll get the response.
+
+00:17:49.500 --> 00:17:51.750
+While with browser tools,
+we just press the button
+
+00:17:51.750 --> 00:17:54.090
+and we already have the response.
+
+00:17:55.780 --> 00:18:01.540
+They are also easier to use because
+you just have to install an addon
+
+00:18:01.540 --> 00:18:03.930
+to your browser.
+
+00:18:03.930 --> 00:18:07.830
+It's like one or two
+clicks and you're done.
+
+00:18:07.830 --> 00:18:15.093
+While to run a CI/CD pipeline
+in general you require
+
+00:18:15.094 --> 00:18:18.900
+a bit more knowledge,
+so it's much harder to do.
+
+00:18:20.480 --> 00:18:25.510
+Like on the other hand you don't
+have to remember about CI/CD tests
+
+00:18:25.510 --> 00:18:28.580
+because they will be the
+part of the testing suite.
+
+00:18:28.580 --> 00:18:29.800
+They will always happen.
+
+00:18:31.000 --> 00:18:32.240
+That's what's important.
+
+00:18:32.240 --> 00:18:35.840
+With browser testing,
+you can skip it.
+
+00:18:37.870 --> 00:18:38.920
+It's just up to you.
+
+00:18:38.920 --> 00:18:42.960
+Will you remember
+to test your website
+
+00:18:42.960 --> 00:18:46.740
+or maybe you will
+start cheating yourself
+
+00:18:46.741 --> 00:18:49.710
+and just push whatever you have?
+
+00:18:49.710 --> 00:18:55.020
+With CI/CD tools, it's
+impossible because if it's a test
+
+00:18:55.020 --> 00:19:00.960
+that is a part of the pipeline,
+it will always, always run.
+
+00:19:00.960 --> 00:19:02.260
+Let's compare them.
+
+00:19:02.260 --> 00:19:06.950
+I will show you what is
+the difference in time
+
+00:19:06.950 --> 00:19:15.460
+of running a CI/CD pipeline versus
+testing a site with X the browser.
+
+00:19:16.510 --> 00:19:21.580
+On the left, we see a pipeline and
+on the right, we see of course X.
+
+00:19:27.370 --> 00:19:38.120
+As we see, we already have X ready
+and a few seconds later we got the X
+
+00:19:38.120 --> 00:19:41.200
+that runs in the CI/CD pipeline.
+
+00:19:41.200 --> 00:19:43.520
+It took a bit longer.
+
+00:19:43.520 --> 00:19:49.860
+I would say we would have a
+chance to drink a small espresso.
+
+00:19:49.860 --> 00:19:53.880
+It depends on the website,
+but the difference isn't that huge.
+
+00:19:55.950 --> 00:20:01.530
+It was an unrealistic case
+because when we will be running
+
+00:20:01.530 --> 00:20:06.090
+a CI/CD pipeline, in most
+cases, we will test everything,
+
+00:20:06.090 --> 00:20:11.350
+not only accessibility, so the more
+realistic case would look like this.
+
+00:20:12.800 --> 00:20:16.210
+On the right we still have nothing
+changed, the acts like it was,
+
+00:20:16.210 --> 00:20:20.840
+but now we are running unit
+tests, functional tests,
+
+00:20:20.840 --> 00:20:22.600
+and accessibility tests.
+
+00:20:24.240 --> 00:20:25.670
+This takes a bit longer.
+
+00:20:26.710 --> 00:20:32.130
+As you see, we already could be
+drinking coffee while waiting
+
+00:20:32.130 --> 00:20:34.040
+for the result.
+
+00:20:37.190 --> 00:20:42.550
+Especially that some CI/CD
+pipelines can take about 15 minutes,
+
+00:20:42.550 --> 00:20:43.550
+20 minutes.
+
+00:20:44.520 --> 00:20:51.700
+Yes, we would drink a lot of
+coffee during this is waiting time.
+
+00:20:51.700 --> 00:20:54.780
+What should we use,
+browser or CI/CD tools?
+
+00:20:54.780 --> 00:20:58.870
+The answer is, in IT,
+in most cases we would use the term,
+
+00:20:58.870 --> 00:21:01.270
+it depends, but not this time.
+
+00:21:01.270 --> 00:21:02.390
+Both, of course.
+
+00:21:02.390 --> 00:21:07.690
+Both because they have a bit
+different reason to exist.
+
+00:21:07.690 --> 00:21:12.450
+First of all, we have to remember
+that browser tools are far superior
+
+00:21:12.450 --> 00:21:16.810
+when it comes to the moment when
+we are developing something,
+
+00:21:16.810 --> 00:21:19.810
+we can constantly check
+if our code is correct,
+
+00:21:19.810 --> 00:21:23.790
+if we didn't make a mistake,
+or something like this.
+
+00:21:23.790 --> 00:21:28.300
+CI/CD tools are perfect
+so we can be sure
+
+00:21:28.300 --> 00:21:31.490
+that the code we are pushing
+to production is correct,
+
+00:21:31.490 --> 00:21:34.070
+that no one skipped something.
+
+00:21:34.070 --> 00:21:38.610
+Also, when we are using a
+browser tool, in most cases,
+
+00:21:38.610 --> 00:21:44.450
+we will be concentrating only on the
+place on which we are working at.
+
+00:21:44.450 --> 00:21:49.250
+For example, if we are fixing
+something on the contact page,
+
+00:21:49.250 --> 00:21:51.710
+we'll be only testing
+the contact page,
+
+00:21:51.710 --> 00:21:55.820
+but it may produce
+something called regression.
+
+00:21:55.820 --> 00:22:03.970
+A fix that, change something
+on contact created an error
+
+00:22:03.970 --> 00:22:08.880
+on some different place of our
+website, let's say on our blog
+
+00:22:08.880 --> 00:22:13.070
+because we used something
+from the contact page.
+
+00:22:13.070 --> 00:22:16.060
+Probably we will miss it
+using the browser tool.
+
+00:22:16.060 --> 00:22:20.040
+Thanks to the CI/CD tool,
+when we would list multiple pages
+
+00:22:20.040 --> 00:22:23.650
+to test, we would find that
+yes, we caused the regression,
+
+00:22:23.650 --> 00:22:24.950
+we have to fix it.
+
+00:22:26.180 --> 00:22:28.560
+Okay, so that's it.
+
+00:22:28.560 --> 00:22:31.140
+Thank you very much for having me.
+
+00:22:32.450 --> 00:22:37.790
+I'm really proud to be a
+part of this conference and
+
+00:22:37.790 --> 00:22:41.260
+if you would have any questions
+even after the conference,
+
+00:22:41.260 --> 00:22:44.580
+do not forget to reach me
+out on Twitter or sign up
+
+00:22:44.580 --> 00:22:47.770
+to my newsletter on newsletter.machi,
+maciekpalmowski.dev.
+
+00:22:48.890 --> 00:22:51.520
+Are there any questions?
+
+00:22:53.973 --> 00:22:56.240
+>> KIM: Thank you so much, Maciek.
+
+00:22:56.240 --> 00:22:59.750
+If you're watching live, you can
+use the Q&A section to the right
+
+00:22:59.750 --> 00:23:03.670
+of the video stream
+to ask your questions.
+
+00:23:03.670 --> 00:23:05.740
+I have some of my own,
+so until I see some coming
+
+00:23:05.740 --> 00:23:09.470
+into the private chat, is that okay
+if I just pick your brain here?
+
+00:23:09.470 --> 00:23:12.520
+>> MACIEK: Of course,
+that's why I'm here.
+
+00:23:12.520 --> 00:23:13.350
+>> KIM: Awesome.
+
+00:23:13.350 --> 00:23:16.100
+For me, I've seen when we
+have testing like this,
+
+00:23:16.100 --> 00:23:21.990
+it's training our developers to see
+those issues and then maybe learn
+
+00:23:21.990 --> 00:23:23.480
+and write better
+code from the start.
+
+00:23:23.480 --> 00:23:26.810
+Could you speak to how you've
+seen that happen in yourself
+
+00:23:26.810 --> 00:23:29.060
+or other developers
+that you've worked with?
+
+00:23:29.060 --> 00:23:32.560
+Having CI/CD part of
+the development process?
+
+00:23:32.560 --> 00:23:34.110
+>> MACIEK: Yes.
+
+00:23:34.110 --> 00:23:39.230
+This is exactly what,
+because let me say this, like this.
+
+00:23:39.230 --> 00:23:41.100
+Developers are lazy.
+
+00:23:41.100 --> 00:23:44.240
+I know this from experience
+because that's why I got
+
+00:23:44.240 --> 00:23:53.830
+into this whole automation process
+because I wanted to save my time.
+
+00:23:53.830 --> 00:23:58.200
+There are machines that can do things
+for me, and the same happened here.
+
+00:23:59.500 --> 00:24:05.100
+Because we are lazy, we don't
+like to fix the same errors over
+
+00:24:05.100 --> 00:24:05.990
+and over and over.
+
+00:24:05.990 --> 00:24:11.370
+That's why we will learn how to
+those basics of accessibility.
+
+00:24:12.560 --> 00:24:17.230
+In most cases, not because we
+want to learn accessibility,
+
+00:24:17.230 --> 00:24:19.400
+but because we don't want
+to see this error anymore.
+
+00:24:20.900 --> 00:24:27.720
+It may be a quite pragmatical
+approach, but the result counts.
+
+00:24:27.720 --> 00:24:31.880
+We will have an accessible
+product and on the other hand,
+
+00:24:31.880 --> 00:24:35.230
+the developer won't be frustrated
+because he will learn that yes,
+
+00:24:35.230 --> 00:24:39.280
+adding this alternative text to an
+image wasn't something that difficult
+
+00:24:39.280 --> 00:24:46.260
+and it's like I won't get a
+notice that hey, there is an error
+
+00:24:46.260 --> 00:24:47.290
+in your code.
+
+00:24:48.350 --> 00:24:50.420
+It was that easy.
+
+00:24:50.420 --> 00:24:56.250
+Yes, I really see that
+apart from just checking
+
+00:24:56.250 --> 00:25:00.220
+if our application is okay,
+it's also about the learning
+
+00:25:00.220 --> 00:25:03.960
+about this eye-opening,
+so it works.
+
+00:25:05.704 --> 00:25:07.250
+>> KIM: Oh, that's really good.
+
+00:25:07.250 --> 00:25:12.220
+Another question I had relates
+to creating those first tests.
+
+00:25:12.220 --> 00:25:16.000
+I know when people have no
+tests written for their code,
+
+00:25:16.000 --> 00:25:20.890
+whether that's the website code or
+a plug and code, or a theme code,
+
+00:25:20.890 --> 00:25:23.040
+it can be daunting
+like where to start.
+
+00:25:23.040 --> 00:25:27.240
+Do you have recommendations
+for the first places to look at
+
+00:25:27.240 --> 00:25:29.650
+for this or I may have
+missed it in the beginning?
+
+00:25:29.650 --> 00:25:34.220
+Are there existing libraries that
+you can use that have some scans
+
+00:25:34.220 --> 00:25:35.490
+in place?
+
+00:25:35.490 --> 00:25:40.070
+>> MACIEK: In most cases, and
+this is also the great part about,
+
+00:25:40.070 --> 00:25:44.200
+for example, using the XCLI,
+you don't have to write any test
+
+00:25:44.200 --> 00:25:46.850
+because it mostly
+scans your website.
+
+00:25:46.850 --> 00:25:50.130
+Of course, you can at some
+point start adding your own test
+
+00:25:50.130 --> 00:25:54.020
+and this is great but by
+default, just to check
+
+00:25:54.020 --> 00:25:59.480
+if the website is good
+enough, just run the XCLI.
+
+00:25:59.480 --> 00:26:02.830
+There is no additional work when
+it comes to creating the test
+
+00:26:02.830 --> 00:26:06.110
+because as you mentioned
+when you have a blank slate
+
+00:26:06.110 --> 00:26:09.830
+and at some point, someone,
+tells you, "Now we are testing it."
+
+00:26:09.830 --> 00:26:12.630
+You're like, "Oh,
+god, what to do now.
+
+00:26:12.630 --> 00:26:15.720
+I don't know how to start."This
+is one of those tools
+
+00:26:15.720 --> 00:26:19.890
+when the only problem that
+you'll have is in the worst case,
+
+00:26:19.890 --> 00:26:22.260
+okay, we have 100
+errors, what to do now?
+
+00:26:22.260 --> 00:26:24.940
+That's simple.
+
+00:26:24.940 --> 00:26:29.100
+You just add 100 tasks
+and go step by step.
+
+00:26:31.024 --> 00:26:34.390
+>> KIM: Do you have recommendations
+for when you run these scans
+
+00:26:34.390 --> 00:26:37.500
+and the code is outside of your
+control, if it's in a plugin
+
+00:26:37.500 --> 00:26:41.930
+if it's in a theme, how have
+you found it successful to work
+
+00:26:41.930 --> 00:26:43.200
+with those authors?
+
+00:26:43.200 --> 00:26:46.850
+These are open-source
+products often you would hope.
+
+00:26:46.850 --> 00:26:51.630
+How have you found success pushing
+back or requesting the changes
+
+00:26:51.630 --> 00:26:53.990
+that are outside of the
+website's code itself?
+
+00:26:56.081 --> 00:27:05.630
+>> MACIEK: First of all, in most
+cases, I try to limit the number
+
+00:27:05.630 --> 00:27:10.190
+of plugins because of
+I'm a control freak.
+
+00:27:10.190 --> 00:27:13.700
+I always feel better
+when I am in full control
+
+00:27:13.700 --> 00:27:17.980
+because there are many cases,
+and this is one of those,
+
+00:27:17.980 --> 00:27:23.160
+when it can be annoying
+that for example,
+
+00:27:23.160 --> 00:27:27.740
+you are finishing this public website
+and the only problem is not you,
+
+00:27:27.740 --> 00:27:28.740
+it's the plugin.
+
+00:27:30.010 --> 00:27:38.110
+Of course, in most cases from,
+at least from what I remember,
+
+00:27:38.110 --> 00:27:43.180
+I was always able to fix everything
+at least on the front end.
+
+00:27:43.180 --> 00:27:50.070
+The backend is always a bit
+different part of the equation.
+
+00:27:51.410 --> 00:27:57.550
+I still think that when we talk
+about accessibility at least here now
+
+00:27:57.550 --> 00:28:00.300
+in Poland,
+we only see the front end right now.
+
+00:28:00.300 --> 00:28:05.930
+We still need some time
+to get about the backend.
+
+00:28:05.930 --> 00:28:09.110
+Still, it is possible.
+
+00:28:09.110 --> 00:28:18.020
+It's also one of the things that
+differentiates a good plugin company
+
+00:28:18.020 --> 00:28:20.180
+from a bad one.
+
+00:28:21.480 --> 00:28:24.550
+If they will just say, no,
+we won't fix it's impossible.
+
+00:28:24.550 --> 00:28:25.970
+It's just accessibility.
+
+00:28:25.970 --> 00:28:29.230
+It's just a sign that,
+okay, it's a bad plugin.
+
+00:28:29.230 --> 00:28:30.740
+Sorry, I don't want to use you.
+
+00:28:32.344 --> 00:28:34.510
+>> KIM: Yes, people should
+be open to hear that feedback
+
+00:28:34.510 --> 00:28:36.260
+and make those changes.
+
+00:28:36.260 --> 00:28:39.410
+I'm sure they aren't
+often major changes.
+
+00:28:39.410 --> 00:28:42.370
+It's adding simple things to
+where images are rendered,
+
+00:28:42.370 --> 00:28:47.690
+like you said, to form elements
+and fixing certain things.
+
+00:28:47.690 --> 00:28:51.180
+Hopefully, it's not a
+hundred for the developer.
+
+00:28:52.730 --> 00:28:54.920
+>> MACIEK: Exactly.
+
+00:28:54.920 --> 00:29:01.940
+This is the thing about
+accessibility is we have
+
+00:29:01.940 --> 00:29:06.850
+to remember that it's a process.
+
+00:29:06.850 --> 00:29:11.340
+It's not the task
+that we will finish.
+
+00:29:11.340 --> 00:29:14.180
+I lately see that
+there are many things,
+
+00:29:14.180 --> 00:29:18.110
+especially in the web
+development that are a process.
+
+00:29:18.110 --> 00:29:20.970
+We are talking about performance
+that is constantly changing.
+
+00:29:20.970 --> 00:29:24.870
+We are talking about the general
+experience, which is also changing.
+
+00:29:24.870 --> 00:29:27.930
+The part of this experience
+is, again, accessibility,
+
+00:29:27.930 --> 00:29:31.770
+which is also a process
+because everything changes.
+
+00:29:31.770 --> 00:29:32.530
+Everything changes.
+
+00:29:32.530 --> 00:29:38.560
+We have access to new hardware,
+we learn things about something
+
+00:29:38.560 --> 00:29:40.090
+that we never knew before.
+
+00:29:41.140 --> 00:29:42.640
+We have to constantly adapt.
+
+00:29:42.640 --> 00:29:47.300
+This is something really,
+this is really fascinating.
+
+00:29:48.740 --> 00:29:51.530
+It never will get boring.
+
+00:29:51.530 --> 00:29:56.230
+Also, the fact of this that I
+mentioned 60% of issues can be solved
+
+00:29:56.230 --> 00:29:57.660
+in the automatic way.
+
+00:29:57.660 --> 00:30:02.270
+I remember that in some
+documentation from a few years ago,
+
+00:30:02.270 --> 00:30:05.520
+we could read about 20%, 30%.
+
+00:30:05.520 --> 00:30:10.400
+This is growing, and I also can't
+wait what will start happening
+
+00:30:10.400 --> 00:30:17.070
+at the moment when we'll start
+using AI for accessibility testing.
+
+00:30:17.070 --> 00:30:19.195
+There are many problems
+with accessibility
+
+00:30:19.196 --> 00:30:20.480
+that aren't code-related.
+
+00:30:20.480 --> 00:30:25.190
+They are about logic,
+about how we've written the text.
+
+00:30:25.190 --> 00:30:30.120
+This is something at the moment
+without any AI can't check
+
+00:30:30.120 --> 00:30:32.530
+because those are just words.
+
+00:30:32.530 --> 00:30:37.002
+Thanks to AI they are
+starting to have meaning.
+
+00:30:39.811 --> 00:30:42.870
+>> KIM: You mentioned AI, do you
+use GitHub Copilot in anything?
+
+00:30:42.870 --> 00:30:45.100
+I haven't used it,
+but I don't know if it's helpful
+
+00:30:45.100 --> 00:30:46.460
+for some of these [crosstalk]
+
+00:30:46.460 --> 00:30:47.420
+things.
+
+00:30:47.420 --> 00:30:47.860
+You're afraid?
+
+00:30:47.860 --> 00:30:51.040
+>> MACIEK: I'm afraid and
+I will also be honest,
+
+00:30:51.040 --> 00:30:57.630
+I don't fully trust all those big
+corporations, especially that I know
+
+00:30:57.630 --> 00:31:01.330
+that they are planning a
+lawsuit against Copilot
+
+00:31:01.330 --> 00:31:06.330
+about is the open-source code used
+in a way that it should be used.
+
+00:31:06.330 --> 00:31:07.490
+There are many things.
+
+00:31:07.490 --> 00:31:13.580
+I mean AI also changed so
+many things about how we--
+
+00:31:13.580 --> 00:31:16.720
+especially for open source,
+because we shared our code and now
+
+00:31:16.720 --> 00:31:19.350
+why someone is using it,
+why someone is earning money
+
+00:31:19.350 --> 00:31:21.040
+without mentioning us.
+
+00:31:21.040 --> 00:31:22.200
+Many interesting things.
+
+00:31:22.200 --> 00:31:24.650
+>> KIM: Oh, for sure, for sure.
+
+00:31:24.650 --> 00:31:27.160
+I think our moderator had a
+few questions, so we'll see
+
+00:31:27.160 --> 00:31:29.310
+if they come into the
+private chat here.
+
+00:31:31.990 --> 00:31:34.860
+I'm looking back at my notes.
+
+00:31:42.000 --> 00:31:44.360
+Let's talk about something
+totally unrelated.
+
+00:31:44.360 --> 00:31:46.890
+You're working on
+the WPL's newsletter.
+
+00:31:46.890 --> 00:31:48.120
+What got you started in that?
+
+00:31:48.120 --> 00:31:50.254
+You can just share a little,
+be a little promotional
+
+00:31:50.255 --> 00:31:51.140
+and get some signups.
+
+00:31:51.140 --> 00:31:54.010
+>> MACIEK: It started
+in a quite funny way
+
+00:31:54.010 --> 00:31:57.160
+because at some point
+my wife asked me,
+
+00:31:57.160 --> 00:31:59.410
+"Hey, maybe we'll start doing
+a WordPress newsletter."
+
+00:31:59.410 --> 00:32:02.640
+I'll be honest, I wasn't listening
+carefully, so I just nodded
+
+00:32:02.640 --> 00:32:07.290
+and say, yes, and this was the
+Polish edition that right now has
+
+00:32:07.290 --> 00:32:09.430
+more than 200 issues.
+
+00:32:09.430 --> 00:32:14.330
+200 weeks ago, I just nodded
+without listening, and, yes,
+
+00:32:14.330 --> 00:32:15.240
+here we are [chuckles].
+
+00:32:16.201 --> 00:32:17.860
+>> KIM: It's cool.
+
+00:32:17.860 --> 00:32:18.950
+I also work with my partner.
+
+00:32:18.950 --> 00:32:22.640
+I don't know how involved your
+wife is in the newsletter ongoing
+
+00:32:22.640 --> 00:32:24.790
+but it's fun to work
+with your spouse, right?
+
+00:32:24.790 --> 00:32:28.079
+>> MACIEK: We work
+at most of companies
+
+00:32:28.079 --> 00:32:32.050
+for most of our lives together.
+
+00:32:32.050 --> 00:32:36.290
+Now at Atkins Studies,
+this is a change
+
+00:32:36.290 --> 00:32:39.600
+where we are working
+separately, but who knows?
+
+00:32:39.600 --> 00:32:40.600
+Maybe at some point.
+
+00:32:43.260 --> 00:32:45.470
+I really love working with her.
+
+00:32:48.433 --> 00:32:50.730
+It's something normal for me.
+
+00:32:50.730 --> 00:32:51.880
+>> KIM: There you go.
+
+00:32:51.880 --> 00:32:54.630
+When you haven't done it,
+it feels very foreign to work
+
+00:32:54.630 --> 00:32:57.330
+with your partner, but then when
+you do, you're like, oh, this is
+
+00:32:57.330 --> 00:32:58.280
+how we do things.
+
+00:32:58.280 --> 00:32:59.150
+We're good.
+
+00:32:59.150 --> 00:33:00.250
+>> MACIEK: It's really great.
+
+00:33:00.250 --> 00:33:07.380
+It's always the person and
+especially that we had a bit
+
+00:33:08.754 --> 00:33:13.360
+in our specializations
+worked really great together
+
+00:33:13.360 --> 00:33:15.115
+because she's a front-end developer
+
+00:33:15.116 --> 00:33:19.660
+and I was mostly a back-end
+developer, so it was a great combo.
+
+00:33:21.933 --> 00:33:24.500
+>> KIM: I'll ask this question
+from our moderator, Truk.
+
+00:33:26.150 --> 00:33:28.270
+Maybe it's slightly
+related to accessibility,
+
+00:33:28.270 --> 00:33:30.950
+but also your knowledge having
+been in the WordPress community
+
+00:33:30.950 --> 00:33:32.270
+for many years.
+
+00:33:33.580 --> 00:33:37.840
+Truk asks can you tell us how
+students can be involved in WordPress
+
+00:33:37.840 --> 00:33:39.880
+for school purposes?
+
+00:33:39.880 --> 00:33:43.570
+Is there a possibility of students
+working together with WordPress
+
+00:33:43.570 --> 00:33:46.310
+without too much knowledge or any
+suggestions you have about getting
+
+00:33:46.310 --> 00:33:48.770
+into the community as a student?
+
+00:33:50.462 --> 00:33:54.420
+>> MACIEK: I think that especially
+with what is happening right now,
+
+00:33:54.420 --> 00:33:57.450
+this push toward this
+low-code/no-code approach,
+
+00:33:57.450 --> 00:34:01.640
+I think that WordPress is
+more accessible to everyone.
+
+00:34:02.760 --> 00:34:09.350
+When I started using WordPress
+let's be honest, it was most mostly
+
+00:34:09.350 --> 00:34:10.640
+for geeks and nerds.
+
+00:34:12.630 --> 00:34:18.070
+I think that WordPress by default
+got more accessible to everyone.
+
+00:34:18.070 --> 00:34:22.505
+You didn't need to have
+any specialized knowledge
+
+00:34:22.506 --> 00:34:24.190
+to start building.
+
+00:34:24.190 --> 00:34:30.030
+The only thing that you need
+is to the will to learn.
+
+00:34:30.030 --> 00:34:33.380
+I think it's very simple to start.
+
+00:34:33.380 --> 00:34:37.760
+Then the next step especially
+after meeting our community,
+
+00:34:37.760 --> 00:34:42.920
+because our workers' community
+it's different, but it's different
+
+00:34:45.630 --> 00:34:47.040
+in a good way.
+
+00:34:47.040 --> 00:34:55.200
+I would really recommend attending
+some WordCamp to feel the whole vibe,
+
+00:34:55.200 --> 00:34:59.460
+to take part in the Contributor Day,
+because especially contributors,
+
+00:34:59.460 --> 00:35:04.936
+they can open your
+eyes to find something
+
+00:35:04.936 --> 00:35:08.890
+that might interest you more
+in the WordPress space.
+
+00:35:10.330 --> 00:35:15.370
+I remember while we were
+organizing WordCamp in my City £ód,
+
+00:35:15.370 --> 00:35:19.940
+during Contributor Day, one of our
+biggest problems was to explain
+
+00:35:19.940 --> 00:35:22.830
+to people Contributor Day
+is not for developers.
+
+00:35:22.830 --> 00:35:24.550
+Contributor Day is for everyone.
+
+00:35:24.550 --> 00:35:30.770
+You can be a translator, a designer,
+and a whole long list of roles
+
+00:35:30.770 --> 00:35:33.490
+that can be filled.
+
+00:35:33.490 --> 00:35:38.010
+If you have this will to learn
+and you will find something
+
+00:35:38.010 --> 00:35:42.030
+that interests you, that's it.
+
+00:35:42.030 --> 00:35:47.730
+I think that out of
+all the CMSs out there,
+
+00:35:47.730 --> 00:35:52.790
+WordPress is the most
+friendly to start with.
+
+00:35:52.790 --> 00:35:53.880
+>> KIM: Yes, I would totally agree.
+
+00:35:53.880 --> 00:35:56.170
+I would suggest joining
+the Make WordPress Slack
+
+00:35:56.170 --> 00:35:57.990
+if you're not a member yet.
+
+00:35:57.990 --> 00:36:01.500
+There's various teams in there and
+it's like virtual Contributor Day
+
+00:36:01.500 --> 00:36:02.570
+all the time.
+
+00:36:02.570 --> 00:36:06.710
+There are teams I think that
+have online scheduled meetups
+
+00:36:06.710 --> 00:36:08.670
+or just chats in the Slack areas.
+
+00:36:08.670 --> 00:36:13.160
+Like Maciek said, not all
+developer-focused ways to contribute
+
+00:36:13.160 --> 00:36:17.560
+to like education, to documentation,
+just to community efforts
+
+00:36:17.560 --> 00:36:18.560
+in general.
+
+00:36:19.450 --> 00:36:22.040
+It can be a busy Slack
+channel to be a part of.
+
+00:36:22.040 --> 00:36:25.130
+Use that Mute and only be in the
+channels or have them active,
+
+00:36:25.130 --> 00:36:27.530
+the ones that you really
+like to be part of.
+
+00:36:28.834 --> 00:36:32.124
+Plugins channels a little scary.
+
+00:36:32.125 --> 00:36:32.665
+No.
+
+00:36:34.300 --> 00:36:39.550
+>> MACIEK: I made this mistake once
+and it was like constantly pinging me
+
+00:36:39.550 --> 00:36:42.230
+and this was okay,
+mute, mute, mute.
+
+00:36:44.069 --> 00:36:45.803
+>> KIM: No, for sure.
+
+00:36:45.804 --> 00:36:50.690
+>> MACIEK: Still the
+best-- because like I said,
+
+00:36:50.690 --> 00:36:56.870
+our community it's so different that
+I think that meeting those people
+
+00:36:56.870 --> 00:36:59.920
+from the community is one of
+the most important things.
+
+00:36:59.920 --> 00:37:07.840
+It's also a good idea for schools
+to get involved with other members
+
+00:37:07.840 --> 00:37:12.160
+to organize some show and
+tell and things like this.
+
+00:37:12.160 --> 00:37:17.660
+I still remember how
+much meeting [inaudible]
+
+00:37:17.660 --> 00:37:21.500
+during WordCamp London meant to
+me, it was,
+
+00:37:23.960 --> 00:37:30.480
+he is a WordPress Rockstar so
+when you meet someone like this
+
+00:37:30.480 --> 00:37:35.359
+and he helps you finding
+this bug that you had,
+
+00:37:35.360 --> 00:37:37.900
+and it was like amazing.
+
+00:37:39.530 --> 00:37:43.260
+I never felt that I'm
+talking to a Rockstar.
+
+00:37:43.260 --> 00:37:50.030
+I just felt that I just talking to a
+friend that I met for the first time.
+
+00:37:51.068 --> 00:37:53.210
+>> KIM: Through the pandemic,
+there were people I would reach out
+
+00:37:53.210 --> 00:37:57.520
+to on Twitter or in the Make
+Slack and just ask for 15 minutes
+
+00:37:57.520 --> 00:37:58.070
+of their time.
+
+00:37:58.070 --> 00:38:00.860
+I always found people really
+friendly and receptive.
+
+00:38:00.860 --> 00:38:05.070
+There's still a pretty
+active Meetup community also
+
+00:38:05.070 --> 00:38:08.860
+with virtual meetups, so I guess
+that's a way to meet some people
+
+00:38:08.860 --> 00:38:09.820
+and get to know things.
+
+00:38:09.820 --> 00:38:13.400
+I think the return of in-person
+WordCamps on a broader scale
+
+00:38:13.400 --> 00:38:15.980
+will really help younger
+people in this community,
+
+00:38:15.980 --> 00:38:20.330
+because you've been two years
+without that face-to-face,
+
+00:38:20.330 --> 00:38:23.170
+without feeling that energy
+that we all got to feel
+
+00:38:23.170 --> 00:38:26.110
+for all those years
+leading up to the pandemic.
+
+00:38:27.410 --> 00:38:28.970
+I think it's probably been
+a part of [crosstalk].
+
+00:38:30.508 --> 00:38:33.000
+>> MACIEK: WordCamp Europe
+was one big hug fest.
+
+00:38:33.000 --> 00:38:33.812
+That's it.
+
+00:38:37.640 --> 00:38:39.060
+Everyone was hugging each other.
+
+00:38:43.819 --> 00:38:47.030
+>> KIM: Our producer here said
+that WordCamp EU was amazing.
+
+00:38:48.050 --> 00:38:49.210
+More votes for that.
+
+00:38:49.210 --> 00:38:50.220
+I'm sure there'll be more to come.
+
+00:38:50.220 --> 00:38:51.610
+>> MACIEK: I really missed it.
+
+00:38:51.610 --> 00:38:53.440
+>> KIM: Will you be
+going to WordCamp Asia?
+
+00:38:54.466 --> 00:38:54.980
+>> MACIEK: No.
+
+00:38:54.980 --> 00:38:56.980
+Sadly not.
+
+00:38:56.980 --> 00:38:59.840
+At least not this
+year, but who knows?
+
+00:38:59.840 --> 00:39:06.470
+I really hope to visit all those
+flagship WordCamps at some point
+
+00:39:06.470 --> 00:39:09.110
+because why not?
+
+00:39:10.348 --> 00:39:11.060
+>> KIM: For sure.
+
+00:39:14.119 --> 00:39:15.970
+>> MACIEK: Oh,
+and I see one more question.
+
+00:39:15.970 --> 00:39:23.410
+Can you tell us a little more,
+how can one protect their database
+
+00:39:23.410 --> 00:39:29.470
+from your experience?
+
+00:39:29.470 --> 00:39:30.630
+Just the regular things.
+
+00:39:30.630 --> 00:39:35.650
+Having a good hosting
+because it's important
+
+00:39:35.650 --> 00:39:42.400
+and using updated versions of
+MariaDB not using weak codes.
+
+00:39:44.400 --> 00:39:46.720
+In general, it's simple.
+
+00:39:48.320 --> 00:39:52.000
+Sometimes feel that it's scary
+when we think about security
+
+00:39:55.180 --> 00:39:58.070
+because security is quite simple.
+
+00:39:58.070 --> 00:40:01.240
+It consists of,
+many many simple things.
+
+00:40:02.260 --> 00:40:07.940
+The amount of them sometimes
+causes that we make an error.
+
+00:40:07.940 --> 00:40:13.680
+We forget about something and
+that can cause a bigger tragedy.
+
+00:40:15.780 --> 00:40:18.760
+>> KIM: Yes, I would agree with
+that, and strong passwords
+
+00:40:18.760 --> 00:40:21.090
+for your own WordPress account.
+
+00:40:21.090 --> 00:40:23.490
+Strong passwords and
+most good hosts are going
+
+00:40:23.490 --> 00:40:26.610
+to give you a strong password
+if you do have access to log
+
+00:40:26.610 --> 00:40:30.750
+into the hosting environment and
+to your hosting account directly,
+
+00:40:30.750 --> 00:40:31.360
+for sure.
+
+00:40:31.360 --> 00:40:33.260
+Take backups.
+
+00:40:33.260 --> 00:40:35.710
+Your best friend is your
+backups, for sure.
+
+00:40:35.710 --> 00:40:36.610
+>> MACIEK: Exactly.
+
+00:40:36.610 --> 00:40:39.890
+>> KIM: Take them in places other
+than your web host environment.
+
+00:40:39.890 --> 00:40:43.890
+Have backups for your backups
+and put them everywhere.
+
+00:40:43.890 --> 00:40:45.930
+>> MACIEK: What's important,
+test your backups.
+
+00:40:46.950 --> 00:40:51.410
+I remember GitLab
+once had this problem.
+
+00:40:51.410 --> 00:40:54.340
+They had backups,
+but they'd never tested it,
+
+00:40:54.340 --> 00:40:57.180
+and it turns out they
+didn't have backups.
+
+00:40:57.180 --> 00:40:57.700
+[chuckles]
+
+00:40:58.790 --> 00:41:00.460
+>> KIM: Can you restore?
+
+00:41:00.460 --> 00:41:01.150
+That is key.
+
+00:41:01.150 --> 00:41:02.930
+That is a super key.
+
+00:41:02.930 --> 00:41:05.320
+We do have a question from Norburn.
+
+00:41:05.320 --> 00:41:09.430
+How much time does it usually take
+to set up a basic CI/CD pipeline
+
+00:41:09.430 --> 00:41:13.030
+from scratch, which includes
+the accessibility testing,
+
+00:41:13.030 --> 00:41:14.400
+without writing the tests?
+
+00:41:14.400 --> 00:41:16.200
+Just some portion of
+the pipeline setup.
+
+00:41:19.270 --> 00:41:26.280
+>> MACIEK: I think that if you are
+not having any experience with it,
+
+00:41:28.590 --> 00:41:32.831
+the most basic example
+that would automate
+
+00:41:32.832 --> 00:41:35.790
+all the build process deploy,
+
+00:41:35.790 --> 00:41:41.020
+and for example, add this
+accessibility testing could take
+
+00:41:43.370 --> 00:41:44.450
+only a few hours.
+
+00:41:44.450 --> 00:41:51.300
+That's it, because it also depends
+on which application we will you use,
+
+00:41:51.300 --> 00:41:54.050
+because some are a bit more
+difficult to start with.
+
+00:41:54.050 --> 00:41:56.905
+For example,
+GitLab CI is at least for me,
+
+00:41:56.906 --> 00:41:59.030
+it was always very complicated.
+
+00:41:59.030 --> 00:42:01.570
+On the other hand,
+we have those more simple tools like
+
+00:42:01.570 --> 00:42:05.230
+for example Buddy, for example,
+I think it also deploy HQ.
+
+00:42:06.460 --> 00:42:12.090
+They have a visual interface,
+so it's much, much, much simpler
+
+00:42:12.090 --> 00:42:13.900
+to start with.
+
+00:42:16.090 --> 00:42:19.400
+Using those tools like
+I said it should take
+
+00:42:19.400 --> 00:42:21.130
+because at it's the beginning.
+
+00:42:21.130 --> 00:42:22.750
+It's always a bit trial and error.
+
+00:42:22.750 --> 00:42:25.700
+You have to test something.
+
+00:42:27.260 --> 00:42:29.740
+At first,
+only play around with staging.
+
+00:42:30.780 --> 00:42:31.780
+Dumfries.
+
+00:42:32.790 --> 00:42:35.310
+I am saying this is
+a person who wants
+
+00:42:35.310 --> 00:42:41.740
+maybe due to the whole website
+because he's done a small typo
+
+00:42:41.740 --> 00:42:46.720
+in the folder name and yes.
+
+00:42:46.720 --> 00:42:48.359
+That's why you have to--
+
+00:42:48.360 --> 00:42:51.090
+>> KIM: Ctrl Z, Ctrl Z.
+Undo [laughs].
+
+00:42:51.090 --> 00:42:51.930
+Oh, man.
+
+00:42:51.930 --> 00:42:53.790
+>> MACIEK: Exactly.
+
+00:42:53.790 --> 00:43:01.420
+In general, overall, I always
+try to say that when it comes
+
+00:43:01.420 --> 00:43:05.890
+to starting with CI/CD,
+go step-by-step, slowly.
+
+00:43:05.890 --> 00:43:08.820
+Start with the continuous
+delivery deployment part.
+
+00:43:08.820 --> 00:43:12.170
+First, think only about
+automating the deployments.
+
+00:43:12.170 --> 00:43:13.060
+That's it.
+
+00:43:13.060 --> 00:43:17.180
+Then start building, if you have
+some node modules, or you want
+
+00:43:17.180 --> 00:43:19.210
+to compress your JavaScript.
+
+00:43:19.210 --> 00:43:20.560
+This is another.
+
+00:43:20.560 --> 00:43:23.600
+At the end, start adding tests.
+
+00:43:23.600 --> 00:43:26.390
+The cool part about accessibility
+testing like I mentioned,
+
+00:43:26.391 --> 00:43:27.320
+it's simple.
+
+00:43:27.320 --> 00:43:29.810
+It's just running the CLI tool.
+
+00:43:29.810 --> 00:43:35.640
+You can add those no or
+low configuration tests
+
+00:43:35.640 --> 00:43:39.580
+like accessibility
+testing, like PHPStan.
+
+00:43:39.580 --> 00:43:43.320
+It's also quite easy,
+but for developers.
+
+00:43:43.320 --> 00:43:46.908
+In the end,
+you go with those most difficult
+
+00:43:46.909 --> 00:43:49.300
+where you have to write that.
+
+00:43:49.300 --> 00:43:54.070
+This whole workflow creating it,
+probably can take even years,
+
+00:43:54.070 --> 00:43:55.610
+but it doesn't matter.
+
+00:43:55.610 --> 00:43:58.420
+It's important to
+just go step-by-step.
+
+00:43:58.420 --> 00:44:03.500
+Have some progress, because every
+time you will add to this extra step,
+
+00:44:03.500 --> 00:44:05.820
+you will save yourself
+a lot of time.
+
+00:44:07.460 --> 00:44:12.020
+The more project on
+which you are working at,
+
+00:44:12.020 --> 00:44:15.810
+the bigger save of
+time you'll see so.
+
+00:44:15.810 --> 00:44:16.410
+It's worth it.
+
+00:44:18.556 --> 00:44:20.140
+>> KIM: Have you seen in
+these teams that it's like
+
+00:44:20.140 --> 00:44:26.450
+an individual person's role to be
+the one that addresses the errors
+
+00:44:26.450 --> 00:44:29.890
+that come up with the
+accessibility testing in the CI/CD,
+
+00:44:29.890 --> 00:44:32.900
+or how I guess depending on team
+size, it could be the person
+
+00:44:32.900 --> 00:44:35.480
+who does everything or how
+have you seen that work?
+
+00:44:36.490 --> 00:44:42.370
+>> MACIEK: The sad part
+was that in most companies,
+
+00:44:42.370 --> 00:44:46.230
+there was none and sometimes
+there was this person
+
+00:44:47.600 --> 00:44:50.490
+who knew about accessibility
+and was arguing with the rest
+
+00:44:50.490 --> 00:44:53.750
+of the team that, "Hey, there
+is something like accessibility.
+
+00:44:53.750 --> 00:44:58.350
+Let's do it." I was constantly
+arguing with the designers
+
+00:44:58.350 --> 00:45:06.120
+because they never understood
+why it's also their role to think
+
+00:45:06.120 --> 00:45:09.000
+about accessibility
+because we are artists.
+
+00:45:09.000 --> 00:45:10.780
+We create art.
+
+00:45:10.780 --> 00:45:12.240
+No, you're not.
+
+00:45:12.240 --> 00:45:13.540
+Websites aren't art.
+
+00:45:13.540 --> 00:45:15.470
+Websites are engineering.
+
+00:45:15.470 --> 00:45:22.640
+It can look nice but
+still, it's engineering.
+
+00:45:22.640 --> 00:45:25.870
+It's not whatever
+you want to paint.
+
+00:45:25.870 --> 00:45:26.970
+It's like cars.
+
+00:45:26.970 --> 00:45:31.170
+They may look beautiful,
+but underneath, there is an engine.
+
+00:45:31.170 --> 00:45:32.440
+There is a lot of technology in.
+
+00:45:33.730 --> 00:45:34.770
+That's it.
+
+00:45:36.200 --> 00:45:37.320
+>> KIM: I love the
+way you refer to that.
+
+00:45:37.320 --> 00:45:41.470
+That's very true, and there can be
+these battles within an organization
+
+00:45:41.470 --> 00:45:45.280
+where some people are more
+of an advocate like you said,
+
+00:45:45.280 --> 00:45:48.270
+for the accessibility route,
+and other people are more protective
+
+00:45:48.270 --> 00:45:49.220
+of their art.
+
+00:45:49.220 --> 00:45:52.620
+We all want to build functional
+websites that achieve
+
+00:45:52.620 --> 00:45:54.440
+whatever their goal is.
+
+00:45:54.440 --> 00:45:57.550
+If the goal is to just look pretty,
+that's one thing, but if it has
+
+00:45:57.550 --> 00:46:00.290
+to be usable,
+it has to be usable by all of us.
+
+00:46:00.290 --> 00:46:02.780
+It's a real challenge.
+
+00:46:02.780 --> 00:46:08.950
+>> MACIEK: Exactly, and like I
+said, I also think that again,
+
+00:46:08.950 --> 00:46:11.530
+this is a problem with the
+lack of education that--
+
+00:46:14.750 --> 00:46:20.590
+because I think that still,
+developers are a bit more advanced
+
+00:46:20.590 --> 00:46:25.160
+when it comes to accessibility
+when compared to design teams,
+
+00:46:25.160 --> 00:46:27.020
+at least in my case.
+
+00:46:27.020 --> 00:46:28.180
+I hope that I'm mistaken.
+
+00:46:30.810 --> 00:46:36.080
+It's like this that for some
+reason, many think
+
+00:46:36.080 --> 00:46:41.650
+that developers are the people
+responsible for fixing the website
+
+00:46:41.650 --> 00:46:43.490
+to pass the accessibility.
+
+00:46:43.490 --> 00:46:47.560
+It even sounds horrible, because we
+are not taking care of accessibility.
+
+00:46:47.560 --> 00:46:52.080
+We are taking care of fixing
+things to make it pass.
+
+00:46:52.080 --> 00:46:53.560
+It's a horrible approach.
+
+00:46:55.910 --> 00:46:59.070
+The truth is that I really
+think that the design team has
+
+00:46:59.070 --> 00:47:02.350
+the biggest impact
+because it's their vision.
+
+00:47:04.820 --> 00:47:06.930
+It's not only about the contrast.
+
+00:47:06.930 --> 00:47:08.200
+It's not about the colors.
+
+00:47:09.260 --> 00:47:11.130
+It's about the general idea.
+
+00:47:11.130 --> 00:47:16.200
+For example, if we are thinking
+about using I don't know,
+
+00:47:16.200 --> 00:47:18.410
+rich videos and everything.
+
+00:47:19.740 --> 00:47:23.900
+Okay, let's do it but also
+think, what about accessibility?
+
+00:47:23.900 --> 00:47:28.220
+How we will provide the same
+content to people who just want
+
+00:47:28.220 --> 00:47:29.880
+to experience the videos.
+
+00:47:31.610 --> 00:47:34.810
+This is not about
+painting the website.
+
+00:47:34.810 --> 00:47:40.150
+It's about the general
+idea that stands behind it.
+
+00:47:40.150 --> 00:47:46.100
+I think that the designers
+don't fully understand
+
+00:47:46.100 --> 00:47:49.920
+how enormous impact they have
+on the website's accessibility.
+
+00:47:54.060 --> 00:47:59.630
+>> KIM: Truk asks, what are the
+highest challenges people face
+
+00:47:59.630 --> 00:48:00.430
+at the beginning?
+
+00:48:00.430 --> 00:48:01.450
+Some of these tests.
+
+00:48:02.610 --> 00:48:03.770
+You mentioned the [crosstalk]
+
+00:48:03.770 --> 00:48:04.570
+>> MACIEK: The number of colors.
+
+00:48:04.570 --> 00:48:05.580
+>> KIM: Text on images.
+
+00:48:05.580 --> 00:48:06.300
+Just the number.
+
+00:48:06.300 --> 00:48:07.390
+It can feel overwhelming.
+
+00:48:07.390 --> 00:48:11.330
+>> MACIEK: Yes,
+because if you develop the website
+
+00:48:11.330 --> 00:48:15.170
+and never thought about
+accessibility, and at some point,
+
+00:48:15.170 --> 00:48:20.830
+you will run the test,
+and quite quickly
+
+00:48:20.831 --> 00:48:23.530
+after the first frustration phase
+
+00:48:23.530 --> 00:48:27.320
+and anger phase,
+because they will be there.
+
+00:48:27.320 --> 00:48:29.770
+They will be present.
+
+00:48:29.770 --> 00:48:36.220
+You will start just seeing that
+"Okay, lack of alternative text
+
+00:48:36.220 --> 00:48:37.000
+for images."
+
+00:48:37.000 --> 00:48:39.990
+We started fixing,
+and 100 turns into 50.
+
+00:48:41.130 --> 00:48:42.850
+Now and other simple things.
+
+00:48:42.850 --> 00:48:48.840
+In the end, it will turn out there
+are just few more difficult fixes
+
+00:48:48.840 --> 00:48:51.280
+to fix.
+
+00:48:51.280 --> 00:48:53.030
+[laughs]
+
+00:48:53.030 --> 00:48:53.831
+>> KIM: That's awesome.
+
+00:48:53.831 --> 00:48:55.360
+I think I'm going
+to wrap it up now.
+
+00:48:55.360 --> 00:48:56.780
+Thank you so much
+for being with us.
+
+00:48:56.780 --> 00:48:58.820
+Are there any closing
+remarks that you have?
+
+00:48:58.820 --> 00:49:01.200
+I think all of your education--
+oh, they took him away.
+
+00:49:01.200 --> 00:49:01.960
+Never mind.
+
+00:49:01.960 --> 00:49:02.350
+Sorry, Maciek.
+
+00:49:02.350 --> 00:49:03.350
+[laughs]
+
+00:49:03.860 --> 00:49:04.380
+Cool.
+
+00:49:04.380 --> 00:49:08.150
+Thank you for attending this
+session with Maciek Palmowski.
+
+00:49:08.150 --> 00:49:10.690
+You can continue the
+conversation in the chat
+
+00:49:10.690 --> 00:49:18.120
+or on social media using our
+hashtags WPA11yDay or WPAD2022.
+
+00:49:18.120 --> 00:49:22.700
+We appreciate if you would go
+to wpaccessibility.day/feedback
+
+00:49:22.700 --> 00:49:27.790
+to provide your anonymous
+feedback for our speakers
+
+00:49:27.790 --> 00:49:29.400
+on their presentations.
+
+00:49:29.400 --> 00:49:32.090
+You can also enter to win a t-shirt
+when you're there submitting
+
+00:49:32.090 --> 00:49:33.350
+your feedback.
+
+00:49:33.350 --> 00:49:36.910
+The next session is on designing
+a webpage for the Institute
+
+00:49:36.910 --> 00:49:40.770
+for the Blind and Visually
+Impaired with Al Goldberg
+
+00:49:40.770 --> 00:49:44.650
+and Anna Ingeborg
+Lynette at 10:00 AM UTC.
+
+00:49:44.650 --> 00:49:47.570
+While you're waiting,
+you can visit our sponsors page
+
+00:49:47.570 --> 00:49:50.788
+to grab some virtual swag
+and enter for a chance
+
+00:49:50.788 --> 00:49:51.790
+to win some great prizes.
+
+00:49:51.790 --> 00:49:56.020
+We're going to reset the chat, and
+then there'll be a new chat available
+
+00:49:56.020 --> 00:49:57.940
+to you for the next session.
+
+00:49:57.940 --> 00:49:59.430
+I'll see you right
+here after the break.

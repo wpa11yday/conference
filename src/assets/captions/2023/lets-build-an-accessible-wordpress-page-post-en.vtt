@@ -1,0 +1,3341 @@
+﻿WEBVTT
+
+00:00:00.690 --> 00:00:04.200
+ AMBER HINDS: WordPress
+Accessibility Day 2023.
+
+00:00:04.200 --> 00:00:08.310
+Let's Build an Accessible WordPress
+Page and Post with Speaker,
+
+00:00:08.310 --> 00:00:12.410
+Peter Ingersoll, WordPress
+Builder, Maintainer, and Trainer,
+
+00:00:12.410 --> 00:00:14.490
+Ingersoll Interactive.
+
+00:00:14.490 --> 00:00:19.000
+This presentation was
+recorded September 27th, 2023.
+
+00:00:19.000 --> 00:00:23.660
+ LAURA ADAMONIS: Welcome back to
+WordPress Accessibility Day 2023.
+
+00:00:23.660 --> 00:00:28.060
+My name is Laura Adamonis and I'm a
+Website Designer with my own agency.
+
+00:00:28.060 --> 00:00:30.850
+I volunteer as a content
+creator for the training team
+
+00:00:30.850 --> 00:00:33.390
+at learn.wordpress.org.
+
+00:00:33.390 --> 00:00:39.890
+I live in North Carolina and
+I'm originally from Chicago.
+
+00:00:39.890 --> 00:00:43.220
+I have a passion for
+UX/UI and accessibility.
+
+00:00:43.220 --> 00:00:46.890
+Today, thank you for
+joining us for Let's Build
+
+00:00:46.890 --> 00:00:51.890
+an Accessible WordPress Page
+and Post with Peter Ingersoll.
+
+00:00:51.890 --> 00:00:56.330
+Peter has been working on
+the web since the beginning,
+
+00:00:56.330 --> 00:00:59.170
+where he was lucky enough
+to be part of a small group
+
+00:00:59.170 --> 00:01:03.560
+to develop online access to
+Connecticut's major newspapers.
+
+00:01:03.560 --> 00:01:05.710
+While working in marketing
+and communications,
+
+00:01:05.710 --> 00:01:10.190
+he developed technical skills to
+connect and share information pulled
+
+00:01:10.190 --> 00:01:12.840
+from various data sources.
+
+00:01:12.840 --> 00:01:16.470
+That led to a career creating
+websites for other companies.
+
+00:01:16.470 --> 00:01:21.300
+While initially working in cold
+fusion to build his own CMS,
+
+00:01:21.300 --> 00:01:24.050
+Peter discovered
+WordPress at version 3.0.
+
+00:01:24.050 --> 00:01:27.050
+Wow, and hasn't looked back.
+
+00:01:27.050 --> 00:01:30.740
+Peter currently builds and maintains
+sites for a variety of clients
+
+00:01:30.740 --> 00:01:33.030
+with a focus on nonprofits.
+
+00:01:33.030 --> 00:01:36.750
+He is the co-organizer and presenter
+for the WordPress Hartford,
+
+00:01:36.750 --> 00:01:40.170
+Connecticut Meetup Group,
+which is an awesome group.
+
+00:01:40.170 --> 00:01:44.980
+Peter considers himself an advocate
+for DIY WordPress site admins,
+
+00:01:44.980 --> 00:01:46.700
+and non-coders.
+
+00:01:46.700 --> 00:01:49.722
+In recent years,
+website accessibility has become
+
+00:01:49.723 --> 00:01:53.910
+an important part of Peter's
+always developing skills.
+
+00:01:53.910 --> 00:01:57.620
+You can often find Peter in
+various WordPress Meetup Groups,
+
+00:01:57.620 --> 00:02:02.560
+online discussions, and lurking
+in several make WordPress teams.
+
+00:02:02.560 --> 00:02:06.510
+With being from New England,
+Peter's favorite food is steamers
+
+00:02:06.510 --> 00:02:10.550
+and lobster with lots – and he
+emphasized lots – of butter.
+
+00:02:10.550 --> 00:02:12.600
+He is also a Big 80s music fan.
+
+00:02:13.760 --> 00:02:17.140
+Any Tears for Fears or
+Cars fans out there?
+
+00:02:17.140 --> 00:02:19.180
+Welcome, Peter.
+
+00:02:19.180 --> 00:02:23.540
+Oh, please feel free to add
+your questions in the Zoom Q&A,
+
+00:02:23.540 --> 00:02:27.290
+which you'll find at the bottom of
+your toolbar and we'll answer them
+
+00:02:27.290 --> 00:02:28.860
+at the end of the session.
+
+00:02:28.860 --> 00:02:31.910
+Use the chat to connect
+with other attendees.
+
+00:02:33.367 --> 00:02:37.520
+ PETER INGERSOLL: It's nice
+having Laura introduce me
+
+00:02:37.520 --> 00:02:42.390
+as we spend time in a variety
+of meetups, online meetups
+
+00:02:42.390 --> 00:02:43.630
+and groups and things like that.
+
+00:02:43.630 --> 00:02:47.190
+So when Laura told me that
+she was going to introduce me,
+
+00:02:47.190 --> 00:02:51.040
+I was like, oh, a friendly face
+and someone who will have my back
+
+00:02:51.040 --> 00:02:52.730
+and make sure I'm keeping
+time here and all.
+
+00:02:53.740 --> 00:02:56.100
+So we're off to a good start.
+
+00:02:56.100 --> 00:03:01.400
+I'm going to jump right into things
+because we've got a lot to cover.
+
+00:03:04.130 --> 00:03:08.550
+Like always, I bite off a big chunk
+of this, but I thought it's very,
+
+00:03:08.550 --> 00:03:13.950
+very important that there is a
+practical approach to all this stuff.
+
+00:03:13.950 --> 00:03:15.936
+I know there's a lot
+of great presentations,
+
+00:03:15.937 --> 00:03:17.040
+fantastic presentations,
+
+00:03:17.040 --> 00:03:19.790
+a lot of great demos,
+but I always want to make sure
+
+00:03:19.790 --> 00:03:23.980
+that people who are building
+and managing their own sites,
+
+00:03:23.980 --> 00:03:28.940
+aren't overwhelmed by things and
+can figure out by just starting
+
+00:03:28.940 --> 00:03:33.450
+at a certain level and pace and
+want to pay attention to that.
+
+00:03:33.450 --> 00:03:36.480
+Building an accessible
+website doesn't have
+
+00:03:36.481 --> 00:03:38.270
+to be a big, scary thing.
+
+00:03:38.270 --> 00:03:38.950
+It isn't.
+
+00:03:38.950 --> 00:03:42.470
+It's really just a matter of
+developing the right habits
+
+00:03:42.470 --> 00:03:44.610
+when you know what
+to pay attention to.
+
+00:03:44.610 --> 00:03:47.580
+So that's what we're
+going to do right now.
+
+00:03:47.580 --> 00:03:51.100
+I'm going to be building
+an accessible post.
+
+00:03:52.270 --> 00:03:57.150
+I've prepared the content,
+which is unusual for myself,
+
+00:03:57.150 --> 00:03:59.840
+because a lot of times
+I do things on the fly.
+
+00:03:59.840 --> 00:04:01.650
+This time I try to do
+things a little bit more
+
+00:04:01.650 --> 00:04:03.120
+because the clock is a ticking.
+
+00:04:04.650 --> 00:04:09.840
+But as we go,
+I'll spend time on certain aspects
+
+00:04:09.840 --> 00:04:13.000
+and then kind of bring
+things in a done way
+
+00:04:13.000 --> 00:04:16.970
+as we cover a few
+different aspects of this.
+
+00:04:16.970 --> 00:04:19.680
+So the first thing we're going
+to do is I'm going to go right
+
+00:04:19.680 --> 00:04:24.710
+into building an accessible
+post demonstration.
+
+00:04:24.710 --> 00:04:28.150
+Right now,
+this is just a blank post.
+
+00:04:28.150 --> 00:04:29.150
+I'm going to edit it.
+
+00:04:30.730 --> 00:04:38.130
+And more also, you can tell me
+if zooming into the screen helps,
+
+00:04:38.130 --> 00:04:39.960
+I will have to probably
+zoom in and out.
+
+00:04:39.960 --> 00:04:44.000
+So I'm going to start
+bringing in content right away
+
+00:04:44.000 --> 00:04:52.000
+from my demo site here and I'm
+going to bring it in such a way
+
+00:04:56.870 --> 00:04:59.640
+that it's already formatted
+and I'll walk through kind of
+
+00:04:59.640 --> 00:05:07.640
+some of the things that are
+already formatted and done.
+
+00:05:08.160 --> 00:05:10.110
+I was going to do this as we go,
+but I thought it would be better
+
+00:05:10.110 --> 00:05:12.480
+just to kind of bring
+these things in.
+
+00:05:12.480 --> 00:05:16.180
+My slideshow is actually the
+post that we're building.
+
+00:05:16.180 --> 00:05:22.380
+So I thought, as we're building
+this post, we could have content
+
+00:05:22.380 --> 00:05:26.400
+that's specific to this particular
+presentation and I'm going
+
+00:05:26.400 --> 00:05:30.450
+to show you a few of the things
+to pay attention to about this
+
+00:05:30.450 --> 00:05:32.150
+and as we get into
+some of the details.
+
+00:05:32.150 --> 00:05:36.180
+So we went kind of an
+introduction about creating a post
+
+00:05:36.180 --> 00:05:37.980
+in a very short amount of time.
+
+00:05:37.980 --> 00:05:42.540
+Laura did a great job of kind of
+covering a little bit about me.
+
+00:05:42.540 --> 00:05:44.770
+We are in the WordPress editor.
+
+00:05:44.770 --> 00:05:47.510
+Right now I'm using
+the block editor.
+
+00:05:48.650 --> 00:05:52.590
+For this post,
+I'm using only core blocks.
+
+00:05:52.590 --> 00:05:56.370
+And when we get to the page,
+I'm going to introduce some blocks
+
+00:05:56.370 --> 00:05:58.050
+that are not core
+from a block package.
+
+00:05:58.050 --> 00:06:00.700
+We'll talk about
+that in a little bit.
+
+00:06:00.700 --> 00:06:03.070
+But one of the first things to
+start noticing, and we'll get
+
+00:06:03.070 --> 00:06:08.520
+into the detail about this,
+is in the organizing of content,
+
+00:06:08.520 --> 00:06:12.780
+a great thing to use is
+looking at the outline mode.
+
+00:06:12.780 --> 00:06:16.950
+It's great, but quite honestly,
+there's some development I think
+
+00:06:16.950 --> 00:06:19.800
+could be done to it because
+it looks at headings only
+
+00:06:19.800 --> 00:06:20.840
+from a core block thing.
+
+00:06:20.840 --> 00:06:24.320
+So I'm going to point
+out some of these blocks.
+
+00:06:24.320 --> 00:06:29.950
+My introduction is an H2 heading
+and it helps organize the content
+
+00:06:29.950 --> 00:06:34.210
+so you can see the title of
+this document of this post is,
+
+00:06:34.210 --> 00:06:36.310
+Build an Accessible
+Post Demonstration.
+
+00:06:36.310 --> 00:06:39.920
+That's the title that I preset up
+and I just brought in this content
+
+00:06:39.920 --> 00:06:43.440
+where I have a heading set to H2.
+
+00:06:43.440 --> 00:06:47.420
+So you see the H2 paragraph,
+a little bit about me.
+
+00:06:47.420 --> 00:06:53.090
+I mean introducing it and then a
+subheading under the introduction,
+
+00:06:53.090 --> 00:06:53.990
+a little bit about me.
+
+00:06:53.990 --> 00:06:55.980
+So that's set to a heading of H3.
+
+00:06:55.980 --> 00:06:59.290
+So now we're starting to organize
+right off the bat the content
+
+00:06:59.290 --> 00:07:02.530
+that goes into a blog post.
+
+00:07:02.530 --> 00:07:04.850
+I've got links to content.
+
+00:07:04.850 --> 00:07:09.960
+And one of the main things to look
+at when you're putting links in,
+
+00:07:09.960 --> 00:07:17.960
+is to avoid having links that
+open into a new page or a new tab,
+
+00:07:18.960 --> 00:07:19.960
+or a new window.
+
+00:07:21.450 --> 00:07:22.770
+People like to do that.
+
+00:07:22.770 --> 00:07:26.490
+They want to make sure that readers
+are always coming back to their site.
+
+00:07:26.490 --> 00:07:33.520
+But for somebody who's using
+assisted technology keyboards,
+
+00:07:33.520 --> 00:07:43.867
+can't see the screen when they get
+put into a different window or a tab.
+
+00:07:43.867 --> 00:07:44.700
+It's disruptive.
+
+00:07:44.700 --> 00:07:47.080
+It's disruptive,
+the process that they use.
+
+00:07:47.080 --> 00:07:52.350
+And quite honestly, I like many,
+I use the back key or I use...
+
+00:07:52.350 --> 00:07:55.690
+if I want to post something,
+if I want to go to a link,
+
+00:07:55.690 --> 00:07:57.730
+I'll right click it and
+say open in a new tab.
+
+00:07:57.730 --> 00:07:58.790
+I want control of it.
+
+00:07:58.790 --> 00:08:03.940
+I don’t necessarily want the
+person who's defined the web page
+
+00:08:03.940 --> 00:08:06.320
+to define that.
+
+00:08:06.320 --> 00:08:10.030
+We're going to get into some of
+the details about what I'll cover.
+
+00:08:10.030 --> 00:08:11.830
+I'm going to bring that
+content in right now.
+
+00:08:16.760 --> 00:08:17.790
+Let me cover that.
+
+00:08:19.120 --> 00:08:25.590
+Copying and pasting between different
+documents is pretty straightforward.
+
+00:08:25.590 --> 00:08:30.570
+The easiest thing is to use
+the list view, which shows...
+
+00:08:30.570 --> 00:08:33.940
+This list view has become
+great for managing content.
+
+00:08:33.940 --> 00:08:36.980
+You can see the layout of
+your paragraphs and image.
+
+00:08:36.980 --> 00:08:41.360
+I'm looking very forward
+to, in 6.4.
+
+00:08:41.360 --> 00:08:45.120
+I'm expecting to be able to
+set groups and set the name
+
+00:08:45.120 --> 00:08:46.690
+of the group right
+here in those views
+
+00:08:46.690 --> 00:08:50.000
+so that you can really do a
+great job of organizing content.
+
+00:08:50.000 --> 00:08:52.220
+I'm going to go to the
+bottom of what I entered,
+
+00:08:52.220 --> 00:08:57.000
+and I'm just pasting in...
+well, see I didn't copy it right,
+
+00:08:57.000 --> 00:08:57.890
+so I'm going to undo that.
+
+00:08:57.890 --> 00:08:59.930
+I was facing the same content.
+
+00:08:59.930 --> 00:09:01.050
+Let me copy.
+
+00:09:05.200 --> 00:09:08.840
+One of the tricks in copying
+is not to do a Control V,
+
+00:09:08.840 --> 00:09:11.780
+or a Control C,
+but rather click the Copy button.
+
+00:09:11.780 --> 00:09:12.570
+I'll show you that.
+
+00:09:12.570 --> 00:09:18.540
+So what we will cover to
+here, just to reveal,
+
+00:09:18.540 --> 00:09:21.860
+this is the content
+I'm copying from.
+
+00:09:21.860 --> 00:09:23.470
+So you can see,
+I've highlighted that.
+
+00:09:23.470 --> 00:09:29.830
+I'm going to copy this
+content, copy the blocks.
+
+00:09:29.830 --> 00:09:34.320
+Then when I go back over to this
+page, now I can paste those in.
+
+00:09:34.320 --> 00:09:36.390
+So now I have more content.
+
+00:09:36.390 --> 00:09:38.470
+So what we'll cover is to
+quickly create WordPress Post
+
+00:09:38.470 --> 00:09:40.990
+and Page Review and
+accessibility topics.
+
+00:09:40.990 --> 00:09:44.450
+We'll get into detail... And by
+the way, this site, as I post it,
+
+00:09:44.450 --> 00:09:45.070
+will be live.
+
+00:09:45.070 --> 00:09:50.410
+It's under accessiblewp.org and the
+homepage will link to the content
+
+00:09:50.410 --> 00:09:51.410
+that we're editing.
+
+00:09:53.440 --> 00:09:57.470
+Obviously, we can't get into
+a huge amount of detail here
+
+00:09:57.470 --> 00:09:59.520
+with this presentation,
+but there's a lot
+
+00:09:59.520 --> 00:10:03.950
+of great accessibility day
+presentations that apply directly
+
+00:10:03.950 --> 00:10:05.600
+to some of the things
+we're talking about.
+
+00:10:05.600 --> 00:10:08.320
+And I highlighted
+some of those here.
+
+00:10:08.320 --> 00:10:11.650
+Each one of these being a link
+that will open up on this page.
+
+00:10:12.690 --> 00:10:14.580
+You can see my link colors.
+
+00:10:14.580 --> 00:10:16.160
+My links are underlined.
+
+00:10:17.550 --> 00:10:20.130
+They're a different
+color for the link.
+
+00:10:20.130 --> 00:10:21.170
+They're bright.
+
+00:10:21.170 --> 00:10:23.270
+I do have a hover color.
+
+00:10:25.370 --> 00:10:27.984
+These are reading
+contrast requirements,
+
+00:10:27.985 --> 00:10:30.800
+which is something you want
+to pay a lot of attention to.
+
+00:10:30.800 --> 00:10:32.400
+We'll get a little
+bit more into that.
+
+00:10:34.130 --> 00:10:38.250
+So let me go back and grab
+a little bit more content.
+
+00:10:38.250 --> 00:10:41.050
+As we do this, I'm going to
+move this out of the way,
+
+00:10:44.130 --> 00:10:52.130
+and now I'm going to
+grab a next section here.
+
+00:10:56.260 --> 00:10:58.900
+Sometimes it's easier
+just to go to a section
+
+00:11:01.400 --> 00:11:04.010
+and even just add a
+paragraph, for example.
+
+00:11:04.010 --> 00:11:06.140
+But in that paragraph,
+then you can paste it.
+
+00:11:06.140 --> 00:11:08.810
+Little tricks that you use
+sometimes when you get stuck
+
+00:11:08.810 --> 00:11:13.230
+in the block editor,
+sometimes you just get muscle memory
+
+00:11:13.230 --> 00:11:15.910
+of doing things like entering
+a paragraph and then posting it
+
+00:11:15.910 --> 00:11:18.860
+or hitting your slash to enter
+a block, that type of thing.
+
+00:11:18.860 --> 00:11:20.610
+The assumptions, this is important.
+
+00:11:20.610 --> 00:11:22.140
+We are using accessible theme.
+
+00:11:22.140 --> 00:11:23.930
+I'm using the cadence theme.
+
+00:11:23.930 --> 00:11:26.240
+People who know me know that
+I do like the cadence theme
+
+00:11:26.240 --> 00:11:27.200
+for a whole lot of reasons.
+
+00:11:27.200 --> 00:11:30.730
+But in this particular case,
+I selected the cadence theme
+
+00:11:30.730 --> 00:11:38.560
+because the cadence team, Ben Rittner
+specifically as the head developer,
+
+00:11:40.220 --> 00:11:43.670
+they've been really paying
+attention to accessibility.
+
+00:11:43.670 --> 00:11:47.620
+I've seen, and I've actually
+put in some feature requests
+
+00:11:47.620 --> 00:11:49.630
+that I saw applied to the theme.
+
+00:11:49.630 --> 00:11:51.680
+So that's really,
+really important to me,
+
+00:11:51.680 --> 00:11:57.520
+the fact that a theme developer is
+paying attention to accessibility.
+
+00:11:57.520 --> 00:12:00.090
+So in the repository in
+wordpress.org/themes,
+
+00:12:01.150 --> 00:12:04.380
+you can filter by accessibility.
+
+00:12:04.380 --> 00:12:06.580
+There is filtering
+accessibility tags.
+
+00:12:06.580 --> 00:12:09.980
+But keep in mind that many
+excellent accessible themes
+
+00:12:09.980 --> 00:12:12.210
+do not have this tag
+for various reasons.
+
+00:12:12.210 --> 00:12:16.970
+One is they may have developed it
+before the accessibility tag became
+
+00:12:19.420 --> 00:12:21.080
+as prevalent as it is now.
+
+00:12:21.080 --> 00:12:25.800
+And there's a process to go through
+that not everybody has gone through,
+
+00:12:25.800 --> 00:12:30.120
+but it doesn't mean that the
+themes are not accessible.
+
+00:12:30.120 --> 00:12:32.240
+It's a great starting
+point, that filter.
+
+00:12:32.240 --> 00:12:37.960
+But themes like cadence,
+like generate press,
+
+00:12:37.960 --> 00:12:41.290
+Astra for the most part,
+last I checked, block C.
+
+00:12:41.290 --> 00:12:45.040
+These are classic
+themes, not block themes
+
+00:12:45.041 --> 00:12:47.830
+that they use the customizer...
+
+00:12:47.830 --> 00:12:52.067
+But they are very
+friendly to accessibility,
+
+00:12:52.067 --> 00:12:53.180
+which is really important.
+
+00:12:53.180 --> 00:12:56.740
+But the main thing is like anything,
+be sure to test your theme.
+
+00:12:58.100 --> 00:13:01.480
+We've already pre -selected
+colors that work together,
+
+00:13:01.480 --> 00:13:04.820
+color contrast meets
+accessibility guidelines.
+
+00:13:04.820 --> 00:13:07.730
+I believe there's a presentation
+on that, but in any case,
+
+00:13:07.730 --> 00:13:11.700
+paying attention to the web
+in contrast checker and a tool
+
+00:13:11.700 --> 00:13:14.990
+that I like, the color contrast
+grid, maybe at the end,
+
+00:13:14.990 --> 00:13:17.580
+I can show some of the details
+of this where you can look
+
+00:13:17.580 --> 00:13:21.690
+at the way colors work
+together and what is compliant.
+
+00:13:21.690 --> 00:13:25.500
+I've only got a few active
+plug-ins, even not all of them
+
+00:13:25.500 --> 00:13:28.310
+being used right now, like generate
+blocks is active on this site
+
+00:13:28.310 --> 00:13:31.540
+because I'm using it for a
+different page, for presentation.
+
+00:13:31.540 --> 00:13:37.570
+But the accessibility checker,
+new windows warning, cadence blocks,
+
+00:13:37.570 --> 00:13:41.500
+all free versions, screen reader
+text format, and WS form light are
+
+00:13:41.500 --> 00:13:42.580
+being used in this.
+
+00:13:43.660 --> 00:13:46.510
+So these are the types
+of things that are here.
+
+00:13:46.510 --> 00:13:49.500
+Now, one of the things to pay
+attention to is I've got images here.
+
+00:13:49.500 --> 00:13:51.630
+So let's talk about alt text.
+
+00:13:51.630 --> 00:13:53.920
+We'll talk about it in
+a little bit detail now,
+
+00:13:53.920 --> 00:13:57.380
+but we've got some
+pictures, some images here.
+
+00:13:57.380 --> 00:14:01.350
+So if I highlight the picture of
+me, the caption
+
+00:14:01.350 --> 00:14:09.080
+and the alt text give
+context to the image,
+
+00:14:09.080 --> 00:14:11.560
+but the alt text is meant to be...
+to somebody
+
+00:14:11.560 --> 00:14:14.490
+who can't see the image, what is
+the image of, describe the image,
+
+00:14:14.490 --> 00:14:19.070
+how do we make it the same experience
+for that person as for anybody else?
+
+00:14:19.070 --> 00:14:22.220
+So a headshot of a 60 year
+old white male with salt
+
+00:14:22.220 --> 00:14:25.160
+and pepper beard, and dark
+hair, smiling at camera.
+
+00:14:25.160 --> 00:14:28.910
+Well, that's me, but then my
+name is the caption below.
+
+00:14:28.910 --> 00:14:34.870
+You'll see it in another section
+of this, but this is not about SEO,
+
+00:14:36.300 --> 00:14:38.410
+Keyword stuffing or any
+of that kind of stuff.
+
+00:14:38.410 --> 00:14:44.250
+It's all about making the
+experience equal for everybody
+
+00:14:44.250 --> 00:14:47.600
+and includes somebody that can't
+see the image but they want an idea
+
+00:14:47.600 --> 00:14:49.950
+of the fact that there's
+a photo on the screen.
+
+00:14:49.950 --> 00:14:55.140
+Very, very important to pay
+attention to those types of things.
+
+00:14:55.140 --> 00:15:00.360
+I'm going to add my
+next group of blocks.
+
+00:15:06.680 --> 00:15:12.220
+Let me grab from here to...
+This is where I do wish
+
+00:15:12.220 --> 00:15:21.533
+that sometimes the editor had
+a little bit more description.
+
+00:15:21.533 --> 00:15:24.370
+When I said the
+editor, the list view,
+
+00:15:25.440 --> 00:15:29.190
+because as I look over I'm bringing
+over right now probably more
+
+00:15:29.190 --> 00:15:33.700
+than I want but that's OK,
+we're just going to work right
+
+00:15:33.700 --> 00:15:34.700
+through the content.
+
+00:15:35.590 --> 00:15:39.980
+OK, so let's get into some of the
+key considerations for accessibility.
+
+00:15:39.980 --> 00:15:42.340
+Many of these things we
+can't go over in great detail
+
+00:15:42.340 --> 00:15:44.600
+but I'm posting this
+kind of content...
+
+00:15:44.600 --> 00:15:50.930
+This is content that is brought
+over in an ordered list.
+
+00:15:50.930 --> 00:15:54.580
+That's where we have the
+numbers, so lists are again,
+
+00:15:54.580 --> 00:15:57.370
+they work really well in
+WordPress for accessibility
+
+00:15:57.370 --> 00:16:00.290
+as far as any feedback that
+I've gotten, when used properly
+
+00:16:00.290 --> 00:16:03.520
+and so in this case it's
+just kind of a numbered list.
+
+00:16:03.520 --> 00:16:09.030
+A list is read out in screen
+readers, it's organizing content
+
+00:16:09.030 --> 00:16:12.510
+so it's easy to scan,
+very important to look at.
+
+00:16:14.960 --> 00:16:17.340
+We have different ways
+of taking in content
+
+00:16:17.340 --> 00:16:24.880
+and different cognitive abilities,
+neural divergence, all those...
+
+00:16:24.880 --> 00:16:29.720
+all the issues that can make
+content easier or harder to take in.
+
+00:16:31.630 --> 00:16:35.540
+We can help with the
+way we organize content.
+
+00:16:35.540 --> 00:16:39.970
+So these key topics of keyboard
+navigation, content structure,
+
+00:16:39.970 --> 00:16:43.870
+alternative text for images,
+the color contrast we talked briefly
+
+00:16:43.870 --> 00:16:45.960
+about is tied to the theme.
+
+00:16:45.960 --> 00:16:48.790
+Start with a good theme,
+you're good to go for the most part,
+
+00:16:48.790 --> 00:16:50.090
+pay attention to the
+colors as you go.
+
+00:16:50.090 --> 00:16:53.220
+Responsiveness, making sure
+something works in mobile.
+
+00:16:53.220 --> 00:16:59.730
+Most people use a mobile device in
+the world more than the desktop PC.
+
+00:16:59.730 --> 00:17:04.250
+So making sure that if your site's
+going to work for everybody,
+
+00:17:04.250 --> 00:17:06.830
+then having it work on
+mobile is so very important.
+
+00:17:08.400 --> 00:17:10.370
+Testing, always checking the site.
+
+00:17:10.370 --> 00:17:12.670
+These are all very
+important kinds of things,
+
+00:17:12.670 --> 00:17:16.100
+there are people covering
+topics of like automated testing
+
+00:17:16.100 --> 00:17:17.510
+versus paying attention to.
+
+00:17:18.910 --> 00:17:22.840
+So one of the key things
+to really pay attention to
+
+00:17:22.840 --> 00:17:25.940
+and one of the first kind of
+easiest things is, use your keyboard
+
+00:17:25.940 --> 00:17:26.900
+when looking at your site.
+
+00:17:26.900 --> 00:17:28.520
+So the importance of
+keyboard navigation.
+
+00:17:28.520 --> 00:17:30.500
+Why is it so important?
+
+00:17:30.500 --> 00:17:32.680
+It's a mobility issue,
+It's a screen reader.
+
+00:17:32.680 --> 00:17:37.830
+It's being able to help people work
+through your content by tabbing
+
+00:17:37.830 --> 00:17:44.080
+through your content and you know
+having your site work properly
+
+00:17:44.080 --> 00:17:49.080
+because you've organized it, because
+you're using headings the right way
+
+00:17:49.080 --> 00:17:51.040
+and links the right way.
+
+00:17:51.040 --> 00:17:54.510
+You have a theme that isn't hiding
+where the focus is of something.
+
+00:17:54.510 --> 00:17:56.460
+We'll take a look
+at that in a second.
+
+00:17:56.460 --> 00:17:57.610
+I'll update it.
+
+00:17:57.610 --> 00:17:59.390
+We'll take a peek
+at this page so far.
+
+00:18:01.290 --> 00:18:03.650
+I mentioned, though,
+that heading outline
+
+00:18:03.650 --> 00:18:06.050
+as we're building this I'm using...
+all of these again
+
+00:18:06.050 --> 00:18:08.620
+our core heading blocks, H3's.
+
+00:18:09.630 --> 00:18:12.940
+My topic of key consideration
+for accessibility.
+
+00:18:12.940 --> 00:18:14.030
+It's an H2.
+
+00:18:14.030 --> 00:18:18.320
+You can see the outline on
+the left building as we go,
+
+00:18:18.320 --> 00:18:23.990
+and that is the proper
+nested use of headings.
+
+00:18:23.990 --> 00:18:28.720
+So your title H2 is treated
+under H2’s, a new section.
+
+00:18:28.720 --> 00:18:32.780
+I always liken this to freshman
+high school essay writing,
+
+00:18:32.780 --> 00:18:34.980
+and developing an outline
+and things like that.
+
+00:18:34.980 --> 00:18:37.660
+There's a logic and an order
+if you were to write an outline
+
+00:18:37.660 --> 00:18:38.850
+before the document.
+
+00:18:38.850 --> 00:18:44.260
+That's what you're looking at and
+the proper way to use the heading.
+
+00:18:44.260 --> 00:18:47.740
+So really looking at those
+and kind of keeping those
+
+00:18:47.740 --> 00:18:52.020
+in order are important because
+it's all about making something...
+
+00:18:52.020 --> 00:18:59.300
+When you're using a site,
+is everything reacting or working
+
+00:18:59.300 --> 00:19:01.800
+in an expected way?
+
+00:19:01.800 --> 00:19:05.960
+There's a logic to what you're
+doing because when you have people
+
+00:19:05.960 --> 00:19:08.200
+who have different ways of
+using your site the more
+
+00:19:08.200 --> 00:19:11.380
+you can apply a structure to
+it, the more it makes sense
+
+00:19:11.380 --> 00:19:15.390
+and people know where they are
+and what to expect as they go.
+
+00:19:15.390 --> 00:19:18.340
+So that proper ordering
+is so important.
+
+00:19:19.550 --> 00:19:23.550
+The image in the alt text,
+I'm going to grab the next couple
+
+00:19:23.550 --> 00:19:25.970
+of links here.
+
+00:19:25.970 --> 00:19:30.900
+I'm going to copy this
+block from my source.
+
+00:19:33.660 --> 00:19:35.520
+Let me paste that.
+
+00:19:35.520 --> 00:19:37.820
+We kind of talked about that,
+but this is something that kind
+
+00:19:37.820 --> 00:19:42.250
+of trips up people too,
+is when I showed my picture,
+
+00:19:42.250 --> 00:19:46.080
+I had it, but the differences
+between images and alt text.
+
+00:19:46.080 --> 00:19:49.180
+Alt text is used to describe
+what image looks like.
+
+00:19:49.180 --> 00:19:52.720
+There's better, longer ways of
+doing it, but the alt text describes
+
+00:19:52.720 --> 00:19:54.870
+what the image looks like,
+
+00:19:54.871 --> 00:19:58.840
+whereas the caption might
+give you the context
+
+00:19:58.840 --> 00:19:59.960
+for what something is.
+
+00:20:01.750 --> 00:20:04.990
+Some key things to
+pay attention to is,
+
+00:20:04.990 --> 00:20:10.460
+as someone's using a screen reader,
+a lot of this content is coming
+
+00:20:10.460 --> 00:20:11.340
+at them.
+
+00:20:11.340 --> 00:20:16.720
+So being efficient and not
+verbose is kind of important
+
+00:20:16.720 --> 00:20:20.080
+and also not giving
+description or alt text
+
+00:20:20.080 --> 00:20:22.180
+for things like decorative text.
+
+00:20:22.180 --> 00:20:25.330
+That's important because again,
+now if you've got lots of icons
+
+00:20:25.330 --> 00:20:28.840
+and its describing what each icon
+is, as opposed to
+
+00:20:28.840 --> 00:20:32.830
+maybe what that icon links
+to, that's different content.
+
+00:20:32.830 --> 00:20:37.880
+But, in the demonstrations
+that I see, and many done
+
+00:20:37.880 --> 00:20:41.870
+by our good friend Alex Stein
+when he goes through things
+
+00:20:41.870 --> 00:20:46.580
+and when he sees icons, he goes,
+don't put alt text on icons
+
+00:20:46.580 --> 00:20:50.150
+because it slows down the process
+of going through the content.
+
+00:20:50.150 --> 00:20:54.390
+So in this image, my alt
+text, I've got a description,
+
+00:20:54.390 --> 00:20:57.300
+which is the caption,
+but the blind woman
+
+00:20:57.300 --> 00:21:00.420
+at the computer using assistive
+technology, might be good...
+
+00:21:00.420 --> 00:21:03.310
+we can get a little bit more
+verbose, but not too much.
+
+00:21:05.630 --> 00:21:09.230
+I can get descriptions,
+I might be wearing a green sweater
+
+00:21:09.230 --> 00:21:12.333
+and sitting at a desk...
+a green colored desk,
+
+00:21:12.334 --> 00:21:14.050
+something to that effect.
+
+00:21:14.050 --> 00:21:20.410
+The icon here, I've got no alt text
+and WordPress is done in my testing.
+
+00:21:20.410 --> 00:21:27.790
+It does a good job of giving the null
+value for when there is no alt text.
+
+00:21:27.790 --> 00:21:31.650
+So basically in a screen
+reader, that skipped over,
+
+00:21:31.650 --> 00:21:37.610
+which is different than
+having no alt text in there.
+
+00:21:37.610 --> 00:21:40.960
+You need that alt tag,
+WordPress puts it in for us,
+
+00:21:40.960 --> 00:21:46.440
+but specifically for decorative,
+we don't need the alt text.
+
+00:21:46.440 --> 00:21:49.500
+And then things like when you
+have a graphic that has words
+
+00:21:49.500 --> 00:21:52.600
+in it,
+you want to include those words
+
+00:21:52.600 --> 00:21:55.740
+in your alt text
+because, we're looking
+
+00:21:55.740 --> 00:21:59.080
+at it, we're reading the words
+in an image, so reading the words
+
+00:21:59.080 --> 00:22:02.610
+in the alt text, if you can't see
+the image is very, very important.
+
+00:22:02.610 --> 00:22:05.260
+So far, let's take a
+look at what we've got.
+
+00:22:05.260 --> 00:22:11.540
+I'm going to view this post,
+and here's what we built so far.
+
+00:22:11.540 --> 00:22:14.100
+And yes, I shortcut a lot of
+the process because I have to
+
+00:22:14.100 --> 00:22:15.580
+in the amount of time given.
+
+00:22:15.580 --> 00:22:18.840
+But one of the first things is
+I'm going to hit my Tab key.
+
+00:22:19.940 --> 00:22:25.090
+And when I look at the Tab key...
+Well, the one problem is
+
+00:22:26.530 --> 00:22:31.150
+when you're in the admin, and a
+trick is I often open the sites
+
+00:22:31.150 --> 00:22:34.870
+in a new Incognito window.
+
+00:22:37.880 --> 00:22:38.820
+Open that here.
+
+00:22:38.820 --> 00:22:43.680
+And now when I tab through,
+you can see my first link is a skip
+
+00:22:43.680 --> 00:22:45.840
+to content if I already
+know the navigation.
+
+00:22:45.840 --> 00:22:47.410
+Then my focus is clear to me.
+
+00:22:47.410 --> 00:22:50.140
+It's outlined going
+through each link.
+
+00:22:50.140 --> 00:22:51.470
+It's outlining it.
+
+00:22:51.470 --> 00:22:53.940
+A lot of times you might
+work with somebody who says,
+
+00:22:53.940 --> 00:22:55.230
+I don't like the way that looks.
+
+00:22:55.230 --> 00:22:58.880
+Well, the focus is not for
+you to like the way it looks,
+
+00:22:58.880 --> 00:23:01.630
+it's to help everybody
+be able to use the site.
+
+00:23:01.630 --> 00:23:04.670
+And for people who are using a
+keyboard to know where they are,
+
+00:23:04.670 --> 00:23:06.120
+it's very, very important.
+
+00:23:06.120 --> 00:23:11.760
+The Drop-down is a good example
+of what cadence has done,
+
+00:23:11.760 --> 00:23:14.970
+where they've made the
+drop-down work nicely,
+
+00:23:14.970 --> 00:23:18.530
+where you can specifically
+go through the drop-down,
+
+00:23:18.530 --> 00:23:20.920
+escape out of it,
+not all themes do that.
+
+00:23:21.950 --> 00:23:23.250
+Continue from there.
+
+00:23:23.250 --> 00:23:28.050
+Now when I get into the content,
+you can see where the focus is,
+
+00:23:28.050 --> 00:23:30.260
+my links as I'm highlighting.
+
+00:23:31.820 --> 00:23:36.990
+So this is reacting with a
+keyboard the way we want it to.
+
+00:23:36.990 --> 00:23:42.030
+I also do a quick test,
+for example, in using Wave,
+
+00:23:42.030 --> 00:23:44.470
+which is telling me right
+now we've got zero errors,
+
+00:23:44.470 --> 00:23:49.920
+zero contrast errors, some
+alerts to pay attention to, Wave,
+
+00:23:49.920 --> 00:23:52.710
+you can go to the
+website itself for Wave.
+
+00:23:52.710 --> 00:23:56.470
+I'm using a Chrome extension
+and get some details
+
+00:23:56.470 --> 00:24:00.990
+on what some of these alerts are
+and what to pay attention to.
+
+00:24:02.870 --> 00:24:04.970
+These make sense without
+going into the details of it,
+
+00:24:04.970 --> 00:24:08.460
+but the possible heading it's
+looking at, my heading information
+
+00:24:08.460 --> 00:24:10.060
+and the title of the site and
+going, wait a minute,
+
+00:24:10.060 --> 00:24:13.420
+is that the heading of the
+site as opposed to the heading
+
+00:24:13.420 --> 00:24:16.670
+of the content, versus the main H1?
+
+00:24:16.670 --> 00:24:18.660
+You can see my links here.
+
+00:24:18.660 --> 00:24:22.730
+I mean,
+my headings clearly organized.
+
+00:24:22.730 --> 00:24:27.060
+You can look at the structure
+here and have that make sense.
+
+00:24:27.060 --> 00:24:30.600
+So all of these things as you're
+building the page and checking
+
+00:24:30.600 --> 00:24:32.850
+on it and going, OK, are things
+in the right order, are things
+
+00:24:32.850 --> 00:24:33.850
+as expected?
+
+00:24:35.210 --> 00:24:41.650
+Another thing that's kind of nice
+about another Chrome extension
+
+00:24:41.650 --> 00:24:43.360
+called Tably.
+
+00:24:43.360 --> 00:24:48.450
+And when you click on that, what it
+does is it goes through your site
+
+00:24:48.450 --> 00:24:54.430
+and it's going to tell you
+where, as you're tabbing through.
+
+00:24:54.430 --> 00:24:55.290
+So you get an idea.
+
+00:24:55.290 --> 00:24:57.640
+Now, if this is going in a
+logical order, you can see it.
+
+00:24:57.640 --> 00:24:58.950
+We just tab through.
+
+00:24:58.950 --> 00:25:01.360
+I mean, one of the best
+things is just do it yourself.
+
+00:25:01.360 --> 00:25:03.400
+But tools like this do
+help you kind of see
+
+00:25:04.780 --> 00:25:09.000
+how your site is logically organized,
+which is very, very important
+
+00:25:09.000 --> 00:25:10.000
+for accessibility.
+
+00:25:11.020 --> 00:25:14.180
+Coming back to the
+content, I've got little...
+
+00:25:16.570 --> 00:25:19.990
+I do have another active plug-in
+that kind of hides that admin bar.
+
+00:25:19.990 --> 00:25:24.030
+So when I'm doing demonstrations,
+it just kind of gets out of the way.
+
+00:25:24.030 --> 00:25:30.930
+I'm going to bring in my
+last bit here of content.
+
+00:25:38.140 --> 00:25:40.750
+I don't think you can hear, but my
+cat is outside the door screaming.
+
+00:25:45.890 --> 00:25:51.360
+So, the one thing, and we'll come
+back to this, but if you start
+
+00:25:51.360 --> 00:25:52.842
+with a good foundation
+for accessibility,
+
+00:25:52.843 --> 00:25:53.760
+including themes, colors,
+
+00:25:53.760 --> 00:25:57.780
+and fonts, creating system accessible
+content is not too difficult,
+
+00:25:57.780 --> 00:25:59.500
+it just becomes a new habit.
+
+00:25:59.500 --> 00:26:02.210
+So now let's take
+it one step further.
+
+00:26:02.210 --> 00:26:05.200
+So I'm going to go here,
+I'm going to view this post.
+
+00:26:06.830 --> 00:26:10.490
+And while I'm calling this up,
+have there been any questions
+
+00:26:10.490 --> 00:26:13.800
+that we can handle so
+far, I'm just kind of...
+
+00:26:13.800 --> 00:26:17.940
+I'll show you two more things while
+I do this that I forgot to do,
+
+00:26:17.940 --> 00:26:22.030
+which is going back to the post.
+
+00:26:22.030 --> 00:26:29.650
+I'm going to make sure that
+the categories here make sense,
+
+00:26:29.650 --> 00:26:32.920
+which is accessibility
+and presentation.
+
+00:26:32.920 --> 00:26:35.710
+And I am going to
+set a featured image.
+
+00:26:35.710 --> 00:26:43.480
+I think we'll go with this one
+and we do have alt text preset.
+
+00:26:43.480 --> 00:26:46.045
+You could do that when
+you're uploading images
+
+00:26:46.046 --> 00:26:47.300
+to your image library.
+
+00:26:47.300 --> 00:26:48.650
+You could always change them.
+
+00:26:50.130 --> 00:26:53.070
+And once I have that,
+we'll update this.
+
+00:26:54.500 --> 00:27:00.570
+Now we've added it, defined by the
+theme how that image is coming in,
+
+00:27:00.570 --> 00:27:04.730
+I think how these additional links
+and what details that they go to.
+
+00:27:04.730 --> 00:27:09.720
+So let's go here and now I'm going
+to go to keep an eye on the time.
+
+00:27:09.720 --> 00:27:11.970
+OK, we're going to do this
+pretty quickly, obviously.
+
+00:27:13.690 --> 00:27:15.630
+I'm going to build a page.
+
+00:27:15.630 --> 00:27:19.140
+Now you think that'd be bigger,
+but to we're going to show elements
+
+00:27:19.140 --> 00:27:26.260
+and now I'm going to start
+introducing some custom blocks.
+
+00:27:26.260 --> 00:27:30.650
+Not custome blocks, some block
+packages, specifically in this case,
+
+00:27:30.650 --> 00:27:31.790
+cadence blocks.
+
+00:27:31.790 --> 00:27:33.440
+These are the free ones.
+
+00:27:33.440 --> 00:27:38.510
+Again, there's so many good block
+packages, but the real trick would be
+
+00:27:38.510 --> 00:27:41.030
+how do they handle accessibility?
+
+00:27:41.030 --> 00:27:44.404
+I like cadence because it
+gives me additional controls
+
+00:27:44.405 --> 00:27:45.570
+for accessibility.
+
+00:27:45.570 --> 00:27:50.290
+It gives me the ability to do
+proper titling and use aria text
+
+00:27:50.290 --> 00:27:50.970
+and things like that.
+
+00:27:50.970 --> 00:27:53.950
+Things we're not going
+to get into right now.
+
+00:27:53.950 --> 00:27:58.250
+And one other thing, I'm going to
+go back here, because I did want
+
+00:27:58.250 --> 00:28:04.930
+to make sure that we're highlighting
+on the posts, what I just did.
+
+00:28:06.990 --> 00:28:09.730
+Because I didn't show this
+yet but as we were going,
+
+00:28:09.730 --> 00:28:16.300
+I do have the accessibility checker
+plug-in loaded, which is great,
+
+00:28:16.300 --> 00:28:20.130
+a high-rise digital with Amber,
+this is their team's tool.
+
+00:28:20.130 --> 00:28:23.120
+And it really is an excellent
+tool that's showing me
+
+00:28:23.120 --> 00:28:26.600
+as I go the kind of content
+that we're dealing with.
+
+00:28:26.600 --> 00:28:28.070
+One of the things when
+I first – and I think
+
+00:28:28.070 --> 00:28:34.390
+this is an important note – put this
+together is the reading level...
+
+00:28:34.390 --> 00:28:37.190
+because a lot of the
+content in my first pass
+
+00:28:37.190 --> 00:28:41.060
+at this was ChatGPT
+written and I didn't tell
+
+00:28:41.060 --> 00:28:43.060
+what reading level it came in.
+
+00:28:43.060 --> 00:28:45.670
+It came in above a 12th
+grade reading level,
+
+00:28:45.670 --> 00:28:52.300
+which also required a summary level
+and something to make it simpler.
+
+00:28:52.300 --> 00:28:52.830
+That's not good.
+
+00:28:52.830 --> 00:28:54.610
+Again, it's not good for anybody.
+
+00:28:55.860 --> 00:28:59.320
+The great thing about accessibility
+is, it's good for everybody
+
+00:28:59.320 --> 00:29:00.920
+when you're really
+paying attention to it.
+
+00:29:00.920 --> 00:29:03.560
+So being reminded as you're
+going through, you know,
+
+00:29:03.560 --> 00:29:05.350
+do I have any contrast errors?
+
+00:29:05.350 --> 00:29:09.080
+Do I have any other specific
+errors as we're going through?
+
+00:29:09.080 --> 00:29:12.080
+This is actually showing the same
+errors that the Wave tool showed.
+
+00:29:13.570 --> 00:29:19.123
+And then, am I staying on
+track on the reading level?
+
+00:29:19.124 --> 00:29:21.180
+All fantastic tools.
+
+00:29:21.180 --> 00:29:23.640
+Then if I were to look
+at this on the front-end,
+
+00:29:23.640 --> 00:29:29.050
+I love this new ability to turn
+on the accessibility checker
+
+00:29:29.050 --> 00:29:33.480
+on the front-end, and then look
+to see some of those aspects
+
+00:29:33.480 --> 00:29:39.530
+when you get into the specific
+issues to pay attention to.
+
+00:29:39.530 --> 00:29:41.520
+It walks you through the
+things to really look at.
+
+00:29:43.220 --> 00:29:46.010
+So again, you have to look at
+yourself, even though you go
+
+00:29:46.010 --> 00:29:46.550
+through the tool.
+
+00:29:46.550 --> 00:29:49.790
+So I just want to make sure
+we cover that really quickly.
+
+00:29:49.790 --> 00:29:52.430
+All right, so building the
+page, the first thing I'm going
+
+00:29:52.430 --> 00:29:59.890
+to do is I'm going to
+bring over a hero element.
+
+00:29:59.890 --> 00:30:04.420
+Now, this hero element is made
+up of... and you'll see a lot
+
+00:30:04.420 --> 00:30:11.960
+of these things are cadence
+blocks, including cadence headings.
+
+00:30:11.960 --> 00:30:18.080
+I wanted to demonstrate this because
+while the Outliner works great,
+
+00:30:18.080 --> 00:30:24.150
+what it doesn't do, is it
+doesn't see headings from blocks
+
+00:30:24.150 --> 00:30:28.940
+that are not core heading blocks,
+even though they use the H2, H3,
+
+00:30:28.940 --> 00:30:36.940
+H4 heading... just describes the CSS
+element that says this is a heading.
+
+00:30:40.430 --> 00:30:43.890
+I hope that that happens because
+the problem is when you look at it,
+
+00:30:43.890 --> 00:30:48.590
+even though this is set as an
+H2, this is set not as a heading.
+
+00:30:48.590 --> 00:30:52.500
+This is again, one of the
+reasons why I like in cadence,
+
+00:30:52.500 --> 00:31:00.220
+you have something called the
+text advance, which allows you
+
+00:31:00.220 --> 00:31:04.200
+to set up the heading if you want
+to do things in the right order.
+
+00:31:04.200 --> 00:31:07.740
+But it also allows you to use all
+the features, but you're going
+
+00:31:07.740 --> 00:31:10.730
+to set this as a div,
+and then you're going to control all
+
+00:31:10.730 --> 00:31:12.590
+of the colors and things like
+that, which makes
+
+00:31:12.590 --> 00:31:16.760
+some of these more advanced
+block packages work.
+
+00:31:16.760 --> 00:31:20.430
+Without saying, I want it to
+look like a certain... I want it
+
+00:31:20.430 --> 00:31:22.650
+to be larger here, so I'm
+going to make it a heading two,
+
+00:31:22.650 --> 00:31:25.270
+even though that doesn't make sense
+in the order, and that is a trap
+
+00:31:25.270 --> 00:31:27.190
+that many people fall into.
+
+00:31:27.190 --> 00:31:30.170
+You drop in something,
+I want this bigger so I'm going
+
+00:31:30.170 --> 00:31:32.450
+to increase the heading size.
+
+00:31:32.450 --> 00:31:40.629
+The heading numbers, H2, H3,
+H4, are not for just formatting.
+
+00:31:40.630 --> 00:31:42.686
+Obviously,
+there's a formatting element,
+
+00:31:42.687 --> 00:31:44.190
+but to say I want large text,
+
+00:31:44.190 --> 00:31:48.870
+so I'm going to use an H2 in an
+area where an H2 shouldn't be used,
+
+00:31:48.870 --> 00:31:50.350
+you kind of need to
+pay attention to that.
+
+00:31:51.670 --> 00:31:55.698
+So right now,
+my outline on the front-end anyway,
+
+00:31:55.699 --> 00:31:57.950
+and on the back-end,
+isn't showing.
+
+00:31:57.950 --> 00:32:00.870
+I'm going to go to the front-end,
+we'll clearly be able to see
+
+00:32:02.550 --> 00:32:04.190
+how those headings are.
+
+00:32:05.520 --> 00:32:09.500
+They have what's called a
+button, but there's a whole...
+
+00:32:10.840 --> 00:32:13.470
+pay attention to what is a
+button versus what is a link.
+
+00:32:13.470 --> 00:32:17.170
+And a button is something that
+is meant to make an action
+
+00:32:17.170 --> 00:32:20.810
+on the page, submitting a
+form and we'll have that
+
+00:32:20.810 --> 00:32:23.660
+in a little bit,
+versus linking to something else.
+
+00:32:23.660 --> 00:32:29.050
+You can make a link look like a
+button, but it isn't marked up
+
+00:32:29.050 --> 00:32:34.350
+in HTML as a button because
+that has a certain implication
+
+00:32:34.350 --> 00:32:37.520
+through things like screen readers
+that we don't want to have happen.
+
+00:32:37.520 --> 00:32:40.880
+In this particular case,
+this is really just a link.
+
+00:32:40.880 --> 00:32:45.860
+I can show what the link is,
+even though it's formatted a button.
+
+00:32:45.860 --> 00:32:48.270
+Another option is
+what I very often use;
+
+00:32:49.740 --> 00:32:56.010
+the headline... sorry the
+advanced text, which kind of falls
+
+00:32:56.010 --> 00:32:59.280
+into the headline category, but
+using a div and then formatting it
+
+00:32:59.280 --> 00:33:02.070
+to maybe look like a button
+if that's what I want.
+
+00:33:02.070 --> 00:33:10.070
+On the back of this, is a row,
+and the row has a background image,
+
+00:33:10.760 --> 00:33:18.760
+but it also has a white overlay set
+to a certain percentage of opacity.
+
+00:33:20.730 --> 00:33:24.010
+This is 100% opaque, this is lower.
+
+00:33:24.010 --> 00:33:29.220
+You want to pay attention to
+these based on, does it make sense
+
+00:33:29.220 --> 00:33:32.590
+to the images there and are we
+still having enough contrast
+
+00:33:32.590 --> 00:33:38.030
+between the lettering that we have
+here, and the image behind it?
+
+00:33:38.030 --> 00:33:42.760
+And then in fact, you could even put
+background color behind certain texts
+
+00:33:42.760 --> 00:33:44.550
+to even further call that out.
+
+00:33:44.550 --> 00:33:51.060
+So if you have a dark
+background with lighter text,
+
+00:33:51.060 --> 00:33:52.570
+but maybe there's
+some lighter areas,
+
+00:33:52.570 --> 00:33:55.310
+maybe putting a shadow behind
+the text, there's different ways
+
+00:33:55.310 --> 00:33:58.470
+to increase that contrast,
+but just making sure
+
+00:33:58.470 --> 00:34:02.060
+that you are paying attention to
+that color contrast and another,
+
+00:34:02.060 --> 00:34:04.930
+a little tip is to make sure
+that the background color,
+
+00:34:04.930 --> 00:34:06.610
+because while you have
+a background image,
+
+00:34:06.610 --> 00:34:08.850
+you can also have background
+color that you're setting
+
+00:34:08.850 --> 00:34:12.610
+is also the same light
+color if you have dark text
+
+00:34:12.610 --> 00:34:18.700
+or vice versa, because often the
+tools are reading not the image,
+
+00:34:18.700 --> 00:34:20.690
+but the background color.
+
+00:34:20.690 --> 00:34:23.470
+And that's important because
+somebody may even not even
+
+00:34:23.470 --> 00:34:25.180
+be showing the images.
+
+00:34:25.180 --> 00:34:27.710
+And you want to know what that
+background color looks like,
+
+00:34:27.710 --> 00:34:32.140
+even though you have
+a background image.
+
+00:34:32.140 --> 00:34:40.140
+Going back to my content here,
+I'm going to bring out a few more.
+
+00:34:50.520 --> 00:34:55.340
+So I've attempted to hit Control
+C and it doesn't always work
+
+00:34:55.340 --> 00:34:56.890
+for what we want it to.
+
+00:34:58.370 --> 00:35:01.260
+Copy the blocks,
+I'm going to bring to here.
+
+00:35:02.480 --> 00:35:03.260
+Let me bring the checker.
+
+00:35:03.260 --> 00:35:06.150
+The checker so far is telling
+me that I'm in good shape.
+
+00:35:08.130 --> 00:35:10.160
+Paste the additional
+blocks that we've got here.
+
+00:35:11.350 --> 00:35:16.000
+Here is a heading text set to H2.
+
+00:35:16.000 --> 00:35:17.780
+Now I'm organizing it.
+
+00:35:17.780 --> 00:35:23.590
+Again, this is using the cadence
+blocks just to show again,
+
+00:35:23.590 --> 00:35:28.500
+it doesn't necessarily
+show up in the outline.
+
+00:35:28.500 --> 00:35:34.010
+However, you can see that this
+the next area down areas of focus,
+
+00:35:34.010 --> 00:35:38.770
+I did set that as a core heading
+and now we can see it shows up here.
+
+00:35:38.770 --> 00:35:41.013
+That's just something to
+pay attention to of what is,
+
+00:35:41.014 --> 00:35:41.760
+or isn't there.
+
+00:35:41.760 --> 00:35:43.330
+So don't rely on that completely.
+
+00:35:44.850 --> 00:35:48.070
+One thing to think about too
+in terms of accessibility is
+
+00:35:48.070 --> 00:35:51.250
+when you center something
+versus left, justify something,
+
+00:35:51.250 --> 00:35:54.690
+think about reading skills
+levels, the width that you have.
+
+00:35:54.690 --> 00:35:57.414
+Try to keep things a little
+bit thinner, larger text
+
+00:35:57.415 --> 00:35:58.390
+in a smaller area.
+
+00:35:59.760 --> 00:36:05.680
+For folks who have a little bit
+trouble with reading, scanning,
+
+00:36:05.680 --> 00:36:09.040
+dyslexia, there's a lot of ways
+you can help people with that
+
+00:36:09.040 --> 00:36:11.650
+by the way you organize this.
+
+00:36:11.650 --> 00:36:14.620
+But again, the benefit is you're
+making your content easier
+
+00:36:14.621 --> 00:36:15.610
+for everybody.
+
+00:36:15.610 --> 00:36:17.890
+Easier to scan, easier to
+read, easier to go through.
+
+00:36:19.340 --> 00:36:21.887
+Here's a classic area
+where the people have kind
+
+00:36:21.888 --> 00:36:24.804
+of the three sections
+and images and links to
+
+00:36:24.805 --> 00:36:27.720
+and often this is where
+you might find a link
+
+00:36:27.720 --> 00:36:28.640
+being a button.
+
+00:36:28.640 --> 00:36:29.510
+These are not buttons.
+
+00:36:29.510 --> 00:36:30.780
+These are text links.
+
+00:36:32.490 --> 00:36:38.450
+They can have, and right now this
+does use a cadence, the heading
+
+00:36:38.450 --> 00:36:43.420
+that same heading so I can have
+the advanced text actually is.
+
+00:36:43.420 --> 00:36:44.780
+I can put an icon with it.
+
+00:36:44.780 --> 00:36:50.780
+It's built into this particular
+block, in this block package.
+
+00:36:50.780 --> 00:36:54.840
+I am keeping the text left justified
+just because again it's easier.
+
+00:36:54.840 --> 00:36:59.310
+Some cases the wall center you can
+see at the top I centered that area.
+
+00:36:59.310 --> 00:37:03.820
+But as I build this content out,
+I've got things that make sense
+
+00:37:03.820 --> 00:37:04.850
+where they are.
+
+00:37:04.850 --> 00:37:07.950
+I have alt text for
+these images here.
+
+00:37:07.950 --> 00:37:11.240
+In this particular case,
+I am only linking at the bottom.
+
+00:37:11.240 --> 00:37:16.250
+In some cases, you can link
+from the title and so on.
+
+00:37:16.250 --> 00:37:18.190
+But also keep in mind,
+if you're a screen reader,
+
+00:37:18.190 --> 00:37:20.500
+and you make everything a
+link, link, link.
+
+00:37:20.500 --> 00:37:23.400
+It's going to read all of
+them, read out the same ones.
+
+00:37:23.400 --> 00:37:25.590
+In a lot of cases,
+what you're trying to say is,
+
+00:37:26.650 --> 00:37:29.420
+let me present you a section and
+then if you want to go to it,
+
+00:37:29.420 --> 00:37:31.550
+let me present you and go to it.
+
+00:37:31.550 --> 00:37:35.750
+So you're not inundating
+users with links.
+
+00:37:37.100 --> 00:37:43.170
+So again, something to be aware
+of, and I'd rather have you make
+
+00:37:43.170 --> 00:37:46.010
+a conscious decision that you
+do or don't do something than
+
+00:37:46.010 --> 00:37:48.680
+to just say, well,
+we always do it that way.
+
+00:37:50.000 --> 00:37:53.350
+So let me get out of that.
+
+00:37:53.350 --> 00:37:54.650
+I'm going to update this.
+
+00:37:56.020 --> 00:37:57.420
+Let's take a look at our score.
+
+00:38:02.030 --> 00:38:06.950
+And look, we're doing great,
+I've got seven warnings here.
+
+00:38:06.950 --> 00:38:11.400
+I'm at a 12th grade reading level,
+I'm not sure why that's the case.
+
+00:38:11.400 --> 00:38:14.810
+We'll have to take a look
+at what I've got in here
+
+00:38:14.810 --> 00:38:16.260
+that might look at that.
+
+00:38:17.590 --> 00:38:20.660
+I didn't think in my demo I had
+that, but that's OK.
+
+00:38:20.660 --> 00:38:22.650
+We're working through this.
+
+00:38:22.650 --> 00:38:23.360
+Let's continue.
+
+00:38:23.360 --> 00:38:28.820
+So let me bring over the rest
+of the content so I can walk
+
+00:38:28.820 --> 00:38:31.100
+through these sections.
+
+00:38:35.890 --> 00:38:39.520
+Another trick too, if you're
+not exactly sure the best way
+
+00:38:39.520 --> 00:38:41.820
+and you want to say, OK,
+I'm on this row and now I want
+
+00:38:41.820 --> 00:38:45.650
+to add after,
+the add before add after another way
+
+00:38:45.650 --> 00:38:49.430
+that you can kind of quickly
+put content where you want.
+
+00:38:49.430 --> 00:38:52.260
+Let me paste everything
+that we've got here.
+
+00:38:52.260 --> 00:38:54.710
+Did I paste the same content?
+
+00:38:54.710 --> 00:38:55.710
+I did.
+
+00:38:56.730 --> 00:38:59.500
+Because I hit Control C again.
+
+00:39:00.600 --> 00:39:03.050
+Copy box, there we go.
+
+00:39:04.940 --> 00:39:10.850
+OK, so again, if you're building
+out a page, in this case,
+
+00:39:10.850 --> 00:39:12.150
+I've got more text.
+
+00:39:12.150 --> 00:39:14.610
+I'm making it narrow,
+making it easier.
+
+00:39:16.080 --> 00:39:20.650
+Here's where I've got a... that's
+my reminder to wrap it up here.
+
+00:39:20.650 --> 00:39:25.190
+Here's where I've got another
+section with some decorative images.
+
+00:39:25.190 --> 00:39:29.160
+These images, I don't have any
+alt text, because I don't want
+
+00:39:29.160 --> 00:39:33.840
+to describe swirly breaking
+orange and blue image.
+
+00:39:33.840 --> 00:39:37.710
+It adds no value to
+somebody, but this is an H2
+
+00:39:37.710 --> 00:39:39.430
+because it's a section I've got.
+
+00:39:39.430 --> 00:39:42.840
+This is a form that I've created
+using, in this particular case,
+
+00:39:42.840 --> 00:39:45.730
+the WS form light, form plug-in.
+
+00:39:45.730 --> 00:39:49.100
+There are a lot of great
+form plug-ins, gravity forms,
+
+00:39:49.100 --> 00:39:53.560
+fluent forms I use that have paid a
+lot of attention to accessibility.
+
+00:39:53.560 --> 00:39:55.700
+They give you clues
+as you're building.
+
+00:39:55.700 --> 00:39:59.510
+WordPress is giving you clues as
+you're building, this color on top
+
+00:39:59.510 --> 00:40:01.600
+of that color,
+that probably doesn't work.
+
+00:40:01.600 --> 00:40:06.060
+So having those clues come
+through fantastic, excellent tool.
+
+00:40:06.060 --> 00:40:08.360
+So again, starting with
+some of the right things.
+
+00:40:08.360 --> 00:40:14.030
+In this case, the WS form
+plug-in using the light version
+
+00:40:14.030 --> 00:40:16.410
+out of the repository that's free.
+
+00:40:16.410 --> 00:40:18.926
+It's worth going for
+the paid version,
+
+00:40:18.927 --> 00:40:20.990
+but we're going all free today.
+
+00:40:22.960 --> 00:40:25.204
+And in the form, making sure
+
+00:40:25.205 --> 00:40:28.890
+that you've got your
+labels properly posted.
+
+00:40:28.890 --> 00:40:31.240
+You're not just relying
+on a placeholder.
+
+00:40:32.700 --> 00:40:35.470
+You can focus on
+each piece of content
+
+00:40:35.470 --> 00:40:40.770
+and clearly help somebody
+know that I'm on a form,
+
+00:40:40.770 --> 00:40:43.530
+here's a field to fill
+out the field is named.
+
+00:40:43.530 --> 00:40:47.610
+A lot of times when you are testing
+a site and you go through one
+
+00:40:47.610 --> 00:40:52.130
+of the testing tools,
+you’ll find that forms are notorious
+
+00:40:52.130 --> 00:40:55.600
+for throwing errors, but it's because
+when folks are designing them,
+
+00:40:55.600 --> 00:40:57.280
+they're designing them
+for a certain aesthetic
+
+00:40:57.280 --> 00:41:01.410
+without necessarily designing
+them for functionality.
+
+00:41:01.410 --> 00:41:03.190
+And that's kind of a key
+thing that we're looking at
+
+00:41:03.190 --> 00:41:06.460
+when we're talking about building
+something with an accessibility.
+
+00:41:06.460 --> 00:41:10.120
+I'm also moving a
+little bit further down.
+
+00:41:10.120 --> 00:41:14.480
+I'm using the social icon
+block, core block.
+
+00:41:14.480 --> 00:41:17.730
+I put the icon blocks in here.
+
+00:41:20.360 --> 00:41:24.680
+One thing I do want to show you
+is, if I have a block
+
+00:41:24.680 --> 00:41:29.160
+of text here, and at one
+point I had a number of texts,
+
+00:41:29.160 --> 00:41:34.190
+but I just want to show you this
+text here, there's a great plug-in,
+
+00:41:34.190 --> 00:41:37.470
+which I shared in the other post.
+
+00:41:37.470 --> 00:41:40.980
+I have to remember the exact
+title, but basically it allows you
+
+00:41:40.980 --> 00:41:42.820
+to hide text from a screen reader.
+
+00:41:42.820 --> 00:41:47.300
+Let me go up here, like say,
+I didn't want to show this piece
+
+00:41:47.300 --> 00:41:50.578
+of information to
+somebody who's reading it,
+
+00:41:50.579 --> 00:41:52.690
+but it might make more sense
+
+00:41:52.690 --> 00:41:54.890
+in a screen reader,
+maybe a little bit of extra detail.
+
+00:41:54.890 --> 00:41:58.540
+For example, I might say, hey,
+there's a lot of links here
+
+00:41:58.540 --> 00:41:59.730
+just to be aware.
+
+00:41:59.730 --> 00:42:01.810
+Somebody who could see it could
+see there's a lot of links,
+
+00:42:01.810 --> 00:42:03.510
+but maybe you want to share that.
+
+00:42:03.510 --> 00:42:06.690
+There is that when you
+install this plug-in,
+
+00:42:06.690 --> 00:42:08.430
+you do get a screen reader only.
+
+00:42:08.430 --> 00:42:11.030
+It's like formatting it just like
+you would go through any of these,
+
+00:42:11.030 --> 00:42:12.730
+where you highlight it, whatever.
+
+00:42:12.730 --> 00:42:15.440
+But now you're saying,
+make this screen reader only,
+
+00:42:15.440 --> 00:42:21.740
+and it becomes invisible to people
+who are just reading the screen
+
+00:42:21.740 --> 00:42:25.610
+as opposed to using a screen
+reader, actually visually looking
+
+00:42:25.610 --> 00:42:26.830
+at that screen.
+
+00:42:26.830 --> 00:42:28.940
+So That's a neat little
+plug-in for when you want
+
+00:42:28.940 --> 00:42:31.470
+to have more information,
+again, to make it helpful
+
+00:42:31.470 --> 00:42:34.150
+as somebody is going
+through screen reading.
+
+00:42:35.630 --> 00:42:43.630
+The thing about the social media text
+block is you can show the labels.
+
+00:42:44.610 --> 00:42:52.520
+In this particular case, the labels
+are a bit much for design-wise.
+
+00:42:52.520 --> 00:42:56.880
+Also, we do run into a
+little bit of contrast issues
+
+00:42:56.880 --> 00:42:59.880
+with these two colors here, the
+light blue and white, the light green
+
+00:42:59.880 --> 00:43:00.850
+and white.
+
+00:43:00.850 --> 00:43:04.670
+But what I'm also showing you
+is that that the text associated
+
+00:43:04.670 --> 00:43:06.980
+with it does get read
+out in a screen reader,
+
+00:43:06.980 --> 00:43:11.370
+which makes this again useful,
+because now it says, the link is
+
+00:43:11.370 --> 00:43:16.150
+to Peter Ingersoll on WordPress.org,
+Peter Ingersoll on Facebook.
+
+00:43:16.150 --> 00:43:20.840
+So instead of just being a link, it
+does read out where you're going to.
+
+00:43:20.840 --> 00:43:24.530
+So again, tools that make
+everything very, very useful.
+
+00:43:24.530 --> 00:43:27.820
+We're doing great on
+the accessibility tool.
+
+00:43:29.650 --> 00:43:30.700
+Let me view the page.
+
+00:43:32.940 --> 00:43:35.940
+This is what we built
+or pulled together.
+
+00:43:37.000 --> 00:43:39.260
+And then again,
+if I were to take a look at this
+
+00:43:39.260 --> 00:43:46.370
+in an incognito window and
+run some wave against it,
+
+00:43:47.400 --> 00:43:51.740
+as one of the tools...
+I am getting zero errors.
+
+00:43:51.740 --> 00:43:53.250
+I'm going to see,
+going through this tool,
+
+00:43:53.250 --> 00:43:57.230
+that I do have contrast errors
+and it's what I expected.
+
+00:43:57.230 --> 00:44:02.740
+These are my two links down here.
+
+00:44:02.740 --> 00:44:06.330
+It's often easier, by the
+way, if you turn off styles,
+
+00:44:06.330 --> 00:44:07.830
+which also gives you an idea
+of, again,
+
+00:44:07.831 --> 00:44:09.030
+what a screen reader is reading
+
+00:44:09.030 --> 00:44:17.030
+and this is where it's showing
+the very specific contrast errors.
+
+00:44:17.740 --> 00:44:21.300
+But that is a lightning round
+of putting together two sites
+
+00:44:21.300 --> 00:44:24.750
+without going through creating
+each and every block as we did.
+
+00:44:26.470 --> 00:44:31.370
+And I think we're
+set at this point.
+
+00:44:31.370 --> 00:44:32.990
+ LAURA: Thank you, Peter.
+
+00:44:33.700 --> 00:44:34.212
+PETER: Hey, I came in
+
+00:44:34.213 --> 00:44:35.900
+ LAURA: That was awesome.
+
+00:44:35.900 --> 00:44:41.010
+And please, if you have any other
+questions, put them in the Q&A.
+
+00:44:41.010 --> 00:44:43.360
+We'll start our Q&A segment.
+
+00:44:43.360 --> 00:44:45.070
+ PETER: Fanatastic.
+
+00:44:47.300 --> 00:44:48.150
+ LAURA: All right.
+
+00:44:48.150 --> 00:44:49.950
+I actually had one
+at the beginning.
+
+00:44:49.950 --> 00:44:57.950
+So I noticed that at the beginning,
+when you showed the headings
+
+00:44:58.440 --> 00:45:04.430
+and stuff in that view,
+there was the title, and then the H2.
+
+00:45:04.430 --> 00:45:06.730
+What is the difference
+between using a title
+
+00:45:06.730 --> 00:45:09.890
+as opposed to putting in an H1?
+
+00:45:09.890 --> 00:45:10.690
+ PETER: Right.
+
+00:45:10.690 --> 00:45:17.720
+So depending on factors, depending
+on primarily the theme, right?
+
+00:45:17.720 --> 00:45:22.510
+So the theme is where you're kind of
+deciding what code gets put there.
+
+00:45:22.510 --> 00:45:28.460
+What I found is most of the
+themes that I pay attention to,
+
+00:45:28.460 --> 00:45:31.460
+there's how many tens
+of thousands of themes?
+
+00:45:31.460 --> 00:45:39.460
+And I pay attention to just six,
+uses the page title as the H1.
+
+00:45:41.970 --> 00:45:46.190
+And when you think about it,
+it's like everything is bound
+
+00:45:46.190 --> 00:45:48.400
+in the book of your website.
+
+00:45:49.720 --> 00:45:55.500
+The title of your document is,
+again, the title of the document.
+
+00:45:55.500 --> 00:45:58.760
+So it makes sense that it
+says, this page, this post is
+
+00:45:58.760 --> 00:46:02.050
+about build an accessible
+post demonstration.
+
+00:46:02.050 --> 00:46:02.910
+That is my H1.
+
+00:46:02.910 --> 00:46:05.610
+That is defining the document.
+
+00:46:05.610 --> 00:46:08.010
+And it's using the H1 as the title.
+
+00:46:08.010 --> 00:46:12.330
+So this is the whole...
+There should only be one H1 per page.
+
+00:46:12.330 --> 00:46:14.400
+I've heard whether
+certain exceptions,
+
+00:46:14.401 --> 00:46:16.440
+I haven't come across a time
+when I need it.
+
+00:46:16.440 --> 00:46:19.080
+So did that answer the question?
+
+00:46:19.080 --> 00:46:19.895
+ LAURA: Yes
+
+00:46:19.896 --> 00:46:22.340
+ PETER: In effect,
+the H1 is equivalent.
+
+00:46:22.340 --> 00:46:24.820
+If you were to look at this in
+the back end, it would be H1.
+
+00:46:24.820 --> 00:46:26.110
+LAURA: Sounds good.
+
+00:46:26.110 --> 00:46:30.280
+Yes, that was always like a confusing
+thing, especially as a new beginner
+
+00:46:30.280 --> 00:46:35.750
+of doing the hierarchy of
+the headings and stuff.
+
+00:46:35.750 --> 00:46:37.610
+ PETER: Yes, go ahead.
+
+00:46:38.467 --> 00:46:40.810
+ LAURA: A couple of people
+were asking about the site
+
+00:46:40.810 --> 00:46:41.440
+that you were using.
+
+00:46:41.440 --> 00:46:43.770
+So we did put that
+into the chat again.
+
+00:46:45.320 --> 00:46:48.530
+So I wanted to make sure
+that people got that.
+
+00:46:48.530 --> 00:46:50.510
+ PETER: The actual site
+I'm working on right here?
+
+00:46:50.510 --> 00:46:51.240
+ LAURA: Yes.
+
+00:46:51.240 --> 00:46:52.140
+ PETER: Yes.
+
+00:46:52.140 --> 00:46:53.210
+I mean, feel free.
+
+00:46:53.210 --> 00:46:54.600
+This is live.
+
+00:46:54.600 --> 00:46:56.640
+This is my site.
+
+00:46:56.640 --> 00:46:58.070
+It is chock full.
+
+00:46:58.070 --> 00:46:59.280
+I mean, this is the funny part.
+
+00:46:59.280 --> 00:47:03.640
+So the links that I had going to
+this page is intentionally blank
+
+00:47:03.640 --> 00:47:06.270
+because I'm not building
+out the whole site.
+
+00:47:06.270 --> 00:47:08.690
+But I hope for encouragement
+for people who want to see this
+
+00:47:08.690 --> 00:47:14.030
+from a DIY practical approach,
+a big part of what I want
+
+00:47:14.030 --> 00:47:15.860
+to do are experiments.
+
+00:47:17.550 --> 00:47:20.550
+When I go through and test
+headings and how they work
+
+00:47:20.550 --> 00:47:23.960
+with different blocks and
+what's being read and not read
+
+00:47:23.960 --> 00:47:24.940
+and things like that.
+
+00:47:24.940 --> 00:47:27.010
+So I want to do a lot of that here.
+
+00:47:27.010 --> 00:47:31.210
+But right now,
+the main reason for this to exist is
+
+00:47:31.210 --> 00:47:34.580
+for this presentation, which is
+why these are the core links.
+
+00:47:34.580 --> 00:47:37.570
+You can now see the demonstration
+links are what we created.
+
+00:47:37.570 --> 00:47:40.050
+The post-source content is
+what I was copying from,
+
+00:47:40.050 --> 00:47:43.040
+which should pretty much be
+the same thing right now.
+
+00:47:43.040 --> 00:47:46.644
+ LAURA: Alice was
+asking about Astra
+
+00:47:46.645 --> 00:47:49.970
+and if it's an accessible template.
+
+00:47:49.970 --> 00:47:51.870
+Do you have any knowledge of Astra?
+
+00:47:51.870 --> 00:47:58.600
+PETER: When I used Astra, I'm one of
+those who have the lifetime package.
+
+00:48:00.070 --> 00:48:05.382
+It was on one of my top
+lists of themes to use,
+
+00:48:05.383 --> 00:48:07.200
+and accessibility was key.
+
+00:48:07.200 --> 00:48:11.720
+I'll be honest, I haven't used it
+very recently and I caught wind
+
+00:48:11.720 --> 00:48:14.070
+that there's a couple
+things to pay attention to.
+
+00:48:14.070 --> 00:48:18.690
+I think anything that exists, they'll
+work on and they're receptive to.
+
+00:48:18.690 --> 00:48:23.290
+So if we want to,
+and we're coming up on time,
+
+00:48:23.290 --> 00:48:26.070
+but I could even just swap in a theme
+and we can see what it looks like.
+
+00:48:27.240 --> 00:48:29.680
+ LAURA: We have several
+questions, so let's get through
+
+00:48:29.680 --> 00:48:30.570
+the questions first.
+
+00:48:30.570 --> 00:48:31.090
+ PETER: Yes
+
+00:48:31.090 --> 00:48:34.370
+ LAURA: Anonymous has
+asked, I've heard that links
+
+00:48:34.370 --> 00:48:39.510
+that take place immediately before
+punctuation, like contact us,
+
+00:48:39.510 --> 00:48:43.090
+for example, with the words
+linking to a contact page
+
+00:48:43.090 --> 00:48:45.720
+should include the
+punctuation in the link
+
+00:48:45.720 --> 00:48:53.720
+so that the screen reader
+pairs the information correctly
+
+00:48:54.990 --> 00:48:56.640
+and doesn't read the punctuation.
+
+00:48:56.640 --> 00:48:57.600
+Is this accurate?
+
+00:48:58.867 --> 00:49:00.730
+ PETER: I'll be very honest
+with you, I do not know.
+
+00:49:00.730 --> 00:49:03.720
+I've never included
+punctuation in the link.
+
+00:49:03.720 --> 00:49:08.020
+LAURA: If somebody could answer that
+in the chat, that would be great.
+
+00:49:08.020 --> 00:49:10.730
+ PETER: Yes,
+I've simply not heard that before.
+
+00:49:13.080 --> 00:49:16.240
+But what's beautiful about
+this is this is all about,
+
+00:49:17.430 --> 00:49:20.060
+you learn by doing, by teaching.
+
+00:49:20.060 --> 00:49:22.047
+Laura, you and I are doing that,
+
+00:49:22.048 --> 00:49:24.530
+where it's a great
+approach to things.
+
+00:49:24.530 --> 00:49:29.150
+So a lot of this was
+prompted because,
+
+00:49:29.150 --> 00:49:32.150
+Amber Hinds herself was
+asking a question about tables
+
+00:49:32.150 --> 00:49:33.480
+and accessible tables.
+
+00:49:33.480 --> 00:49:36.770
+And another presentation I did,
+I kind of went through a process
+
+00:49:36.770 --> 00:49:41.340
+of how to make the WordPress
+core table accessible.
+
+00:49:41.340 --> 00:49:43.950
+The only problem was somebody
+called me on the fact that, yes,
+
+00:49:43.950 --> 00:49:45.460
+but it doesn't work
+on a mobile phone.
+
+00:49:45.460 --> 00:49:49.010
+In other words, tables don't
+look good on a mobile phone,
+
+00:49:49.010 --> 00:49:50.950
+and there would be a whole
+process to go through for that,
+
+00:49:50.950 --> 00:49:52.210
+what you show is visible or not.
+
+00:49:52.210 --> 00:49:53.530
+So no time for that.
+
+00:49:53.530 --> 00:49:56.290
+That could be its own full
+presentation, which I'll probably do
+
+00:49:56.290 --> 00:49:57.740
+at some point.
+
+00:49:57.740 --> 00:50:00.310
+ LAURA: Sherry was asking,
+and I think you answered this,
+
+00:50:00.310 --> 00:50:05.210
+if there is typing an image,
+will a screen reader not see it?
+
+00:50:05.210 --> 00:50:09.660
+If you had the image of the
+WordPress accessibility,
+
+00:50:09.660 --> 00:50:13.830
+and you had the words
+in the alt text.
+
+00:50:13.830 --> 00:50:14.590
+ PETER: Correct, yes.
+
+00:50:14.590 --> 00:50:19.150
+So you want to make sure that
+if in this particular case,
+
+00:50:19.150 --> 00:50:27.150
+this has accessibility, advocate
+for equal access, and you want
+
+00:50:27.870 --> 00:50:29.760
+to include that in your alt text.
+
+00:50:29.760 --> 00:50:32.613
+Again,
+if I can read it on the screen,
+
+00:50:32.614 --> 00:50:34.880
+because it's part of an image,
+
+00:50:34.880 --> 00:50:36.500
+then it should be
+part of the alt text.
+
+00:50:40.533 --> 00:50:43.120
+ LAURA: Let's see,
+this is from anonymous.
+
+00:50:43.120 --> 00:50:46.490
+Is the skip to content
+part of the cadence theme?
+
+00:50:46.490 --> 00:50:47.880
+ PETER: Yes.
+
+00:50:47.880 --> 00:50:51.580
+LAURA: How would you add
+that if it is not included?
+
+00:50:51.580 --> 00:50:56.350
+ PETER: Joel Dolson's
+plug-in,, WP Accessibility.
+
+00:50:57.870 --> 00:51:00.850
+He's got a nice neat plug-in.
+
+00:51:00.850 --> 00:51:03.180
+I was going to put out on the
+list, I simply didn't need it
+
+00:51:03.180 --> 00:51:04.350
+for what we were doing today.
+
+00:51:04.350 --> 00:51:07.720
+So I didn't want to throw it
+in, but he does.
+
+00:51:07.720 --> 00:51:12.490
+Built into that is the
+skip to content capability.
+
+00:51:13.433 --> 00:51:15.490
+ LAURA: All right,
+well, that is our time.
+
+00:51:15.490 --> 00:51:17.270
+Thank you for attending.
+
+00:51:17.270 --> 00:51:18.610
+Thank you, Peter.
+
+00:51:18.610 --> 00:51:19.260
+ PETER: You're welcome.
+
+00:51:20.633 --> 00:51:23.990
+ LAURA: You can continue
+the conversation in the chat
+
+00:51:23.990 --> 00:51:31.990
+or on social media using
+#WPA11yday and #WPAD2023.
+
+00:51:33.710 --> 00:51:39.340
+We also appreciate if you could go
+to 2023.wpaccessibility.day/feedback
+
+00:51:40.840 --> 00:51:46.930
+to provide anonymous feedback for
+our speakers on their presentation
+
+00:51:46.930 --> 00:51:50.110
+and can enter to win a
+T-shirt while you're there.
+
+00:51:50.110 --> 00:51:54.610
+If you missed that link,
+it will be in the next set of slides
+
+00:51:54.610 --> 00:51:56.380
+as our intermission.
+
+00:51:56.380 --> 00:52:00.700
+Stay tuned for how to Address
+Accessibility and Privacy
+
+00:52:00.700 --> 00:52:03.560
+to Help Avoid Fines and Lawsuits.
+
+00:52:03.560 --> 00:52:11.030
+Coming up with Denata and
+Hans, who I actually know too,
+
+00:52:11.030 --> 00:52:17.230
+so that's exciting, at the 22:00 hour
+of UTC, 6pm Eastern, 5pm Central.
+
+00:52:17.230 --> 00:52:20.550
+And while you're waiting, don't
+forget to visit our sponsors’ page
+
+00:52:20.550 --> 00:52:24.760
+to grab virtual swag and enter for
+a chance to win some great prizes.
+
+00:52:24.760 --> 00:52:26.820
+See you right here after the break.
+
+00:52:26.820 --> 00:52:27.130
+Thank you.
+
+00:52:27.130 --> 00:52:28.330
+ PETER: Thank you.
+
+00:52:30.300 --> 00:52:30.660
+ AMBER HINDS: Thank you
+
+00:52:30.661 --> 00:52:35.040
+to WordPress Accessibility
+Day 2023 Sponsors.
+
+00:52:35.040 --> 00:52:37.890
+Platinum Sponsor -
+Equalize Digital.
+
+00:52:37.890 --> 00:52:40.640
+Equalize Digital's
+accessibility checker plugin
+
+00:52:40.640 --> 00:52:43.390
+is an automated
+accessibility scanning tool
+
+00:52:43.390 --> 00:52:46.590
+that helps WordPress websites
+become and stay accessible.
+
+00:52:47.850 --> 00:52:50.690
+Platinum Sponsor - Gravity forms.
+
+00:52:50.690 --> 00:52:54.320
+Gravity forms is the professional
+form builder that you need
+
+00:52:54.320 --> 00:52:59.030
+to create beautiful,
+powerful and accessible forms.
+
+00:52:59.030 --> 00:53:06.040
+Gold sponsors - 29, DQ,
+Empire Caption Solutions, Pressable,
+
+00:53:06.040 --> 00:53:07.110
+and WP Engine.
+
+00:53:08.690 --> 00:53:15.560
+Silver sponsors - Code Geek, Drake
+Cooper, GoDaddy, LoneRock Point,
+
+00:53:15.560 --> 00:53:20.770
+NerdPress, Overnight website by
+Kinetic Iris, Rihola Networks,
+
+00:53:22.060 --> 00:53:25.060
+A11Y Collective, and The Blogsmith.
+
+00:53:26.930 --> 00:53:32.310
+Bronze sponsors - ExcessaCart,
+Green Geeks Web Hosting,
+
+00:53:32.310 --> 00:53:43.700
+Hall Analysis SEO Consulting,
+HDC, ITX, Ivy Cat, Metabots,
+
+00:53:44.110 --> 00:53:47.267
+Pixel Chefs,
+Simply Schedule Appointments,
+
+00:53:47.267 --> 00:53:50.640
+SiteGround, Termageddon,
+
+00:53:50.640 --> 00:53:54.220
+Underrepresented in
+Tech, Weglot, and Yoast.

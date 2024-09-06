@@ -1,0 +1,4199 @@
+﻿WEBVTT
+
+00:00:00.984 --> 00:00:05.690
+ Word Press Accessibility Day
+2023, a practical guide
+
+00:00:05.690 --> 00:00:09.930
+to automated accessibility
+with Mark Steadman, Director,
+
+00:00:09.930 --> 00:00:13.220
+Mobile Accessibility at
+Fidelity Investments.
+
+00:00:13.220 --> 00:00:17.210
+This presentation was
+recorded September 28th, 2023.
+
+00:00:17.210 --> 00:00:22.500
+JOOST DE VALK: It's my pleasure
+to introduce our next speaker,
+
+00:00:22.500 --> 00:00:25.750
+Mark Steadman, who will talk
+to us about a practical guide
+
+00:00:25.750 --> 00:00:27.500
+to automated accessibility.
+
+00:00:29.170 --> 00:00:32.130
+Mark is the Director of Software
+Engineering for Mobile Accessibility
+
+00:00:32.130 --> 00:00:33.870
+at Fidelity Investments.
+
+00:00:33.870 --> 00:00:38.410
+And with a fervor for accessibility
+automation and a strong advocacy
+
+00:00:38.410 --> 00:00:42.960
+for developers to prioritize
+accessibility, Mark is on a mission
+
+00:00:42.960 --> 00:00:47.170
+to make the web and mobile
+content accessible to all.
+
+00:00:47.170 --> 00:00:51.340
+Just a tiny mission,
+not a big endeavor.
+
+00:00:51.340 --> 00:00:55.240
+His primary focus revolves around
+collaborating with development teams
+
+00:00:55.240 --> 00:00:57.470
+to integrate accessibility,
+and it's so nice.
+
+00:00:57.470 --> 00:01:00.100
+It's like the third
+speaker I'm introducing.
+
+00:01:00.100 --> 00:01:02.140
+All of them work together
+with development teams.
+
+00:01:02.140 --> 00:01:05.580
+I really love seeing that.
+
+00:01:05.580 --> 00:01:08.910
+He considered that as a crucial
+component in continuous development
+
+00:01:08.910 --> 00:01:11.430
+and continuous
+integration processes.
+
+00:01:11.430 --> 00:01:13.840
+Not only has he been the
+trailblazer in creating
+
+00:01:13.840 --> 00:01:17.850
+automated accessibility solutions,
+but he's also been instrumental
+
+00:01:17.850 --> 00:01:20.600
+in embedding these
+solutions into the fabric
+
+00:01:20.600 --> 00:01:23.960
+of development teams and
+organizations he's worked for.
+
+00:01:23.960 --> 00:01:28.120
+Please join me in extending a
+warm welcome to Mark Steadman.
+
+00:01:28.120 --> 00:01:29.910
+Mark, take it away.
+
+00:01:29.910 --> 00:01:30.960
+MARK STEADMAN: Awesome.
+
+00:01:30.960 --> 00:01:31.280
+Good.
+
+00:01:31.280 --> 00:01:33.600
+Well, for me,
+it's a good morning for everybody.
+
+00:01:33.600 --> 00:01:37.650
+It's 6am and I've had coffee, so
+everybody better watch out right now
+
+00:01:37.650 --> 00:01:42.220
+because I could just be firing on
+all cylinders because I'm juiced
+
+00:01:42.220 --> 00:01:42.670
+on coffee.
+
+00:01:42.670 --> 00:01:46.390
+So good morning, good afternoon, good
+evening, whatever time frame it is.
+
+00:01:46.390 --> 00:01:47.600
+This is awesome.
+
+00:01:47.600 --> 00:01:50.414
+For me, in the US,
+this is starting your day
+
+00:01:50.415 --> 00:01:52.290
+with automated accessibility.
+
+00:01:52.290 --> 00:01:56.610
+So I could not be more excited to
+do this talk with you all today.
+
+00:01:56.610 --> 00:01:59.710
+And kind of getting ourselves
+going because we got a lot of stuff
+
+00:01:59.710 --> 00:02:01.820
+to cover in a short amount of
+time, which is normally
+
+00:02:01.820 --> 00:02:02.680
+how I do all my talks.
+
+00:02:02.680 --> 00:02:05.880
+So again, just real quick,
+Mark Steadman, I just want
+
+00:02:05.880 --> 00:02:07.350
+to add these things
+into here really quick.
+
+00:02:07.350 --> 00:02:10.070
+If you want to follow me on
+Twitter or X or whatever it is
+
+00:02:10.070 --> 00:02:15.120
+at this rate, I'm
+@steady, S-T-E-A-D-Y 5063.
+
+00:02:15.120 --> 00:02:18.630
+And then you can find me on
+LinkedIn with Mark Steadman
+
+00:02:18.630 --> 00:02:20.470
+or just mark_steady if
+you want to find me.
+
+00:02:21.490 --> 00:02:25.370
+So learning objectives
+for this talk.
+
+00:02:25.370 --> 00:02:28.350
+I love doing this because this
+conversation is one of those ones
+
+00:02:28.350 --> 00:02:30.540
+that I'm very passionate about.
+
+00:02:30.540 --> 00:02:33.920
+Why accessibility automation is
+important in building a foundation
+
+00:02:33.920 --> 00:02:37.220
+of accessibility in the
+development life cycle?
+
+00:02:37.220 --> 00:02:38.830
+Why it rose in popularity?
+
+00:02:38.830 --> 00:02:42.210
+And the problems that arose
+with that popularity itself.
+
+00:02:42.210 --> 00:02:45.900
+How to effectively use LinkedIn
+as a first step along the way.
+
+00:02:45.900 --> 00:02:47.240
+And why is it such a
+great starting point?
+
+00:02:47.240 --> 00:02:49.692
+And then how to effectively
+use testing libraries
+
+00:02:49.693 --> 00:02:50.820
+and regression testing
+
+00:02:50.820 --> 00:02:53.030
+to ensure accessible
+content going out the door.
+
+00:02:53.030 --> 00:02:55.570
+Now, this seems like a lot,
+but as we go through this,
+
+00:02:55.570 --> 00:02:57.020
+I'll kind of break
+this down as we go
+
+00:02:57.020 --> 00:03:00.460
+to make it a little bit
+simplistic and easier to consume
+
+00:03:00.460 --> 00:03:02.790
+for maybe those who are not
+familiar with development teams,
+
+00:03:02.790 --> 00:03:04.290
+development processes.
+
+00:03:04.290 --> 00:03:06.820
+And also for those who are
+developers, they are like,
+
+00:03:06.820 --> 00:03:10.420
+how can I bring this in properly
+to include accessibility
+
+00:03:10.420 --> 00:03:11.710
+as part of my
+development lifecycle?
+
+00:03:13.070 --> 00:03:16.130
+So accessibility and shift left.
+
+00:03:16.130 --> 00:03:20.820
+To understand how automation for
+accessibility got towards that,
+
+00:03:20.820 --> 00:03:23.160
+you have to understand kind
+of where the industry went.
+
+00:03:23.160 --> 00:03:26.240
+And so most folks are probably
+familiar with this, but it's kind
+
+00:03:26.240 --> 00:03:27.470
+of a good context
+for everybody here.
+
+00:03:27.470 --> 00:03:32.440
+So shift left was the idea
+popularized by the DevOps industry,
+
+00:03:32.440 --> 00:03:37.550
+where we said, Hey, it's cheaper
+to find and fix bugs earlier
+
+00:03:37.550 --> 00:03:40.370
+in the development
+lifecycle Common sense.
+
+00:03:40.370 --> 00:03:44.450
+However, for the longest time,
+that was not always the case.
+
+00:03:44.450 --> 00:03:47.260
+What the case was that we would
+do kind of the waterfall module
+
+00:03:47.260 --> 00:03:52.800
+or a model where we would
+create, push, go to production,
+
+00:03:52.800 --> 00:03:54.200
+then fix the content afterwards.
+
+00:03:54.200 --> 00:03:58.280
+Well, the DevOps industry said,
+no, let's shift this context left
+
+00:03:58.280 --> 00:04:00.600
+so we can actually fix
+bugs earlier and cost less.
+
+00:04:00.600 --> 00:04:03.320
+So what I have on the
+screen is an image
+
+00:04:03.320 --> 00:04:07.470
+that basically says you create,
+you plan, you monitor, configure,
+
+00:04:07.470 --> 00:04:10.100
+release, package, verify,
+and then it kind of just loops
+
+00:04:10.100 --> 00:04:10.860
+in an infinite loop.
+
+00:04:10.860 --> 00:04:12.650
+Because that's essentially
+what shift left is.
+
+00:04:12.650 --> 00:04:16.180
+You're constantly fixing bugs,
+constantly creating content,
+
+00:04:16.180 --> 00:04:18.840
+and it helps from
+an agile standpoint.
+
+00:04:18.840 --> 00:04:22.900
+Well, when this started to get
+very popular, the idea came about,
+
+00:04:22.900 --> 00:04:25.980
+how could accessibility
+fit into this model?
+
+00:04:25.980 --> 00:04:29.520
+Because accessibility for the
+longest time has always been,
+
+00:04:29.520 --> 00:04:32.790
+or has been,
+let's fix it after the fact.
+
+00:04:32.790 --> 00:04:35.850
+I'm sure everybody on here right
+now, it's probably not as good.
+
+00:04:35.850 --> 00:04:37.180
+I heard that a thousand times.
+
+00:04:37.180 --> 00:04:37.680
+It's true.
+
+00:04:37.680 --> 00:04:39.990
+It's always been the fact of
+like, we will fix it later.
+
+00:04:41.220 --> 00:04:46.460
+But with this change, we thought,
+Hey can we fit into this?
+
+00:04:46.460 --> 00:04:49.830
+So then came the rise of
+automated accessibility.
+
+00:04:49.830 --> 00:04:51.650
+And I am a massive Star Wars fan.
+
+00:04:51.650 --> 00:04:53.520
+I know I have the WordPress thing
+back here, but if you could see.
+
+00:04:53.520 --> 00:04:54.980
+I have a thousand
+lightsabers behind me,
+
+00:04:54.980 --> 00:04:56.790
+a bunch of different
+Star Wars swag.
+
+00:04:56.790 --> 00:05:00.450
+So I made this logo saying,
+alley wars, the rise of automation
+
+00:05:00.450 --> 00:05:03.770
+in the Star Wars font, because
+that's essentially what it was.
+
+00:05:03.770 --> 00:05:06.640
+Automate accessibility
+boomed to fit this model.
+
+00:05:06.640 --> 00:05:12.270
+Everything from accessibility
+libraries, extensions, helper utils,
+
+00:05:14.790 --> 00:05:17.120
+you name it, got its own thing.
+
+00:05:17.120 --> 00:05:20.522
+And so with this
+thing, we were trying
+
+00:05:20.523 --> 00:05:23.400
+to fix as many gaps as possible.
+
+00:05:23.400 --> 00:05:26.230
+So with all the different
+development languages, frameworks,
+
+00:05:26.230 --> 00:05:29.500
+all of that, we tried to fit
+this model so we could get
+
+00:05:29.500 --> 00:05:32.850
+as much automated accessibility
+into those processes as possible.
+
+00:05:32.850 --> 00:05:36.390
+And on paper, it looks wonderful.
+
+00:05:36.390 --> 00:05:39.070
+So there's massive
+benefits to this.
+
+00:05:39.070 --> 00:05:41.520
+It's easy and quick
+integration of accessibility
+
+00:05:41.520 --> 00:05:42.720
+into the development lifecycle.
+
+00:05:42.720 --> 00:05:43.940
+Is it perfect?
+
+00:05:43.940 --> 00:05:44.930
+Absolutely not.
+
+00:05:44.930 --> 00:05:47.610
+No, it's just a minimal
+amount or a small amount,
+
+00:05:47.610 --> 00:05:49.460
+probably the lower third
+of accessible issues.
+
+00:05:49.460 --> 00:05:53.460
+However, it fits nicely right
+into whatever agile process things
+
+00:05:53.460 --> 00:05:55.080
+we're doing for accessibility.
+
+00:05:55.080 --> 00:05:58.360
+So it really is an easy win
+because there's no argument
+
+00:05:58.360 --> 00:05:59.840
+from a developer side.
+
+00:05:59.840 --> 00:06:02.560
+I just say, Hey, we have to
+add this in, and it fits right
+
+00:06:02.560 --> 00:06:04.310
+into the system we're doing.
+
+00:06:04.310 --> 00:06:06.970
+It helps build up developer
+knowledge on accessibility.
+
+00:06:06.970 --> 00:06:09.440
+So most automated tools come
+with their own knowledge items
+
+00:06:09.440 --> 00:06:11.520
+or link you to knowledge items
+to help you out with that.
+
+00:06:12.540 --> 00:06:15.310
+Believe it or not, it enforces
+good UI coding practices.
+
+00:06:15.310 --> 00:06:19.970
+If I could see everybody here and
+see you all on the screen right now,
+
+00:06:19.970 --> 00:06:22.690
+everybody would be down their
+heads when I say, [Inaudible 06:22]
+
+00:06:22.690 --> 00:06:23.690
+is not good.
+
+00:06:24.650 --> 00:06:27.720
+So this actually helps enforce
+good UI coding practices.
+
+00:06:29.100 --> 00:06:30.950
+It allows for accessible
+enforcement so you can use
+
+00:06:30.950 --> 00:06:36.370
+GitHub Actions pipelines,
+and it starts to build a culture
+
+00:06:36.370 --> 00:06:37.560
+that includes accessibility.
+
+00:06:37.560 --> 00:06:40.480
+You're going to hear me say this
+over and over again in this talk.
+
+00:06:40.480 --> 00:06:42.026
+That is the biggest piece
+
+00:06:42.027 --> 00:06:44.810
+with getting automated
+accessibility right.
+
+00:06:44.810 --> 00:06:48.220
+You get it wrong, you lose people
+quickly, but when you get it right,
+
+00:06:48.220 --> 00:06:51.160
+it helps set that foundation
+for building a culture
+
+00:06:51.160 --> 00:06:53.840
+of accessibility over time.
+
+00:06:53.840 --> 00:06:54.850
+That's the ultimate goal.
+
+00:06:54.850 --> 00:06:58.380
+Yes, automation is a starting
+point, but you can help ingrain that
+
+00:06:58.380 --> 00:07:00.900
+into your culture from the
+development side of things easily
+
+00:07:00.900 --> 00:07:02.440
+if you do it right.
+
+00:07:02.440 --> 00:07:05.080
+If you do it wrong, you can
+lose people relatively quickly,
+
+00:07:05.080 --> 00:07:07.690
+but those are the big benefits
+from automated accessibility.
+
+00:07:07.690 --> 00:07:09.700
+So you're saying to
+yourself, Mark, that's great.
+
+00:07:09.700 --> 00:07:10.380
+What's the big deal?
+
+00:07:10.380 --> 00:07:13.410
+Why am I even here talking to you
+all right now? What is the big deal?
+
+00:07:14.800 --> 00:07:15.650
+Well, this is a big deal.
+
+00:07:15.650 --> 00:07:17.980
+It became automation overload.
+
+00:07:17.980 --> 00:07:20.320
+What I have on the screen is
+just a bunch of different logos
+
+00:07:20.320 --> 00:07:22.820
+for a bunch of different extensions
+that do a bunch of different things,
+
+00:07:22.820 --> 00:07:25.490
+but really holistically
+they do the same thing.
+
+00:07:25.490 --> 00:07:28.740
+They check for accessibility
+issues in an automated fashion.
+
+00:07:30.450 --> 00:07:31.610
+This is what happened.
+
+00:07:31.610 --> 00:07:36.960
+We got overexcited to make
+a bunch of automation,
+
+00:07:36.960 --> 00:07:38.970
+fit these life cycles,
+fit these products,
+
+00:07:38.970 --> 00:07:43.170
+and what ended up happening
+was we ended up with overload.
+
+00:07:43.170 --> 00:07:46.010
+And developers everywhere that
+I would talk to, every team
+
+00:07:46.010 --> 00:07:50.080
+that I talked to would go,
+Where in the hell do I start?
+
+00:07:50.080 --> 00:07:51.560
+Because I don't know.
+
+00:07:51.560 --> 00:07:52.770
+There's so much out there.
+
+00:07:52.770 --> 00:07:53.760
+I don't know what to use.
+
+00:07:53.760 --> 00:07:54.530
+What's the best?
+
+00:07:54.530 --> 00:07:56.930
+How does it fit my team?
+Whatever it is.
+
+00:07:56.930 --> 00:07:59.580
+So we ended up with multiple open
+source accessibility libraries,
+
+00:07:59.580 --> 00:08:03.360
+some of the top of head, XCOR,
+Pali, browser extensions, Wave,
+
+00:08:03.360 --> 00:08:06.740
+Lighthouse, Microsoft Insights,
+Act Step Tools, right?
+
+00:08:06.740 --> 00:08:10.710
+There's linters galore,
+that start adding accessibility rules
+
+00:08:10.710 --> 00:08:14.610
+and everybody was like, there's
+ESLint, Acts Linter, there's ASLint,
+
+00:08:14.610 --> 00:08:16.190
+there's multiple
+different ones out there.
+
+00:08:16.190 --> 00:08:20.750
+And so as developers,
+everybody looks at this and goes,
+
+00:08:20.750 --> 00:08:22.030
+Why is there so much?
+
+00:08:22.030 --> 00:08:24.070
+I don't even know where to start.
+
+00:08:24.070 --> 00:08:27.060
+Because even though for
+most of us who are listening
+
+00:08:27.060 --> 00:08:29.490
+to this right now are probably
+accessibility advocates and go,
+
+00:08:29.490 --> 00:08:32.130
+it's obvious, just pick the one
+that fits your stuff and go.
+
+00:08:32.130 --> 00:08:33.900
+It's not that obvious for
+somebody who doesn't know much
+
+00:08:33.900 --> 00:08:34.730
+about accessibility.
+
+00:08:34.730 --> 00:08:38.140
+So they'll look at it and say,
+This is too much, I'm out.
+
+00:08:38.140 --> 00:08:40.720
+How many times have I heard
+someone say, "This is too much?
+
+00:08:40.720 --> 00:08:43.190
+I didn't even know where to
+start, I just gave up on it.
+
+00:08:43.190 --> 00:08:45.320
+It's a lot, believe it or not.
+
+00:08:45.320 --> 00:08:50.110
+And so we have to take a
+different approach to be able
+
+00:08:50.110 --> 00:08:55.920
+to deal with this overload and
+murky outlook we have out there
+
+00:08:55.920 --> 00:08:59.200
+for developers that
+accessibility is too much.
+
+00:08:59.200 --> 00:09:01.250
+Automated accessibility
+is way too much.
+
+00:09:01.250 --> 00:09:03.840
+So what is the solution?
+
+00:09:05.100 --> 00:09:06.990
+You're in a practical approach
+to automatic accessibility
+
+00:09:06.990 --> 00:09:08.220
+so Mark tell me the solution.
+
+00:09:09.370 --> 00:09:10.560
+It’s phasing an automation.
+
+00:09:11.770 --> 00:09:16.170
+I've had massive amounts
+of luck doing this,
+
+00:09:16.170 --> 00:09:19.370
+and have some really good use cases
+for doing this and making sure
+
+00:09:19.370 --> 00:09:20.480
+that we get it.
+
+00:09:20.480 --> 00:09:26.160
+The biggest thing that comes down
+to getting proper automation up.
+
+00:09:26.160 --> 00:09:31.450
+And running is doing it correctly
+and it sounds kind of funny,
+
+00:09:31.450 --> 00:09:35.700
+but when it comes into phasing an
+automation you might look at this
+
+00:09:35.700 --> 00:09:38.140
+and say, Mark this takes too long.
+
+00:09:38.140 --> 00:09:39.150
+Yes, you’re damn right.
+
+00:09:39.150 --> 00:09:40.410
+It does take a while.
+
+00:09:40.410 --> 00:09:44.950
+But if you get it right it stays and
+it lasts within your organization
+
+00:09:44.950 --> 00:09:46.550
+within your dev team.
+
+00:09:46.550 --> 00:09:50.310
+So phasing in ensures that
+developer overload does not happen
+
+00:09:51.450 --> 00:09:55.340
+and we build a strategy around that
+which is part of the phasing part
+
+00:09:55.340 --> 00:09:56.190
+as well.
+
+00:09:56.190 --> 00:10:00.170
+So it's basically three
+phases with a phase zero.
+
+00:10:00.170 --> 00:10:03.310
+Phase one is linting, phase two
+is automated test libraries,
+
+00:10:03.310 --> 00:10:07.880
+phase three is automated regression
+testing and phase zero is extensions.
+
+00:10:07.880 --> 00:10:10.710
+Now I'll get to that phase zero and
+why I call it phase zero near the end
+
+00:10:10.710 --> 00:10:14.200
+as we go, but let's just
+dive in because this is
+
+00:10:14.200 --> 00:10:18.100
+where it gets really
+juicy and awesome.
+
+00:10:18.100 --> 00:10:20.120
+Phase one Linting.
+
+00:10:20.120 --> 00:10:22.400
+For those of you who don't
+know, a linter is a tool
+
+00:10:22.400 --> 00:10:27.440
+that statically analyzes source code
+to flag programming errors and bugs.
+
+00:10:27.440 --> 00:10:31.360
+So as I am developing content
+It will show me the errors
+
+00:10:31.360 --> 00:10:35.020
+that I am making
+statically within my HTML.
+
+00:10:35.020 --> 00:10:37.880
+Some folks use it for
+JavaScript, Java,
+
+00:10:37.880 --> 00:10:39.890
+there's multiple different
+linting tools that are out there
+
+00:10:39.890 --> 00:10:41.410
+for a lot of different things.
+
+00:10:41.410 --> 00:10:44.260
+But it's a static
+analyzer for code.
+
+00:10:45.460 --> 00:10:47.880
+The benefits of accessible linting.
+
+00:10:47.880 --> 00:10:50.510
+You can catch
+accessibility issues early.
+
+00:10:51.550 --> 00:10:54.200
+You build accessibility
+knowledge for your developers
+
+00:10:54.200 --> 00:10:56.440
+as they're developing,
+instead of later.
+
+00:10:56.440 --> 00:10:59.520
+It allows for teams to build
+accessible gates on commit.
+
+00:10:59.520 --> 00:11:03.950
+What I mean by that is, let's say
+I'm developing with my teammate,
+
+00:11:03.950 --> 00:11:07.890
+I develop a code, I push it
+in, I can see my Linting errors
+
+00:11:07.890 --> 00:11:10.720
+and I have to go back and fix
+them, before I'm allowed
+
+00:11:10.720 --> 00:11:12.740
+to push that code in there.
+
+00:11:12.740 --> 00:11:17.030
+And the really dope part about
+linting is it's customizable
+
+00:11:17.030 --> 00:11:19.090
+to the framework
+you're developing in.
+
+00:11:19.090 --> 00:11:20.800
+That is the number one
+reason why it works.
+
+00:11:20.800 --> 00:11:25.120
+Now, the biggest one is the
+last piece on there, customizing
+
+00:11:25.120 --> 00:11:27.440
+to the framework
+you're developing in.
+
+00:11:27.440 --> 00:11:28.670
+That's the really cool part.
+
+00:11:28.670 --> 00:11:30.650
+When you start putting this
+together, you can figure out
+
+00:11:30.650 --> 00:11:37.140
+what your teams are using,
+if they're using React, Angular, Vue?
+
+00:11:37.140 --> 00:11:40.290
+Or even any other type of piece,
+you can use this along the way.
+
+00:11:40.290 --> 00:11:44.000
+And what's really awesome is that
+as I'm building with Linting,
+
+00:11:44.000 --> 00:11:45.730
+I can find the Linter
+that fits that,
+
+00:11:45.730 --> 00:11:47.550
+and I guarantee you they
+have accessibility rules.
+
+00:11:47.550 --> 00:11:52.050
+I'm going to demo that to you
+all because this is the part
+
+00:11:52.050 --> 00:11:52.710
+that I love the most.
+
+00:11:52.710 --> 00:11:57.840
+I'm going to jump into our
+Linting demo here really quick.
+
+00:11:57.840 --> 00:12:03.060
+Let me get There we go.
+
+00:12:03.060 --> 00:12:04.060
+All right.
+
+00:12:04.970 --> 00:12:08.750
+What I have here is I have
+my lovely React project.
+
+00:12:08.750 --> 00:12:11.160
+I have to give the background on it
+because this is my favorite project
+
+00:12:11.160 --> 00:12:12.190
+of all time.
+
+00:12:12.190 --> 00:12:14.160
+This is a lightsaber emporium.
+
+00:12:14.160 --> 00:12:16.260
+So you buy lightsabers
+from the site.
+
+00:12:16.260 --> 00:12:19.390
+And so this React project
+I used for like every one
+
+00:12:19.390 --> 00:12:21.330
+of my presentations
+I made years ago.
+
+00:12:21.330 --> 00:12:22.700
+It's a great one on here.
+
+00:12:22.700 --> 00:12:27.590
+But in this project, I have one
+component, which is a cart item.
+
+00:12:27.590 --> 00:12:30.740
+So it's just an item that
+essentially has an image.
+
+00:12:30.740 --> 00:12:34.210
+It has a heading to describe
+what the actual product is,
+
+00:12:34.210 --> 00:12:35.110
+a little description.
+
+00:12:35.110 --> 00:12:39.680
+And then can I add the click more
+details or can I buy it again?
+
+00:12:39.680 --> 00:12:40.480
+That's all it is.
+
+00:12:40.480 --> 00:12:41.170
+Simple link.
+
+00:12:41.170 --> 00:12:43.820
+Think like an Amazon cart
+item where from left to right,
+
+00:12:43.820 --> 00:12:48.750
+it's an image description and then
+buttons on the far right side.
+
+00:12:48.750 --> 00:12:55.630
+Right now using React,
+I'm actually using JSX a11y Linter.
+
+00:12:57.110 --> 00:13:00.560
+This Linter specifically has
+accessibility rules for ESLint.
+
+00:13:01.680 --> 00:13:04.580
+ESLint is probably one of
+the most popular Linters
+
+00:13:04.580 --> 00:13:06.760
+that exist out there right now.
+
+00:13:06.760 --> 00:13:09.990
+In this, it has a subset
+of rules for accessibility.
+
+00:13:09.990 --> 00:13:13.740
+So let's say I'm a developer
+on this cart item component,
+
+00:13:13.740 --> 00:13:16.600
+if I look at this screen right
+now, what I have is,
+
+00:13:16.600 --> 00:13:21.120
+I have a couple of red squiggly
+lines in a couple of different spots.
+
+00:13:21.120 --> 00:13:25.270
+So on line 11 here, I have a div
+that's an image container that
+
+00:13:25.270 --> 00:13:28.060
+for some reason this developer
+wanted to hide something.
+
+00:13:28.060 --> 00:13:29.180
+But they didn't go look very well.
+
+00:13:29.180 --> 00:13:31.720
+So they said aria-hide equals true.
+
+00:13:31.720 --> 00:13:33.060
+Yeah, aria-hide isn't true.
+
+00:13:33.060 --> 00:13:36.810
+So if I actually hovered over
+this, it'll say aria-hide.
+
+00:13:36.810 --> 00:13:38.030
+This is not an attribute.
+
+00:13:38.030 --> 00:13:39.360
+This is a valid aria attribute.
+
+00:13:39.360 --> 00:13:41.500
+Did you mean to use
+aria-hidden or aria-live?
+
+00:13:41.500 --> 00:13:43.060
+And it'll tell you that.
+
+00:13:43.060 --> 00:13:45.230
+So what's really cool is,
+now if I'm a developer
+
+00:13:45.230 --> 00:13:48.030
+who doesn't really know anything, and
+let's say I did a bad stack overflow
+
+00:13:48.030 --> 00:13:53.340
+of search, I can change this
+to aria-hidden and voila,
+
+00:13:53.340 --> 00:13:54.340
+the squiggly line is gone.
+
+00:13:55.400 --> 00:13:57.600
+That's linting as I am doing it.
+
+00:13:57.600 --> 00:14:00.540
+This image,
+I'm missing an alt attribute.
+
+00:14:00.540 --> 00:14:02.960
+This will tell me images must
+have a proper alt attribute
+
+00:14:02.960 --> 00:14:05.460
+with meaningful text or an empty
+stream for decorative images.
+
+00:14:05.460 --> 00:14:08.970
+Well, in this case here, I am
+going to guess this person meant
+
+00:14:08.970 --> 00:14:10.700
+to hide this as an image alt.
+
+00:14:10.700 --> 00:14:13.200
+So we will just give it an alt and
+all, the squiggly line is gone.
+
+00:14:14.300 --> 00:14:17.370
+It even goes as far as where I said
+enforcing good coding practices.
+
+00:14:18.660 --> 00:14:19.780
+I use an anchor.
+
+00:14:19.780 --> 00:14:23.270
+The href attribute is required for
+an anchor to be keyboard accessible.
+
+00:14:23.270 --> 00:14:26.300
+Hi, how many anchors exist
+out in the wild right now
+
+00:14:26.300 --> 00:14:29.490
+that basically are anchors
+that have no href on them.
+
+00:14:29.490 --> 00:14:32.430
+So they're not keyboard accessible
+for some reason to click events
+
+00:14:32.430 --> 00:14:32.880
+of href.
+
+00:14:32.880 --> 00:14:33.070
+Why?
+
+00:14:33.070 --> 00:14:34.560
+I have no idea.
+
+00:14:35.760 --> 00:14:39.230
+I can just add in the href
+itself to where it needs to go.
+
+00:14:40.520 --> 00:14:43.400
+So here href equals and then
+I could just say details.
+
+00:14:44.460 --> 00:14:45.460
+Oops.
+
+00:14:47.680 --> 00:14:49.330
+And voila, done.
+
+00:14:50.540 --> 00:14:51.330
+That's it.
+
+00:14:51.330 --> 00:14:52.730
+That's one team.
+
+00:14:52.730 --> 00:14:55.000
+It's absolutely that simple.
+
+00:14:55.000 --> 00:14:59.410
+It is the easiest when you
+can get for development teams.
+
+00:14:59.410 --> 00:15:01.670
+And truly it's that simple.
+
+00:15:01.670 --> 00:15:02.030
+Yes.
+
+00:15:02.030 --> 00:15:03.170
+You might be looking and
+saying, Mark,
+
+00:15:03.170 --> 00:15:04.870
+These are super simplistic issues.
+
+00:15:04.870 --> 00:15:05.660
+Let me tell you this.
+
+00:15:05.660 --> 00:15:09.530
+The WebAIM million survey
+tells me that all the things
+
+00:15:09.530 --> 00:15:12.830
+that we're talking about, as far
+as simplicity goes, guess what?
+
+00:15:12.830 --> 00:15:15.900
+There are a lot of simple issues
+that are out in production right now.
+
+00:15:15.900 --> 00:15:17.690
+They exist on home pages
+and across the board.
+
+00:15:17.690 --> 00:15:19.020
+So guess what?
+
+00:15:19.020 --> 00:15:20.790
+Linting can fix
+those simple issues.
+
+00:15:20.790 --> 00:15:23.040
+If we get the right proper one in
+place, it can fix those issues.
+
+00:15:23.040 --> 00:15:25.770
+And so that's really
+linting in a nutshell.
+
+00:15:25.770 --> 00:15:27.699
+Super duper simple,
+really straightforward
+
+00:15:27.700 --> 00:15:28.820
+to put together with it.
+
+00:15:29.830 --> 00:15:32.980
+And there's a lot of good
+things to go with it.
+
+00:15:32.980 --> 00:15:35.090
+There are some best practices
+that tie into linting as well.
+
+00:15:35.090 --> 00:15:38.150
+So finding a library that
+works with your tech stack,
+
+00:15:38.150 --> 00:15:41.320
+like I said before ESLint
+is the most popular one.
+
+00:15:41.320 --> 00:15:44.660
+It has the most integrations
+that exists on there.
+
+00:15:44.660 --> 00:15:45.610
+So you can pull those in.
+
+00:15:45.610 --> 00:15:47.280
+It has accessibility
+libraries specifically
+
+00:15:47.280 --> 00:15:49.530
+for whatever framework
+you're using.
+
+00:15:49.530 --> 00:15:51.550
+Find a consistent rule set.
+
+00:15:51.550 --> 00:15:55.440
+What's great about this is most of
+the open source libraries pair off
+
+00:15:55.440 --> 00:15:58.320
+of axe-core because it's the most
+popular library that's out there.
+
+00:15:58.320 --> 00:16:00.550
+So if your teams
+decide to use axe-core,
+
+00:16:00.550 --> 00:16:02.900
+you can use the axe linter as well.
+
+00:16:02.900 --> 00:16:04.190
+There's no issue
+with that whatsoever.
+
+00:16:04.190 --> 00:16:04.540
+Excellent.
+
+00:16:04.540 --> 00:16:05.440
+It is great.
+
+00:16:05.440 --> 00:16:09.280
+But the JSX a11y one uses some of
+the axe-core rules with it too.
+
+00:16:09.280 --> 00:16:11.420
+So consistency is key
+because you don't want
+
+00:16:11.420 --> 00:16:13.850
+to have multiple different
+sets of rules running
+
+00:16:13.850 --> 00:16:15.390
+to where developers are
+like, I don't understand
+
+00:16:15.390 --> 00:16:18.960
+why this is an issue here
+and not an issue over here.
+
+00:16:18.960 --> 00:16:21.430
+So consistency is key.
+
+00:16:21.430 --> 00:16:23.140
+Another best practice
+[Inaudible 16:23]
+
+00:16:23.140 --> 00:16:24.800
+force linting on commit.
+
+00:16:24.800 --> 00:16:25.910
+And then build your own rules.
+
+00:16:25.910 --> 00:16:26.940
+I cannot stress this enough.
+
+00:16:26.940 --> 00:16:29.340
+You can build your own
+rules, believe it or not.
+
+00:16:29.340 --> 00:16:32.500
+You can build your own rules,
+add them into linting and check
+
+00:16:32.500 --> 00:16:36.060
+for the things that your dev team
+or your organization wants to check.
+
+00:16:36.060 --> 00:16:37.840
+It's very, very simple.
+
+00:16:37.840 --> 00:16:41.180
+And so you can go above and beyond
+a little bit more with that.
+
+00:16:41.180 --> 00:16:42.370
+So that's linting.
+
+00:16:42.370 --> 00:16:43.480
+Phase one.
+
+00:16:43.480 --> 00:16:48.340
+And again, let me reiterate all these
+phases take as long as they take.
+
+00:16:48.340 --> 00:16:52.420
+This does not mean, hey, phase
+one is a sprint. Absolutely not.
+
+00:16:52.420 --> 00:16:55.720
+It could be, phase one
+takes three months to get up
+
+00:16:55.720 --> 00:16:58.150
+and running properly with all the
+things we're talking about here
+
+00:16:58.150 --> 00:17:00.010
+for best practices and
+maybe some different things
+
+00:17:00.010 --> 00:17:02.810
+that your organization
+or dev team wants to do.
+
+00:17:02.810 --> 00:17:04.290
+It may take time.
+
+00:17:04.290 --> 00:17:05.540
+That's OK.
+
+00:17:05.540 --> 00:17:06.900
+Let it take time.
+
+00:17:06.900 --> 00:17:10.860
+We want it to take time because
+we have to get it right, OK?
+
+00:17:10.860 --> 00:17:14.360
+So once phase one is done,
+we jump into phase two,
+
+00:17:14.360 --> 00:17:16.310
+which is automated
+accessibility libraries.
+
+00:17:16.310 --> 00:17:19.480
+And most folks who here
+probably are developers
+
+00:17:19.480 --> 00:17:22.700
+or are doing some actual testing
+or building test libraries
+
+00:17:22.700 --> 00:17:25.300
+are probably familiar with some of
+the automated accessibility libraries
+
+00:17:25.300 --> 00:17:26.300
+that do exist.
+
+00:17:27.560 --> 00:17:30.560
+Automated accessibility
+libraries have built in checks
+
+00:17:30.560 --> 00:17:33.760
+that scan your UI content
+for accessibility issues.
+
+00:17:33.760 --> 00:17:38.590
+So for example, if I have a
+Selenium web driver project
+
+00:17:38.590 --> 00:17:41.260
+or a puppeteer project
+– you can name any type
+
+00:17:41.260 --> 00:17:45.310
+of different driver you're using
+– I can add that library in.
+
+00:17:45.310 --> 00:17:47.180
+It hooks into the testing
+framework I'm using.
+
+00:17:47.180 --> 00:17:51.980
+And I make a test case that checks
+to see if there are any issues
+
+00:17:51.980 --> 00:17:54.980
+in the page or the
+content that I'm scanning.
+
+00:17:54.980 --> 00:17:56.770
+Again, this is a generic check.
+
+00:17:56.770 --> 00:17:59.490
+It's not anything that's
+specifically going to go in
+
+00:17:59.490 --> 00:18:02.670
+and change your content,
+like open expand collapse sections,
+
+00:18:02.670 --> 00:18:04.830
+do any kind of accessible actions.
+
+00:18:04.830 --> 00:18:06.250
+It'll just generically
+scan your content.
+
+00:18:06.250 --> 00:18:09.590
+Now, it gets more than
+linting because it can do more
+
+00:18:09.590 --> 00:18:12.420
+than just static analysis
+because the fully rendered page
+
+00:18:12.420 --> 00:18:15.560
+or fully rendered component
+will be happening at that time.
+
+00:18:15.560 --> 00:18:20.230
+But the benefits of these libraries
+are their consistent sets of rules.
+
+00:18:20.230 --> 00:18:21.220
+That's the biggest thing.
+
+00:18:21.220 --> 00:18:24.800
+It's a consistent set of
+rules running over and over
+
+00:18:24.800 --> 00:18:25.840
+on that content.
+
+00:18:25.840 --> 00:18:31.290
+So if I make a test case or two
+test cases, one for my homepage
+
+00:18:31.290 --> 00:18:34.780
+and one for my login page,
+the same set of rules are running
+
+00:18:34.780 --> 00:18:35.420
+on both of those.
+
+00:18:35.420 --> 00:18:39.240
+So I get consistent results
+and consistent scans with that.
+
+00:18:39.240 --> 00:18:42.160
+I can build gates again,
+which is great when I say gates,
+
+00:18:42.160 --> 00:18:46.940
+when I'm pushing code for,
+let's say a PR into GitHub
+
+00:18:46.940 --> 00:18:51.510
+or I'm sending code for code review
+or I'm sending it to production.
+
+00:18:51.510 --> 00:18:53.100
+I can put a gate on this
+and say I expect there
+
+00:18:53.100 --> 00:18:55.030
+to be no accessibility violations.
+
+00:18:55.030 --> 00:18:59.600
+And it's quick and easy to add into
+the current UI testing structure.
+
+00:19:00.940 --> 00:19:02.680
+You're probably saying, Well,
+Mark, you said it's quick and easy
+
+00:19:02.680 --> 00:19:04.630
+for linting too
+linting is even faster.
+
+00:19:04.630 --> 00:19:11.290
+This is still simple to add
+into a UI testing process.
+
+00:19:11.290 --> 00:19:14.150
+The difference is that when you
+do this, it does take a little bit
+
+00:19:14.150 --> 00:19:15.890
+of work to set this up
+initially, which is
+
+00:19:15.890 --> 00:19:19.140
+where some of the pushback will
+be, if you all ever get to this.
+
+00:19:19.140 --> 00:19:20.370
+Well, this is going to take time.
+
+00:19:20.370 --> 00:19:21.340
+It will.
+
+00:19:21.340 --> 00:19:25.440
+But I'm going to show you how
+simple it can be to set this up
+
+00:19:25.440 --> 00:19:28.760
+in a way that's just repeatable
+and it's relatively straightforward
+
+00:19:28.760 --> 00:19:29.290
+to build.
+
+00:19:29.290 --> 00:19:30.060
+OK.
+
+00:19:30.060 --> 00:19:36.690
+So I'm going to jump right back into
+my lovely lightsaber emporium piece.
+
+00:19:36.690 --> 00:19:42.223
+And what I'm going to do
+is I'm actually going to go
+
+00:19:42.224 --> 00:19:44.520
+into one of my specs.
+
+00:19:44.520 --> 00:19:45.910
+So this spec is my test case here.
+
+00:19:46.970 --> 00:19:51.550
+My first spec that’s here is actually
+just testing actually, let me go
+
+00:19:51.550 --> 00:19:55.880
+in my footer spec It’s actually
+just testing my footer component
+
+00:19:55.880 --> 00:19:57.680
+for my application.
+
+00:19:57.680 --> 00:20:00.210
+So again, these accessibility
+testing libraries can work
+
+00:20:00.210 --> 00:20:01.030
+at multiple levels.
+
+00:20:01.030 --> 00:20:04.420
+It can work within a unit test,
+which would be like each component,
+
+00:20:04.420 --> 00:20:06.106
+or can work in an
+integration level test,
+
+00:20:06.107 --> 00:20:08.740
+which is everything put together
+on the screen.
+
+00:20:08.740 --> 00:20:11.840
+Whatever way works for your
+team, that's how you can do it.
+
+00:20:11.840 --> 00:20:14.840
+That's a beautiful part about
+automated accessibility libraries.
+
+00:20:14.840 --> 00:20:21.310
+So with this footer spec, what I have
+is I'm using React testing library
+
+00:20:21.310 --> 00:20:24.830
+for this, and in this, I've set up
+multiple test cases just to check.
+
+00:20:24.830 --> 00:20:27.470
+So for example, I have a
+test that just checks to see
+
+00:20:27.470 --> 00:20:29.870
+if a component loads,
+I have a check to say,
+
+00:20:29.870 --> 00:20:32.120
+there should be a certain
+number of list of items
+
+00:20:32.120 --> 00:20:33.790
+that are in the footer,
+so I have like a list of links
+
+00:20:33.790 --> 00:20:34.790
+at the bottom.
+
+00:20:35.610 --> 00:20:40.380
+And on top of that,
+I add in one test.
+
+00:20:40.380 --> 00:20:42.763
+You can call this
+accessibility check,
+
+00:20:42.764 --> 00:20:44.840
+you could call this isAccessible,
+
+00:20:44.840 --> 00:20:46.360
+you could call it
+whatever you want to.
+
+00:20:46.360 --> 00:20:48.470
+Consistently naming it is the key.
+
+00:20:48.470 --> 00:20:50.280
+Because when I name my
+things, I will say
+
+00:20:50.280 --> 00:20:53.130
+footer component
+accessibility check.
+
+00:20:53.130 --> 00:20:56.870
+So what's great is, as I'm building
+this with an accessibility library,
+
+00:20:56.870 --> 00:20:59.780
+this one here I'm using axe-core
+for both of my examples.
+
+00:20:59.780 --> 00:21:01.520
+It's probably the
+easiest one to integrate
+
+00:21:01.520 --> 00:21:04.140
+and it has the most integrations.
+
+00:21:04.140 --> 00:21:11.000
+But as I'm building this out,
+I can simply do the same test case
+
+00:21:11.000 --> 00:21:13.950
+across multiple specs.
+
+00:21:13.950 --> 00:21:15.470
+That's the beautiful
+part about this.
+
+00:21:15.470 --> 00:21:18.470
+I can actually create it and
+make it consistent to where
+
+00:21:18.470 --> 00:21:23.860
+when I integrate this,
+it literally is copy and paste.
+
+00:21:23.860 --> 00:21:24.450
+That simple.
+
+00:21:24.450 --> 00:21:26.050
+I'm going to show you how.
+
+00:21:26.050 --> 00:21:28.710
+So this accessibility check
+that I have right here.
+
+00:21:28.710 --> 00:21:30.510
+This is specific for
+React testing library,
+
+00:21:30.510 --> 00:21:33.790
+but essentially I take the
+container which has the component,
+
+00:21:33.790 --> 00:21:37.500
+I render out my footer,
+I then run axe.run,
+
+00:21:37.500 --> 00:21:40.400
+which is the typical way to actually
+run Axe against the container.
+
+00:21:40.400 --> 00:21:43.710
+So now I'm going to run those
+axe-core rules against it.
+
+00:21:43.710 --> 00:21:45.810
+I have this custom reporter
+that's here, but if you wanted
+
+00:21:45.810 --> 00:21:48.630
+to have a reporter you
+could, not needed.
+
+00:21:48.630 --> 00:21:53.640
+And then I expect...
+[Inaudible 21:54]
+
+00:21:53.640 --> 00:21:56.360
+the results.violations, which would
+be the violation of the component,
+
+00:21:56.360 --> 00:21:59.130
+I expect the length
+of that to be zero.
+
+00:22:00.370 --> 00:22:01.710
+That's it.
+
+00:22:01.710 --> 00:22:03.050
+And that's all.
+
+00:22:03.050 --> 00:22:08.610
+What's really great about this is
+that I could now take this, copy it,
+
+00:22:08.610 --> 00:22:09.570
+and then guess what?
+
+00:22:09.570 --> 00:22:11.070
+Let me just pull up another
+one of these really quick
+
+00:22:11.070 --> 00:22:12.250
+so you all can see it.
+
+00:22:12.250 --> 00:22:13.600
+If I pulled up my header component.
+
+00:22:15.220 --> 00:22:16.560
+Look at that.
+
+00:22:16.560 --> 00:22:18.390
+Literally the exact same.
+
+00:22:18.390 --> 00:22:21.020
+The only difference might be
+that we change up the naming
+
+00:22:21.020 --> 00:22:23.260
+if you have recording
+or things like that.
+
+00:22:23.260 --> 00:22:24.190
+But that's it.
+
+00:22:24.190 --> 00:22:26.050
+It is that simple.
+
+00:22:26.050 --> 00:22:30.110
+A copy and a paste of that test
+case if we set it up properly.
+
+00:22:30.110 --> 00:22:32.960
+If your test cases are set up
+correctly, it's that simple.
+
+00:22:32.960 --> 00:22:35.730
+A lot of times when teams set up
+these successfully testing libraries
+
+00:22:35.730 --> 00:22:38.670
+they say, Mark,
+this is so much work to do.
+
+00:22:38.670 --> 00:22:40.050
+It really is not.
+
+00:22:40.050 --> 00:22:42.270
+It's as simple as just setting
+up your test case properly
+
+00:22:42.270 --> 00:22:45.960
+on one thing, making sure it's
+working and then running it.
+
+00:22:45.960 --> 00:22:46.760
+That simple.
+
+00:22:46.760 --> 00:22:50.330
+So I can actually run this really
+quickly too, just the footer spec.
+
+00:22:50.330 --> 00:22:53.530
+Let me run this.
+
+00:22:53.530 --> 00:22:57.340
+Now, fair warning, because every time
+I end up running something like this
+
+00:22:57.340 --> 00:22:59.170
+on a live demo,
+especially early in the morning,
+
+00:22:59.170 --> 00:23:00.920
+my computer still has
+not had its coffee.
+
+00:23:00.920 --> 00:23:02.740
+So I am sure that it's
+probably going to just be like,
+
+00:23:02.740 --> 00:23:05.110
+I do not feel like working right
+now, which is fine.
+
+00:23:05.110 --> 00:23:08.310
+I can just go to my next
+part after this if I need to.
+
+00:23:08.310 --> 00:23:12.980
+But as this runs, what I want
+to showcase is how simple it is
+
+00:23:12.980 --> 00:23:15.960
+to see the results that
+come back from this as well.
+
+00:23:15.960 --> 00:23:19.390
+So if I'm done with the
+component, let's say I get done
+
+00:23:19.390 --> 00:23:21.780
+with my linting rules, I say that
+this is good to go, and I say,
+
+00:23:21.780 --> 00:23:24.450
+yes, I'm going to run my
+test case against this.
+
+00:23:24.450 --> 00:23:27.650
+Well, what I can do now is
+either have a reporter or have it
+
+00:23:27.650 --> 00:23:29.760
+in the console,
+which just comes with most
+
+00:23:29.760 --> 00:23:33.280
+of the testing libraries you have, to
+say, where are my issues that exist?
+
+00:23:33.280 --> 00:23:35.380
+So I'm going to find my footer.
+
+00:23:35.380 --> 00:23:36.620
+Oh, yes,
+we got lots of issues here.
+
+00:23:37.650 --> 00:23:40.190
+Also, apparently, Mark should update
+his stuff because it's outdated.
+
+00:23:40.190 --> 00:23:41.380
+There’s my footer.
+
+00:23:41.380 --> 00:23:42.820
+There's my test case.
+
+00:23:42.820 --> 00:23:45.880
+I expected results.violation.length
+to be zero.
+
+00:23:45.880 --> 00:23:47.570
+I found two accessibility issues.
+
+00:23:47.570 --> 00:23:50.060
+Well, since I have a customer
+reporter, I can just go
+
+00:23:50.060 --> 00:23:51.400
+in here real quick and
+find out what they are.
+
+00:23:51.400 --> 00:23:52.820
+Oh, look at that.
+
+00:23:52.820 --> 00:23:54.730
+Form elements don't have labels.
+
+00:23:54.730 --> 00:23:56.110
+Awesome.
+
+00:23:56.110 --> 00:23:56.690
+Same thing.
+
+00:23:56.690 --> 00:23:58.170
+Two form elements
+don't have labels.
+
+00:23:58.170 --> 00:24:02.110
+And, oh, my list is included
+in HR in the middle of my list.
+
+00:24:02.110 --> 00:24:04.390
+That simple.
+
+00:24:04.390 --> 00:24:06.150
+So those things can be
+caught along the way.
+
+00:24:06.150 --> 00:24:08.100
+And now I can take
+that same test case
+
+00:24:08.101 --> 00:24:09.850
+and replicate it across the board.
+
+00:24:11.170 --> 00:24:12.170
+That simple.
+
+00:24:12.860 --> 00:24:14.630
+If you're looking at it
+from an integration level,
+
+00:24:14.630 --> 00:24:19.770
+just as a real quick showcase, I also
+have an example here with Selenium.
+
+00:24:19.770 --> 00:24:23.140
+So again, you just find the
+axe integration that you want.
+
+00:24:23.140 --> 00:24:24.830
+axe-webdriverjs.
+
+00:24:24.830 --> 00:24:27.480
+It fits into whatever you're
+using the driver itself
+
+00:24:27.480 --> 00:24:29.030
+for setup instructions.
+
+00:24:29.030 --> 00:24:31.620
+I have all my test cases,
+total number of listings,
+
+00:24:31.620 --> 00:24:32.780
+listing buttons rendered.
+
+00:24:32.780 --> 00:24:36.110
+And then I test, as an
+example, it is accessible.
+
+00:24:36.110 --> 00:24:37.230
+Guess what?
+
+00:24:37.230 --> 00:24:40.150
+This right here is the
+exact same test case
+
+00:24:40.150 --> 00:24:43.840
+across all my integration tests
+because my test cases are set up
+
+00:24:43.840 --> 00:24:48.680
+in a way to say when they render
+out, it will say,
+
+00:24:48.680 --> 00:24:55.010
+shot page is accessible in
+the test run. That simple.
+
+00:24:55.010 --> 00:24:59.560
+So using automated testing libraries
+might seem like a daunting task,
+
+00:24:59.560 --> 00:25:00.420
+but it really is not.
+
+00:25:00.420 --> 00:25:04.100
+Once you get it set up and running,
+it's repeating the same tests
+
+00:25:04.100 --> 00:25:06.180
+in a structure in a way
+that fits what you do.
+
+00:25:06.180 --> 00:25:08.110
+My example is very simplistic.
+
+00:25:08.110 --> 00:25:09.320
+Totally understand that.
+
+00:25:09.320 --> 00:25:11.430
+But for the most part,
+this is the way that it works,
+
+00:25:11.430 --> 00:25:13.830
+is that you can simplistically
+take the same test case
+
+00:25:13.830 --> 00:25:15.870
+and run over and over again.
+
+00:25:15.870 --> 00:25:17.540
+And it gives you the results
+based on the way you have
+
+00:25:17.540 --> 00:25:18.490
+your test cases structured.
+
+00:25:18.490 --> 00:25:23.170
+And that's at unit or integration
+level, which is fantastic.
+
+00:25:23.170 --> 00:25:27.700
+So jumping back into my
+lovely benefits for these.
+
+00:25:29.390 --> 00:25:33.610
+Best practice for this is,
+find an integration that fits
+
+00:25:33.610 --> 00:25:35.380
+what your development
+team is doing.
+
+00:25:35.380 --> 00:25:37.260
+Be sure the rulesets
+are consistent.
+
+00:25:37.260 --> 00:25:41.500
+You do not want to use linting that
+uses an entirely different library
+
+00:25:41.500 --> 00:25:44.230
+than axe, or you don't want
+to use Pali at one point
+
+00:25:44.230 --> 00:25:47.580
+or a different set of
+integrations test with it.
+
+00:25:47.580 --> 00:25:50.340
+Most of the open source
+integrations use axe-core anyway,
+
+00:25:50.340 --> 00:25:54.030
+so it's not a difficult test to
+do, but make sure we're using one
+
+00:25:54.030 --> 00:25:58.160
+that fits the UI testing
+structure we're doing.
+
+00:25:58.160 --> 00:26:00.760
+Another best practice is build
+on the one-to-one principle.
+
+00:26:00.760 --> 00:26:04.210
+There's a one-to-one principle in
+UI testing that says for each piece
+
+00:26:04.210 --> 00:26:08.440
+of UI, there is a paired
+accessibility test case with it.
+
+00:26:08.440 --> 00:26:11.090
+So whether that's a component,
+whether that's a page,
+
+00:26:11.090 --> 00:26:15.230
+mono e mono we make sure that
+piece of code, that piece
+
+00:26:15.230 --> 00:26:17.940
+of UI has an accessibility
+test tied to it.
+
+00:26:17.940 --> 00:26:20.420
+And also test at
+multiple levels of test.
+
+00:26:20.420 --> 00:26:23.980
+I just showed you all
+this, but if you can test
+
+00:26:23.980 --> 00:26:27.590
+with an accessibility library at
+a unit and an integration level,
+
+00:26:27.590 --> 00:26:28.680
+it's fantastic.
+
+00:26:28.680 --> 00:26:30.990
+It's a win-win across the board.
+
+00:26:30.990 --> 00:26:32.120
+You get all the
+benefits and everything.
+
+00:26:32.120 --> 00:26:34.850
+So if you can,
+test at multiple levels of tests.
+
+00:26:35.930 --> 00:26:40.580
+So phase one, Linting, phase
+two, accessibility libraries.
+
+00:26:40.580 --> 00:26:41.900
+You're going to be like,
+Mark, what's phase three?
+
+00:26:41.900 --> 00:26:44.570
+Because it seems like we've hit
+all the accessibility automation
+
+00:26:44.570 --> 00:26:45.570
+we can do.
+
+00:26:45.990 --> 00:26:47.050
+Tada.
+
+00:26:47.050 --> 00:26:48.050
+Regression testing.
+
+00:26:49.030 --> 00:26:52.740
+So I always tend to take
+heat for this a lot of times
+
+00:26:52.740 --> 00:26:56.010
+because whenever anybody hears
+that you can automate more than
+
+00:26:56.010 --> 00:26:59.050
+just what linting accessibility
+libraries do, people tend to kind
+
+00:26:59.050 --> 00:27:02.740
+of jump on that right away and
+say, oh, like, no, you can not.
+
+00:27:02.740 --> 00:27:04.970
+You are talking about
+automating everything with that.
+
+00:27:04.970 --> 00:27:06.030
+I am not.
+
+00:27:06.030 --> 00:27:08.900
+What I am talking about is,
+is that you can build UI test cases
+
+00:27:08.900 --> 00:27:13.150
+that go above and beyond just
+generic accessibility libraries.
+
+00:27:13.150 --> 00:27:17.040
+You can build automated test cases
+that ensure the functionality
+
+00:27:17.040 --> 00:27:19.580
+of your content is accessible.
+
+00:27:19.580 --> 00:27:21.780
+So for example,
+an expand collapse section.
+
+00:27:22.860 --> 00:27:25.640
+Using something like axe-core
+linting, it's just going to make sure
+
+00:27:25.640 --> 00:27:30.830
+that you have already expanded equals
+false or true properly spelled out
+
+00:27:30.830 --> 00:27:32.920
+and put on there as an attribute.
+
+00:27:32.920 --> 00:27:37.990
+It cannot test the functionality that
+that state is being set properly,
+
+00:27:37.990 --> 00:27:40.810
+that already hidden equals
+true is being set properly
+
+00:27:40.810 --> 00:27:42.950
+when you open the
+expand collapse section.
+
+00:27:42.950 --> 00:27:44.390
+It can not do that.
+
+00:27:44.390 --> 00:27:47.340
+So the benefits of doing
+regression testing is,
+
+00:27:47.340 --> 00:27:49.450
+it's easier to debug
+accessibility issues.
+
+00:27:54.090 --> 00:27:58.200
+It's easier to do that.
+
+00:27:58.200 --> 00:28:00.860
+It's including accessibility test
+as part of your definition of done.
+
+00:28:00.860 --> 00:28:05.360
+So for example, we're actually
+building on manual audits with this.
+
+00:28:05.360 --> 00:28:09.030
+So if I get a manual audit that
+says, Hey, I'm able to get
+
+00:28:09.030 --> 00:28:12.590
+to that content in that expand
+collapse section when it's hidden,
+
+00:28:12.590 --> 00:28:13.260
+guess what I can do?
+
+00:28:13.260 --> 00:28:16.200
+I can write a regression test that
+says, I need to make sure the state
+
+00:28:16.200 --> 00:28:19.420
+of that attribute is working
+the way that I expect.
+
+00:28:19.420 --> 00:28:21.587
+Is it checking to make
+sure it announces properly
+
+00:28:21.588 --> 00:28:22.540
+with a screen reader?
+
+00:28:22.540 --> 00:28:25.760
+No, it's just ensuring
+that the accessible content
+
+00:28:25.760 --> 00:28:28.810
+or the accessible functionality of
+that component is working properly.
+
+00:28:28.810 --> 00:28:30.980
+There is a difference
+between the two.
+
+00:28:30.980 --> 00:28:33.260
+Because yes,
+there might be bugs that exist
+
+00:28:33.260 --> 00:28:35.500
+within the screen
+readers themselves.
+
+00:28:35.500 --> 00:28:37.870
+There might be bugs that exist
+within our own code itself.
+
+00:28:37.870 --> 00:28:41.030
+But we can debug that easier then.
+
+00:28:41.030 --> 00:28:43.360
+So we're ensuring the
+content is fully accessible
+
+00:28:43.360 --> 00:28:44.460
+from a functional standpoint.
+
+00:28:45.500 --> 00:28:47.860
+Let me give you all a demo
+because every time I tend
+
+00:28:47.860 --> 00:28:49.610
+to do this, everybody tends
+to just kind of sit there
+
+00:28:49.610 --> 00:28:51.690
+and be like, I don't believe what
+Mark is telling me right now.
+
+00:28:51.690 --> 00:28:52.690
+And that's fine.
+
+00:28:54.300 --> 00:28:55.590
+Let me give an example.
+
+00:28:56.640 --> 00:28:59.200
+So this is a Cypress
+project that I have.
+
+00:28:59.200 --> 00:29:02.450
+Cypress is just one of the most
+popular UI testing libraries.
+
+00:29:02.450 --> 00:29:03.620
+Works relatively the same way.
+
+00:29:03.620 --> 00:29:04.600
+It's an integration tester.
+
+00:29:04.600 --> 00:29:08.840
+But I wanna showcase a couple
+of example test cases we can do
+
+00:29:08.840 --> 00:29:10.110
+from a regression standpoint.
+
+00:29:10.110 --> 00:29:14.550
+So let's say I get a manual audit
+that says, Well, the disabled state
+
+00:29:14.550 --> 00:29:17.220
+of your button is not there.
+
+00:29:17.220 --> 00:29:19.650
+It's changing colors,
+but it's not there.
+
+00:29:19.650 --> 00:29:21.670
+Like the disabled
+attribute isn’t in there.
+
+00:29:21.670 --> 00:29:23.730
+I can write a regression
+test for that.
+
+00:29:23.730 --> 00:29:26.030
+So I have a test case
+on the screen that says,
+
+00:29:26.030 --> 00:29:29.010
+Is proper disabled state
+of an offer button.
+
+00:29:30.190 --> 00:29:35.790
+So I check to see before I enter
+any information into this field,
+
+00:29:35.790 --> 00:29:37.080
+is that button disabled?
+
+00:29:37.080 --> 00:29:38.160
+And should it exist?
+
+00:29:38.160 --> 00:29:39.160
+Yes or no?
+
+00:29:39.990 --> 00:29:41.290
+Great.
+
+00:29:41.290 --> 00:29:42.210
+Then I wait.
+
+00:29:42.210 --> 00:29:45.150
+I type some content into the input.
+
+00:29:45.150 --> 00:29:47.740
+In this case, I type,
+I love accessibility.
+
+00:29:47.740 --> 00:29:51.720
+I then go back to that disabled
+button, invoke the attribute disabled
+
+00:29:51.720 --> 00:29:53.350
+and say it should not exist.
+
+00:29:53.350 --> 00:29:55.990
+Voila, done,
+accessible functionalities in place.
+
+00:29:57.180 --> 00:29:58.180
+Very simple.
+
+00:29:58.950 --> 00:30:02.790
+Same thing we talked about before,
+checking aria-expanded collapse.
+
+00:30:02.790 --> 00:30:05.570
+I love to use this one
+because it's a great use case.
+
+00:30:05.570 --> 00:30:06.990
+I have a toggle.
+
+00:30:06.990 --> 00:30:10.790
+I check to see if aria-expanded by
+default when it's closed is equal
+
+00:30:10.790 --> 00:30:12.230
+to false.
+
+00:30:12.230 --> 00:30:13.630
+I then go into the test case.
+
+00:30:13.630 --> 00:30:17.950
+I say, Hey, toggle, trigger, click
+or tap. I know it's on this one.
+
+00:30:17.950 --> 00:30:20.320
+It doesn't have keyboard
+but I trigger it.
+
+00:30:21.420 --> 00:30:24.540
+I go into it and I invoke to see
+that aria-expanded should equal true.
+
+00:30:24.540 --> 00:30:25.860
+It doesn’t.
+
+00:30:25.860 --> 00:30:29.040
+I then close it again and
+check to see if it says false.
+
+00:30:29.040 --> 00:30:31.600
+Regression test, relatively
+straightforward and simple.
+
+00:30:33.260 --> 00:30:36.740
+I can check to see if there's focus
+indicators on actual elements.
+
+00:30:36.740 --> 00:30:38.430
+Yes, you can do this.
+
+00:30:38.430 --> 00:30:40.870
+I will caveat with this.
+
+00:30:40.870 --> 00:30:45.650
+You have to know what the focus
+indicator outline color is, though,
+
+00:30:45.650 --> 00:30:46.230
+to do that.
+
+00:30:46.230 --> 00:30:47.630
+You can't generically
+check for that.
+
+00:30:47.630 --> 00:30:48.950
+So you have to know what it is.
+
+00:30:48.950 --> 00:30:53.200
+So as I basically go to each of
+these buttons that's in a menu list
+
+00:30:53.200 --> 00:30:56.550
+and I focus on them,
+I can see the CSS outline.
+
+00:30:56.550 --> 00:30:58.970
+If I know that the
+background color is supposed
+
+00:30:58.970 --> 00:31:01.070
+to match a specific
+color, guess what?
+
+00:31:01.070 --> 00:31:02.370
+It has a focus indicator.
+
+00:31:02.370 --> 00:31:04.700
+How many sites do
+you know that regress
+
+00:31:04.700 --> 00:31:07.820
+and pull out their focus
+indicator because they don't know?
+
+00:31:07.820 --> 00:31:08.560
+Tons.
+
+00:31:08.560 --> 00:31:09.910
+This can fix that.
+
+00:31:09.910 --> 00:31:13.560
+If you know it, make sure all your
+actual content has a focus indicator.
+
+00:31:14.630 --> 00:31:15.900
+A11y focuses on modals.
+
+00:31:15.900 --> 00:31:19.940
+How many modals do you all know
+that do not properly set focus
+
+00:31:19.940 --> 00:31:22.830
+into the modal tons.
+
+00:31:22.830 --> 00:31:24.270
+This can fix that.
+
+00:31:24.270 --> 00:31:26.960
+If I have modals, I can write
+regression tests that make sure that
+
+00:31:26.960 --> 00:31:31.480
+when I trigger a click event, the
+focus goes onto or into the modal.
+
+00:31:31.480 --> 00:31:33.850
+In this case, I just check it to
+make sure it goes to the title.
+
+00:31:33.850 --> 00:31:38.330
+When I close it, focus goes
+back to the trigger that did it.
+
+00:31:38.330 --> 00:31:39.040
+You can do that.
+
+00:31:39.040 --> 00:31:40.610
+You can write regression
+tests for those.
+
+00:31:41.940 --> 00:31:44.910
+That is the beauty of
+accessible regression tests.
+
+00:31:44.910 --> 00:31:47.820
+Yes, to get to this
+state will take a while.
+
+00:31:47.820 --> 00:31:51.020
+Phase one, phase two, you can get
+there pretty straightforwardly.
+
+00:31:51.020 --> 00:31:52.280
+It might take some time.
+
+00:31:52.280 --> 00:31:53.510
+Phase three may take a bit.
+
+00:31:53.510 --> 00:31:58.650
+But I can tell you all right now
+that I've seen a couple of teams get
+
+00:31:58.650 --> 00:31:59.570
+to this phase three.
+
+00:31:59.570 --> 00:32:03.200
+And when they do,
+if anything gets regressed,
+
+00:32:03.200 --> 00:32:05.980
+if anything gets pulled back out,
+something accidentally gets unmerged
+
+00:32:05.980 --> 00:32:06.800
+from code.
+
+00:32:06.800 --> 00:32:10.930
+They see it instantly and
+they avoid tons of complaints
+
+00:32:10.930 --> 00:32:13.500
+from customers saying, Hey,
+your content's inaccessible.
+
+00:32:13.500 --> 00:32:16.030
+They avoid tons of manual
+odds coming in saying like,
+
+00:32:16.030 --> 00:32:18.960
+Hey, this content keeps
+breaking, why isn't there?
+
+00:32:18.960 --> 00:32:20.610
+This can help fix that.
+
+00:32:20.610 --> 00:32:23.490
+Yes, we're not checking for what
+the screen reader output is.
+
+00:32:23.490 --> 00:32:25.590
+We're just checking to
+make sure that the content
+
+00:32:25.590 --> 00:32:27.790
+is accessible functionality-wise.
+
+00:32:27.790 --> 00:32:31.060
+And this can go a long way into
+make it easier for everybody
+
+00:32:31.060 --> 00:32:33.000
+to see that,
+and for development teams to debug.
+
+00:32:33.000 --> 00:32:38.310
+It's a great way to buy in and
+get more people to buy in for it.
+
+00:32:38.310 --> 00:32:40.850
+So best practices for this.
+
+00:32:40.850 --> 00:32:45.630
+I'm sure the regression tests are
+properly labeled in your UI testing.
+
+00:32:45.630 --> 00:32:48.890
+So either use A11y or Accessibility
+in the testing so you know
+
+00:32:48.890 --> 00:32:51.220
+that it's an Accessibility
+Regression Test.
+
+00:32:51.220 --> 00:32:53.780
+Ensure Accessibility Functionality
+is called out for UI tests.
+
+00:32:53.780 --> 00:32:57.960
+So for example, acceptance
+criteria, most companies
+
+00:32:57.960 --> 00:33:00.070
+and teams don't have acceptance
+criteria for accessibility.
+
+00:33:00.070 --> 00:33:02.850
+If you do, you can actually
+write regression tests
+
+00:33:02.850 --> 00:33:05.030
+for that acceptance
+criteria, which is great.
+
+00:33:06.090 --> 00:33:07.670
+Ensure that development
+teams know this
+
+00:33:07.670 --> 00:33:10.350
+does not replace screen reader
+testing of regular audience.
+
+00:33:10.350 --> 00:33:11.150
+That is a hard sell.
+
+00:33:11.150 --> 00:33:13.220
+I will tell you that right now,
+because when you go down this path,
+
+00:33:13.220 --> 00:33:16.280
+a lot of people say, hey, I want to
+automate all of the accessibility.
+
+00:33:16.280 --> 00:33:20.140
+You can't, but this does help
+ease the pain of making sure
+
+00:33:20.140 --> 00:33:23.420
+that the content that is accessible
+out there stays accessible
+
+00:33:23.420 --> 00:33:26.690
+unless something comes along the
+way, as far as screen reader bugs
+
+00:33:26.690 --> 00:33:27.210
+or things like that.
+
+00:33:27.210 --> 00:33:28.800
+Those are so few and far between.
+
+00:33:28.800 --> 00:33:32.350
+So it just ensures content is
+accessible going out the door.
+
+00:33:34.030 --> 00:33:36.330
+So phase one, Linting.
+
+00:33:36.330 --> 00:33:38.960
+Phase two,
+ccessibility Testing Libraries.
+
+00:33:38.960 --> 00:33:40.000
+Phase three, Regression Test.
+
+00:33:40.000 --> 00:33:43.850
+So you're going to ask me now, Mark,
+on this first slide you had here,
+
+00:33:43.850 --> 00:33:47.230
+you had this lovely thing that said
+phase zero You’re going to say,
+
+00:33:47.230 --> 00:33:50.720
+What about extensions?
+You're right.
+
+00:33:50.720 --> 00:33:54.210
+Extensions do exist and they do
+have a useful impact for automation.
+
+00:33:55.230 --> 00:33:56.760
+Here's my experience
+with extensions.
+
+00:33:56.760 --> 00:33:59.490
+There's no real way in the
+developing life cycle to track
+
+00:33:59.490 --> 00:34:01.750
+if somebody actually
+is using extension.
+
+00:34:01.750 --> 00:34:05.440
+Hi, I was a developer
+for a long while.
+
+00:34:05.440 --> 00:34:08.870
+If you give me something that I'm
+going to be on an honor code for,
+
+00:34:08.870 --> 00:34:12.100
+in an agile environment who does not
+know anything about accessibility,
+
+00:34:12.100 --> 00:34:12.640
+guess what?
+
+00:34:12.640 --> 00:34:14.030
+I'm not going to do it.
+
+00:34:14.030 --> 00:34:16.010
+Because honor code
+stuff is not something
+
+00:34:16.010 --> 00:34:18.960
+that I'm strictly checking a box
+for, is an acceptance criteria,
+
+00:34:18.960 --> 00:34:19.960
+things like that.
+
+00:34:20.850 --> 00:34:21.610
+Guess what?
+
+00:34:21.610 --> 00:34:25.040
+Most teams that just use extensions
+end up sending stuff to production
+
+00:34:25.040 --> 00:34:27.250
+because there's no way to check it.
+
+00:34:27.250 --> 00:34:28.930
+There really isn't.
+
+00:34:28.930 --> 00:34:31.810
+So extensions can always be
+used when you're building
+
+00:34:31.810 --> 00:34:32.830
+and making new content.
+
+00:34:34.000 --> 00:34:40.170
+But phasing and accessibility
+automation, one, two, three,
+
+00:34:40.170 --> 00:34:42.360
+that helps enforce the
+use of those extensions.
+
+00:34:42.360 --> 00:34:46.320
+So if I'm building my content, I
+build it out, I can run my extension
+
+00:34:46.320 --> 00:34:48.690
+on my localhost and say,
+Hey, there's an issue.
+
+00:34:48.690 --> 00:34:52.290
+And I can mess around and try
+to fix it live and then put it
+
+00:34:52.290 --> 00:34:53.400
+into my code.
+
+00:34:53.400 --> 00:34:57.160
+That's the practical use I see
+over and over again from teams.
+
+00:34:57.160 --> 00:35:02.170
+We tend to see the extensions be
+used as somewhat of a playground
+
+00:35:02.170 --> 00:35:05.750
+to be able to see the accessibility
+issues and then fix them live.
+
+00:35:05.750 --> 00:35:07.400
+This helps enforce that.
+
+00:35:07.400 --> 00:35:11.590
+The biggest thing though is that with
+extensions, it's so hard to track.
+
+00:35:11.590 --> 00:35:14.360
+So many squads I've seen
+say, Hey, put a screenshot in
+
+00:35:14.360 --> 00:35:17.060
+of your accessibility issues
+and you have no issues.
+
+00:35:17.060 --> 00:35:19.510
+Yes, I've already seen
+that system cheated
+
+00:35:19.510 --> 00:35:21.280
+to where someone takes
+the same screenshot
+
+00:35:21.280 --> 00:35:22.830
+and says, look, it's fixed.
+
+00:35:22.830 --> 00:35:25.940
+So extensions have a
+place within automation.
+
+00:35:25.940 --> 00:35:26.230
+They do.
+
+00:35:26.230 --> 00:35:29.290
+100% because lots
+of squads use them.
+
+00:35:29.290 --> 00:35:31.940
+But as far as enforcement and
+getting it into day to day,
+
+00:35:31.940 --> 00:35:35.320
+you have to use the phasing
+parts of phase one, phase two,
+
+00:35:35.320 --> 00:35:38.980
+and if you get to phase three, phase
+three, to properly get extensions
+
+00:35:38.980 --> 00:35:41.510
+to be used in the
+way they should be.
+
+00:35:41.510 --> 00:35:45.020
+To go above and beyond just what
+the automation testing does.
+
+00:35:45.020 --> 00:35:47.332
+It's just so hard to
+enforce extensions
+
+00:35:47.333 --> 00:35:48.950
+to say like, Hey, I'm going
+
+00:35:48.950 --> 00:35:50.300
+to use extensions and go.
+
+00:35:52.651 --> 00:35:56.351
+So rounding this out
+just a little bit.
+
+00:35:58.040 --> 00:36:02.570
+I say this term, Merrill Evans
+says a similar term to this too,
+
+00:36:02.570 --> 00:36:03.850
+small wins for big gains.
+
+00:36:03.850 --> 00:36:08.220
+A lot of reaction I get from
+this is that this is a lot
+
+00:36:08.220 --> 00:36:09.790
+of phases just for automation.
+
+00:36:09.790 --> 00:36:11.510
+You're right, it is.
+
+00:36:11.510 --> 00:36:14.300
+But I'm telling you right
+now, the way that you get
+
+00:36:14.300 --> 00:36:18.820
+into development life cycle is
+you have to fit into what is done.
+
+00:36:18.820 --> 00:36:22.270
+Accessibility for the longest
+time has been seen as something
+
+00:36:22.270 --> 00:36:24.840
+that slows down the entire process.
+
+00:36:24.840 --> 00:36:26.200
+Slows it all down.
+
+00:36:26.200 --> 00:36:29.100
+So automation came in to say,
+yes, let's speed that back up.
+
+00:36:29.100 --> 00:36:32.970
+But the problem is that
+automation almost went too far.
+
+00:36:32.970 --> 00:36:36.310
+So what ended up happening then is
+that because automation went too far,
+
+00:36:36.310 --> 00:36:40.680
+we overpopulated,
+we overloaded the dev environment,
+
+00:36:40.680 --> 00:36:42.700
+all these different things
+we can use for automation.
+
+00:36:42.700 --> 00:36:47.420
+And now our devs went back and said,
+ah, like, this is too much again.
+
+00:36:47.420 --> 00:36:49.690
+So it's kind of like that cycle.
+
+00:36:49.690 --> 00:36:55.260
+So phasing it in allows us
+to be able to set a culture
+
+00:36:55.260 --> 00:36:58.120
+of accessibility for the future.
+
+00:36:58.120 --> 00:37:00.780
+A lot of people think when
+I say this, it's not true.
+
+00:37:00.780 --> 00:37:02.000
+It really is.
+
+00:37:02.000 --> 00:37:05.790
+As small as automation is a small
+subtask of things that these do
+
+00:37:05.790 --> 00:37:08.310
+in a small amount of
+issues they catch.
+
+00:37:08.310 --> 00:37:14.790
+It really does consistently have
+the undercurrent of accessibility.
+
+00:37:14.790 --> 00:37:16.947
+A wave can come over
+the top real quick
+
+00:37:16.948 --> 00:37:18.780
+and say, hey, fix all this stuff.
+
+00:37:18.780 --> 00:37:21.060
+Waves can get big,
+waves can get small,
+
+00:37:21.060 --> 00:37:22.600
+but undercurrents
+always stay there.
+
+00:37:22.600 --> 00:37:24.940
+You want accessibility to
+stay as an undercurrent.
+
+00:37:26.150 --> 00:37:28.320
+So it's constantly there and
+constantly reminding everybody
+
+00:37:28.320 --> 00:37:30.630
+that accessibility matters
+and [Inaudible 37:32].
+
+00:37:30.630 --> 00:37:34.030
+So if we continue to say do
+automation, then we'll end up
+
+00:37:34.030 --> 00:37:35.450
+in the same cycle we've been in.
+
+00:37:35.450 --> 00:37:37.690
+So we have to start
+phasing it in so it sticks.
+
+00:37:37.690 --> 00:37:41.930
+And one final word
+before I'm done here.
+
+00:37:41.930 --> 00:37:45.660
+Automated accessibility, truth be
+told, does get a bad reputation
+
+00:37:45.660 --> 00:37:47.540
+in our field, with good reason.
+
+00:37:48.560 --> 00:37:50.000
+Overlays exist out there.
+
+00:37:51.280 --> 00:37:53.950
+There's still developers
+who think that it solves
+
+00:37:53.950 --> 00:37:55.030
+all the accessibility problems.
+
+00:37:55.030 --> 00:37:56.820
+I can automate every single thing.
+
+00:37:58.070 --> 00:38:00.870
+There are still folks who now
+could update this and say,
+
+00:38:00.870 --> 00:38:02.800
+they think AI is going to
+fix everything with this.
+
+00:38:02.800 --> 00:38:04.910
+Because it's automated.
+
+00:38:04.910 --> 00:38:05.910
+Here's the deal.
+
+00:38:05.910 --> 00:38:08.350
+At the end of the day,
+it is a portal and a gateway
+
+00:38:08.350 --> 00:38:10.960
+into an area that is
+really hard to crack.
+
+00:38:10.960 --> 00:38:13.890
+I say this over and over.
+
+00:38:13.890 --> 00:38:19.420
+Development teams' shells
+are extremely hard to crack.
+
+00:38:19.420 --> 00:38:21.820
+Day to day, we in the
+accessibility field are like,
+
+00:38:21.820 --> 00:38:23.920
+Why didn’t they make
+that accessible.
+
+00:38:23.920 --> 00:38:26.290
+Truth be told, I get frustrated
+too, don't worry.
+
+00:38:26.290 --> 00:38:30.300
+But with all the stuff that agile
+teams have to do, timelines are on,
+
+00:38:30.300 --> 00:38:33.480
+pushing stuff out the door,
+it gets really cumbersome for them.
+
+00:38:33.480 --> 00:38:38.730
+And so to crack that shell is very
+difficult because they don't want
+
+00:38:38.730 --> 00:38:41.320
+to add any more tasks or any
+more things to them and I get it.
+
+00:38:41.320 --> 00:38:42.500
+Been there, done that.
+
+00:38:42.500 --> 00:38:46.320
+So you have to slowly phase this in
+to get it to where it needs to go.
+
+00:38:46.320 --> 00:38:48.960
+This can truly help a development
+team learn at velocity
+
+00:38:48.960 --> 00:38:50.410
+while not slowing down.
+
+00:38:50.410 --> 00:38:55.010
+And it can build culture into
+your development team as we go.
+
+00:38:55.010 --> 00:38:59.210
+Again, going back, the webAIM
+survey tells us one thing:
+
+00:38:59.210 --> 00:39:00.912
+what we've been doing from
+an automation standpoint
+
+00:39:00.913 --> 00:39:01.600
+still isn't working.
+
+00:39:01.600 --> 00:39:04.890
+We are just throwing at the wall
+and saying, hey, go do automation.
+
+00:39:04.890 --> 00:39:06.890
+That does not work.
+
+00:39:06.890 --> 00:39:08.398
+Phasing it in, having a plan,
+
+00:39:08.399 --> 00:39:10.530
+understanding
+consistently what we have
+
+00:39:10.530 --> 00:39:15.720
+to do to ensure it lasts will
+help all development teams
+
+00:39:15.720 --> 00:39:18.040
+pick up accessibility
+and run with it.
+
+00:39:18.040 --> 00:39:23.030
+So my final thing is let's just build
+better accessibility automation.
+
+00:39:23.030 --> 00:39:25.490
+Let's kill the reputation
+that automation is going
+
+00:39:25.491 --> 00:39:26.600
+to overrun everything.
+
+00:39:26.600 --> 00:39:28.220
+Everybody thinks it's
+going to run the world.
+
+00:39:28.220 --> 00:39:29.260
+No.
+
+00:39:29.260 --> 00:39:32.790
+It's a gateway into development
+teams and letting them really,
+
+00:39:32.790 --> 00:39:35.320
+truly learn
+accessibility at velocity
+
+00:39:35.320 --> 00:39:39.170
+and build that culture around
+accessibility going forward.
+
+00:39:39.170 --> 00:39:41.480
+So let's just build
+better a11y automation
+
+00:39:41.480 --> 00:39:45.520
+and let's get accessibility
+as part of the dev life cycle.
+
+00:39:46.700 --> 00:39:47.210
+And that's it.
+
+00:39:47.210 --> 00:39:49.020
+And that's all for me.
+
+00:39:49.020 --> 00:39:50.020
+Woohoo.
+
+00:39:51.060 --> 00:39:52.060
+I’ll probably make more coffee now.
+
+00:39:53.010 --> 00:39:55.080
+JOOST: Well,
+you've earned your coffee.
+
+00:39:55.080 --> 00:39:55.760
+That's for sure.
+
+00:39:55.760 --> 00:39:56.490
+Thank you, Mark.
+
+00:39:56.490 --> 00:39:57.830
+That was excellent.
+
+00:39:57.830 --> 00:39:59.460
+Thank you very much.
+
+00:39:59.460 --> 00:40:01.040
+I was making notes.
+
+00:40:01.040 --> 00:40:03.010
+One of the first
+things that I realized
+
+00:40:03.010 --> 00:40:05.963
+as I was looking at
+your presentation...
+
+00:40:05.964 --> 00:40:07.620
+We've always had a lot
+
+00:40:07.620 --> 00:40:10.140
+of automated tests at
+Yoast, which I found it.
+
+00:40:11.160 --> 00:40:14.520
+And I don't think we've ever
+really gotten to the point
+
+00:40:14.520 --> 00:40:17.270
+where we did a lot of automated
+accessibility testing.
+
+00:40:18.340 --> 00:40:22.120
+But a whole lot of these seem
+like they're actually very easy
+
+00:40:22.120 --> 00:40:24.080
+to copy paste from one
+project to another.
+
+00:40:24.980 --> 00:40:25.330
+MARK: Yes.
+
+00:40:25.330 --> 00:40:27.200
+JOOST: Is there any
+place where people share
+
+00:40:27.200 --> 00:40:32.180
+these things online open source
+in a way that we can just do that?
+
+00:40:32.180 --> 00:40:33.120
+Where are you doing that?
+
+00:40:34.610 --> 00:40:37.820
+MARK: So I can share this with
+everybody who's on Slack channels
+
+00:40:37.820 --> 00:40:39.290
+and I'll share it on
+Twitter and LinkedIn.
+
+00:40:39.290 --> 00:40:45.320
+So I'm making an
+entire deck actually.
+
+00:40:45.320 --> 00:40:47.830
+It's one of the things that
+I'm in the process of doing.
+
+00:40:47.830 --> 00:40:52.930
+I'm actually making an entire
+suite of accessible examples
+
+00:40:52.930 --> 00:40:53.880
+that exist out there.
+
+00:40:53.880 --> 00:40:55.220
+I can share that with
+everybody after this.
+
+00:40:55.220 --> 00:40:56.620
+It's only got a couple
+in there right now.
+
+00:40:56.620 --> 00:40:57.900
+This is my React
+on my Cypher phone.
+
+00:40:57.900 --> 00:41:01.340
+I do it when I have time, but what
+happens when you have two kids?
+
+00:41:01.340 --> 00:41:04.760
+But I've got examples out there
+that are working to show that.
+
+00:41:05.880 --> 00:41:08.160
+There's also a few examples
+that exist out there.
+
+00:41:08.160 --> 00:41:13.580
+I think open source wise, Deque
+Systems has got some for axe-core.
+
+00:41:13.580 --> 00:41:14.960
+There's just a few.
+
+00:41:14.960 --> 00:41:18.230
+But my goal is to make
+example libraries to showcase
+
+00:41:18.230 --> 00:41:20.290
+how easy it is just to copy
+and paste those things.
+
+00:41:20.290 --> 00:41:23.350
+Because truly, just what you're
+talking about, that's the case.
+
+00:41:23.350 --> 00:41:27.360
+You literally can copy and paste
+once you have those test cases
+
+00:41:27.360 --> 00:41:27.930
+across the board.
+
+00:41:27.930 --> 00:41:29.940
+And everybody tends to do
+that jump on me to be like,
+
+00:41:29.940 --> 00:41:31.450
+copy and paste like, Mark,
+what are you talking about?
+
+00:41:31.450 --> 00:41:32.280
+You're not copying and pasting.
+
+00:41:32.280 --> 00:41:33.370
+I'm like, you can.
+
+00:41:33.370 --> 00:41:36.230
+You set your test cases up
+properly and everything set up
+
+00:41:36.230 --> 00:41:38.480
+in a way that it'll
+read out is accessible.
+
+00:41:38.480 --> 00:41:39.440
+It's relatively straightforward.
+
+00:41:39.440 --> 00:41:43.510
+So yes, I can post some of those
+resources I know after this as well.
+
+00:41:44.380 --> 00:41:47.290
+JOOST: Yes well,
+that would be awesome because I know
+
+00:41:47.290 --> 00:41:50.880
+that there's not a whole lot of
+this in WordPress core yet either.
+
+00:41:50.880 --> 00:41:53.243
+And I think that it
+would hugely benefit
+
+00:41:53.244 --> 00:41:57.000
+from actually doing a bit more
+of that because I agree with you.
+
+00:41:57.000 --> 00:42:03.260
+The thing I've heard most against
+accessibility work like this is,
+
+00:42:03.260 --> 00:42:04.710
+yes it slows everything down.
+
+00:42:04.710 --> 00:42:08.140
+And it's like, I'm sick and
+tired of hearing that argument...
+
+00:42:09.680 --> 00:42:12.520
+MARK: Anywhere and everywhere I
+go, that's the same argument over
+
+00:42:12.520 --> 00:42:13.070
+and over again.
+
+00:42:13.070 --> 00:42:14.546
+And again,
+that's the initial pushback
+
+00:42:14.547 --> 00:42:18.250
+that we have to fight against.
+It's just it's going to slow us down.
+
+00:42:18.250 --> 00:42:21.080
+And the truth is,
+is that my experience
+
+00:42:21.080 --> 00:42:25.750
+with phasing stuff in has worked
+relatively well to get teams
+
+00:42:25.750 --> 00:42:28.260
+to be like, hey,
+it's just really simple add-ins
+
+00:42:28.260 --> 00:42:29.790
+for what we're doing right now.
+
+00:42:29.790 --> 00:42:31.390
+Whatever you're using,
+we're going to build them
+
+00:42:31.390 --> 00:42:32.280
+with what you guys have got.
+
+00:42:33.300 --> 00:42:34.210
+JOOST: Perfect.
+
+00:42:34.210 --> 00:42:36.780
+OK, we've got the first
+questions coming in.
+
+00:42:36.780 --> 00:42:40.040
+Ben Ogilfee is asking,
+are you aware of any considerations
+
+00:42:40.040 --> 00:42:45.010
+or limitations of some of
+these approaches as it applies
+
+00:42:45.010 --> 00:42:46.420
+to WordPress builds?
+
+00:42:46.420 --> 00:42:47.600
+MARK: Yes.
+
+00:42:47.600 --> 00:42:51.460
+Some of the things we talked
+about as far as linters,
+
+00:42:51.460 --> 00:42:55.110
+the accessibility builds themselves,
+like the actual integrations
+
+00:42:55.110 --> 00:42:57.840
+don't exist just yet
+within WordPress builds.
+
+00:42:57.840 --> 00:43:01.630
+So some of them do, some of the
+linters I checked out there do exist
+
+00:43:01.630 --> 00:43:02.960
+for it, but some don't.
+
+00:43:02.960 --> 00:43:05.100
+That's just a product of how
+some of the testing libraries
+
+00:43:05.100 --> 00:43:06.360
+and things work.
+
+00:43:06.360 --> 00:43:10.300
+So those would be the only
+limitations that exist right now.
+
+00:43:10.300 --> 00:43:14.690
+It's just are they available for the
+builds themselves that are out there?
+
+00:43:14.690 --> 00:43:17.610
+Truth be told, it is difficult
+because sometimes like
+
+00:43:17.610 --> 00:43:22.630
+when you're running stuff with
+that, you run into issues
+
+00:43:22.630 --> 00:43:25.910
+where you do not have them.
+
+00:43:25.910 --> 00:43:28.900
+For example,
+I know I was looking at one.
+
+00:43:28.900 --> 00:43:31.200
+I think it was a Vue one.
+
+00:43:31.200 --> 00:43:33.630
+The WordPress site
+was built in Vue.
+
+00:43:33.630 --> 00:43:35.880
+It did not have accessibility
+or linting rules,
+
+00:43:35.880 --> 00:43:38.830
+but there was a general linter that
+had accessibility rules in them.
+
+00:43:38.830 --> 00:43:41.190
+Worst case scenario,
+pull in the general one.
+
+00:43:41.190 --> 00:43:44.660
+You're at least getting accessibility
+checks done as the content builds.
+
+00:43:44.660 --> 00:43:47.260
+But really the limitation is,
+are they available or are they not
+
+00:43:47.260 --> 00:43:48.810
+from a linting or
+library standpoint?
+
+00:43:49.500 --> 00:43:50.540
+JOOST: Yes, cool.
+
+00:43:53.170 --> 00:43:56.640
+Ben Eisenberg is asking,
+what about updating older sites?
+
+00:43:56.640 --> 00:43:59.241
+What are easy wins to
+focus on for older sites
+
+00:43:59.242 --> 00:44:00.790
+that need to be maintained?
+
+00:44:00.790 --> 00:44:01.730
+MARK: Oh, okay.
+
+00:44:01.730 --> 00:44:04.450
+So these are two things
+with older sites.
+
+00:44:04.450 --> 00:44:09.810
+So one I always suggest is
+with an older site itself,
+
+00:44:09.810 --> 00:44:12.473
+there's two things
+you can do depending
+
+00:44:12.474 --> 00:44:14.670
+on how much you truly update it,
+
+00:44:15.720 --> 00:44:18.590
+if you want to go back through
+and update old code, that's fine.
+
+00:44:18.590 --> 00:44:21.750
+But there are some teams that
+I know of that have actually
+
+00:44:21.750 --> 00:44:24.130
+just gone through – and I know
+everyone's going to shudder
+
+00:44:24.130 --> 00:44:27.280
+when I say this – and found
+some of the simple issues
+
+00:44:27.280 --> 00:44:30.020
+because they don't actually
+have access to the code.
+
+00:44:30.020 --> 00:44:32.183
+They just went through
+and added JavaScript
+
+00:44:32.184 --> 00:44:33.560
+into fixed specific issues.
+
+00:44:33.560 --> 00:44:35.310
+They are not going through and saying
+like hey give me a general thing.
+
+00:44:35.310 --> 00:44:38.120
+They're fixing specific
+issues with JavaScript.
+
+00:44:38.120 --> 00:44:39.220
+That's one way.
+
+00:44:39.220 --> 00:44:44.170
+The other thing I suggest for
+older sites is if you have a way
+
+00:44:44.170 --> 00:44:46.830
+to set up an integration
+test for yourself like,
+
+00:44:46.830 --> 00:44:48.690
+Hey set up a library to
+go through those things
+
+00:44:48.690 --> 00:44:52.550
+and check the issues, at a
+minimum, fix the automated issues.
+
+00:44:52.550 --> 00:44:56.880
+Mostly old sites themselves
+actually are done in semantic HTML.
+
+00:44:56.880 --> 00:44:59.840
+So most of the issues
+you find come about
+
+00:44:59.840 --> 00:45:06.750
+because it's improperly missing
+aria attributes or things like that.
+
+00:45:06.750 --> 00:45:09.950
+So semantically it's great, it's
+just you're missing small things.
+
+00:45:09.950 --> 00:45:13.270
+If you can run a test suite
+against that or even extension,
+
+00:45:13.270 --> 00:45:15.920
+that makes it easier to do but
+those two things are normally
+
+00:45:15.920 --> 00:45:18.160
+what I see for older sites.
+
+00:45:18.160 --> 00:45:21.220
+Just trying to fix what you can
+fix, whether that be with JavaScript
+
+00:45:21.220 --> 00:45:23.810
+or whatnot and just get the
+simple issues out of the way.
+
+00:45:25.420 --> 00:45:26.940
+JOOST: Cool.
+
+00:45:26.940 --> 00:45:30.670
+We have another question or actually
+I think it's three questions
+
+00:45:30.670 --> 00:45:32.250
+so I'm going to ask
+them one by one.
+
+00:45:32.250 --> 00:45:36.240
+From Scott Thorneburn: How
+long on average does it take
+
+00:45:36.240 --> 00:45:39.140
+to affect change when you
+bring this with a Dev team.
+
+00:45:40.430 --> 00:45:41.110
+MARK: Whoo.
+
+00:45:41.110 --> 00:45:46.720
+OK, so phase one and phase
+two, specifically for linting
+
+00:45:46.720 --> 00:45:49.550
+if you know that they're
+using a specific linter,
+
+00:45:49.550 --> 00:45:51.500
+and you can just say turn
+on accessibility rules,
+
+00:45:51.500 --> 00:45:53.720
+that phase one can take a week.
+
+00:45:53.720 --> 00:45:55.460
+And just be like yep this
+is part of the process now.
+
+00:45:55.460 --> 00:45:58.540
+We're using accessibility
+rules and you have to fix them.
+
+00:45:58.540 --> 00:46:04.790
+The fastest I've seen phase
+one, phase two take is a month
+
+00:46:04.790 --> 00:46:08.790
+so if you're doing two week
+sprints two, like two sprints.
+
+00:46:10.210 --> 00:46:12.370
+So normally though it's
+probably about this.
+
+00:46:12.370 --> 00:46:14.430
+Phase one is normally
+about a sprint or two.
+
+00:46:15.440 --> 00:46:20.900
+Phase three, normally because it's
+QA folks and QA folks really do care
+
+00:46:20.900 --> 00:46:22.990
+about the UI test they write.
+
+00:46:22.990 --> 00:46:25.990
+It normally takes probably about
+a couple months, three months.
+
+00:46:25.990 --> 00:46:27.260
+And then regression
+tests, I'll be honest.
+
+00:46:27.260 --> 00:46:31.230
+Regression test is one that
+gets very difficult to obtain.
+
+00:46:31.230 --> 00:46:33.270
+I talk about it in this
+because it is really awesome
+
+00:46:33.270 --> 00:46:36.620
+because I do believe that
+it does hold a lot of value.
+
+00:46:36.620 --> 00:46:39.980
+I've only seen two development
+teams or organizations I've worked
+
+00:46:39.980 --> 00:46:42.170
+with that have actually done that.
+
+00:46:42.170 --> 00:46:45.250
+It takes a long time to get there
+because once you get phase one,
+
+00:46:45.250 --> 00:46:47.720
+phase two in, a lot of
+times it's like, oh my gosh,
+
+00:46:47.720 --> 00:46:49.170
+where did all these
+issues come from?
+
+00:46:49.170 --> 00:46:51.360
+And then you have to start
+figuring out a process to fix them
+
+00:46:51.360 --> 00:46:52.750
+and integrate them in.
+
+00:46:52.750 --> 00:46:55.050
+So that's normally the time
+frame though with a dev team.
+
+00:46:56.270 --> 00:46:57.170
+JOOST: Cool.
+
+00:46:57.170 --> 00:47:02.930
+And what would you estimate the
+cost and initial slowdown would be
+
+00:47:02.930 --> 00:47:04.620
+on projects to get
+this up to speed?
+
+00:47:04.620 --> 00:47:05.610
+MARK: Sure.
+
+00:47:05.610 --> 00:47:07.450
+So Linting, nothing.
+
+00:47:07.450 --> 00:47:09.110
+There is zero argument
+against Linting.
+
+00:47:09.110 --> 00:47:10.660
+If you have a linter
+that's running right now,
+
+00:47:10.660 --> 00:47:13.910
+run the accessibility rules, they're
+on, you didn't slow down anything.
+
+00:47:13.910 --> 00:47:16.920
+You might have taken 30 more
+seconds for a dev to go,
+
+00:47:16.920 --> 00:47:19.610
+oh, I need an alt attribute on
+this, got it.
+
+00:47:21.270 --> 00:47:24.850
+For something like the testing
+libraries and things like that,
+
+00:47:24.850 --> 00:47:27.510
+you might be looking at if I
+was to add this into a sprint,
+
+00:47:27.510 --> 00:47:29.860
+it might slow it down a
+bit for your QA folks.
+
+00:47:29.860 --> 00:47:32.740
+However,
+if you have a QA team or somebody
+
+00:47:32.740 --> 00:47:35.360
+who's writing the test case
+themselves, like we showed,
+
+00:47:35.360 --> 00:47:37.430
+the initial setup is
+really the hard part.
+
+00:47:37.430 --> 00:47:40.470
+After that, it's just kind of
+copy and pasting and repeating.
+
+00:47:40.470 --> 00:47:44.200
+So slowdown is probably a sprint
+or two to get it set up and going,
+
+00:47:44.200 --> 00:47:46.620
+but really there's not that
+much cost for slowdown.
+
+00:47:46.620 --> 00:47:47.810
+Regression testing, sure.
+
+00:47:47.810 --> 00:47:50.010
+That takes a little bit to
+understand, Hey, how am I going
+
+00:47:50.010 --> 00:47:52.060
+to write functional regression
+tests for something.
+
+00:47:52.060 --> 00:47:54.361
+But the first two,
+first one specifically,
+
+00:47:54.362 --> 00:47:56.020
+there's no issue slowing down.
+
+00:47:56.020 --> 00:47:58.530
+Second one, there might be
+some slowdown, but it all
+
+00:47:58.530 --> 00:48:00.770
+just depends on the
+structure of the project too.
+
+00:48:00.770 --> 00:48:01.900
+JOOST: Clear.
+
+00:48:01.900 --> 00:48:06.240
+And how do you get agreement with
+Dev on what automated tools to use?
+
+00:48:06.240 --> 00:48:10.610
+Are you always just using
+what they're already using?
+
+00:48:10.610 --> 00:48:13.150
+MARK: I always default
+to what they are doing.
+
+00:48:13.150 --> 00:48:16.700
+The first question I ask is, Hey,
+what do you use for one team?
+
+00:48:16.700 --> 00:48:18.793
+What do you use for
+automated testing?
+
+00:48:18.794 --> 00:48:23.520
+And then we fill in the gaps
+with accessibility in there.
+
+00:48:23.520 --> 00:48:26.570
+Because if they have not
+decided, I always say this,
+
+00:48:26.570 --> 00:48:30.030
+if they have not decided on
+a testing strategy, push them
+
+00:48:30.030 --> 00:48:32.690
+to figure it out themselves
+because if you go and say, well,
+
+00:48:32.690 --> 00:48:36.170
+we should be using this,
+it always ends up in disaster.
+
+00:48:36.170 --> 00:48:38.200
+Because then they start being
+like, oh no, no, no,
+
+00:48:38.200 --> 00:48:38.820
+we're going to use this.
+
+00:48:38.820 --> 00:48:39.530
+It's like, OK, great.
+
+00:48:39.530 --> 00:48:43.010
+So if a team already knows,
+go with what they have, go
+
+00:48:43.010 --> 00:48:45.650
+with what they're using and say,
+Hey, we are going to jump in
+
+00:48:45.650 --> 00:48:48.130
+with accessibility with this.
+If they don't.
+
+00:48:48.130 --> 00:48:51.190
+Then just kind of be like, all
+right, you guys figured out first.
+
+00:48:51.190 --> 00:48:52.270
+This is just my experience.
+
+00:48:52.270 --> 00:48:53.940
+You guys figured it out first,
+I’ll come back and study
+
+00:48:53.940 --> 00:48:56.020
+what we should be doing from the
+accessibility side of things.
+
+00:48:56.020 --> 00:48:59.140
+If we force it from accessibility,
+then it just goes haywire.
+
+00:48:59.140 --> 00:49:02.250
+JOOST: Yes I fully appreciate that.
+
+00:49:02.250 --> 00:49:06.840
+Andrea Fershia is asking, in 2017,
+the UK government digital servers
+
+00:49:06.840 --> 00:49:11.280
+ran an audit of the most popular
+accessibility automated checkers
+
+00:49:11.280 --> 00:49:14.750
+and found out that even the best
+one was able to find only 40%
+
+00:49:14.750 --> 00:49:15.570
+of the issues.
+
+00:49:15.570 --> 00:49:15.910
+MARK: Yes.
+
+00:49:16.996 --> 00:49:19.850
+JOOST: Do you know by any chance if
+new audits have been made since then,
+
+00:49:19.850 --> 00:49:23.260
+whether the accuracy of these
+tools has generally improved?
+
+00:49:23.978 --> 00:49:26.410
+MARK: Sure, so I'll sum
+this one up really quick.
+
+00:49:26.410 --> 00:49:31.640
+Andrea, that is the general term;
+30 to 40% of accessibility issues.
+
+00:49:31.640 --> 00:49:34.970
+The only thing that I
+can say different is,
+
+00:49:34.970 --> 00:49:36.950
+Deque Systems did a study for this.
+
+00:49:36.950 --> 00:49:40.080
+Someone else did a study for
+this too, I forget who it was.
+
+00:49:40.080 --> 00:49:43.410
+Deque Systems took all of their
+accessibility audits they'd done
+
+00:49:43.410 --> 00:49:45.140
+from a manual standpoint,
+automated standpoint.
+
+00:49:45.140 --> 00:49:48.230
+They put them together and
+said, by volume,
+
+00:49:48.230 --> 00:49:50.450
+how much of the issues
+were caught by automation?
+
+00:49:50.450 --> 00:49:54.130
+They came out with, I think
+56%, of all accessibility issues
+
+00:49:54.130 --> 00:49:54.800
+that's manual.
+
+00:49:54.800 --> 00:49:57.040
+And automated were
+caught by automation.
+
+00:49:57.040 --> 00:50:00.000
+That's by volume, not by success
+criteria or anything like that.
+
+00:50:00.000 --> 00:50:02.960
+So again, it's how you view it.
+
+00:50:02.960 --> 00:50:06.410
+So if you say 30% of success
+criteria, 100%, that's what I say,
+
+00:50:06.410 --> 00:50:07.760
+100%, sorry.
+
+00:50:07.760 --> 00:50:09.650
+That's what I say normally
+too, as it's the lower third
+
+00:50:09.650 --> 00:50:11.000
+of accessibility issues.
+
+00:50:11.000 --> 00:50:13.130
+If you look at it by volume,
+there's some studies out there
+
+00:50:13.130 --> 00:50:15.740
+that say it's closer to 50
+because of just all the issues
+
+00:50:15.740 --> 00:50:18.220
+that exist out there on the
+web, but I don't know
+
+00:50:18.220 --> 00:50:20.180
+of any new ones that
+have been done, no.
+
+00:50:21.970 --> 00:50:26.870
+JOOST: With that we've come to
+the end of our list of questions
+
+00:50:26.870 --> 00:50:29.090
+and we're going to relieve you.
+
+00:50:29.090 --> 00:50:32.340
+Thank you again Mark for
+your excellent presentation
+
+00:50:32.340 --> 00:50:34.550
+and thank you all for attending.
+
+00:50:35.600 --> 00:50:38.140
+You can continue the
+conversation on chat
+
+00:50:38.140 --> 00:50:45.390
+or social media using the
+hashtags wpa11yday and wpad2023.
+
+00:50:45.390 --> 00:50:47.290
+We also really
+appreciate it if you go
+
+00:50:47.290 --> 00:50:51.400
+to the WP accessibility
+day website slash feedback
+
+00:50:51.400 --> 00:50:54.130
+to provide anonymous speed
+feedback for our speakers
+
+00:50:54.130 --> 00:50:59.560
+on our presentations and while you
+dare you can enter to win a t-shirt.
+
+00:50:59.560 --> 00:51:02.550
+Stay tuned for how to
+code for keyword access
+
+00:51:02.550 --> 00:51:06.440
+in WordPress coming up next
+with Priti Rohra at the top
+
+00:51:06.440 --> 00:51:09.010
+of the hour or 12:00 UTC.
+
+00:51:09.010 --> 00:51:12.460
+And while you're waiting do not
+forget to visit our sponsors pages
+
+00:51:12.460 --> 00:51:17.020
+to grab virtual swag and enter
+to win some great prizes.
+
+00:51:17.020 --> 00:51:20.120
+This is me signing off
+as MC for today as well.
+
+00:51:20.120 --> 00:51:23.550
+I hope you do enjoy the rest of
+the WordPress accessibility day
+
+00:51:23.550 --> 00:51:25.380
+and we'll see you right
+here after your break.
+
+00:51:28.620 --> 00:51:33.260
+SPEAKER 1: Thank you to WordPress
+Accessibility Day 2023 sponsors.
+
+00:51:33.260 --> 00:51:36.140
+Platinum sponsor: Equalize Digital.
+
+00:51:36.140 --> 00:51:38.890
+Equalize Digital's
+accessibility checker plugin
+
+00:51:38.890 --> 00:51:41.640
+is an automated
+accessibility scanning tool
+
+00:51:41.640 --> 00:51:44.820
+that helps WordPress websites
+become and stay accessible.
+
+00:51:46.070 --> 00:51:51.010
+Platinum sponsor Gravity Forms:
+Gravity Forms is the professional
+
+00:51:51.010 --> 00:51:54.170
+form builder that you
+need to create beautiful,
+
+00:51:54.170 --> 00:51:57.270
+powerful and accessible forms.
+
+00:51:57.270 --> 00:52:03.170
+Gold sponsors 20i, Deque,
+Empire Caption Solutions,
+
+00:52:03.170 --> 00:52:05.360
+Pressable and WP engine.
+
+00:52:06.930 --> 00:52:13.800
+Silver sponsors, Code Geek, Drake
+Cooper, GoDaddy, LoneRock Point,
+
+00:52:13.800 --> 00:52:19.030
+NerdPress, Overnight Website by
+KineticIRIS, Rheola Networks,
+
+00:52:20.290 --> 00:52:23.300
+A11Y Collective, and the Blogsmith.
+
+00:52:25.170 --> 00:52:30.580
+Bronze sponsors, ExcessaCart,
+GreenGeeks Web Hosting,
+
+00:52:30.580 --> 00:52:38.580
+Hall Analysis SEO Consulting,
+HDC, ITX, Ivy Cat, Metabox,
+
+00:52:42.330 --> 00:52:47.243
+Pixel Chefs, Simply Schedule
+Appointments, SiteGround,
+
+00:52:47.244 --> 00:52:52.470
+Termageddon, Underrepresented
+in Tech, Leaglot, and Yoast.

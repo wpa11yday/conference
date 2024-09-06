@@ -1694,12 +1694,17 @@ function wpcs_get_captions() {
 	$has_caption = false;
 	foreach ( $languages as $key => $language ) {
 		if ( 'en' === $key ) {
-			$has_caption      = true;
-			$caption          = get_post_meta( $post_id, '_wpcs_caption_url', true );
-			$captions[ $key ] = $caption;
-		} else {
-			$caption          = get_post_meta( $post_id, '_wpcs_caption_url_' . $key, true );
-			$captions[ $key ] = $caption;
+			$filename = get_post_field( 'post_name', $post_id ) . '-' . $key;
+			$year     = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
+			$filepath = plugin_dir_path( __FILE__ ) . 'assets/captions/' . $year . '/' . $filename . '.vtt';
+			$file_url = plugins_url( '/assets/captions/' . $year . '/' . $filename . '.vtt', __FILE__ );
+			global $wp_filesystem;
+			require_once ABSPATH . '/wp-admin/includes/file.php';
+			WP_Filesystem();
+			if ( $wp_filesystem->exists( $filepath ) ) {
+				$has_caption      = ( 'en' === $key ) ? true : $has_caption;
+				$captions[ $key ] = $file_url;
+			}
 		}
 	}
 	// We only display videos if they have English captions, first. Translations are secondary.

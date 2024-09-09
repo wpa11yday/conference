@@ -824,7 +824,7 @@ class WPCS_Conference_Schedule {
 		ob_start();
 		?>
 
-		<div class="wpcsp-speakers" style="text-align: <?php echo esc_attr( $attr['align'] ); ?>; display: grid; grid-template-columns: repeat(<?php echo esc_attr( $attr['columns'] ); ?>, 1fr); grid-gap: <?php echo esc_attr( $attr['gap'] ); ?>px;">
+		<ul class="wpcsp-speakers" style="text-align: <?php echo esc_attr( $attr['align'] ); ?>; list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(<?php echo esc_attr( $attr['columns'] ); ?>, 1fr); grid-gap: <?php echo esc_attr( $attr['gap'] ); ?>px;">
 
 			<?php
 			while ( $speakers->have_posts() ) :
@@ -854,7 +854,7 @@ class WPCS_Conference_Schedule {
 				}
 				?>
 
-				<div class="wpcsp-speaker" id="wpcsp-speaker-<?php echo sanitize_html_class( $post->post_name ); ?>" class="<?php echo esc_attr( implode( ' ', $speaker_classes ) ); ?>">
+				<li class="wpcsp-speaker" id="wpcsp-speaker-<?php echo sanitize_html_class( $post->post_name ); ?>" class="<?php echo esc_attr( implode( ' ', $speaker_classes ) ); ?>">
 					<?php
 					if ( has_post_thumbnail( $post_id ) && true === $attr['show_image'] ) {
 						$image_size = $attr['image_size'];
@@ -897,11 +897,11 @@ class WPCS_Conference_Schedule {
 							the_content();}
 						?>
 					</div>
-				</div>
+				</li>
 
 			<?php endwhile; ?>
 
-		</div>
+		</ul>
 
 		<?php
 

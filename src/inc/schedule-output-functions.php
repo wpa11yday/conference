@@ -114,7 +114,7 @@ function wpcs_shortcode_people( $atts ) {
 		$location = ( $location ) ? '<div class="attendee-location">' . esc_html( $location ) . '</div>' : '';
 		$icons    = array();
 		if ( $twitter ) {
-			$icons[] = '<a href="' . esc_url( $twitter ) . '"><span class="dashicons dashicons-twitter" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html( $name ) . ' on Twitter</span></a>';
+			$icons[] = '<a href="' . esc_url( $twitter ) . '"><span class="dashicons fa-brands fa-x-twitter" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html( $name ) . ' on Twitter</span></a>';
 		}
 		if ( $linked ) {
 			$icons[] = '<a href="' . esc_url( $linked ) . '"><span class="dashicons dashicons-linkedin" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html( $name ) . ' on LinkedIn</span></a>';

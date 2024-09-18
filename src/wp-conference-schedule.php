@@ -1667,18 +1667,16 @@ function wpcs_get_captions() {
 	$captions    = array();
 	$has_caption = false;
 	foreach ( $languages as $key => $language ) {
-		if ( 'en' === $key ) {
-			$filename = get_post_field( 'post_name', $post_id ) . '-' . $key;
-			$year     = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
-			$filepath = plugin_dir_path( __FILE__ ) . 'assets/captions/' . $year . '/' . $filename . '.vtt';
-			$file_url = plugins_url( '/assets/captions/' . $year . '/' . $filename . '.vtt', __FILE__ );
-			global $wp_filesystem;
-			require_once ABSPATH . '/wp-admin/includes/file.php';
-			WP_Filesystem();
-			if ( $wp_filesystem->exists( $filepath ) ) {
-				$has_caption      = ( 'en' === $key ) ? true : $has_caption;
-				$captions[ $key ] = $file_url;
-			}
+		$filename = get_post_field( 'post_name', $post_id ) . '-' . $key;
+		$year     = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
+		$filepath = plugin_dir_path( __FILE__ ) . 'assets/captions/' . $year . '/' . $filename . '.vtt';
+		$file_url = plugins_url( '/assets/captions/' . $year . '/' . $filename . '.vtt', __FILE__ );
+		global $wp_filesystem;
+		require_once ABSPATH . '/wp-admin/includes/file.php';
+		WP_Filesystem();
+		if ( $wp_filesystem->exists( $filepath ) ) {
+			$has_caption      = ( 'en' === $key ) ? true : $has_caption;
+			$captions[ $key ] = $file_url;
 		}
 	}
 	// We only display videos if they have English captions, first. Translations are secondary.

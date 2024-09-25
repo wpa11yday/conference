@@ -1800,10 +1800,26 @@ function wpcs_dashboard_widget_handler() {
 		'wpad'          => array(
 			'function' => 'wpcs_event_start',
 			'args'     => array(
-				'format'   => 'A datetime format in PHP DateTimeInterface syntax.',
-				'fallback' => 'A string to fallback to when no event date is defined',
-				'dashicon' => 'A dashicon slug to prepend to the output',
-				'time'     => 'A custom date and time parsable using `strtotime()`',
+				'format'   => array(
+					'type'        => 'string',
+					'default'     => 'H:i',
+					'description' => 'A datetime format in PHP DateTimeInterface syntax.',
+				 ),
+				'fallback' => array(
+					'type'        => 'string',
+					'default'     => 'Fall 2024',
+					'description' => 'A string for when no event date is defined',
+				),
+				'dashicon' => array(
+					'type'        => 'string',
+					'default'     => '',
+					'description' => 'A dashicon slug to prepend to the output',
+				),
+				'time'     => array(
+					'type'        => 'string',
+					'default'     => '',
+					'description' => 'A date and time parsable by `strtotime()`',
+				)
 			),
 		),
 		'wpcs_sponsors' => array(
@@ -1825,8 +1841,8 @@ function wpcs_dashboard_widget_handler() {
 		$output .= '<li><code>[' . $code . ']</code>/<code>' . $attributes['function'] . '()</code><ul style="padding: 1rem">';
 		if ( isset( $attributes['args'] ) ) {
 			foreach ( $attributes['args'] as $arg => $info ) {
-				$output .= '<li>Attribute: <code>' . $arg . '="' . $info['default'] . '"</code>/<code>' . $info['type'] . '</code></li>';
-				$output .= '<li><p>' . $info['description'] . '</p></li>';
+				$output .= '<li><code>' . $arg . '="' . $info['default'] . '"</code></li>';
+				$output .= '<li><p><code>' . $info['type'] . '</code>: ' . $info['description'] . '</p></li>';
 			}
 		}
 		$output .= '</ul></li>';

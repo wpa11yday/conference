@@ -502,6 +502,7 @@ function wpcs_event_start( $atts = array() ) {
 			'format'   => 'H:i',
 			'dashicon' => '',
 			'fallback' => 'Fall 2024',
+			'time'     => '',
 		),
 		$atts,
 		'wpad'
@@ -510,9 +511,10 @@ function wpcs_event_start( $atts = array() ) {
 	if ( '' !== $args['dashicon'] ) {
 		$dashicon = '<span class="dashicons dashicons-' . esc_attr( $args['dashicon'] ) . '" aria-hidden="true"></span> ';
 	}
-	if ( get_option( 'wpad_start_time', '' ) ) {
-		$start = gmdate( 'Y-m-d\TH:i:00', strtotime( get_option( 'wpad_start_time', '' ) ) ) . 'Z';
-		$time  = gmdate( $args['format'], strtotime( get_option( 'wpad_start_time', '' ) ) );
+	$datetime = ( '' !== $args['time'] ) ? $args['time'] : get_option( 'wpad_start_time', '' );
+	if ( $datetime ) {
+		$start = gmdate( 'Y-m-d\TH:i:00', strtotime( $datetime ) ) . 'Z';
+		$time  = gmdate( $args['format'], strtotime( $datetime ) );
 		if ( 'H:i' === $args['format'] ) {
 			$time .= ' UTC';
 		}
@@ -520,7 +522,7 @@ function wpcs_event_start( $atts = array() ) {
 		return '<span class="event-time">' . esc_html( $args['fallback'] ) . '</span>';
 	}
 
-	return '<time class="event-time" datetime="' . esc_attr( $start ) . '" data-time="' . esc_attr( $start ) . '">' . $dashicon . esc_html( $time ) . '</span>';
+	return '<time class="event-time" datetime="' . esc_attr( $start ) . '" data-time="' . esc_attr( $start ) . '">' . $dashicon . esc_html( $time ) . '</time>';
 }
 
 /**

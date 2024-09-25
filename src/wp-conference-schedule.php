@@ -1804,7 +1804,7 @@ function wpcs_dashboard_widget_handler() {
 					'type'        => 'string',
 					'default'     => 'H:i',
 					'description' => 'A datetime format in PHP DateTimeInterface syntax.',
-				 ),
+				),
 				'fallback' => array(
 					'type'        => 'string',
 					'default'     => 'Fall 2024',
@@ -1819,7 +1819,7 @@ function wpcs_dashboard_widget_handler() {
 					'type'        => 'string',
 					'default'     => '',
 					'description' => 'A date and time parsable by `strtotime()`',
-				)
+				),
 			),
 		),
 		'wpcs_sponsors' => array(

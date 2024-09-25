@@ -1799,7 +1799,12 @@ function wpcs_dashboard_widget_handler() {
 		),
 		'wpad'          => array(
 			'function' => 'wpcs_event_start',
-			'args'     => array(),
+			'args'     => array(
+				'format'   => 'A datetime format in PHP DateTimeInterface syntax.',
+				'fallback' => 'A string to fallback to when no event date is defined',
+				'dashicon' => 'A dashicon slug to prepend to the output',
+				'time'     => 'A custom date and time parsable using `strtotime()`',
+			),
 		),
 		'wpcs_sponsors' => array(
 			'function' => '$this->shortcode_sponsors',

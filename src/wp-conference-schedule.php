@@ -1455,8 +1455,16 @@ function wpcsp_donor_metabox() {
 			'type' => 'text',
 		)
 	);
-}
 
+	// Donor Twitter/X.
+	$cmb->add_field(
+		array(
+			'name' => __( 'Twitter/X Handle (Must include @ symbol)', 'wpa-conference' ),
+			'id'   => 'wpcsp_donor_twitter',
+			'type' => 'text',
+		)
+	);
+}
 
 /**
  * Generate sponsor metaboxes.

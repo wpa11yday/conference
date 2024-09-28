@@ -1463,9 +1463,8 @@ function wpcsp_donor_metabox() {
 			'id'   => 'wpcsp_donor_twitter',
 			'type' => 'text',
 		)
-	);	
+	);
 }
-
 
 /**
  * Generate sponsor metaboxes.

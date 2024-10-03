@@ -716,11 +716,12 @@ function wpcs_get_slides( $session_ID ) {
 			$class = 'custom';
 			if ( ! $label ) {
 				if ( 'url' !== $extension ) {
-					$class  = sanitize_title( $extension );
-					$label = sprintf( __( 'Slides (%s)', 'wpad' ), $extension );
+					$class = sanitize_title( $extension );
+					// translators: file extension.
+					$label = sprintf( __( 'Slides (%s)', 'wpa-conference' ), $extension );
 				} else {
 					$class = 'url';
-					$label = __( 'Slides (URL)', 'wpad' );
+					$label = __( 'Slides (URL)', 'wpa-conference' );
 				}
 			}
 			$list[] = ( esc_url( $slide ) ) ? '<a href="' . esc_url( $slide ) . '" class="' . esc_attr( $class ) . '">' . esc_html( $label ) . '</a>' : '';
@@ -783,10 +784,10 @@ function wpcs_get_resources( $session_ID ) {
 					}
 					$class = sanitize_title( $extension );
 					// translators: 1) type of resource, 2) File extension.
-					$label = sprintf( __( 'Session Resource (%s)' . $name, 'wpad' ), strtoupper( $class ) );
+					$label = sprintf( __( 'Session Resource (%1$s) %2$s', 'wpa-conference' ), strtoupper( $class ), $name );
 				} else {
 					$class = 'url';
-					$label = __( 'Session Resource (URL)', 'wpad' );
+					$label = __( 'Session Resource (URL)', 'wpa-conference' );
 				}
 			}
 			$list[] = ( esc_url( $resource ) ) ? '<a href="' . esc_url( $resource ) . '">' . esc_html( $label ) . '</a>' : '';

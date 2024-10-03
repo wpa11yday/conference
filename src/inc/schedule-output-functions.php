@@ -698,11 +698,12 @@ function wpcs_session_sponsors( $session_id ) {
  */
 function wpcs_get_slides( $session_ID ) {
 	$slides    = get_post_meta( $session_ID, 'wpcsp_session_slides', true );
+	$labels    = get_post_meta( $session_ID, 'wpcsp_session_slide_labels', true );
 	$filetypes = array( '.ppt', '.pptx', '.pdf', '.key', '.otp', '.pps', '.ppsx' );
 	$list      = array();
 	$extension = 'url';
 	if ( is_array( $slides ) ) {
-		foreach ( $slides as $slide ) {
+		foreach ( $slides as $index => $slide ) {
 			foreach ( $filetypes as $ext ) {
 				$extension = 'url';
 				$ends_with = wpcs_ends_with( $slide, $ext );
@@ -711,12 +712,18 @@ function wpcs_get_slides( $session_ID ) {
 					break;
 				}
 			}
-			if ( 'url' !== $extension ) {
-				$class  = sanitize_title( $extension );
-				$list[] = '<a href="' . esc_url( $slide ) . '" class="' . $class . '">' . 'Slides (' . strtoupper( $class ) . ')</a>';
-			} else {
-				$list[] = ( esc_url( $slide ) ) ? '<a href="' . esc_url( $slide ) . '">Slides (URL)</a>' : '';
+			$label = ( ! empty( $labels ) && isset( $labels[ $index ] ) ) ? $labels[ $index ] : false;
+			$class = 'custom';
+			if ( ! $label ) {
+				if ( 'url' !== $extension ) {
+					$class  = sanitize_title( $extension );
+					$label = sprintf( __( 'Slides (%s)', 'wpad' ), $extension );
+				} else {
+					$class = 'url';
+					$label = __( 'Slides (URL)', 'wpad' );
+				}
 			}
+			$list[] = ( esc_url( $slide ) ) ? '<a href="' . esc_url( $slide ) . '" class="' . esc_attr( $class ) . '">' . esc_html( $label ) . '</a>' : '';
 		}
 	}
 
@@ -748,11 +755,12 @@ function wpcs_slides( $session_ID ) {
  */
 function wpcs_get_resources( $session_ID ) {
 	$resources = get_post_meta( $session_ID, 'wpcsp_session_resources', true );
+	$labels    = get_post_meta( $session_ID, 'wpcsp_session_resource_labels', true );
 	$filetypes = array( '.doc', '.docx', '.xls', '.xlsx', '.pdf' );
 	$list      = array();
 	$extension = 'url';
 	if ( is_array( $resources ) ) {
-		foreach ( $resources as $resource ) {
+		foreach ( $resources as $index => $resource ) {
 			foreach ( $filetypes as $ext ) {
 				$extension = 'url';
 				$ends_with = wpcs_ends_with( $resource, $ext );
@@ -761,20 +769,27 @@ function wpcs_get_resources( $session_ID ) {
 					break;
 				}
 			}
-			if ( 'url' !== $extension ) {
-				$name = '';
-				if ( current_user_can( 'manage_options' ) ) {
-					$parts = wp_parse_url( $resource );
-					$path  = $parts['path'];
-					$split = explode( '/', $path );
-					$name  = end( $split );
-					$name  = ' - ' . str_replace( array( '-', '_', $extension ), ' ', $name );
+			$label = ( ! empty( $labels ) && isset( $labels[ $index ] ) ) ? $labels[ $index ] : false;
+			$class = 'custom';
+			if ( ! $label ) {
+				if ( 'url' !== $extension ) {
+					$name = '';
+					if ( current_user_can( 'manage_options' ) ) {
+						$parts = wp_parse_url( $resource );
+						$path  = $parts['path'];
+						$split = explode( '/', $path );
+						$name  = end( $split );
+						$name  = ' - ' . str_replace( array( '-', '_', $extension ), ' ', $name );
+					}
+					$class = sanitize_title( $extension );
+					// translators: 1) type of resource, 2) File extension.
+					$label = sprintf( __( 'Session Resource (%s)' . $name, 'wpad' ), strtoupper( $class ) );
+				} else {
+					$class = 'url';
+					$label = __( 'Session Resource (URL)', 'wpad' );
 				}
-				$class  = sanitize_title( $extension );
-				$list[] = '<a href="' . esc_url( $resource ) . '" class="' . $class . '">' . 'Session Resource (' . strtoupper( $class ) . ')' . $name . '</a>';
-			} else {
-				$list[] = ( esc_url( $resource ) ) ? '<a href="' . esc_url( $resource ) . '">Session Resource (URL)</a>' : '';
 			}
+			$list[] = ( esc_url( $resource ) ) ? '<a href="' . esc_url( $resource ) . '">' . esc_html( $label ) . '</a>' : '';
 		}
 	}
 

@@ -1015,6 +1015,15 @@ class WPCS_Conference_Schedule {
 
 		$cmb->add_field(
 			array(
+				'name'       => 'Slide Labels',
+				'id'         => 'wpcsp_session_slide_labels',
+				'type'       => 'text',
+				'repeatable' => true,
+			)
+		);
+
+		$cmb->add_field(
+			array(
 				'name'       => 'Resources',
 				'id'         => 'wpcsp_session_resources',
 				'type'       => 'text',
@@ -1022,6 +1031,14 @@ class WPCS_Conference_Schedule {
 			)
 		);
 
+		$cmb->add_field(
+			array(
+				'name'       => 'Resource Labels',
+				'id'         => 'wpcsp_session_resource_labels',
+				'type'       => 'text',
+				'repeatable' => true,
+			)
+		);
 		return $cmb;
 	}
 

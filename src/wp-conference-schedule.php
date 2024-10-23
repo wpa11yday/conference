@@ -1687,6 +1687,7 @@ function wpcs_get_poster() {
  * @return bool|array
  */
 function wpcs_get_captions() {
+	$cache_break = ( current_user_can( 'manage_options' ) ) ? true : false;
 	$post_id     = get_the_ID();
 	$languages   = wpcs_get_languages( false );
 	$captions    = array();
@@ -1701,7 +1702,7 @@ function wpcs_get_captions() {
 		WP_Filesystem();
 		if ( $wp_filesystem->exists( $filepath ) ) {
 			$has_caption      = ( 'en' === $key ) ? true : $has_caption;
-			$captions[ $key ] = $file_url;
+			$captions[ $key ] = ( $cache_break ) ? add_query_arg( 'version', wp_rand( 10000, 99999 ), $file_url ) : $file_url;
 		}
 	}
 	// We only display videos if they have English captions, first. Translations are secondary.

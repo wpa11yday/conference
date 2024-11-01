@@ -1,0 +1,3325 @@
+﻿WEBVTT
+
+00:00:00.630 --> 00:00:03.497
+Announcer: WordPress
+Accessibility Day 2024
+
+00:00:04.097 --> 00:00:05.817
+Captchas and Other Gotchas:
+
+00:00:06.077 --> 00:00:08.617
+Make Sure Your Secure Website
+is Accessible
+
+00:00:09.057 --> 00:00:10.919
+with speaker AmyJune Hineline,
+
+00:00:11.189 --> 00:00:14.369
+Certification Community Architect
+at the Linux Foundation.
+
+00:00:15.000 --> 00:00:18.274
+This presentation
+was recorded October 2024.
+
+00:00:21.599 --> 00:00:22.999
+Simon Miner: Hey, everybody.
+
+00:00:23.940 --> 00:00:29.585
+I wanted to welcome you
+to WordPress Accessibility Day 2024.
+
+00:00:30.090 --> 00:00:32.728
+My name is Simon Miner,
+and I'm the founder
+
+00:00:32.729 --> 00:00:34.770
+and CEO of Pedal Point Solutions.
+
+00:00:35.579 --> 00:00:38.280
+If I'm looking away like this,
+I'm not being rude.
+
+00:00:38.640 --> 00:00:43.229
+It's just that I have low vision
+and a big monitor with text over here.
+
+00:00:43.920 --> 00:00:46.289
+I want to thank you all for joining us
+
+00:00:47.189 --> 00:00:50.749
+for this session called Captchas
+and Other Gotchas:
+
+00:00:51.035 --> 00:00:53.172
+Make Sure Your Secure Website
+is Accessible
+
+00:00:53.362 --> 00:00:54.462
+with AmyJune Hineline.
+
+00:00:55.482 --> 00:00:56.482
+AmyJune
+
+00:00:56.862 --> 00:01:01.019
+is the Certified Community Architect
+for the Linux Foundation.
+
+00:01:01.666 --> 00:01:03.359
+She is responsible for supporting
+
+00:01:04.140 --> 00:01:09.300
+the certification team's efforts
+in building and maintaining exams
+
+00:01:09.329 --> 00:01:13.500
+and related documentation
+for exam products
+
+00:01:13.770 --> 00:01:17.699
+in the Linux Foundation's
+certification portfolio.
+
+00:01:18.510 --> 00:01:22.379
+Her ongoing experience
+as a hospice nurse keeps her in touch
+
+00:01:22.620 --> 00:01:24.750
+with many end users' challenges.
+
+00:01:25.439 --> 00:01:28.349
+In her continued efforts
+to make a difference,
+
+00:01:28.679 --> 00:01:30.239
+she helps organize
+
+00:01:30.839 --> 00:01:33.119
+the A11y Talks,
+
+00:01:33.570 --> 00:01:35.249
+which is an online meetup
+
+00:01:35.939 --> 00:01:37.049
+that advocates
+
+00:01:37.799 --> 00:01:43.530
+all things accessibility,
+one of the core components of building
+
+00:01:43.890 --> 00:01:44.890
+an inclusive web.
+
+00:01:45.779 --> 00:01:48.869
+AmyJune also helps communities discover
+
+00:01:49.469 --> 00:01:55.170
+how they can contribute and belong
+in more ways than just code,
+
+00:01:55.632 --> 00:01:56.969
+hence, remarkably,
+
+00:01:56.970 --> 00:02:01.530
+her ability to eat with her elbows
+on the table has wowed the world.
+
+00:02:03.090 --> 00:02:07.799
+Please feel free to add your questions
+in the Zoom Q&amp;A section,
+
+00:02:08.249 --> 00:02:10.849
+and we'll answer them
+at the end of the presentation.
+
+00:02:11.570 --> 00:02:15.059
+Also, use the chat to connect
+with other attendees.
+
+00:02:16.100 --> 00:02:18.732
+With that, I'd like to turn it
+over to AmyJune.
+
+00:02:19.109 --> 00:02:20.549
+Thanks so much.
+AmyJune Hineline: Thank you,
+
+00:02:20.549 --> 00:02:22.680
+Simon. That's a really nice introduction.
+
+00:02:23.579 --> 00:02:26.789
+I'm going to share my screen
+because that's why everyone's here.
+
+00:02:28.869 --> 00:02:30.773
+Simon did a really good introduction.
+
+00:02:30.779 --> 00:02:33.529
+I barely have to say anything
+my first couple of slides.
+
+00:02:33.899 --> 00:02:37.122
+I do want to do a couple
+housekeeping things, though.
+
+00:02:37.142 --> 00:02:39.784
+I know that there's captions here,
+but I'm going to show you a little trick
+
+00:02:39.784 --> 00:02:40.784
+with Google Slides.
+
+00:02:40.984 --> 00:02:43.584
+They're not the best thing
+to work with in the world,
+
+00:02:43.619 --> 00:02:46.620
+but there's this really nifty thing
+if captions aren't enabled if you're
+
+00:02:46.620 --> 00:02:47.920
+at like a live conference.
+
+00:02:48.220 --> 00:02:50.770
+If you see in the corner
+of my screen, I'm hovering,
+
+00:02:51.060 --> 00:02:53.310
+and I hover over these three dots.
+
+00:02:53.609 --> 00:02:55.619
+I can enable captions here.
+
+00:02:55.820 --> 00:02:57.070
+You have to be logged in,
+
+00:02:57.210 --> 00:03:01.050
+but I do text size large
+with the text position at the top,
+
+00:03:01.349 --> 00:03:04.799
+and then I toggle them on,
+and automatically there's captions
+
+00:03:04.800 --> 00:03:05.490
+at the top.
+
+00:03:05.491 --> 00:03:08.010
+I'm going to turn them back off
+because it'll interfere,
+
+00:03:08.010 --> 00:03:10.650
+but I always like to share
+that that is something that you can have
+
+00:03:10.650 --> 00:03:11.650
+in Google Slides
+
+00:03:11.910 --> 00:03:15.810
+for the bare necessity of captions.
+
+00:03:17.100 --> 00:03:21.371
+Also, there's images in my slide deck,
+and some of the images
+
+00:03:21.421 --> 00:03:22.890
+are for decoration,
+
+00:03:22.939 --> 00:03:25.828
+but if they do add context
+or they're kind of funny,
+
+00:03:25.829 --> 00:03:29.009
+I will describe them for people
+that visually can't see them.
+
+00:03:30.689 --> 00:03:31.950
+I think that's about it.
+
+00:03:32.100 --> 00:03:33.100
+Then if you want,
+
+00:03:33.619 --> 00:03:34.769
+on the website,
+
+00:03:34.829 --> 00:03:39.237
+and then here is a link to the slide deck
+if you need to follow along.
+
+00:03:39.267 --> 00:03:45.769
+It's a bit.ly link wpa11y-2024.
+
+00:03:45.898 --> 00:03:47.699
+Simon did a great job introducing me.
+
+00:03:47.699 --> 00:03:49.658
+My name is AmyJune, never Amy,
+
+00:03:49.708 --> 00:03:52.870
+never June,
+always title camel case AmyJune.
+
+00:03:53.131 --> 00:03:57.480
+For those that can't see me visually,
+I'm a White woman with dark blonde hair
+
+00:03:57.480 --> 00:04:00.298
+wearing glasses
+and a really cool mushroom shirt
+
+00:04:00.299 --> 00:04:02.219
+that I got when I was 14 years old.
+
+00:04:02.429 --> 00:04:05.260
+It's one of the favorite shirts
+I like to present in.
+
+00:04:06.029 --> 00:04:09.239
+This is a picture of Spotty McSpots A lot.
+
+00:04:09.330 --> 00:04:11.039
+We call him Spot for short.
+
+00:04:11.790 --> 00:04:15.179
+If there's any typos in the slide deck,
+we can assume that he ran
+
+00:04:15.180 --> 00:04:18.149
+across the keyboard and did
+some designing for me,
+
+00:04:18.179 --> 00:04:21.959
+and he's
+a really lovely white and gray tabby.
+
+00:04:22.070 --> 00:04:28.079
+In this picture, he's smelling
+a bouquet of pink and yellow flowers.
+
+00:04:29.190 --> 00:04:30.239
+Today's agenda,
+
+00:04:30.589 --> 00:04:33.839
+I do admit it's going to be
+a little bit redundant for some folks.
+
+00:04:34.285 --> 00:04:36.649
+Some of the basic
+accessibility content
+
+00:04:37.069 --> 00:04:39.269
+I talk about at the beginning
+of each section
+
+00:04:39.739 --> 00:04:40.859
+might have been presented
+
+00:04:40.859 --> 00:04:43.710
+in some of the some
+of the other presentations today.
+
+00:04:44.069 --> 00:04:46.569
+Since this might be
+one of the only talks you go to
+
+00:04:46.609 --> 00:04:49.529
+or maybe it's the first talk you went to,
+and the fact that it will be
+
+00:04:49.529 --> 00:04:53.820
+a recording standing on its own,
+I still feel the need to share the basics.
+
+00:04:53.821 --> 00:04:55.949
+I think that's super appropriate.
+
+00:04:55.950 --> 00:04:56.825
+We're going to talk
+
+00:04:56.845 --> 00:04:59.194
+about some
+of those accessibility guidelines.
+
+00:04:59.255 --> 00:05:02.999
+I'm going to sprinkle
+in some WCAG guidelines
+
+00:05:02.999 --> 00:05:05.149
+around security throughout
+the presentation.
+
+00:05:05.399 --> 00:05:07.560
+And then we'll also talk
+about alternatives and how to make
+
+00:05:07.560 --> 00:05:09.120
+our websites more accessible.
+
+00:05:11.300 --> 00:05:14.728
+Before we get started today,
+I know that this particular logo
+
+00:05:14.729 --> 00:05:17.460
+comes from the Drupal community,
+but this is just as important
+
+00:05:17.460 --> 00:05:18.810
+in the WordPress community.
+
+00:05:21.539 --> 00:05:24.092
+In the light of a prominent
+hosting platform
+
+00:05:24.122 --> 00:05:27.000
+in our communities
+and their decision to host
+
+00:05:29.149 --> 00:05:30.749
+web presence of hate groups,
+
+00:05:30.779 --> 00:05:32.909
+I want to take a moment to remind folks
+
+00:05:33.179 --> 00:05:37.408
+to be sure that you're hosting
+platform's accessible use policy prohibits
+
+00:05:37.409 --> 00:05:42.509
+the platform from hosting organized
+groups designated as hate groups
+
+00:05:42.929 --> 00:05:47.280
+when adequate evidence
+has been provided of such a designation.
+
+00:05:47.429 --> 00:05:48.429
+That was a mouthful.
+
+00:05:48.630 --> 00:05:51.120
+If you want to learn more about
+why I included this slide,
+
+00:05:51.120 --> 00:05:57.149
+you can go to nohostforhate.org
+because hatred of any kind
+
+00:05:57.449 --> 00:05:58.820
+is so unacceptable.
+
+00:05:59.876 --> 00:06:01.559
+Into the presentation.
+
+00:06:02.516 --> 00:06:08.189
+First, we'll talk a little bit about WCAG,
+the Web Content Accessibility Guidelines.
+
+00:06:08.390 --> 00:06:09.390
+This is a goal.
+
+00:06:09.391 --> 00:06:14.009
+It shares a single standard
+for web content accessibility
+
+00:06:14.010 --> 00:06:16.020
+and our digital apps and things like that.
+
+00:06:16.020 --> 00:06:18.450
+It's really made
+for web content developers,
+
+00:06:18.720 --> 00:06:23.959
+people who author our tools,
+people that develop
+
+00:06:23.960 --> 00:06:26.809
+our evaluation tools,
+and really anyone
+
+00:06:26.810 --> 00:06:30.060
+who needs a standard
+for any sort of web accessibility.
+
+00:06:30.960 --> 00:06:34.439
+I want to remind folks
+that accessibility, inclusion,
+
+00:06:34.680 --> 00:06:38.369
+and user experience
+are very different things.
+
+00:06:38.689 --> 00:06:41.189
+They complement each other,
+but they are different.
+
+00:06:42.470 --> 00:06:44.009
+What makes content accessible?
+
+00:06:44.010 --> 00:06:48.178
+There's four broad parameters
+and we'll look at each of those today.
+
+00:06:48.179 --> 00:06:53.160
+That comes to how we get
+into our website securely.
+
+00:06:53.640 --> 00:06:56.700
+We want to make sure
+that we accommodate visual needs,
+
+00:06:57.180 --> 00:07:02.706
+so we need to make sure
+that our content is easy to "see".
+
+00:07:03.479 --> 00:07:06.239
+The CDC reports
+that over 12 million people
+
+00:07:06.240 --> 00:07:09.328
+in the United States alone live
+with vision loss
+
+00:07:09.329 --> 00:07:13.409
+or some sort of vision disability
+and one million are completely blind.
+
+00:07:13.740 --> 00:07:14.990
+We also have to remember,
+
+00:07:15.389 --> 00:07:19.769
+I can see a little bit without my glasses,
+but if I go outside and I'm waiting
+
+00:07:19.770 --> 00:07:23.609
+for Bart and I have my cell phone out,
+that glare keeps me from being able
+
+00:07:23.610 --> 00:07:28.016
+to see or if my cell phone screen
+is cracked.
+
+00:07:28.309 --> 00:07:31.769
+This is an image of a woman
+with a rainbow going across her eye.
+
+00:07:32.880 --> 00:07:35.940
+We want to make sure
+that we accommodate motor needs,
+
+00:07:36.000 --> 00:07:40.199
+so we make sure that our assets
+and products are easy to interact with.
+
+00:07:40.470 --> 00:07:45.360
+This is people who lives with a palsy
+from Parkinson's or paraplegia from ALS
+
+00:07:45.479 --> 00:07:46.479
+or an accident.
+
+00:07:46.830 --> 00:07:48.650
+It could be someone like me,
+
+00:07:48.860 --> 00:07:53.699
+babysitting and holding a baby on a bus
+and only having one arm to scroll.
+
+00:07:54.150 --> 00:07:57.220
+Here we have a woman in a striped shirt
+writing in a notebook
+
+00:07:57.270 --> 00:07:58.920
+and she has a prosthetic arm.
+
+00:08:00.180 --> 00:08:03.780
+We want to make sure it's easy to hear,
+so we accommodate auditory needs.
+
+00:08:04.170 --> 00:08:06.930
+This addresses people
+who are in noisy environments
+
+00:08:07.440 --> 00:08:11.720
+or quiet environments
+and rely on captions for that audio
+
+00:08:11.930 --> 00:08:14.881
+but also helps our deaf
+and hard-of-hearing friends as well.
+
+00:08:15.149 --> 00:08:17.159
+There's a picture of a sign right there.
+
+00:08:18.060 --> 00:08:19.169
+That last parameter
+
+00:08:20.840 --> 00:08:24.682
+is making sure
+that we accommodate cognitive needs
+
+00:08:24.882 --> 00:08:28.319
+and that we make our websites
+easy to understand.
+
+00:08:28.560 --> 00:08:32.849
+This can be people who are distracted
+or have a difficult time focusing.
+
+00:08:33.659 --> 00:08:37.139
+The images of a mother
+and a young child who has Down syndrome
+
+00:08:37.710 --> 00:08:39.539
+looking at a recipe on a cell phone.
+
+00:08:41.520 --> 00:08:43.649
+Those broad parameters actually have
+
+00:08:44.969 --> 00:08:46.528
+an acronym that go with them.
+
+00:08:46.529 --> 00:08:50.038
+It's POUR. It's perceivable,
+operable, understandable,
+
+00:08:50.039 --> 00:08:51.039
+and robust.
+
+00:08:51.419 --> 00:08:55.069
+Perceivable means that you can use
+your interface by means of your senses.
+
+00:08:55.889 --> 00:09:00.839
+Operable means that you can
+and successfully use
+
+00:09:02.789 --> 00:09:03.789
+buttons,
+
+00:09:04.229 --> 00:09:07.739
+interactive elements,
+controls, and navigation.
+
+00:09:08.130 --> 00:09:09.238
+Understandable.
+
+00:09:09.239 --> 00:09:13.379
+That means our users can understand
+the content of our page and remember
+
+00:09:13.380 --> 00:09:15.990
+how to use the interface
+from page to page.
+
+00:09:16.199 --> 00:09:17.658
+Remember how websites for a while
+
+00:09:17.658 --> 00:09:20.160
+had different type layouts
+on every page?
+
+00:09:20.369 --> 00:09:23.819
+That makes it harder for people
+to understand how to use your website.
+
+00:09:23.969 --> 00:09:27.480
+Then the last one is make sure
+that you have a robust website.
+
+00:09:27.809 --> 00:09:32.730
+This refers to the fact that people access
+our website and content in different means
+
+00:09:33.150 --> 00:09:34.679
+like assistive technology.
+
+00:09:35.261 --> 00:09:39.419
+This can be how they access
+online documents like PDFs,
+
+00:09:40.650 --> 00:09:43.380
+our websites, our multimedia,
+anything like that.
+
+00:09:45.180 --> 00:09:47.969
+Then there's four types of disabilities.
+
+00:09:47.970 --> 00:09:49.079
+There's probably more.
+
+00:09:49.650 --> 00:09:51.500
+Most people talk about three of them.
+
+00:09:52.199 --> 00:09:56.280
+Remember, as we get older,
+we become more disabled with time.
+
+00:09:56.790 --> 00:10:00.784
+People do things
+like their eyes deteriorate
+
+00:10:00.834 --> 00:10:02.489
+or their hearing goes down.
+
+00:10:03.690 --> 00:10:07.879
+There's temporary disabilities
+like when we go to the dentist
+
+00:10:07.880 --> 00:10:10.429
+and we can't talk or we get
+
+00:10:11.440 --> 00:10:12.469
+ear surgery.
+
+00:10:12.590 --> 00:10:16.908
+There are situational disabilities
+where they and the audience knows
+
+00:10:16.909 --> 00:10:18.919
+about the story in particular,
+
+00:10:19.490 --> 00:10:23.299
+not being able to find your mouse
+or thinking that you didn't have a mouse
+
+00:10:23.300 --> 00:10:25.989
+for a long time or it was
+out of batteries.
+
+00:10:26.516 --> 00:10:28.129
+Then we have permanent disabilities.
+
+00:10:28.129 --> 00:10:30.710
+These are disabilities that people
+live with all of the time,
+
+00:10:30.710 --> 00:10:32.450
+all day long, all the hours.
+
+00:10:32.869 --> 00:10:35.669
+The new one that I came
+across that I like to talk about,
+
+00:10:36.320 --> 00:10:39.770
+I learned about it a couple of years ago,
+was episodic disabilities.
+
+00:10:40.099 --> 00:10:46.469
+These are perhaps things
+like cancer, HIV, diabetes.
+
+00:10:46.679 --> 00:10:50.388
+They're lifelong conditions
+where some people have better days
+
+00:10:50.510 --> 00:10:51.510
+than others.
+
+00:10:52.489 --> 00:10:56.290
+It means we have periods
+of fluctuating good health
+
+00:10:56.621 --> 00:11:00.530
+and ill health and our needs are
+inconsistent.
+
+00:11:01.099 --> 00:11:02.810
+Depression can be episodic.
+
+00:11:03.170 --> 00:11:05.658
+Then, of course,
+not every disability can be seen.
+
+00:11:05.659 --> 00:11:09.259
+We hear about invisible disabilities.
+
+00:11:09.260 --> 00:11:10.789
+These can be headaches.
+
+00:11:11.329 --> 00:11:14.690
+Someone posted migraines, dizziness,
+brain injuries,
+
+00:11:15.350 --> 00:11:18.559
+and hearing and vision loss
+isn't always visible either.
+
+00:11:18.919 --> 00:11:22.880
+It's really about providing equal access
+because it's a basic human right and not
+
+00:11:22.880 --> 00:11:23.961
+a special privileges.
+
+00:11:24.076 --> 00:11:26.299
+I don't want to hear
+the word special needs anymore.
+
+00:11:26.299 --> 00:11:27.949
+I just want to hear human rights.
+
+00:11:30.079 --> 00:11:34.039
+I was called an edge case when I worked
+at Red Hat because I asked for captions
+
+00:11:34.040 --> 00:11:36.560
+and then a screen
+that actually provided space.
+
+00:11:36.890 --> 00:11:41.209
+That really upset me and I found
+this quote from Eric Meyers that says
+
+00:11:41.479 --> 00:11:45.768
+when you call something an edge case,
+you're really just defining
+
+00:11:45.769 --> 00:11:48.140
+the limits of what you care about.
+
+00:11:51.130 --> 00:11:54.979
+Every person is unique and has
+basic human rights and inclusion
+
+00:11:54.980 --> 00:11:55.980
+is important.
+
+00:11:56.450 --> 00:11:58.640
+Now we're going to go
+into stuff you might not know about,
+
+00:11:58.640 --> 00:12:00.440
+or might not have heard about today.
+
+00:12:00.669 --> 00:12:01.819
+User agents.
+
+00:12:01.889 --> 00:12:04.732
+We're talking about these particularly
+because a lot of people
+
+00:12:04.732 --> 00:12:05.983
+can't access things
+
+00:12:05.984 --> 00:12:08.508
+with their user agents
+when their website is locked down
+
+00:12:08.508 --> 00:12:09.508
+and secure.
+
+00:12:09.980 --> 00:12:12.108
+User agents are assistive technology.
+
+00:12:12.109 --> 00:12:15.139
+They're any device
+or equipment that helps people
+
+00:12:15.890 --> 00:12:18.260
+get around some
+of the challenges they have
+
+00:12:18.289 --> 00:12:23.210
+with learning or communicating
+and really being able to function
+
+00:12:23.269 --> 00:12:24.269
+on the web.
+
+00:12:25.220 --> 00:12:26.220
+Screen readers.
+
+00:12:26.659 --> 00:12:28.209
+Most of us know what these are.
+
+00:12:28.219 --> 00:12:30.710
+It's used to listen
+to the content of a webpage.
+
+00:12:31.009 --> 00:12:33.199
+They convert text to speech.
+
+00:12:33.530 --> 00:12:36.709
+We should keep in mind that screen readers
+can be used along with visuals
+
+00:12:36.709 --> 00:12:41.659
+on the webpage for folks
+with cognitive challenges as well.
+
+00:12:41.780 --> 00:12:46.339
+Here we have a picture of a man wearing
+glasses and he you can see his cane
+
+00:12:46.340 --> 00:12:48.500
+next to him and he's using a computer.
+
+00:12:50.712 --> 00:12:57.859
+Screen magnification devices,
+this is really close to its name.
+
+00:12:58.100 --> 00:13:01.600
+You hit command plus plus on a Mac
+and it magnifies the screen for you.
+
+00:13:01.748 --> 00:13:05.568
+One of those rules is on a website,
+you should be able to magnify to 200%
+
+00:13:05.569 --> 00:13:08.060
+and not lose any
+of the content of the screen.
+
+00:13:08.589 --> 00:13:11.239
+You should still be able
+to interact with the element.
+
+00:13:12.379 --> 00:13:14.899
+It's for people who have
+partial sight impairment.
+
+00:13:16.700 --> 00:13:18.080
+Like I said, it's basically
+
+00:13:19.490 --> 00:13:20.719
+to enlarge the content.
+
+00:13:21.079 --> 00:13:26.090
+Screen magnifiers sometimes also have
+text-to-speech functionality as well.
+
+00:13:27.310 --> 00:13:28.120
+There's a few more.
+
+00:13:28.170 --> 00:13:30.949
+There's eye tracking
+that monitors your eye movements
+
+00:13:31.490 --> 00:13:33.618
+and blinking to initiate mouse clicks.
+
+00:13:33.619 --> 00:13:38.570
+There's accelerators that helps reduce
+the need to type or click.
+
+00:13:39.081 --> 00:13:40.309
+Keyboard customization.
+
+00:13:40.310 --> 00:13:41.929
+Sometimes these are called sticky keys.
+
+00:13:41.929 --> 00:13:44.479
+Sometimes they're called shortcut keys.
+
+00:13:44.480 --> 00:13:46.789
+They enable one-hand typing.
+
+00:13:47.372 --> 00:13:50.422
+Maybe you have a broken collarbone
+and can only have one hand.
+
+00:13:50.716 --> 00:13:52.729
+Pop-up and animation blockers.
+
+00:13:52.729 --> 00:13:54.901
+All of us love these
+because those are annoying.
+
+00:13:54.901 --> 00:13:59.305
+There are browser plug-ins that stop
+the automatic pop-ups
+
+00:13:59.485 --> 00:14:01.605
+and that redirection that happens.
+
+00:14:01.655 --> 00:14:04.374
+Imagine being a screen reader
+and reading the content
+
+00:14:04.375 --> 00:14:07.272
+of the page and all of a sudden
+being popped into a pop-up
+
+00:14:07.322 --> 00:14:10.222
+about an ad you don't care about
+not being able to get out.
+
+00:14:10.699 --> 00:14:13.550
+We have these animation blockers
+that allow
+
+00:14:15.380 --> 00:14:19.248
+the stopping of the redirection
+or having the ability to stop,
+
+00:14:19.249 --> 00:14:20.839
+pause, and hide animations.
+
+00:14:21.320 --> 00:14:23.089
+We have refreshable Braille displays.
+
+00:14:23.089 --> 00:14:25.459
+There's an image of that on the slide.
+
+00:14:25.760 --> 00:14:31.548
+These are mechanical terminals
+that display a line of Braille characters
+
+00:14:31.549 --> 00:14:33.770
+dynamically by raising and lowering dots.
+
+00:14:34.810 --> 00:14:36.470
+Then there's all kinds
+of reading assistance
+
+00:14:36.470 --> 00:14:40.248
+that can customize font size,
+that can scan text for words,
+
+00:14:40.249 --> 00:14:41.509
+use dictionary clues,
+
+00:14:42.889 --> 00:14:45.049
+hide less relevant parts of the thing.
+
+00:14:45.055 --> 00:14:48.440
+Like if there's a mega menu
+or sticky menu that keeps coming down
+
+00:14:48.979 --> 00:14:50.718
+and then there's page maps.
+
+00:14:50.719 --> 00:14:53.899
+Those are neat for people
+who have a hard time focusing.
+
+00:14:53.900 --> 00:14:56.149
+It's a little square
+on the side of the screen
+
+00:14:56.149 --> 00:14:57.149
+with an indicator
+
+00:14:57.950 --> 00:15:01.160
+highlighting the portion of the webpage
+that's being viewed.
+
+00:15:03.320 --> 00:15:05.150
+When it comes to secure websites
+
+00:15:05.689 --> 00:15:07.369
+and I have a really hard time
+with this word,
+
+00:15:07.369 --> 00:15:08.619
+so I have to say it slow.
+
+00:15:09.019 --> 00:15:13.998
+Authentication is really
+our first line when it comes
+
+00:15:13.999 --> 00:15:16.549
+to the security of our assets.
+
+00:15:16.850 --> 00:15:21.529
+When authentication requires
+our users to input things,
+
+00:15:21.739 --> 00:15:24.378
+the best practices
+should always include giving
+
+00:15:24.379 --> 00:15:26.209
+your users options and choices.
+
+00:15:26.690 --> 00:15:29.570
+You're going to hear
+that a lot while I'm talking today
+
+00:15:29.750 --> 00:15:34.789
+about giving your users options
+and choices because not all of us access
+
+00:15:34.790 --> 00:15:35.990
+the web in the same way.
+
+00:15:37.850 --> 00:15:40.969
+Here's one of those sprinklings
+of WCAG I was talking about.
+
+00:15:44.120 --> 00:15:45.469
+These are real concerns.
+
+00:15:45.499 --> 00:15:48.708
+They're so concerning to some folks
+that they have guidelines.
+
+00:15:48.709 --> 00:15:51.499
+I think all accessibility stuff
+is concerning,
+
+00:15:51.679 --> 00:15:54.860
+but there's a group of people that found
+the most concerning things and made
+
+00:15:54.860 --> 00:15:55.860
+a set of guidelines.
+
+00:15:56.560 --> 00:15:59.780
+There's a guideline specifically
+on accessible authentication.
+
+00:16:00.290 --> 00:16:01.370
+You want to ensure
+
+00:16:02.240 --> 00:16:07.520
+that there is an accessible,
+easy-to-use, and secure method
+
+00:16:07.700 --> 00:16:14.720
+to access content
+and undertake tasks.
+
+00:16:15.039 --> 00:16:16.219
+Who does this benefit?
+
+00:16:16.730 --> 00:16:20.449
+It benefits people who have
+cognitive things going
+
+00:16:20.450 --> 00:16:22.520
+on related to memory.
+
+00:16:22.580 --> 00:16:23.840
+This can be dementia.
+
+00:16:24.050 --> 00:16:25.119
+This can be ADHD.
+
+00:16:25.120 --> 00:16:31.008
+It could be those disassociative amnesia,
+it could be a headache
+
+00:16:31.009 --> 00:16:33.528
+that's so bad you can't remember
+what just happened.
+
+00:16:33.528 --> 00:16:35.930
+It also helps our dyslexic folks
+
+00:16:36.580 --> 00:16:40.478
+who get some of the words
+and letters turned around.
+
+00:16:40.880 --> 00:16:42.859
+Dyscalculia, where we get our numbers
+
+00:16:43.639 --> 00:16:45.319
+backwards and mixed up.
+
+00:16:45.770 --> 00:16:49.430
+Then people with perception
+processing limitations
+
+00:16:49.670 --> 00:16:55.250
+should also be able to use your website
+and authenticate and prove who they are,
+
+00:16:55.399 --> 00:16:58.460
+regardless of their level
+of cognitive abilities.
+
+00:16:58.759 --> 00:17:00.230
+Again, it's about inclusion.
+
+00:17:01.810 --> 00:17:05.295
+A lot of the things about security
+come around are gated content.
+
+00:17:06.109 --> 00:17:11.359
+Gated content requires
+a user to complete a form,
+
+00:17:11.510 --> 00:17:14.839
+do some sort of task,
+purchase a subscription.
+
+00:17:14.959 --> 00:17:17.544
+I almost said prescription
+because I'm a nurse,
+
+00:17:17.650 --> 00:17:18.740
+Subscription.
+
+00:17:19.310 --> 00:17:20.390
+What's gated content?
+
+00:17:20.690 --> 00:17:24.050
+It's online materials
+like white papers, articles,
+
+00:17:24.140 --> 00:17:29.239
+videos that require our content consumers
+to fill out a form
+
+00:17:29.329 --> 00:17:30.830
+before they can access them.
+
+00:17:31.630 --> 00:17:32.630
+White papers
+
+00:17:34.279 --> 00:17:35.690
+can be from the medical field.
+
+00:17:35.690 --> 00:17:40.339
+They can be marketers that create
+white papers to educate their audience
+
+00:17:40.340 --> 00:17:47.180
+about a particular issue or explain
+and promote a particular methodology.
+
+00:17:47.809 --> 00:17:48.950
+We have e-books.
+
+00:17:49.490 --> 00:17:52.340
+Not everyone gives
+their electronic books out for free.
+
+00:17:52.819 --> 00:17:56.720
+Webinars and learning courses
+usually come behind a paywall.
+
+00:17:57.080 --> 00:18:01.370
+Product demos will ask for an email
+so they can track and sell you products.
+
+00:18:02.748 --> 00:18:05.240
+Signing up for curated emails.
+
+00:18:07.300 --> 00:18:10.028
+Subscriptions, [laughs]
+
+00:18:10.399 --> 00:18:11.540
+RSS feeds.
+
+00:18:12.800 --> 00:18:15.824
+They also could include forums
+to exclusive communities
+
+00:18:15.825 --> 00:18:19.760
+like in Discourse or Discord,
+contest entry forms.
+
+00:18:20.179 --> 00:18:24.558
+Along with access to surveys and forms
+that can be gated to be logged in to win
+
+00:18:24.559 --> 00:18:26.270
+a promotion or a prize.
+
+00:18:28.515 --> 00:18:31.370
+I want to talk about some
+of the most common security measures
+
+00:18:31.370 --> 00:18:33.500
+that we use on our digital assets.
+
+00:18:33.920 --> 00:18:36.468
+The first one being CAPTCHAs.
+
+00:18:37.459 --> 00:18:38.719
+What is a CAPTCHA?
+
+00:18:38.780 --> 00:18:39.919
+It's an acronym
+
+00:18:40.640 --> 00:18:45.192
+and it means Completely
+Automated Public Turing test
+
+00:18:45.260 --> 00:18:47.989
+to tell Computers and Humans Apart.
+
+00:18:48.619 --> 00:18:49.619
+Are you a bot?
+
+00:18:50.150 --> 00:18:53.929
+We've seen them as simple
+as in this image.
+
+00:18:54.009 --> 00:18:55.192
+This isn't really that simple.
+
+00:18:55.192 --> 00:18:57.385
+That's a bad word to say.
+
+00:18:57.416 --> 00:18:59.097
+Straightforward.
+
+00:18:59.136 --> 00:19:03.259
+We've had to listen for letters,
+maybe do a math puzzle.
+
+00:19:03.650 --> 00:19:04.850
+Often lately,
+
+00:19:04.879 --> 00:19:07.632
+and this is the best thing
+that you can do is we'll see
+
+00:19:07.652 --> 00:19:10.279
+a checkbox asking for a human or a bot.
+
+00:19:12.080 --> 00:19:14.209
+I want to talk a little bit
+about the image up here.
+
+00:19:14.209 --> 00:19:14.871
+It's CAPTCHA.
+
+00:19:14.969 --> 00:19:17.149
+We see a lot of these CAPTCHA
+where you have
+
+00:19:17.150 --> 00:19:21.468
+to pick all of the bridges
+or all of the all of the boats,
+
+00:19:21.469 --> 00:19:22.700
+all of the stoplights.
+
+00:19:22.729 --> 00:19:25.429
+One, if you don't have
+visual access to the image,
+
+00:19:25.430 --> 00:19:26.430
+you can't do that.
+
+00:19:27.740 --> 00:19:29.040
+I'll talk about that more.
+
+00:19:29.119 --> 00:19:30.119
+Why?
+
+00:19:32.000 --> 00:19:33.400
+What you should do about it,
+
+00:19:33.740 --> 00:19:35.359
+why these CAPTCHAs exist.
+
+00:19:36.159 --> 00:19:41.169
+This one specifically is
+a culturally specific CAPTCHA.
+
+00:19:42.080 --> 00:19:46.849
+If possible, we want to avoid users
+identifying objects that are specific
+
+00:19:46.850 --> 00:19:51.050
+to one culture or context or have
+regional differences in appearance.
+
+00:19:51.590 --> 00:19:52.939
+British users
+
+00:19:54.620 --> 00:19:56.510
+won't identify crosswalks
+
+00:19:57.109 --> 00:19:59.450
+because crosswalk is an American term.
+
+00:19:59.720 --> 00:20:00.830
+In this CAPTCHA.
+
+00:20:00.843 --> 00:20:04.670
+It's a bunch of puzzle devices
+and ask users to find a yoko,
+
+00:20:04.760 --> 00:20:07.639
+which I had no idea what it was,
+so I wouldn't be able to be able
+
+00:20:07.639 --> 00:20:08.639
+to finish
+
+00:20:09.530 --> 00:20:10.669
+this puzzle.
+
+00:20:11.769 --> 00:20:13.456
+Here's another CAPTCHA.
+
+00:20:13.929 --> 00:20:17.359
+It's asking the person who sees this.
+
+00:20:17.599 --> 00:20:21.680
+It's a site one, and it also introduces
+
+00:20:22.310 --> 00:20:23.310
+mobility.
+
+00:20:24.019 --> 00:20:25.019
+It says
+
+00:20:26.450 --> 00:20:28.910
+when you see exactly
+two arrows pointing up,
+
+00:20:29.329 --> 00:20:30.329
+touch done.
+
+00:20:31.129 --> 00:20:35.210
+One, you have to be able to see
+which arrows are pointing up.
+
+00:20:35.780 --> 00:20:39.440
+Two, you have to be able
+to press that button in time.
+
+00:20:42.769 --> 00:20:45.859
+Not everyone can see
+the screen and identify images.
+
+00:20:45.979 --> 00:20:48.859
+We talk about standard image accessibility
+because that's
+
+00:20:48.860 --> 00:20:55.219
+one of the tenets of an accessible web
+is text alternatives to images.
+
+00:20:57.530 --> 00:20:59.989
+When we provide
+alternative text, it defeats
+
+00:20:59.990 --> 00:21:04.068
+the purpose of weeding out the machines
+because now they're able to parse it.
+
+00:21:04.069 --> 00:21:05.840
+They're able to read the alt text.
+
+00:21:06.680 --> 00:21:10.309
+Sometimes we see simple questions
+like four plus two.
+
+00:21:12.260 --> 00:21:16.010
+Again, this can be challenging for folks
+with cognitive processing issues.
+
+00:21:16.609 --> 00:21:18.799
+This CAPTCHA is algebra.
+
+00:21:19.429 --> 00:21:21.980
+I might know what this is
+because I'm a math major,
+
+00:21:22.189 --> 00:21:26.450
+but who really uses this
+kind of stuff in day-to-day life?
+
+00:21:26.689 --> 00:21:28.749
+Who knows what a sign is anymore?
+
+00:21:29.390 --> 00:21:33.889
+These complicated captions
+don't allow everyone free access.
+
+00:21:34.369 --> 00:21:37.639
+We want to make sure we provide
+alternatives to the CAPTCHA
+
+00:21:38.029 --> 00:21:41.028
+that are accessible
+for your entire audience,
+
+00:21:41.029 --> 00:21:46.069
+including people with vision, hearing,
+and neurocognitive disabilities.
+
+00:21:46.280 --> 00:21:48.740
+We'll talk about alternatives
+in a little bit.
+
+00:21:49.999 --> 00:21:50.999
+Timers.
+
+00:21:51.349 --> 00:21:53.060
+Timers and time-based
+
+00:21:54.140 --> 00:21:56.689
+passwords
+are really common security measures,
+
+00:21:57.620 --> 00:22:02.449
+but people with disabilities
+may require more time to complete
+
+00:22:02.480 --> 00:22:06.890
+some of these activities
+and time sessions can pose problems.
+
+00:22:07.700 --> 00:22:12.349
+Someone who has a reading disability
+like dyslexia will likely take longer
+
+00:22:12.350 --> 00:22:16.519
+to read the instructions and understand
+what's going on in a form.
+
+00:22:17.269 --> 00:22:21.049
+Someone who is deaf
+may be more comfortable with sign language
+
+00:22:21.050 --> 00:22:23.900
+than they are with written words,
+so it might take them longer
+
+00:22:23.900 --> 00:22:25.669
+to parse the information too.
+
+00:22:29.099 --> 00:22:31.580
+This also holds true for people whose
+
+00:22:31.990 --> 00:22:35.063
+your set language on your page,
+they aren't native speakers.
+
+00:22:35.064 --> 00:22:40.668
+If this is an English presentation someone
+who who is English as a second language
+
+00:22:40.669 --> 00:22:43.190
+might take longer to parse
+the information as well.
+
+00:22:43.969 --> 00:22:46.759
+Someone who relies on some
+of that assistive technology.
+
+00:22:46.760 --> 00:22:49.279
+We talked about screen readers
+because they're blind or have
+
+00:22:49.279 --> 00:22:50.279
+a vision impairment
+
+00:22:50.840 --> 00:22:52.819
+or maybe they have a learning disability.
+
+00:22:52.819 --> 00:22:57.710
+It could take them more time to locate
+all of the elements on the screen
+
+00:22:58.460 --> 00:23:02.119
+because they might have to flip
+through a rotor or something or understand
+
+00:23:02.120 --> 00:23:03.120
+the page layout.
+
+00:23:03.259 --> 00:23:06.259
+There's a loose guideline,
+
+00:23:06.500 --> 00:23:09.230
+unless the time limit
+is longer than 20 hours,
+
+00:23:09.289 --> 00:23:13.129
+all timed sessions
+should be able to be turned off,
+
+00:23:13.399 --> 00:23:14.399
+adjusted,
+
+00:23:14.450 --> 00:23:18.200
+or extended unless it's essential
+for the activity.
+
+00:23:18.500 --> 00:23:19.500
+Now,
+
+00:23:20.539 --> 00:23:22.160
+I use these examples loosely.
+
+00:23:22.760 --> 00:23:27.469
+It's like an auction or paying
+bills online or concert tickets.
+
+00:23:27.859 --> 00:23:31.209
+Let me tell you about concert tickets
+because I love to go to shows.
+
+00:23:31.370 --> 00:23:33.819
+I'll be upstairs and I'll be dialing in
+
+00:23:33.820 --> 00:23:35.490
+and getting in line and getting
+in the queue
+
+00:23:35.490 --> 00:23:37.840
+and I finally am able to buy
+my concert ticket
+
+00:23:38.130 --> 00:23:39.800
+and I have to put
+in my credit card number,
+
+00:23:39.800 --> 00:23:42.439
+and what do you know,
+my credit card is downstairs.
+
+00:23:42.440 --> 00:23:44.720
+I got to run downstairs,
+trip over the cat,
+
+00:23:46.159 --> 00:23:48.709
+yell at my kids at something,
+find my purse,
+
+00:23:48.799 --> 00:23:49.909
+get out my wallet.
+
+00:23:49.999 --> 00:23:52.413
+My credit card is not in there
+because I got gas yesterday,
+
+00:23:52.413 --> 00:23:54.844
+so I have to find my skirt
+where my credit card is.
+
+00:23:54.844 --> 00:23:57.484
+By the time I go upstairs,
+the timer has run out
+
+00:23:57.514 --> 00:24:00.979
+and I have to go through that whole line
+in the concert queue again.
+
+00:24:01.609 --> 00:24:05.600
+Again I know that this is
+a very individual problem just to me,
+
+00:24:05.870 --> 00:24:10.099
+but allow the ability
+for the timer to be turned off,
+
+00:24:10.279 --> 00:24:12.019
+adjusted, or extended.
+
+00:24:14.090 --> 00:24:18.110
+We have time-based one-time passwords.
+
+00:24:18.380 --> 00:24:21.329
+We sometimes see them abbreviated
+as TOTPs.
+
+00:24:26.540 --> 00:24:30.709
+This might be problematic
+for folks with sight
+
+00:24:31.429 --> 00:24:33.920
+or cognitive or motor skill disabilities.
+
+00:24:34.429 --> 00:24:35.629
+It might be hard
+
+00:24:36.349 --> 00:24:41.658
+or maybe even extremely difficult for some
+with cognitive processing issues to take
+
+00:24:41.659 --> 00:24:47.539
+a code from one screen
+and then move it to another screen
+
+00:24:47.570 --> 00:24:50.420
+in the designated allotment of time.
+
+00:24:50.989 --> 00:24:57.018
+Sometimes the authenticator applications
+and messaging apps aren't compatible
+
+00:24:57.019 --> 00:24:58.160
+with screen readers.
+
+00:24:58.659 --> 00:24:59.659
+Again,
+
+00:25:00.589 --> 00:25:04.279
+you should be able to turn off the timing,
+adjust the timing,
+
+00:25:04.310 --> 00:25:05.310
+extend the timing.
+
+00:25:05.870 --> 00:25:09.260
+Here's a picture of an authenticating app
+with the numbers and you see
+
+00:25:09.260 --> 00:25:10.260
+the timer--
+
+00:25:11.491 --> 00:25:16.580
+you can't see it moving,
+but it's shrinking down.
+
+00:25:16.640 --> 00:25:18.259
+That creates a lot of anxiety, too,
+
+00:25:18.259 --> 00:25:21.738
+with some folks. Just having
+a timer presence can make it harder
+
+00:25:21.739 --> 00:25:25.458
+to remember or to be able to navigate
+the experience from moving
+
+00:25:25.459 --> 00:25:27.109
+one screen to another.
+
+00:25:28.699 --> 00:25:32.059
+There's a guideline
+in WCAG around enough time.
+
+00:25:32.629 --> 00:25:36.649
+We want to provide our users
+with enough time to finish their tasks.
+
+00:25:37.009 --> 00:25:38.009
+Bravo.
+
+00:25:38.299 --> 00:25:41.659
+Not everyone can zip through a form
+or enter their credit card
+
+00:25:42.160 --> 00:25:43.789
+at top speed or find it.
+
+00:25:45.769 --> 00:25:47.570
+Again, the timing
+
+00:25:48.837 --> 00:25:51.559
+needs to be adjustable,
+or that there's no timing.
+
+00:25:51.950 --> 00:25:55.699
+Be sure that interruptions
+can be postponed or suppressed
+
+00:25:55.700 --> 00:25:56.700
+by the user.
+
+00:25:56.839 --> 00:25:59.139
+This could be harder
+with assistive technology.
+
+00:26:00.020 --> 00:26:03.470
+When an authenticated session expires,
+
+00:26:04.069 --> 00:26:07.159
+allow the user to continue
+what they're doing
+
+00:26:07.160 --> 00:26:09.350
+without the loss of data.
+
+00:26:09.590 --> 00:26:10.819
+Oh, isn't it the worst,
+
+00:26:10.820 --> 00:26:14.659
+you run out of time, you refresh the page,
+and that whole form you filled out
+
+00:26:14.660 --> 00:26:15.830
+is empty again?
+
+00:26:17.727 --> 00:26:22.130
+Make sure that users are warned
+that the duration of their activity,
+
+00:26:22.400 --> 00:26:23.900
+that there could be data loss.
+
+00:26:23.990 --> 00:26:27.469
+Again, that adjust, extend,
+and stop and pause.
+
+00:26:27.769 --> 00:26:29.720
+Allow your users those choices.
+
+00:26:31.249 --> 00:26:35.179
+What are some other verification methods
+for making sure we say who we are?
+
+00:26:35.750 --> 00:26:37.459
+Identity verification.
+
+00:26:38.929 --> 00:26:39.949
+Biometrics.
+
+00:26:40.039 --> 00:26:46.969
+This is a technical term that refers
+to a human's or a being's physical
+
+00:26:47.000 --> 00:26:48.259
+or behavioral traits.
+
+00:26:48.889 --> 00:26:50.510
+We have voice recognition.
+
+00:26:52.174 --> 00:26:56.449
+All of these things have some problems
+that come along with using them
+
+00:26:56.450 --> 00:26:57.620
+as security measures.
+
+00:26:58.029 --> 00:26:59.090
+Voice recognition.
+
+00:26:59.299 --> 00:27:00.949
+Someone might have a sore throat.
+
+00:27:01.249 --> 00:27:04.199
+Maybe you were at a concert last night
+and sang really loud.
+
+00:27:05.140 --> 00:27:08.060
+Perhaps you're at a conference
+and there's noise in the background
+
+00:27:08.060 --> 00:27:09.140
+or you're on a train.
+
+00:27:10.129 --> 00:27:11.360
+Facial recognition.
+
+00:27:12.139 --> 00:27:15.920
+It does not require sight, hearing,
+or significant motor skills.
+
+00:27:16.219 --> 00:27:20.719
+It makes it ideal for many users,
+but there's quite a few situations
+
+00:27:20.989 --> 00:27:24.500
+that affect that biometric
+of facial recognition.
+
+00:27:25.910 --> 00:27:31.608
+When we were wearing masks during COVID,
+it affected me when I was in customs
+
+00:27:31.609 --> 00:27:33.059
+coming through having a mask.
+
+00:27:33.820 --> 00:27:36.590
+There's hijabs,
+there's burqas and other face coverings,
+
+00:27:36.860 --> 00:27:38.119
+beards that people
+
+00:27:38.649 --> 00:27:40.415
+grew during COVID.
+
+00:27:41.659 --> 00:27:45.830
+Weight fluctuations can also affect
+facial features as well.
+
+00:27:46.443 --> 00:27:47.959
+There's fingerprint scanning.
+
+00:27:48.709 --> 00:27:52.339
+Perhaps you've been shoveling snow,
+which I hope no one has to do,
+
+00:27:52.340 --> 00:27:56.810
+but some people live in those places,
+and your hands are chapped or blistered.
+
+00:27:57.049 --> 00:28:01.518
+Or maybe you've been working in the garden
+and your fingerprints are filled in
+
+00:28:01.519 --> 00:28:02.519
+with dirt.
+
+00:28:02.840 --> 00:28:04.190
+It fills in those crevices.
+
+00:28:05.089 --> 00:28:08.810
+There's always the possibility
+that someone doesn't have any hands,
+
+00:28:09.019 --> 00:28:10.910
+or they did and now they don't.
+
+00:28:11.180 --> 00:28:14.118
+Or maybe they don't have
+use of one of them temporarily
+
+00:28:14.119 --> 00:28:17.300
+because they're holding something
+or have a broken collarbone.
+
+00:28:19.279 --> 00:28:22.490
+The last biometric I'm going
+to talk about is eye recognition.
+
+00:28:22.939 --> 00:28:24.320
+Eye recognition is great.
+
+00:28:24.559 --> 00:28:26.060
+It can tell twins apart
+
+00:28:26.869 --> 00:28:31.369
+because it uses the irises for matching,
+but what if we logged
+
+00:28:31.370 --> 00:28:37.610
+in the first time one way,
+we don't log in for years.
+
+00:28:38.029 --> 00:28:41.540
+We have cataracts
+or maybe we have the loss of an eye.
+
+00:28:42.260 --> 00:28:45.060
+In this image, there's a woman
+wearing a facial covering.
+
+00:28:46.869 --> 00:28:50.867
+We have multi-factor authentication, MFAs.
+
+00:28:51.529 --> 00:28:53.809
+Lots of times I opt,
+
+00:28:53.810 --> 00:28:57.440
+I'm not sure what everyone else does,
+but I opt to get SMS,
+
+00:28:57.499 --> 00:28:58.609
+phone text messages.
+
+00:28:58.969 --> 00:29:00.949
+These are texted codes.
+
+00:29:01.490 --> 00:29:04.819
+They may be a bit less secure
+than authenticator apps,
+
+00:29:05.150 --> 00:29:09.109
+but they're also common for solution
+because of their ease of use
+
+00:29:09.710 --> 00:29:10.969
+and wide availability.
+
+00:29:10.970 --> 00:29:13.468
+Most people have text
+messaging these days.
+
+00:29:13.668 --> 00:29:17.389
+A tradeoff may be worth it
+for people who have difficulties
+
+00:29:17.390 --> 00:29:18.709
+typing codes quickly.
+
+00:29:19.879 --> 00:29:22.249
+Screen readers
+and text-to-speech functions
+
+00:29:22.250 --> 00:29:25.970
+are more likely to work seamlessly
+with a native app like texting as well.
+
+00:29:27.679 --> 00:29:30.709
+I don't have anything really prepared
+to talk about what I read
+
+00:29:30.709 --> 00:29:33.469
+about with Apple's newest
+security release,
+
+00:29:33.529 --> 00:29:35.151
+but there's some kind of security
+
+00:29:35.151 --> 00:29:38.990
+that they fixed because screen readers
+were reading passwords out loud.
+
+00:29:39.080 --> 00:29:40.930
+That's something to think about, too,
+
+00:29:41.510 --> 00:29:44.900
+when you're using
+these authentication methods.
+
+00:29:46.462 --> 00:29:47.989
+Like I said, I don't have
+anything prepared for that.
+
+00:29:47.989 --> 00:29:50.060
+I was just reading the release notes.
+
+00:29:51.199 --> 00:29:52.548
+We have email-based.
+
+00:29:52.549 --> 00:29:55.758
+These are your security code
+is sent through email.
+
+00:29:55.759 --> 00:29:58.190
+Sometimes that's really convenient
+because your email is right
+
+00:29:58.190 --> 00:29:58.842
+on your computer.
+
+00:29:58.910 --> 00:30:03.470
+You can copy and paste
+from your email into the website.
+
+00:30:03.860 --> 00:30:06.301
+Sometimes you have
+text messaging app on your phone,
+
+00:30:06.301 --> 00:30:09.251
+and you can do the same thing,
+allowing that copy and paste.
+
+00:30:12.249 --> 00:30:13.539
+Connected tokens,
+
+00:30:13.704 --> 00:30:18.456
+these require a plug or a dongle
+that you insert into your device.
+
+00:30:18.894 --> 00:30:22.810
+It may require a second step,
+like pressing a button or using
+
+00:30:22.810 --> 00:30:26.348
+a biometric challenge,
+but they do not require
+
+00:30:26.349 --> 00:30:28.210
+users to input a code,
+
+00:30:28.510 --> 00:30:32.559
+making that multi-factor
+authentication process
+
+00:30:32.799 --> 00:30:37.900
+a little bit more accessible
+for users who live with motor,
+
+00:30:38.529 --> 00:30:40.900
+visual, and cognitive disabilities.
+
+00:30:41.879 --> 00:30:44.259
+Oh, and there's single sign-on.
+
+00:30:44.260 --> 00:30:46.819
+A lot of places are switching to this.
+
+00:30:46.820 --> 00:30:50.949
+You'll see enter your Google,
+
+00:30:51.580 --> 00:30:52.580
+your Gmail.
+
+00:30:52.737 --> 00:30:59.618
+SSO, it significantly reduces the friction
+by only requiring one login per session,
+
+00:30:59.808 --> 00:31:03.355
+but still has some of those issues
+with that first sign-in
+
+00:31:03.386 --> 00:31:05.949
+that most MFAs have.
+
+00:31:07.689 --> 00:31:11.079
+Let's talk about scanning
+IDs and certificates.
+
+00:31:11.679 --> 00:31:17.260
+This can be bank apps when
+depositing checks through your phone.
+
+00:31:17.710 --> 00:31:19.839
+This can be vaccination records.
+
+00:31:20.289 --> 00:31:25.360
+This could be certificate-based
+signatures,
+
+00:31:25.569 --> 00:31:29.140
+PDFs sometimes require a valid ID.
+
+00:31:29.680 --> 00:31:33.400
+It could be for I-9 employment
+eligibility verification.
+
+00:31:33.610 --> 00:31:38.049
+Sometimes it requires several forms of ID
+to be submitted to prove your identity.
+
+00:31:39.100 --> 00:31:43.210
+Sometimes folks
+who live with a palsy a shake,
+
+00:31:43.899 --> 00:31:48.399
+are unable to hold the document
+or the user agent still enough
+
+00:31:48.400 --> 00:31:51.340
+for the computer or app to scan.
+
+00:31:51.790 --> 00:31:54.339
+Have you ever been there
+where you've put your check,
+
+00:31:54.339 --> 00:31:57.010
+you're trying to deposit a check,
+and it's on the dark surface,
+
+00:31:57.010 --> 00:31:59.050
+and it says, "Keep moving closer,"
+but you're shaking,
+
+00:31:59.050 --> 00:32:02.150
+and you can't get it quite right,
+and you can't get it to scan.
+
+00:32:03.519 --> 00:32:07.458
+A person with low vision may not be able
+to line up the scanner
+
+00:32:07.648 --> 00:32:10.870
+and put the documents into focus.
+
+00:32:11.199 --> 00:32:14.170
+There's a picture of a passport there.
+
+00:32:22.180 --> 00:32:24.490
+What can we do about hidden passwords?
+
+00:32:26.709 --> 00:32:28.719
+We can have label form controls.
+
+00:32:29.170 --> 00:32:33.280
+We can allow copy-and-paste functionality
+to work in these tools as well.
+
+00:32:34.269 --> 00:32:37.329
+We can allow tools to fill in credentials.
+
+00:32:37.779 --> 00:32:40.030
+I'm going to describe this image
+because I really think this is
+
+00:32:40.030 --> 00:32:45.849
+the best way that you can help your users
+with these hidden passwords is this is
+
+00:32:45.850 --> 00:32:49.310
+an image of someone trying to log
+into a Gmail account
+
+00:32:49.680 --> 00:32:51.691
+and it's enter your password,
+
+00:32:51.741 --> 00:32:55.000
+and there's a checkbox that allows you
+to show the password
+
+00:32:55.001 --> 00:32:57.651
+so you can see if you entered
+your password correctly.
+
+00:32:57.789 --> 00:33:00.950
+This really affects you
+when you've entered your password
+
+00:33:00.951 --> 00:33:02.058
+two or three times,
+
+00:33:02.059 --> 00:33:03.939
+and they say you only have
+one attempt left,
+
+00:33:03.939 --> 00:33:05.689
+and then you're logged out forever.
+
+00:33:05.950 --> 00:33:09.728
+Having that ability to show
+the password helps people identify
+
+00:33:09.729 --> 00:33:11.079
+what mistakes they've made.
+
+00:33:11.230 --> 00:33:13.900
+I know that I type faster
+with one hand than the other,
+
+00:33:13.900 --> 00:33:17.588
+so sometimes I get a capital letter
+when it shouldn't be,
+
+00:33:17.589 --> 00:33:21.249
+or my A and my M
+are backwards with my name.
+
+00:33:23.799 --> 00:33:24.799
+Proctoring.
+
+00:33:25.029 --> 00:33:27.939
+I work at the Linux Foundation
+helping build exams,
+
+00:33:27.940 --> 00:33:30.510
+and so proctoring is something
+I never really thought about before
+
+00:33:30.510 --> 00:33:32.661
+but have been thinking
+about a lot recently.
+
+00:33:33.669 --> 00:33:35.163
+Proctoring can be for tests,
+
+00:33:35.169 --> 00:33:40.450
+it can be for making sure that people
+are doing a task that is specified.
+
+00:33:40.810 --> 00:33:42.460
+It involves monitoring
+
+00:33:44.500 --> 00:33:45.500
+attendees,
+
+00:33:45.549 --> 00:33:49.420
+task takers, so they can complete
+their task and be watched.
+
+00:33:49.809 --> 00:33:50.809
+Ideally,
+
+00:33:50.889 --> 00:33:57.100
+this is a process overseen
+by a third party that's neutral.
+
+00:33:57.849 --> 00:34:00.280
+Sometimes it's conducted through a webcam
+
+00:34:01.089 --> 00:34:03.279
+in most online proctoring situations.
+
+00:34:04.539 --> 00:34:09.488
+Authentication failures can happen,
+and privacy concerns are introduced
+
+00:34:09.489 --> 00:34:10.959
+when verifying examinees.
+
+00:34:11.050 --> 00:34:13.659
+Have you ever tried to take an exam,
+and you're trying to hold up the ID,
+
+00:34:13.659 --> 00:34:16.569
+and the voice comes
+on that says they can't do that,
+
+00:34:16.570 --> 00:34:18.570
+or there's something in your background?
+
+00:34:18.940 --> 00:34:23.409
+Does your proctoring solution support
+and integrate with assistive technology?
+
+00:34:25.330 --> 00:34:29.289
+Can you be observed and use
+your screen readers,
+
+00:34:29.320 --> 00:34:32.650
+your alternative keyboards,
+or your graphic organizers?
+
+00:34:34.542 --> 00:34:38.650
+Students should be able to maintain
+a certain level of navigation control,
+
+00:34:38.679 --> 00:34:41.618
+including being able to select
+things without a mouse.
+
+00:34:41.619 --> 00:34:42.909
+Not everyone uses a mouse.
+
+00:34:42.909 --> 00:34:49.630
+You should be able to use
+shortcut keys or tab navigation.
+
+00:34:50.469 --> 00:34:53.229
+We should be able to use
+speech-to-text software.
+
+00:34:53.230 --> 00:34:55.719
+Sometimes they don't want
+that because they're afraid people
+
+00:34:55.719 --> 00:34:57.309
+are going to hear,
+or people are going to cheat
+
+00:34:57.309 --> 00:35:01.958
+and write the exam questions down,
+but proctors can ensure the software
+
+00:35:01.959 --> 00:35:04.780
+is used appropriately
+by monitoring the exam environment.
+
+00:35:05.130 --> 00:35:06.130
+Hearing aids,
+
+00:35:06.777 --> 00:35:08.647
+you're not supposed
+to wear things in your ears
+
+00:35:08.647 --> 00:35:10.367
+so some people have to go like this,
+
+00:35:10.367 --> 00:35:12.667
+and they have to prove
+that it's a hearing aid.
+
+00:35:13.440 --> 00:35:17.740
+Proctors can verify hearing aids
+as genuine accommodation tools
+
+00:35:17.760 --> 00:35:20.500
+and not for accessing
+
+00:35:21.149 --> 00:35:24.099
+unauthorized information,
+either coming out or going in.
+
+00:35:25.169 --> 00:35:26.799
+Assistive keyboards and mice,
+
+00:35:27.010 --> 00:35:33.639
+proctors should be able to know
+that these devices are solely
+
+00:35:33.640 --> 00:35:35.919
+for accessibility purposes
+and not for cheating,
+
+00:35:35.919 --> 00:35:39.309
+and the same thing with text magnifiers.
+
+00:35:39.549 --> 00:35:42.819
+Here is an image of someone
+with long hair.
+
+00:35:42.820 --> 00:35:46.509
+You can see a cochlear ear device,
+and they're reading their phone.
+
+00:35:50.709 --> 00:35:54.880
+Some random operability with CAG here.
+
+00:35:55.120 --> 00:35:57.759
+We want to make sure
+that our user interface components
+
+00:35:57.759 --> 00:36:00.310
+and navigation must be operable.
+
+00:36:00.359 --> 00:36:02.169
+That means you'll be able to use them.
+
+00:36:02.169 --> 00:36:03.769
+We're talking about target size.
+
+00:36:03.810 --> 00:36:09.142
+Can someone on a mobile phone who has
+large fingers close the window
+
+00:36:09.143 --> 00:36:13.180
+or someone who has palsy
+get that target with their mouse?
+
+00:36:13.749 --> 00:36:14.749
+Focus order,
+
+00:36:14.950 --> 00:36:19.209
+we want to know that the user has
+enough time to tab through the whole page
+
+00:36:19.240 --> 00:36:20.410
+to get to the close button.
+
+00:36:20.410 --> 00:36:22.860
+This has to do
+with the next section I talk about.
+
+00:36:23.530 --> 00:36:24.639
+Visible focus,
+
+00:36:25.809 --> 00:36:30.098
+can our users use assistive devices
+and know where they are
+
+00:36:30.099 --> 00:36:31.959
+with a visual marker on a screen?
+
+00:36:32.369 --> 00:36:36.919
+Can a keyboard user access
+a dialogue or pop-up?
+
+00:36:37.229 --> 00:36:38.979
+Then is there a keyboard trap?
+
+00:36:38.980 --> 00:36:43.569
+If people get into an element
+with their keyboard,
+
+00:36:43.599 --> 00:36:44.409
+can they get out?
+
+00:36:44.410 --> 00:36:46.210
+If not, it's called a keyboard trap.
+
+00:36:47.679 --> 00:36:49.694
+I think this slide may
+be a little bit out of order
+
+00:36:49.694 --> 00:36:51.784
+because my next section
+is about pop-ups,
+
+00:36:52.044 --> 00:36:53.469
+so I have a little description
+
+00:36:53.469 --> 00:36:56.320
+about what an accessible module dialogue
+is.
+
+00:36:56.590 --> 00:36:57.590
+It's one
+
+00:36:57.820 --> 00:37:01.299
+where it's managed properly
+and the correct information is exposed
+
+00:37:01.300 --> 00:37:02.350
+to the screen reader.
+
+00:37:02.470 --> 00:37:03.550
+We can do this.
+
+00:37:03.730 --> 00:37:05.199
+It's pretty straightforward.
+
+00:37:05.320 --> 00:37:08.500
+We use native HTML5,
+and then we use ARIA
+
+00:37:08.550 --> 00:37:11.110
+to provide the necessary
+semantic information.
+
+00:37:11.410 --> 00:37:12.579
+You can use the CSS
+
+00:37:13.090 --> 00:37:19.028
+to theme the appearance,
+and you can use JavaScript to manufacture
+
+00:37:19.029 --> 00:37:20.500
+the behavior.
+
+00:37:22.239 --> 00:37:24.489
+Leads into alerts,
+
+00:37:24.549 --> 00:37:28.090
+modals, and other pop-upy type
+annoying things.
+
+00:37:29.935 --> 00:37:32.819
+JavaScript pop-up windows
+should only be used
+
+00:37:32.979 --> 00:37:37.210
+if it adds significant advantage
+in the functionality.
+
+00:37:38.260 --> 00:37:41.410
+Because think about it,
+what if someone has JavaScript disabled?
+
+00:37:41.949 --> 00:37:43.059
+A lot of people do.
+
+00:37:45.490 --> 00:37:50.229
+If you do have a pop-up that opens
+a new window or a new tab either
+
+00:37:50.230 --> 00:37:52.840
+with that target attribute
+or with a script,
+
+00:37:53.260 --> 00:37:58.389
+then add a label that the link
+is opening it up in a new window or tab.
+
+00:37:59.230 --> 00:38:02.259
+Think about people
+who are using screen readers
+
+00:38:03.129 --> 00:38:05.258
+or even on visual browsers.
+
+00:38:05.259 --> 00:38:08.229
+They're confused when they realize
+they're on a new window,
+
+00:38:08.859 --> 00:38:11.659
+and they try to hit the back button
+and it's not working.
+
+00:38:11.860 --> 00:38:15.760
+Letting people know that a new window
+or tab opened up is the best thing to do.
+
+00:38:16.449 --> 00:38:21.459
+You want to avoid disabling scroll bars
+and resizing options because people
+
+00:38:21.460 --> 00:38:27.759
+with low vision may need to resize
+windows to accommodate larger text.
+
+00:38:28.270 --> 00:38:31.300
+Provide no script alternatives.
+
+00:38:32.229 --> 00:38:36.489
+This image is an image of a pop-up
+where there's a postman pointing
+
+00:38:36.490 --> 00:38:41.259
+to the ability to sign up
+for an email list.
+
+00:38:44.680 --> 00:38:46.750
+Alerts and status messages.
+
+00:38:47.139 --> 00:38:53.409
+We want to be able to provide a means
+to turn off non-essential alerts.
+
+00:38:57.489 --> 00:38:58.688
+If it's not important,
+
+00:38:58.689 --> 00:39:02.259
+we want to be able to escape that quickly,
+either with the escape button
+
+00:39:02.290 --> 00:39:05.500
+or by highlighting focus
+on our main content.
+
+00:39:06.040 --> 00:39:09.340
+We want to make sure
+the use of color and hidden icons
+
+00:39:10.719 --> 00:39:14.469
+are not used
+as the only means of conveying
+
+00:39:14.500 --> 00:39:15.940
+important information
+
+00:39:16.809 --> 00:39:21.220
+because remember, some folks won't be able
+to distinguish between colors.
+
+00:39:21.864 --> 00:39:28.569
+This one is an alert message in Drupal
+once you have finished a node.
+
+00:39:28.870 --> 00:39:35.379
+You can see it's light green background
+with light bluish text.
+
+00:39:35.590 --> 00:39:37.660
+Not the most accessible on the planet.
+
+00:39:38.890 --> 00:39:39.720
+This doesn't help--
+
+00:39:39.800 --> 00:39:44.919
+not only does it help
+our visually disabled people,
+
+00:39:45.099 --> 00:39:48.910
+but it also helps people who might have
+a glare on their screen as well.
+
+00:39:50.410 --> 00:39:54.399
+Surprise, surprise, there is a WCAG
+around status messages.
+
+00:39:55.120 --> 00:39:58.720
+Make sure users are aware
+of important changes in content.
+
+00:39:59.080 --> 00:40:01.149
+You do that, remember
+we talked about this,
+
+00:40:01.149 --> 00:40:03.820
+in a way that doesn't interrupt
+their workflow.
+
+00:40:03.970 --> 00:40:07.170
+That's what makes those things annoying
+is when it interrupts us.
+
+00:40:08.350 --> 00:40:11.979
+Make sure that you use appropriate roles
+and properties assigned
+
+00:40:12.429 --> 00:40:13.749
+to status messages.
+
+00:40:14.320 --> 00:40:17.409
+The new content is spoken
+by the screen reader in such a way
+
+00:40:17.769 --> 00:40:22.058
+to assist the blind and low vision users
+because most sighted users
+
+00:40:22.059 --> 00:40:25.899
+can observe text peripherally
+when it's added to our view.
+
+00:40:27.699 --> 00:40:31.300
+What are some status messages
+that might come up?
+
+00:40:31.719 --> 00:40:34.389
+Presenting a message
+about the number of search results
+
+00:40:34.389 --> 00:40:35.389
+returned.
+
+00:40:35.510 --> 00:40:40.689
+Perhaps informing the user
+that the application is busy,
+
+00:40:40.690 --> 00:40:42.609
+we have to come back later.
+
+00:40:43.509 --> 00:40:48.190
+Displaying information about the progress
+or the completion of a process.
+
+00:40:48.669 --> 00:40:49.719
+That spinning wheel.
+
+00:40:50.069 --> 00:40:54.548
+Really simply, this guideline
+means that the status message
+
+00:40:54.549 --> 00:40:56.410
+should be clearly labeled
+
+00:40:58.000 --> 00:40:59.019
+as such
+
+00:40:59.829 --> 00:41:02.679
+in the website's code base,
+in the code base
+
+00:41:03.039 --> 00:41:06.219
+so that the assistive technology,
+such as screen readers,
+
+00:41:06.220 --> 00:41:10.150
+can identify them and decide
+how to relay them to the user.
+
+00:41:10.719 --> 00:41:15.610
+People who are native screen reader users
+do have settings for that sort of stuff
+
+00:41:15.670 --> 00:41:18.620
+or are accustomed on how to use
+those rotors and avoid them.
+
+00:41:21.130 --> 00:41:24.729
+There's another WCAG guidelines
+about input.
+
+00:41:29.700 --> 00:41:31.508
+This is about error identification.
+
+00:41:31.509 --> 00:41:32.649
+When you come up on a form,
+
+00:41:32.649 --> 00:41:37.718
+make sure that people
+with cognitive language
+
+00:41:37.719 --> 00:41:40.299
+and learning disabilities or people
+
+00:41:40.300 --> 00:41:43.629
+who have a difficulty understanding
+and knowing what the icons
+
+00:41:43.630 --> 00:41:45.549
+and other visual cues are,
+so make sure there's
+
+00:41:45.549 --> 00:41:48.549
+a couple of ways that they know
+that the errors are in there.
+
+00:41:48.910 --> 00:41:51.189
+We do like to say we do inline errors.
+
+00:41:51.699 --> 00:41:54.399
+Make sure you provide
+labels and instructions
+
+00:41:55.480 --> 00:41:58.270
+when the content requires user input.
+
+00:41:58.569 --> 00:42:01.059
+Make sure that the person knows
+that there's something that needs
+
+00:42:01.059 --> 00:42:02.290
+to go in that field.
+
+00:42:04.150 --> 00:42:09.759
+Provide clear and unambiguous labels
+and instructions.
+
+00:42:10.600 --> 00:42:13.241
+That helps everybody
+and particularly those
+
+00:42:13.291 --> 00:42:14.641
+with learning disabilities.
+
+00:42:15.130 --> 00:42:16.178
+Error suggestions.
+
+00:42:16.179 --> 00:42:21.158
+This is if your input error
+is perhaps automatically collected
+
+00:42:21.159 --> 00:42:22.159
+and detected.
+
+00:42:22.720 --> 00:42:24.970
+Then the suggestions
+are provided to the user
+
+00:42:26.380 --> 00:42:31.809
+with the exception of if it jeopardizes
+the security or purpose of the content.
+
+00:42:32.499 --> 00:42:35.448
+Providing information
+about how to correct input errors
+
+00:42:35.449 --> 00:42:37.379
+for people who have learning disabilities
+
+00:42:37.379 --> 00:42:39.399
+to fill out those forms and inputs.
+
+00:42:39.579 --> 00:42:43.029
+Most of these are passwords
+or Social Security numbers.
+
+00:42:45.459 --> 00:42:49.180
+Make sure that they understand
+
+00:42:50.109 --> 00:42:52.570
+the nature of the input
+and how to correct it.
+
+00:42:53.139 --> 00:42:56.892
+People with motion impairment can reduce
+the number of times they need to change
+
+00:42:56.892 --> 00:42:58.450
+an input value as well.
+
+00:43:00.099 --> 00:43:01.359
+What have we learned today?
+
+00:43:01.359 --> 00:43:03.809
+Oh, I'm almost at time,
+so this is perfect timing.
+
+00:43:05.259 --> 00:43:06.609
+What have we learned today?
+
+00:43:06.789 --> 00:43:10.600
+We want to be able to allow
+our users to copy and paste details
+
+00:43:10.629 --> 00:43:13.209
+into our username and password fields.
+
+00:43:13.780 --> 00:43:18.430
+We want to allow our users to use
+external references for their details,
+
+00:43:18.460 --> 00:43:24.099
+either as memory aids
+or to avoid transcription errors.
+
+00:43:24.520 --> 00:43:28.359
+We want people to be able to enter
+data from documents on their computer
+
+00:43:28.360 --> 00:43:29.800
+or password managers.
+
+00:43:31.380 --> 00:43:33.309
+That goes back to that copy and paste.
+
+00:43:33.489 --> 00:43:36.969
+Remember, when we switch screens,
+sometimes people lose
+
+00:43:37.689 --> 00:43:40.480
+or transpose those numbers.
+
+00:43:41.470 --> 00:43:43.570
+Provide users with a method
+to authenticate
+
+00:43:43.573 --> 00:43:46.030
+that does not involve a password.
+
+00:43:47.769 --> 00:43:50.799
+In cases where users
+can't remember their password,
+
+00:43:51.009 --> 00:43:55.839
+provide an option to send a magic link
+to their email where they can click
+
+00:43:55.840 --> 00:43:58.810
+on the link and log in that way.
+
+00:43:59.485 --> 00:44:03.219
+Also, code your input fields
+with the appropriate type.
+
+00:44:04.210 --> 00:44:08.440
+Password fields should have
+a type that says "Password" on it.
+
+00:44:08.922 --> 00:44:11.770
+A number field should have
+a type that says "Number".
+
+00:44:12.190 --> 00:44:16.599
+Providing that correct input type
+allows people who are
+
+00:44:17.229 --> 00:44:18.669
+in operating systems,
+
+00:44:19.510 --> 00:44:21.850
+but people using assistive technology
+
+00:44:22.689 --> 00:44:27.789
+to know what they're expected to input,
+the correct method to input.
+
+00:44:30.130 --> 00:44:33.668
+Have the ability to prefill fields
+where the data is available,
+
+00:44:33.669 --> 00:44:35.469
+like if it's stored in your browser.
+
+00:44:35.819 --> 00:44:37.459
+How many times
+do you go in and you're like,
+
+00:44:37.459 --> 00:44:40.659
+"Oh just use the autofill,"
+and they don't allow you to autofill,
+
+00:44:40.667 --> 00:44:43.810
+so you have to remember your password?
+
+00:44:45.580 --> 00:44:50.018
+When using multi-factor authentication,
+make sure that your users are given
+
+00:44:50.019 --> 00:44:53.080
+advanced warning about the requirements
+and the time window.
+
+00:44:53.559 --> 00:44:57.699
+Really make sure that there's
+enough time provided for them to require
+
+00:44:58.540 --> 00:45:03.070
+or to verify their information
+without requiring a new code.
+
+00:45:03.630 --> 00:45:05.799
+If we do have those short windows,
+
+00:45:06.699 --> 00:45:08.589
+provide an accessible alternative.
+
+00:45:09.199 --> 00:45:11.633
+Allow users to access requirements
+
+00:45:11.813 --> 00:45:18.186
+for multi-factor authentication,
+having those different apps available.
+
+00:45:18.357 --> 00:45:20.436
+Then two last things on CAPTCHAs.
+
+00:45:21.406 --> 00:45:24.016
+Users with visual impairments
+may not be able to use
+
+00:45:24.067 --> 00:45:25.193
+those image CAPTCHAs.
+
+00:45:25.719 --> 00:45:27.679
+There's a picture of a CAPTCHA here,
+and you can see
+
+00:45:27.679 --> 00:45:30.319
+that there's alternative ways
+to use this CAPTCHA.
+
+00:45:30.520 --> 00:45:33.370
+There's the option to fill
+in the letters as you see them,
+
+00:45:33.610 --> 00:45:37.418
+there's the option to change
+the letters if you maybe try again
+
+00:45:37.419 --> 00:45:39.160
+with a different letter combination.
+
+00:45:39.160 --> 00:45:46.329
+There's the ability to hear it,
+so you can hear the letters said.
+
+00:45:46.719 --> 00:45:51.509
+Then remember not to use
+those cultural-specific CAPTCHAs.
+
+00:45:52.300 --> 00:45:53.300
+Again,
+
+00:45:53.469 --> 00:45:57.219
+the main moral of this presentation
+is always provide your users
+
+00:45:57.489 --> 00:45:58.810
+with alternatives.
+
+00:45:59.649 --> 00:46:01.749
+With that, I'll scroll to the last screen.
+
+00:46:02.200 --> 00:46:04.809
+You can find me on LinkedIn
+as Volkswagen Chick.
+
+00:46:05.739 --> 00:46:09.879
+That's probably the easiest way
+and the best way to have
+
+00:46:09.880 --> 00:46:11.410
+conversations and that sort of thing.
+
+00:46:11.410 --> 00:46:12.610
+I want to thank everyone
+
+00:46:12.689 --> 00:46:13.689
+who came.
+
+00:46:13.690 --> 00:46:16.329
+I know there was lots of things
+happening in the chat,
+
+00:46:16.329 --> 00:46:21.069
+but I did not see any of them except
+for when that put in migraines.
+
+00:46:21.090 --> 00:46:22.459
+[laughter]
+
+00:46:23.890 --> 00:46:27.730
+Simon: Thanks so much, AmyJune.
+That was really helpful and informative.
+
+00:46:28.059 --> 00:46:29.109
+We do have
+
+00:46:30.099 --> 00:46:31.719
+a few pretty good questions here
+
+00:46:33.489 --> 00:46:37.180
+in the Q&amp;A, so I'll go through those.
+
+00:46:40.179 --> 00:46:46.390
+David asks, are honeypot fields
+in online forms accessible
+
+00:46:46.539 --> 00:46:52.449
+when they are designed to block
+submission forms from completions
+
+00:46:52.450 --> 00:46:53.679
+by abusive bots?
+
+00:46:54.039 --> 00:46:56.799
+If so, what accessible alternatives
+
+00:46:57.910 --> 00:46:59.770
+are there to stop malicious bots?
+
+00:46:59.949 --> 00:47:04.872
+It may be helpful to define
+what a honeypot is with this [crosstalk]
+
+00:47:04.922 --> 00:47:07.272
+AmyJune: I don't know
+what a honeypot is exactly
+
+00:47:07.302 --> 00:47:09.392
+because I'm not working on that.
+Simon: Sure.
+
+00:47:09.392 --> 00:47:11.902
+AmyJune: Go ahead.
+Simon: Go ahead.
+
+00:47:12.579 --> 00:47:13.990
+AmyJune: I was just going
+to say I know honeypot is
+
+00:47:13.990 --> 00:47:18.669
+one of the more productive ways
+
+00:47:20.349 --> 00:47:22.300
+for spam prevention
+
+00:47:23.080 --> 00:47:26.409
+rather than our CAPTCHAs
+and our reCAPTCHAs and stuff like that.
+
+00:47:26.410 --> 00:47:28.040
+But that is one
+of the more successful ways
+
+00:47:28.040 --> 00:47:29.040
+to limit our spam.
+
+00:47:29.710 --> 00:47:33.249
+With honeypot, it blocks
+that malicious stuff,
+
+00:47:33.250 --> 00:47:37.329
+so it really is up to the user
+to be able to slow down
+
+00:47:38.139 --> 00:47:39.139
+with their input,
+
+00:47:39.489 --> 00:47:41.739
+limit their input,
+be careful with their input
+
+00:47:42.579 --> 00:47:44.620
+because we've all been there
+when we've been on a website
+
+00:47:44.620 --> 00:47:47.670
+and we just enter it so fast
+that they think that we're a bot.
+
+00:47:48.129 --> 00:47:51.229
+That's a learning opportunity for us
+to slow down a little bit.
+
+00:47:54.219 --> 00:47:55.449
+Simon: Okay, great.
+
+00:47:57.460 --> 00:48:04.569
+Nicole asks, is reCAPTCHA v3
+which doesn't involve solving puzzles,
+
+00:48:05.889 --> 00:48:07.239
+easier for accessibility?
+
+00:48:08.110 --> 00:48:12.579
+AmyJune: Yes, but I do recommend just
+the button that asks if we're bots.
+
+00:48:16.524 --> 00:48:20.604
+The one that just says
+the simple checkboxes if you're a bot.
+
+00:48:23.809 --> 00:48:24.809
+Simon: That's good.
+
+00:48:26.169 --> 00:48:30.430
+Someone asks, do you have
+any reading recommendations or resources
+
+00:48:30.750 --> 00:48:32.570
+for accessible cybersecurity?
+
+00:48:33.452 --> 00:48:40.420
+AmyJune: Oh, yes,
+and I will share a link with that.
+
+00:48:40.480 --> 00:48:42.279
+I don't have that offhand.
+
+00:48:42.280 --> 00:48:44.950
+I just came across something
+the other day when I was doing research
+
+00:48:44.950 --> 00:48:46.792
+for the Linux Foundation on cybersecurity.
+
+00:48:46.792 --> 00:48:48.602
+There's a whole section
+on accessibility,
+
+00:48:48.602 --> 00:48:51.969
+but I don't have that
+at the top of my tongue.
+
+00:48:53.110 --> 00:48:55.179
+There's some really great articles.
+
+00:48:56.380 --> 00:48:58.580
+There's a resource
+on LinkedIn if you follow.
+
+00:48:59.050 --> 00:49:03.429
+It's an accessibility working group,
+and I forget the name of it,
+
+00:49:03.430 --> 00:49:06.030
+and I know that isn't
+a very good thing to be either.
+
+00:49:06.310 --> 00:49:07.509
+If you follow a lot of those,
+
+00:49:07.509 --> 00:49:08.959
+there's a lot of articles and white papers
+
+00:49:08.959 --> 00:49:12.268
+on LinkedIn about cybersecurity
+and accessibility.
+
+00:49:12.269 --> 00:49:14.289
+It's a brand new thing that's opening up
+
+00:49:14.800 --> 00:49:17.890
+as more of us are becoming
+cybersecurity experts.
+
+00:49:18.070 --> 00:49:23.455
+More of us are moving into cybersecurity
+that have accessibility backgrounds.
+
+00:49:23.635 --> 00:49:26.185
+There is a lot of really good information
+out there.
+
+00:49:27.594 --> 00:49:28.744
+Simon: Great.
+Thank you.
+
+00:49:29.325 --> 00:49:32.024
+There are a few more questions,
+but we are at time.
+
+00:49:33.750 --> 00:49:34.900
+I just want to wrap up.
+
+00:49:35.649 --> 00:49:37.630
+Again, thank you, AmyJune,
+
+00:49:38.469 --> 00:49:39.909
+for this great presentation,
+
+00:49:41.349 --> 00:49:42.605
+and thank you, everyone,
+
+00:49:42.655 --> 00:49:45.789
+for being part of this session.
+
+00:49:48.189 --> 00:49:52.419
+You can continue this conversation
+in the chat or on social media
+
+00:49:53.020 --> 00:50:01.018
+using the hashtags
+#WPA11YDay and #WPAD2024.
+
+00:50:01.660 --> 00:50:06.639
+We would also appreciate it
+if you could go
+
+00:50:06.640 --> 00:50:13.423
+to the URL
+2024.wpaccessibility.day/feedback
+
+00:50:13.813 --> 00:50:15.369
+to provide anonymous feedback
+
+00:50:15.789 --> 00:50:17.789
+for our speakers on their presentations.
+
+00:50:18.430 --> 00:50:20.880
+You can enter to win
+a T-shirt while you're there.
+
+00:50:21.640 --> 00:50:24.579
+I invite you to stay tuned
+for our next session,
+
+00:50:24.759 --> 00:50:26.509
+CSS Tiny Tips:
+
+00:50:26.599 --> 00:50:31.419
+Collections of CSS Tips
+for Making Websites Easier to Read.
+
+00:50:31.713 --> 00:50:38.241
+Jen Harries will be starting
+that at 12:00 AM UTC.
+
+00:50:38.501 --> 00:50:43.629
+While you're waiting, don't forget
+to visit our sponsors' pages to grab
+
+00:50:43.630 --> 00:50:47.859
+some virtual swag and enter
+for a chance to win some great prizes.
+
+00:50:48.619 --> 00:50:51.460
+Thanks so much, everybody,
+and we'll see you right here
+
+00:50:51.490 --> 00:50:52.490
+after the break.
+
+00:50:54.970 --> 00:50:58.839
+Announcer: Thank you to WordPress
+Accessibility Day 2024 sponsors.
+
+00:50:59.310 --> 00:51:00.890
+Platinum sponsor, 20i.
+
+00:51:01.449 --> 00:51:04.389
+Easily build, deploy,
+and manage all your projects
+
+00:51:04.390 --> 00:51:06.670
+with 20i-managed WordPress hosting.
+
+00:51:07.120 --> 00:51:08.858
+One UI for all your servers,
+
+00:51:08.859 --> 00:51:12.518
+apps, sites, databases, security, DNS,
+
+00:51:12.519 --> 00:51:13.519
+and email.
+
+00:51:13.749 --> 00:51:14.980
+Perfect for agencies,
+
+00:51:15.040 --> 00:51:18.100
+e-commerce, developers,
+multi-site hosting,
+
+00:51:18.129 --> 00:51:19.449
+and high-traffic sites.
+
+00:51:20.259 --> 00:51:22.210
+Platinum sponsor, Equalize Digital.
+
+00:51:22.779 --> 00:51:26.286
+Since all they do is accessibility,
+every post on their blog is
+
+00:51:26.287 --> 00:51:27.820
+an accessibility resource.
+
+00:51:28.239 --> 00:51:32.169
+You can find webinar recordings,
+articles, and additional resources
+
+00:51:32.499 --> 00:51:35.632
+at equalizedigital.com/resources.
+
+00:51:36.580 --> 00:51:38.679
+Platinum sponsor, WP Engine.
+
+00:51:39.129 --> 00:51:43.179
+WP Engine provides the most relied-upon
+and trusted WordPress products
+
+00:51:43.180 --> 00:51:46.840
+for businesses, brands,
+and agencies of all sizes.
+
+00:51:47.890 --> 00:51:49.299
+Thanks to our Gold sponsors,
+
+00:51:49.629 --> 00:51:53.859
+GoDaddy, Grackle Docs,
+Gravity Forms, GreenGeeks,
+
+00:51:54.167 --> 00:51:56.038
+TPGI, and Yoast.
+
+00:51:56.799 --> 00:52:00.526
+Thank you to our Silver sponsors,
+CodeGeek, Drake Cooper,
+
+00:52:00.636 --> 00:52:03.129
+Elementor, Overnight Website,
+
+00:52:03.430 --> 00:52:07.419
+Pressable, Second Melody,
+and Accessibility Collective.

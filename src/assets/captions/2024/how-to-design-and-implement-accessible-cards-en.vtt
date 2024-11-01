@@ -1,0 +1,3127 @@
+﻿WEBVTT
+
+00:00:00.560 --> 00:00:03.300
+Announcer: WordPress
+Accessibility Day 2024.
+
+00:00:03.900 --> 00:00:08.000
+How to Design and Implement
+Accessible Cards with Speaker Tina Rice,
+
+00:00:08.440 --> 00:00:12.870
+WordPress Developer and SEO
+Consultant at Tina Rice Webentwicklung.
+
+00:00:13.440 --> 00:00:16.780
+This presentation was recorded
+October 2024.
+
+00:00:17.410 --> 00:00:21.850
+Sherose Badruddin: Welcome everyone
+to WordPress Accessibility Day 2024.
+
+00:00:22.180 --> 00:00:25.520
+If you're in the Eastern Time Zone
+like me, it's morning, so good morning.
+
+00:00:25.990 --> 00:00:27.440
+I'm Sherose Badruddin.
+
+00:00:27.640 --> 00:00:29.890
+I work at the University
+of North Carolina.
+
+00:00:30.190 --> 00:00:34.200
+I'm a digital accessibility consultant,
+and I'm so grateful to be here.
+
+00:00:34.460 --> 00:00:38.300
+I did want to make a note to announce
+that Melissa Spiegel,
+
+00:00:38.370 --> 00:00:41.040
+who was scheduled to be here today,
+was unable to attend.
+
+00:00:41.740 --> 00:00:44.840
+She's in Florida dealing with the fallout
+from Hurricane Milton,
+
+00:00:44.910 --> 00:00:48.640
+and we're grateful for her for trying to
+volunteer, and we're especially grateful
+
+00:00:49.040 --> 00:00:53.620
+for Tina Rice, who is here and able
+to join us today for their session,
+
+00:00:53.850 --> 00:00:56.820
+How to Design and Implement
+Accessible Cards.
+
+00:00:57.150 --> 00:00:58.480
+A bit about Tina.
+
+00:00:58.920 --> 00:01:02.720
+Tina is a SEO consultant
+and WordPress developer,
+
+00:01:02.960 --> 00:01:06.260
+specializing in web
+accessibility based in Berlin, Germany.
+
+00:01:07.660 --> 00:01:10.970
+They started out developing
+SEO strategies for websites,
+
+00:01:11.030 --> 00:01:14.500
+large and small, from e-commerce
+to non-profit sites.
+
+00:01:15.070 --> 00:01:17.040
+Later,
+they discovered their love for WordPress
+
+00:01:17.110 --> 00:01:19.970
+when working at an agency
+and taught themselves the skills
+
+00:01:20.040 --> 00:01:22.940
+of front-end development,
+learning more with every project.
+
+00:01:23.340 --> 00:01:26.750
+Now with eight-plus years of experience,
+Tina owns their own business
+
+00:01:26.820 --> 00:01:30.750
+and develops WordPress sites with a focus
+on accessibility and sustainability.
+
+00:01:31.090 --> 00:01:34.190
+They also give workshops
+and help organizations
+
+00:01:34.260 --> 00:01:37.350
+increase their online visibility
+with SEO.
+
+00:01:38.930 --> 00:01:41.460
+Please feel free
+all to add your questions in the Zoom
+
+00:01:41.570 --> 00:01:44.460
+Q&amp;A section, and we'll answer them
+at the end of the session.
+
+00:01:44.640 --> 00:01:47.200
+Use the chat to connect
+with other attendees.
+
+00:01:47.400 --> 00:01:49.040
+Tina, you can take it away.
+
+00:01:49.740 --> 00:01:50.840
+Tina Reis: Thank you so much.
+
+00:01:50.870 --> 00:01:53.880
+Yes, I'm going to share my screen.
+
+00:01:55.060 --> 00:01:59.310
+Hello, I'm going to talk about
+how to design
+
+00:01:59.440 --> 00:02:01.640
+and implement Accessible Cards today.
+
+00:02:02.680 --> 00:02:04.590
+First of all, I also want to say that
+I hope everybody
+
+00:02:04.730 --> 00:02:07.360
+who is affected by the hurricane
+in Florida is safe.
+
+00:02:11.130 --> 00:02:14.350
+Maybe I already had a good introduction,
+thank you so much.
+
+00:02:15.300 --> 00:02:18.930
+Maybe just one thing that I want to say
+is that I have a disability myself.
+
+00:02:18.970 --> 00:02:22.440
+I have ADHD and I have a motor disability
+
+00:02:22.840 --> 00:02:25.610
+that is so far only affecting my legs.
+
+00:02:26.070 --> 00:02:30.880
+My access needs when it comes
+to the Internet,
+
+00:02:31.480 --> 00:02:35.220
+I'm mostly not affected very much,
+which is good.
+
+00:02:36.920 --> 00:02:39.450
+I just want to say this
+because everything that I'm going to talk
+
+00:02:39.450 --> 00:02:43.020
+about here is mostly what I've learned,
+
+00:02:43.190 --> 00:02:46.130
+not from my own experience,
+but what I've learned.
+
+00:02:46.190 --> 00:02:49.200
+I'm also going to link
+to some really good resources
+
+00:02:49.400 --> 00:02:52.870
+from people
+who have written about this topic before.
+
+00:02:55.200 --> 00:02:56.600
+First of all, I want to start
+
+00:02:56.600 --> 00:02:59.710
+just by asking a very simple question,
+what is a card?
+
+00:03:01.680 --> 00:03:07.280
+I looked at one of my favorite components
+libraries, Cody House.
+
+00:03:07.530 --> 00:03:08.720
+Here in the slide
+
+00:03:08.720 --> 00:03:12.220
+that I'm showing right now,
+you can see their gallery of components
+
+00:03:12.290 --> 00:03:15.490
+and I've selected in this menu
+that they have
+
+00:03:15.920 --> 00:03:18.630
+that filters the gallery,
+I've selected card
+
+00:03:19.090 --> 00:03:21.460
+and it shows 23 items.
+
+00:03:21.550 --> 00:03:23.640
+They're all very different
+from each other.
+
+00:03:24.530 --> 00:03:28.800
+You have something like a video gallery
+that is labeled as cards.
+
+00:03:28.870 --> 00:03:34.840
+There's parts
+that are like a slider type of component
+
+00:03:35.280 --> 00:03:37.400
+and then there's the classic,
+
+00:03:37.510 --> 00:03:41.820
+I think image with text on the button.
+Those are all cards.
+
+00:03:42.650 --> 00:03:46.220
+I think when we think about it,
+what those all have in common,
+
+00:03:46.330 --> 00:03:48.570
+then we can say cards
+
+00:03:49.490 --> 00:03:51.510
+are usually interactive.
+
+00:03:51.760 --> 00:03:55.460
+Here I have a little example card
+
+00:03:55.900 --> 00:03:58.670
+that I'm going to be using
+throughout this talk.
+
+00:03:59.430 --> 00:04:05.740
+It's just a very simple interactive,
+like a card with an image.
+
+00:04:05.950 --> 00:04:09.240
+Here I'm having the image
+of a little bird.
+
+00:04:09.310 --> 00:04:11.750
+You'll see
+lots of birds in this presentation.
+
+00:04:11.910 --> 00:04:13.480
+Then there's a title,
+
+00:04:14.220 --> 00:04:17.450
+how to get started with bird watching,
+just a very non-descript,
+
+00:04:18.090 --> 00:04:21.460
+little description text underneath,
+and then a button to read more.
+
+00:04:22.620 --> 00:04:26.490
+I think in this simple example,
+but like all cards,
+
+00:04:26.690 --> 00:04:31.300
+no matter what they do,
+is that cards are interactive.
+
+00:04:31.730 --> 00:04:34.700
+Here, this card wants you to click it
+
+00:04:35.370 --> 00:04:38.020
+and go to the article, and read it.
+
+00:04:40.860 --> 00:04:44.910
+The other thing that cards
+usually have in common
+
+00:04:45.060 --> 00:04:46.620
+is that they are one of many.
+
+00:04:47.380 --> 00:04:50.450
+You use the card component to show
+
+00:04:50.520 --> 00:04:53.350
+an overview of different elements
+on your website.
+
+00:04:53.620 --> 00:04:57.290
+Here, a very simple example, again,
+just a block overview.
+
+00:04:57.360 --> 00:05:01.660
+Each card leads to a blog article.
+
+00:05:02.430 --> 00:05:06.200
+I'm going to be working with
+this simple example in this presentation.
+
+00:05:06.600 --> 00:05:11.110
+Here in the image,
+I just have the same card example
+
+00:05:11.170 --> 00:05:14.310
+that I just mentioned
+with an image, a title,
+
+00:05:14.380 --> 00:05:17.550
+a little description,
+and a read more button,
+
+00:05:17.660 --> 00:05:20.170
+and six of them in a grid.
+
+00:05:24.020 --> 00:05:26.720
+Now, what I want to do today,
+
+00:05:27.490 --> 00:05:30.190
+I think that the card
+is a really interesting example
+
+00:05:30.430 --> 00:05:32.890
+from an accessibility perspective
+
+00:05:32.960 --> 00:05:37.700
+because you can--
+It looks so simple, but it actually has
+
+00:05:37.770 --> 00:05:41.400
+a lot of considerations, that
+a lot of ways you can think about this
+
+00:05:42.470 --> 00:05:43.770
+for accessibility.
+
+00:05:43.840 --> 00:05:46.570
+I want to focus today on accessibility
+
+00:05:46.640 --> 00:05:49.940
+beyond compliance, so beyond WCAG
+
+00:05:50.950 --> 00:05:53.350
+with the focus on usability.
+
+00:05:53.350 --> 00:05:55.970
+How can you really get
+the most out of the component from
+
+00:05:56.150 --> 00:05:57.590
+a usability perspective?
+
+00:05:59.950 --> 00:06:04.130
+Because I think
+there's really getting compliant
+
+00:06:04.240 --> 00:06:08.330
+with this is much easier
+than making it actually usable.
+
+00:06:10.530 --> 00:06:14.170
+With all of that,
+I'm not reinventing the wheel here.
+
+00:06:14.700 --> 00:06:19.040
+These are some really great resources,
+where I have learned all these techniques
+
+00:06:19.110 --> 00:06:24.080
+of knowledge over the years
+developing WordPress websites.
+
+00:06:24.150 --> 00:06:26.850
+I just want to name a few of them.
+
+00:06:27.220 --> 00:06:29.850
+One of them is Heydon Pickering,
+who has these
+
+00:06:29.920 --> 00:06:32.260
+great inclusive components library
+
+00:06:32.710 --> 00:06:36.060
+and it also has a card component,
+which is great.
+
+00:06:37.020 --> 00:06:39.860
+Then there are also really good
+takes on accessible cards
+
+00:06:39.930 --> 00:06:43.970
+by Adrian Roselli and Kitty Giraudel,
+who is also in Berlin.
+
+00:06:46.570 --> 00:06:49.370
+If you get the slides afterwards,
+there will be the link
+
+00:06:49.440 --> 00:06:51.260
+also in the slide.
+
+00:06:51.440 --> 00:06:53.410
+I've learned these techniques
+
+00:06:53.470 --> 00:06:55.680
+over the years
+and what I'm going to show you
+
+00:06:55.680 --> 00:06:58.950
+is specifically how to do this
+with WordPress.
+
+00:06:59.010 --> 00:07:02.200
+All the code examples that I'm going to
+show are my code examples
+
+00:07:02.370 --> 00:07:04.400
+from myWordPress project.
+
+00:07:06.530 --> 00:07:07.560
+Also,
+
+00:07:07.730 --> 00:07:10.220
+we're going to do
+more of a trial-and-error approach.
+
+00:07:10.290 --> 00:07:13.360
+We're going to walk you
+through each of the considerations
+
+00:07:13.430 --> 00:07:15.660
+and we're not going to start
+with a finished result
+
+00:07:15.660 --> 00:07:18.470
+that I'm just going to explain to you,
+but we're going to work on
+
+00:07:18.530 --> 00:07:20.750
+creating a finished result
+during this talk.
+
+00:07:21.020 --> 00:07:22.540
+Let's get started.
+
+00:07:23.600 --> 00:07:25.710
+First, what are the considerations?
+
+00:07:25.770 --> 00:07:28.980
+You want it to have the card
+to have a logical structure.
+
+00:07:29.280 --> 00:07:32.350
+This is especially important for screen
+reader users, for example,
+
+00:07:32.510 --> 00:07:35.950
+where all the information needs to be
+in the semantic structure.
+
+00:07:37.080 --> 00:07:39.820
+You want to have
+a specific visual layout.
+
+00:07:40.560 --> 00:07:41.920
+Also, I'm a developer.
+
+00:07:41.920 --> 00:07:45.490
+I get designs from a designer
+and so I have some-
+
+00:07:45.560 --> 00:07:48.260
+I have a specific visual layout that
+I need to achieve.
+
+00:07:50.670 --> 00:07:53.300
+Then also I want to ensure
+that it is interactive
+
+00:07:53.370 --> 00:07:57.220
+because that's the core
+requirement for a card.
+
+00:08:01.280 --> 00:08:03.780
+Then I have--
+Let's tackle the first thing first.
+
+00:08:03.950 --> 00:08:06.750
+The having multiple parts in a row.
+
+00:08:06.810 --> 00:08:12.190
+Here I'm showing, again, my little grid
+with the preview with the cards,
+
+00:08:12.550 --> 00:08:15.260
+six cards in the grid.
+
+00:08:15.990 --> 00:08:19.330
+Now I'm going to show the bad
+example first.
+
+00:08:19.390 --> 00:08:22.100
+If you mark this up with just divs,
+
+00:08:23.100 --> 00:08:27.440
+here on the left side,
+I have an example, HTML markup,
+
+00:08:27.500 --> 00:08:31.740
+where it's just divs as the container
+and then divs for each of the cards.
+
+00:08:32.310 --> 00:08:35.910
+That doesn't give any information
+about what this actually is.
+
+00:08:35.980 --> 00:08:37.950
+For example, to a screen reader.
+
+00:08:41.220 --> 00:08:43.990
+Another example that you can do,
+which is a bit better,
+
+00:08:44.050 --> 00:08:48.520
+is you, for example,
+use a main tag for the container.
+
+00:08:49.020 --> 00:08:53.490
+And each of the cards
+are in an article tag.
+
+00:08:53.930 --> 00:08:56.400
+This is a bit better
+because this gives us
+
+00:08:56.400 --> 00:09:01.100
+some actual information
+about what this is
+
+00:09:01.170 --> 00:09:03.970
+to a screen reader.
+
+00:09:04.140 --> 00:09:06.710
+The screen reader can give the users
+
+00:09:10.180 --> 00:09:12.380
+more information, more features.
+
+00:09:12.450 --> 00:09:15.280
+For example, with the main tag,
+this would show up
+
+00:09:15.350 --> 00:09:18.990
+if somebody uses the screen reader
+and navigates through the landmarks,
+
+00:09:19.820 --> 00:09:23.420
+they could directly go
+to the main content with this
+
+00:09:23.990 --> 00:09:27.030
+but there's still a problem
+with the article.
+
+00:09:27.860 --> 00:09:31.800
+Actually, not all screen readers
+have this as a landmark.
+
+00:09:32.170 --> 00:09:34.900
+For, I think, only JAWS announces
+
+00:09:34.970 --> 00:09:37.670
+it as a landmark.
+
+00:09:38.070 --> 00:09:42.780
+Still, even though you're using
+a semantic HTML5 element,
+
+00:09:43.010 --> 00:09:47.080
+you're not really giving much information
+to screen reader users.
+
+00:09:49.640 --> 00:09:51.390
+Now a better example,
+
+00:09:51.510 --> 00:09:54.910
+and this is best practice,
+is to have it as a list markup.
+
+00:09:55.560 --> 00:09:59.260
+Here, I've shown it
+as a basic HTML example
+
+00:09:59.490 --> 00:10:02.930
+with an unnumbered list tag,
+
+00:10:03.300 --> 00:10:06.200
+and then each of the cards
+in a list item.
+
+00:10:06.530 --> 00:10:09.900
+What this gives you is--
+This gives a really good-
+
+00:10:09.970 --> 00:10:12.670
+because it is a card of one of many.
+
+00:10:13.470 --> 00:10:17.750
+A list gives that information
+to a screen reader user.
+
+00:10:17.810 --> 00:10:19.440
+This is the list of,
+
+00:10:19.650 --> 00:10:22.680
+and then the screen reader will announce,
+six items,
+
+00:10:22.750 --> 00:10:26.320
+and there's some navigation features
+that also come with that in
+
+00:10:26.390 --> 00:10:27.600
+the screen reader.
+
+00:10:28.390 --> 00:10:30.930
+Now, I took a look at what
+
+00:10:30.990 --> 00:10:33.730
+most WordPress themes use.
+
+00:10:34.960 --> 00:10:39.770
+Most, especially the commonly used ones,
+the page builders,
+
+00:10:40.840 --> 00:10:43.570
+don't use the list markup for cards.
+
+00:10:43.640 --> 00:10:46.970
+I've actually seen more often
+the article markup
+
+00:10:48.180 --> 00:10:51.450
+and here, a shout out
+to Amber Hinds of Equalize Digital,
+
+00:10:51.950 --> 00:10:57.060
+because she analyzed 10-page builders,
+and they're only two use the list markup
+
+00:10:57.220 --> 00:10:58.790
+for their blog or posts loop.
+
+00:10:59.950 --> 00:11:03.160
+This is definitely something
+that a lot of the WordPress
+
+00:11:03.220 --> 00:11:05.930
+themes and page builders are lacking.
+
+00:11:07.530 --> 00:11:09.860
+That's why, for example,
+I work with GeneratePress,
+
+00:11:09.860 --> 00:11:14.280
+and they also have an article markup
+and so I'm also often building
+
+00:11:14.400 --> 00:11:16.930
+my own loops
+with my own cards.
+
+00:11:18.530 --> 00:11:21.350
+I also want to mention kudos
+to Avada and Bricks
+
+00:11:22.110 --> 00:11:26.730
+because they were the two-page builders
+that use list markup in this test.
+
+00:11:30.520 --> 00:11:33.490
+Now we've decided we're going to have
+this as a list markup and here
+
+00:11:33.550 --> 00:11:38.330
+I have a very basic HTML markup
+
+00:11:38.480 --> 00:11:41.030
+for the item itself, for the card itself.
+
+00:11:41.800 --> 00:11:46.430
+For this simple card, just as a reminder,
+it has a preview and this is the image,
+
+00:11:46.730 --> 00:11:51.940
+it has a title, it has a little
+descriptive text, and a read more link.
+
+00:11:53.020 --> 00:11:55.220
+Sometimes I say button,
+which is not correct
+
+00:11:56.040 --> 00:11:58.370
+but I mean, a read more link.
+
+00:12:00.080 --> 00:12:03.420
+The basic HTML markup
+that we're going to work with
+
+00:12:03.570 --> 00:12:06.120
+is just as a list item.
+
+00:12:06.650 --> 00:12:08.260
+I've given it a class of card,
+
+00:12:08.420 --> 00:12:11.160
+thenit has an image.
+
+00:12:11.860 --> 00:12:14.430
+Here I've kept the alternative text empty
+
+00:12:14.500 --> 00:12:17.770
+and we're going to talk about images,
+so don't you worry.
+
+00:12:18.970 --> 00:12:21.740
+Then the title I've marked up
+as an h2 headline
+
+00:12:21.940 --> 00:12:25.170
+and the description just as a paragraph
+
+00:12:25.240 --> 00:12:27.570
+and then I have the link
+
+00:12:27.910 --> 00:12:29.460
+at the bottom.
+
+00:12:34.050 --> 00:12:37.490
+This is generally like
+
+00:12:37.750 --> 00:12:42.660
+sign markup
+but the problem is with the link.
+
+00:12:42.720 --> 00:12:45.430
+Here, for example, only the read
+
+00:12:46.160 --> 00:12:48.330
+more link is actually linked
+
+00:12:48.400 --> 00:12:51.470
+but that's not usually
+what you expect of a card.
+
+00:12:51.530 --> 00:12:56.270
+You expect it like when I'm on my phone,
+I want to be able to click on the image
+
+00:12:56.340 --> 00:12:58.330
+and it directly brings me
+to the article.
+
+00:12:58.680 --> 00:13:03.060
+I think this is also what
+if you're designing a card element
+
+00:13:03.170 --> 00:13:04.810
+that's a marketing banner
+
+00:13:04.880 --> 00:13:09.550
+that your marketing people will also want
+to increase the click area.
+
+00:13:11.490 --> 00:13:17.660
+What I see in a lot of WordPress themes
+is that they solve
+
+00:13:17.730 --> 00:13:20.430
+this by just adding links
+to all of the elements.
+
+00:13:21.530 --> 00:13:28.170
+For example, this is an example image
+
+00:13:28.240 --> 00:13:31.110
+from the GeneratePress solar demo site.
+
+00:13:31.840 --> 00:13:34.540
+I'm just showing a lot of GeneratePress,
+not because they are bad,
+
+00:13:34.680 --> 00:13:36.840
+just because that's the theme
+that I usually work with.
+
+00:13:36.840 --> 00:13:39.550
+It's actually a really cool theme.
+
+00:13:39.730 --> 00:13:42.550
+Here you can see they have
+also a basic card
+
+00:13:42.730 --> 00:13:44.290
+that leads to a blog article
+
+00:13:45.050 --> 00:13:48.660
+and it has also an image,
+it has some categories too
+
+00:13:49.720 --> 00:13:53.060
+and it has a title
+and it has a read more link.
+
+00:13:53.130 --> 00:13:56.060
+Very similar to what we're working with
+but here they've solved
+
+00:13:56.130 --> 00:13:58.930
+this issue of increasing the click area
+by adding
+
+00:14:00.300 --> 00:14:02.000
+a link tag around
+
+00:14:02.150 --> 00:14:05.540
+the image, around the title
+and around the read more.
+
+00:14:05.610 --> 00:14:08.310
+You have three links
+leading to the same destination.
+
+00:14:08.420 --> 00:14:10.000
+This is not good.
+
+00:14:12.110 --> 00:14:15.050
+What this will lead to,
+like here, for example,
+
+00:14:15.120 --> 00:14:19.220
+if you're using the Wave accessibility
+testing tool, this will throw errors.
+
+00:14:19.590 --> 00:14:22.260
+Here, the error,
+
+00:14:22.360 --> 00:14:25.530
+I screenshotted the error,
+it says redundant link
+
+00:14:25.690 --> 00:14:28.400
+and then a lot of icons
+that show, okay, here's an error.
+
+00:14:29.760 --> 00:14:32.870
+The explanation for it is that adjacent
+
+00:14:33.170 --> 00:14:36.240
+links go to the same destination
+and that is bad practice
+
+00:14:36.300 --> 00:14:40.140
+because it is confusing
+if you're using a screen reader and also
+
+00:14:41.210 --> 00:14:42.380
+it's just redundant.
+
+00:14:42.410 --> 00:14:44.440
+It's adding a lot of noise.
+
+00:14:48.480 --> 00:14:51.150
+are we back to just keeping the link
+
+00:14:51.220 --> 00:14:53.620
+as the, on the read more button?
+
+00:14:53.690 --> 00:14:56.110
+No, there's a better solution.
+
+00:14:56.520 --> 00:14:58.630
+We want to work with only one link,
+
+00:14:58.630 --> 00:15:00.800
+but have the whole card clickable
+
+00:15:02.460 --> 00:15:04.670
+and because if we're only having it
+
+00:15:04.840 --> 00:15:08.040
+on the read more link, what happens then
+
+00:15:08.370 --> 00:15:12.270
+if a screen reader users
+navigate the site because
+
+00:15:13.470 --> 00:15:16.040
+by listing out all the link
+
+00:15:16.110 --> 00:15:21.050
+elements on the page,
+this is one way that screen reader users
+
+00:15:21.120 --> 00:15:24.920
+can navigate a page by saying,
+"Okay, give me all of the links,"
+
+00:15:24.990 --> 00:15:27.790
+then what happens is
+that it just says read
+
+00:15:27.860 --> 00:15:30.860
+more, read more, read more
+and it's not descriptive.
+
+00:15:30.930 --> 00:15:32.830
+This is definitely not a good solution.
+
+00:15:33.080 --> 00:15:34.950
+We can't do it like that.
+
+00:15:38.900 --> 00:15:41.600
+The best practice would be
+
+00:15:42.200 --> 00:15:46.640
+to just ask yourself, "Okay,
+what is the most important,
+
+00:15:46.710 --> 00:15:50.110
+the most descriptive element
+on this card?"
+
+00:15:50.180 --> 00:15:53.650
+and I think that is here in this case,
+it's the headline.
+
+00:15:54.320 --> 00:15:58.820
+We put the title here, I'm showing
+the basic HTML markup again.
+
+00:15:58.890 --> 00:16:03.820
+We're putting the link tag inside
+of the headline.
+
+00:16:04.830 --> 00:16:08.460
+Now we don't need the read
+more button anymore.
+
+00:16:10.400 --> 00:16:12.570
+We're going to discuss this
+a little bit later if that's really true
+
+00:16:12.570 --> 00:16:16.870
+but for now,
+we have now a good markup that gives
+
+00:16:17.140 --> 00:16:19.810
+screen reader users a descriptive link,
+
+00:16:21.540 --> 00:16:24.210
+but still, we don't have
+the whole area clickable.
+
+00:16:24.280 --> 00:16:27.610
+What we can do
+now is we use this little trick
+
+00:16:29.150 --> 00:16:32.790
+where we create a pseudo
+element on the link
+
+00:16:33.150 --> 00:16:35.860
+and make it span
+
+00:16:36.020 --> 00:16:39.640
+with absolute positioning and CSS,
+the whole card.
+
+00:16:40.230 --> 00:16:42.930
+That is really neat
+and I love this trick.
+
+00:16:43.560 --> 00:16:45.600
+Ever since I learned it,
+I use it all the time.
+
+00:16:45.600 --> 00:16:50.000
+It makes it so you only have one link
+and it's around the descriptive element.
+
+00:16:50.140 --> 00:16:55.060
+That's good for screen reader users
+but the whole area that is--
+
+00:16:55.800 --> 00:16:58.440
+The whole card element
+that is positioned relative,
+
+00:16:58.550 --> 00:17:00.950
+so that works if clickable.
+
+00:17:02.440 --> 00:17:04.080
+This is cool.
+
+00:17:04.420 --> 00:17:06.280
+Here I have the CSS.
+
+00:17:06.710 --> 00:17:10.440
+If you later get the slides,
+you can just copy this.
+
+00:17:16.200 --> 00:17:19.530
+Then one thing, now you think like,
+"Oh, I have a good solution,"
+
+00:17:19.600 --> 00:17:23.440
+but then your designer is like,
+"Hey, I want to put the author byline
+
+00:17:23.500 --> 00:17:28.840
+in there." Here for example,
+I have another one of those cards.
+
+00:17:29.040 --> 00:17:30.980
+I'm switching the images up a little bit.
+
+00:17:31.050 --> 00:17:33.750
+This is a different bird
+as a preview image.
+
+00:17:34.650 --> 00:17:36.620
+Here below the headline,
+
+00:17:36.620 --> 00:17:40.620
+we have an author byline and often
+
+00:17:40.790 --> 00:17:42.240
+this is linked.
+
+00:17:44.730 --> 00:17:46.260
+In this case,
+
+00:17:46.330 --> 00:17:48.630
+I think Heydon Pickering
+makes a really good point
+
+00:17:48.630 --> 00:17:52.070
+because he asks, "Hey,
+do you really need this to be a link?
+
+00:17:52.700 --> 00:17:55.670
+Is it really--"
+Are people going to see this in a blog
+
+00:17:55.740 --> 00:17:58.950
+overview and be like,
+"Oh, I'm going to click directly
+
+00:17:59.060 --> 00:18:02.410
+on the author without having looked
+at the article first,
+
+00:18:02.580 --> 00:18:05.380
+without having clicked through
+and read the article first."
+
+00:18:05.450 --> 00:18:07.880
+I definitely recommend--
+I think this is a really good point
+
+00:18:07.880 --> 00:18:10.880
+and I think you should think about,
+do we really need the link in there?
+
+00:18:11.450 --> 00:18:14.190
+If you said, "Yes,
+we really need this link, it's important."
+
+00:18:14.890 --> 00:18:17.590
+One thing that you can do
+is that you just give
+
+00:18:17.720 --> 00:18:21.230
+the link tag
+
+00:18:21.300 --> 00:18:23.110
+on the author byline
+
+00:18:24.470 --> 00:18:28.640
+that index of higher
+than your pseudo-element.
+
+00:18:28.700 --> 00:18:30.840
+That is the main card link.
+
+00:18:30.900 --> 00:18:34.270
+Here, for example, the pseudo-element
+that makes the whole card
+
+00:18:34.440 --> 00:18:38.350
+clickable has a Z index of one.
+
+00:18:38.950 --> 00:18:42.720
+I want to have one of race
+make also the author clickable.
+
+00:18:43.150 --> 00:18:45.800
+I'm going to raise it
+with a Z index of two.
+
+00:18:46.020 --> 00:18:48.520
+Now you can see I've marked it up here.
+
+00:18:48.590 --> 00:18:52.160
+The click area is on the whole card
+that leads to the whole article
+
+00:18:52.230 --> 00:18:53.570
+but then--
+
+00:18:55.440 --> 00:18:58.570
+I love these reactions
+that you have in the room.
+
+00:18:59.840 --> 00:19:04.240
+Then the author also is clickable.
+
+00:19:04.840 --> 00:19:08.410
+Then I think now you can already see it.
+
+00:19:08.480 --> 00:19:11.350
+Click area for the author link.
+
+00:19:13.000 --> 00:19:14.600
+It's pretty small.
+
+00:19:16.620 --> 00:19:17.780
+What can happen here,
+
+00:19:17.910 --> 00:19:25.360
+and here I'm showing the preview image
+and I've pasted a photo of my finger
+
+00:19:25.730 --> 00:19:29.460
+and I'm putting it over the author byline
+and so now you can see that
+
+00:19:29.530 --> 00:19:33.100
+actually the author
+byline is smaller than my finger.
+
+00:19:33.230 --> 00:19:36.740
+What can happen when you have these links
+on top of each other,
+
+00:19:36.800 --> 00:19:39.510
+right next to each other,
+it can lead to mishaps,
+
+00:19:39.640 --> 00:19:41.880
+especially just with everybody,
+
+00:19:41.940 --> 00:19:45.850
+on your mobile phone and you try to click
+something in a hurry,
+
+00:19:46.050 --> 00:19:48.750
+but also, for example, for people who,
+I don't know, have a tremor
+
+00:19:49.110 --> 00:19:51.150
+and motor issues.
+
+00:19:51.730 --> 00:19:54.060
+It can be like
+incredibly frustrating
+
+00:19:54.280 --> 00:19:58.390
+if you want to click
+on one thing and land somewhere else.
+
+00:19:59.290 --> 00:20:01.800
+This fortunately can be remedied.
+
+00:20:03.600 --> 00:20:05.870
+What you do is you just add padding
+
+00:20:06.800 --> 00:20:09.660
+to the link
+and then it's like, "Okay, cool."
+
+00:20:09.750 --> 00:20:11.880
+Now you've increased it
+and you can see here
+
+00:20:11.970 --> 00:20:14.040
+I marked up the padding in green.
+
+00:20:14.150 --> 00:20:16.180
+My finger is now roughly the same size
+
+00:20:16.280 --> 00:20:18.780
+as the click area for the author
+byline, great.
+
+00:20:19.970 --> 00:20:22.380
+You can keep the same visual layout,
+of course, by,
+
+00:20:22.620 --> 00:20:28.160
+I don't know, removing the margin
+on the headline and shifting it around.
+
+00:20:28.260 --> 00:20:31.750
+It still looks the same,
+but it has a larger padding.
+
+00:20:33.690 --> 00:20:36.040
+Then also one thing I want to say,
+
+00:20:36.500 --> 00:20:39.280
+while we're talking about myth tabs,
+
+00:20:40.020 --> 00:20:47.680
+here I'm showing a mobile view
+of the same grid and a mobile view,
+
+00:20:48.150 --> 00:20:51.800
+all of the cards are
+stacked on top of each other.
+
+00:20:52.680 --> 00:20:55.710
+Here you have my finger again,
+showing that the margin between
+
+00:20:55.800 --> 00:20:59.330
+the cards is quite--
+If you keep it too small, then again,
+
+00:20:59.380 --> 00:21:03.510
+you have a problem of myth tabs on mobile
+when people are scrolling.
+
+00:21:03.710 --> 00:21:05.060
+I want to scroll
+
+00:21:06.120 --> 00:21:11.750
+and I unexpectedly click on something
+
+00:21:11.850 --> 00:21:14.360
+and then all hell breaks loose.
+
+00:21:16.460 --> 00:21:19.240
+I think you might think like,
+"Oh, this doesn't happen to me."
+
+00:21:19.420 --> 00:21:22.800
+orif you, for example, have motor issues,
+
+00:21:23.430 --> 00:21:24.930
+this can totally happen.
+
+00:21:26.730 --> 00:21:30.110
+What you do is you again,
+increase the space
+
+00:21:30.350 --> 00:21:33.680
+so that there'san area
+between the cards,
+
+00:21:33.860 --> 00:21:37.710
+more margin where just like now
+you can see my finger fits again,
+
+00:21:39.420 --> 00:21:41.480
+where you just have this safe area
+
+00:21:41.480 --> 00:21:43.260
+where people can scroll.
+
+00:21:44.600 --> 00:21:47.080
+Now we have
+a really good solution for that.
+
+00:21:48.860 --> 00:21:51.030
+The only thing-- Oh,
+I'm going to go back one.
+
+00:21:51.130 --> 00:21:55.970
+The only thing now that I've learned is
+this pseudo-element is a good trick,
+
+00:21:56.070 --> 00:21:59.240
+but it makes it
+so that the text is not selectable
+
+00:21:59.970 --> 00:22:03.140
+because it's like the pseudo-element
+is on top of, for example, here
+
+00:22:03.210 --> 00:22:05.710
+the paragraph
+and if somebody wants to select
+
+00:22:05.810 --> 00:22:09.550
+this paragraph description
+and copy it somewhere, it doesn't work.
+
+00:22:10.180 --> 00:22:12.380
+I must admit that I personally,
+
+00:22:12.380 --> 00:22:15.280
+when I just design
+a blog overview, like what we have here,
+
+00:22:15.710 --> 00:22:17.400
+I usually stop here
+
+00:22:17.860 --> 00:22:19.950
+because I think for this use case,
+it's not--
+
+00:22:20.110 --> 00:22:22.060
+You can say you disagree with this,
+
+00:22:22.160 --> 00:22:26.230
+but I think it's not super necessary
+that people are able to select this
+
+00:22:26.330 --> 00:22:29.430
+because I think that it's much more likely
+that people click on the article
+
+00:22:29.530 --> 00:22:32.440
+and after they've like,
+"Oh, this is a good article."
+
+00:22:32.600 --> 00:22:35.740
+They,I don't know, select text
+and paste it or whatever,
+
+00:22:36.200 --> 00:22:38.420
+but there might be other use
+cases for cards
+
+00:22:39.040 --> 00:22:42.380
+where you do
+need to have the text selectable
+
+00:22:42.860 --> 00:22:45.150
+even though there's a whole thing.
+
+00:22:45.280 --> 00:22:47.170
+For that,
+I'm not going to go through that
+
+00:22:47.280 --> 00:22:49.950
+because as I said, this is not a technique
+that I usually use,
+
+00:22:50.450 --> 00:22:53.400
+but there is a JavaScript solution
+for this
+
+00:22:53.620 --> 00:22:59.420
+and there's a really great code example
+in the inclusive card component
+
+00:23:00.710 --> 00:23:02.270
+under the headline,
+
+00:23:02.370 --> 00:23:06.100
+the redundant click event
+also by Heydon Pickering
+
+00:23:06.200 --> 00:23:10.310
+and if you have a use case for this, then
+I really suggest that you check that out.
+
+00:23:10.420 --> 00:23:11.410
+It is very good.
+
+00:23:11.770 --> 00:23:15.350
+For our use case,
+we're going to stick with this for now.
+
+00:23:17.240 --> 00:23:18.920
+Now I want to talk about,
+
+00:23:19.020 --> 00:23:22.820
+and now this is the only time that
+I'm bringing theory into this.
+
+00:23:23.280 --> 00:23:26.020
+I want to talk about affordances
+because this is now
+
+00:23:26.120 --> 00:23:27.800
+important for the next part.
+
+00:23:28.960 --> 00:23:31.000
+This is a term that comes up often.
+
+00:23:31.150 --> 00:23:32.360
+I'm studying
+
+00:23:32.360 --> 00:23:35.630
+for a certification right now
+and this is a concept that comes up often
+
+00:23:36.370 --> 00:23:40.740
+and it says-- It's defined
+as a design affordance is a clue
+
+00:23:40.840 --> 00:23:44.910
+about how an object should be used,
+
+00:23:45.010 --> 00:23:48.240
+typically provided by the object itself
+or its context.
+
+00:23:48.410 --> 00:23:54.080
+This is a quote by Sheri
+
+00:23:54.180 --> 00:23:58.150
+Byrne-Haber,
+who is an accessibility specialist.
+
+00:23:59.260 --> 00:24:01.220
+Link is also in the slide.
+
+00:24:02.960 --> 00:24:05.900
+Basically what that means
+is that you see a thing
+
+00:24:06.300 --> 00:24:08.560
+and you intuitively know
+what to do with the thing
+
+00:24:09.570 --> 00:24:13.470
+and this is really important for something
+that is supposed to be interactive.
+
+00:24:13.570 --> 00:24:15.200
+People have to know what to do with it.
+
+00:24:15.940 --> 00:24:19.950
+I think in our example,
+
+00:24:21.880 --> 00:24:24.950
+it's quite clear,
+it's a blog article
+
+00:24:25.040 --> 00:24:27.350
+and people should be able to click on it
+
+00:24:27.820 --> 00:24:30.000
+and they should know I can click on it.
+
+00:24:31.390 --> 00:24:33.310
+It is the most important
+affordance for cards
+
+00:24:33.440 --> 00:24:37.390
+is probably that you can interact
+with them and as I said, in this case,
+
+00:24:37.490 --> 00:24:39.370
+to click on it, to read more.
+
+00:24:39.860 --> 00:24:44.220
+Does that mean now that we have
+to bring back the Read More link?
+
+00:24:44.550 --> 00:24:49.110
+Yes, I think so because
+just by adding this back in,
+
+00:24:49.240 --> 00:24:50.740
+even though we don't need it
+
+00:24:50.810 --> 00:24:56.810
+anymore as a link, where we have a clear--
+A very, very clear signal,
+
+00:24:56.910 --> 00:24:59.800
+this is what happens when you click on
+this and you're supposed to click on this.
+
+00:25:00.820 --> 00:25:03.390
+I think this is a good thing
+for accessibility but of course,
+
+00:25:03.490 --> 00:25:06.520
+because we don't need it as a link,
+we don't add it back in as a link.
+
+00:25:06.920 --> 00:25:09.090
+We just add it back in as a declaration.
+
+00:25:11.460 --> 00:25:12.560
+How you can do it is
+
+00:25:12.560 --> 00:25:15.060
+that you just add a spam
+
+00:25:15.970 --> 00:25:18.770
+tag for the read more
+
+00:25:18.870 --> 00:25:22.710
+and you mark it up visually
+however you like it,
+
+00:25:22.810 --> 00:25:25.270
+however your design system
+
+00:25:25.480 --> 00:25:28.000
+wants the link to look like.
+
+00:25:29.650 --> 00:25:31.450
+It doesn't matter
+that it's not actually a link
+
+00:25:31.450 --> 00:25:38.020
+because the whole card is clickable
+and so you can just click on it.
+
+00:25:38.240 --> 00:25:43.910
+We don't want to give this
+
+00:25:44.020 --> 00:25:46.730
+also to a screen reader user
+because for them
+
+00:25:47.200 --> 00:25:51.020
+it's confusing that
+it's decorative as a link.
+
+00:25:51.130 --> 00:25:55.240
+It's for people who can see the card
+
+00:25:55.540 --> 00:25:59.680
+because when you're using a screen reader,
+the screen reader announces
+
+00:25:59.780 --> 00:26:01.000
+this is a link.
+
+00:26:03.350 --> 00:26:05.920
+We use a little bit of ARIA here
+
+00:26:06.650 --> 00:26:10.290
+with an ARIA hidden value
+of true on the span element.
+
+00:26:10.510 --> 00:26:11.620
+We take it out.
+
+00:26:12.790 --> 00:26:18.260
+Now, this is a good solution for screen
+reader users who can't see the card
+
+00:26:19.300 --> 00:26:22.870
+but there's also sighted
+
+00:26:22.970 --> 00:26:25.500
+screen reader users,
+so people who use a screen reader
+
+00:26:25.600 --> 00:26:29.340
+for a variety of reasons
+because they have low vision or it
+
+00:26:29.410 --> 00:26:31.970
+helps them
+digest information, for example.
+
+00:26:33.110 --> 00:26:35.580
+Then for them, it's a bit confusing
+that there is something
+
+00:26:35.580 --> 00:26:38.080
+that looks like a link.
+
+00:26:39.320 --> 00:26:41.080
+It looks like something
+you can interact with,
+
+00:26:41.080 --> 00:26:42.930
+but it's not read aloud.
+
+00:26:43.650 --> 00:26:46.060
+This can be confusing.
+
+00:26:46.160 --> 00:26:49.990
+Then to remedy this,
+
+00:26:50.090 --> 00:26:52.600
+there's another trick we can use.
+
+00:26:53.730 --> 00:26:58.200
+We can still keep it as ARIA hidden,
+
+00:26:59.170 --> 00:27:01.670
+but we give it an ID
+
+00:27:01.970 --> 00:27:04.810
+and then we link
+
+00:27:05.110 --> 00:27:09.580
+that ID to the actual link, reconnect it
+
+00:27:10.710 --> 00:27:12.750
+with ARIA described by.
+
+00:27:12.850 --> 00:27:15.820
+That means on the link tag,
+you have an ARIA described by
+
+00:27:15.920 --> 00:27:18.350
+and then the ID of your readmore span.
+
+00:27:19.660 --> 00:27:23.390
+What this does is
+it doesn't look any different visually
+
+00:27:23.790 --> 00:27:28.360
+but what it does is that it makes it
+so the read-more is announced
+
+00:27:28.460 --> 00:27:33.570
+when a screen reader like reads the link.
+
+00:27:34.270 --> 00:27:37.940
+It would say link to link--
+
+00:27:38.470 --> 00:27:41.440
+I'm really bad-- I don't know--
+I don't have it memorized so which screen
+
+00:27:41.510 --> 00:27:45.410
+reader would read it out
+but it would basically be link rare birds
+
+00:27:45.510 --> 00:27:49.120
+to see that is the headline
+and then read more
+
+00:27:49.220 --> 00:27:52.720
+because the description ARIA described by
+is always read out last.
+
+00:27:52.960 --> 00:27:55.890
+This is really good in this use case.
+
+00:27:56.830 --> 00:28:00.530
+That is something
+where we can make it more accessible
+
+00:28:00.630 --> 00:28:03.130
+for all screen reader users.
+
+00:28:05.130 --> 00:28:07.640
+Then let's see what else we can do.
+
+00:28:08.970 --> 00:28:09.970
+Oh, yes,
+
+00:28:10.210 --> 00:28:12.710
+sorry, I forgot what the next slide was.
+
+00:28:13.610 --> 00:28:16.050
+Then in WordPress,
+you're working in WordPress
+
+00:28:16.150 --> 00:28:19.110
+and so you're probably
+writing a loop for this
+
+00:28:19.480 --> 00:28:22.720
+and then you're not hard
+coding all the IDs.
+
+00:28:23.290 --> 00:28:27.060
+What you need is
+to have a unique ID that is
+
+00:28:27.680 --> 00:28:29.970
+automatically generated by your code.
+
+00:28:34.360 --> 00:28:38.500
+One way how I do it in PHP
+
+00:28:39.940 --> 00:28:43.970
+is that I use the headline,
+the title of the article
+
+00:28:44.770 --> 00:28:48.180
+that we're linking to here as the basis
+
+00:28:48.280 --> 00:28:53.720
+how I generate the ID because I assume
+
+00:28:54.780 --> 00:28:58.090
+that those titles will always be unique.
+
+00:28:58.250 --> 00:29:00.160
+I just hope that the editors work
+like that.
+
+00:29:00.260 --> 00:29:03.230
+That they don't create
+a lot of blog articles with the exact same
+
+00:29:03.330 --> 00:29:04.880
+headline title.
+
+00:29:05.840 --> 00:29:11.970
+I turn the headline into the title
+of the article into an ID
+
+00:29:12.070 --> 00:29:14.800
+with this nifty little PHP,
+
+00:29:14.900 --> 00:29:17.410
+who is excited that we're seeing PHP here.
+
+00:29:18.310 --> 00:29:20.680
+I'm just going to explain it real quick,
+but it's probably better
+
+00:29:20.770 --> 00:29:22.610
+if you get the slides and copy it.
+
+00:29:23.250 --> 00:29:27.480
+Basically, we have a variable, the title
+
+00:29:27.750 --> 00:29:31.290
+that we just get with get the title
+and now we have the title of the article.
+
+00:29:32.320 --> 00:29:36.030
+Then we need to turn that article
+because it has spaces
+
+00:29:36.130 --> 00:29:39.560
+and maybe some funky symbols
+in there or whatever
+
+00:29:40.040 --> 00:29:42.100
+and we can't have that as the ID.
+
+00:29:42.100 --> 00:29:45.080
+We need to turn it into something
+that can actually work as an ID.
+
+00:29:45.940 --> 00:29:48.400
+I'm using a delimiter as a--
+
+00:29:48.500 --> 00:29:51.010
+What I want to use as a separator
+between the words.
+
+00:29:52.510 --> 00:29:55.010
+Just like a dash, a URL kind of.
+
+00:29:56.080 --> 00:29:58.550
+Then I generate the ID
+
+00:29:58.650 --> 00:30:05.020
+with basically a lot of PHP replacements
+
+00:30:05.120 --> 00:30:08.620
+and turning it into lower case
+
+00:30:08.720 --> 00:30:11.230
+then replacing all of
+
+00:30:14.360 --> 00:30:18.530
+the spaces and all of that
+and with the delimiter, et cetera
+
+00:30:18.630 --> 00:30:20.020
+just copy the code.
+
+00:30:20.170 --> 00:30:22.400
+Then I can use it in my template.
+
+00:30:22.500 --> 00:30:26.880
+I can just echo
+the ID in the span for the read more link
+
+00:30:26.980 --> 00:30:30.050
+and then I have a unique
+ID in WordPress, which is really cool.
+
+00:30:33.420 --> 00:30:36.720
+Now we have it in a pretty good state,
+
+00:30:36.820 --> 00:30:39.620
+but there's still a lot of-
+some things that we can do to improve it.
+
+00:30:40.690 --> 00:30:44.860
+What I want to talk about now
+is keyboard navigation.
+
+00:30:45.030 --> 00:30:49.400
+People who use the keyboard
+and how that experience would be for them.
+
+00:30:50.030 --> 00:30:52.530
+If you tap to this card now,
+
+00:30:53.870 --> 00:30:58.930
+the keyboard focus goes
+to the actual link.
+
+00:30:59.380 --> 00:31:01.880
+Here, I'm showing the card
+
+00:31:05.480 --> 00:31:07.350
+with a visual keyboard
+
+00:31:07.350 --> 00:31:09.850
+focus of a dotted line
+around the headline.
+
+00:31:12.320 --> 00:31:17.060
+This is fine,
+
+00:31:17.390 --> 00:31:20.400
+but it doesn't really represent
+
+00:31:20.500 --> 00:31:22.970
+that you can interact with the whole card.
+
+00:31:23.270 --> 00:31:25.800
+It's also confusing
+why doesn't it go to the read more
+
+00:31:25.900 --> 00:31:27.310
+because it looks like a link.
+
+00:31:28.770 --> 00:31:30.010
+What we want
+
+00:31:30.110 --> 00:31:33.410
+is to have the visual focus
+around the whole card.
+
+00:31:34.040 --> 00:31:38.250
+Here in this example, I put it around
+the dotted line around the whole card
+
+00:31:38.780 --> 00:31:42.180
+and actually how we do it
+is that we remove
+
+00:31:42.520 --> 00:31:45.750
+in CSS the outline on the link tag.
+
+00:31:46.510 --> 00:31:48.930
+One of the very few cases
+
+00:31:49.040 --> 00:31:52.260
+where you can do this
+because we're removing it there,
+
+00:31:52.360 --> 00:31:56.800
+but we're adding it to the pseudo-element
+
+00:31:56.930 --> 00:31:59.220
+when the link gets focused.
+
+00:31:59.640 --> 00:32:02.300
+This way, when somebody taps to the card,
+
+00:32:02.670 --> 00:32:05.170
+the whole card gets the focus.
+
+00:32:06.710 --> 00:32:08.730
+That's how I do it in my project.
+
+00:32:10.710 --> 00:32:13.720
+Then also what you might want to add is
+
+00:32:13.820 --> 00:32:17.420
+you want to add also a type
+of hover effect.
+
+00:32:17.850 --> 00:32:21.360
+Usually, I have a hover effect
+
+00:32:21.770 --> 00:32:23.570
+that I show
+
+00:32:23.770 --> 00:32:26.700
+when somebody hovers
+with their mouth above the card
+
+00:32:26.860 --> 00:32:29.770
+but then also I add the hover effect
+to the focus,
+
+00:32:31.370 --> 00:32:33.220
+to the focus style.
+
+00:32:34.340 --> 00:32:35.870
+Here, for example,
+
+00:32:35.970 --> 00:32:39.810
+I'm giving the span
+that has our decorative
+
+00:32:39.910 --> 00:32:45.050
+read more link, I'm giving it
+a different background color.
+
+00:32:46.620 --> 00:32:49.590
+For the hover effect,
+you can use a different hover effect.
+
+00:32:51.370 --> 00:32:53.240
+You can creativity.
+
+00:32:55.770 --> 00:32:57.040
+Let's see.
+
+00:32:58.130 --> 00:33:00.000
+Now we're going to talk about the images.
+
+00:33:00.730 --> 00:33:05.860
+I hope maybe some of you
+have been waiting for this.
+
+00:33:08.540 --> 00:33:13.110
+The question with images is always do
+they convey important information
+
+00:33:13.980 --> 00:33:16.180
+that a screen reader user should have
+
+00:33:16.180 --> 00:33:18.650
+or are they decorative?
+
+00:33:18.750 --> 00:33:21.260
+If they contain informative information
+that they should have
+
+00:33:21.350 --> 00:33:23.640
+a descriptive alt text,
+alternative text.
+
+00:33:24.620 --> 00:33:26.990
+If not, then you can mark
+
+00:33:26.990 --> 00:33:29.490
+the images as decorative with an empty
+alt text.
+
+00:33:30.530 --> 00:33:32.060
+In this case,
+
+00:33:32.160 --> 00:33:36.130
+I know that there's a debate also on
+when is an image decorative or not.
+
+00:33:36.670 --> 00:33:41.640
+I must say that with cards,
+I err on the side
+
+00:33:42.140 --> 00:33:44.310
+on wanting to give screen reader users
+
+00:33:44.310 --> 00:33:46.810
+the same type of efficiency
+
+00:33:47.310 --> 00:33:49.810
+that I as a sighted person have.
+
+00:33:49.950 --> 00:33:52.200
+For example, here, it's a blog article
+
+00:33:52.880 --> 00:33:56.390
+and I'm pretty sure
+that when I select images for blog
+
+00:33:56.490 --> 00:33:58.990
+articles, I'm not looking
+
+00:33:59.250 --> 00:34:01.760
+"Oh-- In many cases, I'm not looking." Oh,
+
+00:34:01.890 --> 00:34:05.390
+do I want to specifically show
+this specific image of the bird?
+
+00:34:05.490 --> 00:34:10.670
+No, I just want to have a bird
+or an article about birds."
+
+00:34:11.070 --> 00:34:12.530
+It doesn't really matter that it
+
+00:34:12.530 --> 00:34:15.470
+is this particular photo
+and I think for efficiency
+
+00:34:15.570 --> 00:34:20.080
+so that screen reader users
+don't have to read, listen to all of that,
+
+00:34:20.810 --> 00:34:23.310
+I would leave the alternative tag empty
+
+00:34:23.850 --> 00:34:28.050
+but I think there are use cases
+where you definitely have
+
+00:34:29.050 --> 00:34:31.050
+an informative image in a card
+
+00:34:31.150 --> 00:34:34.120
+that actually determines
+if a user wants to click on this.
+
+00:34:35.760 --> 00:34:37.430
+For example, here,
+
+00:34:37.530 --> 00:34:40.300
+I'm showing more of an e-commerce use case
+
+00:34:40.400 --> 00:34:44.870
+where the cards are not for a blog,
+but for products.
+
+00:34:45.240 --> 00:34:47.150
+Each card has a product
+
+00:34:48.870 --> 00:34:51.370
+and so here
+I have three cards next to each other.
+
+00:34:51.740 --> 00:34:55.740
+Instead of a read more link,
+we now have a buy link or I should have
+
+00:34:55.810 --> 00:34:59.080
+probably said go to details
+
+00:34:59.220 --> 00:35:01.240
+or something like that.
+
+00:35:01.910 --> 00:35:04.460
+Anyway, the point
+I'm making here is that
+
+00:35:06.950 --> 00:35:08.400
+a lot of product names
+
+00:35:08.490 --> 00:35:11.560
+sometimes have, I'm not really descriptive
+of what the thing is.
+
+00:35:11.760 --> 00:35:14.960
+For example, here I've chose product names
+
+00:35:15.060 --> 00:35:17.870
+such as Birdy Max Ultra Precision,
+
+00:35:17.970 --> 00:35:20.470
+and then the image shows a telescope
+
+00:35:20.800 --> 00:35:24.470
+or Birdy Max Lightweight On The Go.
+
+00:35:24.570 --> 00:35:25.410
+You wouldn't know
+
+00:35:26.540 --> 00:35:27.780
+from this headline if you
+
+00:35:27.880 --> 00:35:30.280
+didn't have the image of the binoculars
+
+00:35:30.280 --> 00:35:32.780
+that these would actually be binoculars.
+
+00:35:32.880 --> 00:35:35.820
+I think you can't rely with e-commerce
+
+00:35:36.180 --> 00:35:42.460
+that the title is always very descriptive
+and you don't need the image anymore
+
+00:35:42.460 --> 00:35:46.630
+and also there's some often variations
+of the same product
+
+00:35:47.130 --> 00:35:49.880
+and you need to show that in an image.
+
+00:35:51.370 --> 00:35:54.400
+Here it's definitely a case for
+alternative text
+
+00:35:56.170 --> 00:35:58.470
+and so here I'm showing again
+
+00:35:58.550 --> 00:36:01.620
+the HTML markup and I'm adding
+the alternative text in here.
+
+00:36:02.180 --> 00:36:06.650
+The Birdy Max Ultra Precision is a purple
+telescope with a three-legged stand.
+
+00:36:07.000 --> 00:36:08.770
+That is the alternative text.
+
+00:36:11.090 --> 00:36:13.290
+The problem with this approach
+
+00:36:13.420 --> 00:36:16.660
+though is that when a screen reader user
+
+00:36:16.930 --> 00:36:21.030
+navigates the page
+by listing out all the headlines
+
+00:36:22.300 --> 00:36:27.060
+and then jumping to the headline
+that they find interesting,
+
+00:36:27.740 --> 00:36:30.880
+they might miss the image because
+they jump directly to the headline
+
+00:36:31.000 --> 00:36:35.200
+and here the image
+is before the headline.
+
+00:36:35.420 --> 00:36:37.600
+They would jump right over it.
+
+00:36:39.000 --> 00:36:44.440
+A better semantic or structure,
+logical structure of this
+
+00:36:44.620 --> 00:36:47.390
+would be to have the headline
+
+00:36:47.720 --> 00:36:50.190
+before the image.
+
+00:36:50.290 --> 00:36:52.630
+This is what I'm showing here with this.
+
+00:36:52.730 --> 00:36:54.700
+I changed the card layout around
+
+00:36:54.820 --> 00:36:56.820
+so that the image is below the headline.
+
+00:36:57.000 --> 00:36:58.480
+I don't know about you,
+
+00:36:58.570 --> 00:37:01.220
+but my designer would not like
+if I did that.
+
+00:37:02.170 --> 00:37:06.240
+Usually, you have the image
+
+00:37:06.340 --> 00:37:08.440
+first in the visual layout.
+
+00:37:09.880 --> 00:37:12.350
+What you can do then,
+
+00:37:13.180 --> 00:37:17.850
+luckily, you can use a Flexbox CSS layout,
+
+00:37:17.950 --> 00:37:20.390
+and there if you then mark it up
+
+00:37:20.490 --> 00:37:22.990
+as flex-direction column,
+
+00:37:23.590 --> 00:37:25.830
+you can change the order,
+
+00:37:25.930 --> 00:37:31.060
+the visual order of the image
+of the items with CSS
+
+00:37:31.200 --> 00:37:33.140
+so you give the image a negative order
+
+00:37:33.240 --> 00:37:34.770
+so it comes up on top.
+
+00:37:37.620 --> 00:37:42.410
+In many, many cases, you're not supposed
+to change the visual layout
+
+00:37:43.450 --> 00:37:47.420
+of the of a page with CSS
+because it can be very confusing,
+
+00:37:48.450 --> 00:37:51.090
+for example, for the tab order
+
+00:37:51.650 --> 00:37:54.090
+but in this case,
+the image is not tabable.
+
+00:37:54.090 --> 00:37:57.000
+We're not messing with the tab order
+this way.
+
+00:37:57.480 --> 00:37:59.570
+I think it can be permitted.
+
+00:38:05.230 --> 00:38:07.740
+The only thing would be maybe
+
+00:38:08.470 --> 00:38:10.970
+a sighted screen reader user
+
+00:38:11.240 --> 00:38:12.910
+would maybe be a bit confused
+
+00:38:12.910 --> 00:38:15.610
+why the visual order
+doesn't match the order that is read.
+
+00:38:16.210 --> 00:38:19.280
+I'm hoping
+and you can correct me if I'm wrong,
+
+00:38:19.380 --> 00:38:22.020
+but I'm hoping that
+this is just a slight irritation.
+
+00:38:22.120 --> 00:38:24.240
+It's still the best compromise.
+
+00:38:24.890 --> 00:38:27.460
+Also, if you get
+this is a very common pattern
+
+00:38:27.560 --> 00:38:30.130
+so I'm expecting people to know
+
+00:38:31.310 --> 00:38:32.750
+this pattern a bit.
+
+00:38:33.620 --> 00:38:35.400
+I'm coming to the end.
+
+00:38:35.730 --> 00:38:38.230
+Now the most important takeaways,
+
+00:38:39.170 --> 00:38:41.140
+format your cards as a list.
+
+00:38:42.400 --> 00:38:43.240
+Put a link
+
+00:38:43.240 --> 00:38:45.670
+around the most important elements.
+
+00:38:45.770 --> 00:38:48.880
+Make the whole card clickable
+by adding a pseudo-element
+
+00:38:48.980 --> 00:38:51.480
+or using this JavaScript trick.
+
+00:38:53.000 --> 00:38:54.580
+If you have additional links
+
+00:38:54.580 --> 00:38:59.590
+in the card, make them clickable
+by raising them above the pseudo-element
+
+00:38:59.720 --> 00:39:03.390
+with Z-index
+and adding padding to reduce mis-taps.
+
+00:39:04.330 --> 00:39:08.260
+Also, make it clear what the card does
+with a descriptive call to action
+
+00:39:08.660 --> 00:39:11.600
+connected to the link
+with ARIA-describe-by.
+
+00:39:13.270 --> 00:39:15.740
+Add focus on hover styles
+to the whole card.
+
+00:39:16.670 --> 00:39:19.740
+Add empty alt text
+if the image is decorative.
+
+00:39:20.410 --> 00:39:23.580
+Add alt text for any images
+that add important information
+
+00:39:23.680 --> 00:39:26.180
+and in that case, consider changing
+
+00:39:26.520 --> 00:39:29.020
+if the image is before
+
+00:39:29.520 --> 00:39:31.650
+the headline,
+
+00:39:31.750 --> 00:39:34.220
+consider changing the visual order.
+
+00:39:34.840 --> 00:39:37.330
+That is that.
+
+00:39:38.590 --> 00:39:41.160
+I would be super happy if you connected
+with me, for example, on LinkedIn,
+
+00:39:41.310 --> 00:39:43.870
+and share your card designs.
+
+00:39:43.970 --> 00:39:45.530
+Thank you very much.
+
+00:39:48.880 --> 00:39:50.970
+Tina,
+thank you so much for your presentation.
+
+00:39:51.070 --> 00:39:54.380
+We've had a very lively chat
+and a lot of technical questions
+
+00:39:54.480 --> 00:39:57.980
+in the Q&amp;A that may just be short answer
+or you may have answered them.
+
+00:39:58.110 --> 00:40:01.420
+I'm just going to read them
+and we'll start that way.
+
+00:40:03.050 --> 00:40:05.250
+Does the trick
+with the pseudo-element work
+
+00:40:05.250 --> 00:40:07.260
+well for voice users?
+
+00:40:10.290 --> 00:40:11.750
+Tina: That is a very good question.
+
+00:40:12.690 --> 00:40:13.860
+I'll have to test that.
+
+00:40:13.860 --> 00:40:17.730
+Honestly, I have not tested it
+but I think for voice users,
+
+00:40:18.600 --> 00:40:21.100
+my assumption is that
+
+00:40:25.220 --> 00:40:28.410
+what makes it accessible for voice
+is the name of the link.
+
+00:40:29.510 --> 00:40:30.880
+Yes, this is definitely something.
+
+00:40:30.880 --> 00:40:33.080
+This is a really good point,
+thank you for bringing this up.
+
+00:40:33.180 --> 00:40:35.860
+Tina: I'm going to give it a think.
+Sherose: Absolutely.
+
+00:40:36.040 --> 00:40:37.790
+Another technical question.
+
+00:40:37.970 --> 00:40:41.660
+For mobile,
+how big should the margins, in pixels
+
+00:40:41.760 --> 00:40:45.360
+perhaps, should they be to separate
+one card from another?
+
+00:40:45.460 --> 00:40:47.200
+Is there some standard for that?
+
+00:40:48.660 --> 00:40:51.170
+Tina:
+There's no standard as far as I know.
+
+00:40:52.800 --> 00:40:54.000
+I would test it.
+
+00:40:54.130 --> 00:40:57.480
+Just be on a mobile, use your thumb
+
+00:40:59.310 --> 00:41:02.280
+but there's no like official guideline
+or anything that I know of.
+
+00:41:03.850 --> 00:41:04.840
+Sherose: Excellent.
+
+00:41:05.550 --> 00:41:07.120
+Another question.
+
+00:41:07.120 --> 00:41:11.050
+For keyboard navigation,
+putting the focus on the card is enough
+
+00:41:11.150 --> 00:41:17.080
+to determine that it's clickable element
+or should the focus go on read more?
+
+00:41:19.790 --> 00:41:22.300
+Tina: Yes, also a good question.
+
+00:41:22.530 --> 00:41:25.900
+I think that there's not a super right
+or wrong answer with that.
+
+00:41:26.100 --> 00:41:30.470
+It depends on when you test it,
+what is the most understandable.
+
+00:41:30.810 --> 00:41:33.310
+I think I usually put it on the whole card
+
+00:41:34.380 --> 00:41:39.370
+to say, "This is the element
+that you can click."
+
+00:41:39.660 --> 00:41:45.240
+I don't know but yes.
+
+00:41:45.820 --> 00:41:49.820
+Then I also add hover styles to it
+to make it a bit more clear.
+
+00:41:51.600 --> 00:41:56.000
+Sherose: To that end, we have
+another question in the Q&amp;A.
+
+00:41:56.460 --> 00:42:00.500
+Can you accomplish this on a beginner
+level by making the card full focus
+
+00:42:00.600 --> 00:42:05.110
+when you hover and be okay with that
+or do you have to create a card
+
+00:42:05.210 --> 00:42:07.550
+and then add the CSS?
+
+00:42:13.800 --> 00:42:15.250
+Tina: Sorry, can you say it again?
+
+00:42:15.880 --> 00:42:18.390
+Sherose: Sure, yes,
+I'll read it word for word.
+
+00:42:18.890 --> 00:42:21.360
+Can you accomplish this
+on a beginner level
+
+00:42:21.560 --> 00:42:25.830
+by making the card full focus
+when you hover and be okay with that
+
+00:42:26.090 --> 00:42:28.560
+or do you have to create the card
+
+00:42:28.560 --> 00:42:30.800
+and add CSS?
+
+00:42:32.620 --> 00:42:37.800
+Tina: Yes, so just using the hover
+would not be enough
+
+00:42:38.310 --> 00:42:41.280
+because it would only be accessible
+to mouse users.
+
+00:42:42.440 --> 00:42:43.950
+I'm not sure if I get the question
+
+00:42:44.130 --> 00:42:48.480
+right but generally, this is to anybody
+who is seeing this
+
+00:42:48.620 --> 00:42:50.390
+and is like,
+"Okay this is not beginner level,"
+
+00:42:50.490 --> 00:42:54.660
+then yes,
+it's unfortunate that a lot of themes
+
+00:42:54.760 --> 00:42:57.230
+make it really hard to do this
+out of the box.
+
+00:42:57.630 --> 00:43:00.500
+This is more like--
+What I've shown here is more like, "Okay,
+
+00:43:00.730 --> 00:43:04.730
+this is when I custom
+PHP write my templates, how I do it."
+
+00:43:06.000 --> 00:43:09.640
+but also really take
+a look at this.
+
+00:43:10.600 --> 00:43:13.510
+For example, what Amber Hinds
+did [?] with
+
+00:43:15.140 --> 00:43:17.650
+the page builder comparison.
+
+00:43:17.850 --> 00:43:20.980
+If this is a bit too technical,
+
+00:43:21.080 --> 00:43:23.520
+then really make sure
+that you do your research
+
+00:43:23.600 --> 00:43:29.480
+when you choose a theme
+so that hopefully most of these features
+
+00:43:29.620 --> 00:43:31.430
+are already provided by the theme,
+
+00:43:31.530 --> 00:43:33.910
+which is what I think
+all themes should do.
+
+00:43:34.750 --> 00:43:36.430
+Sherose: I think also in some cases,
+
+00:43:36.530 --> 00:43:39.030
+Tina, the developers are in a position
+
+00:43:39.130 --> 00:43:42.100
+where they have to use a theme selected
+for them.
+
+00:43:42.640 --> 00:43:45.940
+In that case, they may be developing
+with the block editor
+
+00:43:46.040 --> 00:43:48.540
+and have limited access to the back end,
+if any.
+
+00:43:48.840 --> 00:43:51.980
+In that case, it's possible that then
+
+00:43:53.080 --> 00:43:54.950
+developing the card would show
+
+00:43:54.950 --> 00:43:57.450
+that it only has hover focus.
+
+00:43:57.550 --> 00:44:01.020
+Then, in that case,
+they would have to use custom
+
+00:44:01.120 --> 00:44:05.430
+Sherose: CSS to add [crosstalk].
+Tina: Yes, yes, yes.
+
+00:44:05.530 --> 00:44:09.200
+Tina: In that case, you need to add CSS.
+Sherose: Thank you.
+
+00:44:09.500 --> 00:44:11.370
+We have a question about the DOM.
+
+00:44:11.470 --> 00:44:13.940
+Shouldn't the heading start the card
+
+00:44:14.100 --> 00:44:16.600
+even if visually it's the image
+before the heading?
+
+00:44:16.700 --> 00:44:20.570
+This is a pattern
+I've seen often in inclusive components.
+
+00:44:22.220 --> 00:44:27.310
+Tina: The question would be
+should it just always start-
+
+00:44:28.350 --> 00:44:29.800
+Sherose: Yes--
+Tina: with a headline?
+
+00:44:29.850 --> 00:44:35.260
+Tina: Yes.
+Sherose: Yes, visually we'll see the image
+
+00:44:35.400 --> 00:44:37.660
+and whether or not that has alt
+text is one thing.
+
+00:44:37.760 --> 00:44:40.030
+We'll have the image,
+the heading, the blurb,
+
+00:44:40.030 --> 00:44:42.930
+and then there's a button for read more,
+learn more.
+
+00:44:43.600 --> 00:44:46.870
+The question is asking in the DOM,
+shouldn't it be switched
+
+00:44:47.100 --> 00:44:49.820
+so that the heading comes
+before the image?
+
+00:44:54.710 --> 00:44:58.150
+Tina: Yes, I think that this depends on
+what this image is.
+
+00:44:58.250 --> 00:45:00.320
+Does it really add information or not?
+
+00:45:00.320 --> 00:45:01.680
+If it's a decorative image,
+
+00:45:01.680 --> 00:45:04.250
+then I don't think it matters
+that it is before the headline
+
+00:45:04.820 --> 00:45:07.590
+but if anybody has a different
+take on this and something that
+
+00:45:07.660 --> 00:45:11.060
+I might not have considered,
+then I'm super happy to discuss this
+
+00:45:11.600 --> 00:45:13.240
+and people can reach out to me.
+
+00:45:14.240 --> 00:45:17.000
+Sherose: I'm watching the chat to see
+if there's any more input on that one.
+
+00:45:18.030 --> 00:45:20.540
+Another more technical question.
+
+00:45:20.740 --> 00:45:23.810
+Would the article elements in a list
+
+00:45:23.910 --> 00:45:26.410
+make more sense semantically
+for the card?
+
+00:45:28.440 --> 00:45:30.400
+Tina: Article elements in a list.
+
+00:45:31.150 --> 00:45:32.450
+Sherose:
+That's what the question is asking.
+
+00:45:32.510 --> 00:45:37.060
+I'm not too familiar with [?] the article
+element or seeing it in [?] block.
+
+00:45:37.970 --> 00:45:39.840
+Tina: Yes, I don't think--
+
+00:45:42.460 --> 00:45:51.730
+A list has to list item in it
+to be HTML valid.
+
+00:45:52.700 --> 00:45:55.140
+I'm not sure if you can add
+
+00:45:55.240 --> 00:45:58.940
+a landmark in there
+and still have proper HTML
+
+00:46:00.210 --> 00:46:02.280
+and I don't see the--
+
+00:46:02.380 --> 00:46:08.660
+The article would not really give
+any additional value
+
+00:46:08.910 --> 00:46:10.520
+to the element in my view.
+
+00:46:10.620 --> 00:46:12.930
+I don't think I would do that.
+
+00:46:15.060 --> 00:46:21.530
+Sherose: They are saying that they meant
+to use UL then the list item
+
+00:46:21.800 --> 00:46:24.930
+and within the list item, the article but
+I think what you're saying [crosstalk]-
+
+00:46:25.270 --> 00:46:29.000
+Tina: I'm not sure if that is valid
+had HTML to put a landmark in a list item.
+
+00:46:29.100 --> 00:46:29.840
+I'm not sure.
+
+00:46:29.840 --> 00:46:32.440
+It might be but, yes,
+I would have to look that up.
+
+00:46:33.270 --> 00:46:35.080
+Sherose: Whether it works or not,
+I think is one thing
+
+00:46:35.080 --> 00:46:37.950
+but I think if you're considering
+a screen reader's experience
+
+00:46:38.050 --> 00:46:41.520
+with that,
+they're navigating by certain elements.
+
+00:46:41.680 --> 00:46:46.090
+If they're navigating by them, they might
+miss some contextual information
+
+00:46:46.520 --> 00:46:51.750
+if they hit the article before
+they hit a heading
+
+00:46:51.860 --> 00:46:54.280
+or a picture [crosstalk].
+
+00:46:55.100 --> 00:46:58.910
+Tina: Most screen readers right now
+don't count.
+
+00:46:59.040 --> 00:47:02.640
+Don't include the article landmark
+in their list of landmarks
+
+00:47:02.740 --> 00:47:05.240
+like when you use landmark navigation.
+
+00:47:05.910 --> 00:47:07.780
+This would not add
+
+00:47:07.880 --> 00:47:11.450
+any benefit
+for a screen reader user to have a list
+
+00:47:11.550 --> 00:47:14.050
+and then also have the article.
+
+00:47:14.750 --> 00:47:15.720
+Sherose: Thank you, Tina.
+
+00:47:15.770 --> 00:47:19.790
+I didn't know that about articles
+not being accessible for screen readers
+
+00:47:19.890 --> 00:47:23.000
+Sherose: as a landmark [crosstalk].
+Tina: Only JAWS does it.
+
+00:47:23.460 --> 00:47:24.830
+Sherose: That's good to know
+
+00:47:25.130 --> 00:47:28.700
+but either way, if you're using a list
+item and you have paragraph text in it,
+
+00:47:28.930 --> 00:47:32.430
+you're making your item accessible
+to screen
+
+00:47:32.530 --> 00:47:35.170
+readers, sighted users, mouse users,
+touch users.
+
+00:47:36.350 --> 00:47:38.340
+That's awesome. Thank you.
+
+00:47:38.440 --> 00:47:39.910
+Let's see.
+
+00:47:43.810 --> 00:47:45.380
+You answered this one.
+
+00:47:45.480 --> 00:47:47.420
+Could you please describe once again
+
+00:47:47.520 --> 00:47:50.950
+what is the benefit of using
+unordered lists
+
+00:47:51.050 --> 00:47:53.710
+and list items
+for the card grid and cards?
+
+00:47:53.880 --> 00:47:56.480
+Tina: Yes. Welcome to it.
+
+00:47:58.190 --> 00:48:00.900
+The benefit
+of using a list markup for cards
+
+00:48:01.000 --> 00:48:03.770
+is that usually, you have multiple cards.
+
+00:48:03.870 --> 00:48:06.370
+You're showing a grid of multiple items
+
+00:48:06.800 --> 00:48:09.070
+and when you use the list markup,
+
+00:48:10.170 --> 00:48:14.010
+it gives screen reader users
+additional features.
+
+00:48:14.280 --> 00:48:17.150
+For example,
+they can- the screen reader reads,
+
+00:48:17.880 --> 00:48:20.480
+this is a list
+and then it also reads, there are
+
+00:48:21.550 --> 00:48:24.790
+nine items in this list
+and then there are additional navigation
+
+00:48:24.890 --> 00:48:30.190
+features that screen readers provide users
+for specifically for lists.
+
+00:48:30.630 --> 00:48:32.790
+This is where you can give screen
+
+00:48:32.790 --> 00:48:35.330
+readers the most benefit, I think.
+
+00:48:35.730 --> 00:48:38.200
+Otherwise, they just wouldn't have
+that input.
+
+00:48:39.730 --> 00:48:40.840
+Sherose: Thank you, Tina.
+
+00:48:41.440 --> 00:48:45.270
+We have time for one more question
+and you did cover this,
+
+00:48:45.370 --> 00:48:47.880
+but if you could cover it one more time
+just briefly?
+
+00:48:48.080 --> 00:48:51.010
+What is the benefit of accessibility
+
+00:48:51.110 --> 00:48:55.380
+benefit of making the entire card
+clickable versus
+
+00:48:56.020 --> 00:48:58.520
+having just one clickable element
+within it,
+
+00:48:58.820 --> 00:49:00.800
+for example, the headline?
+
+00:49:05.290 --> 00:49:07.800
+Tina: This is a question you can make
+
+00:49:08.500 --> 00:49:12.270
+just the headline clickable,
+and this would be compliant
+
+00:49:12.370 --> 00:49:16.570
+and I wouldn't flag it as like,
+"Oh, this is an accessibility mistake,"
+
+00:49:16.670 --> 00:49:17.670
+or something like that.
+
+00:49:17.770 --> 00:49:21.080
+No, this is more about usability.
+
+00:49:21.280 --> 00:49:24.950
+I don't know about other people,
+but when I see a blog list,
+
+00:49:25.910 --> 00:49:28.720
+blog articles, and their images, I try,
+
+00:49:28.950 --> 00:49:34.260
+especially on mobile, I click on the image
+and I expect it to lead to the article,
+
+00:49:34.360 --> 00:49:36.770
+and so I think it's something
+that we're used to
+
+00:49:36.910 --> 00:49:38.390
+because a lot of cards do it.
+
+00:49:38.560 --> 00:49:41.060
+Also in accessibility, you have to
+
+00:49:42.840 --> 00:49:44.300
+take into consideration
+
+00:49:44.300 --> 00:49:45.800
+what people are used to.
+
+00:49:46.550 --> 00:49:48.340
+Then I also think that
+
+00:49:48.480 --> 00:49:52.270
+if you can have a bigger click area,
+it is good, for example,
+
+00:49:52.370 --> 00:49:54.080
+for people with motor issues.
+
+00:49:56.380 --> 00:50:00.180
+Sometimes it's also a requirement
+that the designer says, like, "Hey,
+
+00:50:00.250 --> 00:50:02.110
+I want this whole thing clickable."
+
+00:50:02.240 --> 00:50:04.120
+It's a usability thing.
+
+00:50:04.220 --> 00:50:05.860
+It's not a mistake.
+
+00:50:07.020 --> 00:50:10.130
+Sherose: What I hear from you
+then is either option
+
+00:50:10.200 --> 00:50:12.330
+would meet WCAG criteria,
+
+00:50:12.430 --> 00:50:17.100
+if that's what you're using, either option
+but there is
+
+00:50:17.300 --> 00:50:20.430
+the larger touch area
+and a more common experience
+
+00:50:20.540 --> 00:50:23.530
+in making the card itself
+clickable entirely.
+
+00:50:23.660 --> 00:50:26.060
+Tina: Yes.
+Sherose: Awesome.
+
+00:50:26.150 --> 00:50:28.110
+Sherose: Tina, thank you so much.
+We are out of time.
+
+00:50:28.440 --> 00:50:30.980
+I want to thank everyone else
+for attending our session with Tina.
+
+00:50:31.250 --> 00:50:34.220
+You can continue the conversation
+in the chat or on social media.
+
+00:50:34.320 --> 00:50:36.080
+We have a few hashtags.
+
+00:50:36.180 --> 00:50:40.820
+Hashtag WP Ally Day and WP AD 2024.
+
+00:50:41.260 --> 00:50:47.730
+We'll also appreciate if you go to
+the 2024.wpaccessibility.day/feedback
+
+00:50:48.100 --> 00:50:51.400
+to provide anonymous feedback
+for our speakers on their presentation.
+
+00:50:51.930 --> 00:50:54.400
+You can also enter to win a T-shirt
+while you're there.
+
+00:50:54.500 --> 00:50:58.470
+Stay tuned for creating
+inclusive experiences with WooCommerce.
+
+00:50:59.140 --> 00:51:03.180
+This will be coming up next with Athira
+and Fahad from Barrier Break at
+
+00:51:04.040 --> 00:51:06.200
+13:00 p.m. UTC.
+
+00:51:06.330 --> 00:51:09.310
+While you're waiting,
+don't forget to visit our sponsors' pages
+
+00:51:09.440 --> 00:51:12.390
+to grab virtual swag and enter
+for a chance to win great prizes.
+
+00:51:12.510 --> 00:51:14.330
+See you after the break.
+
+00:51:17.830 --> 00:51:21.660
+Thank you to WordPress Accessibility Day
+2024 sponsors.
+
+00:51:22.260 --> 00:51:24.200
+Platinum Sponsor 20i.
+
+00:51:24.300 --> 00:51:27.200
+Easily build, deploy, and manage
+all your projects
+
+00:51:27.300 --> 00:51:29.800
+with 20i-managed WordPress hosting.
+
+00:51:29.970 --> 00:51:33.740
+One UI for all your servers, apps,
+sites, databases,
+
+00:51:34.040 --> 00:51:36.480
+security, DNS, and email.
+
+00:51:36.580 --> 00:51:39.550
+Perfect for agencies, e-commerce,
+developers,
+
+00:51:39.850 --> 00:51:42.350
+multi-site hosting,
+and high-traffic sites.
+
+00:51:43.120 --> 00:51:45.520
+Platinum sponsor Equalize Digital.
+
+00:51:45.620 --> 00:51:47.590
+Since all they do is accessibility,
+
+00:51:47.690 --> 00:51:50.660
+every post on their blog
+is an accessibility resource.
+
+00:51:51.130 --> 00:51:55.000
+You can find webinar recordings,
+articles, and additional resources
+
+00:51:55.330 --> 00:51:58.570
+at equalizedigital.com/resources.
+
+00:51:59.470 --> 00:52:01.640
+Platinum sponsor WPEngine.
+
+00:52:01.640 --> 00:52:05.540
+WPEngine provides
+the most relied-upon and trusted WordPress
+
+00:52:05.640 --> 00:52:09.640
+products for businesses, brands,
+and agencies of all sizes.
+
+00:52:10.780 --> 00:52:14.320
+Thanks to our gold sponsors
+GoDaddy, Grackle Docs,
+
+00:52:14.550 --> 00:52:18.820
+Gravity Forms, GreenGeeks,
+TPGI, and Yoast.
+
+00:52:19.280 --> 00:52:21.320
+Thank you to our silver sponsors
+
+00:52:21.420 --> 00:52:25.960
+CodeGeek, Drake Cooper,
+Elementor, Overnight Website,
+
+00:52:26.260 --> 00:52:30.130
+Pressable, Second Melody,
+and Accessibility Collective.

@@ -1,0 +1,2660 @@
+﻿WEBVTT
+
+00:00:00.660 --> 00:00:03.440
+- Announcer:
+WordPress Accessibility Day 2024.
+
+00:00:03.888 --> 00:00:05.420
+- Beyond Automation,
+
+00:00:05.530 --> 00:00:08.400
+Why Manual Accessibility Testing
+is Important,
+
+00:00:08.590 --> 00:00:12.750
+with speaker Victoria Nduka,
+User Experience Designer.
+
+00:00:13.439 --> 00:00:17.254
+This presentation
+was recorded October 2024.
+
+00:00:17.879 --> 00:00:19.379
+Piccia Neri: Good morning, everyone.
+
+00:00:19.379 --> 00:00:23.549
+Welcome
+to WordPress Accessibility Day 2024.
+
+00:00:23.810 --> 00:00:25.510
+My name is Piccia Neri.
+
+00:00:25.600 --> 00:00:29.160
+I am a UX and accessibility designer.
+
+00:00:30.179 --> 00:00:33.359
+I'm particularly looking forward
+to the next session.
+
+00:00:33.659 --> 00:00:38.189
+Please feel free to add
+all your questions in the Zoom Q&amp;A section
+
+00:00:38.520 --> 00:00:40.870
+and we'll answer them
+at the end of the session.
+
+00:00:41.009 --> 00:00:46.363
+Also, use the chat to interact with us
+and with the other attendees,
+
+00:00:46.467 --> 00:00:49.259
+which is always fun to do.
+
+00:00:50.909 --> 00:00:54.270
+The next session by Victoria
+
+00:00:55.829 --> 00:00:59.429
+is one I'm particularly looking forward to
+as a designer.
+
+00:00:59.940 --> 00:01:05.010
+The title is Beyond Automation,
+Why Manual Accessibility Testing
+
+00:01:05.069 --> 00:01:06.299
+is Important.
+
+00:01:06.599 --> 00:01:12.628
+Victoria Nduka is
+a user experience designer passionate
+
+00:01:12.629 --> 00:01:15.749
+about technology representation
+and accessibility.
+
+00:01:16.050 --> 00:01:19.168
+She writes technical articles
+about accessibility,
+
+00:01:19.169 --> 00:01:21.000
+design, and open source.
+
+00:01:21.510 --> 00:01:25.529
+As an open source enthusiast,
+Victoria not only contributes
+
+00:01:25.530 --> 00:01:26.730
+to projects herself,
+
+00:01:26.999 --> 00:01:29.970
+but also encourages
+others to get involved,
+
+00:01:30.029 --> 00:01:33.506
+especially non-code contributors,
+because that's really important.
+
+00:01:33.513 --> 00:01:35.939
+You don't have to write code
+to contribute.
+
+00:01:36.270 --> 00:01:41.158
+When she's not advocating
+for better digital accessibility or diving
+
+00:01:41.159 --> 00:01:42.840
+into open source work,
+
+00:01:43.140 --> 00:01:48.929
+she's making an impact in her home country
+through volunteering and public speaking.
+
+00:01:49.409 --> 00:01:51.609
+While Victoria
+dreams of traveling the world,
+
+00:01:51.780 --> 00:01:55.500
+she's currently focused
+on leaving her mark locally,
+
+00:01:55.769 --> 00:01:58.200
+one contribution at a time.
+
+00:01:58.579 --> 00:02:00.329
+I'm really looking forward to this.
+
+00:02:00.749 --> 00:02:03.028
+Thank you so much, Victoria,
+for being here.
+
+00:02:03.029 --> 00:02:04.938
+Over to you.
+
+00:02:05.148 --> 00:02:09.719
+Victoria Nduka: Thank you so much, Piccia,
+for the very [?] introduction.
+
+00:02:10.244 --> 00:02:13.345
+I'm going to quickly share my screen now.
+
+00:02:18.889 --> 00:02:19.889
+All right.
+
+00:02:20.029 --> 00:02:25.211
+Today I'm going to be talking
+about why manual accessibility testing
+
+00:02:25.391 --> 00:02:28.424
+is important beyond automated automation.
+
+00:02:29.364 --> 00:02:35.807
+Before I delve in, I would like to give
+a brief overview of what prompted
+
+00:02:35.867 --> 00:02:37.547
+or inspired this talk.
+
+00:02:38.329 --> 00:02:42.319
+Like Piccia mentioned,
+I'm an open source contributor,
+
+00:02:42.729 --> 00:02:45.681
+and also an ex-RTG intern.
+
+00:02:46.499 --> 00:02:52.409
+During my time as an RTG intern,
+I contributed to the caMicroscope project.
+
+00:02:52.979 --> 00:02:56.640
+My work was to improve
+the accessibility of the web application.
+
+00:02:56.739 --> 00:02:59.529
+That was my very first introduction
+to accessibility.
+
+00:02:59.650 --> 00:03:03.419
+During the contribution phase--
+RTG is usually in three phases.
+
+00:03:03.479 --> 00:03:06.194
+There's the initial application,
+the contribution phase,
+
+00:03:06.194 --> 00:03:07.684
+and the actual internship.
+
+00:03:07.764 --> 00:03:09.264
+During the contribution phase,
+
+00:03:09.954 --> 00:03:15.836
+I was able to integrate
+or incorporate AppScore,
+
+00:03:16.013 --> 00:03:20.270
+which is an automated testing tool,
+into the project GitHub repo.
+
+00:03:21.480 --> 00:03:26.580
+What that integration did was every push
+or commit that was made to the project
+
+00:03:27.169 --> 00:03:28.942
+will be tested within GitHub.
+
+00:03:29.332 --> 00:03:32.762
+The AppScore testing tool
+will run on GitHub.
+
+00:03:33.912 --> 00:03:40.050
+Accessibility issues can be caught earlier
+on and fixed before that PR is met
+
+00:03:40.213 --> 00:03:43.283
+so that we don't introduce
+more issues [?].
+
+00:03:44.736 --> 00:03:47.098
+At the time, I felt I had done
+a very huge contribution.
+
+00:03:47.098 --> 00:03:51.630
+It was huge because it was
+my first time working on an issue
+
+00:03:52.530 --> 00:03:53.530
+that technical.
+
+00:03:54.629 --> 00:03:57.919
+During the actual internship,
+the three months of the internship,
+
+00:03:58.308 --> 00:04:01.864
+I felt, "Hmm, I've done most of the work
+during the contribution phase,
+
+00:04:02.041 --> 00:04:04.945
+so I guess I don't have
+much work left to do.
+
+00:04:05.879 --> 00:04:06.879
+I was very wrong.
+
+00:04:07.850 --> 00:04:13.564
+I then started to work on manual testing
+during the internship.
+
+00:04:15.029 --> 00:04:22.265
+I realized just how much issues
+were missed by those automated tools.
+
+00:04:22.465 --> 00:04:26.159
+I thought there are a number of people
+like me who feel that it is enough
+
+00:04:26.161 --> 00:04:31.537
+to just run an automated Lighthouse
+on your web application
+
+00:04:31.557 --> 00:04:36.900
+and it lets you know
+where issues are so you fix that.
+
+00:04:37.170 --> 00:04:38.170
+That's okay,
+
+00:04:39.179 --> 00:04:44.961
+but accessibility testing
+is beyond automation.
+
+00:04:45.851 --> 00:04:47.701
+The manual testing is very important.
+
+00:04:47.891 --> 00:04:54.312
+That's the reason why I thought to come
+and share this topic with us today.
+
+00:04:59.180 --> 00:05:04.371
+In the next 40 minutes, we
+will learn what accessibility testing is,
+
+00:05:05.677 --> 00:05:09.210
+why we shouldn't rely only
+
+00:05:09.775 --> 00:05:10.825
+on automated testing,
+
+00:05:12.119 --> 00:05:14.310
+and when and what to test.
+
+00:05:16.949 --> 00:05:17.949
+Now let's dive in.
+
+00:05:18.319 --> 00:05:23.883
+First, we're going to define
+the terms accessibility testing.
+
+00:05:25.634 --> 00:05:30.150
+Accessibility testing is
+the process of evaluating a website,
+
+00:05:31.079 --> 00:05:35.726
+application, or digital product
+to check if it's usable by people
+
+00:05:35.727 --> 00:05:37.167
+with disabilities.
+
+00:05:39.020 --> 00:05:41.120
+I think that's simple and straightforward.
+
+00:05:41.344 --> 00:05:44.473
+Usually, this evaluation
+is done against the standard.
+
+00:05:44.522 --> 00:05:48.312
+[?] there should be a parameter,
+what you are using to gauge
+
+00:05:48.333 --> 00:05:50.453
+if it meets the standard.
+
+00:05:50.583 --> 00:05:55.139
+Now, this standard has been put forward
+
+00:05:55.799 --> 00:06:00.176
+by the World Wide Web Consortium,
+W3C,
+
+00:06:00.873 --> 00:06:04.953
+in what we know
+as the Web Content Accessibility Guideline
+
+00:06:05.473 --> 00:06:06.473
+or WCAG.
+
+00:06:06.623 --> 00:06:07.623
+I call it WCAG.
+
+00:06:08.553 --> 00:06:12.127
+Often, when you are running
+an accessibility test
+
+00:06:12.157 --> 00:06:14.047
+or you are performing
+an accessibility test,
+
+00:06:14.047 --> 00:06:17.016
+what we are doing is checking,
+does it meet the standard?
+
+00:06:17.017 --> 00:06:21.378
+If it does, then we know that people
+with disabilities can [?].
+
+00:06:23.346 --> 00:06:24.956
+Now, there are two testing techniques.
+
+00:06:24.956 --> 00:06:27.296
+I'm sure so far you must have caught
+this already.
+
+00:06:27.296 --> 00:06:28.616
+There is manual testing.
+
+00:06:29.874 --> 00:06:36.474
+Manual testing is
+where you manually test your product.
+
+00:06:37.444 --> 00:06:40.019
+All the processes, the user flow,
+
+00:06:40.889 --> 00:06:45.099
+make sure all the interactive components,
+make sure that everyone can use it,
+
+00:06:45.149 --> 00:06:46.149
+both people
+
+00:06:47.100 --> 00:06:48.700
+with disabilities and those [?].
+
+00:06:49.259 --> 00:06:52.229
+Automated testing is
+the second type of testing technique.
+
+00:06:52.569 --> 00:06:56.043
+This is where we use
+automated tools like WAVE,
+
+00:06:57.563 --> 00:07:00.093
+aXe, and Lighthouse.
+These are the common ones.
+
+00:07:03.302 --> 00:07:05.429
+Now, let's do a little exercise.
+
+00:07:06.807 --> 00:07:10.437
+I know we already have enough problems
+in the world of accessibility,
+
+00:07:10.487 --> 00:07:13.127
+so we don't [?] much problems to it.
+
+00:07:13.498 --> 00:07:15.218
+This has to be done, I'm sorry.
+
+00:07:16.027 --> 00:07:19.107
+Don't worry, it's not that deep.
+
+00:07:19.638 --> 00:07:20.368
+You can do it.
+
+00:07:20.498 --> 00:07:23.189
+The first problem
+
+00:07:23.969 --> 00:07:26.459
+is a simple math problem.
+
+00:07:27.979 --> 00:07:30.960
+We have a sum, two plus two.
+
+00:07:31.819 --> 00:07:34.028
+I'm sure most of us
+already know the answer.
+
+00:07:34.029 --> 00:07:35.580
+It's equal to four.
+That's easy.
+
+00:07:35.629 --> 00:07:38.189
+You can even count it on one hand.
+
+00:07:38.638 --> 00:07:39.638
+You have two,
+
+00:07:40.199 --> 00:07:43.039
+then two, that's four.
+
+00:07:43.949 --> 00:07:47.597
+Now, let's go to the second problem,
+which is still a sum.
+
+00:07:47.780 --> 00:07:51.530
+It should be easy.
+Sum is not that difficult [?].
+
+00:07:53.830 --> 00:08:01.822
+The problem is 200 plus
+731 plus 95 plus 44.
+
+00:08:03.020 --> 00:08:04.170
+Now, you can't do that.
+
+00:08:04.210 --> 00:08:05.710
+It's [?].
+You can't count that.
+
+00:08:05.897 --> 00:08:08.197
+You only have 10 digits.
+
+00:08:08.537 --> 00:08:11.617
+You're adding your toes to it, 20.
+
+00:08:12.137 --> 00:08:16.627
+You can't even count to 200
+with your hands and toes.
+
+00:08:17.027 --> 00:08:18.777
+How are you going to go about this?
+
+00:08:19.397 --> 00:08:25.197
+It will take a little more mental stress,
+
+00:08:25.307 --> 00:08:29.747
+mental work to solve this problem.
+
+00:08:30.637 --> 00:08:33.299
+Most times, our very first impulse,
+when we see
+
+00:08:33.960 --> 00:08:36.100
+a problem, that,
+"I know it's easy, it looks easy,
+
+00:08:36.100 --> 00:08:37.100
+it's a sum."
+
+00:08:37.950 --> 00:08:40.859
+Our very first impulse is
+to just whip out the calculator,
+
+00:08:41.809 --> 00:08:44.259
+and just punch in the numbers
+and get the answers.
+
+00:08:44.979 --> 00:08:46.530
+Why do we do that?
+To save time.
+
+00:08:47.810 --> 00:08:48.810
+Now,
+
+00:08:49.140 --> 00:08:52.709
+the calculator is a classic example
+of how much automation
+
+00:08:52.710 --> 00:08:53.710
+helps us.
+
+00:08:53.730 --> 00:08:56.861
+Thanks to Blaise Pascal
+and all the inventors after him,
+
+00:08:57.121 --> 00:08:59.421
+we have a calculator [?].
+
+00:09:01.592 --> 00:09:03.240
+Automated testing is great.
+
+00:09:04.140 --> 00:09:06.660
+It saves time, as you've just seen,
+
+00:09:07.440 --> 00:09:09.342
+and it handles repetitive tasks.
+
+00:09:09.372 --> 00:09:13.084
+In case you have plenty additions,
+a lot of numbers to add,
+
+00:09:14.000 --> 00:09:15.720
+you can just punch [?].
+
+00:09:16.370 --> 00:09:17.780
+It reduces manual workload.
+
+00:09:18.653 --> 00:09:22.517
+[?] started in 200 plus 159.
+
+00:09:23.460 --> 00:09:25.010
+With a calculator, it's easier.
+
+00:09:25.308 --> 00:09:28.829
+Automated testing is similar.
+
+00:09:29.400 --> 00:09:31.600
+It helps us in the same way
+with calculators.
+
+00:09:33.427 --> 00:09:36.067
+But, there's a but.
+
+00:09:39.808 --> 00:09:40.808
+What is that?
+
+00:09:42.060 --> 00:09:48.479
+This is a screenshot
+of a Lighthouse accessibility report.
+
+00:09:49.651 --> 00:09:51.930
+When you run Lighthouse on your webpage,
+
+00:09:53.910 --> 00:09:58.229
+and it loads, and it does the testing,
+this is a screenshot of what will appear
+
+00:09:58.530 --> 00:10:00.900
+on the right side of your screen.
+
+00:10:03.103 --> 00:10:06.056
+According to this screenshot,
+the webpage that we ran
+
+00:10:06.086 --> 00:10:11.099
+this test on has
+an accessibility score of 100.
+
+00:10:11.209 --> 00:10:12.209
+That is awesome.
+
+00:10:14.889 --> 00:10:17.632
+If you are the person running this test,
+and you see 100,
+
+00:10:17.632 --> 00:10:21.992
+you'd be like, "I think my website
+is accessible."
+
+00:10:26.880 --> 00:10:32.020
+If you take a close look
+at the second sentence on that screenshot,
+
+00:10:32.239 --> 00:10:33.947
+it says, automated testing
+
+00:10:33.997 --> 00:10:39.179
+can only detect a subset of issues
+
+00:10:39.759 --> 00:10:43.540
+and does not guarantee
+the accessibility of your web app.
+
+00:10:44.690 --> 00:10:46.810
+It doesn't stop there.
+It continues.
+
+00:10:47.040 --> 00:10:50.109
+Manual testing is also encouraged.
+
+00:10:52.240 --> 00:10:55.089
+That means even automated
+tools know their limitations.
+
+00:10:56.053 --> 00:10:58.699
+I know you are seeing 100,
+but you still have to go
+
+00:10:58.748 --> 00:11:00.910
+and test manually, just to be sure.
+
+00:11:02.951 --> 00:11:04.211
+In simple terms,
+
+00:11:04.761 --> 00:11:08.961
+automated testing
+alone is not enough,
+
+00:11:09.481 --> 00:11:13.990
+because automated testing tools
+don't catch all the accessibility issues
+
+00:11:14.339 --> 00:11:15.339
+on your website.
+
+00:11:19.660 --> 00:11:23.140
+Now the big question,
+what can automated tools do,
+
+00:11:24.142 --> 00:11:25.613
+and what can they not do?
+
+00:11:26.669 --> 00:11:27.669
+Let's find out.
+
+00:11:29.056 --> 00:11:31.580
+First, we're going to consider alt text.
+
+00:11:33.930 --> 00:11:36.493
+Automated tools will tell you
+whether an image
+
+00:11:36.531 --> 00:11:38.553
+has an alt text or not.
+
+00:11:40.493 --> 00:11:45.609
+We see this screenshot
+from the testing in Lighthouse,
+
+00:11:46.036 --> 00:11:49.527
+it says, image elements
+have alt attributes.
+
+00:11:49.717 --> 00:11:52.977
+This means it's good.
+It passes that test.
+
+00:11:53.237 --> 00:11:55.747
+All images must have alt attributes.
+
+00:11:56.058 --> 00:12:01.034
+Now the automated tool has told us
+that all the images on your website
+
+00:12:01.078 --> 00:12:03.088
+have alt attributes.
+
+00:12:05.178 --> 00:12:09.170
+It won't tell you if the alt text
+is meaningful to the user or not.
+
+00:12:12.549 --> 00:12:19.300
+Now, look at this screenshot of
+the so-called image
+
+00:12:20.500 --> 00:12:26.782
+that is on the website
+that has alt attributes.
+
+00:12:29.109 --> 00:12:32.349
+From the screenshot, the image source
+suggests that it's a chart
+
+00:12:32.970 --> 00:12:34.090
+showing Q earnings.
+
+00:12:34.180 --> 00:12:39.971
+You see, image sourcing,
+chart-q4-earnings.png.
+
+00:12:40.892 --> 00:12:48.729
+The alt text simply says image of a chart,
+which is technically correct,
+
+00:12:49.508 --> 00:12:50.658
+but who does that help?
+
+00:12:50.998 --> 00:13:02.021
+If a user with visual impairment,
+or someone who has low bandwidth,
+
+00:13:03.250 --> 00:13:05.653
+and the alt text loads on their page,
+
+00:13:05.783 --> 00:13:07.483
+or the person is using a screen reader,
+
+00:13:07.483 --> 00:13:10.283
+and the screen reader reads this out,
+"Image of a chart."
+
+00:13:10.772 --> 00:13:12.724
+You know that charts are data.
+
+00:13:12.805 --> 00:13:14.538
+They give you information.
+
+00:13:14.860 --> 00:13:19.152
+This is a very relevant image
+that the user needs information about.
+
+00:13:19.452 --> 00:13:21.452
+The alt text is saying image of a chart.
+
+00:13:21.532 --> 00:13:22.982
+That doesn't help the reader.
+
+00:13:23.993 --> 00:13:26.913
+An automated tool would likely flag this,
+as we've seen,
+
+00:13:27.750 --> 00:13:30.471
+as passing because it has an alt text.
+
+00:13:31.660 --> 00:13:32.660
+However,
+
+00:13:32.859 --> 00:13:36.339
+the alt text fails to provide
+any meaningful information
+
+00:13:36.372 --> 00:13:39.250
+about the chart's content or purpose.
+
+00:13:42.009 --> 00:13:45.798
+You want to provide every information
+that users without disability
+
+00:13:46.488 --> 00:13:48.340
+have access to in your website.
+
+00:13:48.618 --> 00:13:51.518
+Those with disabilities
+should also be able to access that.
+
+00:13:51.649 --> 00:13:53.140
+Charts are important.
+
+00:13:53.830 --> 00:13:55.410
+Image of a chart doesn't [?].
+
+00:13:55.730 --> 00:14:00.100
+It doesn't provide enough content
+for the user.
+
+00:14:01.660 --> 00:14:08.291
+This is one area where automated tools
+alone are not enough.
+
+00:14:09.261 --> 00:14:10.961
+The second area is in color usage.
+
+00:14:11.451 --> 00:14:13.671
+Automated tools will tell you
+
+00:14:13.764 --> 00:14:18.197
+whether or not color contrast requirements
+are met.
+
+00:14:18.850 --> 00:14:22.270
+It can tell you,
+like the screenshots we have,
+
+00:14:23.259 --> 00:14:25.539
+if the background
+
+00:14:26.260 --> 00:14:28.120
+and foreground colors do not have
+
+00:14:28.839 --> 00:14:32.189
+a sufficient contrast ratio.
+
+00:14:34.300 --> 00:14:35.300
+It has done its job,
+
+00:14:37.659 --> 00:14:43.689
+but it won't tell you if color alone
+is used to convey meaning.
+
+00:14:46.179 --> 00:14:48.430
+Now, this is a screenshot from a website.
+
+00:14:48.459 --> 00:14:51.341
+I've closed the name of the website.
+
+00:14:51.391 --> 00:14:54.474
+We're not here to blame
+anyone or point fingers.
+
+00:14:54.845 --> 00:14:56.638
+It's just for learning purposes.
+
+00:14:58.499 --> 00:15:02.261
+Hopefully, we learn a few things
+that we can implement in other websites
+
+00:15:02.291 --> 00:15:03.381
+so that [?].
+
+00:15:03.911 --> 00:15:05.711
+This is a screenshot from a website.
+
+00:15:06.970 --> 00:15:10.570
+Let me read out the content
+on the screenshot.
+
+00:15:11.120 --> 00:15:13.450
+It's a text content, and it says,
+
+00:15:14.049 --> 00:15:16.449
+The so-and-so community
+
+00:15:17.020 --> 00:15:20.409
+is dedicated to fostering an open
+and welcoming environment
+
+00:15:20.410 --> 00:15:21.410
+for contributors.
+
+00:15:21.760 --> 00:15:24.549
+Anyone can join our Slack workspace.
+
+00:15:24.879 --> 00:15:26.530
+Slack workspace is a hyperlink.
+
+00:15:27.389 --> 00:15:29.009
+Participate in Zoom meetings,
+
+00:15:29.429 --> 00:15:32.289
+or contribute to any
+of our projects at any time.
+
+00:15:33.129 --> 00:15:36.698
+Feel free to check out
+our Quickstart for New Contributors,
+
+00:15:36.699 --> 00:15:41.169
+that's a hyperlink,
+or for more information
+
+00:15:41.650 --> 00:15:44.140
+about the so-and-so community,
+
+00:15:45.220 --> 00:15:46.220
+dash, dash, dash.
+
+00:15:47.319 --> 00:15:49.419
+We have two hyperlinks in this screenshot.
+
+00:15:51.820 --> 00:15:53.679
+Sighted users can clearly see
+
+00:15:54.639 --> 00:15:56.699
+that this is a hyperlink.
+
+00:15:58.530 --> 00:16:00.310
+Why or how can they know that?
+
+00:16:00.549 --> 00:16:03.400
+Because the color
+is what differentiates it.
+
+00:16:03.700 --> 00:16:07.050
+The color of the hyperlinks
+are different from the surrounding text.
+
+00:16:09.939 --> 00:16:10.939
+However,
+
+00:16:12.640 --> 00:16:18.100
+a person with visual impairments
+or a person with color blindness
+
+00:16:18.700 --> 00:16:19.900
+cannot easily detect
+
+00:16:20.829 --> 00:16:24.010
+that this is a hyperlink
+because it's not going to show
+
+00:16:24.100 --> 00:16:25.700
+as shades of blue.
+
+00:16:27.969 --> 00:16:30.096
+The automated tool will not tell you this.
+
+00:16:30.136 --> 00:16:33.929
+Text with poor color contrast
+and hyperlinks distinguished
+
+00:16:33.979 --> 00:16:34.979
+only by color.
+
+00:16:35.339 --> 00:16:37.449
+Automated tools will detect one issue.
+
+00:16:38.499 --> 00:16:40.349
+It's telling you this has
+bad color contrast,
+
+00:16:40.349 --> 00:16:41.349
+right?
+
+00:16:41.410 --> 00:16:42.410
+Which it does.
+
+00:16:42.789 --> 00:16:43.789
+It won't tell you
+
+00:16:44.169 --> 00:16:51.969
+that the content color
+alone is used to convey.
+
+00:16:52.900 --> 00:16:57.040
+Now, in this case,
+a better approach or best practice
+
+00:16:57.309 --> 00:16:58.780
+is to underline,
+
+00:16:59.199 --> 00:17:01.399
+so that even if this
+were in black and white,
+
+00:17:02.289 --> 00:17:05.218
+you can clearly see
+that this is a hyperlink.
+
+00:17:05.768 --> 00:17:09.868
+Now, other areas where people
+
+00:17:09.918 --> 00:17:11.828
+usually make that mistake
+of using color alone
+
+00:17:11.828 --> 00:17:13.838
+to convey information
+
+00:17:14.778 --> 00:17:17.828
+is error handling or in forms.
+
+00:17:17.829 --> 00:17:18.829
+For instance,
+
+00:17:18.880 --> 00:17:20.199
+you have a form
+
+00:17:20.800 --> 00:17:23.220
+and there are some required input fields.
+
+00:17:23.450 --> 00:17:27.152
+They tell you that those marked
+with red asterisk are required.
+
+00:17:28.503 --> 00:17:38.368
+That's not very good practice,
+because people with color blindness
+
+00:17:39.308 --> 00:17:41.918
+are not going to see the color red.
+
+00:17:45.030 --> 00:17:50.558
+This was one issue that I identified
+or I noticed while working
+
+00:17:50.559 --> 00:17:51.669
+with CM microscope.
+
+00:17:51.929 --> 00:17:56.455
+It was in the instruction on how to upload
+an image to the web application.
+
+00:17:57.190 --> 00:18:00.400
+One of the steps to upload the image was,
+
+00:18:03.340 --> 00:18:04.390
+to upload the image--
+
+00:18:04.569 --> 00:18:05.738
+After you have uploaded the image,
+
+00:18:05.738 --> 00:18:09.640
+click on the arrow link
+
+00:18:11.769 --> 00:18:13.526
+to move to the next step [?].
+
+00:18:14.889 --> 00:18:15.889
+However,
+
+00:18:16.240 --> 00:18:18.751
+the screen reader
+doesn't catch the arrow link.
+
+00:18:18.911 --> 00:18:19.901
+It just skips that.
+
+00:18:19.902 --> 00:18:23.092
+It says click on button.
+
+00:18:23.172 --> 00:18:28.422
+Users, they won't know
+to click on the right button.
+
+00:18:30.063 --> 00:18:32.914
+These are only issues
+that with manual testing you can identify.
+
+00:18:32.914 --> 00:18:34.870
+Automated testing alone cannot help.
+
+00:18:36.834 --> 00:18:39.234
+Another issue is scalable content.
+
+00:18:40.096 --> 00:18:43.983
+Automated tools will tell you
+whether content on a web page
+
+00:18:43.984 --> 00:18:45.134
+is scalable
+
+00:18:45.725 --> 00:18:47.695
+or zooming is allowed.
+
+00:18:48.555 --> 00:18:56.164
+This screenshot says user-scalable [?]
+is used in meta name viewport element
+
+00:18:56.584 --> 00:18:59.503
+or minimum-scale attribute is less than 5.
+
+00:18:59.504 --> 00:19:03.751
+Basically, it's telling us
+that the content is not scalable.
+
+00:19:04.150 --> 00:19:05.150
+You can't zoom
+
+00:19:05.739 --> 00:19:06.739
+on it.
+
+00:19:06.789 --> 00:19:10.367
+Often, persons with disabilities
+may need to access that feature.
+
+00:19:10.448 --> 00:19:14.547
+Maybe if they want to zoom
+on the text for them to see it clearly.
+
+00:19:17.060 --> 00:19:18.810
+Automated tools will tell you this,
+
+00:19:20.006 --> 00:19:24.375
+but it won't tell you if the content
+reflows when zoomed in.
+
+00:19:25.415 --> 00:19:27.265
+This is another [?] of accessibility.
+
+00:19:28.275 --> 00:19:32.590
+Reflow means that when zoomed, content
+is presented in one column,
+
+00:19:34.143 --> 00:19:38.518
+a single column, so that scrolling in more
+than one direction is not necessary.
+
+00:19:39.778 --> 00:19:42.472
+If the content doesn't reflow,
+it means the user will have
+
+00:19:42.472 --> 00:19:44.749
+to scroll vertically
+
+00:19:44.799 --> 00:19:46.499
+and horizontally at the same time.
+
+00:19:46.630 --> 00:19:48.567
+That doesn't make
+for a good user experience.
+
+00:19:48.567 --> 00:19:53.551
+It's stressful both for people
+with disabilities
+
+00:19:53.602 --> 00:19:55.152
+and those without disabilities.
+
+00:19:58.340 --> 00:20:00.690
+This screenshot shows
+an example of text content
+
+00:20:00.820 --> 00:20:02.590
+that doesn't reflow when zoomed.
+
+00:20:02.981 --> 00:20:07.000
+There is the horizontal scrolling
+and the vertical scrolling
+
+00:20:07.001 --> 00:20:09.621
+that appear when the text is zoomed.
+
+00:20:11.183 --> 00:20:12.401
+With these few examples,
+
+00:20:12.402 --> 00:20:16.413
+we found to realize
+that automated testing alone
+
+00:20:16.434 --> 00:20:18.634
+is not enough
+when testing for accessibility.
+
+00:20:19.334 --> 00:20:22.584
+It has its shortcomings,
+as we've highlighted with these pictures.
+
+00:20:23.629 --> 00:20:30.359
+Now, where automated testing falls short,
+that is where manual testing comes in
+
+00:20:31.149 --> 00:20:32.029
+as a complement.
+
+00:20:32.109 --> 00:20:34.859
+They're supposed to work together,
+not independent.
+
+00:20:40.061 --> 00:20:43.133
+Now we're going to discuss
+when to test manually.
+
+00:20:43.829 --> 00:20:46.279
+I know this slide is titled
+when to test manually,
+
+00:20:46.849 --> 00:20:49.049
+but strictly speaking,
+manual testing is done
+
+00:20:49.110 --> 00:20:51.181
+in all areas of accessibility testing.
+
+00:20:52.680 --> 00:20:56.351
+On a general note, these are
+the areas where you need to test,
+
+00:20:56.661 --> 00:20:58.711
+that you can't do without manual testing.
+
+00:20:59.981 --> 00:21:03.209
+You need to test manually for issues
+that require human judgment,
+
+00:21:04.499 --> 00:21:05.749
+understanding of context.
+
+00:21:05.760 --> 00:21:08.370
+We've seen that so far
+from the examples I've given.
+
+00:21:08.999 --> 00:21:11.580
+Evaluation of user experience,
+
+00:21:12.449 --> 00:21:18.570
+and assessment of content quality
+beyond technical compliance.
+
+00:21:19.129 --> 00:21:23.696
+These are areas that are beyond automated
+tools where you need the human experience
+
+00:21:23.981 --> 00:21:26.729
+to identify issues and fix them.
+
+00:21:29.719 --> 00:21:31.628
+Now, what to test manually.
+
+00:21:35.850 --> 00:21:38.560
+A very common thing to test,
+is easy to [?]
+
+00:21:38.650 --> 00:21:42.695
+is keyboard navigation
+or keyboard accessibility.
+
+00:21:44.316 --> 00:21:46.562
+In addition to the three areas
+I've already discussed,
+
+00:21:46.562 --> 00:21:49.012
+which are alt text,
+color usage, scalable content,
+
+00:21:50.280 --> 00:21:52.380
+these are some more things
+that you can catch only
+
+00:21:52.380 --> 00:21:53.380
+by testing manually.
+
+00:21:57.421 --> 00:21:58.421
+Keyboard navigation.
+
+00:21:59.070 --> 00:22:00.070
+For this,
+
+00:22:00.870 --> 00:22:03.620
+all you have to do is just forget
+that you have a mouse,
+
+00:22:03.905 --> 00:22:05.429
+or mousepad, trackpad.
+
+00:22:06.059 --> 00:22:08.459
+Use your keyboard to navigate
+through the website.
+
+00:22:08.459 --> 00:22:10.009
+These are the things you check.
+
+00:22:10.439 --> 00:22:14.559
+You check that the tab order
+is logical and intuitive.
+
+00:22:15.009 --> 00:22:21.869
+Intuitive means, what do the users expect
+when they are tabbing through the website?
+
+00:22:22.349 --> 00:22:23.349
+Typically,
+
+00:22:25.459 --> 00:22:28.090
+you should have the skip
+to content link first,
+
+00:22:28.739 --> 00:22:35.223
+then move to the navigation,
+typically from left to right [?].
+
+00:22:38.150 --> 00:22:42.959
+Also check that all interactive elements
+are reachable by keyboard.
+
+00:22:43.860 --> 00:22:46.139
+This means all the buttons,
+
+00:22:46.679 --> 00:22:47.679
+input fields,
+
+00:22:48.630 --> 00:22:54.780
+drop-down [?] that with a keyboard,
+you can access
+
+00:22:55.860 --> 00:22:57.210
+those interactive elements.
+
+00:22:58.530 --> 00:23:01.440
+Also check that focus indicators
+are clearly visible.
+
+00:23:02.000 --> 00:23:05.992
+At the tab [?], we usually have
+a focus indicator that wraps around
+
+00:23:05.993 --> 00:23:10.333
+the elements to show
+that's what's in focus,
+
+00:23:10.625 --> 00:23:12.125
+that's what has been selected.
+
+00:23:14.043 --> 00:23:15.272
+That is why.
+
+00:23:15.273 --> 00:23:16.603
+We call it a focus indicator.
+
+00:23:16.603 --> 00:23:18.193
+A focus indicator should have
+
+00:23:18.593 --> 00:23:19.603
+good color contrast.
+
+00:23:19.693 --> 00:23:21.143
+It should be clearly visible.
+
+00:23:21.153 --> 00:23:25.667
+Anyone that tabs through can see
+that this is the element that has focus
+
+00:23:27.058 --> 00:23:31.226
+so that they know at what point
+they are on the webpage [?].
+
+00:23:32.640 --> 00:23:34.783
+The second thing to test manually
+
+00:23:36.585 --> 00:23:38.365
+is screen reader compatibility.
+
+00:23:40.535 --> 00:23:43.020
+With screen reader compatibility,
+you are checking that content
+
+00:23:43.020 --> 00:23:47.340
+is read in a logical order,
+images have appropriate alt text.
+
+00:23:47.482 --> 00:23:48.732
+I think I mentioned that.
+
+00:23:49.671 --> 00:23:53.519
+Form fields have clear labels
+and instructions.
+
+00:23:57.011 --> 00:24:01.381
+Often, if you are not skilled yourself,
+you will need someone
+
+00:24:01.405 --> 00:24:06.623
+who is a screen reader user
+to do this testing.
+
+00:24:07.345 --> 00:24:11.107
+It is advised to use people
+who have disabilities
+
+00:24:11.108 --> 00:24:13.858
+and who naturally use screen
+readers to do this testing.
+
+00:24:17.260 --> 00:24:20.069
+The third thing
+to check is semantic structure.
+
+00:24:20.373 --> 00:24:23.373
+That is the third thing
+you can test manually.
+
+00:24:24.074 --> 00:24:27.989
+Semantic structure checks
+that headings are used correctly
+
+00:24:28.590 --> 00:24:30.060
+and in proper hierarchy.
+
+00:24:31.070 --> 00:24:34.658
+I think Alice mentioned this in her [?].
+
+00:24:36.437 --> 00:24:39.107
+Make sure you don't skip headings.
+
+00:24:39.108 --> 00:24:42.234
+You can't move from heading
+2 to heading 4.
+
+00:24:42.960 --> 00:24:47.010
+There should be heading 2,
+heading 3, heading 4.
+
+00:24:49.260 --> 00:24:53.416
+Then, that lists are marked up
+as actual list elements.
+
+00:24:53.696 --> 00:24:56.392
+I have a screenshot of what a
+properly marked up
+
+00:24:56.412 --> 00:24:57.912
+list element should look like.
+
+00:25:00.202 --> 00:25:04.122
+Natalie in her talk,
+she employed developers--
+
+00:25:04.802 --> 00:25:05.902
+She employed everyone,
+
+00:25:06.292 --> 00:25:11.435
+especially developers,
+to make use of the OSH.
+
+00:25:12.259 --> 00:25:15.719
+She called it plain old semantic HTML.
+
+00:25:15.979 --> 00:25:20.869
+All those tags, they have meaning.
+
+00:25:22.500 --> 00:25:27.509
+When you use semantic HTML,
+most accessibility issues
+
+00:25:27.510 --> 00:25:28.605
+will not come up [?].
+
+00:25:28.783 --> 00:25:30.973
+You now have to challenges [?].
+
+00:25:34.264 --> 00:25:37.824
+The fourth thing you can test manually
+is screen reader--
+
+00:25:39.334 --> 00:25:41.584
+We discussed this already.
+
+00:25:43.274 --> 00:25:44.505
+Page titles.
+
+00:25:46.000 --> 00:25:47.040
+[?].
+
+00:25:49.859 --> 00:25:52.349
+The next thing you can check
+manually is page titles.
+
+00:25:52.349 --> 00:25:55.809
+Check that each page
+has a unique description and title.
+
+00:25:56.367 --> 00:26:00.707
+This was one issue that I noticed
+with the project that I contributed
+
+00:26:00.727 --> 00:26:02.607
+to doing [?].
+
+00:26:05.078 --> 00:26:08.048
+It had one page title for two pages.
+
+00:26:08.278 --> 00:26:12.065
+The information table and the data table
+had the same page title.
+
+00:26:12.106 --> 00:26:16.229
+There was no way for users to know
+where they were on the website.
+
+00:26:18.554 --> 00:26:25.236
+You can also check that titles
+accurately reflect the page title.
+
+00:26:25.935 --> 00:26:27.299
+W3C have
+
+00:26:27.870 --> 00:26:38.339
+a detailed guideline on how to name pages
+so that they makes sense to the user.
+
+00:26:39.293 --> 00:26:46.234
+[?] you have to do
+the most important information first.
+
+00:26:49.294 --> 00:26:50.804
+This is an example.
+
+00:26:50.884 --> 00:26:54.995
+This is a screenshot
+of caMicroscope website.
+
+00:26:55.697 --> 00:27:01.739
+Now, if you look at the tabs
+
+00:27:02.280 --> 00:27:04.073
+that open, you will see--
+
+00:27:09.955 --> 00:27:13.302
+This is the homepage [?] caMicroscope.
+
+00:27:15.675 --> 00:27:20.065
+On the data table [?] data table.
+
+00:27:21.959 --> 00:27:23.275
+On the info page,
+
+00:27:23.554 --> 00:27:25.624
+you also see caMicroscope data table.
+
+00:27:27.404 --> 00:27:29.004
+You will see that two pages have
+
+00:27:29.549 --> 00:27:31.578
+one title.
+
+00:27:31.579 --> 00:27:32.829
+They have the same title.
+
+00:27:33.309 --> 00:27:36.490
+Users navigating this website
+with a screen reader will not know
+
+00:27:36.520 --> 00:27:38.170
+that they are on different pages.
+
+00:27:38.170 --> 00:27:40.770
+They will think
+that they are still on the same page.
+
+00:27:41.052 --> 00:27:43.953
+Now, this is an example
+of what a good page title
+
+00:27:44.616 --> 00:27:45.976
+should look like.
+
+00:27:46.461 --> 00:27:52.560
+I ran the test on the WordPress
+accessibility website
+
+00:27:53.869 --> 00:27:56.919
+to make sure that we practice
+what we preach.
+
+00:28:01.779 --> 00:28:03.028
+Nice job.
+Well done.
+
+00:28:06.754 --> 00:28:09.404
+This is the homepage.
+The first tab is the homepage.
+
+00:28:09.805 --> 00:28:12.095
+It is not complete,
+but it says WordPress Accessibility.
+
+00:28:12.095 --> 00:28:16.726
+The second tab is about us.
+
+00:28:16.974 --> 00:28:22.116
+It says [?]
+about the event-wordpressaccessibility.
+
+00:28:23.080 --> 00:28:24.190
+On the schedule page,
+
+00:28:24.460 --> 00:28:27.480
+the title says
+schedule-wordpressaccessibility.
+
+00:28:28.649 --> 00:28:30.599
+On the sponsors page, it says sponsors.
+
+00:28:30.749 --> 00:28:31.749
+That makes sense.
+
+00:28:32.168 --> 00:28:39.148
+This is a good example of how to write up
+your page titles so that it is contextual
+
+00:28:39.149 --> 00:28:40.770
+to the users.
+
+00:28:41.619 --> 00:28:42.619
+Well done.
+
+00:28:46.710 --> 00:28:52.529
+Now, on to best practices
+for manual accessibility testing.
+
+00:28:55.799 --> 00:28:56.799
+Use
+
+00:28:57.600 --> 00:28:59.549
+multiple assistive technologies.
+
+00:28:59.909 --> 00:29:00.909
+That is one.
+
+00:29:01.361 --> 00:29:02.861
+When you are testing manually,
+
+00:29:05.935 --> 00:29:07.635
+remember that your users are--
+
+00:29:09.470 --> 00:29:12.184
+There are a number
+of assistive technologies.
+
+00:29:12.598 --> 00:29:15.479
+For screen readers, we have NVDA.
+
+00:29:16.409 --> 00:29:17.460
+We have JAWS.
+
+00:29:18.059 --> 00:29:20.391
+I use NVDA for testing.
+
+00:29:21.599 --> 00:29:24.419
+We have JAWS.
+We have VoiceOver for iOS.
+
+00:29:24.420 --> 00:29:31.743
+Most times, this assistive technology
+is dependent on the operating system
+
+00:29:31.744 --> 00:29:32.944
+that users [?].
+
+00:29:33.754 --> 00:29:36.554
+Just test with multiple
+assistive technologies
+
+00:29:36.604 --> 00:29:40.764
+to see how they [?] the content,
+how you can use them to navigate
+
+00:29:40.814 --> 00:29:41.854
+your website.
+
+00:29:42.719 --> 00:29:46.198
+Try different browsers
+to ensure cross-compatibility.
+
+00:29:47.414 --> 00:29:49.549
+Don't just test on Microsoft Edge.
+
+00:29:50.309 --> 00:29:51.309
+Test on Safari.
+
+00:29:51.499 --> 00:29:53.319
+Test on Chrome.
+
+00:29:54.449 --> 00:29:55.569
+Test on Opera Mini,
+
+00:29:55.999 --> 00:29:57.969
+because your users could be using
+
+00:29:58.079 --> 00:30:01.759
+those different browsers
+to access your site.
+
+00:30:03.089 --> 00:30:06.799
+The second point is to involve
+users with disabilities.
+
+00:30:06.909 --> 00:30:08.262
+This cannot be over--
+
+00:30:08.292 --> 00:30:11.502
+This should have been
+number one on this list.
+
+00:30:12.002 --> 00:30:13.602
+Involve users with disabilities.
+
+00:30:14.098 --> 00:30:16.203
+I know it says
+manual accessibility testing.
+
+00:30:16.203 --> 00:30:18.243
+For the manual,
+they are the ones you are designing for.
+
+00:30:18.243 --> 00:30:21.209
+They are the ones you created
+the products for.
+
+00:30:22.020 --> 00:30:23.313
+Let them test.
+
+00:30:25.250 --> 00:30:26.250
+When you do that,
+
+00:30:27.769 --> 00:30:30.619
+make sure you have
+a large pool of test participants.
+
+00:30:31.429 --> 00:30:32.429
+You have
+
+00:30:33.027 --> 00:30:37.129
+people with a wide range of disabilities
+
+00:30:39.490 --> 00:30:40.990
+that could be using your site.
+
+00:30:42.220 --> 00:30:45.338
+People with visual impairments
+that use screen readers.
+
+00:30:47.028 --> 00:30:51.249
+People with neurodivergence.
+
+00:30:54.819 --> 00:30:55.819
+You catch the drift.
+
+00:30:56.499 --> 00:30:59.714
+Make sure that your pool of participants
+are as diverse as possible.
+
+00:30:59.714 --> 00:31:01.864
+You want to be inclusive
+when you test them.
+
+00:31:03.131 --> 00:31:05.551
+You might say,
+"I'm an expert at screen readers.
+
+00:31:05.581 --> 00:31:07.041
+I can test [?]."
+
+00:31:08.822 --> 00:31:11.822
+How you, as a person with a disability,
+
+00:31:11.962 --> 00:31:15.290
+would use a screen reader to test
+
+00:31:15.490 --> 00:31:16.340
+the product.
+
+00:31:16.390 --> 00:31:18.820
+It's different from how a person
+with a natural disability using
+
+00:31:18.820 --> 00:31:21.465
+a screen reader would navigate the site.
+
+00:31:21.695 --> 00:31:22.739
+This is like second nature to them.
+
+00:31:22.739 --> 00:31:26.059
+They have things they
+usually look out for.
+
+00:31:28.219 --> 00:31:31.985
+Even if you have one participant
+that has a particular disability,
+
+00:31:32.045 --> 00:31:36.345
+and uses a particular
+assistive technology,
+
+00:31:36.586 --> 00:31:39.516
+see that another user,
+who may have the same disability,
+
+00:31:39.596 --> 00:31:41.806
+uses the same assistive technology.
+
+00:31:42.016 --> 00:31:45.966
+How one person uses it might be different
+from how the other person is using it.
+
+00:31:45.986 --> 00:31:49.040
+This is objective.
+
+00:31:49.069 --> 00:31:51.040
+Is objective the word for it?
+
+00:31:52.602 --> 00:31:54.902
+I hope I passed the point across.
+
+00:31:55.102 --> 00:31:57.960
+Involve users with disabilities
+when testing manually.
+
+00:31:58.849 --> 00:32:05.970
+The third best practice is create
+comprehensive test scenarios.
+
+00:32:06.691 --> 00:32:12.141
+You want to develop a checklist
+covering all the WCAG success criteria.
+
+00:32:13.190 --> 00:32:19.350
+I think the W3C have a template
+on their website that you can use.
+
+00:32:19.370 --> 00:32:21.540
+I added that in the resources section.
+
+00:32:26.013 --> 00:32:28.231
+It's very detailed, the template.
+
+00:32:28.440 --> 00:32:30.480
+It has all the requirements.
+
+00:32:31.059 --> 00:32:32.709
+Everything that you need to test.
+
+00:32:33.983 --> 00:32:36.240
+If you're new to accessibility
+and you're just testing
+
+00:32:36.240 --> 00:32:43.160
+for the first time, they also have
+a condensed checklist that you could use
+
+00:32:43.220 --> 00:32:47.824
+to run a mini test [?].
+
+00:32:50.126 --> 00:32:56.704
+Then the fourth best practice
+is document findings thoroughly.
+
+00:32:58.460 --> 00:33:04.939
+Now, one reason it's good to document
+is you can identify the issues
+
+00:33:04.940 --> 00:33:06.140
+that your websites have.
+
+00:33:06.160 --> 00:33:08.722
+Then you can work towards
+not repeating that mistake.
+
+00:33:08.722 --> 00:33:09.980
+It doesn't make sense,
+
+00:33:10.010 --> 00:33:15.135
+after fixing an issue,
+[?] you just keep testing and testing.
+
+00:33:17.899 --> 00:33:19.789
+Record specific issues,
+
+00:33:20.420 --> 00:33:23.530
+steps to reproduce, and impact on users.
+
+00:33:23.770 --> 00:33:27.612
+[?] to caMicroscope,
+we used GitHub a lot.
+
+00:33:28.190 --> 00:33:30.530
+I recorded the issues on GitHub.
+
+00:33:31.940 --> 00:33:35.240
+The templates for recording issues
+on GitHub had steps to reproduce
+
+00:33:35.479 --> 00:33:37.659
+on what platform is the challenge,
+
+00:33:37.839 --> 00:33:41.579
+what version of operating
+system you're using,
+
+00:33:41.630 --> 00:33:42.630
+stuff like that.
+
+00:33:42.860 --> 00:33:46.160
+This gives a detailed information
+about the issues
+
+00:33:46.279 --> 00:33:50.228
+and how we can reproduce it.
+
+00:33:51.328 --> 00:33:53.594
+It gives context around the issue.
+
+00:33:56.522 --> 00:33:57.979
+Then impact on users.
+
+00:33:58.272 --> 00:34:01.340
+Also testing impact
+on users helps you know
+
+00:34:01.939 --> 00:34:06.190
+in what order you should solve the issues
+when you're ready to fix those issues.
+
+00:34:06.757 --> 00:34:10.925
+You might want to focus on resolving
+issues that have the highest impact
+
+00:34:10.939 --> 00:34:11.939
+on users.
+
+00:34:12.979 --> 00:34:14.579
+Those issues will take priority.
+
+00:34:16.570 --> 00:34:22.360
+Then the final best practice
+is test in various environments.
+
+00:34:24.380 --> 00:34:25.830
+Test in various environments.
+
+00:34:26.090 --> 00:34:31.080
+Check usability
+with different devices and orientations.
+
+00:34:31.401 --> 00:34:38.659
+You can test on laptop,
+desktop, tablet, iPad,
+
+00:34:39.620 --> 00:34:40.620
+iPhone,
+
+00:34:40.913 --> 00:34:41.913
+Android.
+
+00:34:43.416 --> 00:34:45.343
+Testing with different devices,
+different orientations,
+
+00:34:45.343 --> 00:34:46.443
+landscape, portrait.
+
+00:34:46.733 --> 00:34:50.123
+Also test
+under different network conditions.
+
+00:34:51.787 --> 00:34:54.491
+You could use your 5G router to test.
+
+00:34:54.492 --> 00:34:57.652
+You could use your 2G network to test.
+
+00:34:58.072 --> 00:35:04.910
+You're trying to simulate
+how different people can,
+
+00:35:06.230 --> 00:35:09.899
+in different areas
+and with different disabilities,
+
+00:35:10.189 --> 00:35:11.869
+may be using a website.
+
+00:35:14.845 --> 00:35:22.279
+These are the best practices
+to follow when manually testing [?].
+
+00:35:33.093 --> 00:35:36.809
+Automated testing tools
+are just that - tools.
+
+00:35:36.859 --> 00:35:38.559
+This is very important for us [?].
+
+00:35:39.747 --> 00:35:44.177
+I know it's easy for us to want
+to do things rushing,
+
+00:35:44.197 --> 00:35:45.197
+sharp, sharp.
+
+00:35:46.787 --> 00:35:52.690
+[?] automated accessibility testing [?]
+because [?] it's very easy.
+
+00:35:53.970 --> 00:35:57.257
+You want to remember
+that automated testing
+
+00:35:57.291 --> 00:35:59.291
+is to make accessibility testing easier,
+
+00:35:59.839 --> 00:36:01.519
+not to replace manual testing.
+
+00:36:02.750 --> 00:36:06.289
+In fact, if you ask anybody,
+
+00:36:06.919 --> 00:36:09.699
+the main accessibility testing
+should be manual.
+
+00:36:10.664 --> 00:36:13.848
+Automated testing should come
+in as a supporting tool,
+
+00:36:13.878 --> 00:36:16.250
+as a [?], not the other way.
+
+00:36:18.000 --> 00:36:22.077
+[?] there's nothing else [?].
+
+00:36:23.723 --> 00:36:25.163
+Please remember these points.
+
+00:36:25.163 --> 00:36:27.223
+Automated tools are just tools.
+
+00:36:27.433 --> 00:36:28.433
+They are not enough.
+
+00:36:28.873 --> 00:36:31.073
+Manual testing is very important.
+
+00:36:31.400 --> 00:36:37.074
+We've seen that there are
+just issues that you can't identify
+
+00:36:37.124 --> 00:36:38.244
+with just automated tools.
+
+00:36:38.244 --> 00:36:39.864
+You need to test manually.
+
+00:36:43.268 --> 00:36:46.453
+I want to leave you with this last word.
+
+00:36:48.709 --> 00:36:52.194
+Please remember that empathy
+isn't programmable.
+
+00:36:53.338 --> 00:36:55.488
+This is where the human experience
+comes in.
+
+00:36:56.458 --> 00:36:57.818
+It's not something that automated--
+
+00:36:57.818 --> 00:36:59.418
+Automated tools,
+they don't feel.
+
+00:37:00.181 --> 00:37:02.591
+You can't program
+that into an automated tool.
+
+00:37:03.638 --> 00:37:04.918
+Content isn't computable.
+
+00:37:06.757 --> 00:37:09.256
+As we push forward
+in digital accessibility efforts,
+
+00:37:09.256 --> 00:37:18.136
+we want to embrace
+the power of automated tools.
+
+00:37:19.156 --> 00:37:25.909
+We don't want to forget
+the irreplaceable value of human insight,
+
+00:37:25.929 --> 00:37:28.669
+and our combined efforts,
+
+00:37:28.670 --> 00:37:32.580
+both human and machine,
+or software in this case,
+
+00:37:32.740 --> 00:37:36.319
+are what will truly make
+the web accessible for all.
+
+00:37:38.369 --> 00:37:40.699
+These are links to resources.
+
+00:37:40.820 --> 00:37:43.249
+There's the full manual testing checklist
+
+00:37:43.940 --> 00:37:46.199
+on the W3C website,
+
+00:37:46.249 --> 00:37:49.311
+and also the report templates,
+
+00:37:49.597 --> 00:37:51.027
+or [?] document [?].
+
+00:37:53.661 --> 00:37:56.809
+Thank you for coming to my TED talk.
+
+00:37:57.549 --> 00:38:01.208
+You can contact me
+on LinkedIn at Victoria Nduka
+
+00:38:01.880 --> 00:38:04.159
+or on Twitter @nwa_nduka.
+
+00:38:07.639 --> 00:38:08.639
+Thank you very much.
+
+00:38:10.690 --> 00:38:13.435
+I think we can take questions now.
+
+00:38:18.066 --> 00:38:20.434
+Piccia: Thank you so much, Victoria.
+
+00:38:20.749 --> 00:38:25.661
+This was such a great presentation
+for me personally as a designer,
+
+00:38:25.662 --> 00:38:27.920
+and I'm sure
+for everyone else as well.
+
+00:38:27.950 --> 00:38:31.700
+You made so many really important points.
+
+00:38:32.150 --> 00:38:33.949
+We have a couple of questions here.
+
+00:38:34.540 --> 00:38:36.353
+The first one is from Isla.
+
+00:38:37.940 --> 00:38:39.948
+I'm so happy that you asked this,
+
+00:38:39.949 --> 00:38:42.459
+Isla, because it's something
+that I wanted to ask you, too,
+
+00:38:42.459 --> 00:38:43.608
+Victoria.
+
+00:38:43.609 --> 00:38:46.539
+What is the mistake
+that you find more often
+
+00:38:46.589 --> 00:38:48.110
+when you test a website?
+
+00:38:48.889 --> 00:38:51.589
+What's the thing that comes up
+the most for you,
+
+00:38:51.590 --> 00:38:52.590
+Victoria?
+
+00:38:52.966 --> 00:38:59.132
+Victoria: [?]
+
+00:38:59.776 --> 00:39:02.126
+Piccia: I think your audio
+has gone, Victoria.
+
+00:39:02.206 --> 00:39:04.846
+I think you inadvertently
+muted yourself.
+
+00:39:04.896 --> 00:39:06.949
+Victoria: Sorry.
+I apologize.
+
+00:39:06.950 --> 00:39:08.219
+I'm sorry.
+Piccia: No problem.
+
+00:39:08.219 --> 00:39:10.119
+Victoria: I would say
+the most common issue
+
+00:39:10.119 --> 00:39:14.360
+that I've encountered so far
+is color contrast issues,
+
+00:39:15.610 --> 00:39:17.883
+which is funny because you can catch
+that with automated tools.
+
+00:39:17.883 --> 00:39:21.560
+That goes to say that most people
+don't take accessibility
+
+00:39:21.590 --> 00:39:28.339
+into consideration before
+designing their digital products.
+
+00:39:30.134 --> 00:39:33.029
+After the product has been launched,
+when you run tests, you see that--
+
+00:39:33.029 --> 00:39:35.120
+These are basic issues
+that you should catch even
+
+00:39:35.120 --> 00:39:37.120
+before your project goes live.
+
+00:39:39.560 --> 00:39:41.839
+Piccia: It's a funny one,
+because really it is
+
+00:39:42.680 --> 00:39:47.209
+the easiest to sort out and to detect,
+and yet something like more
+
+00:39:47.210 --> 00:39:50.569
+than 80% of websites still do that.
+
+00:39:50.600 --> 00:39:51.600
+It's amazing.
+
+00:39:54.139 --> 00:39:55.139
+Interesting.
+
+00:39:55.190 --> 00:39:56.203
+The next question
+
+00:39:56.649 --> 00:39:58.346
+is from David Danido.
+
+00:39:58.526 --> 00:40:00.170
+I hope I pronounced it right.
+
+00:40:00.199 --> 00:40:01.310
+Probably not. Sorry.
+
+00:40:02.210 --> 00:40:07.999
+Where can I find a source of users
+with disabilities for manual testing?
+
+00:40:17.570 --> 00:40:21.620
+Victoria: I don't know
+if there is a testing platform
+
+00:40:21.670 --> 00:40:29.584
+where you can recruit participants,
+specifically those who have disabilities.
+
+00:40:31.631 --> 00:40:33.581
+Two things that come to my mind now is,
+
+00:40:34.715 --> 00:40:36.479
+I know it may already be late
+
+00:40:36.479 --> 00:40:38.639
+for some people,
+but in your hiring process,
+
+00:40:38.670 --> 00:40:40.679
+try to include
+
+00:40:41.430 --> 00:40:42.830
+people who have disabilities
+
+00:40:43.709 --> 00:40:44.709
+to work
+
+00:40:45.720 --> 00:40:46.720
+in your company.
+
+00:40:47.773 --> 00:40:50.705
+When you urgently need people to test
+and you need people who have disabilities,
+
+00:40:50.705 --> 00:40:53.124
+they can easily come and test the project.
+
+00:40:55.020 --> 00:40:56.020
+Alternatively,
+
+00:40:56.550 --> 00:41:01.800
+I think I saw in a Slack channel
+one time, a project,
+
+00:41:01.859 --> 00:41:03.330
+somebody posted it.
+
+00:41:04.119 --> 00:41:08.130
+They publicly posted
+that they need participants,
+
+00:41:08.580 --> 00:41:10.471
+specifically people who have
+disabilities to test [?].
+
+00:41:10.471 --> 00:41:15.030
+They offered incentives.
+
+00:41:15.938 --> 00:41:16.938
+You can do the same.
+
+00:41:17.759 --> 00:41:21.184
+You can post it, put it on your website,
+publish it on LinkedIn,
+
+00:41:21.234 --> 00:41:27.293
+post it on different Slack communities
+that advocate for accessibility.
+
+00:41:27.530 --> 00:41:30.331
+You will find users
+who could test your site.
+
+00:41:32.201 --> 00:41:34.560
+Piccia: That's a really good answer.
+
+00:41:35.010 --> 00:41:37.890
+There are also,
+if you interact with the community,
+
+00:41:38.190 --> 00:41:42.600
+you can make friends
+with people with disabilities.
+
+00:41:42.829 --> 00:41:44.219
+In the WordPress community,
+
+00:41:44.220 --> 00:41:45.540
+there are quite a few.
+
+00:41:46.620 --> 00:41:48.250
+You were about to say something, Victoria.
+
+00:41:48.250 --> 00:41:50.800
+Victoria: Yes, I just want
+to add one thing quickly.
+
+00:41:51.278 --> 00:41:52.888
+Sometimes there are people
+who have disabilities,
+
+00:41:52.888 --> 00:41:54.828
+but don't know
+that they have disabilities.
+
+00:41:54.828 --> 00:41:56.938
+I saw your post on Twitter recently.
+
+00:41:57.498 --> 00:42:00.468
+There's this trend
+where they do bro to bro,
+
+00:42:00.938 --> 00:42:04.678
+you just offer advice
+as a man to a fellow man.
+
+00:42:04.808 --> 00:42:10.458
+There was one glasses user
+to glasses user.
+
+00:42:10.468 --> 00:42:13.068
+Somebody posted it and said,
+"You have a disability."
+
+00:42:13.649 --> 00:42:17.759
+Most people, no offense,
+because I see you wear glasses too,
+
+00:42:17.999 --> 00:42:21.108
+but some people who have disabilities
+don't view themselves
+
+00:42:21.109 --> 00:42:22.259
+as having disabilities.
+
+00:42:22.309 --> 00:42:23.909
+You have people who use glasses,
+
+00:42:24.240 --> 00:42:25.619
+people who are elderly
+
+00:42:27.540 --> 00:42:28.770
+within your circle,
+
+00:42:29.099 --> 00:42:30.642
+they can test your products
+
+00:42:31.082 --> 00:42:32.082
+for you as well.
+
+00:42:33.043 --> 00:42:35.053
+Piccia: Exactly.
+
+00:42:35.893 --> 00:42:37.353
+I have a question,
+
+00:42:37.563 --> 00:42:39.750
+if I may.
+
+00:42:40.619 --> 00:42:41.970
+I wanted to ask you,
+
+00:42:43.109 --> 00:42:47.302
+are there any design issues
+that are not considered--
+
+00:42:47.303 --> 00:42:52.813
+that are not part of the Web Content
+Accessibility Guidelines
+
+00:42:53.363 --> 00:42:55.439
+and that you wish they were?
+
+00:42:56.219 --> 00:43:02.790
+Like a particular design mistake
+that is not listed as a problem
+
+00:43:02.880 --> 00:43:05.460
+in the WCAG, but you wish it were?
+
+00:43:08.318 --> 00:43:12.279
+Victoria: None
+that I can think of right now,
+
+00:43:12.359 --> 00:43:14.919
+because the WCAG is really comprehensive.
+
+00:43:15.179 --> 00:43:18.650
+Even some issues that I didn't realize
+were accessibility issues,
+
+00:43:18.680 --> 00:43:20.480
+when I checked the site, I was like,
+
+00:43:20.820 --> 00:43:21.890
+"Oh, okay."
+
+00:43:22.990 --> 00:43:24.419
+Right now,
+
+00:43:26.659 --> 00:43:28.000
+I can't think of [?].
+
+00:43:29.317 --> 00:43:35.428
+If I do find something in the future,
+I will most definitely write about it,
+
+00:43:36.078 --> 00:43:37.078
+publish it.
+
+00:43:37.878 --> 00:43:42.600
+Piccia: I have another one, if I may.
+
+00:43:42.600 --> 00:43:44.220
+I think we've got a couple of minutes.
+
+00:43:44.220 --> 00:43:45.870
+Is there anyone else that--
+
+00:43:46.580 --> 00:43:52.229
+Oh yes, there's another question
+from Alexander Gounder.
+
+00:43:52.739 --> 00:43:57.839
+Where does one start if they want
+to learn accessibility testing?
+
+00:44:00.789 --> 00:44:06.389
+Victoria: I'm going to answer
+this question from my own experience.
+
+00:44:06.494 --> 00:44:11.815
+During my [?] I first got introduced
+to accessibility.
+
+00:44:12.960 --> 00:44:17.250
+What I did was typically go
+to Google and browse.
+
+00:44:18.477 --> 00:44:21.853
+Research how to do
+accessibility testing as a beginner,
+
+00:44:22.000 --> 00:44:26.308
+as a designer, [?] one way.
+
+00:44:26.309 --> 00:44:30.366
+Quickly, just
+so you're not searching in the dark,
+
+00:44:31.800 --> 00:44:33.809
+go to the W3C website.
+
+00:44:34.200 --> 00:44:37.619
+The link is in my slide already,
+so it's easier for you.
+
+00:44:37.759 --> 00:44:41.045
+They also have a course,
+Introduction to Digital Accessibility.
+
+00:44:41.305 --> 00:44:42.538
+It's for everyone.
+
+00:44:42.588 --> 00:44:45.840
+Content creators, designers,
+accessibility enthusiasts,
+
+00:44:45.930 --> 00:44:46.930
+developers,
+
+00:44:47.849 --> 00:44:48.849
+business people.
+
+00:44:53.150 --> 00:44:55.450
+It's a very good introduction
+to accessibility.
+
+00:44:56.380 --> 00:44:57.990
+Piccia: That's a great answer.
+
+00:44:58.109 --> 00:45:00.868
+Also, one very good place to start,
+Alexander,
+
+00:45:00.869 --> 00:45:03.059
+is this session exactly.
+
+00:45:03.060 --> 00:45:04.360
+You're in the right place.
+
+00:45:05.284 --> 00:45:06.284
+There you go.
+
+00:45:07.610 --> 00:45:09.070
+We have got
+
+00:45:09.120 --> 00:45:14.279
+to the end of this session with Victoria.
+
+00:45:14.549 --> 00:45:16.199
+Thank you so much, Victoria.
+
+00:45:16.200 --> 00:45:17.610
+It's been great.
+
+00:45:17.880 --> 00:45:20.609
+Thank you, everyone else, for attending.
+
+00:45:20.759 --> 00:45:25.079
+If you want to continue the conversation,
+you can do so in the chat later
+
+00:45:25.339 --> 00:45:26.669
+or on social media
+
+00:45:27.600 --> 00:45:33.937
+using the hashtag, WPA11YDay,
+
+00:45:34.439 --> 00:45:43.550
+remembering your camel case, and WPAD2024.
+
+00:45:43.850 --> 00:45:52.806
+We also appreciate it if you want to go
+to 2024wpaccessibility.day/feedback
+
+00:45:53.220 --> 00:45:57.083
+to provide anonymous feedback
+for our speakers on their presentation.
+
+00:45:57.450 --> 00:46:00.059
+You can also enter to win a T-shirt.
+
+00:46:00.810 --> 00:46:04.889
+Please, stay tuned now
+for the next session coming up,
+
+00:46:05.264 --> 00:46:08.759
+Creating a developer culture
+of accessibility
+
+00:46:08.760 --> 00:46:12.960
+at the top of the hour
+with Jesse Frio and Mark Steadman.
+
+00:46:13.469 --> 00:46:15.469
+I'm looking forward to seeing you there.
+
+00:46:16.080 --> 00:46:17.080
+Bye.
+
+00:46:21.149 --> 00:46:25.249
+Announcer: Thank you to WordPress
+Accessibility Day 2024 sponsors.
+
+00:46:25.559 --> 00:46:27.279
+Platinum sponsor, 20i.
+
+00:46:27.600 --> 00:46:30.363
+Easily build, deploy,
+and manage all your projects
+
+00:46:30.413 --> 00:46:32.819
+with 20i-managed WordPress hosting.
+
+00:46:33.269 --> 00:46:35.039
+One UI for all your servers,
+
+00:46:35.040 --> 00:46:38.699
+apps, sites, databases, security, DNS,
+
+00:46:38.700 --> 00:46:39.700
+and email.
+
+00:46:39.930 --> 00:46:41.129
+Perfect for agencies,
+
+00:46:41.219 --> 00:46:44.249
+e-commerce, developers,
+multi-site hosting,
+
+00:46:44.279 --> 00:46:45.599
+and high-traffic sites.
+
+00:46:46.409 --> 00:46:48.330
+Platinum sponsor, Equalize Digital.
+
+00:46:48.930 --> 00:46:52.439
+Since all they do is accessibility,
+every post on their blog is
+
+00:46:52.440 --> 00:46:53.999
+an accessibility resource.
+
+00:46:54.419 --> 00:46:58.320
+You can find webinar recordings,
+articles, and additional resources
+
+00:46:58.680 --> 00:47:01.630
+at equalizedigital.com/resources.
+
+00:47:02.729 --> 00:47:04.830
+Platinum sponsor, WP Engine.
+
+00:47:05.310 --> 00:47:09.329
+WP Engine provides the most relied
+upon and trusted WordPress products
+
+00:47:09.330 --> 00:47:12.990
+for businesses, brands,
+and agencies of all sizes.
+
+00:47:14.069 --> 00:47:15.480
+Thanks to our gold sponsors,
+
+00:47:15.779 --> 00:47:20.010
+GoDaddy, Grackle Docs,
+Gravity Forms, GreenGeeks,
+
+00:47:20.280 --> 00:47:22.199
+TPGI, and Yoast.
+
+00:47:22.950 --> 00:47:25.560
+Thank you to our silver sponsors,
+CodeGeek,
+
+00:47:25.859 --> 00:47:29.310
+Drake Cooper, Elementor,
+Overnight Website,
+
+00:47:29.609 --> 00:47:33.569
+Pressable, Second Melody,
+and Accessibility Collective.

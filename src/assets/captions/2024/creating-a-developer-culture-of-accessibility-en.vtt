@@ -1,0 +1,3979 @@
+﻿WEBVTT
+
+00:00:01.040 --> 00:00:03.873
+Announcer:
+WordPress Accessibility Day 2024.
+
+00:00:04.322 --> 00:00:07.240
+Creating a developer culture
+of accessibility
+
+00:00:07.260 --> 00:00:08.824
+with speaker, Mark Steadman,
+
+00:00:08.844 --> 00:00:12.382
+Director of Accessibility Engineering
+at Fidelity Investments.
+
+00:00:12.533 --> 00:00:15.983
+This presentation
+was recorded October 2024.
+
+00:00:16.566 --> 00:00:19.428
+Piccia Neri: Welcome to
+WordPress Accessibility Day 2024.
+
+00:00:19.449 --> 00:00:22.395
+If you've just joined,
+my name is Piccia Neri,
+
+00:00:22.415 --> 00:00:27.318
+and I'm a UX and Accessibility Designer.
+
+00:00:27.508 --> 00:00:29.563
+Thank you for joining us
+for the next session,
+
+00:00:29.583 --> 00:00:35.015
+which is Creating a Developer Culture
+of Accessibility,
+
+00:00:35.123 --> 00:00:39.537
+with Jessie Frio, I hope
+I've pronounced it correctly, Jessie,
+
+00:00:39.557 --> 00:00:41.687
+and Mark Steadman.
+
+00:00:41.786 --> 00:00:46.142
+Jessie is an Accessibility Engineer
+at Fidelity Investments,
+
+00:00:46.162 --> 00:00:48.632
+with experience in accessible development
+
+00:00:48.658 --> 00:00:50.267
+and consultation
+
+00:00:50.287 --> 00:00:53.379
+with both web and mobile teams.
+
+00:00:53.511 --> 00:00:58.377
+Her passion is to ensure that
+all users can independently access
+
+00:00:58.401 --> 00:01:03.855
+all digital content
+through exceptional user experience.
+
+00:01:04.457 --> 00:01:09.207
+Mark Steadman is
+the Director of Accessibility Engineering
+
+00:01:09.227 --> 00:01:10.871
+at Fidelity Investments,
+
+00:01:10.972 --> 00:01:14.257
+with a passion
+for accessibility automation,
+
+00:01:14.336 --> 00:01:19.009
+developer advocacy for accessibility,
+and an overall mission to make
+
+00:01:19.078 --> 00:01:23.263
+all content on the web
+and mobile accessible for all.
+
+00:01:23.459 --> 00:01:27.410
+Mark's main focus has been working
+with development teams
+
+00:01:27.504 --> 00:01:30.992
+to prioritize accessibility
+in continuous development
+
+00:01:31.012 --> 00:01:33.343
+and continuous integration environments,
+
+00:01:33.384 --> 00:01:36.752
+and creating automated
+accessibility solutions
+
+00:01:36.772 --> 00:01:39.510
+for development teams and organizations.
+
+00:01:39.538 --> 00:01:41.358
+Now, I know I always say this,
+
+00:01:41.579 --> 00:01:44.460
+but I am, once again,
+really looking forward to this,
+
+00:01:44.482 --> 00:01:47.206
+because it's so important
+to create a culture
+
+00:01:47.226 --> 00:01:50.426
+where everyone
+is invested in accessibility.
+
+00:01:50.909 --> 00:01:55.014
+Over to you, Jessie and Mark,
+and thank you so much for being here.
+
+00:01:58.237 --> 00:01:59.988
+Mark Steadman: There we go.
+Awesome.
+
+00:02:00.009 --> 00:02:00.972
+All right.
+
+00:02:00.992 --> 00:02:05.750
+Well, like I always say with any talk,
+this 24-hours talk, I have to say,
+
+00:02:05.779 --> 00:02:08.798
+good morning, good evening,
+good afternoon, good night,
+
+00:02:08.819 --> 00:02:11.625
+wherever you are
+in the entire world, welcome.
+
+00:02:12.184 --> 00:02:15.154
+For Jessie and myself,
+we're in the good old United States,
+
+00:02:15.174 --> 00:02:17.776
+and it is 5:00 AM for me
+and 6:00 AM for Jessie,
+
+00:02:17.796 --> 00:02:21.717
+so we are probably hyped up on coffee
+and way too much caffeine.
+
+00:02:21.867 --> 00:02:24.446
+If we go through this in 15 minutes,
+that's probably why.
+
+00:02:26.346 --> 00:02:30.912
+Welcome, everybody, to creating
+a developer culture of accessibility.
+
+00:02:32.312 --> 00:02:34.313
+Again, we already had a dope intro,
+
+00:02:34.333 --> 00:02:37.905
+so we should probably just do it
+really simple, Jessie, as we go through.
+
+00:02:37.965 --> 00:02:40.492
+Just real quick, I'm Mark Steadman,
+Director of Accessibility Engineering.
+
+00:02:40.512 --> 00:02:42.556
+I'm with Fidelity Investments.
+
+00:02:43.117 --> 00:02:47.761
+Jessie: I'm Jessie,
+and I am also with Fidelity Investments.
+
+00:02:47.926 --> 00:02:48.926
+Mark: You don't need to know anymore.
+
+00:02:48.946 --> 00:02:50.383
+We already have the dope intro for us,
+
+00:02:50.404 --> 00:02:52.419
+-so we'll just leave it at that.
+-Jessie: Yes, [?] took
+
+00:02:52.439 --> 00:02:53.997
+everything I was going to say.
+
+00:02:55.383 --> 00:02:57.561
+Mark: Yes, so easy peasy.
+
+00:02:57.930 --> 00:02:59.951
+Let's talk through today's agenda
+
+00:02:59.971 --> 00:03:02.322
+because it's really important
+to understand
+
+00:03:02.342 --> 00:03:05.040
+where we're going to start
+and where we're going to go
+
+00:03:05.645 --> 00:03:08.263
+as we go through this entire presentation.
+
+00:03:08.416 --> 00:03:10.517
+Our agenda today is talk through
+what culture is.
+
+00:03:10.537 --> 00:03:12.298
+We have to get an understanding
+for what it is
+
+00:03:12.318 --> 00:03:15.650
+before we can start going through
+how to make a culture switch
+
+00:03:15.683 --> 00:03:17.813
+from one that
+doesn't include accessibility
+
+00:03:17.833 --> 00:03:19.319
+to one that does.
+
+00:03:19.610 --> 00:03:24.594
+The overall problem, the ultimate goal,
+and how do we get to that ultimate goal,
+
+00:03:24.614 --> 00:03:25.860
+the way to get there,
+
+00:03:25.881 --> 00:03:28.679
+and the way to actually
+get us to a culture
+
+00:03:28.699 --> 00:03:30.816
+that is accessible.
+
+00:03:32.192 --> 00:03:35.578
+Starting out, we have to start like
+we're in high school again.
+
+00:03:35.598 --> 00:03:38.420
+We have to do an introduction for
+what is culture.
+
+00:03:38.441 --> 00:03:40.524
+Jessie, I'll let you take it away.
+
+00:03:40.805 --> 00:03:41.805
+Jessie: Awesome.
+
+00:03:42.321 --> 00:03:45.750
+We didn't want to talk about
+creating a culture of accessibility
+
+00:03:45.770 --> 00:03:47.656
+without defining culture.
+
+00:03:47.676 --> 00:03:50.535
+Culture is a little bit
+of an ambiguous term.
+
+00:03:50.558 --> 00:03:51.947
+Everyone's heard it,
+
+00:03:51.967 --> 00:03:56.181
+but I doubt
+anyone has ever tried to define it.
+
+00:03:56.201 --> 00:03:58.904
+So we took a stab at it.
+
+00:03:59.439 --> 00:04:02.942
+Broadly,
+culture is the complex set of beliefs,
+
+00:04:02.973 --> 00:04:06.133
+values, behaviors, and practices
+
+00:04:06.153 --> 00:04:09.096
+that define a group of people or society.
+
+00:04:09.157 --> 00:04:12.137
+It influences who we are and what we do,
+
+00:04:12.157 --> 00:04:15.722
+the way we make decisions
+and rationalize our behaviors.
+
+00:04:16.146 --> 00:04:20.126
+It's important, especially for our talk,
+to note that it's always changing.
+
+00:04:20.146 --> 00:04:24.776
+It's not something that's set in stone
+or that we're ever stuck with.
+
+00:04:26.193 --> 00:04:28.449
+Then to get more specific,
+
+00:04:28.567 --> 00:04:33.963
+the culture of an organization,
+or for our purposes, a development team,
+
+00:04:34.177 --> 00:04:38.548
+is a set of shared attitudes,
+values, goals, and practices
+
+00:04:38.568 --> 00:04:40.378
+that characterize the group.
+
+00:04:40.863 --> 00:04:45.683
+Here, culture has a hand
+in defining the team's values and purpose,
+
+00:04:45.743 --> 00:04:51.134
+in setting the team's expectations,
+and in defining core values.
+
+00:04:53.073 --> 00:04:54.005
+Mark: Right on.
+
+00:04:54.026 --> 00:04:57.142
+Now that we have
+an awesome definition,
+
+00:04:57.363 --> 00:04:59.174
+two definitions of culture,
+
+00:04:59.434 --> 00:05:01.167
+we have to get to dive
+into the juicy stuff,
+
+00:05:01.187 --> 00:05:02.257
+which is,
+
+00:05:02.641 --> 00:05:04.225
+what is the overall problem?
+
+00:05:04.269 --> 00:05:08.263
+Obviously, we're here because
+we have a problem to talk about, right?
+
+00:05:08.297 --> 00:05:13.030
+But there is a big problem, in general,
+with trying to switch a culture from
+
+00:05:13.396 --> 00:05:17.747
+accessibility is too difficult to
+we build content accessibly.
+
+00:05:17.767 --> 00:05:22.209
+Now, some of you on here probably heard
+development teams say to you,
+
+00:05:22.622 --> 00:05:24.561
+"We build content accessibly."
+
+00:05:24.635 --> 00:05:25.649
+We do.
+
+00:05:25.801 --> 00:05:27.614
+Do they really?
+
+00:05:27.755 --> 00:05:31.150
+Do you need to handhold them
+to get them to that point, right?
+
+00:05:31.357 --> 00:05:33.187
+We have to remember that
+
+00:05:33.207 --> 00:05:35.673
+doing this and getting culture shifted
+
+00:05:35.693 --> 00:05:39.590
+from the it's too hard
+to we do content accessibly
+
+00:05:39.610 --> 00:05:40.763
+is a long process.
+
+00:05:41.051 --> 00:05:43.543
+What is the problem right now
+in getting there?
+
+00:05:45.507 --> 00:05:46.989
+Let's start with development teams.
+
+00:05:47.010 --> 00:05:48.058
+We know the stigma.
+
+00:05:48.126 --> 00:05:50.856
+Accessibility causes friction,
+and it slows everything down.
+
+00:05:51.972 --> 00:05:53.026
+It's too difficult.
+
+00:05:53.199 --> 00:05:54.222
+That's the number one thing.
+
+00:05:54.243 --> 00:05:55.762
+Hey, you're coming in here.
+
+00:05:55.782 --> 00:05:57.532
+You're telling me how to do my processes.
+
+00:05:57.552 --> 00:05:59.339
+You're telling me
+I have to change all this stuff up.
+
+00:05:59.360 --> 00:06:00.319
+I've got to do audits.
+
+00:06:00.344 --> 00:06:01.311
+I've got to do this.
+
+00:06:01.332 --> 00:06:02.362
+I've got to get to these things.
+
+00:06:02.385 --> 00:06:03.932
+I've got to do automation.
+
+00:06:04.045 --> 00:06:05.117
+I can't keep up.
+
+00:06:07.057 --> 00:06:09.136
+There's some truth to that, honestly.
+
+00:06:09.497 --> 00:06:12.254
+I'm a person
+that was on a development team
+
+00:06:12.274 --> 00:06:16.015
+and was that exact same person
+who said, "This is too difficult.
+
+00:06:16.035 --> 00:06:17.276
+You're going to make me do all this stuff.
+
+00:06:17.296 --> 00:06:18.869
+I can't do all this."
+
+00:06:20.778 --> 00:06:22.425
+In reality, we all know
+that's not the case.
+
+00:06:22.445 --> 00:06:24.357
+We can easily fit into processes
+and do that.
+
+00:06:24.377 --> 00:06:26.720
+But that's the problem right now
+is that the stigma out there is
+
+00:06:26.740 --> 00:06:28.408
+that it's too difficult.
+
+00:06:28.563 --> 00:06:30.617
+The other one is business priorities.
+
+00:06:30.731 --> 00:06:32.252
+Think about it like this.
+
+00:06:33.276 --> 00:06:36.173
+Everyone always tends to think
+that the business priority is
+
+00:06:36.193 --> 00:06:38.274
+that something new comes in
+and accessibility gets put aside.
+
+00:06:38.294 --> 00:06:41.039
+Actually, most organizations,
+most development teams,
+
+00:06:41.059 --> 00:06:43.105
+honestly, they do want to do good.
+
+00:06:43.382 --> 00:06:47.039
+The problem is they see that good
+as not a necessary business value.
+
+00:06:47.059 --> 00:06:49.068
+They see it as a nice to have.
+
+00:06:49.248 --> 00:06:51.468
+If we can get to it, we'll get to it.
+
+00:06:51.508 --> 00:06:52.869
+It's a nice to have.
+
+00:06:53.382 --> 00:06:54.978
+The last one is moving goalposts.
+
+00:06:54.998 --> 00:06:58.450
+Kind of back to the first part
+about accessibility is too difficult.
+
+00:06:58.502 --> 00:06:59.601
+When you say moving goalposts,
+
+00:06:59.621 --> 00:07:03.715
+we're moving the target
+to say over and over again,
+
+00:07:03.783 --> 00:07:05.968
+"Yes, it's accessible,
+but you forgot about this.
+
+00:07:05.988 --> 00:07:07.523
+You forgot about this."
+
+00:07:08.083 --> 00:07:11.652
+Accessibility teams constantly think
+that the target is moving.
+
+00:07:11.678 --> 00:07:13.228
+When in reality, it's probably just
+
+00:07:13.248 --> 00:07:15.979
+an accessibility advocate like myself
+or Jessie saying like,
+
+00:07:15.999 --> 00:07:17.103
+"Hey, you're almost there.
+
+00:07:17.137 --> 00:07:18.358
+We just need to do a couple more things."
+
+00:07:18.378 --> 00:07:20.700
+But to them, not knowing accessibility,
+
+00:07:20.720 --> 00:07:25.150
+they see it as it's never-ending,
+that goalpost is moving,
+
+00:07:25.239 --> 00:07:27.906
+and are we ever going to get there.
+
+00:07:29.889 --> 00:07:31.306
+Everybody listening to me talk right now
+
+00:07:31.326 --> 00:07:33.273
+has probably heard developers,
+development teams,
+
+00:07:33.293 --> 00:07:36.497
+whether it's through a CMS,
+
+00:07:36.517 --> 00:07:38.982
+straight development like React,
+Angular, whoever it is,
+
+00:07:39.002 --> 00:07:41.712
+you've probably already heard
+all these things be said.
+
+00:07:41.979 --> 00:07:45.508
+However, I'm going to flip something
+the other way around as well
+
+00:07:45.787 --> 00:07:48.875
+because it isn't just development teams
+that are the problem.
+
+00:07:49.115 --> 00:07:52.539
+Hi, Accessibility teams
+are the problem, too.
+
+00:07:52.627 --> 00:07:53.684
+Yes,
+
+00:07:53.897 --> 00:07:57.290
+Accessibility advocates like me,
+like Jessie,
+
+00:07:57.317 --> 00:07:59.273
+like everybody probably
+listening to this call,
+
+00:07:59.293 --> 00:08:01.886
+we do have an issue in this process, too.
+
+00:08:02.108 --> 00:08:04.694
+The stigma for Accessibility teams
+normally is
+
+00:08:04.714 --> 00:08:06.227
+this is how we have to do it.
+
+00:08:06.936 --> 00:08:09.428
+The old-school way of audits.
+
+00:08:09.454 --> 00:08:10.478
+I got to audit it.
+
+00:08:10.520 --> 00:08:13.117
+I got to send it to teams
+and they got to fix it.
+
+00:08:13.317 --> 00:08:16.736
+I need to make a blanket way
+for teams to adopt something
+
+00:08:16.756 --> 00:08:18.469
+and that's how we have to do it.
+
+00:08:19.212 --> 00:08:20.629
+It's not wrong.
+
+00:08:20.649 --> 00:08:22.199
+We've been doing it for years.
+
+00:08:22.219 --> 00:08:23.788
+A lot of organizations scale in that way.
+
+00:08:23.808 --> 00:08:26.175
+Development teams pick it up in that way.
+
+00:08:27.735 --> 00:08:30.173
+Really, the problem comes into
+
+00:08:30.193 --> 00:08:33.150
+there's no adaption
+to development team processes.
+
+00:08:33.852 --> 00:08:35.993
+If you take away anything from this,
+if you're not a developer,
+
+00:08:36.013 --> 00:08:38.394
+not familiar with development processes,
+you have to understand
+
+00:08:38.414 --> 00:08:43.622
+development teams have a load of things
+that they do every single day.
+
+00:08:43.712 --> 00:08:47.735
+From straight development, code reviews,
+
+00:08:47.914 --> 00:08:49.484
+security reviews, test reviews,
+
+00:08:49.504 --> 00:08:51.883
+UI testing,
+all the pieces that go into it.
+
+00:08:51.904 --> 00:08:53.400
+There are a ton of processes
+
+00:08:53.420 --> 00:08:55.600
+and just saying,
+"Hey, go do Accessibility,"
+
+00:08:55.717 --> 00:08:57.799
+is going to make them
+resistant to it immediately
+
+00:08:57.847 --> 00:09:00.823
+unless we look at it and figure out
+how we can fit it in nicely.
+
+00:09:00.901 --> 00:09:02.908
+There's no guidance
+that's easily consumable.
+
+00:09:02.928 --> 00:09:06.627
+When we say guidance, there's no guidance
+into implementation for some of the tools.
+
+00:09:07.144 --> 00:09:09.347
+There's not really a good plethora
+of guidance into
+
+00:09:09.367 --> 00:09:11.610
+how to fix some of the issues
+on their own.
+
+00:09:12.235 --> 00:09:13.430
+A lot of them are relatively simple,
+
+00:09:13.451 --> 00:09:16.044
+but like on their own
+fixing some of the issues,
+
+00:09:16.327 --> 00:09:18.862
+there's no enforcement
+at development level.
+
+00:09:19.443 --> 00:09:23.128
+We'll get into this one a little bit more
+before I go into a deep dive about this,
+
+00:09:23.148 --> 00:09:26.545
+but having enforcement
+as an Accessibility team is saying,
+
+00:09:26.565 --> 00:09:30.727
+"Hey, we want to enforce Accessibility
+at a development level
+
+00:09:30.747 --> 00:09:33.707
+and ensure that developers
+are fixing issues
+
+00:09:33.727 --> 00:09:34.678
+before they're released."
+
+00:09:34.698 --> 00:09:37.108
+Not after, not waiting for an audit.
+
+00:09:37.368 --> 00:09:39.260
+We want to make sure they're fixed
+
+00:09:39.452 --> 00:09:41.998
+before that at a development level,
+
+00:09:42.055 --> 00:09:43.771
+but we [?] do that right now.
+
+00:09:43.899 --> 00:09:45.498
+The last one is
+throwing everything all at once.
+
+00:09:45.518 --> 00:09:48.449
+Now, sometimes this is the last bullet
+I had on here
+
+00:09:48.469 --> 00:09:50.032
+because it is what it is.
+
+00:09:50.052 --> 00:09:53.246
+Sometimes we're starting programs
+or we're working with development teams
+
+00:09:53.266 --> 00:09:56.676
+and we're under such pressure
+to get Accessibility involved.
+
+00:09:56.696 --> 00:09:57.917
+We throw everything at them
+all at once and say,
+
+00:09:57.945 --> 00:10:00.009
+"Hey, we've got to get this stuff done."
+
+00:10:00.798 --> 00:10:01.633
+Does it last?
+
+00:10:01.653 --> 00:10:04.938
+Does it make a culture
+of developing stuff Accessibly?
+
+00:10:05.080 --> 00:10:06.932
+It doesn't.
+It might stick for a little bit,
+
+00:10:06.952 --> 00:10:09.112
+but it doesn't stick in the long term.
+
+00:10:09.459 --> 00:10:11.669
+Those are our two big problems.
+
+00:10:11.689 --> 00:10:14.641
+We have development teams
+that holistically think
+
+00:10:14.678 --> 00:10:17.787
+that Accessibility is too difficult
+at a very high level.
+
+00:10:17.807 --> 00:10:19.581
+We have Accessibility teams
+
+00:10:19.870 --> 00:10:22.231
+that kind of say,
+"Hey, this is how we have to do it.
+
+00:10:22.251 --> 00:10:24.451
+We've got to start
+doing Accessibility early.
+
+00:10:24.484 --> 00:10:27.550
+We've got to shift left
+and we've got to get there."
+
+00:10:28.279 --> 00:10:31.763
+Doing those things and saying
+those things are two different things.
+
+00:10:32.617 --> 00:10:34.635
+We want to get to a state
+
+00:10:34.808 --> 00:10:37.515
+where we are able
+to address both these problems.
+
+00:10:37.779 --> 00:10:40.743
+The way that we do that
+is working through culture.
+
+00:10:41.388 --> 00:10:45.700
+What is the ultimate goal, Jessie?
+
+00:10:48.790 --> 00:10:50.695
+Oh, you're on mute, though.
+
+00:10:54.462 --> 00:10:56.117
+Jessie: All right. It had to happen once.
+
+00:10:56.138 --> 00:10:57.795
+We got that out of the way.
+
+00:10:58.570 --> 00:11:02.285
+All right. So like Mark mentioned,
+
+00:11:02.349 --> 00:11:04.830
+we have to move from a culture
+
+00:11:05.777 --> 00:11:08.977
+from Accessibility
+and new processes slow us down
+
+00:11:09.023 --> 00:11:12.797
+to we create content
+with Accessibility in mind.
+
+00:11:13.377 --> 00:11:16.108
+So we have to move
+Accessibility from something
+
+00:11:16.128 --> 00:11:19.521
+that's a nice to have,
+if we can get to it,
+
+00:11:19.600 --> 00:11:21.141
+a one-and-done,
+
+00:11:21.279 --> 00:11:25.573
+a we fixed Accessibility last year,
+
+00:11:25.688 --> 00:11:28.270
+to something that's thought of
+by developers
+
+00:11:28.290 --> 00:11:30.275
+and teams every single day.
+
+00:11:30.328 --> 00:11:32.545
+That's where we want
+to bring Accessibility
+
+00:11:32.565 --> 00:11:35.988
+into the day-to-day development
+of every team.
+
+00:11:36.878 --> 00:11:41.233
+Then by integrating Accessibility
+successfully in the culture
+
+00:11:41.253 --> 00:11:45.012
+and making it something
+that's thought of more often,
+
+00:11:45.072 --> 00:11:47.944
+will show developers
+and their business partners
+
+00:11:47.964 --> 00:11:53.131
+that eventually Accessibility
+will not add to their bandwidth.
+
+00:11:53.151 --> 00:11:54.734
+It will not take more time.
+
+00:11:54.756 --> 00:11:58.646
+It'll just be something
+that's worked in to every feature,
+
+00:11:58.666 --> 00:12:02.479
+every story, every bit of work
+that the team does.
+
+00:12:07.301 --> 00:12:08.992
+The way to get there.
+
+00:12:11.652 --> 00:12:17.267
+We're going to talk about
+leveling-up accessible culture
+
+00:12:17.412 --> 00:12:18.999
+with two main things.
+
+00:12:19.245 --> 00:12:21.169
+The first one is adapt.
+
+00:12:21.190 --> 00:12:24.564
+Adapt to each team's current process.
+
+00:12:25.147 --> 00:12:29.203
+This is where Mark mentioned
+that Accessibility teams
+
+00:12:29.303 --> 00:12:33.472
+tend to get a little caught up
+in trying to force
+
+00:12:33.642 --> 00:12:38.401
+on teams a one-size-fits-all suggestion
+and process.
+
+00:12:38.533 --> 00:12:41.260
+Instead,
+we want to challenge people to
+
+00:12:41.280 --> 00:12:42.928
+look at what's already there
+
+00:12:42.948 --> 00:12:46.881
+and what is already working
+and build off of that.
+
+00:12:47.318 --> 00:12:50.752
+The next piece is
+to use incremental building blocks.
+
+00:12:50.894 --> 00:12:56.924
+So pick one small achievable next step
+and focus with the team on that
+
+00:12:57.042 --> 00:13:01.021
+until the point that
+it becomes almost second nature,
+
+00:13:01.242 --> 00:13:03.148
+and it is not something
+
+00:13:03.168 --> 00:13:07.337
+that the team is barely
+even thinking about.
+
+00:13:07.357 --> 00:13:09.515
+It's just something that they do,
+
+00:13:09.611 --> 00:13:12.346
+instead of giving them
+the entire playbook,
+
+00:13:12.366 --> 00:13:15.807
+which is overwhelming
+and setting them up for failure,
+
+00:13:15.827 --> 00:13:19.532
+and they immediately look at it
+and start giving excuses.
+
+00:13:19.809 --> 00:13:22.599
+That's where we really want
+to focus on this
+
+00:13:22.619 --> 00:13:26.181
+Meryl Evans quote
+of progress over perfection.
+
+00:13:30.605 --> 00:13:37.605
+We're going to demonstrate this more fully
+by introducing you to a development team.
+
+00:13:39.696 --> 00:13:43.558
+Today we are following
+the journey of Team Cyclops.
+
+00:13:43.912 --> 00:13:46.803
+Team Cyclops is a development team
+
+00:13:46.823 --> 00:13:49.466
+that builds a learning website
+
+00:13:49.486 --> 00:13:55.508
+with multiple learning topics, videos,
+and tracks available to their customers.
+
+00:13:55.836 --> 00:14:02.538
+The team is made up of a product manager,
+an analyst, three React developers,
+
+00:14:02.558 --> 00:14:04.551
+and one tester.
+
+00:14:04.601 --> 00:14:07.364
+The team knows what accessibility is
+
+00:14:07.566 --> 00:14:09.544
+and they think it's too hard.
+
+00:14:09.699 --> 00:14:11.547
+They think that it conflicts
+
+00:14:11.567 --> 00:14:14.679
+with their business priorities
+and roadmap,
+
+00:14:14.832 --> 00:14:18.522
+and they think that it's unachievable
+and a moving target.
+
+00:14:20.052 --> 00:14:21.480
+Mark: How dare them?
+
+00:14:21.759 --> 00:14:23.987
+How dare them think that?
+
+00:14:24.007 --> 00:14:25.440
+Adding some more pieces to this
+
+00:14:25.460 --> 00:14:28.677
+because we have to get into tech specifics
+because this would be fun.
+
+00:14:28.697 --> 00:14:31.681
+Now, mind you,
+this is just an example team.
+
+00:14:31.747 --> 00:14:32.842
+This could be anything.
+
+00:14:32.877 --> 00:14:34.631
+This could be a WordPress team.
+
+00:14:34.697 --> 00:14:35.958
+This could be a content team.
+
+00:14:35.998 --> 00:14:38.517
+This could be,
+if you want to say it's old-school,
+
+00:14:38.537 --> 00:14:40.109
+you can say HTML and JavaScript.
+
+00:14:40.129 --> 00:14:42.034
+I know everybody
+gets weirded out by that now
+
+00:14:42.054 --> 00:14:44.361
+because HTML
+and JavaScript is out of style.
+
+00:14:44.952 --> 00:14:47.041
+For this team,
+specifically for Team Cyclops,
+
+00:14:47.061 --> 00:14:49.453
+so tech stack is React.
+
+00:14:49.573 --> 00:14:54.310
+They are using a linter that's JSX ESLint.
+
+00:14:54.357 --> 00:14:57.334
+If everybody doesn't know,
+linter is a static code analyzer
+
+00:14:57.486 --> 00:15:01.311
+that analyzes code and checks for issues
+as you develop.
+
+00:15:02.050 --> 00:15:06.301
+For instance, if you used
+an incorrect ARIA role or things like that
+
+00:15:06.563 --> 00:15:07.607
+as you're developing,
+
+00:15:07.627 --> 00:15:10.272
+it can call those things out
+within reason.
+
+00:15:10.990 --> 00:15:13.382
+For UI testing,
+they have two different levels of tests.
+
+00:15:13.402 --> 00:15:16.599
+They're doing component-level testing
+with React testing library
+
+00:15:16.750 --> 00:15:19.259
+and they're doing UI testing with Cypress,
+which is cool.
+
+00:15:19.279 --> 00:15:20.864
+So they have integration testing
+
+00:15:21.013 --> 00:15:23.402
+and they have UI
+or component-level testing
+
+00:15:23.422 --> 00:15:24.863
+with React testing library.
+
+00:15:24.967 --> 00:15:28.208
+The release process includes code reviews
+for each new code change.
+
+00:15:28.228 --> 00:15:30.384
+We have a senior developer
+that does code reviews
+
+00:15:30.404 --> 00:15:32.461
+that hits them to their coding standards
+
+00:15:32.498 --> 00:15:35.032
+and they have a definition
+of Done for each story.
+
+00:15:35.053 --> 00:15:37.310
+That includes a UI testing checklist.
+
+00:15:37.337 --> 00:15:38.577
+Your standard look at, "Hey,
+
+00:15:38.597 --> 00:15:40.748
+does it look and feel
+the same way as design?
+
+00:15:40.777 --> 00:15:42.010
+Does it function?
+
+00:15:42.101 --> 00:15:43.990
+Does it do the things that we ask, right?"
+
+00:15:44.030 --> 00:15:47.402
+99% sure that definition of Done
+is everything with a mouse,
+
+00:15:47.423 --> 00:15:49.057
+just so everybody knows.
+
+00:15:49.692 --> 00:15:51.103
+With that being said,
+
+00:15:52.344 --> 00:15:56.310
+let's get into some Mark explaining
+some dope infographs
+
+00:15:56.331 --> 00:15:58.614
+we're going to end up having [?]
+
+00:15:58.635 --> 00:15:59.667
+leveling-up steps.
+
+00:15:59.688 --> 00:16:01.048
+Step one.
+
+00:16:01.632 --> 00:16:04.607
+Step one to getting us on the right track
+
+00:16:04.633 --> 00:16:06.977
+of creating developer culture
+accessibility is automation.
+
+00:16:07.037 --> 00:16:08.163
+Now,
+
+00:16:08.436 --> 00:16:10.912
+everybody needs to know
+the person talking right now.
+
+00:16:10.932 --> 00:16:12.392
+Hi, I'm Mark.
+
+00:16:12.580 --> 00:16:15.527
+I'm the biggest advocate
+for accessibility automation
+
+00:16:15.611 --> 00:16:16.611
+you will find.
+
+00:16:16.631 --> 00:16:18.487
+However, I do know the limitations of it.
+
+00:16:18.507 --> 00:16:19.504
+I do know
+
+00:16:19.524 --> 00:16:22.821
+that accessibility automation only catches
+a lower third of accessibility issues
+
+00:16:22.872 --> 00:16:24.772
+and we do know
+that it's not going to catch everything.
+
+00:16:24.792 --> 00:16:26.949
+However, what is the easiest way
+
+00:16:26.969 --> 00:16:29.292
+to start to get a development team
+
+00:16:29.312 --> 00:16:32.899
+in line and starting to think
+about accessibility?
+
+00:16:32.919 --> 00:16:34.425
+It is automation.
+
+00:16:34.460 --> 00:16:35.477
+Full stop.
+
+00:16:35.497 --> 00:16:37.590
+That is the way to crack
+the developer shell
+
+00:16:37.610 --> 00:16:40.352
+and get a foot in the door
+to start changing that culture,
+
+00:16:40.372 --> 00:16:42.100
+is using automation,
+
+00:16:42.186 --> 00:16:43.670
+number one.
+
+00:16:44.423 --> 00:16:45.596
+As we go through this
+
+00:16:45.616 --> 00:16:47.117
+and as we go through
+these leveling-up steps,
+
+00:16:47.137 --> 00:16:48.704
+we actually have a little graphic
+on the side.
+
+00:16:48.737 --> 00:16:51.693
+Right now it's a giant staircase,
+or I guess
+
+00:16:51.713 --> 00:16:52.528
+we call it staircase,
+
+00:16:52.548 --> 00:16:55.161
+a bunch of blocks lined up
+to look like stairs.
+
+00:16:55.208 --> 00:16:59.059
+At the very top, there's an orange block
+that says accessibility at every level.
+
+00:16:59.322 --> 00:17:03.335
+At the very bottom right now where we are
+with a little arrow next to it,
+
+00:17:03.369 --> 00:17:05.747
+it says, "A11y is too hard."
+
+00:17:07.182 --> 00:17:09.680
+Accessibility is too hard right now.
+
+00:17:09.700 --> 00:17:10.859
+That's where our development team is.
+
+00:17:10.879 --> 00:17:12.434
+That's where Team Cyclops is right now.
+
+00:17:12.457 --> 00:17:15.278
+Is sitting at development is too hard.
+
+00:17:15.309 --> 00:17:17.637
+So we're at the very bottom
+of the staircase.
+
+00:17:17.697 --> 00:17:19.963
+The first step being automation.
+
+00:17:20.600 --> 00:17:22.969
+Automation-wise,
+Jessie talked about this before.
+
+00:17:23.089 --> 00:17:25.729
+For each of these steps,
+we're going to have two big things we do.
+
+00:17:25.750 --> 00:17:27.190
+We're going to adapt
+
+00:17:27.283 --> 00:17:28.682
+and we're going to have
+these small building blocks,
+
+00:17:28.702 --> 00:17:30.811
+the building blocks of the actions,
+the adaptions of the things
+
+00:17:30.831 --> 00:17:32.514
+that we look at and we get to.
+
+00:17:32.534 --> 00:17:34.271
+Now, the one thing to address
+
+00:17:34.291 --> 00:17:37.641
+before we get into this,
+is everybody, I can guarantee,
+
+00:17:37.720 --> 00:17:39.833
+maybe not everybody,
+but at least most of y'all,
+
+00:17:39.908 --> 00:17:43.425
+are probably thinking,
+"Mark, how does this scale,
+
+00:17:43.452 --> 00:17:46.111
+because it's going to be really difficult
+to adapt to each thing?"
+
+00:17:46.178 --> 00:17:47.194
+It's a great question.
+
+00:17:47.283 --> 00:17:50.446
+Honestly, scaling this
+isn't as difficult as you think.
+
+00:17:50.469 --> 00:17:51.719
+Most development teams
+
+00:17:51.739 --> 00:17:54.590
+in large organizations
+or even smaller organizations, too,
+
+00:17:54.677 --> 00:17:57.582
+tend to probably have similar processes
+
+00:17:57.603 --> 00:17:59.690
+or at least groups of them
+will have similar processes.
+
+00:17:59.730 --> 00:18:06.633
+We only end up with adapting for literally
+a few different types of tech stacks
+
+00:18:06.653 --> 00:18:07.941
+or testing libraries
+
+00:18:07.961 --> 00:18:11.396
+for multiple different groups
+of development teams.
+
+00:18:13.941 --> 00:18:16.101
+For automation, let's adapt.
+
+00:18:16.317 --> 00:18:17.971
+What's there?
+Remember we mentioned before,
+
+00:18:17.991 --> 00:18:20.228
+UI testing, we have React testing library,
+
+00:18:20.320 --> 00:18:21.666
+and we have Cypress.
+
+00:18:21.884 --> 00:18:24.062
+We talk to this team
+and they say, "Hey, well,
+
+00:18:24.129 --> 00:18:28.092
+most of our testing is actually done
+at the integration level with Cypress."
+
+00:18:28.150 --> 00:18:30.244
+We say, "Hey, awesome, that's great."
+
+00:18:30.317 --> 00:18:32.340
+We know that.
+Hey, you do most of your testing,
+
+00:18:32.360 --> 00:18:34.538
+most of your results come back
+from UI testing with Cypress.
+
+00:18:34.561 --> 00:18:35.443
+Awesome.
+
+00:18:35.463 --> 00:18:36.768
+We need to know that. We got it.
+
+00:18:36.820 --> 00:18:37.873
+Thumbs up.
+
+00:18:38.085 --> 00:18:40.458
+For linters, they have JSX ESLint.
+
+00:18:40.605 --> 00:18:42.211
+We knew that, right?
+
+00:18:42.492 --> 00:18:43.835
+Adapting to what's there,
+
+00:18:43.866 --> 00:18:46.306
+how can we take
+building blocks off of that?
+
+00:18:47.203 --> 00:18:48.323
+The first step,
+
+00:18:49.419 --> 00:18:53.769
+we're going to use Axe-Cypress
+within their Cypress regression test.
+
+00:18:53.923 --> 00:18:57.447
+What that does is now
+for the regression test,
+
+00:18:57.467 --> 00:19:04.029
+we have an automated accessibility test
+in their UI testing regression suite.
+
+00:19:04.283 --> 00:19:06.794
+Now every time it runs,
+every time they have a pull request,
+
+00:19:06.879 --> 00:19:09.771
+we are now getting accessibility results
+back to them.
+
+00:19:09.791 --> 00:19:12.790
+It just becomes a part of that UI testing
+
+00:19:12.810 --> 00:19:16.120
+that they have over
+and over and over, right?
+
+00:19:16.140 --> 00:19:17.742
+Again, we're not changing anything.
+
+00:19:17.858 --> 00:19:19.403
+We're not making a huge wholesale change.
+
+00:19:19.423 --> 00:19:20.615
+We're just adapting to what's there
+
+00:19:20.636 --> 00:19:21.913
+and just doing a small
+building block to say,
+
+00:19:21.933 --> 00:19:24.283
+"Hey, start adding accessibility tests
+in here."
+
+00:19:24.881 --> 00:19:25.881
+That's number one.
+
+00:19:25.901 --> 00:19:28.394
+Number two,
+the linter that we talked about.
+
+00:19:28.542 --> 00:19:30.466
+JSX ESLint.
+
+00:19:31.122 --> 00:19:32.122
+Guess what?
+
+00:19:32.142 --> 00:19:33.321
+It has accessibility rules.
+
+00:19:33.341 --> 00:19:34.278
+I can tell you right now.
+
+00:19:34.298 --> 00:19:36.498
+I know we're using React as an example.
+
+00:19:36.757 --> 00:19:38.583
+I can tell you right now,
+for linting tools,
+
+00:19:38.603 --> 00:19:41.464
+almost every single one of them,
+especially the ESLints,
+
+00:19:41.501 --> 00:19:43.483
+have accessibility rules baked into them.
+
+00:19:43.536 --> 00:19:45.053
+Simply turn them on.
+
+00:19:45.129 --> 00:19:48.980
+Talk to your development teams,
+turn them on and get them using it ASAP.
+
+00:19:49.000 --> 00:19:52.532
+Even if it is one single rule,
+
+00:19:52.568 --> 00:19:53.818
+who cares?
+
+00:19:53.838 --> 00:19:57.028
+One rule is better than none.
+
+00:19:57.072 --> 00:19:58.079
+I always give an example.
+
+00:19:58.099 --> 00:20:04.317
+There's an application out in the wild
+that had 50 different individual issues
+
+00:20:04.337 --> 00:20:05.814
+that were missing images.
+
+00:20:05.859 --> 00:20:07.811
+If they would turn on a linter,
+they would have fixed that
+
+00:20:07.832 --> 00:20:09.390
+in the one component and 50 issues
+
+00:20:09.410 --> 00:20:12.706
+would have been fixed
+for one instance of using a linter.
+
+00:20:13.821 --> 00:20:16.171
+Adapting to those blocks and using it,
+
+00:20:16.334 --> 00:20:19.381
+now what we have is
+we have two different levels.
+
+00:20:19.401 --> 00:20:21.761
+We have linting and we have UI testing.
+
+00:20:23.115 --> 00:20:24.835
+We're giving them the building blocks
+to run with it.
+
+00:20:24.848 --> 00:20:26.692
+Now if we look at it and we say, "Hey,
+
+00:20:26.712 --> 00:20:29.064
+Team Cyclops, where are you at?"
+
+00:20:29.472 --> 00:20:32.296
+Well, let's say
+a couple months have gone by.
+
+00:20:32.325 --> 00:20:33.797
+Three months, four months.
+
+00:20:33.882 --> 00:20:35.844
+By the way,
+this takes as long as it takes.
+
+00:20:35.864 --> 00:20:37.401
+Jessie and I aren't going to sit here
+and tell you all,
+
+00:20:37.422 --> 00:20:38.544
+this takes two weeks.
+
+00:20:38.564 --> 00:20:39.428
+Good luck. Have fun.
+
+00:20:39.448 --> 00:20:40.389
+No.
+
+00:20:40.642 --> 00:20:43.271
+Updating, getting developer culture
+
+00:20:43.424 --> 00:20:45.929
+to evolve to include accessibility
+takes time.
+
+00:20:45.979 --> 00:20:47.519
+It is what it is, right?
+
+00:20:47.627 --> 00:20:49.043
+What that time is,
+
+00:20:49.154 --> 00:20:50.378
+you can never tell.
+
+00:20:50.398 --> 00:20:51.901
+You can never dictate that time frame.
+
+00:20:51.921 --> 00:20:54.052
+You just have to kind of roll with it
+and say,
+
+00:20:54.073 --> 00:20:56.012
+we know that we need to do these things.
+
+00:20:56.032 --> 00:20:57.270
+They take as long as they take.
+
+00:20:57.672 --> 00:21:00.361
+During this, just know we're not
+putting time frames on this whatsoever,
+
+00:21:00.381 --> 00:21:01.327
+but it takes as long as it takes.
+
+00:21:01.379 --> 00:21:03.378
+Let's say a few months go by.
+
+00:21:04.902 --> 00:21:07.335
+Team Cyclops have turned on accessibility
+
+00:21:07.356 --> 00:21:09.964
+and went through rules
+and added Axe-Cypress
+
+00:21:09.984 --> 00:21:13.449
+within their Cypress regression test,
+and now they're checking automated issues.
+
+00:21:13.469 --> 00:21:15.219
+They're getting results back.
+
+00:21:16.149 --> 00:21:17.166
+That's great.
+
+00:21:17.187 --> 00:21:18.741
+That's the first step.
+
+00:21:20.416 --> 00:21:23.274
+The team now values accessibility,
+
+00:21:23.473 --> 00:21:25.111
+but they think
+
+00:21:25.339 --> 00:21:26.800
+that they are done.
+
+00:21:26.839 --> 00:21:30.636
+They've implemented automation
+and they've achieved peak accessibility.
+
+00:21:30.656 --> 00:21:32.439
+I laugh at that every time
+because I've heard
+
+00:21:32.459 --> 00:21:33.871
+that so many times in my career.
+
+00:21:33.916 --> 00:21:36.606
+They think they've achieved
+peak accessibility.
+
+00:21:36.626 --> 00:21:38.230
+They're done.
+
+00:21:38.419 --> 00:21:41.433
+I'm sure everybody on this call
+has heard that same thing.
+
+00:21:41.804 --> 00:21:42.966
+Everybody knows that's a fallacy.
+
+00:21:42.986 --> 00:21:44.859
+Everybody knows that's wrong, right?
+
+00:21:44.987 --> 00:21:46.327
+That's okay.
+
+00:21:46.425 --> 00:21:49.565
+The main thing is that
+we have them using automation.
+
+00:21:49.592 --> 00:21:51.093
+It's in their specific pieces.
+
+00:21:51.113 --> 00:21:52.696
+It's they're ready to go
+
+00:21:52.753 --> 00:21:56.766
+because this is where we tend
+to make the mistake.
+
+00:21:56.836 --> 00:22:01.626
+We tend to want to do automation
+and then some type of enforcement
+
+00:22:01.646 --> 00:22:04.533
+or you've got fixing
+this release beforehand
+
+00:22:04.554 --> 00:22:06.501
+and teams can't figure it out.
+
+00:22:06.522 --> 00:22:08.734
+They don't even get to the point
+where they set up
+
+00:22:08.755 --> 00:22:10.088
+their UI tests for their linters
+
+00:22:10.108 --> 00:22:13.654
+because they get caught
+in kind of a brain freeze
+
+00:22:13.674 --> 00:22:15.722
+where they can't figure out
+how they're going to do this.
+
+00:22:15.743 --> 00:22:19.409
+Start with automation
+without enforcement because guess what?
+
+00:22:19.872 --> 00:22:21.470
+Now we go into code reviews.
+
+00:22:21.856 --> 00:22:25.317
+If we're looking at the level-up piece,
+that's along the way.
+
+00:22:25.845 --> 00:22:27.159
+We went from "A11y is too hard."
+
+00:22:27.179 --> 00:22:29.506
+now we went up two steps,
+
+00:22:29.715 --> 00:22:32.161
+and now the arrow is pointing on the step
+that says, "We use automation."
+
+00:22:32.181 --> 00:22:34.741
+That's where Team Cyclops is right now.
+
+00:22:34.871 --> 00:22:37.323
+We need to go up a couple more steps.
+
+00:22:37.814 --> 00:22:40.382
+We need to start enforcing it.
+
+00:22:41.143 --> 00:22:44.241
+Keyword from what I said before,
+when you're using automation,
+
+00:22:44.262 --> 00:22:46.531
+we're not trying to run enforcement
+while we're setting automation up.
+
+00:22:46.551 --> 00:22:48.246
+We're just trying to get them set up.
+
+00:22:48.312 --> 00:22:52.702
+Now we use code reviews
+to start enforcing
+
+00:22:52.722 --> 00:22:54.066
+some of those automation pieces,
+
+00:22:54.086 --> 00:22:56.547
+but also a couple other things
+because code reviews,
+
+00:22:56.568 --> 00:22:59.167
+everybody tends to think that code reviews
+don't really exist in the world anymore.
+
+00:22:59.187 --> 00:23:00.403
+They sure do.
+
+00:23:03.196 --> 00:23:05.349
+They are just as strict as they were
+
+00:23:05.370 --> 00:23:07.877
+when we started doing code reviews
+back in the day.
+
+00:23:07.905 --> 00:23:09.528
+They're strict. They are.
+
+00:23:10.542 --> 00:23:14.470
+We need to know and find a way
+to get in there and adapt to what's there.
+
+00:23:14.757 --> 00:23:18.797
+Talking about what's there,
+our code reviews for each new code change.
+
+00:23:18.914 --> 00:23:20.874
+For those who are familiar
+with GitHub and all the process,
+
+00:23:20.894 --> 00:23:21.847
+it's a PR.
+
+00:23:21.977 --> 00:23:22.738
+For those not,
+
+00:23:22.758 --> 00:23:25.526
+any new code change
+that gets checked in,
+
+00:23:25.547 --> 00:23:26.736
+they're looking for code quality.
+
+00:23:26.756 --> 00:23:31.589
+That could be specifically any type
+of code quality standards we have
+
+00:23:31.609 --> 00:23:34.951
+just looking from
+a just a plain coding standpoint,
+
+00:23:35.025 --> 00:23:37.473
+and they're looking for valid HTML.
+
+00:23:37.518 --> 00:23:38.757
+By valid HTML,
+
+00:23:38.779 --> 00:23:40.629
+just make sure
+everybody's listening on there.
+
+00:23:40.691 --> 00:23:42.906
+Valid HTML does not mean semantic HTML.
+
+00:23:42.926 --> 00:23:44.389
+It just means that it's valid.
+
+00:23:44.446 --> 00:23:45.449
+That's it.
+
+00:23:45.469 --> 00:23:48.033
+Valid HTML can be horrendous.
+
+00:23:48.118 --> 00:23:49.930
+Everybody should know that.
+
+00:23:50.117 --> 00:23:52.753
+What can we do to adapt to
+what's there
+
+00:23:52.773 --> 00:23:54.271
+and build off of it?
+
+00:23:54.291 --> 00:23:56.166
+Our building blocks now.
+
+00:23:56.444 --> 00:23:58.119
+Automation enforcement.
+
+00:23:58.152 --> 00:24:02.522
+Code cannot be merged
+with linting and UI automation failures.
+
+00:24:02.542 --> 00:24:03.774
+That's number one.
+
+00:24:04.034 --> 00:24:05.585
+Now, you can use
+a multitude of different things.
+
+00:24:05.605 --> 00:24:08.965
+You can use human intervention
+or you can use GitHub actions to do that,
+
+00:24:09.048 --> 00:24:12.106
+but automation cannot be merged at all.
+
+00:24:12.972 --> 00:24:15.518
+Now we're starting to hit that,
+"Hey, we did this step one.
+
+00:24:15.538 --> 00:24:19.431
+Now you cannot do anything without--
+
+00:24:19.771 --> 00:24:23.404
+you cannot merge code
+without fixing your automated issues."
+
+00:24:23.846 --> 00:24:25.714
+That's not the only thing,
+because we did say
+
+00:24:25.734 --> 00:24:28.074
+they do code quality and valid HTML.
+
+00:24:29.561 --> 00:24:32.384
+Let's look at semantic HTML usage.
+
+00:24:32.809 --> 00:24:34.787
+The amount of issues that you can fix
+
+00:24:34.807 --> 00:24:37.638
+by someone simply going into
+a code review and saying,
+
+00:24:37.782 --> 00:24:39.922
+"Hi, that ARIA is garbage.
+
+00:24:39.949 --> 00:24:41.787
+Use semantic HTML."
+
+00:24:44.593 --> 00:24:46.796
+It's endless.
+I'm just telling you all right now.
+
+00:24:46.994 --> 00:24:52.552
+Semantic HTML uses and checking for it
+is a huge added value in a code review.
+
+00:24:52.609 --> 00:24:58.087
+Ensuring that ARIA isn't overused,
+or if you're using incorrect HTML,
+
+00:24:58.107 --> 00:25:00.768
+and we should use semantics
+that are better for it.
+
+00:25:00.792 --> 00:25:01.863
+We can't.
+
+00:25:02.233 --> 00:25:04.849
+Just doing those two things
+in code reviews,
+
+00:25:05.027 --> 00:25:06.960
+now brings that enforcement in
+
+00:25:06.980 --> 00:25:10.083
+and now begins to get
+the team to think, "Okay,
+
+00:25:11.266 --> 00:25:12.633
+we're going to do this
+accessibility thing.
+
+00:25:12.895 --> 00:25:14.635
+I need to do this."
+
+00:25:15.764 --> 00:25:18.324
+If we look at where Team Cyclops is now,
+
+00:25:18.827 --> 00:25:20.987
+they're checking for semantic HTML
+
+00:25:21.048 --> 00:25:24.097
+and they're enforcing automation pieces
+from step one.
+
+00:25:24.342 --> 00:25:29.270
+We've kind of had those building blocks
+on top of building blocks.
+
+00:25:29.484 --> 00:25:31.265
+We've kind of had those
+building blocks in place.
+
+00:25:31.353 --> 00:25:34.056
+Now we've went from checking semantic HTML
+
+00:25:34.076 --> 00:25:37.387
+to enforcing automation pieces
+from step one.
+
+00:25:38.086 --> 00:25:40.388
+Now we're starting
+to get a little bit more of,
+
+00:25:40.408 --> 00:25:41.839
+"Hey, this is required.
+
+00:25:41.865 --> 00:25:43.024
+We need to do this."
+
+00:25:43.766 --> 00:25:46.282
+It's not just somebody coming down
+
+00:25:46.339 --> 00:25:49.161
+from executive leadership
+or on the accessibility team saying,
+
+00:25:49.182 --> 00:25:50.252
+"You guys got to do this."
+
+00:25:50.272 --> 00:25:52.567
+No, you're starting to see
+some of the people say,
+
+00:25:52.587 --> 00:25:55.040
+"Okay, hey, now this makes sense."
+
+00:25:55.107 --> 00:25:56.341
+This can fit in.
+
+00:25:56.451 --> 00:25:57.451
+This is easy.
+
+00:25:58.181 --> 00:26:01.876
+Now it starts to build itself internally.
+
+00:26:01.932 --> 00:26:03.395
+Not just from the accessibility team.
+
+00:26:03.415 --> 00:26:05.672
+It's starting to build itself up
+internally of,
+
+00:26:05.692 --> 00:26:07.263
+"Hey, we can do these things.
+
+00:26:07.283 --> 00:26:08.815
+It's not too difficult."
+
+00:26:09.176 --> 00:26:11.306
+The team practices
+accessibility regularly.
+
+00:26:11.506 --> 00:26:15.601
+However, they think that they enforce
+all necessary accessibility practices
+
+00:26:15.621 --> 00:26:17.454
+now through automation and semantics.
+
+00:26:17.475 --> 00:26:18.955
+Notice a common theme here.
+
+00:26:19.462 --> 00:26:22.438
+Development teams tend to think,
+"Oh, we did it. We're done."
+
+00:26:22.458 --> 00:26:25.048
+over and over again
+during this entire example.
+
+00:26:25.148 --> 00:26:27.842
+It's the case. They tend to think that
+they're done with a lot of things.
+
+00:26:27.895 --> 00:26:29.460
+The thing is, the key is,
+
+00:26:29.480 --> 00:26:31.473
+is just to keep evolving them
+and keep pushing them,
+
+00:26:31.513 --> 00:26:33.655
+which we'll get to more of.
+
+00:26:33.971 --> 00:26:34.987
+We're here.
+
+00:26:35.028 --> 00:26:36.579
+We're in step two.
+
+00:26:36.793 --> 00:26:39.683
+We're starting to enforce it
+through code reviews.
+
+00:26:40.161 --> 00:26:41.466
+Where can we go next?
+
+00:26:41.486 --> 00:26:44.930
+This is where we get stuck a little bit.
+
+00:26:45.137 --> 00:26:46.204
+Where do we go next?
+
+00:26:46.224 --> 00:26:47.234
+Well,
+
+00:26:48.107 --> 00:26:51.615
+Jessie's going to tell us where we go next
+because I don't even know.
+
+00:26:55.456 --> 00:26:57.274
+Jessie: All right.
+
+00:26:57.798 --> 00:27:03.006
+Now we are further up our staircase.
+
+00:27:03.026 --> 00:27:06.948
+We're about halfway
+and two steps from our ideal,
+
+00:27:07.065 --> 00:27:10.046
+which is accessibility at every level.
+
+00:27:10.902 --> 00:27:14.778
+We have implemented automation.
+
+00:27:14.804 --> 00:27:17.432
+We've improved code reviews
+and added enforcement.
+
+00:27:18.265 --> 00:27:24.077
+Next, we are going to talk about improving
+on the team's definition of done.
+
+00:27:26.290 --> 00:27:28.630
+First of all, a definition of done
+
+00:27:28.650 --> 00:27:34.273
+is an agreed-upon set of items
+that a team must complete
+
+00:27:34.293 --> 00:27:36.984
+before they consider a piece of work done.
+
+00:27:37.288 --> 00:27:40.182
+We mentioned
+in our introduction of the team
+
+00:27:40.202 --> 00:27:43.377
+that they have a UI testing checklist.
+
+00:27:43.438 --> 00:27:46.933
+Mark mentioned that
+it is all mouse-oriented.
+
+00:27:49.017 --> 00:27:51.247
+For our building blocks,
+
+00:27:51.267 --> 00:27:54.620
+we're going to now add
+some accessibility manual checks
+
+00:27:54.640 --> 00:27:56.432
+to the definition of done
+
+00:27:56.604 --> 00:28:00.559
+that is completed with every set of work.
+
+00:28:00.622 --> 00:28:05.938
+The most important thing here is that
+we are not adding all manual checks.
+
+00:28:06.116 --> 00:28:09.750
+I mentioned earlier that
+a really easy mistake to make
+
+00:28:09.770 --> 00:28:12.473
+is to give people the entire playbook,
+
+00:28:12.658 --> 00:28:15.760
+but development teams
+can't do all of that
+
+00:28:15.780 --> 00:28:19.762
+and keep their velocity
+or their timeline the same.
+
+00:28:20.096 --> 00:28:23.767
+Again, if you try to give them too much,
+they'll get overwhelmed,
+
+00:28:23.846 --> 00:28:27.403
+they'll make mistakes,
+and they'll make excuses.
+
+00:28:28.955 --> 00:28:33.469
+You might think the best thing
+is to give them 20 tests,
+
+00:28:33.490 --> 00:28:35.935
+then they can pick and choose
+
+00:28:35.956 --> 00:28:39.154
+which ones to apply
+based on the situation.
+
+00:28:39.563 --> 00:28:42.339
+They don't really have
+the knowledge base to do that.
+
+00:28:42.655 --> 00:28:44.150
+Instead,
+
+00:28:44.482 --> 00:28:46.515
+keep it as simple as you can.
+
+00:28:46.535 --> 00:28:51.715
+We can add in just keyboard testing
+or just visual testing,
+
+00:28:51.776 --> 00:28:55.630
+but not screen reader
+testing as our first step.
+
+00:28:56.109 --> 00:28:59.990
+The goal is always going to be
+to add in more steps,
+
+00:29:00.217 --> 00:29:03.214
+but we just want to start
+with a really small piece
+
+00:29:03.234 --> 00:29:05.512
+until the team gets to the point
+
+00:29:05.664 --> 00:29:09.072
+where they are doing this
+with every story,
+
+00:29:09.092 --> 00:29:12.159
+where they don't even have
+to like look at their list,
+
+00:29:12.179 --> 00:29:17.396
+they just know what to look at,
+and then you continue to build from there.
+
+00:29:22.374 --> 00:29:27.404
+So our final update
+with Team Cyclops is that
+
+00:29:27.851 --> 00:29:29.831
+we now enforce automation,
+
+00:29:29.851 --> 00:29:35.248
+and we run basic manual tests
+of the product at a regular cadence.
+
+00:29:35.452 --> 00:29:38.711
+We're catching a lot more than we used to.
+
+00:29:38.788 --> 00:29:43.332
+It's a really, really
+important practice to the team.
+
+00:29:43.379 --> 00:29:47.247
+We're teaching new team members
+about all these things.
+
+00:29:47.818 --> 00:29:52.466
+The development culture
+is keeping accessibility at the forefront,
+
+00:29:52.528 --> 00:29:56.771
+but the team thinks
+that accessibility is only
+
+00:29:56.791 --> 00:29:59.446
+a developer's responsibility.
+
+00:30:03.802 --> 00:30:09.992
+Now we are one step away from our ideal,
+which is accessibility at every level,
+
+00:30:10.012 --> 00:30:14.370
+and we are sitting at
+"Accessible content is what we do."
+
+00:30:14.783 --> 00:30:16.754
+Now what? Where do we go from here?
+
+00:30:16.774 --> 00:30:19.326
+We all know that we're not done.
+
+00:30:20.421 --> 00:30:24.149
+We illustrated this
+by calling our next step,
+
+00:30:24.235 --> 00:30:28.580
+step four, through infinity,
+and this is really the long haul.
+
+00:30:28.889 --> 00:30:33.990
+Mark mentioned we have no idea
+how long each step is going to take.
+
+00:30:34.043 --> 00:30:35.778
+It's going to vary team to team.
+
+00:30:35.798 --> 00:30:37.532
+We also have no idea
+
+00:30:37.586 --> 00:30:40.781
+how many steps
+we're going to have to go through,
+
+00:30:40.893 --> 00:30:44.810
+but we can keep using
+this same framework
+
+00:30:45.683 --> 00:30:47.480
+with whatever we choose to do next.
+
+00:30:47.641 --> 00:30:53.639
+Some examples is providing more education,
+focusing on other roles,
+
+00:30:53.692 --> 00:30:56.270
+and the list could go on and on and on,
+
+00:30:56.350 --> 00:30:58.085
+but no matter what's next,
+
+00:30:58.132 --> 00:31:02.870
+we want to stick to the framework of
+looking at what is there
+
+00:31:02.890 --> 00:31:06.988
+and adapting and picking one
+small building block.
+
+00:31:08.106 --> 00:31:09.106
+Mark: Yes.
+
+00:31:09.279 --> 00:31:11.070
+Right on, because
+
+00:31:12.197 --> 00:31:16.289
+we're going to repeat everything
+for eternity as a group.
+
+00:31:17.303 --> 00:31:21.870
+The one thing to know with
+what Jessie said as well, kind of just to
+
+00:31:21.890 --> 00:31:23.520
+play off of it is
+
+00:31:23.540 --> 00:31:29.463
+all the steps for step four
+might be step four to 4,000.
+
+00:31:29.497 --> 00:31:30.464
+It just depends on
+
+00:31:30.484 --> 00:31:33.262
+what it comes to as far as setting
+these things up and going with it,
+
+00:31:33.282 --> 00:31:38.065
+because ultimately picking your next thing
+
+00:31:38.157 --> 00:31:41.430
+is a big process.
+
+00:31:42.263 --> 00:31:44.471
+For a developer culture,
+you can get to a certain extent,
+
+00:31:44.491 --> 00:31:48.708
+but eventually, it bleeds
+into other roles, right?
+
+00:31:48.728 --> 00:31:51.986
+We need other people to come along with us
+around development team.
+
+00:31:52.040 --> 00:31:54.873
+That's one thing that Jessie
+and I, as we were building this out,
+
+00:31:54.880 --> 00:31:57.942
+we started to talk through,
+was when we talk to development teams,
+
+00:31:57.963 --> 00:32:00.797
+everybody tends to think
+it's literally just the developers
+
+00:32:00.857 --> 00:32:05.070
+who sit there and do all the code work,
+do all the stuff.
+
+00:32:05.090 --> 00:32:07.710
+In reality, a development team
+
+00:32:08.190 --> 00:32:10.428
+can stretch outside of us really quickly,
+
+00:32:10.449 --> 00:32:11.722
+outside of that development team.
+
+00:32:11.756 --> 00:32:14.482
+Product owners, scrum masters, designers.
+
+00:32:14.522 --> 00:32:18.376
+All of that phases
+into a development team.
+
+00:32:18.597 --> 00:32:20.952
+When you pick your next thing,
+you just have to adapt to what's there.
+
+00:32:20.972 --> 00:32:22.476
+Assess what is there.
+
+00:32:22.623 --> 00:32:24.453
+Do my developers,
+scrum masters, quality engineers
+
+00:32:24.473 --> 00:32:26.383
+need education like Jessie said?
+
+00:32:26.470 --> 00:32:30.168
+Does my quality testing
+fit into the development life cycle?
+
+00:32:31.437 --> 00:32:33.462
+Some of those big checklists
+that Jessie has mentioned,
+
+00:32:33.482 --> 00:32:35.795
+where you just do
+simple things for developers,
+
+00:32:35.871 --> 00:32:37.522
+maybe those checklists get larger
+
+00:32:37.585 --> 00:32:40.427
+for QA folks
+or quality testers to do more,
+
+00:32:40.494 --> 00:32:42.283
+to catch more issues.
+
+00:32:42.665 --> 00:32:45.465
+Then once you adapt and see what's there,
+
+00:32:45.568 --> 00:32:47.993
+take the building blocks
+and build off of that
+
+00:32:48.013 --> 00:32:54.996
+because there's an opportunity to grow
+Accessibility now to great heights,
+
+00:32:55.524 --> 00:32:57.376
+great heights within this.
+
+00:32:57.396 --> 00:33:00.704
+Because the one thing
+that people tend to do specifically
+
+00:33:00.724 --> 00:33:04.278
+when it comes to trying
+to change a culture,
+
+00:33:04.523 --> 00:33:06.758
+is they stop.
+
+00:33:07.253 --> 00:33:09.409
+I'm going to hark back
+to the very beginning
+
+00:33:09.429 --> 00:33:13.671
+of this entire presentation
+where Jessie gave the overview of culture.
+
+00:33:13.882 --> 00:33:17.153
+That is the biggest thing
+that people forget.
+
+00:33:17.246 --> 00:33:18.980
+Culture is not stagnant.
+
+00:33:19.223 --> 00:33:21.123
+It is always evolving.
+
+00:33:21.174 --> 00:33:22.216
+It is always changing.
+
+00:33:22.236 --> 00:33:24.034
+Whether it's subtle or not,
+
+00:33:24.263 --> 00:33:25.477
+it is always changing.
+
+00:33:25.768 --> 00:33:28.031
+Taking the time to know what's there
+
+00:33:28.091 --> 00:33:31.356
+and adjusting
+is the biggest thing for us.
+
+00:33:31.376 --> 00:33:33.747
+It's ensuring that
+we just keep moving that culture
+
+00:33:33.767 --> 00:33:36.654
+and moving that needle to a point
+where accessibility is involved
+
+00:33:36.713 --> 00:33:40.698
+over and over and always staying
+on a consistent spot.
+
+00:33:40.917 --> 00:33:42.563
+Someone brought this up
+to me before and said,
+
+00:33:42.622 --> 00:33:44.113
+"Is it keeping developers on their toes?"
+
+00:33:44.133 --> 00:33:45.467
+No, that's not what it is.
+
+00:33:45.487 --> 00:33:46.870
+It's just looking for those gaps
+
+00:33:46.890 --> 00:33:50.270
+and finding the next thing
+and adapting to it as we go.
+
+00:33:51.538 --> 00:33:53.016
+Bringing this all home.
+
+00:33:53.830 --> 00:33:57.318
+I always end talks and everyone says that
+when I end talks,
+
+00:33:57.338 --> 00:33:59.278
+I have this gigantic spiel.
+
+00:33:59.343 --> 00:34:01.985
+I'm sorry,
+I'm going to still have a gigantic spiel.
+
+00:34:02.358 --> 00:34:03.515
+Everyone will be fine.
+
+00:34:03.684 --> 00:34:05.186
+Bring it all home.
+
+00:34:05.544 --> 00:34:08.806
+Development team culture is something
+that is constantly evolving and changing,
+
+00:34:08.826 --> 00:34:09.853
+even though it may not seem like.
+
+00:34:09.873 --> 00:34:12.152
+I'm repeating that a thousand times over,
+
+00:34:12.174 --> 00:34:13.410
+but it is true.
+
+00:34:13.523 --> 00:34:15.633
+It very much is true.
+
+00:34:15.893 --> 00:34:19.847
+One of the hardest things to crack
+
+00:34:19.867 --> 00:34:21.494
+is the outer shell
+of the development team.
+
+00:34:21.514 --> 00:34:25.577
+I'm sure everybody on here
+has been with a development team
+
+00:34:25.597 --> 00:34:31.965
+and has had the not-so-nice pleasure
+of trying to crack that outer shell
+
+00:34:31.985 --> 00:34:35.077
+to get to them to talk about
+accessibility, all that, right?
+
+00:34:35.142 --> 00:34:38.530
+Well, taking the time to adapt
+to see what's there,
+
+00:34:38.608 --> 00:34:41.887
+taking small building blocks
+can help take that
+
+00:34:41.907 --> 00:34:44.354
+ease off of trying to crack
+that outer shell.
+
+00:34:45.351 --> 00:34:47.073
+Because if I come to you--
+
+00:34:47.093 --> 00:34:49.054
+Hey, I was that dev.
+
+00:34:49.191 --> 00:34:50.717
+Hell, Jessie was that dev.
+
+00:34:50.905 --> 00:34:55.559
+You came to me saying, "Knock, knock,
+accessibility, let go, right?"
+
+00:34:55.618 --> 00:34:58.454
+You're going to be like,
+"Whoa, whoa, whoa, whoa. Like,
+
+00:34:58.474 --> 00:35:00.257
+what are you giving me this for."
+
+00:35:00.542 --> 00:35:02.443
+Taking the time
+to figure out your environment,
+
+00:35:02.463 --> 00:35:05.205
+figure out what
+your development team culture already is
+
+00:35:05.225 --> 00:35:06.475
+and where it's at,
+
+00:35:06.495 --> 00:35:08.731
+what they do,
+all the process involved, right?
+
+00:35:08.752 --> 00:35:13.429
+We used a quick example here,
+but taking that time to learn it,
+
+00:35:13.450 --> 00:35:16.065
+can help you take that
+culture to those norms
+
+00:35:16.085 --> 00:35:18.078
+that we talked about,
+those defined processes,
+
+00:35:18.098 --> 00:35:22.690
+those goals that sits in there
+and lives for a long time.
+
+00:35:23.943 --> 00:35:25.502
+At the very end of the day,
+
+00:35:25.762 --> 00:35:30.093
+we want to shift the culture of A11y
+from it is hard
+
+00:35:30.770 --> 00:35:33.650
+to we just give a damn
+about accessibility.
+
+00:35:33.670 --> 00:35:36.569
+That is what you want
+at the end of the freaking day
+
+00:35:36.717 --> 00:35:40.936
+because too many developers
+right now don't care.
+
+00:35:41.330 --> 00:35:44.145
+It's not that they don't care,
+it's just they don't know.
+
+00:35:45.869 --> 00:35:49.730
+They don't want to do this stuff because
+it makes life a little bit more difficult
+
+00:35:49.797 --> 00:35:51.013
+and processes come along.
+
+00:35:51.037 --> 00:35:53.039
+That's not a product
+of the accessibility groups.
+
+00:35:53.059 --> 00:35:54.492
+It's just a product
+of business priorities,
+
+00:35:54.512 --> 00:35:55.508
+things like that that come in.
+
+00:35:55.529 --> 00:35:59.209
+We as Accessibility advocates
+and those who work with development teams,
+
+00:35:59.272 --> 00:36:04.232
+we can easily adjust them to get them to
+start to give a damn about accessibility
+
+00:36:04.286 --> 00:36:08.908
+when we adapt and use building blocks
+and shift that culture around.
+
+00:36:09.262 --> 00:36:11.271
+With that being said,
+
+00:36:12.414 --> 00:36:13.514
+thanks.
+
+00:36:13.535 --> 00:36:14.722
+I'm just kidding.
+
+00:36:14.774 --> 00:36:18.242
+Are there any questions from anybody?
+
+00:36:18.297 --> 00:36:20.349
+Oh, geez. Again, too early.
+
+00:36:20.514 --> 00:36:22.050
+Too early in the morning.
+
+00:36:25.226 --> 00:36:27.485
+Piccia: Hey, Jessie. Hey, Mark.
+
+00:36:27.505 --> 00:36:28.545
+Thank you so much.
+
+00:36:28.565 --> 00:36:32.909
+This was incredibly interesting
+on many, many levels,
+
+00:36:32.932 --> 00:36:36.226
+whether you are a developer or not,
+and I'm not.
+
+00:36:36.522 --> 00:36:40.383
+I found it so interesting
+because I work with organizations
+
+00:36:40.430 --> 00:36:43.143
+helping them shift their culture
+to accessibility.
+
+00:36:43.214 --> 00:36:45.979
+These insights were amazing.
+
+00:36:46.197 --> 00:36:49.273
+We have quite a few really good questions,
+
+00:36:49.293 --> 00:36:52.496
+which is a shame because then
+mine gets pushed to the bottom.
+
+00:36:52.517 --> 00:36:53.523
+Here we are.
+
+00:36:54.809 --> 00:36:56.353
+Mark: We'll answer them quick
+so we can get to yours.
+
+00:36:56.373 --> 00:36:57.596
+We're good. No, I'm just kidding.
+
+00:36:57.655 --> 00:36:58.516
+Piccia: Yes, exactly.
+
+00:36:58.536 --> 00:37:01.482
+There's various other ways
+of interacting with you later,
+
+00:37:01.502 --> 00:37:04.122
+so we'll all get our answers, I'm sure.
+
+00:37:04.580 --> 00:37:07.847
+The first one is from David Donado.
+
+00:37:08.018 --> 00:37:13.620
+How can plugin developers
+handle legacy non-accessible code
+
+00:37:13.674 --> 00:37:17.956
+that's already widely used
+while ensuring backwards compatibility?
+
+00:37:17.976 --> 00:37:21.171
+This is going to be so interesting
+for so many of us.
+
+00:37:21.898 --> 00:37:23.435
+Mark: All right.
+
+00:37:23.871 --> 00:37:29.578
+Number one, that is a loaded question,
+so I'm going to break it down in two ways.
+
+00:37:29.685 --> 00:37:33.518
+Number one, how you can handle
+legacy non-accessible code.
+
+00:37:34.405 --> 00:37:37.402
+So, especially for plugin developers,
+I get it.
+
+00:37:37.971 --> 00:37:39.768
+There is a ton of legacy code out there.
+
+00:37:39.792 --> 00:37:42.713
+It is very difficult to be able to handle
+and or switch teams
+
+00:37:42.733 --> 00:37:45.380
+to be able to fix those issues as well.
+
+00:37:48.905 --> 00:37:50.801
+I'll have Jessie,
+if Jessie has any thoughts on this too,
+
+00:37:50.821 --> 00:37:52.894
+but I will make a controversial statement.
+
+00:37:52.935 --> 00:37:55.195
+If anybody's listening
+who has heard me say this before,
+
+00:37:55.215 --> 00:37:58.187
+will probably find me after this talk,
+and be like,
+
+00:37:58.207 --> 00:37:59.207
+"Quit saying that."
+
+00:37:59.227 --> 00:38:02.910
+Number one, there is ways
+to deal with legacy code
+
+00:38:02.930 --> 00:38:04.993
+if it's code that is untouchable.
+
+00:38:05.013 --> 00:38:07.167
+Meaning like,
+"Hey, it's not worth our time
+
+00:38:07.187 --> 00:38:10.005
+or anybody else's time
+to touch it or go through it."
+
+00:38:10.923 --> 00:38:14.987
+You can just actually add in
+a simple JavaScript file
+
+00:38:15.007 --> 00:38:16.195
+to fix some of the issues.
+
+00:38:16.215 --> 00:38:19.224
+Yes, I know everyone's going to say
+that's not scaling the source.
+
+00:38:19.244 --> 00:38:22.524
+However, if you can't touch that source
+and they won't let you,
+
+00:38:22.570 --> 00:38:26.024
+you can actually use JavaScript to
+go back here and fix a bulk of the issues
+
+00:38:26.045 --> 00:38:28.613
+and just have that file there and live
+so you don't have to go back
+
+00:38:28.633 --> 00:38:31.291
+and retrofit
+the old components themselves.
+
+00:38:31.417 --> 00:38:32.498
+That is one way.
+
+00:38:32.525 --> 00:38:35.694
+That is ways I've seen people do it before
+because they can't touch that code,
+
+00:38:35.714 --> 00:38:38.012
+like can't touch the actual markup code
+
+00:38:38.076 --> 00:38:41.083
+and they have to find a way
+to get in there and do that.
+
+00:38:41.410 --> 00:38:44.232
+Everybody knows that is not an overlay.
+
+00:38:44.252 --> 00:38:49.826
+It is specific for that fix
+and specific for that HTML to fix,
+
+00:38:49.846 --> 00:38:51.133
+so there's that.
+
+00:38:51.302 --> 00:38:53.986
+It does deal
+with backwards compatibilities.
+
+00:38:54.006 --> 00:38:55.342
+However,
+
+00:38:55.382 --> 00:38:58.043
+when it comes to some legacy code
+from accessibility side of things
+
+00:38:58.064 --> 00:38:59.769
+as backwards compatibility,
+
+00:38:59.857 --> 00:39:01.812
+it gets real tough real quick.
+
+00:39:02.672 --> 00:39:05.989
+JavaScript fixing-wise
+does cover that a little bit,
+
+00:39:06.009 --> 00:39:08.577
+but not really.
+
+00:39:10.688 --> 00:39:13.799
+Ensuring backwards compatibility
+can get really tough.
+
+00:39:13.977 --> 00:39:16.197
+I'm going to be honest,
+I'm going to struggle for an answer
+
+00:39:16.217 --> 00:39:17.931
+on backwards compatibility pieces.
+
+00:39:17.952 --> 00:39:20.789
+As far as legacy non-accessible code,
+
+00:39:20.809 --> 00:39:23.081
+like for plugins,
+that's one way to do it.
+
+00:39:24.170 --> 00:39:27.276
+I mean, that's really the way that
+I would say to do it and to deal with it,
+
+00:39:27.304 --> 00:39:29.577
+unless Jessie,
+you had other thoughts on that.
+
+00:39:33.128 --> 00:39:34.465
+I hope that answers the question, David.
+
+00:39:34.485 --> 00:39:36.718
+I know I'm kind of roundabouting
+with it a little bit,
+
+00:39:36.738 --> 00:39:41.485
+but that is a tough question,
+especially at 5:40 in the morning.
+
+00:39:41.505 --> 00:39:42.714
+I'm just kidding.
+
+00:39:44.077 --> 00:39:48.310
+I'm happy to talk more on it
+too outside of this as well on
+
+00:39:48.390 --> 00:39:49.801
+what we can do.
+
+00:39:52.377 --> 00:39:55.150
+Piccia: Jessie, any thoughts
+on this very hard question
+
+00:39:55.170 --> 00:39:57.342
+at any time of the day or night,
+
+00:39:57.366 --> 00:39:58.623
+I may add?
+
+00:40:00.544 --> 00:40:01.956
+Jessie: Yes, I mean,
+
+00:40:02.287 --> 00:40:04.945
+it's hard.
+I think just keeping in mind too
+
+00:40:04.965 --> 00:40:09.390
+that any small improvement is helpful
+
+00:40:09.410 --> 00:40:14.657
+and we're not aiming for perfection,
+especially with legacy code.
+
+00:40:14.824 --> 00:40:19.551
+I mean, never,
+but especially when there's difficulties,
+
+00:40:19.571 --> 00:40:21.797
+like any little bit helps.
+
+00:40:22.057 --> 00:40:23.997
+Piccia: Yes, very good point.
+
+00:40:24.668 --> 00:40:26.571
+Documenting what you do as well
+
+00:40:26.591 --> 00:40:29.457
+helps a lot
+even with possible legal issues.
+
+00:40:29.477 --> 00:40:31.605
+That's the main thing.
+
+00:40:31.626 --> 00:40:34.228
+And then we have another,
+because we have quite a few questions,
+
+00:40:34.248 --> 00:40:37.143
+and the next one is by Anna Greve,
+
+00:40:37.176 --> 00:40:38.213
+who says,
+
+00:40:38.253 --> 00:40:41.984
+"I'm working with a relatively small
+and new dev team,
+
+00:40:42.006 --> 00:40:43.935
+so we don't have much in place
+
+00:40:43.955 --> 00:40:48.085
+with things like automation tools
+and code review.
+
+00:40:48.512 --> 00:40:50.651
+Where do you suggest we start?"
+
+00:40:50.821 --> 00:40:52.038
+Another good one.
+
+00:40:52.258 --> 00:40:54.163
+Mark: Yes, that is a really good one.
+
+00:40:54.704 --> 00:40:56.532
+Jessie, I'm sure
+you have thoughts on this.
+
+00:40:56.593 --> 00:40:58.420
+If you want to go first, you can.
+
+00:41:01.750 --> 00:41:03.878
+Jessie: I was going to say,
+I think that all three of the steps
+
+00:41:03.906 --> 00:41:09.897
+that we went through today
+in detail are really good starting points.
+
+00:41:10.055 --> 00:41:11.073
+Mark: Yes.
+
+00:41:11.105 --> 00:41:16.077
+Now, for a small team
+that doesn't have automation tools
+
+00:41:16.109 --> 00:41:17.870
+or code reviews,
+
+00:41:19.157 --> 00:41:22.124
+so to Jessie's point,
+you can still use those same steps.
+
+00:41:22.212 --> 00:41:23.487
+Hear me out.
+
+00:41:23.709 --> 00:41:28.623
+Instead of automation
+like the UI testing and linters,
+
+00:41:28.719 --> 00:41:30.018
+use a browser extension.
+
+00:41:30.153 --> 00:41:31.823
+You can use an Axe browser extension,
+
+00:41:31.843 --> 00:41:33.424
+you could use Lighthouse,
+anything like that,
+
+00:41:33.444 --> 00:41:35.256
+because those same things
+that we're talking about
+
+00:41:35.276 --> 00:41:37.007
+where I use automation,
+
+00:41:37.027 --> 00:41:39.294
+I have developers check stuff as they go.
+
+00:41:40.178 --> 00:41:41.354
+You can have them check things.
+
+00:41:41.374 --> 00:41:42.647
+We're not enforcing it.
+
+00:41:42.692 --> 00:41:46.435
+We go to step two with a code review--
+Sorry, not a code review,
+
+00:41:46.455 --> 00:41:49.310
+but you can set steps in play to say,
+"Hey,
+
+00:41:49.488 --> 00:41:54.828
+I want you to check with Axe
+or Wave or whatever it is,
+
+00:41:54.966 --> 00:41:57.418
+and make sure
+there's no issues before that."
+
+00:41:57.575 --> 00:42:00.900
+I would start there, especially with teams
+that are newer to things.
+
+00:42:00.934 --> 00:42:03.215
+Sometimes there are teams,
+
+00:42:03.391 --> 00:42:05.673
+full disclosure, that have no UI testing
+
+00:42:05.798 --> 00:42:08.206
+or linting pieces
+or any processes in place,
+
+00:42:08.252 --> 00:42:09.252
+new or not.
+
+00:42:09.873 --> 00:42:11.834
+Go to the browser extensions right away.
+
+00:42:11.858 --> 00:42:15.265
+The one thing I'll say is be consistent
+in what you use.
+
+00:42:15.285 --> 00:42:17.603
+Don't cross over
+different browser extensions.
+
+00:42:17.623 --> 00:42:19.373
+Use one and stick to it
+
+00:42:19.393 --> 00:42:22.965
+so you all are talking apples to apples
+and not apples to bananas
+
+00:42:23.049 --> 00:42:25.969
+as I tell my son when he tells me things
+that don't make sense.
+
+00:42:26.766 --> 00:42:28.648
+So that's where
+I would start though with that,
+
+00:42:28.668 --> 00:42:30.190
+is using the extension
+
+00:42:30.210 --> 00:42:31.767
+and use the steps like Jessie said.
+
+00:42:31.787 --> 00:42:34.795
+You can still use those steps
+and use them along the way.
+
+00:42:34.815 --> 00:42:36.458
+You just have to retrofit it then with
+
+00:42:36.478 --> 00:42:39.238
+using the extension
+instead of using code reviews
+
+00:42:39.258 --> 00:42:43.250
+and automated accessibility tools
+like Axe, like in DevPipeline.
+
+00:42:47.116 --> 00:42:48.853
+Piccia: Yes, Jessie, you're happy.
+
+00:42:48.935 --> 00:42:50.719
+Do you have anything to add?
+
+00:42:51.067 --> 00:42:53.277
+Good. I'm fascinated that
+
+00:42:53.297 --> 00:42:59.726
+you recommend using just one extension.
+
+00:42:59.746 --> 00:43:00.563
+That's very interesting.
+
+00:43:00.610 --> 00:43:02.006
+We have too many questions.
+
+00:43:02.706 --> 00:43:05.110
+The next question is from Isla.
+
+00:43:05.225 --> 00:43:11.648
+"Do laws ever come into the conversation
+not to scare your team,
+
+00:43:11.737 --> 00:43:13.525
+but how to stay consistent in a world
+
+00:43:13.545 --> 00:43:17.418
+where nation-states are different stages
+and different editions of WCAG?"
+
+00:43:17.503 --> 00:43:19.515
+I think that your company doesn't.
+
+00:43:19.535 --> 00:43:23.545
+It's very US-specific,
+but in a lot of cases,
+
+00:43:23.565 --> 00:43:28.426
+there's also Europe, Asia
+and Australia to take into account.
+
+00:43:28.625 --> 00:43:33.115
+Mark: Yes,
+so I can say the accessibility team,
+
+00:43:33.135 --> 00:43:36.602
+so like normally when we work
+with different companies, not just ours,
+
+00:43:36.636 --> 00:43:39.777
+we look at all the different workings
+as far as
+
+00:43:39.857 --> 00:43:42.507
+where things are going with WCAG,
+where are stuff going with federal laws,
+
+00:43:42.527 --> 00:43:44.610
+where are things going
+with the European Accessibility Act,
+
+00:43:44.685 --> 00:43:46.625
+all the different things
+across the board to see
+
+00:43:46.802 --> 00:43:48.356
+if it affects that.
+
+00:43:48.484 --> 00:43:51.602
+The answer is do laws
+come into the conversation?
+
+00:43:53.706 --> 00:43:54.743
+Short and sweet,
+
+00:43:54.865 --> 00:43:55.927
+I'll say yes.
+
+00:43:55.957 --> 00:43:57.922
+If it comes down to
+it's people not understanding
+
+00:43:57.942 --> 00:43:59.366
+why you're doing what you're doing,
+
+00:43:59.404 --> 00:44:01.409
+that kind of comes
+into the education piece of it,
+
+00:44:01.429 --> 00:44:03.591
+which wasn't in this specifically,
+
+00:44:03.611 --> 00:44:05.212
+but it does come down
+to that to understand,
+
+00:44:05.232 --> 00:44:08.678
+"Hey, this is why we're doing
+what we're doing."
+
+00:44:09.246 --> 00:44:11.674
+Normally,
+I don't go that route very bluntly.
+
+00:44:11.700 --> 00:44:14.483
+I try to stick to,
+"We're doing this for the users.
+
+00:44:14.503 --> 00:44:16.345
+We're doing this to make
+our content more accessible."
+
+00:44:16.365 --> 00:44:19.377
+However, you always get people
+that come to the fold of like, "Yes,
+
+00:44:19.397 --> 00:44:20.871
+but is there a legal reason?"
+
+00:44:20.891 --> 00:44:22.775
+Then you kind of have
+to take the gavel down and go,
+
+00:44:22.796 --> 00:44:23.796
+"Yes,"
+
+00:44:23.816 --> 00:44:26.317
+and explain all the different pieces
+that are on there.
+
+00:44:27.003 --> 00:44:28.003
+You are correct.
+
+00:44:28.023 --> 00:44:32.076
+This is why we said the last step piece
+that Jessie was talking about in this,
+
+00:44:33.004 --> 00:44:35.093
+the constantly changing
+and evolving piece.
+
+00:44:35.113 --> 00:44:35.814
+That's part of that.
+
+00:44:35.834 --> 00:44:37.821
+A step could be,
+
+00:44:37.896 --> 00:44:40.165
+"Hey, this European Accessibility Act
+is coming into play
+
+00:44:40.185 --> 00:44:42.098
+and we need to make sure
+we do this, this, and this.
+
+00:44:42.167 --> 00:44:44.304
+Let's make this a step
+as we start evolving that culture
+
+00:44:44.324 --> 00:44:47.224
+so everybody's aware that these things
+are coming down the pipe,"
+
+00:44:47.265 --> 00:44:48.331
+and it's going to happen.
+
+00:44:49.104 --> 00:44:50.744
+That's how we deal with it.
+
+00:44:50.771 --> 00:44:52.601
+We don't wholesale be like, "Yes,
+
+00:44:52.775 --> 00:44:55.049
+you know, here comes WCAG 2.2, good luck."
+
+00:44:55.375 --> 00:44:57.433
+No, we're going to, "Hey, this is coming,
+
+00:44:57.454 --> 00:44:59.578
+coming down the pipe so everybody knows,
+here's gonna be our requirements,
+
+00:44:59.598 --> 00:45:01.241
+we're gonna do this in a few years."
+
+00:45:01.847 --> 00:45:05.244
+Know that yes, but at the end of the day,
+
+00:45:05.264 --> 00:45:09.223
+I don't personally
+try to go to the scare tactic
+
+00:45:09.577 --> 00:45:14.452
+until someone starts to ask the question,
+legally, why are we doing this?
+
+00:45:14.723 --> 00:45:17.203
+Normally,
+we try to go from the user standpoint.
+
+00:45:20.557 --> 00:45:24.615
+Piccia: I have to say that as someone
+who works independently,
+
+00:45:24.668 --> 00:45:25.977
+I totally agree with you.
+
+00:45:25.997 --> 00:45:29.925
+If anything, usually I would go
+with the business opportunity.
+
+00:45:29.945 --> 00:45:32.263
+That's the best way to go about it.
+
+00:45:32.397 --> 00:45:36.487
+I have to say that
+I'm so thankful for things like the EAA,
+
+00:45:36.513 --> 00:45:38.167
+the European Accessibility Act
+
+00:45:38.251 --> 00:45:41.827
+because a lot of companies
+are really now going,
+
+00:45:41.856 --> 00:45:43.970
+"Right, okay, now we need to do it."
+
+00:45:44.161 --> 00:45:45.927
+That's brilliant, you know?
+
+00:45:45.948 --> 00:45:50.006
+So in a way, yes, and being, you know,
+
+00:45:50.026 --> 00:45:53.097
+it's never a good thing
+to be scaremongering,
+
+00:45:53.117 --> 00:45:56.273
+but it's good that
+legislation is happening.
+
+00:45:56.371 --> 00:45:59.193
+Now we have another
+really good question
+
+00:45:59.220 --> 00:46:01.743
+from Rosita Rampetap,
+
+00:46:02.193 --> 00:46:07.421
+and they ask,
+"How do you deal with accessibility costs,
+
+00:46:07.442 --> 00:46:10.011
+a lot of money,
+or people with disabilities
+
+00:46:10.031 --> 00:46:16.857
+aren't our audience kind of questions,
+kind of counterarguments?
+
+00:46:16.970 --> 00:46:21.038
+As a developer with a disability,
+I hear that often."
+
+00:46:23.676 --> 00:46:25.933
+Mark: Frio, do you want
+to take a stab at it?
+
+00:46:27.903 --> 00:46:30.416
+Jessie: I assume that the cost,
+
+00:46:30.436 --> 00:46:34.917
+a lot of money kind of
+gets at the same thing
+
+00:46:34.937 --> 00:46:40.184
+that we were talking about with
+it takes so much time and effort,
+
+00:46:40.206 --> 00:46:44.275
+and we have to go back
+and redo all our code.
+
+00:46:44.295 --> 00:46:49.910
+I do think that trying
+to integrate into the culture
+
+00:46:50.143 --> 00:46:53.244
+combats the money argument,
+
+00:46:53.264 --> 00:46:59.104
+at least a little unless I'm completely
+missing something from that perspective.
+
+00:46:59.643 --> 00:47:02.847
+I mean, I think
+in terms of target audience,
+
+00:47:02.867 --> 00:47:06.774
+it's what we just talked about with,
+there is a business case,
+
+00:47:06.794 --> 00:47:09.017
+like if they're not your target audience,
+
+00:47:09.243 --> 00:47:11.000
+maybe they should be.
+
+00:47:14.646 --> 00:47:16.533
+Mark: I'll add to what you just said.
+
+00:47:17.617 --> 00:47:19.100
+Here's how I do it.
+
+00:47:19.293 --> 00:47:21.023
+If somebody gives me that piece,
+
+00:47:21.043 --> 00:47:24.276
+so usually the fallacy that runs into
+is everybody thinks that
+
+00:47:24.296 --> 00:47:27.618
+when we talk accessibility,
+it's only screen reader users.
+
+00:47:27.803 --> 00:47:31.333
+What I tend to do is bring it down
+to everybody else's level.
+
+00:47:31.449 --> 00:47:33.832
+The first thing I did a long time ago
+
+00:47:33.852 --> 00:47:35.347
+in a galaxy far, far away,
+I'm just kidding.
+
+00:47:35.387 --> 00:47:36.537
+I had to get my Star Wars reference.
+
+00:47:36.557 --> 00:47:38.328
+I'm a Star Wars super fan.
+
+00:47:38.465 --> 00:47:40.166
+What I did a long time ago
+was the first time
+
+00:47:40.186 --> 00:47:43.910
+we started talking about accessibility
+at one of my older companies.
+
+00:47:44.891 --> 00:47:47.128
+It was the same argument of,
+
+00:47:47.148 --> 00:47:49.291
+it costs a lot of money,
+we don't want to do that.
+
+00:47:49.370 --> 00:47:50.644
+I said, "That's awesome.
+
+00:47:50.826 --> 00:47:53.991
+How old are your average user base?"
+
+00:47:54.044 --> 00:47:55.230
+And they said,
+
+00:47:55.423 --> 00:47:56.870
+"Getting to their 50s."
+
+00:47:56.883 --> 00:47:59.332
+I said, "Awesome,
+they're not getting any younger.
+
+00:47:59.353 --> 00:48:02.169
+I bet you, eyesight's going.
+
+00:48:02.317 --> 00:48:05.274
+Bet you that they're starting
+to use different assistive technologies
+
+00:48:05.294 --> 00:48:06.244
+in their phone.
+
+00:48:06.282 --> 00:48:08.936
+I bet you, you use different
+assistive technologies in your phone,
+
+00:48:08.956 --> 00:48:09.800
+do you not?
+
+00:48:09.820 --> 00:48:12.309
+So do you wanna keep
+that millions of dollars
+
+00:48:12.329 --> 00:48:13.587
+that they have in your organization
+
+00:48:13.607 --> 00:48:15.808
+or do you want them to go, 'Well,
+this company doesn't care about me,
+
+00:48:15.829 --> 00:48:16.829
+I'm out.'"
+
+00:48:16.898 --> 00:48:21.148
+And bring it to their level
+to understand at a high level,
+
+00:48:21.211 --> 00:48:23.211
+it's not just like screen reader users.
+
+00:48:24.352 --> 00:48:25.667
+It's everybody with it.
+
+00:48:25.687 --> 00:48:28.685
+You're making products
+holistically accessible for everyone.
+
+00:48:29.537 --> 00:48:32.581
+Then it starts
+to just click a little bit more.
+
+00:48:32.623 --> 00:48:35.660
+I've had a lot more success
+saying it that way
+
+00:48:35.680 --> 00:48:37.663
+and bring it to that level that way.
+
+00:48:37.699 --> 00:48:40.997
+Then, because again,
+it just immediately just goes like
+
+00:48:41.093 --> 00:48:43.318
+what Jessie said,
+"Oh, it's going to cost a ton of money.
+
+00:48:43.338 --> 00:48:45.861
+Oh my gosh,
+we have to do all this Legacy code stuff."
+
+00:48:45.882 --> 00:48:50.713
+When you start to bring it into terms that
+they somewhat understand,
+
+00:48:50.733 --> 00:48:53.158
+and I say they, like whoever is the one
+who's bringing up like
+
+00:48:53.178 --> 00:48:54.477
+it costs money, all that.
+
+00:48:54.517 --> 00:48:56.702
+When you bring it down to their level
+and bring it down to their terms
+
+00:48:56.722 --> 00:48:59.746
+that they understand,
+it tends to stick a little bit more.
+
+00:48:59.766 --> 00:49:01.702
+It's like, "Why are we doing this?"
+
+00:49:04.991 --> 00:49:08.881
+Piccia: Yes,
+I just like to remind everyone
+
+00:49:08.901 --> 00:49:12.054
+how we're only ever temporarily abled.
+
+00:49:12.132 --> 00:49:17.487
+I'll move on to the next question,
+but that was so many good points.
+
+00:49:17.507 --> 00:49:19.138
+Thank you so much.
+
+00:49:19.928 --> 00:49:24.688
+Someone is asking what resources,
+tools, or training
+
+00:49:24.708 --> 00:49:27.043
+have you found most helpful
+
+00:49:27.097 --> 00:49:32.473
+in making accessibility a natural part
+of the development process?
+
+00:49:32.557 --> 00:49:36.465
+We've got like one minute
+to answer this question.
+
+00:49:36.793 --> 00:49:39.014
+Mark: I'm going to turn this one to Jessie
+
+00:49:39.043 --> 00:49:41.299
+because Jessie is newer
+to the accessibility field.
+
+00:49:41.326 --> 00:49:44.157
+I'll ask you if there's resources
+that you had
+
+00:49:44.262 --> 00:49:46.317
+that you would suggest, Jessie.
+
+00:49:47.990 --> 00:49:50.703
+If you can't think
+off the top of your head, it's okay.
+
+00:49:52.807 --> 00:49:57.152
+Jessie: Yes, I don't know
+off the top of my head.
+
+00:49:57.173 --> 00:50:00.029
+I mean, I can think of
+
+00:50:00.050 --> 00:50:03.542
+authoring practice guides
+for specific examples,
+
+00:50:03.602 --> 00:50:10.570
+but I don't know
+where I got the more broad knowledge.
+
+00:50:10.639 --> 00:50:13.800
+Mark: The hush, hush, hush of stuff.
+
+00:50:14.347 --> 00:50:17.343
+There's always one on the top of my mind.
+
+00:50:17.363 --> 00:50:19.295
+I don't know who asked that question.
+
+00:50:19.315 --> 00:50:20.582
+Oh, it says anonymous attendee.
+
+00:50:20.602 --> 00:50:22.270
+It's okay. If that person knows us
+
+00:50:22.290 --> 00:50:23.934
+and can find us on LinkedIn,
+you can ask us.
+
+00:50:23.954 --> 00:50:26.427
+That's one of those questions
+where like I got resources.
+
+00:50:26.447 --> 00:50:28.400
+Just one of those things
+where I have to look and be like,
+
+00:50:28.421 --> 00:50:30.442
+"Oh yeah, that. There is one."
+
+00:50:31.270 --> 00:50:34.713
+There's web.dev has
+an accessibility course
+
+00:50:34.733 --> 00:50:35.903
+that's really good.
+
+00:50:35.923 --> 00:50:37.617
+If you're trying to get education pieces
+
+00:50:37.637 --> 00:50:40.758
+just for development practices
+for getting that in there,
+
+00:50:40.779 --> 00:50:41.849
+there's that.
+
+00:50:42.847 --> 00:50:44.726
+That's a really good
+training resource for it.
+
+00:50:44.747 --> 00:50:46.608
+Then tools-wise,
+
+00:50:47.902 --> 00:50:50.146
+if you're looking for tools,
+I'm just going to say anything
+
+00:50:50.182 --> 00:50:53.589
+that is Axe-based
+is probably the way to go.
+
+00:50:53.708 --> 00:50:54.387
+Just behind the scenes.
+
+00:50:54.407 --> 00:50:55.503
+Just because Axe Core is used
+
+00:50:55.523 --> 00:50:58.821
+to consistently in a bunch
+of different extensions like Lighthouse,
+
+00:50:59.292 --> 00:51:01.356
+Insights, things like that
+is like a core base.
+
+00:51:01.478 --> 00:51:03.766
+So if you're going to do that,
+that'd be a good tool to go with.
+
+00:51:03.786 --> 00:51:06.993
+If you want more resources,
+find me and Jessie on LinkedIn
+
+00:51:07.014 --> 00:51:09.240
+because I can't think of
+[unintelligible 00:51:09]
+
+00:51:09.261 --> 00:51:11.053
+I haven't passed that either.
+
+00:51:11.097 --> 00:51:13.953
+Piccia: Yes,
+it's probably too long to answer
+
+00:51:13.973 --> 00:51:15.574
+when you have one minute.
+
+00:51:15.595 --> 00:51:18.607
+That's all we have time for.
+
+00:51:19.597 --> 00:51:22.647
+Thank you so much to Jessie and Mark.
+
+00:51:22.690 --> 00:51:26.143
+Thanks for everyone
+for attending this session.
+
+00:51:26.169 --> 00:51:28.112
+Like Mark and Jessie said,
+
+00:51:28.132 --> 00:51:29.750
+you can continue your conversation
+with them,
+
+00:51:29.810 --> 00:51:31.375
+finding them on social media.
+
+00:51:31.436 --> 00:51:34.291
+Also reminding you of our hashtags,
+
+00:51:34.423 --> 00:51:39.451
+WPA11YDay,
+
+00:51:39.531 --> 00:51:42.667
+making sure you use the camel case.
+
+00:51:42.790 --> 00:51:46.291
+And WPAD2024.
+
+00:51:46.461 --> 00:51:47.864
+You can also go to
+
+00:51:47.903 --> 00:51:55.783
+2024.wpaccessibility.day/feedback
+
+00:51:55.804 --> 00:51:56.850
+to provide feedback.
+
+00:51:56.870 --> 00:52:01.107
+Maybe when the amazing focus
+
+00:52:01.127 --> 00:52:04.139
+is a feature, not a bug t-shirt.
+
+00:52:04.160 --> 00:52:10.443
+Also stay tuned
+for the next session coming up,
+
+00:52:10.463 --> 00:52:14.220
+which is how to juggle different teams
+
+00:52:14.240 --> 00:52:16.652
+at different places
+in their accessibility journeys.
+
+00:52:16.672 --> 00:52:19.641
+A perfect segue to the current one
+
+00:52:20.053 --> 00:52:24.136
+with Lorna Notch and Lorenzo Milani.
+
+00:52:24.403 --> 00:52:29.158
+Also why not make sure
+that you go and visit our sponsors pages
+
+00:52:29.178 --> 00:52:30.688
+to grab the virtual swag
+
+00:52:30.708 --> 00:52:34.164
+and also enter
+for a chance to win more prizes.
+
+00:52:34.231 --> 00:52:36.079
+Before you go,
+
+00:52:36.132 --> 00:52:40.114
+please let me thank
+our live captioning people
+
+00:52:40.134 --> 00:52:45.020
+and our sign language interpreters
+because they do an amazing job.
+
+00:52:45.060 --> 00:52:48.177
+Having said all this,
+that was quite a mouthful,
+
+00:52:48.543 --> 00:52:53.560
+I will see you at the top of the hour
+for the next session.
+
+00:52:53.708 --> 00:52:55.638
+Thank you very much.
+
+00:52:57.821 --> 00:53:02.261
+Announcer: Thank you to WordPress
+Accessibility Day 2024 sponsors.
+
+00:53:02.322 --> 00:53:04.300
+Platinum Sponsor 20i,
+
+00:53:04.320 --> 00:53:07.127
+easily build, deploy,
+and manage all your projects
+
+00:53:07.148 --> 00:53:09.801
+with 20i-managed WordPress hosting.
+
+00:53:09.997 --> 00:53:13.958
+One UI for all your servers,
+apps, sites, databases,
+
+00:53:14.084 --> 00:53:16.461
+security, DNS, and email.
+
+00:53:16.634 --> 00:53:19.878
+Perfect for agencies,
+e-commerce, developers,
+
+00:53:19.899 --> 00:53:22.807
+multi-site hosting,
+and high traffic sites.
+
+00:53:23.143 --> 00:53:25.410
+Platinum Sponsor Equalize Digital.
+
+00:53:25.503 --> 00:53:27.659
+Since all they do is accessibility,
+
+00:53:27.729 --> 00:53:30.988
+every post on their blog
+is an accessibility resource.
+
+00:53:31.119 --> 00:53:35.350
+You can find webinar recordings,
+articles, and additional resources
+
+00:53:35.370 --> 00:53:39.437
+at equalizedigital.com slash resources.
+
+00:53:39.462 --> 00:53:41.923
+Platinum Sponsor WP Engine.
+
+00:53:42.008 --> 00:53:43.390
+WP Engine provides
+
+00:53:43.410 --> 00:53:47.047
+the most relied-upon and trusted
+WordPress products for businesses,
+
+00:53:47.079 --> 00:53:50.359
+brands, and agencies of all sizes.
+
+00:53:50.742 --> 00:53:53.480
+Thanks to our gold sponsors, GoDaddy,
+
+00:53:53.500 --> 00:53:54.670
+Grackle Docs,
+
+00:53:54.690 --> 00:53:55.897
+Gravity Forms,
+
+00:53:55.917 --> 00:53:57.002
+GreenGeeks,
+
+00:53:57.023 --> 00:53:58.110
+TPGI,
+
+00:53:58.130 --> 00:53:59.226
+and Yoast.
+
+00:53:59.497 --> 00:54:02.476
+And thank you
+to our silver sponsors CodeGeek,
+
+00:54:02.567 --> 00:54:03.707
+Drake Cooper,
+
+00:54:03.727 --> 00:54:04.867
+Elementor,
+
+00:54:04.887 --> 00:54:06.253
+Overnight Website,
+
+00:54:06.306 --> 00:54:07.310
+Pressable,
+
+00:54:07.331 --> 00:54:08.577
+Second Melody,
+
+00:54:08.597 --> 00:54:10.747
+and Accessibility Collective.

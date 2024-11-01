@@ -1,0 +1,2583 @@
+﻿WEBVTT
+
+00:00:01.800 --> 00:00:04.300
+Announcer:
+WordPress Accessibility Day 2024.
+
+00:00:04.750 --> 00:00:05.990
+Agile Accessibility:
+
+00:00:06.291 --> 00:00:08.690
+Building Inclusivity
+into the Product Roadmap,
+
+00:00:09.131 --> 00:00:12.088
+with speaker Nasah Kuma,
+front-end engineer.
+
+00:00:12.947 --> 00:00:15.877
+This presentation
+was recorded October 2024.
+
+00:00:16.768 --> 00:00:19.168
+Laura Adamonis:
+WordPress Accessibility Day 2024.
+
+00:00:19.242 --> 00:00:22.012
+My name is Laura
+and I'm your MC for this talk.
+
+00:00:22.722 --> 00:00:25.587
+Thank you for joining us
+for Agile Accessibility:
+
+00:00:25.624 --> 00:00:31.026
+Building Inclusivity
+into the Product Roadmap with Nasah Kuma.
+
+00:00:31.837 --> 00:00:36.090
+Nasah is a front-end engineer
+living in Cameroon.
+
+00:00:36.509 --> 00:00:41.368
+She has a degree in software engineering
+and is very passionate about open-source
+
+00:00:41.369 --> 00:00:43.710
+and building accessible applications.
+
+00:00:45.780 --> 00:00:46.780
+In her current role,
+
+00:00:47.159 --> 00:00:50.038
+she has spearheaded
+several initiatives to improve
+
+00:00:50.039 --> 00:00:52.679
+the accessibility
+of their web applications,
+
+00:00:53.099 --> 00:00:55.320
+earning recognition from her peers
+
+00:00:55.350 --> 00:00:56.350
+and leadership team.
+
+00:00:57.089 --> 00:01:01.037
+She is also an active contributor
+in various open-source projects,
+
+00:01:01.289 --> 00:01:04.301
+collaborating with developers
+around the world
+
+00:01:04.603 --> 00:01:07.080
+to build innovative solutions.
+
+00:01:07.470 --> 00:01:08.820
+Outside of her day job,
+
+00:01:09.030 --> 00:01:13.349
+Nasah is studying to become an Agile coach
+
+00:01:13.410 --> 00:01:15.239
+as she is deeply interested
+
+00:01:15.240 --> 00:01:18.658
+in helping teams optimize their workflow
+
+00:01:18.659 --> 00:01:21.209
+and deliver value more efficiently.
+
+00:01:21.568 --> 00:01:25.079
+She is excited to bring
+these Agile methodologies
+
+00:01:25.079 --> 00:01:27.839
+into her own work
+and share them with others.
+
+00:01:28.770 --> 00:01:30.949
+In her free time,
+you can find her tinkering
+
+00:01:30.950 --> 00:01:32.428
+with new technologies,
+
+00:01:32.429 --> 00:01:36.539
+attending local tech meetups,
+or volunteering at the community
+
+00:01:36.840 --> 00:01:37.840
+coding events.
+
+00:01:38.095 --> 00:01:41.595
+She is also eager to learn and grow
+both personally and professionally.
+
+00:01:42.317 --> 00:01:47.159
+Please feel free to add your questions
+in the Zoom Q&amp;A section
+
+00:01:47.219 --> 00:01:50.040
+at the bottom of your screen
+and we'll answer them
+
+00:01:50.070 --> 00:01:51.370
+at the end of the session.
+
+00:01:51.720 --> 00:01:54.210
+Use the chat to connect
+with other attendees.
+
+00:01:54.599 --> 00:01:55.800
+Please welcome Nasah.
+
+00:01:59.609 --> 00:02:00.839
+Nasah Kuma: Hello, everybody,
+
+00:02:00.839 --> 00:02:03.919
+and welcome to this talk
+on Agile accessibility
+
+00:02:04.529 --> 00:02:08.880
+where we will be discussing building
+inclusivity into the product roadmap.
+
+00:02:10.110 --> 00:02:13.189
+As Laura already introduced,
+thank you very much Laura
+
+00:02:13.239 --> 00:02:14.789
+for the wonderful introduction.
+
+00:02:15.090 --> 00:02:17.759
+I am Nasah and I'm joining you today
+from Cameroon.
+
+00:02:19.829 --> 00:02:26.729
+If you are new to the term accessibility,
+accessibility in our context is
+
+00:02:26.730 --> 00:02:32.189
+about making sure that all users,
+including those with disabilities
+
+00:02:32.190 --> 00:02:33.809
+can use our applications.
+
+00:02:34.469 --> 00:02:37.878
+To incorporate accessibility
+in product development,
+
+00:02:37.879 --> 00:02:41.290
+we need to first understand
+accessibility guidelines
+
+00:02:41.537 --> 00:02:44.609
+and standards that will help us
+when guiding our requirements
+
+00:02:44.640 --> 00:02:45.940
+and during implementation.
+
+00:02:48.890 --> 00:02:55.452
+Some of our learning outcomes
+or objectives for this talk include WCAG,
+
+00:02:56.242 --> 00:02:59.142
+inclusivity,
+inclusive product roadmapping,
+
+00:02:59.300 --> 00:03:00.529
+some Agile terms,
+
+00:03:01.050 --> 00:03:04.769
+and then integrating accessibility
+into Agile practices.
+
+00:03:05.639 --> 00:03:09.840
+This talk is a beginner level talk
+and I will try my best to define
+
+00:03:09.869 --> 00:03:12.882
+all the technical terms related
+to accessibility and Agile
+
+00:03:13.192 --> 00:03:14.790
+that I will be using.
+
+00:03:15.650 --> 00:03:16.953
+By the end of this talk,
+
+00:03:16.954 --> 00:03:19.404
+I hope that you should
+have learned a thing or two
+
+00:03:19.546 --> 00:03:22.409
+about accessibility
+if you're new to the topic
+
+00:03:22.530 --> 00:03:27.870
+or about Agile just to help you to work
+in the teams that you find yourselves.
+
+00:03:31.344 --> 00:03:36.420
+Since we are here for the web,
+I would like us to focus
+
+00:03:37.170 --> 00:03:39.420
+on the web content accessibility
+guidelines,
+
+00:03:39.680 --> 00:03:43.180
+which you commonly
+come across as WCAG.
+
+00:03:44.509 --> 00:03:47.828
+Over time, there
+have been different versions of WCAG.
+
+00:03:48.468 --> 00:03:52.139
+From 2.0 we moved
+to 2.1 and now we are at 2.2.
+
+00:03:52.608 --> 00:03:58.282
+WCAG 2.2 extends WCAG 2.1,
+which was published
+
+00:03:58.333 --> 00:04:03.896
+as a W3C recommendation in June 2018.
+
+00:04:05.039 --> 00:04:13.066
+Content that conforms to WCAG 2.2
+also conforms to WCAG 2.0
+
+00:04:13.151 --> 00:04:15.056
+and WCAG 2.1,
+
+00:04:15.136 --> 00:04:19.857
+so it is safe for us to center
+our conversations in WCAG 2.2.
+
+00:04:21.070 --> 00:04:26.021
+WCAG 2.2 is a set of guidelines created
+by the World Wide Web Consortium, W3C,
+
+00:04:26.070 --> 00:04:27.200
+as earlier mentioned,
+
+00:04:27.700 --> 00:04:29.782
+to help make web content more accessible
+
+00:04:29.811 --> 00:04:32.161
+for people with disabilities.
+
+00:04:33.032 --> 00:04:38.303
+These guidelines contain recommendations
+for designing and coding websites.
+
+00:04:39.243 --> 00:04:42.924
+WCAG 2.2 covers a wide range
+of recommendations
+
+00:04:42.954 --> 00:04:45.554
+for making web content more accessible.
+
+00:04:46.457 --> 00:04:47.857
+Following these guidelines
+
+00:04:47.887 --> 00:04:50.212
+will help you make
+more content accessible
+
+00:04:50.213 --> 00:04:52.723
+to a wider range of people
+with disabilities,
+
+00:04:52.773 --> 00:04:54.673
+including accommodations for blindness
+
+00:04:55.053 --> 00:04:57.183
+and low vision,
+deafness and hearing loss,
+
+00:04:57.483 --> 00:05:00.735
+limited movement,
+speech disabilities,
+
+00:05:00.765 --> 00:05:03.217
+photosensitivity,
+and combinations
+
+00:05:03.247 --> 00:05:06.247
+of these and probably accommodations
+
+00:05:06.277 --> 00:05:08.827
+for learning disabilities
+and cognitive limitations,
+
+00:05:09.285 --> 00:05:10.285
+but of course,
+
+00:05:10.306 --> 00:05:14.685
+it is not going to address every user need
+for people with disabilities.
+
+00:05:15.886 --> 00:05:20.354
+These guidelines address accessibility
+for web content on desktops,
+
+00:05:20.355 --> 00:05:22.845
+laptops, tablets, and mobile devices.
+
+00:05:23.464 --> 00:05:26.614
+Following these guidelines
+will also often help make web content
+
+00:05:26.625 --> 00:05:29.626
+more accessible to users in general.
+
+00:05:34.636 --> 00:05:39.076
+The key principles [?] of the principles
+of WCAG 2.2 are perceivable,
+
+00:05:39.436 --> 00:05:41.566
+operable, understandable, and robust.
+
+00:05:44.046 --> 00:05:47.295
+By perceivable,
+we just mean that information
+
+00:05:47.356 --> 00:05:50.925
+and user interface components
+must be presentable to users
+
+00:05:51.435 --> 00:05:53.117
+in ways that they can perceive.
+
+00:05:53.118 --> 00:05:54.118
+An example
+
+00:05:54.705 --> 00:05:59.505
+is always to make sure to provide
+authentic text for any non-text content
+
+00:05:59.895 --> 00:06:06.644
+so that it can be changed into other forms
+for people who need it [?]
+
+00:06:06.804 --> 00:06:13.408
+also want to play a large screen [?]
+symbols or simple language.
+
+00:06:14.508 --> 00:06:18.255
+Operable means that all users
+should be able to operate the interface.
+
+00:06:18.796 --> 00:06:22.425
+In that light, it is essential
+to make all functionality available
+
+00:06:22.426 --> 00:06:23.426
+from the keyboard.
+
+00:06:24.375 --> 00:06:29.892
+Understandable means that web content
+must be presented in a way that is easy
+
+00:06:29.952 --> 00:06:31.362
+to understand to all users,
+
+00:06:32.085 --> 00:06:35.206
+including users with cognitive
+and learning disabilities.
+
+00:06:36.466 --> 00:06:37.815
+As a recommendation,
+
+00:06:37.816 --> 00:06:40.966
+text has to be readable
+and understandable for everybody.
+
+00:06:42.603 --> 00:06:45.153
+Robust means
+that the content must be compatible
+
+00:06:45.184 --> 00:06:49.600
+with current and future user agents,
+including assistive technologies.
+
+00:06:50.465 --> 00:06:52.906
+Applications
+should maximize compatibility.
+
+00:06:53.976 --> 00:06:56.574
+There's a lot about WCAG 2.2
+and WCAG as a whole,
+
+00:06:56.595 --> 00:06:59.025
+and you can always read more about it
+
+00:06:59.646 --> 00:07:03.722
+to just help you know the success criteria
+and the guidelines to follow
+
+00:07:03.772 --> 00:07:06.072
+depending on the application
+you're working on.
+
+00:07:08.133 --> 00:07:12.616
+Agile plus Accessibility,
+the Ultimate Intersection.
+
+00:07:13.525 --> 00:07:14.695
+If you've been following
+
+00:07:14.695 --> 00:07:18.375
+the evolution of software
+development methodologies,
+
+00:07:18.465 --> 00:07:21.305
+you know that most,
+if not all, software products,
+
+00:07:21.385 --> 00:07:24.598
+including websites today are developed
+following the Agile methodology,
+
+00:07:24.598 --> 00:07:28.275
+which emphasizes
+collaboration and improvement and is
+
+00:07:28.276 --> 00:07:31.677
+based on a set of values and principles
+that prioritize adaptability
+
+00:07:32.097 --> 00:07:35.146
+and flexibility over following a plan.
+
+00:07:35.823 --> 00:07:39.673
+Before getting here, people struggled
+with traditional methods of development,
+
+00:07:40.096 --> 00:07:44.775
+which made it very difficult
+to build inclusive applications.
+
+00:07:46.508 --> 00:07:50.092
+Agile, on the other hand,
+because of its iterative nature
+
+00:07:50.596 --> 00:07:55.035
+and its focus on delivering value,
+makes it a good candidate to incorporate
+
+00:07:55.036 --> 00:07:57.226
+accessibility in development practices.
+
+00:07:58.415 --> 00:08:01.868
+Why then do most creators
+of applications still not include
+
+00:08:01.898 --> 00:08:03.698
+accessibility requirements?
+
+00:08:03.996 --> 00:08:06.446
+Well, in my case,
+I would say that I was ignorant,
+
+00:08:06.796 --> 00:08:10.845
+but I'm glad that now I make the effort
+to create and to build inclusively.
+
+00:08:12.466 --> 00:08:15.374
+Accessibility can be included
+at any point in development,
+
+00:08:15.375 --> 00:08:19.666
+but it will be better and easier
+to have it in mind from the start
+
+00:08:20.566 --> 00:08:23.385
+because this
+is more cost effective.
+
+00:08:23.815 --> 00:08:27.615
+Early integrations allows
+for user testing with diverse groups,
+
+00:08:27.851 --> 00:08:30.705
+giving you valuable feedback
+that can improve the product
+
+00:08:30.709 --> 00:08:31.709
+before launch.
+
+00:08:32.205 --> 00:08:33.225
+If you're thinking,
+
+00:08:33.585 --> 00:08:36.015
+"Oh, I can start building
+my application now
+
+00:08:36.195 --> 00:08:40.725
+and I'll include accessibility later,"
+please think again.
+
+00:08:44.476 --> 00:08:49.935
+This talk is on Agile accessibility,
+not only because Agile development
+
+00:08:49.936 --> 00:08:55.006
+has proven to have many advantages
+over other methods of development,
+
+00:08:55.266 --> 00:08:58.300
+but because it is easier
+to include accessibility in Agile.
+
+00:08:58.875 --> 00:08:59.875
+Why is it easier?
+
+00:09:00.264 --> 00:09:03.255
+First of all, Agile
+promotes iterative cycles,
+
+00:09:03.585 --> 00:09:07.236
+otherwise known as sprints/
+We'll talk about sprints in future slides.
+
+00:09:07.436 --> 00:09:09.586
+Allowing teams
+to gather feedback regularly.
+
+00:09:10.177 --> 00:09:12.577
+This means accessibility issues
+can be identified
+
+00:09:12.767 --> 00:09:15.747
+and addressed continuously
+throughout development process,
+
+00:09:16.436 --> 00:09:19.846
+rather than at the end
+of a very lengthy project timeline
+
+00:09:19.847 --> 00:09:22.616
+as is in the case
+with most traditional methods
+
+00:09:22.646 --> 00:09:23.646
+of development.
+
+00:09:24.646 --> 00:09:28.995
+Also, Agile encourages collaboration
+among diverse team members,
+
+00:09:29.716 --> 00:09:30.945
+including designers,
+
+00:09:30.946 --> 00:09:33.524
+developers, testers,
+accessibility experts,
+
+00:09:33.525 --> 00:09:35.625
+and every other person
+that is in the team.
+
+00:09:35.926 --> 00:09:38.606
+This collaborative environment fosters
+
+00:09:38.686 --> 00:09:41.046
+a shared understanding
+of accessibility [?]
+
+00:09:41.556 --> 00:09:47.931
+ensures that all perspectives
+are considered from the start.
+
+00:09:49.006 --> 00:09:50.006
+Also,
+
+00:09:50.296 --> 00:09:52.756
+Agile emphasizes
+the involvement of the user,
+
+00:09:53.176 --> 00:09:55.479
+including those with disabilities,
+of course.
+
+00:09:55.689 --> 00:10:01.755
+Regular usability testing sessions
+with users allows teams to observe
+
+00:10:01.755 --> 00:10:06.106
+how people interact with the product,
+leading to more informed decisions
+
+00:10:06.135 --> 00:10:09.034
+regarding accessibility features
+and inputs.
+
+00:10:10.214 --> 00:10:12.816
+Of course, there's a flexibility to adapt
+
+00:10:14.006 --> 00:10:16.216
+to changing requirements,
+which allows teams
+
+00:10:16.276 --> 00:10:20.500
+to prioritize accessibility enhancements
+as new insights are gained
+
+00:10:20.736 --> 00:10:22.896
+or as users' needs evolve,
+
+00:10:23.796 --> 00:10:27.815
+ensuring that accessibility remains
+a core focus rather than something
+
+00:10:27.816 --> 00:10:29.904
+that we just think about later on.
+
+00:10:33.472 --> 00:10:37.584
+Let's just talk about
+the product roadmap a little bit.
+
+00:10:39.234 --> 00:10:43.174
+We cannot really talk Agile
+without a solid product vision
+
+00:10:43.264 --> 00:10:47.045
+and a roadmap to outline
+the journey for developing a product.
+
+00:10:47.645 --> 00:10:50.916
+While the vision covers
+who and what the product is for,
+
+00:10:51.407 --> 00:10:54.265
+the roadmap is a high-level plan
+which outlines the journey
+
+00:10:54.265 --> 00:10:55.465
+for product development.
+
+00:10:56.105 --> 00:11:00.265
+It communicates future releases
+and when features can be expected.
+
+00:11:00.386 --> 00:11:03.526
+It's usually divided into phases,
+which could be monthly,
+
+00:11:03.846 --> 00:11:06.006
+quarterly, or by release.
+
+00:11:06.556 --> 00:11:09.286
+From my image,
+you see that our phases are monthly.
+
+00:11:11.847 --> 00:11:14.675
+We have from January to July.
+
+00:11:14.976 --> 00:11:17.138
+We have different features
+that we're working on.
+
+00:11:17.138 --> 00:11:19.955
+We have features
+that are related to enhancement.
+
+00:11:19.956 --> 00:11:21.994
+We have mobile-related features.
+
+00:11:21.995 --> 00:11:26.165
+We have data quality-related features
+and things that concern automation.
+
+00:11:26.646 --> 00:11:31.657
+All of this we'll be doing throughout
+the number of months
+
+00:11:31.658 --> 00:11:33.408
+that we have displayed on the image.
+
+00:11:33.408 --> 00:11:35.788
+This is just an example
+of how a product roadmap
+
+00:11:35.818 --> 00:11:36.818
+may look like.
+
+00:11:37.172 --> 00:11:40.745
+It changes depending on the application
+that we're building and depending
+
+00:11:40.745 --> 00:11:43.326
+on when we start development.
+
+00:11:45.865 --> 00:11:48.964
+In our discussion on building
+inclusive product roadmaps,
+
+00:11:48.965 --> 00:11:52.355
+we will focus on developing
+inclusive user stories,
+
+00:11:52.675 --> 00:11:57.649
+including accessibility
+in retrospectives and sprints.
+
+00:11:59.786 --> 00:12:00.816
+It's story time.
+
+00:12:01.786 --> 00:12:04.736
+About four years ago,
+when I left university,
+
+00:12:04.787 --> 00:12:07.987
+the first application
+I worked on was a job portal.
+
+00:12:09.846 --> 00:12:12.636
+The team had decided
+to use the Agile method.
+
+00:12:13.566 --> 00:12:16.966
+I was excited to be part of this team,
+looking forward to fitting in,
+
+00:12:17.316 --> 00:12:19.566
+contributing,
+and learning as much as I could.
+
+00:12:20.466 --> 00:12:24.046
+When work started, as is normal [?]
+
+00:12:24.965 --> 00:12:26.165
+any newly formed team,
+
+00:12:26.586 --> 00:12:29.494
+we got caught up in coding
+and the application,
+
+00:12:29.495 --> 00:12:31.395
+and we forgot about every other thing.
+
+00:12:31.695 --> 00:12:37.374
+We neglected our stand-ups,
+our meetings, our retrospectives.
+
+00:12:37.962 --> 00:12:40.716
+When we presented
+what we had been working on
+
+00:12:41.646 --> 00:12:46.745
+for the time when we spent working,
+it was clear that something
+
+00:12:46.746 --> 00:12:48.546
+was terribly wrong.
+
+00:12:50.575 --> 00:12:54.050
+When organizations and teams
+experience Agile transformation,
+
+00:12:54.520 --> 00:12:58.595
+it is normal for them to experience
+what my team from four years
+
+00:12:58.596 --> 00:12:59.976
+back experienced.
+
+00:13:00.815 --> 00:13:02.256
+In this same light,
+
+00:13:02.465 --> 00:13:05.125
+successfully adopting
+Agile accessibility in teams,
+
+00:13:05.175 --> 00:13:06.175
+organizations,
+
+00:13:06.435 --> 00:13:08.705
+will require a large amount
+of change in behavior
+
+00:13:08.705 --> 00:13:09.705
+from everyone.
+
+00:13:10.182 --> 00:13:12.653
+To successfully do this,
+the Agile accessibility
+
+00:13:12.703 --> 00:13:14.075
+transformation process
+
+00:13:14.466 --> 00:13:15.815
+will need to be managed.
+
+00:13:16.658 --> 00:13:20.316
+Missing skills and knowledge
+will have to be brought in,
+
+00:13:20.826 --> 00:13:24.605
+and teams will have to be supported
+as they go through the process.
+
+00:13:26.525 --> 00:13:30.756
+Regardless of your role in the team,
+there's always something you can do.
+
+00:13:31.376 --> 00:13:33.035
+You should not think or say that,
+
+00:13:33.036 --> 00:13:38.275
+"Oh, I'm not the product owner,"
+or, "I'm not the facilitator,"
+
+00:13:38.325 --> 00:13:41.805
+or, "I'm not the accessibility coach.
+What can I do?"
+
+00:13:42.325 --> 00:13:43.785
+Even as a normal team member,
+
+00:13:43.815 --> 00:13:46.814
+there's a lot that you can do
+just by reading the guidelines
+
+00:13:46.815 --> 00:13:48.984
+and trying to think
+about everyone when building
+
+00:13:48.984 --> 00:13:50.134
+and when designing.
+
+00:13:52.085 --> 00:13:53.085
+Let's use
+
+00:13:54.005 --> 00:13:58.179
+this job portal application as an example
+and look at how to integrate accessibility
+
+00:13:58.239 --> 00:13:59.796
+into some Agile practices.
+
+00:14:03.296 --> 00:14:06.786
+Like I already mentioned
+in previous slides,
+
+00:14:07.175 --> 00:14:12.155
+a good product vision tells us
+what the product is attempting to achieve
+
+00:14:12.546 --> 00:14:14.875
+and who will benefit from this product.
+
+00:14:15.696 --> 00:14:16.746
+In our case,
+
+00:14:18.005 --> 00:14:22.820
+our product, the job portal,
+aims to connect job seekers
+
+00:14:22.950 --> 00:14:24.400
+with meaningful opportunities
+
+00:14:24.540 --> 00:14:27.515
+and empower employers
+to find the right talent,
+
+00:14:28.025 --> 00:14:30.785
+fostering a diverse
+and thriving workforce.
+
+00:14:32.234 --> 00:14:36.504
+From this statement, from this vision,
+you see that it covers
+
+00:14:36.555 --> 00:14:38.016
+all the important parts.
+
+00:14:38.405 --> 00:14:42.155
+We can see clearly who the product
+is for and what they will achieve,
+
+00:14:42.626 --> 00:14:44.726
+what they will gain
+from using the product.
+
+00:14:45.125 --> 00:14:47.735
+Let's see how we can include accessibility
+
+00:14:48.425 --> 00:14:50.975
+to better achieve this vision.
+
+00:14:54.113 --> 00:14:57.319
+Normally,
+before building any application,
+
+00:14:57.320 --> 00:15:00.300
+you have to do some requirement gathering.
+
+00:15:01.196 --> 00:15:05.135
+Because we're talking accessibility,
+it will be important that we look
+
+00:15:05.136 --> 00:15:07.355
+at some methods that we can also use to,
+
+00:15:08.076 --> 00:15:09.365
+when gathering
+
+00:15:10.055 --> 00:15:12.705
+our requirements,
+also gather accessible requirements.
+
+00:15:14.671 --> 00:15:18.061
+One thing that we can do is
+to carry out one-on-one interviews
+
+00:15:18.091 --> 00:15:19.266
+with users,
+
+00:15:19.825 --> 00:15:23.314
+particularly those with disabilities,
+to help us to develop
+
+00:15:23.315 --> 00:15:24.465
+inclusive requirements.
+
+00:15:24.625 --> 00:15:27.575
+During these reviews,
+we can ask open-ended questions
+
+00:15:28.205 --> 00:15:31.144
+to understand their needs, challenges,
+and preferences
+
+00:15:31.145 --> 00:15:32.825
+regarding accessibility features.
+
+00:15:33.945 --> 00:15:35.645
+Another thing is our personas.
+
+00:15:35.705 --> 00:15:39.116
+We have to design to have
+accessibility personas
+
+00:15:39.486 --> 00:15:42.069
+that represent users
+with different disabilities
+
+00:15:42.359 --> 00:15:42.786
+and accessibility needs.
+
+00:15:42.786 --> 00:15:46.145
+We have to ensure that these personas
+are as detailed as possible.
+
+00:15:47.915 --> 00:15:51.995
+Also, organizing focus groups that include
+a diverse range of participants,
+
+00:15:52.415 --> 00:15:54.156
+including people
+with various disabilities,
+
+00:15:54.156 --> 00:15:55.505
+can really help.
+
+00:15:56.345 --> 00:15:59.885
+We can facilitate discussions
+around their experiences,
+
+00:16:00.092 --> 00:16:03.842
+their existing products, and also gather
+insights on potential improvements.
+
+00:16:04.706 --> 00:16:06.574
+Also, surveys and questionnaires.
+
+00:16:06.575 --> 00:16:07.575
+Very important,
+
+00:16:07.895 --> 00:16:11.195
+but when we create them
+for people with disabilities,
+
+00:16:11.255 --> 00:16:12.275
+let's also remember
+
+00:16:12.785 --> 00:16:16.146
+to create surveys and questionnaires
+that are accessible.
+
+00:16:18.831 --> 00:16:21.635
+Usability testing, of course.
+
+00:16:21.665 --> 00:16:27.002
+We should have sessions with users
+with disabilities where they can test
+
+00:16:27.212 --> 00:16:29.298
+and interact with prototypes
+of existing products,
+
+00:16:29.298 --> 00:16:32.152
+and we should really observe
+how they interact with these products
+
+00:16:32.152 --> 00:16:35.045
+so that we can note
+any accessibility issues
+
+00:16:35.046 --> 00:16:39.335
+that they encounter so we can use
+all of this information to improve
+
+00:16:39.695 --> 00:16:42.935
+on the application or to build
+something that will be very,
+
+00:16:42.936 --> 00:16:44.195
+very usable to everybody.
+
+00:16:48.266 --> 00:16:52.205
+Let's assume that after gathering
+our requirements
+
+00:16:52.206 --> 00:16:54.500
+and with input from top
+management, we
+
+00:16:54.880 --> 00:16:58.770
+have these features
+for our minimum viable products.
+
+00:16:58.790 --> 00:17:02.016
+We have user registration
+and profile creation,
+
+00:17:02.616 --> 00:17:03.616
+job search,
+
+00:17:03.786 --> 00:17:04.806
+job listings,
+
+00:17:05.296 --> 00:17:06.296
+job posting,
+
+00:17:06.346 --> 00:17:09.875
+and we have to work
+on an administrator dashboard.
+
+00:17:12.263 --> 00:17:17.579
+A high-level plan or the product roadmap
+may look something like this,
+
+00:17:18.519 --> 00:17:19.769
+divided into four phases.
+
+00:17:19.769 --> 00:17:23.978
+For Phase 1, we'll be working
+on user registration and profile creation,
+
+00:17:24.325 --> 00:17:27.325
+for Phase 2, we'll be developing
+the administrator dashboard,
+
+00:17:27.771 --> 00:17:31.967
+Phase 3, we'll be working
+on job listing and job posting features,
+
+00:17:32.367 --> 00:17:35.495
+and for Phase 4, we're going
+to work on job search.
+
+00:17:42.095 --> 00:17:44.436
+Of course, we need a fabulous team
+
+00:17:45.116 --> 00:17:46.205
+to do all of this.
+
+00:17:46.366 --> 00:17:48.685
+I decided to call this team,
+Team Dream,
+
+00:17:48.975 --> 00:17:51.475
+because they're going
+to give us our dream product.
+
+00:17:52.885 --> 00:17:55.714
+I would love for all of us
+attending this session
+
+00:17:55.715 --> 00:18:00.417
+to imagine being part of this team
+and thinking of one of the rules
+
+00:18:00.468 --> 00:18:01.818
+that we'll discuss shortly.
+
+00:18:02.328 --> 00:18:05.478
+Think of how you can support
+the accessibility goals of the team
+
+00:18:05.786 --> 00:18:06.996
+as an Agile member.
+
+00:18:07.466 --> 00:18:11.066
+I already picked a role for myself,
+and I'll be working as a facilitator.
+
+00:18:11.462 --> 00:18:14.232
+No worries, there can be more
+than one facilitator.
+
+00:18:15.702 --> 00:18:16.702
+It's okay.
+
+00:18:17.195 --> 00:18:19.342
+In a typical Agile team,
+
+00:18:20.196 --> 00:18:23.295
+and of course in Team Dream,
+we have a product owner
+
+00:18:23.375 --> 00:18:26.615
+who is the voice of the customer.
+
+00:18:27.226 --> 00:18:30.516
+The product owner is responsible
+for working with the Agile team,
+
+00:18:30.575 --> 00:18:32.025
+as well as the business,
+
+00:18:32.075 --> 00:18:34.205
+to maximize the value of the product.
+
+00:18:34.952 --> 00:18:39.103
+The product owner also prioritizes
+and manages the product backlog,
+
+00:18:39.313 --> 00:18:42.363
+which is where user stories
+and features are generally listed.
+
+00:18:43.443 --> 00:18:46.813
+We have a facilitator who serves
+as the Agile coach
+
+00:18:47.283 --> 00:18:50.283
+and supports
+the team to achieve its goals.
+
+00:18:56.104 --> 00:18:58.928
+The facilitator also keeps the team,
+the Agile team,
+
+00:18:59.248 --> 00:19:01.565
+moving towards business objectives.
+
+00:19:02.078 --> 00:19:04.628
+The team always has to be
+in line and their facilitator
+
+00:19:04.628 --> 00:19:07.716
+is there to make sure
+that the team stays on point.
+
+00:19:09.026 --> 00:19:13.834
+The facilitator also removes blockages
+experienced by the team or members
+
+00:19:13.835 --> 00:19:14.875
+individually.
+
+00:19:15.995 --> 00:19:20.075
+Then we have the Agile team,
+which is made up of developers,
+
+00:19:20.076 --> 00:19:23.437
+designers, data scientists,
+security experts,
+
+00:19:23.473 --> 00:19:27.980
+testers, and all necessary
+for a great product.
+
+00:19:28.895 --> 00:19:31.895
+This team is responsible
+for delivering the shippable product
+
+00:19:32.195 --> 00:19:34.266
+after every sprint
+
+00:19:34.806 --> 00:19:35.945
+or every iteration.
+
+00:19:38.395 --> 00:19:46.735
+Since we are talking about
+increasing accessibility,
+
+00:19:47.155 --> 00:19:49.395
+we also [?] our accessibility goals.
+
+00:19:50.616 --> 00:19:54.126
+The coach directs the team
+to achieve its accessibility goals
+
+00:19:54.206 --> 00:19:59.316
+and they can do so by conducting
+training sessions to educate team members
+
+00:19:59.766 --> 00:20:01.985
+about accessibility principles,
+guidelines,
+
+00:20:01.986 --> 00:20:03.276
+and best practices.
+
+00:20:03.631 --> 00:20:05.847
+They provide expert advice
+during the design
+
+00:20:05.879 --> 00:20:07.634
+and development phases
+
+00:20:07.646 --> 00:20:08.646
+to ensure
+
+00:20:09.126 --> 00:20:11.656
+accessibility is integrated
+from the start,
+
+00:20:12.696 --> 00:20:16.396
+and they promote an inclusive culture
+within the team and the organization,
+
+00:20:16.936 --> 00:20:18.496
+because we cannot be building
+
+00:20:19.365 --> 00:20:23.149
+with accessibility in mind
+and as a team we are not inclusive
+
+00:20:23.729 --> 00:20:24.979
+in the things that we do.
+
+00:20:29.775 --> 00:20:32.925
+Since we are being Agile,
+we will have meetings
+
+00:20:32.985 --> 00:20:34.875
+before and after sprints.
+
+00:20:36.406 --> 00:20:41.385
+A sprint is really just
+a short defined period of time when a team
+
+00:20:41.386 --> 00:20:43.600
+works on specific tasks to achieve goals.
+
+00:20:43.710 --> 00:20:46.875
+Sprints are generally two
+to four weeks long.
+
+00:20:48.100 --> 00:20:51.825
+The sprint planning meeting is held
+to discuss about the set of features
+
+00:20:52.156 --> 00:20:55.569
+to be delivered for the sprint
+as well as user stories.
+
+00:20:56.599 --> 00:20:58.396
+During this planning meeting,
+
+00:20:58.936 --> 00:21:00.556
+team members can brainstorm
+
+00:21:01.145 --> 00:21:04.345
+the accessibility impacts of the stories
+that are being proposed,
+
+00:21:04.666 --> 00:21:07.665
+and they can also identify
+complex interactions or functionalities
+
+00:21:07.665 --> 00:21:11.531
+that may require
+additional research or extra skills.
+
+00:21:12.585 --> 00:21:15.435
+It's important that during these meetings,
+team members should think
+
+00:21:15.435 --> 00:21:18.295
+about the impact of accessibility
+on these three points
+
+00:21:18.735 --> 00:21:21.346
+and the team's overall speed or velocity.
+
+00:21:22.156 --> 00:21:27.039
+Some accessibility features
+may be pushed forward
+
+00:21:27.040 --> 00:21:31.184
+to help the team maintain its pace,
+or other features may be replaced
+
+00:21:31.185 --> 00:21:36.285
+with accessibility features if the team
+sees that they are of higher priority.
+
+00:21:37.305 --> 00:21:39.255
+Speaker 3: Excuse me one second, Nasah.
+
+00:21:39.921 --> 00:21:40.921
+Nasah: Yes.
+
+00:21:41.025 --> 00:21:43.635
+Speaker 3: Can we ask you
+to try turning off your video
+
+00:21:43.635 --> 00:21:45.525
+just to improve the audio quality?
+
+00:21:45.615 --> 00:21:48.825
+The captioners are having
+a lot of difficulty with dropped audio.
+
+00:21:50.806 --> 00:21:51.806
+Nasah: Okay.
+
+00:21:52.674 --> 00:21:54.660
+Speaker 3: We'll still see your slides.
+
+00:21:54.661 --> 00:21:58.111
+We just want to try and turn off the video
+to decrease your bandwidth.
+
+00:21:58.595 --> 00:22:00.615
+Nasah: Okay. Is that okay?
+
+00:22:01.185 --> 00:22:02.585
+Speaker 3: Yes, that's fine.
+
+00:22:02.705 --> 00:22:03.495
+Nasah: All right.
+Sorry about that.
+
+00:22:03.495 --> 00:22:04.795
+Speaker 3: I can hear you
+more clearly now.
+
+00:22:04.795 --> 00:22:06.145
+No, that's quite all right.
+
+00:22:06.706 --> 00:22:07.706
+Thanks a lot.
+
+00:22:10.496 --> 00:22:12.696
+Nasah: Like I was saying,
+for our Dream Team,
+
+00:22:14.955 --> 00:22:19.420
+during the first planning meeting,
+we will plan on how to accomplish
+
+00:22:19.450 --> 00:22:22.110
+the first phase of our delivery,
+which is implementing
+
+00:22:22.160 --> 00:22:25.123
+the user registration
+and profile management feature.
+
+00:22:25.660 --> 00:22:28.636
+Since the assumption is
+that the team is freshly formed,
+
+00:22:29.145 --> 00:22:31.095
+the Agile team members may not have
+
+00:22:31.725 --> 00:22:35.776
+much to say about the user stories
+and their acceptance criteria.
+
+00:22:37.275 --> 00:22:39.765
+Normally, or as expected,
+the product owner
+
+00:22:40.636 --> 00:22:41.838
+would develop the stories
+
+00:22:41.838 --> 00:22:44.940
+and can use the opportunity
+to remind the team
+
+00:22:45.020 --> 00:22:48.754
+on the structure of these stories
+and also how to come up
+
+00:22:48.804 --> 00:22:50.506
+with good acceptance criteria.
+
+00:22:51.635 --> 00:22:53.785
+Let's not forget
+that when the team matures,
+
+00:22:54.315 --> 00:22:57.494
+every member is advised
+to contribute as much as possible
+
+00:22:57.495 --> 00:23:01.154
+to the development of user stories,
+acceptance criteria,
+
+00:23:01.155 --> 00:23:04.336
+and prioritization of the work
+that has to be done.
+
+00:23:09.761 --> 00:23:13.875
+For our user registration feature,
+we can have a story
+
+00:23:14.895 --> 00:23:17.566
+that looks like what we have on the slide.
+
+00:23:18.375 --> 00:23:19.375
+For example,
+
+00:23:19.576 --> 00:23:21.046
+as a new job seeker,
+
+00:23:22.215 --> 00:23:26.324
+I want to register using
+my email or social media accounts
+
+00:23:26.626 --> 00:23:29.026
+so that I can quickly create an account.
+
+00:23:30.466 --> 00:23:32.686
+This story is simple
+and straight to the point,
+
+00:23:32.686 --> 00:23:36.554
+and it serves its purpose of briefly
+and informally describing
+
+00:23:36.555 --> 00:23:40.326
+a software feature or a function
+from the perspective of the end user.
+
+00:23:41.986 --> 00:23:46.905
+However, whether this story is accessible
+or not depends on its acceptance criteria.
+
+00:23:50.257 --> 00:23:53.307
+Acceptance criteria, for those of us
+who are not familiar with the term,
+
+00:23:53.307 --> 00:23:57.247
+is the set of conditions that must be met
+for the user stories
+
+00:23:57.327 --> 00:23:58.756
+to be considered complete.
+
+00:24:00.515 --> 00:24:02.895
+Normally, like in most cases,
+
+00:24:03.406 --> 00:24:06.055
+when people
+don't think about accessibility,
+
+00:24:06.365 --> 00:24:11.161
+the acceptance criteria for a story like
+this would be maybe users can register.
+
+00:24:11.377 --> 00:24:14.752
+After implementing this story,
+what we will check is that users
+
+00:24:14.753 --> 00:24:17.715
+can register using an email address
+or social media account.
+
+00:24:17.946 --> 00:24:19.373
+[?]
+
+00:24:19.533 --> 00:24:21.753
+The registration form includes all fields,
+
+00:24:21.803 --> 00:24:23.163
+maybe email, password.
+
+00:24:23.213 --> 00:24:24.473
+We say yes, everything is good.
+
+00:24:24.473 --> 00:24:28.515
+Then users receive a confirmation message
+after successful registration.
+
+00:24:30.036 --> 00:24:33.347
+We see clearly
+that this acceptance criteria leaves out
+
+00:24:33.377 --> 00:24:35.084
+a lot of users.
+
+00:24:36.356 --> 00:24:41.176
+Since we're thinking accessibility,
+we could modify our acceptance criteria
+
+00:24:41.205 --> 00:24:42.855
+to look like this.
+
+00:24:43.481 --> 00:24:46.413
+Users can register using
+email or social media
+
+00:24:46.803 --> 00:24:49.606
+with clear accessible labels.
+
+00:24:50.375 --> 00:24:53.917
+All input fields are navigable
+via keyboard and compatible
+
+00:24:53.975 --> 00:24:54.975
+with screen readers.
+
+00:25:11.017 --> 00:25:12.405
+[?]
+
+00:25:12.555 --> 00:25:13.605
+I'm talking about.
+
+00:25:14.625 --> 00:25:26.205
+[?] accessible labels,
+
+00:25:26.865 --> 00:25:32.326
+we are making sure that our input fields
+can be navigated using the keyboard
+
+00:25:32.975 --> 00:25:35.384
+and everything is compatible
+with screen readers.
+
+00:25:35.385 --> 00:25:40.905
+We are also trying to send
+our error messages out in a very,
+
+00:25:40.906 --> 00:25:42.656
+very simple and descriptive manner.
+
+00:25:58.645 --> 00:26:03.046
+Nasah: For the second part
+of our user story,
+
+00:26:06.350 --> 00:26:10.366
+looking at the second user story option,
+
+00:26:11.855 --> 00:26:13.545
+we see that as a job seeker,
+
+00:26:13.546 --> 00:26:17.175
+I want to create a detailed profile
+including work experience,
+
+00:26:17.836 --> 00:26:18.915
+education,
+
+00:26:19.275 --> 00:26:20.275
+skills,
+
+00:26:21.465 --> 00:26:24.675
+so that employers
+can view my qualifications.
+
+00:26:25.215 --> 00:26:26.215
+Again,
+
+00:26:29.805 --> 00:26:34.116
+if we are just looking
+at very simple stories
+
+00:26:34.146 --> 00:26:35.546
+that don't include everyone,
+
+00:26:35.920 --> 00:26:37.881
+the acceptance criteria
+can be users can put
+
+00:26:37.881 --> 00:26:40.674
+their work experience,
+education, and skills.
+
+00:26:40.803 --> 00:26:43.385
+Users can save their profile
+without errors.
+
+00:26:44.016 --> 00:26:47.120
+Then the profile displays correctly
+to employers after saving.
+
+00:26:48.245 --> 00:26:51.905
+This again, like I said,
+does not include everybody.
+
+00:26:52.425 --> 00:26:55.336
+A set of criteria like all fields have
+
+00:26:56.115 --> 00:27:00.766
+accessible labels and form elements
+are compatible with assistive technologies
+
+00:27:01.306 --> 00:27:02.306
+is good.
+
+00:27:02.326 --> 00:27:15.047
+Two tips or help texts are available
+for complex fields presented
+
+00:27:15.048 --> 00:27:16.827
+in an accessible manner
+
+00:27:17.355 --> 00:27:20.665
+and validation messages are conveyed
+through accessible palettes
+
+00:27:20.715 --> 00:27:23.205
+that are easy to understand.
+
+00:27:23.565 --> 00:27:25.636
+Again, this set of criteria
+
+00:27:26.415 --> 00:27:30.376
+tries to some extent to include
+as many users as possible.
+
+00:27:36.095 --> 00:27:37.188
+During the sprints,
+
+00:27:38.008 --> 00:27:39.738
+during the development of our features
+
+00:27:39.738 --> 00:27:42.287
+and when work is being done,
+there are also some things
+
+00:27:42.287 --> 00:27:43.936
+that we can do
+
+00:27:44.865 --> 00:27:48.586
+to make sure that we are developing
+accessible features.
+
+00:27:49.486 --> 00:27:51.706
+In Agile, most Agile frameworks,
+
+00:27:53.176 --> 00:27:55.876
+and the most common of them,
+maybe the Scrum framework,
+
+00:27:56.775 --> 00:27:59.380
+it's advised that there
+should be daily meetings
+
+00:27:59.381 --> 00:28:02.768
+at the first stand-ups
+that team members attend,
+
+00:28:03.515 --> 00:28:06.365
+where they will talk
+about what they did the previous day,
+
+00:28:06.855 --> 00:28:10.156
+what they're going to do today,
+and they share any challenges.
+
+00:28:10.872 --> 00:28:15.282
+These meetings can be a good opportunity
+for team members to probably share
+
+00:28:15.752 --> 00:28:19.503
+with the accessibility challenges
+that they face beyond a feature
+
+00:28:19.504 --> 00:28:21.504
+that they were working the previous day.
+
+00:28:22.655 --> 00:28:24.845
+Let's say they were not able
+to complete it because of this
+
+00:28:24.845 --> 00:28:25.996
+and this challenge.
+
+00:28:26.566 --> 00:28:30.226
+Because the team has the opportunity
+to meet every day face-to-face
+
+00:28:30.496 --> 00:28:31.725
+or even remotely,
+
+00:28:32.106 --> 00:28:36.006
+it's just the fact that they have
+the opportunity to meet on daily basis.
+
+00:28:36.366 --> 00:28:40.006
+They can always look
+at what is not going well.
+
+00:28:40.183 --> 00:28:42.466
+They can always talk
+about the problems that they have,
+
+00:28:42.466 --> 00:28:46.936
+and they can always block out time
+to try to fix these issues.
+
+00:28:47.435 --> 00:28:50.764
+During the sprints and during stand-ups,
+members can still discuss
+
+00:28:50.814 --> 00:28:53.364
+about accessibility challenges
+that they are having,
+
+00:28:53.536 --> 00:28:56.111
+and they see how they can work on it.
+
+00:28:58.006 --> 00:29:01.245
+There are some teams
+that practice paired programming
+
+00:29:03.425 --> 00:29:06.091
+with the aim
+of facilitating skill transfer,
+
+00:29:06.124 --> 00:29:11.426
+let's say that maybe there's
+a team of very junior developers
+
+00:29:11.476 --> 00:29:16.335
+or designers, and there's someone
+who is a tech lead or at a higher level.
+
+00:29:17.227 --> 00:29:24.315
+The team could have paired sessions
+of working or programming
+
+00:29:24.595 --> 00:29:29.296
+where the person who is more senior
+can work on the same computer
+
+00:29:29.296 --> 00:29:32.686
+with the juniors just to aid them
+through their tasks.
+
+00:29:33.226 --> 00:29:36.525
+These kind of sessions
+can be very useful when trying
+
+00:29:36.526 --> 00:29:40.276
+to [?] accessibility challenges.
+
+00:29:40.515 --> 00:29:42.965
+Maybe you are working
+on an accessibility feature,
+
+00:29:43.335 --> 00:29:46.936
+a junior, you can take it to someone
+who is more senior to you.
+
+00:29:47.985 --> 00:29:53.204
+Throughout the Agile process,
+you can always follow up
+
+00:29:53.205 --> 00:29:56.684
+on accessibility issues
+and just generally stories
+
+00:29:56.685 --> 00:29:59.955
+that can help us to achieve
+our goal as a team.
+
+00:30:05.566 --> 00:30:12.285
+At the end of our sprints,
+it is highly recommended that we hold
+
+00:30:12.345 --> 00:30:13.426
+a retrospective.
+
+00:30:16.185 --> 00:30:18.285
+This retrospective is,
+as a matter of fact,
+
+00:30:18.295 --> 00:30:20.755
+one of the most important [?]
+
+00:30:21.075 --> 00:30:24.886
+where we sit down to evaluate
+the sprints that just passed,
+
+00:30:25.726 --> 00:30:28.935
+and maybe we ask questions
+like what went well,
+
+00:30:29.172 --> 00:30:31.572
+what should be improved,
+what should be discarded
+
+00:30:31.652 --> 00:30:37.786
+because it wasn't working,
+and so on and so forth.
+
+00:30:40.687 --> 00:30:44.226
+During these meetings,
+you can reserve time on the agenda
+
+00:30:45.005 --> 00:30:47.195
+for discussing accessibility practices,
+
+00:30:49.145 --> 00:30:52.124
+and the accessibility skills
+of team members will help
+
+00:30:52.125 --> 00:30:53.775
+in achieving accessibility goals.
+
+00:30:53.925 --> 00:30:56.174
+We can always block out time to say,
+
+00:30:56.223 --> 00:30:59.676
+"Oh, how can we improve
+on our accessibility practices,
+
+00:31:00.016 --> 00:31:03.776
+and what do our members need
+to improve on their accessibility skills?
+
+00:31:04.396 --> 00:31:06.783
+Are the methods
+that we are using to achieve
+
+00:31:06.856 --> 00:31:08.586
+our accessibility goals working,
+
+00:31:09.186 --> 00:31:11.255
+or do we need
+to try something else?"
+
+00:31:11.915 --> 00:31:14.525
+During these meetings,
+the accessibility coach
+
+00:31:14.526 --> 00:31:19.007
+is very, very active,
+because he or she
+
+00:31:19.271 --> 00:31:24.080
+or they help the team to answer very,
+very important questions,
+
+00:31:24.180 --> 00:31:29.616
+and also try to see if the team
+is pulling up as agreed,
+
+00:31:29.645 --> 00:31:36.186
+and if the team is moving
+in the right direction.
+
+00:31:37.476 --> 00:31:40.845
+During these meetings,
+it's advisable to seek open discussions
+
+00:31:40.846 --> 00:31:45.426
+on instances where skills
+or practices were well implemented,
+
+00:31:45.498 --> 00:31:47.788
+because, of course,
+when we do good work,
+
+00:31:48.158 --> 00:31:50.658
+it's important that we always
+appreciate ourselves.
+
+00:31:51.065 --> 00:31:56.017
+Then, where maybe they were forgotten,
+or maybe they did not work well,
+
+00:31:56.466 --> 00:31:59.286
+and we also try to identify
+opportunities for coaching,
+
+00:31:59.730 --> 00:32:00.730
+skills training,
+
+00:32:01.120 --> 00:32:05.015
+or even any tools
+that will help us to improve
+
+00:32:05.016 --> 00:32:06.016
+on our outcome.
+
+00:32:14.801 --> 00:32:16.026
+We're already at the end.
+
+00:32:16.026 --> 00:32:17.026
+Wow.
+
+00:32:19.136 --> 00:32:20.712
+Just some key takeaways.
+
+00:32:21.756 --> 00:32:27.472
+Since this talk is really
+for everybody that works in a team,
+
+00:32:27.942 --> 00:32:30.502
+maybe you can be
+a project manager,
+
+00:32:30.742 --> 00:32:32.850
+you may be a developer,
+
+00:32:32.851 --> 00:32:34.601
+a designer, regardless,
+
+00:32:35.262 --> 00:32:38.562
+there is always something
+that you can contribute to accessibility.
+
+00:32:39.005 --> 00:32:41.884
+Even if your organization
+has not bought into the idea,
+
+00:32:41.885 --> 00:32:44.705
+because that's the challenge that I face.
+
+00:32:44.766 --> 00:32:48.016
+Most of the projects that I work on,
+I just take on the initiative
+
+00:32:48.216 --> 00:32:50.406
+to implement accessibility features.
+
+00:32:50.646 --> 00:32:54.036
+I'm not really given the time to do that,
+but when I'm able,
+
+00:32:54.066 --> 00:32:57.906
+I just add a few things
+to help improve on the application.
+
+00:32:58.806 --> 00:33:00.956
+Even if your organization
+has not bought in,
+
+00:33:01.346 --> 00:33:02.916
+even if you feel like,
+
+00:33:02.976 --> 00:33:07.306
+"Oh, I'm just--"
+just test, or I'm just this,
+
+00:33:07.386 --> 00:33:10.344
+there's always something
+that you can contribute to accessibility.
+
+00:33:10.344 --> 00:33:13.145
+Just study the guidelines
+and see where you're coming,
+
+00:33:13.146 --> 00:33:14.228
+see how you can contribute,
+
+00:33:14.228 --> 00:33:18.198
+no matter how you see the contribution,
+it's going to go a long way.
+
+00:33:19.496 --> 00:33:23.036
+Also, like I said before,
+the best time to include accessibility
+
+00:33:23.037 --> 00:33:24.237
+is from the start.
+
+00:33:24.497 --> 00:33:27.760
+If you're starting something today,
+and you're lucky to be here,
+
+00:33:27.789 --> 00:33:32.176
+and we're talking about accessibility,
+just think of how you can include it
+
+00:33:32.226 --> 00:33:33.336
+from the beginning,
+
+00:33:33.575 --> 00:33:35.625
+because it's going to cost you more time,
+
+00:33:35.996 --> 00:33:39.339
+more money, more effort,
+if you postpone it to do it
+
+00:33:39.385 --> 00:33:42.185
+when your application has already matured.
+
+00:33:43.716 --> 00:33:46.446
+Again, accessibility
+does not happen overnight.
+
+00:33:46.887 --> 00:33:48.426
+It requires time,
+
+00:33:49.625 --> 00:33:52.385
+management by a team effort,
+and the support
+
+00:33:52.386 --> 00:33:54.586
+from the entire organization
+to be a success.
+
+00:33:55.746 --> 00:34:00.245
+Be patient while you're trying
+to implement accessibility,
+
+00:34:00.595 --> 00:34:03.237
+and don't be too hard on yourself.
+
+00:34:07.025 --> 00:34:08.796
+Thank you very much for listening.
+
+00:34:09.425 --> 00:34:11.345
+We still have a lot of time.
+
+00:34:11.736 --> 00:34:13.685
+So I think I will take questions now.
+
+00:34:16.775 --> 00:34:18.275
+Laura: Well, that was awesome.
+
+00:34:18.335 --> 00:34:19.355
+Congratulations.
+
+00:34:19.356 --> 00:34:20.495
+Great job on this.
+
+00:34:20.975 --> 00:34:22.596
+I wanted to give a shout out.
+
+00:34:22.685 --> 00:34:25.145
+Christopher put in the chat,
+because I know
+
+00:34:25.146 --> 00:34:26.646
+that sometimes they scroll by.
+
+00:34:26.916 --> 00:34:31.866
+He's literally going to propose
+accessible acceptance in an hour.
+
+00:34:32.315 --> 00:34:37.356
+This talk came at a great time
+that he's taking away and already sharing
+
+00:34:37.596 --> 00:34:40.355
+your ideas with his coworkers.
+
+00:34:40.600 --> 00:34:43.360
+[crosstalk] He praised you on that.
+
+00:34:47.074 --> 00:34:50.406
+A lot of people are using sprint planning.
+
+00:34:52.315 --> 00:34:54.336
+The ideas that you gave to them,
+
+00:34:55.085 --> 00:34:59.874
+they love those to incorporate
+them into the future with that.
+
+00:34:59.944 --> 00:35:01.594
+We do have a couple of questions.
+
+00:35:01.746 --> 00:35:02.846
+We'll move on to that.
+
+00:35:04.475 --> 00:35:10.865
+What is a common issue or topic you have
+to keep addressing as front-end developer?
+
+00:35:11.165 --> 00:35:15.094
+Something that keeps being repeated
+or addressed often
+
+00:35:15.095 --> 00:35:18.965
+that you could give us insight
+and/or helpful ways
+
+00:35:18.995 --> 00:35:23.346
+to address in an Agile way
+as we address,
+
+00:35:24.486 --> 00:35:27.186
+do the same things
+
+00:35:28.506 --> 00:35:30.785
+when we gather groups to discuss.
+
+00:35:31.746 --> 00:35:34.115
+What are some things that keep coming up?
+
+00:35:36.145 --> 00:35:37.145
+Issues.
+
+00:35:37.886 --> 00:35:40.686
+Nasah: Please, can you just take
+the question over again?
+
+00:35:40.705 --> 00:35:41.855
+I was a bit distracted.
+
+00:35:46.585 --> 00:35:47.735
+Laura: I'm sorry, what?
+
+00:35:47.905 --> 00:35:50.315
+Nasah: I said, can you
+take the patient again?
+
+00:35:50.365 --> 00:35:52.695
+I was a bit distracted.
+
+00:35:56.015 --> 00:35:58.257
+Laura: If you want to open up
+the Q&amp;A at the bottom
+
+00:35:58.257 --> 00:36:00.425
+and if you want to read through that.
+
+00:36:05.703 --> 00:36:06.907
+It's the first one.
+
+00:36:07.428 --> 00:36:17.058
+[silence]
+
+00:36:17.332 --> 00:36:19.049
+Nasah: Okay.
+
+00:36:20.106 --> 00:36:23.314
+What common issue
+or topic I've been addressing
+
+00:36:23.315 --> 00:36:24.786
+as a front-end developer?
+
+00:36:32.581 --> 00:36:35.727
+Wow, this really is a bit very general.
+
+00:36:36.400 --> 00:36:38.585
+I'm trying to think of something
+
+00:36:40.926 --> 00:36:42.186
+off the top of my head.
+
+00:36:43.655 --> 00:36:44.655
+Let me see.
+
+00:36:50.376 --> 00:36:54.188
+I don't really think that I've had
+any issue that keeps
+
+00:36:54.209 --> 00:36:56.219
+coming up repeatedly
+
+00:36:57.920 --> 00:37:00.189
+that I've had to address,
+
+00:37:00.610 --> 00:37:09.936
+but I will say that something
+like dealing with state management,
+
+00:37:10.926 --> 00:37:16.685
+because most of the applications
+that I've built I normally work
+
+00:37:17.346 --> 00:37:26.705
+with [?] I've discovered that the idea
+of handling the state of an application
+
+00:37:28.115 --> 00:37:32.916
+is a topic that maybe I feel like it has
+a steep learning curve.
+
+00:37:33.833 --> 00:37:34.804
+There are many times
+
+00:37:34.804 --> 00:37:39.010
+that maybe you can start
+building something
+
+00:37:39.110 --> 00:37:44.700
+and you are managing data,
+but over time you discover
+
+00:37:44.730 --> 00:37:49.265
+that you need to change
+your methods of handling data,
+
+00:37:49.866 --> 00:37:51.499
+because as the application grows,
+
+00:37:51.499 --> 00:37:54.275
+you need to reuse other tools
+
+00:37:55.445 --> 00:37:56.525
+and try to adapt.
+
+00:37:58.485 --> 00:37:59.496
+For me,
+
+00:38:01.055 --> 00:38:04.175
+I will say that you should always
+just do research,
+
+00:38:04.236 --> 00:38:05.836
+because when technology changes,
+
+00:38:05.861 --> 00:38:08.558
+and there's really
+no one-size-fits-all approach
+
+00:38:08.627 --> 00:38:09.627
+to anything.
+
+00:38:10.227 --> 00:38:13.824
+It's true that you can address
+a particular challenge today
+
+00:38:13.825 --> 00:38:15.921
+and maybe tomorrow
+it comes in another way,
+
+00:38:15.921 --> 00:38:18.771
+you still have to find
+a way to address it.
+
+00:38:19.353 --> 00:38:20.353
+It's not maybe
+
+00:38:20.826 --> 00:38:24.216
+a one-size-fits-all kind of approach.
+
+00:38:24.877 --> 00:38:28.866
+Just be open and flexible,
+because really that's the idea of Agile.
+
+00:38:29.166 --> 00:38:32.405
+Something comes up, you try
+to adjust it and you adapt.
+
+00:38:32.616 --> 00:38:33.896
+Even if it comes up again,
+
+00:38:33.896 --> 00:38:37.955
+you see why it's coming up again
+and you try to address it.
+
+00:38:38.135 --> 00:38:42.070
+It's not really like you can solve
+an issue once and for all.
+
+00:38:43.146 --> 00:38:44.945
+As the application grows,
+
+00:38:44.946 --> 00:38:48.935
+as things change, you always need
+to change your approach.
+
+00:38:50.846 --> 00:38:51.896
+Laura: Okay, awesome.
+
+00:38:52.086 --> 00:38:53.086
+Thank you.
+
+00:38:53.244 --> 00:38:59.882
+The next question from Anonymous,
+do you have suggestions
+
+00:38:59.883 --> 00:39:03.494
+to get support
+from key project leaders
+
+00:39:03.543 --> 00:39:05.315
+to help with accessibility?
+
+00:39:08.915 --> 00:39:10.955
+Nasah: Oh, yes.
+I don't have
+
+00:39:12.506 --> 00:39:14.915
+a very personal opinion,
+but the book I used,
+
+00:39:16.106 --> 00:39:17.926
+I think I put the name of the book.
+
+00:39:18.215 --> 00:39:21.365
+There's the Agile Accessibility Handbook
+by Dylan Handbell.
+
+00:39:21.366 --> 00:39:25.174
+He really talks
+about some very good moments and methods
+
+00:39:25.175 --> 00:39:29.088
+that you can use to obtain
+management buy-in.
+
+00:39:29.457 --> 00:39:32.765
+He emphasizes on the fact
+that you should take it gradually,
+
+00:39:33.995 --> 00:39:41.705
+because you take time to convince
+management and the other teams that affect
+
+00:39:41.855 --> 00:39:42.905
+the development team.
+
+00:39:43.565 --> 00:39:48.066
+You can just always look at the book,
+because there are some really good tips
+
+00:39:48.104 --> 00:39:53.555
+on getting your project leaders
+and every other person on board
+
+00:39:53.675 --> 00:39:59.026
+when trying to get
+into Agile accessibility.
+
+00:40:00.366 --> 00:40:04.866
+Laura: It's always great to have
+those resources at your fingertips,
+
+00:40:05.826 --> 00:40:10.444
+whether it's bookmarking
+or actually buying a book that has
+
+00:40:10.445 --> 00:40:13.475
+that information
+so that you can use that as a resource.
+
+00:40:13.716 --> 00:40:19.415
+Because then it makes your credibility
+even a little bit more important
+
+00:40:19.416 --> 00:40:22.114
+to those people,
+because sometimes they're like,
+
+00:40:22.115 --> 00:40:24.576
+"Well, who are you to say that?"
+
+00:40:25.265 --> 00:40:31.026
+To have those resources to be able
+to back you up sometimes is really good.
+
+00:40:31.566 --> 00:40:32.486
+That's awesome.
+
+00:40:32.486 --> 00:40:34.966
+All right. Our time is--
+I'm sorry.
+
+00:40:35.176 --> 00:40:36.425
+We have one more question.
+
+00:40:36.425 --> 00:40:40.386
+What are some of the best tools
+that you recommend using
+
+00:40:40.975 --> 00:40:42.786
+during the testing phase?
+
+00:40:43.416 --> 00:40:44.616
+You had touched on that.
+
+00:40:46.591 --> 00:40:52.775
+Nasah: I generally just use
+the Axe browser extension.
+
+00:40:53.332 --> 00:40:56.702
+It should be available for most browsers.
+
+00:40:57.122 --> 00:40:58.502
+That's what I use.
+
+00:40:59.372 --> 00:41:06.627
+I'm still not very experienced
+with using more complex tools.
+
+00:41:06.687 --> 00:41:10.884
+So I just use Axe because it gives me
+all of my vulnerability issues clearly,
+
+00:41:10.943 --> 00:41:12.946
+and I can just quickly go
+through them
+
+00:41:12.947 --> 00:41:15.047
+and try to solve the ones
+that I can solve.
+
+00:41:17.706 --> 00:41:18.545
+Yeah.
+
+00:41:18.545 --> 00:41:22.265
+Laura: The browsers are coming up
+with a lot of great extension tools
+
+00:41:22.266 --> 00:41:23.706
+that are free to use.
+
+00:41:24.185 --> 00:41:26.285
+Those are always good to start with first.
+
+00:41:26.916 --> 00:41:31.144
+Then, as everyone has said in the past,
+it's always good to just do
+
+00:41:31.145 --> 00:41:35.015
+a manual check too,
+and not relying on a tool.
+
+00:41:37.086 --> 00:41:40.265
+Having different people
+look at the website too,
+
+00:41:40.296 --> 00:41:41.795
+would be really beneficial.
+
+00:41:42.757 --> 00:41:44.007
+Nasah: Yes, that's right.
+
+00:41:44.978 --> 00:41:45.788
+Laura: All right.
+
+00:41:45.788 --> 00:41:49.190
+If nobody else has a question
+that they want to put in the Q&amp;A,
+
+00:41:51.335 --> 00:41:54.426
+I thank you very much and appreciate that.
+
+00:41:54.725 --> 00:42:02.166
+We'll give our captioner and interpreter
+a little bit extra time for a break.
+
+00:42:02.736 --> 00:42:04.506
+We will see you at the top of the hour.
+
+00:42:04.506 --> 00:42:05.506
+Thank you, everyone.
+
+00:42:06.245 --> 00:42:07.595
+Nasah: Thank you very much.
+
+00:42:08.465 --> 00:42:09.465
+Laura: Bye.
+
+00:42:13.205 --> 00:42:17.135
+Announcer: Thank you to WordPress
+Accessibility Day 2024 sponsors.
+
+00:42:17.646 --> 00:42:19.279
+Platinum sponsor, 20i,
+
+00:42:19.615 --> 00:42:23.350
+easily build, deploy and manage
+all your projects with 20i
+
+00:42:23.400 --> 00:42:24.876
+managed WordPress hosting.
+
+00:42:25.386 --> 00:42:27.125
+One UI for all your servers,
+
+00:42:27.155 --> 00:42:30.784
+apps, sites, databases, security, DNS,
+
+00:42:30.785 --> 00:42:31.785
+and email.
+
+00:42:32.016 --> 00:42:33.246
+Perfect for agencies,
+
+00:42:33.305 --> 00:42:36.095
+ecommerce, developers,
+multi-site hosting,
+
+00:42:36.155 --> 00:42:37.485
+and high traffic sites.
+
+00:42:38.505 --> 00:42:40.416
+Platinum sponsor, Equalize Digital.
+
+00:42:40.955 --> 00:42:44.524
+Since all they do is accessibility,
+every post on their blog is
+
+00:42:44.525 --> 00:42:46.116
+an accessibility resource.
+
+00:42:46.505 --> 00:42:50.406
+You can find webinar recordings,
+articles and additional resources
+
+00:42:50.736 --> 00:42:54.041
+at equalizedigital.com/resources.
+
+00:42:54.815 --> 00:42:56.916
+Platinum sponsor, WP Engine.
+
+00:42:57.366 --> 00:43:01.445
+WP Engine provides the most relied
+upon and trusted WordPress products
+
+00:43:01.446 --> 00:43:05.106
+for businesses,
+brands, and agencies of all sizes.
+
+00:43:06.036 --> 00:43:07.565
+Thanks to our gold sponsors,
+
+00:43:07.865 --> 00:43:12.125
+GoDaddy, Grackle Docs,
+Gravity Forms, GreenGeeks,
+
+00:43:12.366 --> 00:43:14.316
+TPGI, and Yoast.
+
+00:43:15.036 --> 00:43:17.616
+Thank you to our silver sponsors,
+CodeGeek,
+
+00:43:17.945 --> 00:43:21.396
+Drake Cooper, Elementor,
+Overnight Website,
+
+00:43:21.695 --> 00:43:25.656
+Pressable, Second Melody,
+and Accessibility Collective.

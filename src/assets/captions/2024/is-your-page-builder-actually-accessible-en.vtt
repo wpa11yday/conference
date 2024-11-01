@@ -1,0 +1,2596 @@
+﻿WEBVTT
+
+00:00:00.220 --> 00:00:01.620
+Announcer: --Page
+Builder Actually Accessible,
+
+00:00:02.100 --> 00:00:05.980
+with speaker Scarlett Isbell,
+web developer at Orbit Media Studios.
+
+00:00:06.180 --> 00:00:09.620
+This presentation
+was recorded October 2024.
+
+00:00:10.140 --> 00:00:15.740
+Simon Miner: Welcome
+to WordPress Accessibility Day 2024.
+
+00:00:15.860 --> 00:00:19.580
+My name is Simon Miner,
+and I'm the founder and CEO of Pedal Point Solutions.
+
+00:00:19.740 --> 00:00:22.220
+If I'm looking away
+from you right now,
+
+00:00:22.340 --> 00:00:23.700
+it's not that I'm being rude.
+
+00:00:23.820 --> 00:00:28.220
+I just have a low vision
+and a big monitor with large text in front of me.
+
+00:00:28.420 --> 00:00:34.220
+It's my pleasure to welcome you here
+and thank you for joining us
+
+00:00:34.340 --> 00:00:38.500
+for this session entitled,
+Is Your Page Builder Actually Accessible,
+
+00:00:38.700 --> 00:00:39.940
+with Scarlett Isbell.
+
+00:00:40.100 --> 00:00:41.660
+A little bit about Scarlett.
+
+00:00:41.780 --> 00:00:46.460
+Scarlett has been developing
+WordPress sites for over a decade now,
+
+00:00:46.700 --> 00:00:51.500
+spending most
+of that time working on page builders
+
+00:00:51.660 --> 00:00:53.540
+and finding their strengths and weaknesses.
+
+00:00:54.020 --> 00:00:58.220
+She is currently
+a web developer for Orbit Media,
+
+00:00:58.420 --> 00:01:03.820
+where she is an accessibility advocate
+and the resident Elementor aficionado.
+
+00:01:04.020 --> 00:01:09.100
+Every day, she collaborates
+with others to learn, improve,
+
+00:01:09.260 --> 00:01:13.100
+and explore new ways to make
+the web and the whole world,
+
+00:01:13.220 --> 00:01:15.500
+in fact, a more inclusive space.
+
+00:01:16.540 --> 00:01:22.020
+From being the lead organizer
+of WordCamp Fayetteville
+
+00:01:22.140 --> 00:01:26.980
+to hosting WordPress meetups
+for the Springfield, Missouri community,
+
+00:01:27.500 --> 00:01:31.380
+Scarlett believes that everybody
+should feel supported
+
+00:01:31.900 --> 00:01:36.900
+and encouraged
+on their journey to make the web better
+
+00:01:37.100 --> 00:01:38.700
+and more accessible to everyone.
+
+00:01:39.180 --> 00:01:40.300
+Just a note.
+
+00:01:40.420 --> 00:01:44.340
+Please feel free to add
+your questions in the Zoom Q&amp;A section,
+
+00:01:44.540 --> 00:01:47.980
+and we'll answer them
+at the end of the presentation,
+
+00:01:48.180 --> 00:01:53.020
+and use the chat feature
+to connect with other attendees.
+
+00:01:53.220 --> 00:01:56.340
+With that,
+I want to turn it over to Scarlett.
+
+00:01:56.500 --> 00:01:57.740
+Please take it away.
+
+00:01:57.980 --> 00:01:59.180
+Scarlett Isbell: Awesome.
+
+00:01:59.380 --> 00:02:03.420
+Thank you so much, Simon,
+for that glowing introduction here.
+
+00:02:03.620 --> 00:02:07.820
+This is actually my first time
+presenting at a conference,
+
+00:02:08.060 --> 00:02:12.300
+and what a better way to kick it off
+than WordPress Accessibility Day.
+
+00:02:12.460 --> 00:02:14.420
+I am so excited to be here.
+
+00:02:14.540 --> 00:02:16.940
+Thank you for everyone
+who is attending.
+
+00:02:17.060 --> 00:02:21.780
+Today I am going
+to take you on the guided tour
+
+00:02:21.940 --> 00:02:25.060
+through page builder accessibility.
+
+00:02:25.660 --> 00:02:30.780
+I will be your tour guide for today.
+
+00:02:30.980 --> 00:02:34.460
+With Simon's introduction,
+I don't really need to tell you much more.
+
+00:02:34.620 --> 00:02:37.500
+I have added the link to my LinkedIn.
+
+00:02:37.660 --> 00:02:40.140
+Look me up, connect with me.
+
+00:02:40.380 --> 00:02:44.900
+Along our guide today,
+please keep your arms, legs, hands,
+
+00:02:45.020 --> 00:02:49.260
+and personal belongings
+within the Zoom call at all times.
+
+00:02:49.460 --> 00:02:51.340
+Let's get rolling.
+
+00:02:52.460 --> 00:02:57.020
+First off, we're going to start with,
+why use a page builder?
+
+00:02:57.260 --> 00:03:02.460
+Page builders
+are really geared towards beginners,
+
+00:03:02.620 --> 00:03:06.340
+and they're really easy
+to use and an easy way
+
+00:03:06.500 --> 00:03:08.620
+to add functionality to your website
+
+00:03:08.780 --> 00:03:11.500
+without requiring
+a lot of custom coding.
+
+00:03:11.620 --> 00:03:14.420
+However,
+this also comes with drawbacks
+
+00:03:14.540 --> 00:03:19.180
+because a lot of them--
+In fact, spoiler alert,
+
+00:03:19.260 --> 00:03:23.260
+I haven't found
+a page builder that is fully accessible.
+
+00:03:23.420 --> 00:03:25.500
+I don't believe
+that there is one out there.
+
+00:03:25.620 --> 00:03:28.180
+I think it comes
+with the nature of the beast
+
+00:03:28.300 --> 00:03:30.380
+that we're going to learn to wrangle today.
+
+00:03:31.380 --> 00:03:36.020
+Knowing those tools,
+they can be helpful,
+
+00:03:36.220 --> 00:03:39.380
+and we can choose
+what choices to make.
+
+00:03:40.620 --> 00:03:44.580
+That takes us into the next thing
+we need to cover,
+
+00:03:44.660 --> 00:03:46.420
+which is user responsibility.
+
+00:03:47.020 --> 00:03:52.220
+Choosing to use a page builder comes
+with a lot of responsibility on us,
+
+00:03:52.340 --> 00:03:59.620
+the user, the people building these sites,
+to choose the best widgets,
+
+00:03:59.780 --> 00:04:02.220
+the best modules, the best things
+
+00:04:02.380 --> 00:04:06.460
+to make our site
+the most inclusive they can be.
+
+00:04:06.580 --> 00:04:10.100
+Page builders include
+a lot of features
+
+00:04:10.220 --> 00:04:11.780
+and things that might look fun,
+
+00:04:11.900 --> 00:04:14.660
+but there's an underlying surface there
+
+00:04:14.780 --> 00:04:17.980
+that's just not accessible or easy to use.
+
+00:04:18.460 --> 00:04:23.020
+Remember that just because
+a feature is popular within a page builder,
+
+00:04:23.220 --> 00:04:27.900
+or all page builders for that matter,
+doesn't mean that it's inclusive.
+
+00:04:29.020 --> 00:04:32.300
+Part of the user responsibility is also ensuring
+
+00:04:32.460 --> 00:04:37.300
+that we are doing our proper testing,
+so testing on screen readers,
+
+00:04:37.460 --> 00:04:44.700
+assistive technology devices,
+keyboards, doing manual testing.
+
+00:04:44.860 --> 00:04:49.700
+I love tools
+such as Wave and Siteimprove
+
+00:04:49.820 --> 00:04:55.220
+to help get an overall view
+of how our website accessibility is doing,
+
+00:04:55.740 --> 00:05:01.060
+but ensuring that we're doing
+our manual testing just can't be beat.
+
+00:05:01.260 --> 00:05:03.460
+Because we're users.
+
+00:05:03.580 --> 00:05:05.900
+We're not computers in this space.
+
+00:05:07.180 --> 00:05:11.700
+The first section along
+our journey today is going
+
+00:05:11.780 --> 00:05:14.660
+to be our page builder success checklist.
+
+00:05:14.820 --> 00:05:19.740
+Whether you have a page builder
+that you've been using for a while,
+
+00:05:19.860 --> 00:05:22.740
+or you're looking
+to just get started with one,
+
+00:05:22.900 --> 00:05:25.700
+these are the features
+to keep an eye on
+
+00:05:25.820 --> 00:05:30.340
+that can give a good indication
+of whether your page builder
+
+00:05:30.460 --> 00:05:35.540
+is even considering accessibility
+in the way that they build things,
+
+00:05:35.660 --> 00:05:39.860
+and some do this a little bit better than others.
+
+00:05:40.940 --> 00:05:46.100
+There will be four items
+in our checklist to get started,
+
+00:05:46.300 --> 00:05:48.260
+and let's get going.
+
+00:05:48.660 --> 00:05:51.700
+Our first one is a skip
+to content link.
+
+00:05:52.180 --> 00:05:55.220
+While this is a simple feature,
+
+00:05:55.380 --> 00:05:58.540
+it is often overlooked
+by page builders.
+
+00:05:58.700 --> 00:06:01.140
+When it would be easy to add it in,
+
+00:06:01.300 --> 00:06:06.060
+or at least add a toggle
+to where you can turn it on or off,
+
+00:06:06.220 --> 00:06:08.180
+please leave the toggle on.
+
+00:06:08.340 --> 00:06:12.020
+It is, unfortunately, forgotten.
+
+00:06:12.500 --> 00:06:17.820
+A skip to content link
+allows a user to be able
+
+00:06:17.980 --> 00:06:21.420
+to skip over your navigation
+once they tab
+
+00:06:21.540 --> 00:06:23.060
+into the body of the site,
+
+00:06:23.180 --> 00:06:26.500
+and then that way they can get
+to the main content.
+
+00:06:26.660 --> 00:06:31.380
+As you can imagine,
+if you had a big old navigation
+
+00:06:31.500 --> 00:06:35.460
+that a user is trying
+to navigate through your site
+
+00:06:35.620 --> 00:06:38.180
+on a keyboard
+or assistive technology,
+
+00:06:38.300 --> 00:06:42.540
+they might get frustrated
+and even leave
+
+00:06:42.700 --> 00:06:44.020
+and not want to deal with it
+
+00:06:44.100 --> 00:06:47.620
+if they can't get to the reason
+why they're there.
+
+00:06:47.780 --> 00:06:51.420
+If this is something
+that your page builder is missing,
+
+00:06:51.580 --> 00:06:55.420
+it can be easily added
+using some custom code.
+
+00:06:55.580 --> 00:06:58.540
+I've found that a quick Google search
+
+00:06:58.700 --> 00:07:04.340
+will give a good amount of resources
+for your specific page builder.
+
+00:07:05.020 --> 00:07:11.180
+Here's an example of what a skip
+to content link would look like.
+
+00:07:11.340 --> 00:07:16.220
+Shout-out to the website
+for our event today.
+
+00:07:16.340 --> 00:07:18.060
+It may look familiar.
+
+00:07:18.220 --> 00:07:24.140
+Again, whenever a user tabs
+into the body of your site,
+
+00:07:24.300 --> 00:07:25.660
+this is what they will see.
+
+00:07:25.860 --> 00:07:27.340
+Along with that,
+
+00:07:27.460 --> 00:07:34.180
+just ensuring that this skip to content link
+has a good target size on it
+
+00:07:34.340 --> 00:07:35.500
+so it's big enough to click,
+
+00:07:35.660 --> 00:07:42.380
+and it has a good contrast ratio
+so the user can easily tell what it says.
+
+00:07:44.060 --> 00:07:49.980
+Moving on into our next checklist items
+is our focus outlines.
+
+00:07:50.580 --> 00:07:56.220
+Ensuring that items
+on our site have proper outlines
+
+00:07:56.380 --> 00:08:01.060
+is very important for letting users
+that may be on keyboards
+
+00:08:01.220 --> 00:08:04.620
+or assistive technologies
+know where they're at on the site.
+
+00:08:05.140 --> 00:08:10.820
+It's, again, another simple feature that,
+for some reason,
+
+00:08:10.940 --> 00:08:12.500
+page builders don't bake in.
+
+00:08:12.660 --> 00:08:18.060
+It is an easy enough one
+to add using CSS.
+
+00:08:18.220 --> 00:08:22.420
+Let's take a look
+at a better example
+
+00:08:22.580 --> 00:08:25.300
+of what a good focus outline
+might look like.
+
+00:08:25.820 --> 00:08:29.900
+I have two images
+on the screen here.
+
+00:08:30.060 --> 00:08:34.060
+On the top one,
+we have three items within a navigation,
+
+00:08:34.260 --> 00:08:39.660
+and the second item
+is highlighted using a focus outline.
+
+00:08:39.820 --> 00:08:45.340
+The user can easily tell that
+that's where they are on the site.
+
+00:08:45.500 --> 00:08:48.300
+They can easily see it.
+
+00:08:48.420 --> 00:08:52.580
+Then the bottom one;
+if a user was navigating via keyboard
+
+00:08:52.700 --> 00:08:56.060
+or assistive technology,
+they wouldn't know-
+
+00:08:56.220 --> 00:09:00.660
+they wouldn't be able to tell
+that they were on the sponsors link
+
+00:09:00.820 --> 00:09:03.220
+or maybe anywhere on the page.
+
+00:09:03.340 --> 00:09:07.420
+They would be completely lost,
+and this is not great.
+
+00:09:07.620 --> 00:09:12.020
+Along with that,
+ensuring that your focus outlines
+
+00:09:12.180 --> 00:09:14.660
+are also of a good contrast.
+
+00:09:14.860 --> 00:09:19.820
+I know a lot of websites,
+they have light and dark sections.
+
+00:09:20.260 --> 00:09:27.420
+Ensuring that your focus outline
+is always a high-contrast color
+
+00:09:27.580 --> 00:09:29.540
+is always the way to go.
+
+00:09:29.700 --> 00:09:35.740
+I love a good dual-color approach,
+so ensuring an outline
+
+00:09:35.860 --> 00:09:39.660
+that has maybe both dark
+and light colors so that way,
+
+00:09:39.860 --> 00:09:42.420
+regardless of the background, it's always visible.
+
+00:09:42.620 --> 00:09:46.340
+Then also making sure
+that it's a good thickness.
+
+00:09:46.500 --> 00:09:52.060
+I believe that two pixels is
+the recommended thickness for a focus outline.
+
+00:09:54.260 --> 00:10:00.180
+As we move along our journey here,
+we move into a biggie;
+
+00:10:00.340 --> 00:10:02.780
+the proper landmark usage.
+
+00:10:02.940 --> 00:10:08.820
+Ensuring that different landmarks
+are being properly identified upon our site.
+
+00:10:09.020 --> 00:10:17.020
+For example--
+Excuse my rough Photoshop skills here.
+
+00:10:17.180 --> 00:10:19.980
+It's tougher to find an illustration
+of this than you would believe.
+
+00:10:20.180 --> 00:10:24.700
+Here is the general,
+very simplified version
+
+00:10:24.900 --> 00:10:27.660
+of the way the site landmark might look.
+
+00:10:27.820 --> 00:10:33.700
+You have your header landmark,
+and nested inside that you have a nav landmark.
+
+00:10:33.860 --> 00:10:37.340
+Then below that we have our main, our footer,
+
+00:10:37.460 --> 00:10:43.060
+and another nav element nested
+within our footer.
+
+00:10:43.220 --> 00:10:50.940
+Your page builder should allow you
+to easily specify these things
+
+00:10:51.140 --> 00:10:53.300
+if they don't already have them specified.
+
+00:10:53.860 --> 00:10:57.260
+Otherwise,
+this can be done using custom code,
+
+00:10:57.460 --> 00:11:01.020
+but it definitely makes it
+a little bit tougher.
+
+00:11:01.180 --> 00:11:06.660
+These landmarks ensure that a user
+can tell where they are at on a site.
+
+00:11:06.820 --> 00:11:09.340
+If you wouldn't be able to see the site,
+
+00:11:09.500 --> 00:11:12.980
+you're navigating via assistive technology,
+a screen reader,
+
+00:11:13.180 --> 00:11:15.980
+it will read these elements aloud,
+
+00:11:16.140 --> 00:11:20.700
+and they can even jump to the elements
+that they would like to know more about.
+
+00:11:24.460 --> 00:11:29.500
+For example, this,
+I've taken a screenshot from Elementor.
+
+00:11:29.620 --> 00:11:33.260
+What we're seeing here
+is Elementor is allowing us
+
+00:11:33.420 --> 00:11:40.300
+to adjust the HTML tag to indicate
+what landmark we would like this to be.
+
+00:11:40.460 --> 00:11:44.420
+In this example,
+we have the selected header,
+
+00:11:44.540 --> 00:11:49.580
+but it gives you the flexibility
+to select whatever landmark
+
+00:11:49.780 --> 00:11:53.860
+is best for where you need it to be,
+
+00:11:54.020 --> 00:11:56.820
+and ensuring that those
+are being used accurately.
+
+00:11:57.500 --> 00:12:01.340
+Another thing
+that's essential is to ensure
+
+00:12:01.460 --> 00:12:04.460
+that these are used
+consistently across your site,
+
+00:12:04.620 --> 00:12:10.660
+and if you are building websites
+for a client or somebody else to use,
+
+00:12:10.860 --> 00:12:18.620
+that they are educated
+on how to also use landmarks properly,
+
+00:12:18.820 --> 00:12:22.140
+or ensure that the website
+is set up in such a way
+
+00:12:22.260 --> 00:12:26.540
+that they don't really have
+to worry about it too, too much.
+
+00:12:27.460 --> 00:12:32.220
+Another thing that's important
+about these is ensuring
+
+00:12:32.260 --> 00:12:34.460
+that everything is properly labeled.
+
+00:12:35.300 --> 00:12:42.180
+Going back to our example here
+of the setup is within the header,
+
+00:12:42.340 --> 00:12:44.500
+we see we have one nav element.
+
+00:12:44.660 --> 00:12:49.460
+Let's say we had a nav element
+for the primary navigation,
+
+00:12:49.660 --> 00:12:53.460
+but within the header we also had
+a second one for a secondary navigation.
+
+00:12:53.660 --> 00:12:58.420
+Without it being properly labeled
+with an ARIA label,
+
+00:12:58.540 --> 00:13:01.540
+that could get confusing for a user.
+
+00:13:02.580 --> 00:13:08.220
+That brings us
+into our last and final checklist item,
+
+00:13:08.420 --> 00:13:11.820
+which is a custom
+attribute support.
+
+00:13:13.060 --> 00:13:18.700
+Custom attributes,
+within page builders and in general,
+
+00:13:18.820 --> 00:13:23.660
+allow you to be able
+to add those different ARIA labels
+
+00:13:23.780 --> 00:13:26.300
+to these sections of your website.
+
+00:13:26.420 --> 00:13:29.300
+Whenever a user is going through,
+
+00:13:29.420 --> 00:13:32.380
+it will read out
+that it's a primary navigation
+
+00:13:32.500 --> 00:13:34.540
+versus a secondary navigation,
+
+00:13:34.700 --> 00:13:40.100
+or it can help clarify phone numbers
+that might get jumbled on screen readers.
+
+00:13:40.220 --> 00:13:45.860
+Anything to make it clearer
+and help reduce frustration for a user,
+
+00:13:46.020 --> 00:13:50.740
+just make it an easier world
+to navigate the web in.
+
+00:13:51.700 --> 00:13:58.500
+These attributes can also
+be added using code, JavaScript,
+
+00:13:58.620 --> 00:14:03.340
+and stuff like that, if the page builder
+doesn't make it easy for you.
+
+00:14:03.460 --> 00:14:07.820
+I know that there's a few out there
+that are supporting custom attribute support.
+
+00:14:07.940 --> 00:14:12.300
+I believe Elementor, Divi,
+and maybe Visual Composer.
+
+00:14:12.460 --> 00:14:12.940
+I don't know.
+
+00:14:13.060 --> 00:14:14.980
+That's not a complete list.
+
+00:14:15.140 --> 00:14:18.620
+Don't hold me to it,
+but it kind of gives you a general guide.
+
+00:14:20.180 --> 00:14:23.500
+Here's a few ARIA attribute examples.
+
+00:14:23.700 --> 00:14:25.420
+Like I said, a few.
+
+00:14:25.540 --> 00:14:28.940
+There's many more,
+but these are more of the common ones
+
+00:14:29.060 --> 00:14:32.940
+of the ARIA label: aria-role,
+aria-live, and aria-hidden.
+
+00:14:33.100 --> 00:14:36.740
+One thing to watch out
+for on page builders
+
+00:14:36.860 --> 00:14:42.820
+is I've found that a lot do love
+that aria-hidden for some reason.
+
+00:14:43.060 --> 00:14:47.220
+That means that if aria-hidden
+is added to an element,
+
+00:14:47.380 --> 00:14:55.540
+a user will not be able to read that item
+with their assistive technology,
+
+00:14:55.740 --> 00:14:58.820
+therefore not even knowing that it's there.
+
+00:14:58.980 --> 00:15:02.540
+While this item is good
+in strategic places,
+
+00:15:02.700 --> 00:15:07.220
+I've found it on things
+in page builders such as social icons
+
+00:15:07.420 --> 00:15:10.100
+that seem pretty essential.
+
+00:15:12.260 --> 00:15:17.020
+For some reason,
+page builders just love those items.
+
+00:15:17.460 --> 00:15:21.220
+Here's an example
+within the Elementor editor.
+
+00:15:21.380 --> 00:15:26.420
+We have a screenshot here
+within the custom attributes section,
+
+00:15:26.900 --> 00:15:30.300
+and here I've written out the ARIA label,
+
+00:15:30.460 --> 00:15:35.180
+and then it has a pipe
+where we add the primary nav label to it.
+
+00:15:35.340 --> 00:15:39.700
+Then it will add that ARIA label to that item
+
+00:15:39.940 --> 00:15:44.020
+to make it a little bit easier
+for you without custom coding.
+
+00:15:44.180 --> 00:15:50.020
+I'm sure that the format of this looks
+different across all page builders,
+
+00:15:50.180 --> 00:15:54.380
+so read the read the documentation
+for your page builder
+
+00:15:54.540 --> 00:15:57.500
+and find out what is right for you.
+
+00:15:59.220 --> 00:16:00.020
+All right.
+
+00:16:00.180 --> 00:16:07.180
+We're on to the next section
+in our tour today, and it's a big one.
+
+00:16:07.300 --> 00:16:08.740
+It's our red flag list.
+
+00:16:08.820 --> 00:16:11.380
+First, I'm going to take
+a hydration break real quick.
+
+00:16:11.540 --> 00:16:14.180
+[silence]
+
+00:16:17.100 --> 00:16:17.500
+All right.
+
+00:16:17.700 --> 00:16:21.700
+Our red flag list are items
+to keep in mind.
+
+00:16:21.900 --> 00:16:24.780
+These are accessibility pitfalls.
+
+00:16:24.900 --> 00:16:28.420
+Usually, these items
+within page builders are not accessible,
+
+00:16:28.620 --> 00:16:31.420
+so we need to keep
+a very close eye on them,
+
+00:16:31.620 --> 00:16:34.900
+and in some cases,
+we'll avoid them completely.
+
+00:16:35.500 --> 00:16:36.700
+Don't worry, though.
+
+00:16:36.940 --> 00:16:44.060
+I'll offer some good, more accessible
+alternatives to those items as well.
+
+00:16:45.420 --> 00:16:52.660
+Bringing us in strong, waving us in
+with that red flag are interactive elements.
+
+00:16:52.820 --> 00:16:57.980
+These are items such as flip boxes,
+interactive circles, flip carousels.
+
+00:16:58.140 --> 00:17:00.980
+I mean, honestly, anything that says flip
+
+00:17:01.060 --> 00:17:03.980
+or interactive within
+a page builder, I just say-
+
+00:17:04.100 --> 00:17:05.460
+[chuckles] I usually nope out of.
+
+00:17:05.660 --> 00:17:13.580
+These kinds of items like
+to take valuable content and hide them
+
+00:17:13.700 --> 00:17:17.620
+from the user or force them
+to interact with it
+
+00:17:17.740 --> 00:17:19.500
+in order to be able to see it.
+
+00:17:19.660 --> 00:17:24.340
+This could be in the form
+of a hover or a focus
+
+00:17:24.500 --> 00:17:28.700
+that the user has to perform
+in order to see this content
+
+00:17:28.860 --> 00:17:32.180
+because it's hidden behind
+a box or an element.
+
+00:17:32.380 --> 00:17:39.060
+These are definitely
+an avoid completely in my list.
+
+00:17:39.220 --> 00:17:44.020
+They are excluding users,
+and they're just plain bad.
+
+00:17:44.260 --> 00:17:49.220
+Here I have a screenshot here
+demonstrating some examples.
+
+00:17:49.380 --> 00:17:54.540
+I wasn't going to subject you
+to all that motion and craziness today,
+
+00:17:54.660 --> 00:17:56.100
+so screenshots it is.
+
+00:17:57.220 --> 00:18:01.820
+I've gotten this screenshot
+from the Elementor website,
+
+00:18:01.980 --> 00:18:03.820
+and we see three cards.
+
+00:18:03.980 --> 00:18:10.700
+The first one, we can see
+is flipping over from side to side.
+
+00:18:10.900 --> 00:18:14.140
+Then the second one
+is currently being hovered,
+
+00:18:14.220 --> 00:18:17.180
+where we can see that some
+of the content is being pushed up
+
+00:18:17.340 --> 00:18:19.580
+and new content is being displayed.
+
+00:18:19.700 --> 00:18:24.940
+Then the second one,
+we just see that it has an icon with a title.
+
+00:18:26.580 --> 00:18:28.220
+Where to begin on these?
+
+00:18:28.340 --> 00:18:35.780
+For one, we have problematic animations
+that whenever the user interacts with it,
+
+00:18:35.940 --> 00:18:41.700
+they get bombarded with an experience
+that they likely didn't sign up for.
+
+00:18:41.860 --> 00:18:50.060
+Then we're also hiding
+a valuable content underneath this.
+
+00:18:50.180 --> 00:18:53.540
+When a user is scanning
+through the site,
+
+00:18:53.700 --> 00:18:56.340
+these cards aren't clearly clickable.
+
+00:18:56.460 --> 00:19:00.660
+There's no indicator
+that the user needs to take an action.
+
+00:19:00.780 --> 00:19:05.580
+This content is being hidden
+from so many users
+
+00:19:05.740 --> 00:19:07.660
+that they're not going to be able to see
+
+00:19:07.820 --> 00:19:15.780
+or get to know what you're trying
+to promote for them, and it's frustrating.
+
+00:19:15.940 --> 00:19:20.700
+Not to mention users with motion sensitivity
+and different things like that.
+
+00:19:20.860 --> 00:19:28.140
+My recommendation for items
+like these is to just go with a static card.
+
+00:19:28.300 --> 00:19:31.300
+It is fine to put it all out on the table
+
+00:19:31.460 --> 00:19:34.180
+and show your users all of the content,
+
+00:19:34.340 --> 00:19:37.780
+so having that icon
+at the top, the title.
+
+00:19:37.940 --> 00:19:42.660
+Then let's put just
+the content underneath it so that way,
+
+00:19:42.740 --> 00:19:43.660
+the user can see it.
+
+00:19:43.860 --> 00:19:48.260
+If that card is meant to be clickable,
+please add an indicator.
+
+00:19:49.860 --> 00:19:55.380
+We just keep on waving
+with the animated items.
+
+00:19:55.540 --> 00:20:00.220
+This one has to be one
+of my least favorites
+
+00:20:00.300 --> 00:20:04.940
+on my red flag list
+is the animated titles.
+
+00:20:05.420 --> 00:20:09.940
+For some reason,
+page builders love these,
+
+00:20:10.020 --> 00:20:12.220
+and I will never figure out the reason why.
+
+00:20:12.380 --> 00:20:18.460
+These animated titles are problematic
+because they're always changing text.
+
+00:20:18.580 --> 00:20:20.460
+There's a constant animation.
+
+00:20:20.660 --> 00:20:24.900
+They don't allow the user
+to pause or play the animations.
+
+00:20:25.100 --> 00:20:27.540
+It's just [mimics aversion].
+
+00:20:27.660 --> 00:20:30.700
+If you need a title or a headline,
+
+00:20:30.820 --> 00:20:35.540
+please just use a properly
+marked up headline.
+
+00:20:35.660 --> 00:20:37.340
+That is perfectly okay.
+
+00:20:39.140 --> 00:20:40.420
+Here's an example.
+
+00:20:40.540 --> 00:20:44.220
+Again, I wasn't going
+to subject you guys to all that movement
+
+00:20:44.380 --> 00:20:49.300
+and everything going on,
+but here's a screenshot of an animated title.
+
+00:20:49.460 --> 00:20:53.860
+On the screen,
+we see there's just some filler content
+
+00:20:54.020 --> 00:20:56.180
+that's flowing off
+of the page.
+
+00:20:56.340 --> 00:20:59.660
+As I was sitting on the page,
+a new word popped in
+
+00:20:59.820 --> 00:21:03.060
+and then it went out again
+and then another word popped in.
+
+00:21:03.180 --> 00:21:04.820
+Confusing.
+
+00:21:05.020 --> 00:21:09.260
+You don't know what message
+they're trying to get across to you
+
+00:21:09.380 --> 00:21:12.620
+because the content is always changing.
+
+00:21:12.780 --> 00:21:18.540
+It's bad for users
+with motion sensitivity.
+
+00:21:18.700 --> 00:21:23.420
+It's tough for anyone
+to really keep up with.
+
+00:21:23.540 --> 00:21:25.020
+Let's avoid these.
+
+00:21:25.140 --> 00:21:29.220
+Let's put these on the page builder
+no-no list if we could.
+
+00:21:31.540 --> 00:21:36.260
+The animations
+just keep on going with these red flags.
+
+00:21:36.380 --> 00:21:41.780
+Another popular thing
+that we see on page builders a lot
+
+00:21:41.900 --> 00:21:47.780
+is that they'll give you the option
+for extra effects and animations,
+
+00:21:47.900 --> 00:21:53.300
+such entrance animations and scrolling
+animations and different things like that.
+
+00:21:53.460 --> 00:22:00.300
+While these aren't always the worst,
+they're not the best either.
+
+00:22:00.460 --> 00:22:04.820
+They can be used
+within a certain realm.
+
+00:22:04.980 --> 00:22:08.820
+One thing to note
+that I've recently found out
+
+00:22:08.940 --> 00:22:14.500
+was that a lot of page builders;
+there's a setting within users' browsers
+
+00:22:14.660 --> 00:22:16.460
+that they can reduce motion,
+
+00:22:16.620 --> 00:22:21.780
+and it's supposed to turn off
+the entrance animations and different things.
+
+00:22:21.940 --> 00:22:25.460
+There's page builders out there
+that are ignoring this,
+
+00:22:25.580 --> 00:22:28.740
+which- I mean,
+can we say problematic?
+
+00:22:28.900 --> 00:22:34.780
+There is some custom code
+that you might be able
+
+00:22:34.860 --> 00:22:37.460
+to add in there to ensure
+that your page builder
+
+00:22:37.580 --> 00:22:40.020
+is listening to your users.
+
+00:22:40.100 --> 00:22:44.940
+Just ensure you're doing your testing
+and everything is looking good.
+
+00:22:45.060 --> 00:22:48.300
+This is one of those proceed
+with great caution
+
+00:22:48.460 --> 00:22:51.900
+and ensure
+that everything works properly.
+
+00:22:52.060 --> 00:22:57.740
+Here's an example that I found
+on the Elementor website.
+
+00:22:57.860 --> 00:23:00.540
+I guess a big call-out here,
+don't come for me,
+
+00:23:00.700 --> 00:23:05.780
+but they're using
+a scrolling effect to have--
+
+00:23:05.900 --> 00:23:09.860
+and they have all these
+little cards on top of this headline.
+
+00:23:10.300 --> 00:23:16.660
+Then as you scroll, the cards dissipate
+and you can then read the headline.
+
+00:23:16.820 --> 00:23:21.100
+One, why are we covering up
+the headline in the first place?
+
+00:23:21.220 --> 00:23:26.540
+We're making this a little too difficult
+for users to read and interact with.
+
+00:23:26.700 --> 00:23:28.740
+There's all these cards.
+
+00:23:28.860 --> 00:23:30.660
+Are they clickable?
+
+00:23:30.900 --> 00:23:32.540
+Am I supposed to do something with it?
+
+00:23:32.700 --> 00:23:33.300
+I don't know.
+
+00:23:33.420 --> 00:23:35.700
+There's too much.
+
+00:23:35.820 --> 00:23:39.140
+It's items like these
+that we just need--
+
+00:23:39.260 --> 00:23:43.140
+let's toss those out of our options.
+
+00:23:46.460 --> 00:23:53.820
+Then we're moving,
+waving in with our sliders and our carousels.
+
+00:23:53.940 --> 00:24:01.220
+Again, we're forcing user interaction
+to be able to view our content.
+
+00:24:01.380 --> 00:24:04.660
+Sliders,
+unless they're marked up properly,
+
+00:24:04.780 --> 00:24:08.100
+don't always work
+with assistive technology.
+
+00:24:08.260 --> 00:24:11.780
+Usually, within a page builder,
+might be a shocker,
+
+00:24:11.900 --> 00:24:14.940
+but they're not always
+marked up properly.
+
+00:24:15.140 --> 00:24:20.260
+These are one of the things
+that I do recommend avoiding where you can,
+
+00:24:20.380 --> 00:24:22.540
+where it is possible.
+
+00:24:22.700 --> 00:24:27.140
+The W3C does give us an example
+
+00:24:27.260 --> 00:24:30.500
+of what a properly marked up
+slider does look like,
+
+00:24:30.620 --> 00:24:36.260
+so you at least have that
+to go on should you have any questions
+
+00:24:36.380 --> 00:24:39.660
+or should you really want
+a slider for your website.
+
+00:24:39.780 --> 00:24:41.420
+There are ways to make it accessible,
+
+00:24:41.540 --> 00:24:45.060
+but I'm never a fan
+for hiding content from users.
+
+00:24:46.020 --> 00:24:53.500
+Here's an example of a slider
+that I saw on the Beaver Builder website.
+
+00:24:53.620 --> 00:25:02.860
+We see a screenshot of a slider
+that has a kitty and a dog playing,
+
+00:25:03.020 --> 00:25:07.180
+with an overlay in the center
+that has some text and a button.
+
+00:25:07.340 --> 00:25:14.540
+Would you believe me if I said
+that there's also navigation arrows on this slider?
+
+00:25:15.340 --> 00:25:17.260
+No, really, there are.
+
+00:25:17.420 --> 00:25:21.740
+I just put circles around them on the screen.
+
+00:25:22.260 --> 00:25:25.660
+This is also why if you're going to use a slider,
+
+00:25:25.780 --> 00:25:31.300
+ensuring proper contrast is essential for users.
+
+00:25:31.500 --> 00:25:35.660
+Most users
+would just come here, see this
+
+00:25:35.740 --> 00:25:41.220
+and just assume
+that it's an image and go on with their way.
+
+00:25:41.310 --> 00:25:43.310
+If this is really important content,
+
+00:25:43.600 --> 00:25:48.480
+let's put it front
+and center for users to find.
+
+00:25:49.150 --> 00:25:53.570
+Another thing is ensuring
+that your target size is good.
+
+00:25:54.070 --> 00:25:58.740
+A lot of sliders love those little
+dotted navigations,
+
+00:25:59.030 --> 00:26:01.490
+and usually those dots are really tiny.
+
+00:26:01.620 --> 00:26:09.090
+Let's enlarge those and make sure
+that they're big enough,
+
+00:26:09.840 --> 00:26:15.590
+as well as ensuring that sliders have
+proper ARIA attributes so that way,
+
+00:26:15.590 --> 00:26:20.310
+users on assistive technologies know
+what's going on
+
+00:26:20.430 --> 00:26:25.890
+and how to get to the content
+that you're trying to show them.
+
+00:26:28.940 --> 00:26:29.560
+All right.
+
+00:26:29.730 --> 00:26:32.940
+We are a little bit out of the animation
+realm.
+
+00:26:32.940 --> 00:26:33.610
+Take a breath.
+
+00:26:35.030 --> 00:26:39.120
+We are moving more into content-based
+items.
+
+00:26:39.160 --> 00:26:40.870
+Another hydration break here.
+
+00:26:43.120 --> 00:26:46.500
+[silence] All right.
+
+00:26:47.080 --> 00:26:50.040
+First up is accordions and toggles.
+
+00:26:50.920 --> 00:26:54.960
+These items are great for being able
+to display a lot
+
+00:26:54.960 --> 00:26:57.300
+of content in a small area,
+
+00:26:57.720 --> 00:27:01.800
+but they can really be problematic
+for keyboard users
+
+00:27:01.890 --> 00:27:04.180
+and users of assistive technologies.
+
+00:27:04.720 --> 00:27:09.400
+A lot of times, I've entered an accordion
+
+00:27:09.400 --> 00:27:13.190
+or a toggle on a site built
+with a page builder,
+
+00:27:13.190 --> 00:27:16.950
+and it just doesn't work with a keyboard.
+
+00:27:18.780 --> 00:27:23.200
+You should be able to--
+Here on the screen,
+
+00:27:23.200 --> 00:27:26.330
+I have a screenshot of an accordion.
+
+00:27:26.700 --> 00:27:32.250
+This one was actually taken
+from Oxygen Extra's site.
+
+00:27:32.630 --> 00:27:36.300
+One of the things that they tout on
+there is accessible markup,
+
+00:27:36.380 --> 00:27:40.680
+which from what I saw, it was accessible.
+
+00:27:40.680 --> 00:27:42.140
+They had all the ARIA.
+
+00:27:42.550 --> 00:27:48.270
+You should be able to tab on your computer
+to the different titles
+
+00:27:48.270 --> 00:27:52.940
+within this accordion and then hit enter,
+and then you can pop--
+
+00:27:52.940 --> 00:27:55.610
+that will pop open
+and you can read the content.
+
+00:27:58.150 --> 00:28:00.530
+On several page builders out there,
+
+00:28:00.530 --> 00:28:06.540
+unfortunately, whenever you tab to it
+and you hit enter, it does nothing.
+
+00:28:06.580 --> 00:28:10.540
+This is why proper markup is so important.
+
+00:28:11.120 --> 00:28:13.330
+Whenever we can mark it up properly
+to work,
+
+00:28:13.330 --> 00:28:17.630
+why would we do it any other way?
+
+00:28:19.220 --> 00:28:20.550
+I really don't know.
+
+00:28:22.340 --> 00:28:28.600
+Under a similar nature,
+waving us in here is tabs.
+
+00:28:29.430 --> 00:28:34.270
+In the same way, tabs are also great
+for organizing large amounts
+
+00:28:34.270 --> 00:28:38.280
+of content while keeping it compact
+and easy to understand,
+
+00:28:39.190 --> 00:28:44.950
+but these can be problematic
+for mobile users, keyboard users,
+
+00:28:45.070 --> 00:28:47.450
+and users of assistive technology.
+
+00:28:48.490 --> 00:28:52.920
+Again, this is a proceed with caution,
+ensuring proper markup.
+
+00:28:53.920 --> 00:28:59.920
+The W3C does also have an example
+of this of what proper markup looks like.
+
+00:29:00.300 --> 00:29:04.340
+If you're curious and then like a tab
+on your website,
+
+00:29:04.590 --> 00:29:07.100
+that's a great resource to go to.
+
+00:29:07.890 --> 00:29:09.930
+I have a couple screenshots here.
+
+00:29:10.270 --> 00:29:15.810
+I have one screenshot on this slide
+of a tab on desktop.
+
+00:29:16.940 --> 00:29:20.400
+If you are a user navigating
+via a keyboard,
+
+00:29:20.780 --> 00:29:27.410
+you should be able to hit the tab key
+and land on the first tab.
+
+00:29:27.700 --> 00:29:30.830
+There's three tabs in the screenshot,
+
+00:29:30.830 --> 00:29:33.460
+and then we see a simple
+content underneath there.
+
+00:29:33.750 --> 00:29:38.840
+You would be able to navigate
+to the other tabs via your arrow keys,
+
+00:29:39.250 --> 00:29:44.630
+and then you can also hit tab
+should there be any linked content
+
+00:29:44.680 --> 00:29:46.550
+within the tabs themselves.
+
+00:29:46.890 --> 00:29:53.020
+Some of these tab modules,
+widgets are marked up better
+
+00:29:53.020 --> 00:29:56.980
+on some page builders
+than they are on others.
+
+00:29:57.310 --> 00:30:01.320
+I've taken this screenshot
+and the following from a site
+
+00:30:01.320 --> 00:30:03.320
+that was built on Elementor.
+
+00:30:03.950 --> 00:30:09.410
+Then the one thing to also watch out
+for is tabs on mobile.
+
+00:30:09.410 --> 00:30:11.580
+Whenever you get to a smaller screen,
+
+00:30:11.620 --> 00:30:15.420
+they have the tendency
+just to want to squish together,
+
+00:30:15.460 --> 00:30:18.500
+making all that text very difficult
+to read.
+
+00:30:19.750 --> 00:30:23.210
+That's why I really like
+Elementor's approach.
+
+00:30:24.300 --> 00:30:29.890
+On this slide, I'm showing an example
+of what the tabs look like on mobile.
+
+00:30:30.720 --> 00:30:39.310
+They shrink down to an accordion-like view,
+giving the user a more open layout,
+
+00:30:39.310 --> 00:30:42.820
+a larger target size,
+and ensuring that
+
+00:30:42.820 --> 00:30:47.410
+none of those elements end up overlapping,
+
+00:30:47.490 --> 00:30:50.780
+just making it a little bit easier to use.
+
+00:30:54.580 --> 00:30:55.160
+All right.
+
+00:30:55.500 --> 00:30:58.790
+We're coming into our video section.
+
+00:31:00.170 --> 00:31:05.670
+Page builders love giving
+their users different video options,
+
+00:31:05.920 --> 00:31:09.720
+and one of the biggies is overlay images.
+
+00:31:10.350 --> 00:31:15.640
+These are images that you can put
+on top of your video to fancy it up,
+
+00:31:16.230 --> 00:31:19.100
+but you have to watch out
+with these kinds of features.
+
+00:31:19.230 --> 00:31:22.400
+Because though they may make
+your video look a little bit nicer,
+
+00:31:22.400 --> 00:31:24.280
+they can serve as a keyboard trap.
+
+00:31:25.280 --> 00:31:29.490
+What ends up happening is that the user
+is tabbing through your website,
+
+00:31:29.860 --> 00:31:36.040
+they get to the video and their focus
+ends up going to the player controls
+
+00:31:36.040 --> 00:31:38.960
+that are underneath that overlay image,
+
+00:31:39.290 --> 00:31:42.840
+so then the user has no clue
+where they are on the website.
+
+00:31:43.590 --> 00:31:45.670
+It's frustrating, really.
+
+00:31:47.340 --> 00:31:54.010
+Then there's the autoplay option,
+which should be purely avoided,
+
+00:31:55.100 --> 00:31:59.850
+that no user loves to show up on a site
+and get bombarded with audio
+
+00:31:59.850 --> 00:32:01.730
+that they don't know
+where it's coming from,
+
+00:32:02.110 --> 00:32:04.980
+or unexpected movement
+or anything like that.
+
+00:32:05.820 --> 00:32:08.490
+Let them play the video for themselves.
+
+00:32:08.950 --> 00:32:12.320
+Then the other option is player controls.
+
+00:32:12.490 --> 00:32:15.330
+For some reason, page builders offer this,
+
+00:32:15.330 --> 00:32:19.790
+where you can turn the player
+controls off of a video.
+
+00:32:20.160 --> 00:32:25.210
+Things like the play button, volume,
+seeking through the video,
+
+00:32:25.210 --> 00:32:28.510
+just let the users have it.
+
+00:32:28.510 --> 00:32:31.510
+Make these videos accessible for all.
+
+00:32:33.220 --> 00:32:36.390
+Here I have a screenshot
+of the video options
+
+00:32:36.390 --> 00:32:41.190
+within an Elementor editor
+with the autoplay,
+
+00:32:41.770 --> 00:32:47.730
+mute and loop all turned off,
+and the player controls is set to on,
+
+00:32:48.400 --> 00:32:54.620
+which is the ideal settings
+that you are going for.
+
+00:32:56.200 --> 00:33:01.120
+Then here's a screenshot of what
+an image overlay settings
+
+00:33:01.160 --> 00:33:03.250
+might look like within your page builder.
+
+00:33:03.250 --> 00:33:06.170
+This one was taken from Elementor.
+
+00:33:06.420 --> 00:33:12.220
+We can see the image overlay section
+with the image overlay set to on,
+
+00:33:12.220 --> 00:33:16.680
+and then there's just a placeholder
+in that area.
+
+00:33:18.930 --> 00:33:23.980
+Then the videos continue here
+with background videos.
+
+00:33:24.020 --> 00:33:28.190
+Background videos are popular
+for hero backgrounds,
+
+00:33:28.570 --> 00:33:33.780
+but that continuous movement
+can be distressing for users.
+
+00:33:34.660 --> 00:33:39.200
+I find that offering a clear
+pause/play button for the user
+
+00:33:39.200 --> 00:33:44.670
+to be able to stop the video
+should they wish is a good option.
+
+00:33:44.670 --> 00:33:50.130
+Unfortunately, I haven't found
+a page builder that has this baked in,
+
+00:33:50.130 --> 00:33:55.720
+so I've always had to add some custom
+code to do it myself, but it is possible.
+
+00:33:56.260 --> 00:34:00.100
+Any page-builder people listening out there,
+please add this as an option.
+
+00:34:00.140 --> 00:34:02.390
+We would all love you very much.
+
+00:34:03.600 --> 00:34:09.570
+Then also ensuring that those background
+videos have a good contrast for--
+
+00:34:09.570 --> 00:34:14.030
+if you're overlaying any text,
+that adding a dark overlay
+
+00:34:14.030 --> 00:34:16.320
+can be a good solution for that.
+
+00:34:18.320 --> 00:34:20.030
+I just have a screenshot.
+
+00:34:20.080 --> 00:34:24.790
+Again, I wasn't going to subject you
+to all the movement of a video,
+
+00:34:24.870 --> 00:34:26.790
+but in the screenshot,
+
+00:34:26.790 --> 00:34:33.090
+we can see that there is a little pause
+button up in the upper right-hand corner.
+
+00:34:33.380 --> 00:34:38.180
+Then we have some white text
+and there's a dark overlay,
+
+00:34:38.260 --> 00:34:42.890
+so the user can easily read the content.
+
+00:34:45.890 --> 00:34:46.440
+All right.
+
+00:34:46.730 --> 00:34:49.650
+Now we're getting into
+a little bit of a biggie.
+
+00:34:49.980 --> 00:34:53.610
+It is our dynamic post filtering.
+
+00:34:55.030 --> 00:35:01.700
+A lot of page builders will offer
+like category filtering for blog posts
+
+00:35:01.700 --> 00:35:03.330
+and different things like that.
+
+00:35:03.910 --> 00:35:08.630
+Unfortunately,
+these usually aren't marked up properly.
+
+00:35:09.330 --> 00:35:11.380
+Whenever the results are on the same page,
+
+00:35:11.380 --> 00:35:15.380
+they are often missing
+those proper status messages,
+
+00:35:16.930 --> 00:35:20.760
+refocusing the user to where
+they should be after the update,
+
+00:35:21.100 --> 00:35:23.890
+and including a proper submit button.
+
+00:35:24.890 --> 00:35:29.100
+This is a proceed with caution,
+but definitely,
+
+00:35:29.100 --> 00:35:34.940
+with proper markup,
+you can make it work for you.
+
+00:35:35.240 --> 00:35:42.200
+Unfortunately, a lot of that proper markup
+is going to be through some custom code.
+
+00:35:43.790 --> 00:35:49.040
+On the on screen here,
+I have an example of some post filters
+
+00:35:49.040 --> 00:35:52.130
+that I pulled from
+the Oxygen Builder website.
+
+00:35:52.790 --> 00:35:55.710
+We see some button filters on the left.
+
+00:35:56.460 --> 00:35:59.260
+Which button filters are great.
+
+00:35:59.260 --> 00:36:00.720
+You can select one.
+
+00:36:00.800 --> 00:36:07.430
+Then if the content changes,
+we can serve the user a status message,
+
+00:36:07.930 --> 00:36:09.850
+so if they're on assistive technology,
+
+00:36:09.850 --> 00:36:12.480
+they know that something
+on the page has changed.
+
+00:36:12.980 --> 00:36:16.110
+Then we update those blog posts.
+
+00:36:16.320 --> 00:36:18.530
+If, say, this were a dropdown,
+
+00:36:18.610 --> 00:36:22.030
+where the user has to select
+an item from the dropdown,
+
+00:36:22.410 --> 00:36:26.660
+then we would want to ensure that
+there's a nice apply button.
+
+00:36:26.870 --> 00:36:31.790
+That way, we're not changing
+those results on an input.
+
+00:36:32.670 --> 00:36:34.750
+Just keeping a close eye on that.
+
+00:36:36.090 --> 00:36:41.890
+Then last but not least,
+waving us in is our contact forms.
+
+00:36:41.930 --> 00:36:47.220
+A lot of page builders
+have built-in contact forms that,
+
+00:36:47.470 --> 00:36:51.770
+unfortunately,
+aren't marked up properly with proper labels,
+
+00:36:51.900 --> 00:36:56.110
+required field indication,
+and proper validation messages.
+
+00:36:57.190 --> 00:37:00.780
+This is something that is a proceed
+with caution.
+
+00:37:00.780 --> 00:37:05.620
+There's a lot of good third-party
+plugins out there, such as Gravity Forms,
+
+00:37:06.080 --> 00:37:12.000
+that offer you a little bit more flexibility
+and better leverage over your forms.
+
+00:37:13.670 --> 00:37:17.750
+An example here,
+I pulled this from the Divi website,
+
+00:37:17.800 --> 00:37:20.260
+is we have a contact form,
+
+00:37:20.720 --> 00:37:25.260
+and they're using placeholders
+instead of labels.
+
+00:37:25.640 --> 00:37:30.230
+If a user begins to type in there,
+they won't remember what field they're on.
+
+00:37:30.230 --> 00:37:32.190
+It's problematic.
+
+00:37:32.190 --> 00:37:33.770
+It's hard to use.
+
+00:37:34.850 --> 00:37:40.650
+Then if they were to hit submit,
+we see a screenshot
+
+00:37:40.690 --> 00:37:45.320
+of the submitted version
+where there's validation errors.
+
+00:37:48.030 --> 00:37:51.580
+There's no required indication on these.
+
+00:37:52.830 --> 00:37:56.130
+It just says,
+"Please fill in the following fields,"
+
+00:37:56.130 --> 00:38:01.670
+and lists name and message,
+but there's still nothing telling you
+
+00:38:01.670 --> 00:38:03.840
+that these fields are required.
+
+00:38:05.470 --> 00:38:07.890
+We entered an invalid email address
+
+00:38:07.890 --> 00:38:09.560
+and it just says, "Invalid email,"
+
+00:38:09.560 --> 00:38:15.520
+but it doesn't give us any good reason
+of why or how to fix it.
+
+00:38:17.360 --> 00:38:19.690
+I pulled another example here.
+
+00:38:19.730 --> 00:38:26.410
+We have a screenshot, and we can see
+that we have the email labels
+
+00:38:26.740 --> 00:38:29.490
+with the required indicators on them.
+
+00:38:29.530 --> 00:38:35.370
+Then you have an invalid email address
+typed in, just email@ex.
+
+00:38:36.000 --> 00:38:39.130
+We get a proper validation message
+this time that says,
+
+00:38:39.130 --> 00:38:41.090
+"The email address entered is invalid.
+
+00:38:41.090 --> 00:38:42.630
+Please check the formatting,"
+
+00:38:42.960 --> 00:38:47.140
+and then gives an example
+of a proper email address.
+
+00:38:47.180 --> 00:38:52.640
+That is a better way to let users know that,
+hey, you messed up.
+
+00:38:54.730 --> 00:38:56.600
+Here's how you can easily fix it.
+
+00:38:58.650 --> 00:39:01.230
+That leads us to our wrap-up.
+
+00:39:02.570 --> 00:39:05.400
+At the end of the day, page builders are-
+
+00:39:05.450 --> 00:39:10.070
+they can be super helpful
+and these incredibly flexible tools,
+
+00:39:10.070 --> 00:39:12.700
+but they come with a lot of responsibility
+
+00:39:12.990 --> 00:39:19.000
+at not just blindly trusting
+these page builders,
+
+00:39:20.040 --> 00:39:24.010
+and ensuring that we are doing all
+the testing and everything as needed.
+
+00:39:24.590 --> 00:39:30.220
+Today I will not be giving you
+what I think the best,
+
+00:39:30.220 --> 00:39:32.970
+most accessible page builder is,
+
+00:39:33.390 --> 00:39:36.270
+but if that is something
+that you are curious in,
+
+00:39:36.270 --> 00:39:40.310
+there are lots of blog posts and podcasts.
+
+00:39:40.940 --> 00:39:43.440
+I know that there's some
+that just recently happened
+
+00:39:43.440 --> 00:39:47.110
+that go over all that
+and give a better look.
+
+00:39:48.030 --> 00:39:51.160
+Then now we're at time for questions.
+
+00:39:53.410 --> 00:39:54.740
+Simon: Thank you so much, Scarlett.
+
+00:39:54.740 --> 00:39:57.910
+That was very informative and insightful.
+
+00:39:59.170 --> 00:40:02.710
+Some great examples
+from various page builders
+
+00:40:03.170 --> 00:40:05.460
+and a lot of useful information there.
+
+00:40:05.460 --> 00:40:11.840
+We do have a bunch of questions,
+so we'll get to them as we can.
+
+00:40:14.100 --> 00:40:21.230
+Rosita asks, "I have a problem
+with the section tag in Elementor.
+
+00:40:21.440 --> 00:40:26.610
+It converts all of the inner containers
+into sections automatically.
+
+00:40:27.900 --> 00:40:29.240
+That is not correct, right?"
+
+00:40:32.910 --> 00:40:33.450
+Scarlett: Yes.
+
+00:40:33.950 --> 00:40:38.040
+Elementor now offers
+a container structure as well.
+
+00:40:38.040 --> 00:40:44.000
+Their previous version, every one of those--
+every section,
+
+00:40:44.000 --> 00:40:49.340
+is literally what they call it,
+did have the section tag on it.
+
+00:40:49.920 --> 00:40:54.510
+Now if you are switching over
+to their new container structure,
+
+00:40:54.550 --> 00:40:56.930
+though it may look scary,
+I do recommend it.
+
+00:40:56.930 --> 00:41:01.480
+It gives you a lot more flexibility
+to be able to assign those landmarks,
+
+00:41:01.690 --> 00:41:04.730
+like I showed within that screenshot.
+
+00:41:08.360 --> 00:41:09.150
+Simon: Great.
+
+00:41:09.150 --> 00:41:10.360
+Thank you for that.
+
+00:41:13.360 --> 00:41:13.990
+All right.
+
+00:41:15.410 --> 00:41:21.410
+David says that Elementor Pro's custom
+attributes are added
+
+00:41:21.460 --> 00:41:25.170
+to the wrapper div
+instead of the inner element.
+
+00:41:29.340 --> 00:41:36.100
+Is that a good way for remediating
+accessibility issues?
+
+00:41:38.390 --> 00:41:40.560
+Scarlett: Not always.
+
+00:41:41.060 --> 00:41:43.650
+You will want to make sure
+that wherever your--
+
+00:41:44.100 --> 00:41:48.480
+your custom attribute is being applied
+to wherever it's needed.
+
+00:41:48.780 --> 00:41:52.610
+For instance, in our primary nav example,
+
+00:41:53.200 --> 00:41:58.790
+you would want to make sure that
+it is getting applied where that nav tag is.
+
+00:41:58.790 --> 00:42:02.000
+Unfortunately,
+sometimes within page builders,
+
+00:42:02.000 --> 00:42:04.710
+it's hard to tell exactly
+where it's going to add it,
+
+00:42:04.710 --> 00:42:08.340
+and a lot of times it does end up
+adding it to that wrapper.
+
+00:42:10.460 --> 00:42:14.260
+That's where adding some custom code
+and things like that,
+
+00:42:14.260 --> 00:42:17.010
+unfortunately, come in.
+
+00:42:17.640 --> 00:42:20.060
+Ultimately,
+I would say just do your testing
+
+00:42:20.060 --> 00:42:22.310
+and make sure that it makes sense
+where it's at.
+
+00:42:25.440 --> 00:42:26.560
+Simon: All right, thank you.
+
+00:42:28.980 --> 00:42:34.030
+Someone mentions that sliders are the one
+
+00:42:34.030 --> 00:42:38.120
+and only for everyone
+in the world of websites.
+
+00:42:40.200 --> 00:42:45.080
+I've got my clients to not do it,
+use sliders, I guess,
+
+00:42:45.080 --> 00:42:47.500
+but what alternatives do you use?
+
+00:42:47.830 --> 00:42:51.250
+Can you explain or give a URL,
+
+00:42:51.250 --> 00:42:54.170
+an example about
+how to make a slider accessible?
+
+00:42:56.760 --> 00:42:57.300
+Scarlett: Yes.
+
+00:42:58.850 --> 00:43:02.970
+My recommendation is just don't.
+
+00:43:03.020 --> 00:43:07.150
+I know that that's not the most popular
+answer for some clients.
+
+00:43:07.150 --> 00:43:09.400
+I know that some really like it.
+
+00:43:09.810 --> 00:43:12.230
+If you can provide them a good argument--
+
+00:43:12.690 --> 00:43:15.950
+I know a lot like sliders
+within the heroes.
+
+00:43:17.860 --> 00:43:21.530
+If you can compromise on having
+a background image
+
+00:43:21.530 --> 00:43:23.540
+with maybe some overlaid text,
+
+00:43:24.040 --> 00:43:27.830
+ensuring that there's a nice background
+overlay for that high contrast.
+
+00:43:28.370 --> 00:43:33.920
+Then I usually recommend
+an image-text section,
+
+00:43:33.920 --> 00:43:36.380
+so something that has an image
+and some text,
+
+00:43:36.800 --> 00:43:41.390
+just so that way the user can see
+everything laid out for them.
+
+00:43:42.010 --> 00:43:43.640
+I think the argument here is really,
+
+00:43:43.810 --> 00:43:47.100
+don't be hiding this content
+from your users.
+
+00:43:47.100 --> 00:43:50.150
+It can really affect
+a company's bottom line,
+
+00:43:50.150 --> 00:43:52.190
+if you happen to be building
+for a company,
+
+00:43:52.570 --> 00:43:56.150
+that users are missing out on
+a lot of things or getting frustrated.
+
+00:43:56.400 --> 00:43:58.360
+Oh, and for an accessible slider,
+
+00:43:58.360 --> 00:44:03.120
+I know that the W3C does have examples
+
+00:44:03.120 --> 00:44:06.750
+of what an accessible slider markup
+looks like as well.
+
+00:44:07.750 --> 00:44:07.960
+Simon: Yes.
+
+00:44:07.960 --> 00:44:12.670
+Just to confirm, you're talking about
+slider carousels for images
+
+00:44:12.670 --> 00:44:13.750
+and other content, right?
+
+00:44:13.750 --> 00:44:17.380
+Not just form control sliders
+that are custom components, correct?
+
+00:44:17.380 --> 00:44:18.470
+Scarlett: Correct, yes.
+
+00:44:18.510 --> 00:44:19.630
+Thank you, Simon.
+
+00:44:19.630 --> 00:44:19.930
+Yes.
+
+00:44:20.220 --> 00:44:20.840
+Simon: Sure, yes.
+
+00:44:22.220 --> 00:44:27.060
+Paul asks, "Can you please address
+how to make a mega menu accessible?"
+
+00:44:27.770 --> 00:44:28.310
+Scarlett: Oh, boy.
+
+00:44:28.640 --> 00:44:30.980
+Paul, you're really going
+for the gusto here, Paul.
+
+00:44:34.650 --> 00:44:40.200
+Within our limited time, probably not.
+
+00:44:42.240 --> 00:44:45.910
+I think there's ensuring that--
+
+00:44:46.080 --> 00:44:50.750
+Well, kind of goes with ensuring that
+all your landmarks and ARIA labels--
+
+00:44:50.750 --> 00:44:54.170
+there's a lot of ARIA labeling
+and everything that goes into mega menus.
+
+00:44:55.090 --> 00:45:01.050
+That's a little bit of a bigger topic,
+maybe a topic for next year.
+
+00:45:01.260 --> 00:45:02.680
+[laughter]
+
+00:45:04.390 --> 00:45:04.890
+Simon: Well said.
+
+00:45:07.140 --> 00:45:08.100
+Let's see.
+
+00:45:12.980 --> 00:45:14.690
+Basa, I hope I got that name right,
+
+00:45:15.690 --> 00:45:18.480
+says that utilizing accordions,
+accordion-like,
+
+00:45:19.070 --> 00:45:23.280
+or the details tag is said
+not to be accessible.
+
+00:45:25.070 --> 00:45:28.120
+They've heard that from a few sessions
+or webinars.
+
+00:45:28.830 --> 00:45:33.630
+The user cannot put the list
+of all headings
+
+00:45:34.420 --> 00:45:37.880
+into those sections in the heading tree
+
+00:45:38.380 --> 00:45:40.340
+since they are all collapsed,
+
+00:45:41.130 --> 00:45:45.600
+so the assistive technology users
+may miss some content.
+
+00:45:46.300 --> 00:45:47.760
+What is your take on that,
+
+00:45:48.140 --> 00:45:51.180
+about accordions and details and stuff,
+I guess?
+
+00:45:52.480 --> 00:45:58.110
+Scarlett: Yes, that's a good call-out
+and a good question.
+
+00:45:59.070 --> 00:46:04.740
+I would say, one,
+I would recommend keeping the content
+
+00:46:04.740 --> 00:46:08.120
+within your accordion relatively simple.
+
+00:46:09.080 --> 00:46:14.830
+Personally, I haven't dived into
+the details tag so much on accordions.
+
+00:46:15.250 --> 00:46:19.130
+I haven't really found them necessary
+within my markup,
+
+00:46:19.130 --> 00:46:24.630
+but maybe I'm missing something,
+so somebody inform me if I am.
+
+00:46:27.180 --> 00:46:27.510
+Simon: Okay.
+
+00:46:27.510 --> 00:46:29.930
+We have time for one more, I think.
+
+00:46:32.520 --> 00:46:39.110
+Someone asked, "Would you explain
+dynamic post filtering again?
+
+00:46:39.150 --> 00:46:42.570
+Is it sort of a blog default?"
+
+00:46:44.780 --> 00:46:45.200
+Scarlett: Yes.
+
+00:46:45.820 --> 00:46:51.740
+The post filtering-- so if you go to,
+say, a blog landing page,
+
+00:46:51.740 --> 00:46:54.000
+for example, and they'll give you a list
+
+00:46:54.000 --> 00:47:01.340
+of categories to search by
+to help filter down your post results,
+
+00:47:01.670 --> 00:47:04.970
+so that's what I mean by
+the dynamic post filtering.
+
+00:47:04.970 --> 00:47:09.680
+It's these filters that apply
+it to these posts.
+
+00:47:10.180 --> 00:47:15.520
+Then whenever you apply that,
+there's a lot of- as I covered,
+
+00:47:15.520 --> 00:47:20.270
+a lot of markup and different things
+that can get lost within there.
+
+00:47:20.270 --> 00:47:24.110
+It's a little simple,
+but hopefully that helped a little bit.
+
+00:47:24.110 --> 00:47:28.410
+A good third-party plugin, if you're having
+issues with that on your site,
+
+00:47:28.410 --> 00:47:31.120
+is like FacetWP or something like that,
+
+00:47:31.120 --> 00:47:34.790
+that gives you more leverage
+over different kinds of filters.
+
+00:47:34.790 --> 00:47:39.080
+I wouldn't say it's necessarily
+a blog default.
+
+00:47:39.130 --> 00:47:42.630
+You typically see it on
+a little bit more advanced sites
+
+00:47:42.630 --> 00:47:45.260
+or sites that have more extensive blogs.
+
+00:47:47.010 --> 00:47:47.550
+Simon: Great.
+
+00:47:47.550 --> 00:47:48.510
+Thank you so much.
+
+00:47:49.510 --> 00:47:50.510
+There are a bunch of other questions,
+
+00:47:50.510 --> 00:47:52.560
+but unfortunately,
+we're just about out of time.
+
+00:47:53.350 --> 00:47:59.440
+I want to thank you again, Scarlett,
+for this great and insightful presentation.
+
+00:48:00.150 --> 00:48:03.940
+Thanks to everyone here
+for attending this session with Scarlett.
+
+00:48:04.320 --> 00:48:06.650
+You can continue the conversation
+in the chat
+
+00:48:06.650 --> 00:48:16.790
+or on social media using the hashtags
+#WPA11yDay and #WPAD2024.
+
+00:48:17.500 --> 00:48:20.790
+We'd also appreciate it
+if you go to the URL,
+
+00:48:21.460 --> 00:48:28.510
+2024.wpaccessibility.day/feedback,
+to provide anonymous feedback
+
+00:48:28.550 --> 00:48:31.220
+on our speakers and their presentation.
+
+00:48:31.510 --> 00:48:34.100
+You can also enter to win a T-shirt
+while you're there.
+
+00:48:34.810 --> 00:48:39.140
+We encourage you to stay tuned
+for Captchas and Other Gotchas:
+
+00:48:39.140 --> 00:48:44.730
+Make Sure Your Secure Websites
+are Accessible,
+
+00:48:45.150 --> 00:48:51.030
+coming up with the unforgettable AmyJune
+Hineline at 11:00 PM UTC.
+
+00:48:51.610 --> 00:48:55.540
+While you're waiting, don't forget
+to visit our sponsors pages
+
+00:48:55.740 --> 00:48:59.460
+and grab some virtual swag
+and a chance to win some great prizes.
+
+00:49:00.080 --> 00:49:02.830
+Thanks again so much
+and see you right after the break.
+
+00:49:07.170 --> 00:49:11.010
+Operator: Thank you to WordPress
+Accessibility Day 2024 sponsors.
+
+00:49:11.720 --> 00:49:13.340
+Platinum sponsor 20i.
+
+00:49:13.720 --> 00:49:16.600
+Easily build, deploy,
+and manage all your projects
+
+00:49:16.600 --> 00:49:18.930
+with 20i-managed WordPress hosting.
+
+00:49:19.390 --> 00:49:25.650
+One UI for all your servers, apps, sites,
+databases, security, DNS, and email.
+
+00:49:26.020 --> 00:49:30.280
+Perfect for agencies, ecommerce,
+developers, multisite hosting,
+
+00:49:30.320 --> 00:49:31.610
+and high-traffic sites.
+
+00:49:32.530 --> 00:49:34.410
+Platinum sponsor Equalize Digital.
+
+00:49:35.030 --> 00:49:38.290
+Since all they do is accessibility,
+every post on their blog
+
+00:49:38.290 --> 00:49:40.040
+is an accessibility resource.
+
+00:49:40.500 --> 00:49:42.920
+You can find webinar recordings,
+articles,
+
+00:49:42.920 --> 00:49:47.920
+and additional resources
+at equalizedigital.com/resources.
+
+00:49:48.920 --> 00:49:50.970
+Platinum sponsor WP Engine.
+
+00:49:51.340 --> 00:49:56.220
+WP Engine provides the most relied upon
+and trusted WordPress products for businesses,
+
+00:49:56.430 --> 00:49:59.020
+brands, and agencies of all sizes.
+
+00:50:00.140 --> 00:50:05.020
+Thanks to our Gold sponsors: GoDaddy,
+GrackleDocs, Gravity Forms,
+
+00:50:05.360 --> 00:50:08.110
+GreenGeeks, TPGi, and Yoast.
+
+00:50:08.860 --> 00:50:12.740
+Thank you to our Silver sponsors:
+CodeGeek, Drake Cooper,
+
+00:50:13.030 --> 00:50:15.370
+Elementor, Overnight Website,
+
+00:50:15.740 --> 00:50:19.660
+Pressable, Second Melody,
+and Accessibility Collective.

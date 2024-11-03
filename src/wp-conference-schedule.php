@@ -1629,10 +1629,11 @@ function wpcs_get_video() {
 			$subtitles .= '<track kind="captions" src="' . esc_url( $caption ) . '" srclang="' . esc_attr( $lang ) . '" label="' . $label . '">';
 		}
 	}
+	$sign_src = ( wpcs_get_asl() ) ) : ' sign-src="' . wpcs_get_youtube( 'asl' ) . '"' ? '';
 	return '
 	<div class="wp-block-group alignwide wpad-video-player">
 		<h2>Session Video</h2>
-		<video id="able-player-' . get_the_ID() . '" data-skin="2020" data-able-player data-transcript-div="able-player-transcript-' . get_the_ID() . '" preload="auto" poster="' . wpcs_get_poster() . '" data-youtube-id="' . wpcs_get_youtube() . '" sign-src="' . wpcs_get_youtube( 'asl' ) . '">
+		<video id="able-player-' . get_the_ID() . '" data-skin="2020" data-able-player data-transcript-div="able-player-transcript-' . get_the_ID() . '" preload="auto" poster="' . wpcs_get_poster() . '" data-youtube-id="' . wpcs_get_youtube() . '"' . $sign_src . '>
 			' . $subtitles . '
 		</video>
 		<div id="able-player-transcript-' . get_the_ID() . '"></div>
@@ -1696,6 +1697,33 @@ function wpcs_get_captions() {
 	}
 
 	return $captions;
+}
+
+/**
+ * Get the ASL version of a video.
+ *
+ * @return string
+ */
+function wpcs_get_asl() {
+	$cache_break = ( current_user_can( 'manage_options' ) ) ? true : false;
+	$post_id     = get_the_ID();
+	$asl         = '';
+	$filename    = get_post_field( 'post_name', $post_id );
+	$year        = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
+	// 2024 is the first year we did this. Exit early if earlier than 2024.
+	if ( absint( $year ) < 2024 ) {
+		return $asl;
+	}
+	$filepath    = plugin_dir_path( __FILE__ ) . 'assets/asl/' . $year . '/' . $filename . '.mp4';
+	$file_url    = plugins_url( '/assets/captions/' . $year . '/' . $filename . '.mp4', __FILE__ );
+	global $wp_filesystem;
+	require_once ABSPATH . '/wp-admin/includes/file.php';
+	WP_Filesystem();
+	if ( $wp_filesystem->exists( $filepath ) ) {
+		$asl = ( $cache_break ) ? add_query_arg( 'version', wp_rand( 10000, 99999 ), $file_url ) : $file_url;
+	}
+
+	return $asl;
 }
 
 /**

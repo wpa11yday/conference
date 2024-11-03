@@ -1706,22 +1706,20 @@ function wpcs_get_captions() {
  * @return string
  */
 function wpcs_get_asl() {
-	$cache_break = ( current_user_can( 'manage_options' ) ) ? true : false;
-	$post_id     = get_the_ID();
-	$asl         = '';
-	$filename    = get_post_field( 'post_name', $post_id );
-	$year        = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
+	$post_id  = get_the_ID();
+	$asl      = '';
+	$filename = get_post_field( 'post_name', $post_id );
+	$year     = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
 	// 2024 is the first year we did this. Exit early if earlier than 2024.
 	if ( absint( $year ) < 2024 ) {
 		return $asl;
 	}
-	$filepath    = plugin_dir_path( __FILE__ ) . 'assets/asl/' . $year . '/' . $filename . '.mp4';
-	$file_url    = plugins_url( '/assets/asl/' . $year . '/' . $filename . '.mp4', __FILE__ );
+	$filepath = plugin_dir_path( __FILE__ ) . 'assets/asl/' . $year . '/' . $filename . '.mp4';
 	global $wp_filesystem;
 	require_once ABSPATH . '/wp-admin/includes/file.php';
 	WP_Filesystem();
 	if ( $wp_filesystem->exists( $filepath ) ) {
-		$asl = ( $cache_break ) ? add_query_arg( 'version', wp_rand( 10000, 99999 ), $file_url ) : $file_url;
+		$asl = str_replace( '/home/wp/www/2024', '', $filepath );
 	}
 
 	return $asl;

@@ -1655,7 +1655,8 @@ function wpcs_get_video() {
 			$subtitles .= '&lt;track kind="captions" src="' . esc_url( $caption ) . '" srclang="' . esc_attr( $lang ) . '" label="' . $label . '">';
 		}
 	}
-	$sign_src = ( wpcs_get_asl() ) ) : ' sign-src="' . wpcs_get_youtube( 'asl' ) . '"' ? '';
+	$sign_src = ( wpcs_get_asl() ) ? ' data-sign-src="' . wpcs_get_asl() . '"' : '';
+
 	return '
 	&lt;div class="wp-block-group alignwide wpad-video-player">
 		&lt;h2>Session Video&lt;/h2>
@@ -1741,7 +1742,7 @@ function wpcs_get_asl() {
 		return $asl;
 	}
 	$filepath    = plugin_dir_path( __FILE__ ) . 'assets/asl/' . $year . '/' . $filename . '.mp4';
-	$file_url    = plugins_url( '/assets/captions/' . $year . '/' . $filename . '.mp4', __FILE__ );
+	$file_url    = plugins_url( '/assets/asl/' . $year . '/' . $filename . '.mp4', __FILE__ );
 	global $wp_filesystem;
 	require_once ABSPATH . '/wp-admin/includes/file.php';
 	WP_Filesystem();

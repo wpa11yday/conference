@@ -297,8 +297,8 @@ class WPCS_Conference_Schedule {
 			$session_hours   = ( $session_time ) ? gmdate( 'G', $session_time ) : $default_hours;
 			$session_minutes = ( $session_time ) ? gmdate( 'i', $session_time ) : $default_minutes;
 		}
-		$session_captions = get_post_meta( $post->ID, '_wpcs_caption_url', true );
-		$session_youtube  = get_post_meta( $post->ID, '_wpcs_youtube_id', true );
+		$session_youtube = get_post_meta( $post->ID, '_wpcs_youtube_id', true );
+		$session_asl     = get_post_meta( $post->ID, '_wpcs_asl_id', true );
 
 		wp_nonce_field( 'edit-session-info', 'wpcs-meta-session-info' );
 		?>
@@ -348,26 +348,9 @@ class WPCS_Conference_Schedule {
 				<input type="text" id="wpcs-session-youtube" name="wpcs-session-youtube" value="<?php echo esc_attr( $session_youtube ); ?>" />
 			</p>
 			<p>
-				<label for="wpcs-session-caption"><?php esc_html_e( 'English Caption URL:', 'wpa-conference' ); ?></label>
-				<input type="text" id="wpcs-session-caption" name="wpcs-session-caption" value="<?php echo esc_attr( $session_captions ); ?>" />
+				<label for="wpcs-session-asl"><?php esc_html_e( 'ASL YouTube ID', 'wpa-conference' ); ?></label>
+				<input type="text" id="wpcs-session-asl" name="wpcs-session-asl" value="<?php echo esc_attr( $session_asl ); ?>" />
 			</p>
-			<?php
-			$languages = wpcs_get_languages( false );
-			foreach ( $languages as $key => $language ) {
-				if ( 'en' === $key ) {
-					continue;
-				}
-				$caption = get_post_meta( $post->ID, '_wpcs_caption_url_' . $key, true );
-				// translators: Current language (written in English.).
-				$caption_label = sprintf( __( '%s Caption URL:', 'wpa-conference' ), $language[0] );
-				?>
-				<p>
-					<label for="wpcs-session-caption-'<?php echo $key; ?>"><?php echo $caption_label; ?></label>
-					<input type="text" id="wpcs-session-caption-<?php echo $key; ?>" name="wpcs-session-caption-<?php echo $key; ?>" value="<?php echo esc_attr( $caption ); ?>" />
-				</p>
-				<?php
-			}
-			?>
 		</fieldset>
 
 		<?php
@@ -428,6 +411,8 @@ class WPCS_Conference_Schedule {
 			// Update session YouTube ID.
 			$session_youtube = sanitize_text_field( $_POST['wpcs-session-youtube'] ?? '' );
 			update_post_meta( $post_id, '_wpcs_youtube_id', $session_youtube );
+			$session_asl = sanitize_text_field( $_POST['wpcs-session-asl'] ?? '' );
+			update_post_meta( $post_id, '_wpcs_asl_id', $session_asl );
 
 			// Update language captions.
 			$languages = wpcs_get_languages( false );
@@ -1647,7 +1632,7 @@ function wpcs_get_video() {
 	return '
 	<div class="wp-block-group alignwide wpad-video-player">
 		<h2>Session Video</h2>
-		<video id="able-player-' . get_the_ID() . '" data-skin="2020" data-able-player data-transcript-div="able-player-transcript-' . get_the_ID() . '" preload="auto" poster="' . wpcs_get_poster() . '" data-youtube-id="' . wpcs_get_youtube() . '">
+		<video id="able-player-' . get_the_ID() . '" data-skin="2020" data-able-player data-transcript-div="able-player-transcript-' . get_the_ID() . '" preload="auto" poster="' . wpcs_get_poster() . '" data-youtube-id="' . wpcs_get_youtube() . '" sign-src="' . wpcs_get_youtube( 'asl' ) . '">
 			' . $subtitles . '
 		</video>
 		<div id="able-player-transcript-' . get_the_ID() . '"></div>
@@ -1716,11 +1701,17 @@ function wpcs_get_captions() {
 /**
  * Get youtube ID from meta.
  *
+ * @param string $type 'main' or 'asl'.
+ *
  * @return string
  */
-function wpcs_get_youtube() {
-	$post_id         = get_the_ID();
-	$session_youtube = get_post_meta( $post_id, '_wpcs_youtube_id', true );
+function wpcs_get_youtube( $type = 'main' ) {
+	$post_id = get_the_ID();
+	if ( 'main' === $type ) {
+		$session_youtube = get_post_meta( $post_id, '_wpcs_youtube_id', true );
+	} else {
+		$session_youtube = get_post_meta( $post_id, '_wpcs_asl_id', true );
+	}
 
 	return $session_youtube;
 }

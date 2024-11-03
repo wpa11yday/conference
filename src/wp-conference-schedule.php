@@ -1634,9 +1634,13 @@ function wpcs_get_video() {
 	return '
 	<div class="wp-block-group alignwide wpad-video-player">
 		<h2>Session Video</h2>
-		<video id="able-player-' . get_the_ID() . '" data-skin="2020" data-able-player data-transcript-div="able-player-transcript-' . get_the_ID() . '" preload="auto" poster="' . wpcs_get_poster() . '" data-youtube-id="' . wpcs_get_youtube() . '"' . $sign_src . '>
-			' . $subtitles . '
-		</video>
+		<div class="video-wrapper">
+			<video id="able-player-' . get_the_ID() . '" data-skin="2020" data-able-player data-transcript-div="able-player-transcript-' . get_the_ID() . '" preload="auto" poster="' . wpcs_get_poster() . '" data-youtube-id="' . wpcs_get_youtube() . '"' . $sign_src . '>
+				' . $subtitles . '
+			</video>
+			<div class="holder">
+			</div>
+		</div>
 		<div id="able-player-transcript-' . get_the_ID() . '"></div>
 	</div>';
 }
@@ -1652,7 +1656,7 @@ function wpcs_add_video( $content ) {
 	if ( ! wpcs_get_captions() || ! wpcs_get_youtube() ) {
 		return $content;
 	} else {
-		return $content . wpcs_get_video();
+		return wpcs_get_video() . $content;
 	}
 }
 add_filter( 'the_content', 'wpcs_add_video' );

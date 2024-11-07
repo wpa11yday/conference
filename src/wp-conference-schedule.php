@@ -1639,6 +1639,7 @@ function wpcs_get_video() {
 				' . $subtitles . '
 			</video>
 			<div class="holder">
+				<p><em>Space for positioning sign language player</em></p>
 			</div>
 		</div>
 		<div id="able-player-transcript-' . get_the_ID() . '"></div>

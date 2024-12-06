@@ -17,7 +17,7 @@ defined( 'WPINC' ) || die();
 function wpcsp_get_social_links( $post_id ) {
 	$social_icons = array();
 	$post_type    = ( 'wpcsp_sponsor' === get_post_type( $post_id ) ) ? 'sponsor' : 'speaker';
-	foreach ( array( 'Facebook', 'Twitter', 'Mastodon', 'Instagram', 'LinkedIn', 'Threads', 'YouTube', 'WordPress', 'GitHub', 'Website' ) as $social_icon ) {
+	foreach ( array( 'Facebook', 'Bluesky', 'Twitter', 'Mastodon', 'Instagram', 'LinkedIn', 'Threads', 'YouTube', 'WordPress', 'GitHub', 'Website' ) as $social_icon ) {
 
 		$social_label = $social_icon;
 		$social_icon  = strtolower( $social_icon );
@@ -39,6 +39,9 @@ function wpcsp_get_social_links( $post_id ) {
 					break;
 				case 'threads':
 					$social_icon = ' fa-brands fa-threads';
+					break;
+				case 'bluesky':
+					$social_icon = ' fa-brands fa-bluesky';
 					break;
 				case 'twitter':
 					$social_icon = ' fa-brands fa-x-twitter';

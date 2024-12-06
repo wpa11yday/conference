@@ -1565,7 +1565,6 @@ function wpcsp_sponsor_metabox() {
 		)
 	);
 
-
 	// Twitter URL.
 	$cmb->add_field(
 		array(

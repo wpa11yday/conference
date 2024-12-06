@@ -1314,6 +1314,15 @@ function wpcsp_speaker_metabox() {
 		)
 	);
 
+	// Bluesky.
+	$cmb->add_field(
+		array(
+			'name' => __( 'Bluesky', 'wpa-conference' ),
+			'id'   => 'wpcsp_bluesky_url',
+			'type' => 'text_url',
+		)
+	);
+
 	// Threads.
 	$cmb->add_field(
 		array(
@@ -1535,6 +1544,27 @@ function wpcsp_sponsor_metabox() {
 			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
 		)
 	);
+
+	// Bluesky URL.
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Bluesky URL', 'wpa-conference' ),
+			'id'        => 'wpcsp_bluesky_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
+		)
+	);
+
+	// Threads URL.
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Threads URL', 'wpa-conference' ),
+			'id'        => 'wpcsp_threads_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
+		)
+	);
+
 
 	// Twitter URL.
 	$cmb->add_field(

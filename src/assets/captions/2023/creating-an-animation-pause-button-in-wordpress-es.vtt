@@ -1,0 +1,3395 @@
+WEBVTT
+
+00:00:01.008 --> 00:00:04.730
+AMBER HINDS:
+Día de la Accesibilidad de WordPress 2023.
+
+00:00:04.730 --> 00:00:08.440
+Creando un
+botón de pausa de animación en WordPress,
+
+00:00:08.440 --> 00:00:10.840
+con le portavoz Danielle Zarcaro.
+
+00:00:10.840 --> 00:00:14.410
+Fundador
+del sitio web Overnight de Kinetic Iris.
+
+00:00:14.410 --> 00:00:18.400
+Esta presentación se
+grabó el 28 de septiembre de 2023.
+
+00:00:20.620 --> 00:00:21.240
+RONAK GANATRA: Está bien.
+
+00:00:21.240 --> 00:00:22.240
+Hola a todos.
+
+00:00:23.000 --> 00:00:27.140
+Bienvenidos al
+Día de la Accesibilidad de WP 2023.
+
+00:00:27.140 --> 00:00:29.870
+Y [Inaudible 00:00:32]
+
+00:00:29.870 --> 00:00:34.760
+La próxima sesión tratará sobre cómo crear un
+botón de pausa de animación en WordPress.
+
+00:00:34.760 --> 00:00:37.640
+Esta sesión será
+organizada por Danielle.
+
+00:00:37.640 --> 00:00:46.800
+Danielle Zarcaro es le fundadore del
+sitio web nocturno de Kinetic Iris.
+
+00:00:46.800 --> 00:00:49.780
+Y son de
+Estados Unidos.
+
+00:00:51.810 --> 00:00:55.890
+Danielle Zarcaro es le fundadore no binaria
+de Overnight Website
+
+00:00:55.890 --> 00:00:56.760
+por Kinetic Iris.
+
+00:00:56.760 --> 00:00:59.900
+Han estado desarrollando y
+manteniendo sitios web personalizados de WordPress
+
+00:00:59.900 --> 00:01:01.270
+durante más de una década.
+
+00:01:01.270 --> 00:01:05.160
+Se emocionan cada vez que
+hay un objeto con el que jugar,
+
+00:01:05.160 --> 00:01:07.280
+o un rompecabezas para armar.
+
+00:01:07.280 --> 00:01:08.640
+[Inaudible 00:01:07]
+
+00:01:08.640 --> 00:01:13.720
+y no hay nada mejor que
+poner [Inaudible 00:01:13]
+
+00:01:13.720 --> 00:01:16.930
+o chocolate caliente en sus tazas
+sólo para poner una sonrisa en sus cara.
+
+00:01:16.930 --> 00:01:20.589
+[Inaudible 00:01:18]
+
+00:01:20.590 --> 00:01:21.850
+a tiempo para el atardecer.
+
+00:01:27.140 --> 00:01:29.359
+El escenario es tuyo, Danielle.
+
+00:01:29.360 --> 00:01:29.690
+Gracias.
+
+00:01:36.507 --> 00:01:37.047
+DANIELLE ZARCARO: Está bien.
+
+00:01:38.740 --> 00:01:40.510
+Muchas gracias.
+
+00:01:40.510 --> 00:01:45.350
+Antes de comenzar, rápidamente en la
+parte superior de cada una de mis diapositivas,
+
+00:01:45.350 --> 00:01:50.050
+estará mi identificador donde
+puedes encontrarme en la mayoría de los lugares.
+
+00:01:50.050 --> 00:01:55.270
+Y eso es en QueerDevPerson.
+Y luego encontrarás el enlace
+
+00:01:55.270 --> 00:02:01.980
+a las diapositivas, que es
+overnightwebsite.com/WPA11Yday.
+
+00:02:01.980 --> 00:02:06.600
+Y luego el hashtag está a la
+derecha, WPA11Yday nuevamente.
+
+00:02:09.890 --> 00:02:14.698
+Primero, una cita del
+ilustre Dr. Ian Malcolm
+
+00:02:14.699 --> 00:02:16.300
+de Parque Jurásico.
+
+00:02:16.300 --> 00:02:18.840
+"Sus científicos estaban
+tan preocupados con
+
+00:02:18.840 --> 00:02:22.710
+si pudieran o no, que
+no se detuvieron a pensar si debían hacerlo".
+
+00:02:24.360 --> 00:02:27.090
+No soy actor de voz.
+
+00:02:27.090 --> 00:02:32.240
+De lo contrario, intentaría darle
+más la voz del Dr. Ian Malcolm,
+
+00:02:32.240 --> 00:02:35.810
+su tono, pero él es bastante único.
+
+00:02:35.810 --> 00:02:40.360
+Entonces, ya sea que te consideres
+del lado científico de las cosas,
+
+00:02:40.360 --> 00:02:44.500
+o el lado artístico de las cosas,
+tal vez el lado administrativo de las cosas,
+
+00:02:44.500 --> 00:02:48.530
+todos deberíamos preguntarnos
+por qué hacemos las cosas.
+
+00:02:48.530 --> 00:02:50.829
+Profundizando en
+cada elección que hacemos
+
+00:02:50.830 --> 00:02:52.840
+sobre lo que publicamos en nuestros sitios web.
+
+00:02:53.920 --> 00:02:58.720
+Y mientras nos hacemos estas
+preguntas, también nos preguntamos
+
+00:02:58.720 --> 00:03:02.300
+si algo que estamos haciendo
+puede causar problemas a alguien
+
+00:03:02.300 --> 00:03:03.640
+cuando quieran utilizar el sitio.
+
+00:03:03.640 --> 00:03:06.650
+Ése es el primer paso para
+responder a la pregunta: ¿deberíamos hacer esto?
+
+00:03:06.650 --> 00:03:09.020
+o ¿por qué lo hacemos?
+
+00:03:09.020 --> 00:03:12.560
+Para muchos problemas de accesibilidad,
+cosas que crean una barrera
+
+00:03:12.560 --> 00:03:15.760
+para el uso de nuestros sitios, es cuestión
+de solucionar el problema, ¿verdad?
+
+00:03:15.760 --> 00:03:18.430
+Se soluciona la navegación inaccesible.
+
+00:03:18.430 --> 00:03:20.510
+Se agrega texto alternativo a las imágenes.
+
+00:03:20.510 --> 00:03:21.860
+Se aborda el orden de encabezamiento.
+
+00:03:21.860 --> 00:03:24.190
+Se agregaron subtítulos a los videos.
+
+00:03:24.190 --> 00:03:26.370
+Contraste de color mejorado.
+
+00:03:26.370 --> 00:03:29.580
+Luego hay cosas que tienen
+un rango más amplio de opciones,
+
+00:03:29.580 --> 00:03:32.970
+cosas que pueden considerarse molestas
+que estás agregando a la página.
+
+00:03:32.970 --> 00:03:34.490
+Cosas opcionales.
+
+00:03:34.490 --> 00:03:37.620
+Entonces, lo primero que hay que tener en cuenta
+al agregar algo a un sitio,
+
+00:03:37.620 --> 00:03:41.620
+(y creo que
+vale la pena plantear esta pregunta debido a la gran cantidad
+
+00:03:41.620 --> 00:03:45.810
+de cosas que se pueden agregar
+a un sitio) ¿es esto necesario?
+
+00:03:45.810 --> 00:03:48.155
+¿Se puede hacer esto de una
+manera que no requiera
+
+00:03:48.156 --> 00:03:50.961
+un control o una configuración 
+completamente separados?
+
+00:03:50.962 --> 00:03:54.560
+Se trata de asegurarse de que haya una razón
+para lo que se está haciendo.
+
+00:03:54.560 --> 00:03:58.530
+En este caso, nuestra pregunta es:
+¿son necesarias las animaciones?
+
+00:03:58.530 --> 00:04:01.400
+¿Podemos usar imágenes para
+lograr lo mismo?
+
+00:04:01.400 --> 00:04:06.340
+¿Puede alguien tener la misma sensación con
+algún otro método además del movimiento?
+
+00:04:06.340 --> 00:04:10.030
+En mi caso,
+había creado el nuevo sitio web de mi agencia;
+
+00:04:10.030 --> 00:04:13.510
+y aunque podría haberlo dejado
+prácticamente en todo texto,
+
+00:04:13.510 --> 00:04:17.190
+sabía que quería agregar
+algo para dividirlo.
+
+00:04:17.190 --> 00:04:20.210
+Las opciones son prácticamente
+ilimitadas en este caso, ¿verdad?
+
+00:04:20.210 --> 00:04:24.690
+Usar mucho color, imagen,
+icono, imagen de fondo
+
+00:04:24.690 --> 00:04:27.760
+con un degradado,
+algo para darle un respiro a los ojos,
+
+00:04:27.760 --> 00:04:30.780
+reforzar el texto
+y darle un poco de sentimiento.
+
+00:04:30.780 --> 00:04:34.180
+Para Kinetic Iris,
+somos un estudio de desarrollo.
+
+00:04:34.180 --> 00:04:37.570
+Mucho de lo que hacemos no
+tiene el tipo de elementos visuales
+
+00:04:37.570 --> 00:04:40.730
+que pondrías en una página
+que sea atractiva para la audiencia.
+
+00:04:40.730 --> 00:04:42.980
+Es sólo un montón de código, ¿verdad?
+
+00:04:42.980 --> 00:04:44.780
+Quizás algunos ejemplos de sitios.
+
+00:04:44.780 --> 00:04:48.960
+No quería revisar
+cientos de fotografías de archivo.
+
+00:04:48.960 --> 00:04:51.360
+No quería ir completamente
+en la dirección opuesta
+
+00:04:51.360 --> 00:04:53.710
+de iconos simples o SVGs.
+
+00:04:53.710 --> 00:04:55.050
+Lo quería dinámico.
+
+00:04:55.050 --> 00:04:57.970
+El nombre de la empresa tiene
+la palabra cinético.
+
+00:04:57.970 --> 00:04:59.280
+Quería movimiento.
+
+00:04:59.280 --> 00:05:01.920
+Y le da un poco
+más de ese campo interactivo
+
+00:05:01.920 --> 00:05:04.360
+para reforzar el
+lado del desarrollo personalizado de las cosas.
+
+00:05:06.670 --> 00:05:09.860
+En lo que respecta a la
+cuestión más importante, en general,
+
+00:05:11.480 --> 00:05:13.650
+¿es esto algo que simplemente
+quieres incluir en el sitio
+
+00:05:13.650 --> 00:05:14.830
+porque crees que se ve bien?
+
+00:05:15.980 --> 00:05:18.360
+¿Es algo que
+realmente mejora el sitio?
+
+00:05:18.360 --> 00:05:21.350
+¿Existe alguna forma diferente de
+transmitir esta información
+
+00:05:21.350 --> 00:05:26.220
+o sensación de marca sin agregar
+una imagen en constante movimiento?
+
+00:05:26.220 --> 00:05:30.880
+Si es un control deslizante, pregúntese si
+realmente está haciendo lo que usted desea.
+
+00:05:30.880 --> 00:05:33.750
+¿Se puede transmitir esta información
+de una manera más sencilla
+
+00:05:33.750 --> 00:05:36.610
+que sea más atractiva
+sin tener que agregar también
+
+00:05:36.610 --> 00:05:39.280
+toda esa interacción 
+adicional necesaria?
+
+00:05:40.320 --> 00:05:44.910
+En mi caso, la respuesta fue
+Sí, continúa con la animación.
+
+00:05:44.910 --> 00:05:48.570
+Entonces, una vez que hayamos respondido la
+pregunta de si debería, es
+
+00:05:48.570 --> 00:05:52.022
+cuando empiezas a
+explorar los requisitos
+
+00:05:52.023 --> 00:05:54.110
+que tienes que satisfacer,
+
+00:05:54.110 --> 00:05:56.010
+y las razones detrás de
+esos requisitos.
+
+00:05:56.010 --> 00:06:00.400
+¿Cuáles son los problemas que la gente
+podría tener con el movimiento y la animación?
+
+00:06:00.400 --> 00:06:03.500
+y ¿qué podemos hacer para
+ayudarlos a utilizar nuestro sitio?
+
+00:06:03.500 --> 00:06:06.930
+Como dice aquí en la diapositiva,
+las animaciones pueden presentar una variedad
+
+00:06:06.930 --> 00:06:09.610
+de barreras o problemas
+para los visitantes del sitio web.
+
+00:06:09.610 --> 00:06:12.600
+Queremos proporcionar una forma que
+respete sus configuraciones iniciales
+
+00:06:12.600 --> 00:06:15.260
+y luego les permite decidir
+cómo quieren proceder.
+
+00:06:15.260 --> 00:06:18.720
+Así que esta es nuestra
+declaración de misión para nuestra animación.
+
+00:06:18.720 --> 00:06:21.290
+Respetaríamos las
+opciones de movimiento reducido
+
+00:06:21.290 --> 00:06:24.820
+y luego darles la opción
+de detener completamente las animaciones
+
+00:06:24.820 --> 00:06:26.420
+y el movimiento en su conjunto.
+
+00:06:26.420 --> 00:06:29.520
+Esto se enmarca dentro de los cuatro
+criterios de éxito que se describen aquí,
+
+00:06:29.520 --> 00:06:32.250
+dependiendo del tipo de
+animación que estés agregando.
+
+00:06:32.250 --> 00:06:35.870
+Tienes 2.2.2,
+que es pausar, detener, ocultar.
+
+00:06:35.870 --> 00:06:38.180
+Ese es un requisito de nivel A.
+
+00:06:38.180 --> 00:06:42.340
+Se trata de información que está en la
+página durante más de cinco segundos,
+
+00:06:42.340 --> 00:06:46.560
+para que cuando se detenga,
+los controles deslizantes no se reproduzcan automáticamente.
+
+00:06:46.560 --> 00:06:50.550
+Puedes implementar una
+transición más sutil que una diapositiva,
+
+00:06:50.550 --> 00:06:52.260
+como un desvanecimiento, por ejemplo.
+
+00:06:52.260 --> 00:06:57.330
+Cambie esas nuevos y elegantes anuncios
+que han estado apareciendo ahora
+
+00:06:57.330 --> 00:06:59.450
+como la última tendencia.
+
+00:06:59.450 --> 00:07:02.530
+En su lugar, cree un banner de 
+texto que no se mueva.
+
+00:07:02.530 --> 00:07:05.890
+Pausa el círculo que
+gira constantemente.
+
+00:07:05.890 --> 00:07:08.590
+Esto es para personas que
+no pueden leer rápidamente.
+
+00:07:08.590 --> 00:07:12.170
+El movimiento automático de texto,
+que puede causar problemas
+
+00:07:12.170 --> 00:07:17.200
+para los lectores de pantalla, proporciona
+una gran distracción, lo que interfiere
+
+00:07:17.200 --> 00:07:20.430
+con la capacidad de concentrarse
+en otras partes de la página.
+
+00:07:20.430 --> 00:07:23.521
+Puede causar náuseas,
+mareos, y dolores de cabeza
+
+00:07:23.522 --> 00:07:25.950
+si se mueven los elementos de la página que se desplaza.
+
+00:07:25.950 --> 00:07:28.970
+Puede desencadenar
+trastornos vestibulares o del oído interno.
+
+00:07:28.970 --> 00:07:32.760
+El parpadeo o destello puede causar
+convulsiones debido a la fotosensibilidad.
+
+00:07:32.760 --> 00:07:34.990
+Hay muchas cosas aquí
+con las que la gente podría tener problemas
+
+00:07:34.990 --> 00:07:37.800
+cuando se trata de
+movimiento y animación.
+
+00:07:37.800 --> 00:07:39.230
+También hay otros tres.
+
+00:07:39.230 --> 00:07:41.370
+Hay 2.3.1.
+
+00:07:41.370 --> 00:07:45.520
+Tres destellos están por debajo
+del umbral, y ese es el nivel A.
+
+00:07:45.520 --> 00:07:48.600
+Luego está el nivel AAA,
+que consta de solo tres destellos.
+
+00:07:48.600 --> 00:07:50.750
+Eso es 2.3.2.
+
+00:07:50.750 --> 00:07:57.140
+Luego tienes el .31, que es
+la animación de la interacción,
+
+00:07:57.140 --> 00:07:58.700
+que también es AAA.
+
+00:07:59.730 --> 00:08:03.260
+Entonces, como una diferenciación rápida,
+pausar, detener, ocultar es
+
+00:08:03.260 --> 00:08:07.280
+cuando se carga la página e
+inicia la animación.
+
+00:08:07.280 --> 00:08:10.480
+Entonces, carga de contenido,
+carga de páginas, cualquier cosa por el estilo.
+
+00:08:10.480 --> 00:08:13.680
+La animación de la interacción es el
+usuario iniciando la interacción
+
+00:08:13.680 --> 00:08:15.350
+como pasar el cursor o desplazando.
+
+00:08:15.350 --> 00:08:19.820
+Y cómo manejas el nivel A
+es prácticamente cómo manejas
+
+00:08:19.820 --> 00:08:23.540
+y abordas el nivel AAA,
+que es una forma de pausar
+
+00:08:23.540 --> 00:08:25.460
+y respetar las preferencias del usuario.
+
+00:08:27.090 --> 00:08:30.510
+Algunas de nuestras opciones para
+abordar estos serían
+
+00:08:30.510 --> 00:08:34.030
+simplemente eliminar
+la carga de la página, las funciones de desplazamiento,
+
+00:08:34.030 --> 00:08:37.190
+colocar un botón de pausa
+debajo de cada animación.
+
+00:08:37.190 --> 00:08:40.900
+Pero queremos que
+esto sea lo más fácil posible
+
+00:08:40.900 --> 00:08:43.840 
+y al mismo tiempo brindar una experiencia
+divertida, ¿verdad?
+
+00:08:43.840 --> 00:08:46.880
+No queremos que tengan que
+pausar cada animación
+
+00:08:46.880 --> 00:08:50.600
+al tener un botón de alternancia
+en la parte superior de la página.
+
+00:08:50.600 --> 00:08:53.090
+Le damos a alguien la capacidad
+de controlar esa animación
+
+00:08:53.090 --> 00:08:56.930
+antes de que lleguen allí, en lugar
+de tener que estar expuestos a ello
+
+00:08:56.930 --> 00:08:57.930
+y luego pausarlo.
+
+00:08:59.830 --> 00:09:02.840
+Hay una consulta de medios a la que
+haré referencia a medida que avanzamos,
+
+00:09:02.840 --> 00:09:05.460
+prefiere movimiento reducido,
+que es lo que vamos a ver.
+
+00:09:05.460 --> 00:09:07.360
+Pero eso significa
+movimiento reducido, ¿verdad?
+
+00:09:07.360 --> 00:09:10.050
+No es necesario
+eliminar toda la animación por completo.
+
+00:09:11.610 --> 00:09:15.090
+Ofrece una experiencia simplificada
+en términos de movimiento.
+
+00:09:15.090 --> 00:09:19.350
+Entonces podemos usarlo y respetarlo,
+y luego darle a la gente una manera
+
+00:09:19.350 --> 00:09:23.130
+para controlar la animación que
+tal vez no quiera configurarla
+
+00:09:23.130 --> 00:09:24.450
+en sus computadoras.
+
+00:09:24.450 --> 00:09:26.670
+Tal vez quieran
+pausarlo temporalmente.
+
+00:09:26.670 --> 00:09:28.510
+Así que aquí ofrecemos opciones.
+
+00:09:28.510 --> 00:09:30.450
+También me gusta la
+idea de darle a alguien
+
+00:09:30.450 --> 00:09:35.900
+que activó el movimiento reducido para
+permitir que el sitio web muestre el movimiento
+
+00:09:35.900 --> 00:09:36.700
+si quisieran.
+
+00:09:36.700 --> 00:09:39.630
+A veces lo enciendo y
+apago según mis propias necesidades
+
+00:09:39.630 --> 00:09:44.610
+sobre sobreestimulación,
+fatiga visual, según el tipo
+
+00:09:44.610 --> 00:09:46.800
+de animación es
+que me mareará un poco.
+
+00:09:48.430 --> 00:09:50.860
+¿Qué bueno sería si
+tuviera una opción en un sitio
+
+00:09:50.860 --> 00:09:53.600
+qué me permitiera decidir lo que
+quisiera hacer en ese momento?
+
+00:09:53.600 --> 00:09:57.330
+Creo que de ahí es de donde
+provienen esas superposiciones de accesibilidad,
+
+00:09:57.330 --> 00:10:01.280
+con suerte su intención
+es permitir a los usuarios
+
+00:10:01.280 --> 00:10:03.980
+controlar cosas en un sitio
+sin tener que configurarlo
+
+00:10:03.980 --> 00:10:07.130
+en la configuración de su computadora,
+pero no lo han hecho de una manera
+
+00:10:07.130 --> 00:10:11.240
+accesible y crean 
+más problemas de los que resuelven.
+
+00:10:11.240 --> 00:10:14.250
+Entonces, lo que estamos haciendo es abordar
+una situación muy específica
+
+00:10:14.250 --> 00:10:17.740
+que se aplica directamente a nuestro
+sitio web y garantiza que funcione
+
+00:10:17.740 --> 00:10:18.870
+para nuestro sitio.
+
+00:10:18.870 --> 00:10:20.908
+No ofrecemos
+100 opciones diferentes
+
+00:10:20.909 --> 00:10:22.510
+por la que alguien tiene que pasar.
+
+00:10:22.510 --> 00:10:23.960
+Ofrecemos esta
+única cosa que va a
+
+00:10:23.960 --> 00:10:26.550
+mejorar la experiencia del usuario.
+
+00:10:26.550 --> 00:10:29.240
+Gran parte de esto es
+tomar las decisiones correctas.
+
+00:10:29.240 --> 00:10:31.810
+Si una animación va a parpadear,
+va a distraer,
+
+00:10:31.810 --> 00:10:34.090
+si va a ser
+un problema para alguien
+
+00:10:34.090 --> 00:10:37.770
+antes de que pueda encontrar el
+botón de pausa, no lo hagas.
+
+00:10:37.770 --> 00:10:40.770
+El hecho de que puedas agregar un botón a
+un sitio no te da permiso
+
+00:10:40.770 --> 00:10:42.530
+para que ahora hagas lo que quieras.
+
+00:10:42.530 --> 00:10:45.790 
+Aquí simplemente estamos pensando
+en una mejor experiencia de usuario.
+
+00:10:45.790 --> 00:10:48.210
+Entonces, con eso, esto es lo que
+vamos a construir.
+
+00:10:49.550 --> 00:10:55.450
+Es un botón que controla el
+estado de reproducción o pausa de una animación.
+
+00:10:55.450 --> 00:11:00.210
+Debería utilizar de forma predeterminada las
+preferencias del usuario y guardar el estado
+
+00:11:00.210 --> 00:11:02.080
+del botón en las distintas páginas.
+
+00:11:02.080 --> 00:11:05.290
+Debería ser accesible para
+personas que utilicen un mouse, un teclado,
+
+00:11:05.290 --> 00:11:06.200
+o un lector de pantalla.
+
+00:11:06.200 --> 00:11:09.160
+Ese es el resumen de nuestro proyecto.
+
+00:11:09.160 --> 00:11:10.280
+Teníamos nuestra declaración de misión.
+
+00:11:10.280 --> 00:11:12.840
+Ahora tenemos un resumen
+de lo que vamos a hacer.
+
+00:11:12.840 --> 00:11:15.820
+Voy a
+mostrar un enlace aquí.
+
+00:11:15.820 --> 00:11:23.080
+Es
+github.com/queeredevperson/animation-toggle.
+
+00:11:23.080 --> 00:11:26.850
+Eso te dará el código
+que vamos a revisar.
+
+00:11:26.850 --> 00:11:30.710
+También está nuevamente en el
+enlace de diapositiva que tengo en la parte superior,
+
+00:11:30.710 --> 00:11:35.770
+overnightwebsite.com/WPA11yday.
+Ese enlace va a estar
+
+00:11:35.770 --> 00:11:37.030
+en esa página web también.
+
+00:11:39.430 --> 00:11:43.520
+Así que salimos de
+esto rápidamente.
+
+00:11:43.520 --> 00:11:46.800
+El archivo Léame en GitHub
+solo te brinda una descripción general
+
+00:11:46.800 --> 00:11:48.420
+de los diferentes
+archivos que hay.
+
+00:11:50.170 --> 00:11:58.170
+Y luego, si echamos un vistazo rápido
+a, por ejemplo, las funciones,
+
+00:11:58.340 --> 00:12:03.600
+alternar, estilo, hay diferentes
+archivos aquí con la idea
+
+00:12:03.600 --> 00:12:05.870
+que agregarías esto a un tema.
+
+00:12:05.870 --> 00:12:11.560
+Repasaré algunos planes futuros para
+esto al final de la presentación.
+
+00:12:11.560 --> 00:12:16.480
+Pero básicamente, esto es para
+darles una idea de qué hacer,
+
+00:12:16.480 --> 00:12:20.020
+solo para poder
+verlo por un minuto.
+
+00:12:22.400 --> 00:12:25.150
+Siempre hay múltiples
+formas de hacer las cosas.
+
+00:12:25.150 --> 00:12:29.460
+Volviendo a la presentación,
+queremos investigar nuestras opciones,
+
+00:12:29.460 --> 00:12:31.420
+elige la mejor.
+
+00:12:31.420 --> 00:12:34.700
+Por suerte para nosotros, muchas
+personas inteligentes han probado nuestras opciones.
+
+00:12:34.700 --> 00:12:36.970
+Podemos revisar eso
+y recopilar esa investigación,
+
+00:12:36.970 --> 00:12:38.590
+y darnos un
+buen punto de partida.
+
+00:12:38.590 --> 00:12:40.250
+No es necesario
+empezar desde cero.
+
+00:12:40.250 --> 00:12:43.570
+Busqué ejemplos
+de botones de alternancia accesibles.
+
+00:12:43.570 --> 00:12:46.440
+Leí por qué las personas crearon
+cosas de ciertas maneras.
+
+00:12:46.440 --> 00:12:49.710
+Lo que más se parecería
+a lo que estaba tratando de hacer.
+
+00:12:49.710 --> 00:12:53.250
+Definitivamente quería que se pareciera
+al botón de alternancia que encontrarías
+
+00:12:53.250 --> 00:12:54.850
+en un iPhone.
+
+00:12:54.850 --> 00:12:57.620
+Ese parece ser el
+patrón más común que encuentras.
+
+00:12:58.835 --> 00:13:01.240
+Tengo algunos ejemplos
+en la diapositiva.
+
+00:13:01.240 --> 00:13:04.550
+Tenemos algunos
+ejemplos de configuración de Google Calendar en la parte superior izquierda.
+
+00:13:04.550 --> 00:13:07.460
+Tiene dos opciones,
+una encendida y otra apagada.
+
+00:13:07.460 --> 00:13:09.630
+Te dan diferentes opciones
+para mostrar el número de semana,
+
+00:13:09.630 --> 00:13:10.960
+mostrar eventos rechazados.
+
+00:13:10.960 --> 00:13:13.690
+Entonces, es como un grupo de opciones
+con estos botones de alternancia sobre
+
+00:13:13.690 --> 00:13:14.660
+a la derecha.
+
+00:13:14.660 --> 00:13:18.460
+Y el círculo en dirección
+izquierda o derecha
+
+00:13:18.460 --> 00:13:23.090
+en el color de fondo
+indican si está activado o desactivado.
+
+00:13:23.090 --> 00:13:26.560
+Debajo de eso, tenemos la
+configuración del iPhone de Apple, diferentes colores,
+
+00:13:26.560 --> 00:13:27.990
+pero el mismo principio.
+
+00:13:27.990 --> 00:13:31.410
+Manejan sus etiquetas de manera un
+poco diferente en términos de
+
+00:13:32.430 --> 00:13:34.190
+cómo decir estas cosas.
+
+00:13:34.190 --> 00:13:37.660
+Entonces esa es otra
+barrera que superar.
+
+00:13:37.660 --> 00:13:40.435
+El ejemplo de la
+derecha es una captura de pantalla
+
+00:13:40.436 --> 00:13:42.330
+de tres opciones diferentes.
+
+00:13:42.330 --> 00:13:46.430
+Tienes un patrón similar,
+pero con las palabras encendido y apagado
+
+00:13:46.430 --> 00:13:50.440
+para indicar adicionalmente
+cuál es el que está realmente encendido
+
+00:13:50.440 --> 00:13:53.160
+o apagado para que
+no tengas que adivinar.
+
+00:13:53.160 --> 00:13:56.350
+Tienes una opción debajo que
+tiene forma de botón
+
+00:13:56.350 --> 00:13:59.090
+que está dividido por la mitad
+y el color de fondo indica
+
+00:13:59.090 --> 00:14:00.430
+si está encendido o apagado.
+
+00:14:00.430 --> 00:14:04.180
+Personalmente, odio esta
+opción porque nunca puedo decidir
+
+00:14:04.180 --> 00:14:05.380
+cuáles son correctas o incorrectas.
+
+00:14:05.380 --> 00:14:08.920
+Y honestamente, hago clic
+tres o cuatro veces solo para asegurar
+
+00:14:08.920 --> 00:14:10.960
+que lo puse en el lugar correcto.
+
+00:14:10.960 --> 00:14:13.650
+Así que sabía que quería
+alejarme de ese.
+
+00:14:13.650 --> 00:14:15.780
+El de abajo es
+probablemente la forma
+
+00:14:15.780 --> 00:14:19.450
+en que harías un indicador de 
+color de fondo, donde
+
+00:14:19.450 --> 00:14:23.820
+tienes este color de fondo,
+luego tienes un color de fondo
+
+00:14:23.820 --> 00:14:28.100
+que es diferente en tus opciones,
+entonces tienes un color de fondo
+
+00:14:28.100 --> 00:14:30.930
+en la opción seleccionada, y
+todas tienen relleno alrededor.
+
+00:14:30.930 --> 00:14:33.270
+Es un poco más claro
+y esto es realmente bueno
+
+00:14:33.270 --> 00:14:34.650
+para más de dos opciones.
+
+00:14:34.650 --> 00:14:37.750
+Entonces supe que quería
+seguir con el interruptor.
+
+00:14:37.750 --> 00:14:42.170
+Entonces, ¿qué vamos a
+hacer en términos de...?
+
+00:14:42.170 --> 00:14:44.730
+Daré una diapositiva más aquí.
+
+00:14:44.730 --> 00:14:45.730
+Lo siento.
+
+00:14:47.870 --> 00:14:50.840
+Entonces, cuando miramos nuestro código,
+comenzando con el HTML,
+
+00:14:50.840 --> 00:14:53.990
+porque ¿dónde más podemos empezar
+sino con los huesos de nuestro sitio?,
+
+00:14:53.990 --> 00:14:56.140
+sabemos que vamos
+a agregar una clase de "body".
+
+00:14:56.140 --> 00:15:00.460
+Y hacemos esto porque
+apuntar a esa clase en nuestro CSS
+
+00:15:00.460 --> 00:15:05.110
+y en nuestro JavaScript va
+a ser realmente útil.
+
+00:15:05.110 --> 00:15:10.000
+Y es bueno saber, en general,
+si estamos animando o no.
+
+00:15:10.000 --> 00:15:14.880
+Así que es como este punto de verdad
+que está casi en la parte superior del documento.
+
+00:15:17.130 --> 00:15:20.570
+En cuanto al elemento HTML a
+utilizar, técnicamente,
+
+00:15:20.570 --> 00:15:24.270
+hay múltiples elementos que
+podríamos usar para crear la acción
+
+00:15:24.270 --> 00:15:25.790
+de alternancia.
+
+00:15:25.790 --> 00:15:29.240
+Es más bien un botón o
+casilla de verificación, en realidad
+
+00:15:29.240 --> 00:15:30.620
+a esos se reduce.
+
+00:15:30.620 --> 00:15:34.050
+La casilla de verificación no nos brindará
+todas las funciones que buscamos
+
+00:15:34.050 --> 00:15:38.270
+cuando se trata de estilo,
+accesibilidad y semántica.
+
+00:15:38.270 --> 00:15:43.150
+Al final de la presentación de diapositivas,
+la penúltima diapositiva tiene enlaces.
+
+00:15:43.150 --> 00:15:45.570
+Creo que tiene
+cuatro enlaces.
+
+00:15:45.570 --> 00:15:48.740
+Entonces, el primer enlace incluirá
+un buen desglose de
+
+00:15:48.740 --> 00:15:50.490
+por qué usar un botón.
+
+00:15:50.490 --> 00:15:52.730
+Es el enlace de Adrian Roselli.
+
+00:15:52.730 --> 00:15:55.820
+Y ahí fue donde pude
+conseguir un buen punto de partida
+
+00:15:55.820 --> 00:15:58.160
+también para mis estilos de botones de alternancia.
+
+00:15:58.160 --> 00:15:59.820
+En nuestro caso, es un botón.
+
+00:15:59.820 --> 00:16:01.850
+Los botones hacen algo
+cuando se presionan.
+
+00:16:01.850 --> 00:16:03.780
+Eso es lo que buscamos.
+
+00:16:03.780 --> 00:16:06.670
+Tenemos una cosa que
+estamos activando y desactivando,
+
+00:16:06.670 --> 00:16:10.040
+y nuestro botón tendrá
+dos estados con los que trabajaremos.
+
+00:16:10.040 --> 00:16:13.020
+Técnicamente, podrías tener
+dos botones, pero en nuestro caso,
+
+00:16:13.020 --> 00:16:15.140
+agrega complejidad innecesaria.
+
+00:16:15.140 --> 00:16:17.640
+Nunca vamos a
+tener más que encendido o apagado,
+
+00:16:17.640 --> 00:16:21.760
+por lo que no hay necesidad de tener en cuenta
+una posible tercera opción en el futuro.
+
+00:16:21.760 --> 00:16:25.130
+Vamos a indicar estos
+dos estados con los que estamos trabajando
+
+00:16:26.580 --> 00:16:31.570
+a través de nuestros JavaScripts, y luego
+a través de un atributo de lector de pantalla
+
+00:16:31.570 --> 00:16:33.890
+usando ARI-pressed.
+
+00:16:33.890 --> 00:16:37.590
+El valor predeterminado será falso,
+porque si no se carga JavaScript,
+
+00:16:37.590 --> 00:16:39.490
+las animaciones no se están ejecutando.
+
+00:16:39.490 --> 00:16:43.300
+Entonces queremos que esté desactivado y luego
+usamos nuestro JavaScript para activarlo
+
+00:16:43.300 --> 00:16:44.910
+si alguien interactúa con él.
+
+00:16:44.910 --> 00:16:46.720
+Estamos usando esto
+a través de ARIA-pressed.
+
+00:16:46.720 --> 00:16:48.910
+Técnicamente, de nuevo,
+hay dos opciones aquí.
+
+00:16:48.910 --> 00:16:51.300
+Hay ARI-checked
+y ARIA-pressed.
+
+00:16:51.300 --> 00:16:54.670
+Profundicé
+en esto para intentar descubrir
+
+00:16:54.670 --> 00:16:56.480
+cuáles eran las diferencias.
+
+00:16:56.480 --> 00:16:59.910
+ARIA-checked básicamente convierte
+el botón en una casilla de verificación,
+
+00:16:59.910 --> 00:17:03.210
+que no es exactamente el
+comportamiento que queremos.
+
+00:17:03.210 --> 00:17:07.840
+No se lee de manera confiable
+en todos los lectores de pantalla.
+
+00:17:07.840 --> 00:17:09.940
+A menudo puede acabar con
+un comportamiento impredecible.
+
+00:17:09.940 --> 00:17:13.960
+Entonces, ARI-pressed es
+y eso es lo que vamos a usar
+
+00:17:13.960 --> 00:17:17.670
+para apuntar nuevamente en nuestro
+CSS y JavaScript.
+
+00:17:17.670 --> 00:17:19.760
+Tenemos que pensar en cuál
+debería ser el texto del botón,
+
+00:17:19.760 --> 00:17:23.940
+muy parecido a esos ejemplos que mostré
+que usa Google,
+
+00:17:23.940 --> 00:17:26.720
+como, muestra esta opción
+y luego dices sí o no.
+
+00:17:26.720 --> 00:17:29.280
+Y luego Apple
+a veces se vuelve un poco más general
+
+00:17:29.280 --> 00:17:32.810
+y dice: Aquí está esta
+opción; ¿la quieres o no?
+
+00:17:32.810 --> 00:17:35.120
+Entonces, ¿decimos reproducir animaciones?
+
+00:17:35.120 --> 00:17:36.560
+¿Decimos animaciones?
+
+00:17:36.560 --> 00:17:44.560
+¿Cómo podemos etiquetar eso?
+
+00:17:44.990 --> 00:17:48.110
+Tenemos la opción de
+agregar íconos allí,
+
+00:17:48.110 --> 00:17:50.040
+algo así como ese
+ejemplo de encendido y apagado.
+
+00:17:50.040 --> 00:17:53.590
+Entonces, estos indicadores de estado,
+ya sean palabras, íconos,
+
+00:17:53.590 --> 00:17:55.560
+usamos ARIA-hidden para ocultarlos.
+
+00:17:55.560 --> 00:17:57.505
+Cuando lo probé usando
+mi lector de pantalla,
+
+00:17:57.506 --> 00:17:59.070
+en realidad no los leyó
+
+00:17:59.070 --> 00:18:00.790
+cuando no tenía
+ARIA-hidden allí.
+
+00:18:00.790 --> 00:18:03.650
+Pero no puedes estar seguro de que ese
+siempre será el caso,
+
+00:18:03.650 --> 00:18:07.160
+y para estar seguros,
+definitivamente los escondes.
+
+00:18:07.160 --> 00:18:08.830
+Entonces ARIA-hidden es igual a verdadero.
+
+00:18:09.850 --> 00:18:13.540
+En cuanto a las animaciones
+en sí, había algunas cosas
+
+00:18:13.540 --> 00:18:15.300
+en mi lista que quería probar.
+
+00:18:15.300 --> 00:18:18.420
+Siempre me vendría bien
+practicar más con animaciones CSS.
+
+00:18:18.420 --> 00:18:20.680
+Quiero profundizar
+en la animación de SVG,
+
+00:18:20.680 --> 00:18:22.850
+pero había oído hablar
+de las imágenes de Lottie.
+
+00:18:22.850 --> 00:18:27.570
+Y aunque... Entonces mi primer
+instinto fue tomar el otro camino
+
+00:18:27.570 --> 00:18:30.040
+porque odio cargar
+cosas extra cuando no es necesario,
+
+00:18:30.040 --> 00:18:34.060
+pero esta podría ser una muy buena
+manera de agilizar el proceso.
+
+00:18:34.060 --> 00:18:36.070
+Y esto me dio la
+oportunidad de investigar eso,
+
+00:18:36.070 --> 00:18:37.390
+eso es lo que estamos usando hoy.
+
+00:18:37.390 --> 00:18:42.280
+Hay un complemento de WordPress de Lottie, 
+ese es L-O-T-T-I-E.
+
+00:18:42.280 --> 00:18:45.070
+Te permite incrustar cosas directamente
+en la página, te da opciones
+
+00:18:45.070 --> 00:18:48.600
+para reproducir y pausar, pero
+no te da control total.
+
+00:18:48.600 --> 00:18:51.650
+Y porque estamos agregando más
+de uno a una página y quiero
+
+00:18:51.650 --> 00:18:56.040
+hacer algunas cosas muy específicas,
+es más fácil agregar cada una manualmente
+
+00:18:56.040 --> 00:18:57.140
+de estas cosas a la página.
+
+00:18:58.870 --> 00:19:02.450
+Entonces, si salimos de esta
+presentación de diapositivas nuevamente y nos dirigimos hacia
+
+00:19:02.450 --> 00:19:05.440
+a nuestro código,
+vamos a mirar muy rápido
+
+00:19:05.440 --> 00:19:07.740
+a través de este archivo functions.php.
+
+00:19:08.900 --> 00:19:11.170
+Básicamente, lo que estamos haciendo
+aquí son dos cosas.
+
+00:19:11.170 --> 00:19:13.730
+Primero se cargan nuestros
+scripts y nuestros estilos.
+
+00:19:13.730 --> 00:19:15.780
+Tenemos una hoja de estilo general.
+
+00:19:15.780 --> 00:19:18.910
+Puedes pegar estas cosas
+en una hoja de estilo dedicada.
+
+00:19:18.910 --> 00:19:22.070
+Sea cual sea la forma en que manejes tus estilos,
+tenemos que incluirlos aquí.
+
+00:19:22.070 --> 00:19:24.870
+Luego tenemos dos scripts de Lottie.
+
+00:19:24.870 --> 00:19:27.660
+Entonces tenemos el primero,
+que es el reproductor general.
+
+00:19:27.660 --> 00:19:31.620
+Ahí tenemos una...
+tengo dos formas en que las cosas están
+
+00:19:31.620 --> 00:19:33.350
+siendo animadas a través de
+scripts de Lottie.
+
+00:19:33.350 --> 00:19:36.550
+Ahora, he cambiado
+a mi sitio Kinetic Iris.
+
+00:19:36.550 --> 00:19:41.050
+Tengo las animaciones activadas
+y tenemos una que se
+
+00:19:41.050 --> 00:19:42.940
+reproduce perpetuamente.
+
+00:19:42.940 --> 00:19:47.920
+Es un par de computadoras flotantes
+y una taza, y algo está sucediendo
+
+00:19:47.920 --> 00:19:49.180
+en la pantalla de la computadora.
+
+00:19:49.180 --> 00:19:55.270
+Ahora tenemos dos que son
+como maquetas de tipo wireframe.
+
+00:19:55.270 --> 00:19:58.830
+Uno es como de una área principal
+y el otro es de un sitio completo,
+
+00:19:58.830 --> 00:20:01.720
+y se animan en el desplazamiento.
+
+00:20:01.720 --> 00:20:04.620
+Para poder hacer esas
+cosas de animación en desplazamiento, cargamos
+
+00:20:04.620 --> 00:20:07.400
+este script interactivo de Lottie.
+
+00:20:07.400 --> 00:20:11.300
+Finalmente,
+agregamos nuestro archivo JavaScript.
+
+00:20:11.300 --> 00:20:14.240
+Nuevamente, independientemente de cómo maneje sus
+recursos, podrían estar en su propio archivo,
+
+00:20:14.240 --> 00:20:17.890
+podrían estar en un
+archivo de script principal, como quieras hacerlo,
+
+00:20:17.890 --> 00:20:19.690
+agrégalos al sitio.
+
+00:20:19.690 --> 00:20:21.030
+Entonces la segunda cosa
+que estamos haciendo
+
+00:20:21.030 --> 00:20:23.900
+en nuestro archivo de funciones se
+agrega esa clase de "body".
+
+00:20:26.420 --> 00:20:29.200
+Nuevamente, comenzamos sin
+ninguna animación.
+
+00:20:29.200 --> 00:20:33.290
+Entonces, todo lo que haremos es
+agregar la clase sin animación
+
+00:20:33.290 --> 00:20:38.290
+en el "body" y luego alternarlo
+a través de nuestro JavaScript.
+
+00:20:38.290 --> 00:20:40.590
+Eso es todo lo que sucede
+en este archivo de funciones.
+
+00:20:40.590 --> 00:20:44.430
+Si nos dirigimos a nuestro
+archivo HTML, he incluido la etiqueta de "body"
+
+00:20:44.430 --> 00:20:48.670
+solo para tener una visión completa de
+cómo se vería esto.
+
+00:20:48.670 --> 00:20:52.300
+En teoría, esto se incluiría
+dinámicamente
+
+00:20:52.300 --> 00:20:57.580
+a través de un tema de edición completo del sitio
+o manualmente a través de un archivo de encabezado
+
+00:20:57.580 --> 00:20:59.190
+en un tema clásico.
+
+00:20:59.190 --> 00:21:01.950
+Y luego,
+a través de nuestro archivo de funciones,
+
+00:21:01.950 --> 00:21:03.270
+agregue que no hay clase de animación.
+
+00:21:03.270 --> 00:21:06.760
+Pero lo agrego aquí solo para tener
+una vista completa del HTML.
+
+00:21:06.760 --> 00:21:09.850
+Ahora, la forma en que estoy agregando
+esto a mi tema ahora mismo es
+
+00:21:09.850 --> 00:21:11.750
+solo a través de bloques HTML personalizados.
+
+00:21:11.750 --> 00:21:16.360
+Y lo que eso me permite
+hacer es manejar todo
+
+00:21:16.360 --> 00:21:19.300 
+a través de la edición
+tradicional del sitio completo,
+
+00:21:19.300 --> 00:21:23.040
+a través de las plantillas de página tradicionales
+con el editor de bloques.
+
+00:21:23.040 --> 00:21:25.410
+Y puedo limitarme
+a lo que necesito.
+
+00:21:25.410 --> 00:21:28.430
+Ahora, repasaré una mejor
+manera en la que planeo hacer esto
+
+00:21:28.430 --> 00:21:28.890
+en el futuro.
+
+00:21:28.890 --> 00:21:33.060
+Pero por ahora, es realmente bueno porque
+en algún momento, puedo cambiar esto
+
+00:21:33.060 --> 00:21:35.620
+por un bloque personalizado,
+puedo hacer lo que necesite,
+
+00:21:35.620 --> 00:21:39.330
+no tengo que crear algún
+tipo de plantilla de encabezado personalizada,
+
+00:21:39.330 --> 00:21:40.410
+no tengo que hacer nada.
+
+00:21:40.410 --> 00:21:44.740
+Todo sigue estando dentro de este
+tipo de ecosistema más grande de WordPress.
+
+00:21:44.740 --> 00:21:48.260
+Y luego, en esta pequeña área,
+pego mi HTML personalizado.
+
+00:21:48.260 --> 00:21:52.340
+Así que básicamente lo extraje y
+lo pegué en este archivo HTML para usted.
+
+00:21:52.340 --> 00:21:57.520
+Estamos envolviendo nuestro
+botón de alternancia en un div contenedor de alternancias.
+
+00:21:57.520 --> 00:22:03.000
+Y luego tenemos nuestro elemento de botón de alternancia real, 
+nuevamente, con una identificación.
+
+00:22:03.000 --> 00:22:04.940
+Lo hemos llamado
+controles de animación y vamos a
+
+00:22:04.940 --> 00:22:07.040
+usar nuestro JavaScript
+para apuntar a eso.
+
+00:22:07.040 --> 00:22:10.790
+Y luego usamos ARIA-pressed
+es igual a falso, nuevamente, por defecto,
+
+00:22:10.790 --> 00:22:12.200
+sin animación.
+
+00:22:12.200 --> 00:22:15.640
+Y luego aquí,
+solo tengo dos íconos.
+
+00:22:15.640 --> 00:22:18.250
+Es un intervalo con
+ARIA-hidden es igual a verdadero.
+
+00:22:18.250 --> 00:22:20.490
+Y luego pegué
+el código SVG allí.
+
+00:22:22.760 --> 00:22:25.940
+Al final del
+archivo HTML, tengo los ejemplos
+
+00:22:25.940 --> 00:22:30.090
+de las tres animaciones
+que tengo en mi página de inicio.
+
+00:22:30.090 --> 00:22:33.730
+Y es básicamente el
+mismo patrón con diferentes valores.
+
+00:22:33.730 --> 00:22:39.160
+Agregué una
+clase div, envoltorio Lottie,
+
+00:22:39.160 --> 00:22:41.730
+para contener mi elemento Lottie.
+
+00:22:42.890 --> 00:22:47.610
+Agregué el elemento del reproductor Lottie
+con una ID diferente dependiendo
+
+00:22:47.610 --> 00:22:52.500
+del que estamos usando; el
+archivo fuente, que es básicamente
+
+00:22:52.500 --> 00:22:56.720
+justo cuando ingresas al
+sitio web Lottiefiles.com,
+
+00:22:59.230 --> 00:23:02.390
+tengo dos ejemplos aquí
+de los dos
+
+00:23:02.390 --> 00:23:03.430
+que tengo en desplazamiento.
+
+00:23:03.430 --> 00:23:06.590
+Y básicamente,
+vas aquí a este botón de descarga,
+
+00:23:06.590 --> 00:23:09.380
+haces clic en él y descargas
+el archivo JSON de Lottie,
+
+00:23:09.380 --> 00:23:11.420
+y luego lo subo
+directamente.
+
+00:23:11.420 --> 00:23:15.000
+Nuevamente, querrás
+bloquear eso en función de
+
+00:23:15.000 --> 00:23:18.760
+quién usa el sitio, por lo que
+solo los administradores de confianza puedan usar
+
+00:23:18.760 --> 00:23:20.560
+la función de carga JSON.
+
+00:23:20.560 --> 00:23:26.510
+Pero lo ideal sería habilitar una
+carga JSON o algún otro método,
+
+00:23:26.510 --> 00:23:28.750
+tal vez esté en
+algún lugar de Google Drive.
+
+00:23:28.750 --> 00:23:33.710
+Sin embargo, desea agregar este
+archivo y luego agregar el ancho
+
+00:23:33.710 --> 00:23:34.710
+y la altura.
+
+00:23:35.440 --> 00:23:40.990
+Lo que hice fue básicamente
+tomar un SVG de uno de los marcos
+
+00:23:40.990 --> 00:23:43.730
+de la animación y
+la agregué en una etiqueta no-script.
+
+00:23:43.730 --> 00:23:48.420
+Porque, nuevamente, cuando JavaScript
+está deshabilitado, no se carga nada en absoluto.
+
+00:23:48.420 --> 00:23:52.820
+Entonces, si no hay scripts, agrego
+el elemento SVG con el texto alternativo
+
+00:23:52.820 --> 00:23:54.800
+y la altura y el ancho.
+
+00:23:54.800 --> 00:23:58.440
+Así que esa es básicamente la
+descripción general del HTML.
+
+00:24:00.450 --> 00:24:02.640
+Volvemos a nuestra presentación de diapositivas.
+
+00:24:04.420 --> 00:24:06.760
+Vamos a repasar
+el código CSS.
+
+00:24:07.790 --> 00:24:09.300
+Solo mencionaré algunas cosas.
+
+00:24:09.300 --> 00:24:13.390
+Tenemos dos estados, animaciones
+en reproducción, animaciones en pausa,
+
+00:24:13.390 --> 00:24:14.680
+es decir, encendido y apagado.
+
+00:24:14.680 --> 00:24:20.070
+Y luego tenemos un enfoque y un desplazamiento
+para probar ambos estados.
+
+00:24:20.070 --> 00:24:26.020
+Y luego usamos el
+atributo ARIA-pressed para apuntar.
+
+00:24:26.020 --> 00:24:30.590
+Y luego agregué algunos
+ejemplos de movimiento reducido preferido.
+
+00:24:31.690 --> 00:24:34.990
+Entonces, si volvemos a nuestro código
+y vamos al archivo style.css
+
+00:24:34.990 --> 00:24:40.180
+que he añadido... Como he mencionado,
+tengo ese reproductor Lottie,
+
+00:24:40.180 --> 00:24:43.210
+tengo el envoltorio Lottie,
+así que agregué algunos de esos estilos
+
+00:24:43.210 --> 00:24:45.910
+sólo para darle una
+conformidad general.
+
+00:24:45.910 --> 00:24:48.460
+A continuación, entramos en nuestros
+estilos de alternancia principales.
+
+00:24:48.460 --> 00:24:50.380
+No voy a
+repasar cada uno de estos.
+
+00:24:50.380 --> 00:24:53.240
+Puedes leerlos
+si quieres.
+
+00:24:53.240 --> 00:24:58.320
+Pero estamos usando el
+atributo ARIA-pressed en lugar de algún tipo de ID
+
+00:24:58.320 --> 00:25:02.190
+o clase porque nos ayuda,
+si nos desplazamos un poco hacia abajo,
+
+00:25:02.190 --> 00:25:06.150
+para poder usar entonces el
+ARIA-pressed verdadero y falso.
+
+00:25:06.150 --> 00:25:09.780
+Y de esta manera, mantenemos
+la especificidad al mínimo,
+
+00:25:10.810 --> 00:25:14.300
+sólo por el bien de las mejores prácticas.
+
+00:25:14.300 --> 00:25:18.330
+Y luego, de esta manera, podemos
+visualizar lo que estamos haciendo.
+
+00:25:18.330 --> 00:25:22.650
+al tener ARIA-pressed sin
+valor, es solo en general.
+
+00:25:22.650 --> 00:25:25.040
+Y luego ARIA-pressed con un
+valor verdadero y un valor falso.
+
+00:25:25.040 --> 00:25:27.860
+Entonces es más fácil para nosotros visualizar
+lo que sucede en nuestro código CSS.
+
+00:25:29.880 --> 00:25:34.800
+Entonces nos centraremos en
+los íconos de reproducción y pausa.
+
+00:25:34.800 --> 00:25:38.460
+Tenemos el fondo y el
+círculo que alterna hacia adelante y hacia atrás.
+
+00:25:40.430 --> 00:25:46.670
+Cuando las animaciones están activadas, eso
+significa que ARIA-pressed es igual a verdadero.
+
+00:25:46.670 --> 00:25:49.290
+Entonces le agregamos
+diferentes colores a eso.
+
+00:25:49.290 --> 00:25:50.880
+Las animaciones están apagadas.
+
+00:25:50.880 --> 00:25:54.210
+Así que hemos ajustado los colores
+para eso, diferentes opacidades
+
+00:25:54.210 --> 00:25:57.940
+para diferentes cosas, y luego los
+estados de desplazamiento y enfoque para esas.
+
+00:25:57.940 --> 00:26:00.800 
+Este es un documento de estilo
+bastante sencillo
+
+00:26:00.800 --> 00:26:03.030
+en términos de lo que está pasando.
+
+00:26:03.030 --> 00:26:05.970
+Un par de ajustes en el tamaño de la pantalla
+para cuando se vuelva pequeña.
+
+00:26:05.970 --> 00:26:07.930
+No quieres que sea demasiado
+pequeño, sino justo para que encaje
+
+00:26:07.930 --> 00:26:08.930
+en el encabezado muy bien.
+
+00:26:10.740 --> 00:26:14.180
+Entonces mi sitio no tiene mucha
+animación más allá de estos archivos Lottie,
+
+00:26:14.180 --> 00:26:18.630
+pero al configurar esto en
+la parte inferior, tengo lo único
+
+00:26:18.630 --> 00:26:22.360
+que se reproduce sin importar
+cuál sea el interruptor.
+
+00:26:22.360 --> 00:26:26.410
+Entonces, si hacemos clic en este interruptor
+en el sitio de Kinetic Iris,
+
+00:26:26.410 --> 00:26:30.970
+podemos ver este tipo de
+acción deslizante muy sutil de ida y vuelta.
+
+00:26:30.970 --> 00:26:33.250
+Eso es mínimo.
+
+00:26:33.250 --> 00:26:38.230
+Y si activas
+y desactivas esa animación según su selección,
+
+00:26:38.230 --> 00:26:45.750
+termina en esta
+experiencia tartamuda en la que se anima,
+
+00:26:45.750 --> 00:26:49.480
+pero luego da una bofetada,
+así que no es ideal.
+
+00:26:49.480 --> 00:26:53.670
+Entonces sentí que estaba bien
+seguir así en todo momento.
+
+00:26:53.670 --> 00:26:57.030
+Luego todo lo demás
+es tu preferencia, ¿no?
+
+00:26:57.030 --> 00:27:02.220
+Así que puedes codificar todos
+tus estilos para que se alineen con
+
+00:27:02.220 --> 00:27:06.580
+cuando las animaciones están desactivadas
+y luego usar las consultas de medios
+
+00:27:06.580 --> 00:27:10.800
+y la clase de animación que hemos
+agregado para luego agregar esa transición
+
+00:27:10.800 --> 00:27:17.480
+en las cosas, para agregar el
+movimiento diferente a todos los diferentes elementos.
+
+00:27:17.480 --> 00:27:21.300
+O puedes animarlo,
+codificarlo y hacer lo que sea,
+
+00:27:21.300 --> 00:27:25.840
+y luego usar esa consulta de medios
+y clase para desactivarlo.
+
+00:27:25.840 --> 00:27:29.790
+Realmente me gusta
+no utilizar nada por defecto.
+
+00:27:29.790 --> 00:27:33.020
+Y luego, cuando alguien no ha
+tomado la decisión de reducir,
+
+00:27:33.020 --> 00:27:37.740
+o cuando alguien
+te permite explícitamente tener animaciones,
+
+00:27:37.740 --> 00:27:39.540
+ahí es cuando los enciendo.
+
+00:27:39.540 --> 00:27:44.400
+Porque así garantizamos
+una experiencia buena y sólida para todos,
+
+00:27:44.400 --> 00:27:48.740
+y luego darle ese
+impulso extra a las personas que lo desean.
+
+00:27:48.740 --> 00:27:52.180
+Esa es mi preferencia,
+pero tengo los ejemplos aquí abajo
+
+00:27:52.180 --> 00:27:57.220
+que puedes usar y jugar,
+y luego usar esa animación
+
+00:27:57.220 --> 00:28:00.040
+o ninguna clase de animación en consecuencia.
+
+00:28:00.040 --> 00:28:01.890
+Entonces, si no quisieras
+apuntar a ninguna animación,
+
+00:28:01.890 --> 00:28:05.590
+simplemente harías no animación
+en lugar de animación.
+
+00:28:07.760 --> 00:28:10.470
+Así que esa es nuestra hoja de estilo.
+
+00:28:10.470 --> 00:28:12.750
+De nuevo, bastante sencillo.
+
+00:28:12.750 --> 00:28:15.910
+El JavaScript es realmente donde vamos
+a divertirnos un poco más
+
+00:28:15.910 --> 00:28:16.910
+con él.
+
+00:28:18.450 --> 00:28:24.000
+Como descripción general en nuestra presentación de diapositivas,
+tenemos las opciones para configurar,
+
+00:28:24.000 --> 00:28:28.340
+obtener y actualizar el
+estado de nuestra animación cuando cargamos la página
+
+00:28:28.340 --> 00:28:29.670
+y cuando interactúan
+con el botón.
+
+00:28:31.100 --> 00:28:34.093
+Vamos a utilizar el
+movimiento reducido preferido
+
+00:28:34.094 --> 00:28:37.210
+y una interacción previa
+con el botón de alternancia.
+
+00:28:37.210 --> 00:28:40.790
+Y luego reproducimos o pausamos las
+animaciones al cargar e interactuar.
+
+00:28:40.790 --> 00:28:44.300
+Así que ese es el resumen de
+lo que nuestro archivo JavaScript
+
+00:28:44.300 --> 00:28:45.480
+va a hacer.
+
+00:28:45.480 --> 00:28:50.510
+Entonces, si nos dirigimos a nuestro
+archivo JavaScript... Intenté comentar
+
+00:28:50.510 --> 00:28:52.210
+tanto como sea posible en estos archivos.
+
+00:28:52.210 --> 00:28:56.150
+Así que habrá muchos
+comentarios, no demasiados.
+
+00:28:56.150 --> 00:28:59.200
+Traté de ser diplomático con esto,
+pero te di suficiente información
+
+00:28:59.200 --> 00:29:01.550
+para que al menos pudieras
+ver lo que está pasando.
+
+00:29:01.550 --> 00:29:04.047
+Básicamente,
+una vez que se carga nuestra página,
+
+00:29:04.048 --> 00:29:06.160
+vamos a conseguir algunas cosas.
+
+00:29:07.180 --> 00:29:11.540
+Obtendremos la
+preferencia de movimiento reducido de la persona
+
+00:29:11.540 --> 00:29:12.750
+desde la configuración de su sistema.
+
+00:29:13.850 --> 00:29:16.940
+Luego vamos a obtener el
+estado del botón de alternancia
+
+00:29:16.940 --> 00:29:18.440
+que está en el sitio.
+
+00:29:18.440 --> 00:29:25.210
+Y nuevamente, si hubiéramos puesto nuestro
+HTML en el otro lado aquí,
+
+00:29:25.210 --> 00:29:28.030
+ese será
+este botón de alternancia.
+
+00:29:28.030 --> 00:29:30.560
+El ID del botón con
+controles de animación,
+
+00:29:30.560 --> 00:29:32.710
+eso es lo que vamos a obtener,
+ese estado de ese botón.
+
+00:29:34.530 --> 00:29:39.140
+Y luego también vamos
+a obtener el elemento en sí
+
+00:29:39.140 --> 00:29:41.240
+para que podamos interactuar con él.
+
+00:29:41.240 --> 00:29:44.410
+Y luego obtendremos los
+diferentes elementos del reproductor Lottie
+
+00:29:44.410 --> 00:29:45.600
+que tenemos en la página.
+
+00:29:47.110 --> 00:29:50.560
+Entonces, esas son las cosas que
+estamos obteniendo para poder usarlas
+
+00:29:50.560 --> 00:29:52.550
+para hacer estas dos cosas.
+
+00:29:53.910 --> 00:29:59.360
+Primero, establecemos un estado inicial
+basado en las preferencias de usuario
+
+00:29:59.360 --> 00:30:01.860
+si aún no han
+venido al sitio.
+
+00:30:01.860 --> 00:30:06.150
+Entonces, si no hay una
+configuración de elemento de alternancia,
+
+00:30:06.150 --> 00:30:09.710
+eso es porque no han estado aquí
+antes ni han interactuado con la página.
+
+00:30:09.710 --> 00:30:14.460
+Y entonces lo que vamos a hacer
+es captar la preferencia de la persona
+
+00:30:14.460 --> 00:30:16.150
+y actuar en consecuencia.
+
+00:30:16.150 --> 00:30:20.160
+Entonces, si no tienen reducido encendido,
+vamos a seguir adelante
+
+00:30:20.160 --> 00:30:23.370
+y configurar nuestro
+almacenamiento local que va
+
+00:30:23.370 --> 00:30:28.440
+a ayudarnos a rastrear las
+preferencias del usuario a través de nuestras páginas.
+
+00:30:28.440 --> 00:30:31.010
+Vamos a configurarlo para que se reproduzca.
+
+00:30:31.010 --> 00:30:33.040
+Y luego llamaremos a
+nuestra función de reproducción de animaciones
+
+00:30:33.040 --> 00:30:34.130
+y reproducir todo.
+
+00:30:35.290 --> 00:30:37.560
+De lo contrario, tendremos
+todo en pausa.
+
+00:30:37.560 --> 00:30:40.230
+Entonces, vamos a poner
+en pausa nuestro elemento de almacenamiento local
+
+00:30:40.230 --> 00:30:41.700
+y vamos a
+pausar las animaciones.
+
+00:30:43.180 --> 00:30:47.630
+Si han visitado el sitio antes
+y tenemos un estado de animación,
+
+00:30:47.630 --> 00:30:50.970
+el cuál es nuestro estado del
+botón de alternancia en el sitio,
+
+00:30:52.350 --> 00:30:55.390
+simplemente reproduciremos
+o pausaremos.
+
+00:30:55.390 --> 00:31:00.920
+Toda esta lógica que acabo
+de repasar es para la carga en la página.
+
+00:31:00.920 --> 00:31:06.150
+Entonces, cuando se carga la página, tenemos que
+decidir si reproducir o pausar.
+
+00:31:06.150 --> 00:31:10.050
+Y luego lo que hacemos es ver
+si hay un estado de animación.
+
+00:31:10.050 --> 00:31:13.200
+Si no, reproducimos o pausamos
+según la configuración.
+
+00:31:13.200 --> 00:31:15.370
+Si lo hay,
+entonces seguimos adelante, reproducimos y pausamos
+
+00:31:15.370 --> 00:31:17.440
+según sus opciones de alternancia.
+
+00:31:18.570 --> 00:31:22.160
+Ahora, tenemos que hacer algo cuando
+hagan clic en el botón de alternancia.
+
+00:31:22.160 --> 00:31:25.950
+Entonces, cuando hagan clic en él, obtendremos
+el estado de la animación
+
+00:31:25.950 --> 00:31:31.390
+que configuramos desde la carga de la página
+y vamos a conservar eso.
+
+00:31:31.390 --> 00:31:35.590
+Vamos a comprobar
+si eso equivale a reproducir, vamos
+
+00:31:35.590 --> 00:31:37.340
+entonces hacer lo contrario.
+
+00:31:37.340 --> 00:31:39.820
+Porque, ¿qué va a pasar?
+
+00:31:39.820 --> 00:31:44.720
+Van a un elemento; digamos
+que es un elemento que está reproduciendo,
+
+00:31:44.720 --> 00:31:45.160
+¿verdad?
+
+00:31:45.160 --> 00:31:50.170
+Si volvemos a nuestro sitio web aquí,
+nuestras animaciones están activadas.
+
+00:31:50.170 --> 00:31:54.560
+Ahora, cuando hago clic aquí,
+actualmente es igual a reproducir,
+
+00:31:54.560 --> 00:31:57.360
+y ahora tengo
+que pausar todo.
+
+00:31:57.360 --> 00:32:01.300
+Entonces, si es igual a reproducir,
+tenemos que pausar todo.
+
+00:32:01.300 --> 00:32:03.290
+Si es igual a pausa,
+reproducimos todo.
+
+00:32:03.290 --> 00:32:07.080
+Es un poco de... Espera un minuto,
+pero eso es lo que estamos haciendo.
+
+00:32:07.080 --> 00:32:08.950
+Estamos haciendo lo contrario
+de lo que quieren
+
+00:32:08.950 --> 00:32:11.270 
+porque es necesario alternar
+el valor actual.
+
+00:32:12.610 --> 00:32:13.100
+Eso es todo.
+
+00:32:13.100 --> 00:32:14.050
+Esa es nuestra lógica.
+
+00:32:14.050 --> 00:32:17.680
+Ahora, aquí tenemos dos funciones,
+reproducir y pausar.
+
+00:32:17.680 --> 00:32:22.160
+Se van a
+reflejar bastante entre sí en términos de
+
+00:32:22.160 --> 00:32:25.080
+lo que están haciendo y luego
+simplemente poner las cosas en sentido opuesto.
+
+00:32:25.080 --> 00:32:29.820
+Entonces, establecemos nuestro valor en
+nuestro almacenamiento local para reproducir.
+
+00:32:31.030 --> 00:32:33.350
+Esta es la
+función de reproducción de animaciones.
+
+00:32:33.350 --> 00:32:37.620
+Luego configuramos nuestro nuevo
+rol de valor ARIA a ARIA-pressed es igual a verdadero.
+
+00:32:37.620 --> 00:32:42.520
+Entonces, si muestro mi consola
+aquí y hago clic en esto,
+
+00:32:42.520 --> 00:32:46.225
+puedes ver que el botón
+ARIA-pressed es igual a verdadero,
+
+00:32:46.226 --> 00:32:49.280
+es igual a falso,
+y eso es lo que estamos cambiando.
+
+00:32:49.280 --> 00:32:52.990
+Y luego también puedes ver
+cómo cambia la clase del "body".
+
+00:32:54.140 --> 00:32:55.670
+Y eso es lo que haremos a continuación.
+
+00:32:55.670 --> 00:33:00.420
+Agregamos animación y luego
+eliminamos no animación.
+
+00:33:00.420 --> 00:33:03.760
+Luego reproducimos las animaciones.
+
+00:33:03.760 --> 00:33:07.260
+Como dije, hay dos
+tipos de animaciones.
+
+00:33:07.260 --> 00:33:09.480
+Está el
+reproductor continuo, que es esa computadora
+
+00:33:09.480 --> 00:33:11.650
+que rebota levemente.
+
+00:33:11.650 --> 00:33:12.860
+Ése es bastante sencillo.
+
+00:33:12.860 --> 00:33:17.280
+Ese es el elemento de reproductor de computadora
+que tenemos, solo "dot play".
+
+00:33:17.280 --> 00:33:19.070
+Los otros dos se basan en el desplazamiento.
+
+00:33:19.070 --> 00:33:24.660
+Ahí es donde
+entra en juego la guía de interactividad de Lottie Player.
+
+00:33:24.660 --> 00:33:28.030
+Es Lottiefiles.com/interactivity.
+
+00:33:28.030 --> 00:33:30.770
+Pasan por un montón de
+ejemplos de diferentes formas
+
+00:33:30.770 --> 00:33:34.930
+que puedes usar JavaScript para
+interactuar con sus elementos.
+
+00:33:34.930 --> 00:33:38.170
+Básicamente, para mí,
+es algo sencillo.
+
+00:33:38.170 --> 00:33:41.500
+Usas su
+clase de interactividad Lottie,
+
+00:33:41.500 --> 00:33:45.440
+que es como llamamos a ese segundo
+script en nuestras funciones.
+
+00:33:45.440 --> 00:33:49.300
+Y luego creamos un nuevo elemento.
+
+00:33:49.300 --> 00:33:54.080
+El reproductor es el ID del
+elemento, el modo es desplazamiento,
+
+00:33:54.080 --> 00:33:55.730
+y luego algunas acciones.
+
+00:33:55.730 --> 00:33:59.730
+Entonces tenemos visibilidad que va de cero
+a uno porque lo estamos activando.
+
+00:33:59.730 --> 00:34:02.020
+Entonces se pasa de no
+mostrarlo a mostrarlo.
+
+00:34:02.020 --> 00:34:03.640
+El tipo es búsqueda.
+
+00:34:03.640 --> 00:34:07.120
+Luego están los marcos,
+esa es realmente la única otra cosa.
+
+00:34:07.120 --> 00:34:10.780
+Tienes el ID del reproductor
+y luego los marcos.
+
+00:34:10.780 --> 00:34:14.410
+Esas son las dos cosas que
+realmente cambian en cada uno de estos.
+
+00:34:14.410 --> 00:34:20.000
+Y la forma de averiguar la cantidad
+de marcos es encontrar lo que te gusta.
+
+00:34:20.000 --> 00:34:22.770
+Y creo que tienes
+que crear una cuenta.
+
+00:34:22.770 --> 00:34:24.540
+Actualmente he iniciado sesión.
+
+00:34:24.540 --> 00:34:27.190
+Y entonces lo que haces es
+encontrar el que te gusta,
+
+00:34:27.190 --> 00:34:33.710
+y debajo de la animación,
+hay una pequeño engranaje de configuración.
+
+00:34:33.710 --> 00:34:37.740
+Haces clic ahí y aparecen
+los detalles de la animación.
+
+00:34:37.740 --> 00:34:41.260
+Y luego hay un elemento aquí
+debajo de la información que dice, marcos,
+
+00:34:41.260 --> 00:34:44.150
+y eso te dará
+el número de marcos.
+
+00:34:44.150 --> 00:34:47.850
+Como pueden ver, ese
+era el 152; este es el 119.
+
+00:34:47.850 --> 00:34:50.160
+Y entonces puedes usar cualquier número.
+
+00:34:50.160 --> 00:34:52.520
+Este es básicamente el
+marco inicial y el marco final.
+
+00:34:52.520 --> 00:34:56.240
+Básicamente, puedes usar
+cualquier número para comenzar o finalizar.
+
+00:34:56.240 --> 00:34:58.928
+Me gusta todo el conjunto,
+así que empiezo desde cero
+
+00:34:58.929 --> 00:35:00.530
+y termino en el marco final.
+
+00:35:00.530 --> 00:35:03.580
+Pero tú decides cómo
+quieres animar eso a lo largo del proceso
+
+00:35:03.580 --> 00:35:04.620
+cualesquiera que sean tus marcos.
+
+00:35:05.800 --> 00:35:11.480
+Lo único que realmente necesito
+repasar en la función de pausa:
+
+00:35:11.480 --> 00:35:14.550
+Nuevamente, estamos configurando nuestro
+almacenamiento local para que se pause.
+
+00:35:14.550 --> 00:35:16.650
+Estamos cambiando nuestro
+ARIA-pressed a falso.
+
+00:35:16.650 --> 00:35:18.970
+Estamos cambiando nuestra clase de "body".
+
+00:35:18.970 --> 00:35:22.030
+El reproductor de computadora que tenemos,
+el que es continuo,
+
+00:35:22.030 --> 00:35:24.450
+ese solo es .pausa.
+
+00:35:24.450 --> 00:35:28.040
+Los otros... verás
+este Lottieinteractivity.create
+
+00:35:29.470 --> 00:35:32.310
+se ve casi exactamente
+igual, excepto en lo único
+
+00:35:32.310 --> 00:35:35.530
+que los cambios están debajo de los marcos;
+en lugar de ser desde cero
+
+00:35:35.530 --> 00:35:39.340
+a lo que sea,
+ahora es solo un cuadro.
+
+00:35:39.340 --> 00:35:41.290
+Puede ser cualquiera de ellos.
+
+00:35:41.290 --> 00:35:43.900
+Si hay un lugar específico
+en el que desea pausarlo,
+
+00:35:43.900 --> 00:35:45.460
+tienes que jugar un
+poco con eso.
+
+00:35:45.460 --> 00:35:48.470
+No había descubierto
+cómo encontrar el marco exacto,
+
+00:35:48.470 --> 00:35:50.430
+pero llegué hasta el final.
+
+00:35:50.430 --> 00:35:53.380
+Y puedes ver que este
+en el que estoy aquí,
+
+00:35:53.380 --> 00:35:59.220
+que es toda la ventana del navegador
+desplazándose a medida que se desplaza por la página,
+
+00:35:59.220 --> 00:36:02.380
+el último marco se vuelve blanco.
+
+00:36:02.380 --> 00:36:05.270
+Lo que hice fue ir un
+par de marcos antes de eso
+
+00:36:05.270 --> 00:36:08.480
+en términos del marco final.
+
+00:36:08.480 --> 00:36:12.930
+Entonces el único cambio son los marcos.
+
+00:36:14.990 --> 00:36:19.450
+Si volvemos a nuestra
+presentación, eso es todo.
+
+00:36:19.450 --> 00:36:21.710
+En retrospectiva, esto es muy simple.
+
+00:36:21.710 --> 00:36:24.140
+Es un viaje para
+todas estas cosas.
+
+00:36:24.140 --> 00:36:29.080
+Si volvemos a las pruebas, simplemente
+iteraremos todas las opciones.
+
+00:36:30.290 --> 00:36:32.890
+Quizás tenga un par
+de minutos aquí.
+
+00:36:32.890 --> 00:36:35.580
+Estas son grabaciones de pantalla
+que no tienen sonido.
+
+00:36:35.580 --> 00:36:39.380
+Les voy a contar lo
+que está pasando en cada uno de ellos.
+
+00:36:39.380 --> 00:36:43.110
+Es solo para darles un
+ejemplo del proceso de pensamiento,
+
+00:36:43.110 --> 00:36:44.950
+y cómo llegué a donde estaba.
+
+00:36:44.950 --> 00:36:48.640
+Porque hice que las cosas funcionaran
+una vez que descubrí cómo hacerlo
+
+00:36:48.640 --> 00:36:49.580
+con archivos de Lottie.
+
+00:36:49.580 --> 00:36:52.000
+Ese fue el primer
+obstáculo que tuve que superar
+
+00:36:52.000 --> 00:36:54.490
+porque no estaba familiarizado con ello.
+
+00:36:54.490 --> 00:36:57.230
+Es simplemente nuevo
+y entonces trabajas con eso, ¿verdad?
+
+00:36:57.230 --> 00:37:03.370
+Y una vez que me di cuenta de eso,
+todo realmente encajó en su lugar
+
+00:37:03.370 --> 00:37:04.320
+con el resto del código.
+
+00:37:04.320 --> 00:37:08.080
+Y luego terminamos
+con estas microdecisiones.
+
+00:37:08.080 --> 00:37:14.330
+Entonces, este primero, como ejemplo,
+está en la parte inferior izquierda de...
+
+00:37:14.330 --> 00:37:17.460
+Cada una de estas animaciones
+que estoy reproduciendo te muestra
+
+00:37:17.460 --> 00:37:18.950 
+lo que leería
+el lector de pantalla.
+
+00:37:18.950 --> 00:37:23.240
+Pero básicamente dice reproducir
+animación, botón de alternancia seleccionado,
+
+00:37:23.240 --> 00:37:26.480
+luego reproduce animaciones,
+alterna el botón, luego selecciona,
+
+00:37:26.480 --> 00:37:28.030
+reproducir animaciones, alterna el botón.
+
+00:37:28.030 --> 00:37:30.280
+Eso es lo que
+lee el lector de pantalla.
+
+00:37:30.280 --> 00:37:32.070
+Sentí que ese era
+un buen lugar para comenzar.
+
+00:37:32.070 --> 00:37:35.520
+El lector de pantalla es bueno
+porque dice, ya sabes,
+
+00:37:35.520 --> 00:37:37.780
+reproducir animaciones, seleccionado.
+
+00:37:37.780 --> 00:37:38.470
+Sí.
+
+00:37:38.470 --> 00:37:41.410
+Pero visualmente a mí
+no me gustó necesariamente
+
+00:37:41.410 --> 00:37:46.910
+porque el indicador circular
+está en la dirección opuesta
+
+00:37:46.910 --> 00:37:50.100
+de dónde
+está mi etiqueta, el texto de mi botón.
+
+00:37:50.100 --> 00:37:53.980
+Y porque no tenemos
+un grupo de opciones juntas
+
+00:37:53.980 --> 00:37:57.340
+para darnos un poco de contexto,
+se sintió un poco raro.
+
+00:37:57.340 --> 00:38:03.190
+Entonces lo que hice fue ir a
+animaciones y probar eso.
+
+00:38:04.300 --> 00:38:07.280
+Pero lo que hice fue agregar
+también texto encendido y apagado 
+
+00:38:07.280 --> 00:38:10.210
+en un pseudoelemento,
+y es un poco difícil de atrapar.
+
+00:38:10.210 --> 00:38:17.310
+Así que mira ese cuadro del lector de pantalla
+en la parte inferior izquierda.
+
+00:38:17.310 --> 00:38:21.330
+Se puede ver como
+aparece un texto parpadeante.
+
+00:38:21.330 --> 00:38:26.120
+Comienza igual que
+el otro: animaciones activadas,
+
+00:38:26.120 --> 00:38:29.580
+botón de alternancia seleccionado,
+pero luego lee las animaciones apagadas
+
+00:38:29.580 --> 00:38:30.860
+y luego animaciones encendidas.
+
+00:38:30.860 --> 00:38:34.100
+Así que se salta
+esa cosa de alternar, porque
+
+00:38:34.100 --> 00:38:38.250
+cuando agregamos
+contenido dinámicamente a un botón, se interpone
+
+00:38:38.250 --> 00:38:39.040
+con el lector de pantalla.
+
+00:38:39.040 --> 00:38:42.050
+Así que, obviamente, esa
+no fue la elección correcta.
+
+00:38:43.700 --> 00:38:47.680
+Luego lo que hice fue probar esa
+opción de cambio sólo para ver cómo era.
+
+00:38:47.680 --> 00:38:49.570
+Voiceover pareció
+manejarlo bastante bien.
+
+00:38:49.570 --> 00:38:53.590
+Me gustó, pero como
+no tenía soporte completo,
+
+00:38:53.590 --> 00:38:54.590
+no quería usarlo.
+
+00:38:55.910 --> 00:39:03.090
+Básicamente dice animaciones
+activadas, apagar el interruptor de animación.
+
+00:39:03.090 --> 00:39:06.330
+Es bastante agradable y conciso,
+pero no es totalmente compatible.
+
+00:39:06.330 --> 00:39:09.150
+Así que ahí es donde
+terminamos en este tipo de
+
+00:39:09.150 --> 00:39:12.350
+la iteración final antes de
+llegar a la de los íconos.
+
+00:39:12.350 --> 00:39:16.130
+Es básicamente lo mismo que el primero,
+solo con la palabra animaciones.
+
+00:39:16.130 --> 00:39:20.510
+Entonces sentí que era un buen
+compromiso entre el lector de pantalla
+
+00:39:20.510 --> 00:39:21.890
+y la usabilidad visual.
+
+00:39:23.900 --> 00:39:26.370
+Consideré volver
+a reproducir animaciones,
+
+00:39:26.370 --> 00:39:29.040
+pero opté por mantener
+la etiqueta más corta.
+
+00:39:29.040 --> 00:39:32.680
+Puede que los iconos no sean necesarios.
+
+00:39:32.680 --> 00:39:36.440
+Entonces tenemos esta versión final
+que se encuentra actualmente en el sitio web.
+
+00:39:36.440 --> 00:39:39.570
+con reproducir y pausar.
+Puede que no sea necesario,
+
+00:39:39.570 --> 00:39:42.780
+pero no me gusta la ambigüedad.
+
+00:39:42.780 --> 00:39:47.050
+Parte de mi neurodivergencia y
+parte de lo que me ayuda a navegar
+
+00:39:47.050 --> 00:39:49.820
+la web es más fácil simplemente
+eliminando toda ambigüedad.
+
+00:39:49.820 --> 00:39:54.000
+No hace daño agregar estos
+íconos y ayuda a personas como yo,
+
+00:39:54.000 --> 00:39:56.980
+así que dije agregarlos.
+También lo hace más consistente
+
+00:39:56.980 --> 00:40:01.050
+con cosas como
+el modo claro y oscuro, y tienen,
+
+00:40:01.050 --> 00:40:03.450
+como el ícono del sol y la luna.
+
+00:40:03.450 --> 00:40:07.540
+Así que me pareció correcto, libre
+de ambigüedades, agradable y conciso,
+
+00:40:07.540 --> 00:40:09.360
+Estas son las opciones.
+
+00:40:09.360 --> 00:40:14.810
+En términos de algunos pasos finales
+aquí, los planes futuros serían,
+
+00:40:14.810 --> 00:40:19.290
+ya lo insinué
+antes, hazlo dinámico, ponlo
+
+00:40:19.290 --> 00:40:21.360
+en un complemento como un bloque personalizado.
+
+00:40:21.360 --> 00:40:22.990
+Y salgamos de esto otra vez.
+
+00:40:22.990 --> 00:40:25.610
+Así que tenemos, sólo para
+revisar, algunos lugares
+
+00:40:25.610 --> 00:40:27.800
+donde codificamos
+cosas, ¿verdad?
+
+00:40:27.800 --> 00:40:35.030
+En nuestro HTML, tenemos el
+ID del reproductor del lobby, la fuente, la altura,
+
+00:40:35.030 --> 00:40:39.990
+el ancho, la imagen no-script,
+el texto alternativo, y luego tenemos
+
+00:40:39.990 --> 00:40:46.510
+ya sea una animación continua
+o una animación en desplazamiento.
+
+00:40:46.510 --> 00:40:49.590
+Y todas esas podrían
+ser simplemente variables que conectamos
+
+00:40:49.590 --> 00:40:55.720
+en este script básico y texto.
+
+00:40:55.720 --> 00:40:59.250
+Y luego poder hacer
+esto dinámico al no tener
+
+00:40:59.250 --> 00:41:03.980
+codificar estos elementos del lobby
+aquí y poder iterarlos,
+
+00:41:03.980 --> 00:41:07.270
+ya sabes, entre cosas que tienen
+cierta clase, o cosas así.
+
+00:41:07.270 --> 00:41:09.970
+Esto es una especie de
+prueba de concepto, es...
+
+00:41:09.970 --> 00:41:11.330
+Haz que todo funcione.
+
+00:41:11.330 --> 00:41:13.680
+Y luego, como dije,
+la buena noticia es que puedo entrar aquí.
+
+00:41:13.680 --> 00:41:18.500
+y simplemente cambiar este
+HTML personalizado por un complemento, ¿verdad?
+
+00:41:18.500 --> 00:41:21.860
+Entonces, si lo hago dinámico, lo pego
+en un complemento, lo activo,
+
+00:41:21.860 --> 00:41:25.440
+ahora puedo usarlo
+en cualquier sitio,
+
+00:41:25.440 --> 00:41:28.670
+y luego agrego los
+elementos del bloque personalizado.
+
+00:41:28.670 --> 00:41:30.550
+Entonces esa es la siguiente
+fase de esto, que sería
+
+00:41:30.550 --> 00:41:35.040
+hacer de esto algo verdaderamente reutilizable
+que ahora no tengo
+
+00:41:35.040 --> 00:41:36.280
+que hacer nada con mi tema.
+
+00:41:36.280 --> 00:41:38.060
+No tengo que modificar nada.
+
+00:41:38.060 --> 00:41:42.850
+Todo lo que tengo que hacer es cambiar
+este HTML personalizado por un nuevo bloque.
+
+00:41:44.540 --> 00:41:47.820
+No hay una única forma de hacerlo
+y, obviamente, hay mejoras
+
+00:41:47.820 --> 00:41:48.820
+que se pueden hacer.
+
+00:41:50.110 --> 00:41:54.240
+En términos de algunas reflexiones finales
+sobre esto, esto puede, como dije,
+
+00:41:54.240 --> 00:41:56.960
+usarse para cualquier tipo de configuración
+que deba alternarse,
+
+00:41:56.960 --> 00:41:58.360
+pero usa el método correcto, ¿verdad?
+
+00:41:58.360 --> 00:42:00.850
+Si tiene algo que
+tiene más de dos opciones,
+
+00:42:00.850 --> 00:42:02.120
+querrás
+varios botones.
+
+00:42:03.300 --> 00:42:06.640
+Entonces no agregue un montón de
+opciones a su sitio web.
+
+00:42:06.640 --> 00:42:08.950
+No estamos tratando de
+reconstruir algún tipo
+
+00:42:08.950 --> 00:42:11.910
+de situación de superposición de 
+accesibilidad personalizada.
+
+00:42:11.910 --> 00:42:14.963
+No necesitamos darle a todos
+cien cosas diferentes
+
+00:42:14.964 --> 00:42:15.980
+para personalizar.
+
+00:42:15.980 --> 00:42:19.900
+Si se trata de una aplicación web en la que
+alguien pasa horas al día,
+
+00:42:19.900 --> 00:42:24.800
+tienen una página de configuración: activa
+el modo oscuro, activa las animaciones,
+
+00:42:24.800 --> 00:42:27.720
+minimiza esto, haz aquello.
+Genial.
+
+00:42:27.720 --> 00:42:33.700
+Sin embargo, para un sitio web, lo más
+útil es colocarlo en la parte superior.
+
+00:42:33.700 --> 00:42:38.330
+El resto se puede utilizar según
+las preferencias de su sistema, ¿verdad?
+
+00:42:38.330 --> 00:42:41.730
+Así que elegimos lo que sería
+más impactante; uno,
+
+00:42:41.730 --> 00:42:45.010
+tal vez dos, he visto algunos
+sitios web hacer uno de animación
+
+00:42:45.010 --> 00:42:47.060
+y uno de modo color.
+
+00:42:47.060 --> 00:42:49.880
+Esos parecen los más útiles
+y pueden estar en la parte superior.
+
+00:42:49.880 --> 00:42:53.640
+Pero no queremos que alguien
+revise un millón de opciones.
+
+00:42:53.640 --> 00:42:55.250
+Simplemente no es necesario.
+
+00:42:55.250 --> 00:42:59.110
+Usa esto como una idea base
+y obtiene lo más importante,
+
+00:42:59.110 --> 00:43:01.760
+algo relevante para sus
+usuarios, colóquelo en la parte superior.
+
+00:43:01.760 --> 00:43:04.450
+Elige lo que tenga más
+sentido y céntrate en ello.
+
+00:43:05.580 --> 00:43:06.760
+Eso es todo por mi parte.
+
+00:43:06.760 --> 00:43:14.700
+Tengo cuatro enlaces aquí que están
+en mi página web de Overnight Website
+
+00:43:14.700 --> 00:43:18.240
+para esta sesión, y luego
+también puedes descargar estas diapositivas
+
+00:43:18.240 --> 00:43:19.800
+y hacer clic en ellos desde aquí.
+
+00:43:19.800 --> 00:43:22.920
+Y eso le brinda
+información general sobre dónde obtuve
+
+00:43:22.920 --> 00:43:27.260
+parte de mi información sobre
+los archivos de Lottie, etc.
+
+00:43:27.260 --> 00:43:30.960
+Lo bueno es que puedes tomar esto
+y usarlo para CSS personalizado.
+
+00:43:30.960 --> 00:43:33.770
+Puedes usarlo para animar
+SVG y todo eso.
+
+00:43:34.991 --> 00:43:39.281
+Y si desea obtener más información,
+está Overnightwebsite.com/links.
+
+00:43:39.290 --> 00:43:39.910
+Y eso es todo por mi parte.
+
+00:43:46.161 --> 00:43:50.100
+Creo que dejaré esto,
+a ver si alguien me necesita.
+
+00:43:53.966 --> 00:43:56.153
+RONAK: Gracias, Danielle,
+por la maravillosa sesión.
+
+00:43:58.900 --> 00:44:05.360
+No tenemos muchas
+preguntas en el cuadro de preguntas y respuestas.
+
+00:44:05.360 --> 00:44:10.890
+Así que si alguien tiene preguntas,
+aún puede publicarlas
+
+00:44:12.180 --> 00:44:14.680
+en la caja para que podamos tenerlo.
+
+00:44:33.040 --> 00:44:37.910
+Mientras tanto, estoy compartiendo el
+enlace de esta sesión aquí en el cuadro de chat.
+
+00:44:37.910 --> 00:44:42.240
+Entonces, si alguien quiere tomar las
+diapositivas, puede hacerlo desde aquí.
+
+00:44:42.240 --> 00:44:42.666
+DANIELLE: Sí.
+
+00:44:47.490 --> 00:44:53.050
+Y luego lo que haré es poner
+el enlace directo a esto también.
+
+00:44:58.520 --> 00:45:05.150
+Así que esto aquí es
+Overnightwebsite.com/WPA11yday.
+
+00:45:05.150 --> 00:45:07.750
+Y ese es el enlace que
+también estaba en la parte superior de mis diapositivas.
+
+00:45:09.260 --> 00:45:09.590
+RONAK: Bien.
+
+00:45:12.500 --> 00:45:14.160
+DANIELLE: Y siempre estoy
+disponible para preguntas también.
+
+00:45:14.160 --> 00:45:17.810
+Entonces, como dije en QueerDevPerson,
+si ves esto más tarde
+
+00:45:17.810 --> 00:45:22.050
+y se te ocurre una
+pregunta o una solicitud de función,
+
+00:45:22.050 --> 00:45:24.413
+o una sugerencia,
+o algo así,
+
+00:45:24.414 --> 00:45:26.480
+siempre tengo ganas de conversar.
+
+00:45:27.468 --> 00:45:28.448
+RONAK: Sí, correcto.
+
+00:45:32.380 --> 00:45:36.080
+Bien, déjame esperar un minuto.
+
+00:45:37.210 --> 00:45:41.350
+Sí, hay una pregunta,
+Daniel, de la Luna:
+
+00:45:41.350 --> 00:45:45.790
+¿Tiene algún consejo para
+impulsar A11Y en su lugar de trabajo
+
+00:45:45.790 --> 00:45:47.450
+o comenzar tu propio negocio?
+
+00:45:49.059 --> 00:45:49.631
+DANIELLE: Claro.
+
+00:45:50.330 --> 00:45:56.630
+Sí, quiero decir, es básicamente
+cómo abordé este elemento,
+
+00:45:56.630 --> 00:45:58.200
+sólo que en una escala mayor.
+
+00:45:58.200 --> 00:46:03.890
+Tanto como caminé a través
+de las cosas individuales de,
+
+00:46:03.890 --> 00:46:05.530
+¿por qué estoy agregando esto?
+
+00:46:05.530 --> 00:46:08.470
+¿Va a causar algún problema?
+
+00:46:08.470 --> 00:46:11.420
+Básicamente todo lo que
+viví en mi viaje
+
+00:46:11.420 --> 00:46:15.140
+de agregar una accesibilidad,
+un solo interruptor es algo así
+
+00:46:15.140 --> 00:46:16.920
+de cómo abordas
+todo lo demás.
+
+00:46:16.920 --> 00:46:21.650
+Se trata de un proceso y
+de encontrar un par de buenos recursos.
+
+00:46:21.650 --> 00:46:23.760
+Está la Reunión de 
+Accesibilidad de WordPress.
+
+00:46:23.760 --> 00:46:26.150
+Hay todo tipo de blogs.
+
+00:46:27.270 --> 00:46:31.070
+Cualquier cosa que puedas encontrar para
+darte algunos puntos de partida.
+
+00:46:31.070 --> 00:46:33.520
+Y luego, una vez que aprendas una
+cosa, agrega otra.
+
+00:46:34.850 --> 00:46:37.290
+En realidad se trata sólo de empezar.
+
+00:46:37.290 --> 00:46:40.990
+Y una vez que empiezas a pensar en
+las cosas en términos de accesibilidad,
+
+00:46:40.990 --> 00:46:43.960
+así es como tiendes a
+ver todo cuando se trata
+
+00:46:43.960 --> 00:46:47.950
+a sitios web, y siempre estás
+mirando las cosas a través de esa lente.
+
+00:46:47.950 --> 00:46:51.270
+Y en realidad se trata sólo de hacer
+preguntas y sentir curiosidad,
+
+00:46:51.270 --> 00:46:54.700
+e investigando un poco para tratar
+de encontrar la mejor manera de hacerlo.
+
+00:46:54.700 --> 00:46:58.250
+Yo diría que revisen
+las declaraciones de accesibilidad.
+
+00:46:58.250 --> 00:47:02.920
+Creo que muchas veces, si le damos
+a la gente un gran lugar para encontrarnos
+
+00:47:02.920 --> 00:47:05.730
+e informar los problemas que tengan
+y hacer que sea fácil encontrarlos,
+
+00:47:05.730 --> 00:47:09.410
+péguelo en el pie de página y proporcione
+una forma muy clara de contactarlo,
+
+00:47:09.410 --> 00:47:11.670
+esa es una buena manera de saber qué
+problemas tiene la gente,
+
+00:47:11.670 --> 00:47:12.920
+y ese es un buen lugar para comenzar.
+
+00:47:14.510 --> 00:47:18.980
+Entonces, simplemente buscaría formas
+de comenzar con las cosas.
+
+00:47:18.980 --> 00:47:20.460
+Haz las cosas fáciles.
+
+00:47:20.460 --> 00:47:23.120
+Como dije
+al principio, tienes,
+
+00:47:23.120 --> 00:47:26.910
+por ejemplo, orden de encabezado
+y texto alternativo de imagen.
+
+00:47:26.910 --> 00:47:31.840
+Una navegación accesible es realmente
+difícil de hacer para un principiante.
+
+00:47:31.840 --> 00:47:34.950
+Así que elige algo y
+sumérgete en ello,
+
+00:47:34.950 --> 00:47:36.390
+y ve a dónde te lleva.
+
+00:47:36.390 --> 00:47:38.160 
+Creo que
+es cuestión de vivir el viaje.
+
+00:47:42.057 --> 00:47:45.270
+RONAK: Una pregunta más
+de la misma persona:
+
+00:47:45.270 --> 00:47:50.940
+¿Qué piensas sobre
+Threejs.org y su accesibilidad?
+
+00:47:52.340 --> 00:47:54.390
+DANIELLE: No tengo idea.
+
+00:47:55.550 --> 00:47:56.530
+Acabo de hacer clic en él.
+
+00:47:56.530 --> 00:47:56.920
+Veamos.
+
+00:47:56.920 --> 00:47:57.920
+Threesjs.
+
+00:47:59.080 --> 00:48:01.770
+Me interesaría
+saber qué es.
+
+00:48:01.770 --> 00:48:04.100
+Si quieres comunicarte conmigo,
+cuéntamelo,
+
+00:48:04.100 --> 00:48:08.500
+y puedo estar un poco más
+informado sobre cómo abordarlo.
+
+00:48:08.500 --> 00:48:09.920
+Realmente no sé mucho al respecto.
+
+00:48:09.920 --> 00:48:11.970
+¿Es una biblioteca de animación?
+
+00:48:11.970 --> 00:48:12.970
+¿Es eso lo que es?
+
+00:48:14.580 --> 00:48:15.580
+RONAK: Está bien.
+
+00:48:16.540 --> 00:48:17.820
+Gracias, Danielle.
+
+00:48:19.180 --> 00:48:19.680
+DANIELLE: Sí.
+
+00:48:19.680 --> 00:48:21.450
+Entonces, si eso es lo que
+es, no lo sé.
+
+00:48:22.620 --> 00:48:24.810
+Mi primer instinto sería
+responder que probablemente sea
+
+00:48:24.810 --> 00:48:27.190
+tan accesible como alguien lo haga.
+
+00:48:27.190 --> 00:48:30.950
+Entonces, si es una biblioteca de animación,
+será algo
+
+00:48:30.950 --> 00:48:33.500
+que alguien va
+a usar y armar.
+
+00:48:33.500 --> 00:48:33.800
+Veamos.
+
+00:48:33.800 --> 00:48:36.840
+Threejs te permite usar
+modelos 3D y diseño web
+
+00:48:36.840 --> 00:48:42.220
+y luego la sensibilidad al movimiento.
+Nuevamente, mi primer instinto es
+
+00:48:42.220 --> 00:48:48.310
+decir que sea
+algo condicional, como que solo se muestre a las personas
+
+00:48:48.310 --> 00:48:52.650
+que lo permiten explícitamente
+y luego hacer prueba de usuario.
+
+00:48:52.650 --> 00:48:55.600
+Yo diría que probablemente depende
+de cuánto movimiento estés agregando,
+
+00:48:55.600 --> 00:48:59.000
+cuánto parpadeo hay.
+
+00:48:59.000 --> 00:49:03.590
+Realmente dependerá de lo que
+estés haciendo dentro de ese elemento 3D.
+
+00:49:03.590 --> 00:49:05.600
+Y luego diría que ese tipo
+de cosas, probablemente las tengas
+
+00:49:05.600 --> 00:49:08.860
+para que el usuario pruebe y obtenga comentarios
+sobre si causa problemas
+
+00:49:08.860 --> 00:49:09.860
+para la gente.
+
+00:49:14.900 --> 00:49:18.990
+RONAK: Bien, no hay más preguntas.
+
+00:49:18.990 --> 00:49:21.460
+Así que vayamos hacia la conclusión.
+
+00:49:23.430 --> 00:49:26.440
+Gracias por asistir
+a la sesión con Danielle.
+
+00:49:26.440 --> 00:49:29.090
+Puedes continuar la
+conversación en el chat,
+
+00:49:29.090 --> 00:49:36.700
+o en las redes sociales usando
+#WPA11YDay y #WPADay2023.
+
+00:49:36.700 --> 00:49:44.700
+También te agradeceríamos que visitaras
+2023.wpaccessibility.dayfeedback
+
+00:49:45.570 --> 00:49:48.970
+para proporcionar comentarios anónimos a
+nuestros oradores sobre su presentación,
+
+00:49:48.970 --> 00:49:51.920
+y puedes participar para ganar una
+camiseta mientras estás allí.
+
+00:49:51.920 --> 00:49:56.070
+Estén atentos a la
+próxima sesión.
+
+00:49:56.070 --> 00:49:59.410
+Y mientras espera, no
+olvide visitar nuestra página de patrocinadores
+
+00:49:59.410 --> 00:50:03.150
+para obtener obsequios virtuales y participar
+para tener la oportunidad de ganar grandes premios.
+
+00:50:03.150 --> 00:50:04.970
+Nos vemos aquí después del descanso.
+
+00:50:12.632 --> 00:50:17.389
+AMBER: Gracias a
+los patrocinadores del Día de la Accesibilidad de WordPress 2023.
+
+00:50:17.390 --> 00:50:20.210
+Patrocinador Platino: Equalize Digital.
+
+00:50:20.210 --> 00:50:23.000 
+Accessibility Checker Plugin
+de Equalize Digital
+
+00:50:23.000 --> 00:50:25.750
+es una
+herramienta automatizada de escaneo de accesibilidad
+
+00:50:25.750 --> 00:50:28.950
+que ayuda a que los sitios web de WordPress
+sean y permanezcan accesibles.
+
+00:50:30.200 --> 00:50:33.060
+Patrocinador Platino: Gravity Forms.
+
+00:50:33.060 --> 00:50:36.670
+Gravity Forms es el
+creador de formularios profesional que necesitas
+
+00:50:36.670 --> 00:50:41.390
+para crear
+formas hermosas, poderosas y accesibles.
+
+00:50:41.390 --> 00:50:48.400
+Patrocinadores de oro: 20i., Deque,
+Empire Caption Solutions, Pressable,
+
+00:50:48.400 --> 00:50:49.490
+y WP Engine.
+
+00:50:51.050 --> 00:50:57.920
+Patrocinadores Plata: Code Geek, Drake
+Cooper, GoDaddy, Lone Rock Point,
+
+00:50:57.920 --> 00:50:59.170
+NerdPress.
+
+00:50:59.170 --> 00:51:06.650
+Overnight Website de Kinetic Iris,
+Raiola Networks, A11y Collective,
+
+00:51:06.650 --> 00:51:07.650
+y The Blogsmith.
+
+00:51:09.280 --> 00:51:14.700
+Patrocinadores de bronce: AccessiCart,
+GreenGeeks Web Hosting,
+
+00:51:14.700 --> 00:51:26.040
+Hall Analysis’ SEO Consulting,
+HDC, ITX, IvyCat, Metabox,
+
+00:51:26.450 --> 00:51:29.560
+PixelChefs,
+Simply Schedule Appointments,
+
+00:51:29.560 --> 00:51:33.000
+SiteGround, Termagedón,
+
+00:51:33.000 --> 00:51:36.590
+Underrepresented In
+Tech, Weglot, and Yoast.

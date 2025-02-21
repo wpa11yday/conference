@@ -90,9 +90,9 @@ No translations yet.
 14. Creating an Animation Pause Button in WordPress
 	- Spanish; Kim Ortiz
 15. The Impact of Bad ARIA on Web Accessibility
-    	- Spanish; Azul Vazquez de Novoa
+	- Spanish; Azul Vazquez de Novoa
 	- Hebrew; Liron Milstein
-    	- Italian; Alice Orru
+	- Italian; Alice Orru
 15. Sponsored Lightning Talk #1
 15. Sponsored Lightning Talk #2
 15. Sponsored Lightning Talk #3

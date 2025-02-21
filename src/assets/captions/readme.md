@@ -60,25 +60,39 @@ No translations yet.
 
 ## 2023
 
-21 completed translations.
+20 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
+   	- French; Lair François-Xavier
 3. Accessibility Beyond Blindness
 	- Spanish; Diana Córdoba
 	- French; Celine Rey-Greffier
 4. Is my WordPress site accessible? How to Perform Accessibility and Usability Tests
+   	- French; Laetitia de Perthius
+   	- Hebrew; Liron Milstein
 5. Complex Data Visualizations and the Accessibility Phenomena
+	- French; Béryl de La Grandière
 6. Go Beyond Checklists to Build a Great Course Learning Experience
+   	- Spanish; Lucy Fonseca
 7. CSS + Accessibility: Inclusion Through User Choice
+   	- Spanish; Kim Ortiz
+   	- French; Béryl de La Grandière
 8. Let's Build an Accessible WordPress Page & Post
 9. How to Address Accessibility and Privacy to Help Avoid Fines and Lawsuits
+   	- Spanish; Diana Córdoba Gómez
 10. Alt Text in the Age of Automation: How's it Actually Going?
+   	- Spanish; Lucy Fonseca
 11. Immersive Audio Description
 12. A Recipe for an Accessible Accordion Block
+	- Italian; Alice Orru
 13. Plot a course!: Creating Accessible SVG Charts in WordPress
 14. Creating an Animation Pause Button in WordPress
+	- Spanish; Kim Ortiz
 15. The Impact of Bad ARIA on Web Accessibility
+	- Spanish; Azul Vazquez de Novoa
+	- Hebrew; Liron Milstein
+	- Italian; Alice Orru
 15. Sponsored Lightning Talk #1
 15. Sponsored Lightning Talk #2
 15. Sponsored Lightning Talk #3
@@ -86,8 +100,12 @@ No translations yet.
 17. Beyond the Visible: Crafting Inclusive WordPress Events for Those with Invisible Illnesses and Chronic Disabilities
 18. Simple Ways to Make Your Emails Accessible
 19. Authoring Tool Accessibility Guidelines: Going Above and Beyond Web Content Accessibility Guidelines
+	- Spanish; Lucy Fonseca
 20. Accessibility Pitfalls of WordPress Menus
 21. A Practical Guide To Automated Accessibility
+	- French; Emilie Sirotic
+ 	- Hebrew; Liron Milstein	
+  	- Malay; Nicolas Y Z W
 22. How to Code for Keyboard Access in WordPress
 23. Building an Accessible Theme for Accessible First Sites
 24. Understanding Color and Contrast Requirements in WCAG 2

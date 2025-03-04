@@ -60,7 +60,7 @@ No translations yet.
 
 ## 2023
 
-20 completed translations.
+23 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion

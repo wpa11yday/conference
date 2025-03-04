@@ -79,6 +79,7 @@ No translations yet.
    	- Spanish; Kim Ortiz
    	- French; Béryl de La Grandière
 8. Let's Build an Accessible WordPress Page & Post
+   	- Spanish; Diana Córdoba Gómez
 9. How to Address Accessibility and Privacy to Help Avoid Fines and Lawsuits
    	- Spanish; Diana Córdoba Gómez
 10. Alt Text in the Age of Automation: How's it Actually Going?
@@ -101,6 +102,7 @@ No translations yet.
 18. Simple Ways to Make Your Emails Accessible
 19. Authoring Tool Accessibility Guidelines: Going Above and Beyond Web Content Accessibility Guidelines
 	- Spanish; Lucy Fonseca
+	- Italian; Alessandra Vallera
 20. Accessibility Pitfalls of WordPress Menus
 21. A Practical Guide To Automated Accessibility
 	- French; Emilie Sirotic

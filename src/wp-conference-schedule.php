@@ -1659,6 +1659,7 @@ function wpcs_get_video() {
 		}
 	}
 	$sign_src = ( wpcs_get_asl() ) ? ' data-sign-src="' . wpcs_get_asl() . '"' : '';
+	$holder   = $sign_src ? '<div class="holder"><p><em>Space for positioning sign language player</em></p></div>' : '';
 
 	return '
 	<div class="wp-block-group alignwide wpad-video-player">
@@ -1667,9 +1668,7 @@ function wpcs_get_video() {
 			<video id="able-player-' . get_the_ID() . '" data-skin="2020" data-able-player data-transcript-div="able-player-transcript-' . get_the_ID() . '" preload="auto" poster="' . wpcs_get_poster() . '" data-youtube-id="' . wpcs_get_youtube() . '"' . $sign_src . '>
 				' . $subtitles . '
 			</video>
-			<div class="holder">
-				<p><em>Space for positioning sign language player</em></p>
-			</div>
+			' . $holder . '
 		</div>
 		<div id="able-player-transcript-' . get_the_ID() . '"></div>
 	</div>';

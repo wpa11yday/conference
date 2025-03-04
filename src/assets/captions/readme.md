@@ -79,17 +79,18 @@ No translations yet.
    	- Spanish; Kim Ortiz
    	- French; Béryl de La Grandière
 8. Let's Build an Accessible WordPress Page & Post
-9. How to Address Accessibility and Privacy to Help Avoid Fines and Lawsuits
    	- Spanish; Diana Córdoba Gómez
-10. Alt Text in the Age of Automation: How's it Actually Going?
+10. How to Address Accessibility and Privacy to Help Avoid Fines and Lawsuits
+   	- Spanish; Diana Córdoba Gómez
+11. Alt Text in the Age of Automation: How's it Actually Going?
    	- Spanish; Lucy Fonseca
-11. Immersive Audio Description
-12. A Recipe for an Accessible Accordion Block
+12. Immersive Audio Description
+13. A Recipe for an Accessible Accordion Block
 	- Italian; Alice Orru
-13. Plot a course!: Creating Accessible SVG Charts in WordPress
-14. Creating an Animation Pause Button in WordPress
+14. Plot a course!: Creating Accessible SVG Charts in WordPress
+15. Creating an Animation Pause Button in WordPress
 	- Spanish; Kim Ortiz
-15. The Impact of Bad ARIA on Web Accessibility
+16. The Impact of Bad ARIA on Web Accessibility
 	- Spanish; Azul Vazquez de Novoa
 	- Hebrew; Liron Milstein
 	- Italian; Alice Orru
@@ -101,6 +102,7 @@ No translations yet.
 18. Simple Ways to Make Your Emails Accessible
 19. Authoring Tool Accessibility Guidelines: Going Above and Beyond Web Content Accessibility Guidelines
 	- Spanish; Lucy Fonseca
+	- Italian; Alessandra Vallera
 20. Accessibility Pitfalls of WordPress Menus
 21. A Practical Guide To Automated Accessibility
 	- French; Emilie Sirotic

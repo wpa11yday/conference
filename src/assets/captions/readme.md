@@ -73,7 +73,7 @@ No translations yet.
    	- Hebrew; Liron Milstein
 5. Complex Data Visualizations and the Accessibility Phenomena
 	- Spanish; Maria Gabriela (Gaby) Gandica
-        - French; Béryl de La Grandière
+	- French; Béryl de La Grandière
 6. Go Beyond Checklists to Build a Great Course Learning Experience
    	- Spanish; Lucy Fonseca
 7. CSS + Accessibility: Inclusion Through User Choice

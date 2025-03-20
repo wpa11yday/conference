@@ -72,6 +72,7 @@ No translations yet.
    	- French; Laetitia de Perthius
    	- Hebrew; Liron Milstein
 5. Complex Data Visualizations and the Accessibility Phenomena
+	- Spanish; Maria Gabriela (Gaby) Gandica
 	- French; Béryl de La Grandière
 6. Go Beyond Checklists to Build a Great Course Learning Experience
    	- Spanish; Lucy Fonseca
@@ -98,6 +99,7 @@ No translations yet.
 15. Sponsored Lightning Talk #2
 15. Sponsored Lightning Talk #3
 16. Mobile Accessibility: Building Accessible Mobile Sites and Native Apps for Accessibility
+	- Spanish; Lucy Fonseca
 17. Beyond the Visible: Crafting Inclusive WordPress Events for Those with Invisible Illnesses and Chronic Disabilities
 18. Simple Ways to Make Your Emails Accessible
 19. Authoring Tool Accessibility Guidelines: Going Above and Beyond Web Content Accessibility Guidelines

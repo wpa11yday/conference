@@ -106,6 +106,7 @@ No translations yet.
 	- Spanish; Lucy Fonseca
 	- Italian; Alessandra Vallera
 20. Accessibility Pitfalls of WordPress Menus
+	- Spanish; Diana Córdoba Gómez
 21. A Practical Guide To Automated Accessibility
 	- French; Emilie Sirotic
  	- Hebrew; Liron Milstein	

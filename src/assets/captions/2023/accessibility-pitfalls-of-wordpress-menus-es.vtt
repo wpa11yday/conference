@@ -1,0 +1,2705 @@
+﻿WEBVTT
+
+00:00:01.125 --> 00:00:04.685
+AMBER HINDES:
+Día de la Accesibilidad de WordPress 2023.
+
+00:00:05.580 --> 00:00:09.670
+Errores de accesibilidad de
+los menús de WordPress,
+
+00:00:09.670 --> 00:00:14.610
+Deneb Pulsipher, Capitán
+Accesible, SeaMonster Studios.
+
+00:00:14.610 --> 00:00:18.780
+Esta presentación fue
+grabada el 28 de septiembre de 2023.
+
+00:00:22.334 --> 00:00:26.200
+JOOST DE VALK: Entonces,
+como son exactamente las 10 UTC, vamos
+
+00:00:26.200 --> 00:00:27.790
+para empezar justo a tiempo.
+
+00:00:27.790 --> 00:00:33.210
+Estoy intentando ser el pseudo
+alemán, es decir, la persona holandesa que soy.
+
+00:00:33.210 --> 00:00:37.230
+Bienvenidos al
+Día de la Accesibilidad de WordPress 2023.
+
+00:00:37.230 --> 00:00:38.480
+Mi nombre es Joost De Valk.
+
+00:00:38.480 --> 00:00:41.950
+Soy socio de Inglis
+Capital, el CTO de Post Status
+
+00:00:41.950 --> 00:00:42.820
+y muchas cosas más.
+
+00:00:42.820 --> 00:00:45.780
+Pero lo más importante es que
+soy su MC para esta sesión.
+
+00:00:47.010 --> 00:00:49.950
+Primero, tenemos un par
+de notas aclaratorias.
+
+00:00:49.950 --> 00:00:53.410
+No duden en agregar sus
+preguntas en la sección de preguntas y respuestas de Zoom.
+
+00:00:53.410 --> 00:00:56.090
+Encontrarán preguntas y respuestas en la
+parte inferior de la pantalla de Zoom.
+
+00:00:57.200 --> 00:00:59.210
+Agreguen sus preguntas allí.
+
+00:00:59.210 --> 00:01:01.170
+Las responderemos al
+final de la sesión.
+
+00:01:01.170 --> 00:01:05.440
+Y por supuesto, utilicen el chat para
+conectar con otros asistentes.
+
+00:01:05.440 --> 00:01:09.490
+Dicho esto, estoy muy emocionado
+de presentar a nuestro próximo orador,
+
+00:01:09.490 --> 00:01:13.490
+Deneb Pulsipher, quien nos hablará
+sobre los problemas de accesibilidad
+
+00:01:13.490 --> 00:01:15.610
+de los menús de WordPress.
+
+00:01:15.610 --> 00:01:19.060
+Deneb mejor conocido como el Capitán
+Accesible, entre sus colegas
+
+00:01:19.060 --> 00:01:22.530
+en SeaMonster Studios,
+una pequeña empresa de desarrollo con sede
+
+00:01:22.530 --> 00:01:24.370
+en Seattle, Washington.
+
+00:01:24.370 --> 00:01:28.170
+Y se le confió el papel fundamental de
+garantizar que todos los sitios web producidos
+
+00:01:28.170 --> 00:01:31.070
+de SeaMonster Studios cumplan con
+los estándares de accesibilidad,
+
+00:01:31.070 --> 00:01:33.637
+Deneb ha desarrollado
+un profundo interés
+
+00:01:33.638 --> 00:01:35.690
+en métodos simples y complejos
+
+00:01:35.690 --> 00:01:39.380
+que pueden mejorar
+la usabilidad del sitio web para todos los visitantes.
+
+00:01:39.380 --> 00:01:42.130
+Su fascinación radica en
+cómo pequeños ajustes
+
+00:01:42.130 --> 00:01:45.390
+por los desarrolladores web pueden hacer una
+gran diferencia para los usuarios,
+
+00:01:45.390 --> 00:01:47.500
+independientemente de cómo
+accedan al sitio.
+
+00:01:47.500 --> 00:01:51.130
+Así que, únanse a mí para darle
+una cálida bienvenida a Denev.
+
+00:01:51.130 --> 00:01:51.550
+recíbelo.
+
+00:01:53.625 --> 00:01:54.290
+DENEB PULSIPHER: Gracias.
+
+00:01:56.030 --> 00:02:02.260
+Bien, aquí en mi primera
+diapositiva, solo anotaré
+
+00:02:02.260 --> 00:02:05.970
+que tengo un código QR
+que enlaza con la plataforma de diapositivas.
+
+00:02:05.970 --> 00:02:09.630
+Entonces, si están interesados en obtenerla
+de la manera más fácil posible,
+
+00:02:09.630 --> 00:02:12.080
+pueden escanear este código.
+
+00:02:12.080 --> 00:02:18.070
+Muy bien, hablemos de
+por qué es tan esencial asegurarse
+
+00:02:18.070 --> 00:02:22.080
+que su menú,
+su menú de navegación, sea accesible.
+
+00:02:22.080 --> 00:02:27.370
+Entonces, en esta diapositiva,
+tengo una foto de una persona sentada
+
+00:02:27.370 --> 00:02:35.110
+en un bote de remos mirando tranquilamente
+esta escena pacífica de este lago
+
+00:02:35.110 --> 00:02:36.740
+en el que está flotando.
+
+00:02:36.740 --> 00:02:41.040
+Sin embargo, hay una cosa
+que falta notablemente en esta imagen.
+
+00:02:41.040 --> 00:02:43.290
+y esos son los remos.
+
+00:02:43.290 --> 00:02:51.040
+Entonces esta persona no tiene forma de
+moverse por este lugar.
+
+00:02:52.670 --> 00:02:59.600
+Entonces va a ser problemático
+para la persona que entra.
+
+00:02:59.600 --> 00:03:07.600
+Si decimos que su sitio es similar
+a esta escena, su menú va a...
+
+00:03:09.100 --> 00:03:12.970
+ser esas paletas, será
+la forma en que sus visitantes podrán
+
+00:03:12.970 --> 00:03:18.640
+moverse por su sitio
+en la forma que necesitan.
+
+00:03:18.640 --> 00:03:21.450
+Y sin un remo,
+están en problemas.
+
+00:03:22.760 --> 00:03:26.540
+Moverse es difícil sin un
+buen menú de navegación que funcione
+
+00:03:26.540 --> 00:03:28.130
+para todos.
+
+00:03:28.130 --> 00:03:34.260
+Muy a menudo, la gente pone mucho
+esfuerzo y pensamiento en asegurarse
+
+00:03:34.260 --> 00:03:38.600
+que su
+menú de navegación funciona bastante bien,
+
+00:03:40.900 --> 00:03:42.970
+y que haga las cosas
+que ellos quieren.
+
+00:03:42.970 --> 00:03:47.820
+Pero si no es accesible,
+entonces un segmento completo
+
+00:03:47.820 --> 00:03:50.060
+de su audiencia no
+puede usarlo de la manera
+
+00:03:50.060 --> 00:03:50.990
+que tienen la intención.
+
+00:03:50.990 --> 00:03:55.920
+Por eso tenemos que asegurarnos
+de que puedan hacer eso.
+
+00:03:55.920 --> 00:04:01.640
+Ahora, los enlaces a páginas internas pueden
+funcionar si ignoran la capacidad
+
+00:04:01.640 --> 00:04:02.640
+para utilizar el menú.
+
+00:04:03.750 --> 00:04:05.740
+Así pueden dirigir
+a las personas a su sitio
+
+00:04:05.740 --> 00:04:07.450
+sólo a través de enlaces internos a páginas.
+
+00:04:07.450 --> 00:04:08.510
+Eso está bien.
+
+00:04:08.510 --> 00:04:10.650
+La navegación adicional
+casi siempre es accesible
+
+00:04:10.650 --> 00:04:14.490
+porque no hay menús desplegables ni
+complicaciones en ese sentido.
+
+00:04:16.340 --> 00:04:19.670
+Y mucha gente viene de
+Google de todos modos, así que vendrán
+
+00:04:19.670 --> 00:04:24.895
+a la página precisa que
+Google cree que quiere,
+
+00:04:24.896 --> 00:04:27.090
+lo cual a menudo es cierto.
+
+00:04:27.090 --> 00:04:35.090
+Sin embargo, en el análisis final, desean
+que la gente permanezca en su sitio,
+
+00:04:36.630 --> 00:04:39.010
+y al final,
+es un juego de números.
+
+00:04:39.010 --> 00:04:40.690
+¿Qué quiero decir con eso?
+
+00:04:40.690 --> 00:04:44.600
+Quiero decir que con sus
+visitantes en su sitio, están
+
+00:04:44.600 --> 00:04:47.950
+en una carrera contra el tiempo.
+
+00:04:47.950 --> 00:04:50.090
+Aquí hay algunos números para mirar.
+
+00:04:50.090 --> 00:04:52.770
+54, ¿qué es eso?
+
+00:04:52.770 --> 00:04:58.760
+Bueno, 54 en realidad es el
+número promedio de segundos dedicados a una página.
+
+00:04:58.760 --> 00:05:06.760
+Entonces, menos de un minuto,
+en todo Internet, el tiempo
+
+00:05:07.470 --> 00:05:13.010
+que la gente realmente va
+a absorber una página que valga la pena.
+
+00:05:13.010 --> 00:05:17.250
+de información antes de
+buscar ir a la siguiente página.
+
+00:05:18.880 --> 00:05:20.750 
+El siguiente número, cinco menos siete.
+
+00:05:20.750 --> 00:05:21.590
+Bueno, ¿qué es eso?
+
+00:05:21.590 --> 00:05:25.150
+Ese es el número promedio de
+páginas visitadas por sesión.
+
+00:05:25.150 --> 00:05:28.610
+Entonces ingresarán a su sitio
+y permanecerán allí.
+
+00:05:28.610 --> 00:05:33.840
+para un número promedio de cinco a
+siete páginas distintas de su sitio.
+
+00:05:34.880 --> 00:05:39.460
+Bueno, entonces esperan poder
+llevarlos al lugar correcto.
+
+00:05:39.460 --> 00:05:41.770
+dentro de esas cinco a siete páginas.
+
+00:05:43.950 --> 00:05:48.070
+Veamos la profundidad promedio de
+su llamado a la acción con mayor conversión.
+
+00:05:48.070 --> 00:05:52.300
+Entonces, en una de sus páginas,
+es a dónde quieren que lleguen.
+
+00:05:52.300 --> 00:05:56.080
+¿Cuántas páginas tienen
+que recorrer para llegar allí?
+
+00:05:56.080 --> 00:05:58.180
+Y no sé
+la respuesta a eso.
+
+00:05:58.180 --> 00:05:59.940
+Probablemente nadie sepa
+la respuesta a eso.
+
+00:05:59.940 --> 00:06:03.420
+Sería un
+número muy difícil de calcular.
+
+00:06:03.420 --> 00:06:07.640
+Pero lo que sí es seguro es que casi
+seguro que no es la primera página.
+
+00:06:07.640 --> 00:06:08.490
+donde aterrizan.
+
+00:06:08.490 --> 00:06:13.740
+Entonces, querrá brindarles
+a las personas una buena manera
+
+00:06:13.740 --> 00:06:17.570
+para navegar por el
+sitio, de ahí el menú.
+
+00:06:17.570 --> 00:06:22.950
+Pero debe ser accesible para
+que todos sus visitantes puedan usarlo.
+
+00:06:22.950 --> 00:06:27.180
+Tengo mis enlaces donde
+obtuve esta información.
+
+00:06:28.270 --> 00:06:33.130
+Y luego mi siguiente diapositiva dice que
+los menús pueden evitar rebotes.
+
+00:06:33.130 --> 00:06:37.050
+Uno de los grandes beneficios de tener
+un buen menú, un menú bien diseñado,
+
+00:06:37.050 --> 00:06:39.540
+es que ahorrará rebotes.
+
+00:06:39.540 --> 00:06:42.080
+Entonces, la gente no vendrá a su sitio y
+no encontrará lo que busca,
+
+00:06:42.080 --> 00:06:45.030
+y saltar a otro lugar.
+
+00:06:45.030 --> 00:06:48.920
+De hecho, pasarán
+algún tiempo en su sitio.
+
+00:06:50.080 --> 00:06:50.800
+¿Por qué?
+
+00:06:50.800 --> 00:06:54.080
+Yo digo que su menú es
+como un viejo amigo.
+
+00:06:54.080 --> 00:07:01.200
+Hace que la gente se sienta
+cómoda en su sitio.
+
+00:07:01.200 --> 00:07:03.710
+Les hace sentir que saben
+lo que está pasando,
+
+00:07:03.710 --> 00:07:05.420
+y pueden entender las cosas.
+
+00:07:06.570 --> 00:07:11.020
+Pero esto solo si
+pueden usar bien su menú.
+
+00:07:12.120 --> 00:07:17.980
+su menú puede ser un trampolín
+hacia otras áreas.
+
+00:07:17.980 --> 00:07:25.220
+donde realmente encontrarán
+las cosas que usted espera
+
+00:07:25.220 --> 00:07:28.030
+que encontrarán.
+
+00:07:29.270 --> 00:07:33.700
+Su menú debe evitar
+algunos problemas comunes.
+
+00:07:33.700 --> 00:07:38.620
+Y creo que mucha gente no...
+El menú les fue entregado.
+
+00:07:38.620 --> 00:07:41.760
+Era parte del tema o
+lo que sea que estén usando
+
+00:07:41.760 --> 00:07:43.470
+para desarrollar el sitio.
+
+00:07:43.470 --> 00:07:45.920
+Y no
+piensan mucho en ello,
+
+00:07:45.920 --> 00:07:49.380
+pero hay algunos problemas comunes
+que su menú debe evitar.
+
+00:07:50.670 --> 00:07:53.960
+Entonces, ¿qué problemas podrían estar
+acechando en su menú de WordPress?
+
+00:07:53.960 --> 00:08:00.230
+En esta pantalla, tengo una
+imagen de fondo de un cocodrilo,
+
+00:08:02.720 --> 00:08:10.160
+simplemente mirando medio
+escondido bajo el agua.
+
+00:08:10.160 --> 00:08:13.370
+Ups, veamos.
+
+00:08:13.370 --> 00:08:15.940
+Entonces, ¿qué problemas podrían estar
+acechando en su menú de WordPress?
+
+00:08:15.940 --> 00:08:17.100
+Bien, entonces el problema número uno.
+
+00:08:19.450 --> 00:08:27.450
+Es posible que su menú solo se despliegue
+al pasar el cursor y no se enfoque ni haga clic.
+
+00:08:30.310 --> 00:08:33.370
+Lo que esto significa es que si
+tienen un menú desplegable...
+
+00:08:35.220 --> 00:08:41.580
+Aquí tengo un par de imágenes de
+mi sitio favorito de historia negra,
+
+00:08:41.580 --> 00:08:45.130
+que es blackpast.org,
+en el que he trabajado.
+
+00:08:45.130 --> 00:08:52.560
+Cuando comencé a trabajar en él,
+el menú se desplegaba al pasar el mouse,
+
+00:08:52.560 --> 00:08:53.850
+pero no en foco.
+
+00:08:53.850 --> 00:08:58.750
+Entonces tengo esta imagen
+de su sitio web
+
+00:08:58.750 --> 00:09:05.870
+y alguien pasando el cursor sobre el
+elemento del menú Historia afroamericana
+
+00:09:05.870 --> 00:09:09.630
+y cae y vemos
+este menú desplegable con mucho
+
+00:09:11.130 --> 00:09:14.880
+de elementos del menú secundario allí.
+
+00:09:14.880 --> 00:09:22.690
+Y luego la segunda imagen que
+tengo muestra el mismo menú,
+
+00:09:22.690 --> 00:09:27.850
+pero ahora el indicador de enfoque
+esta en el elemento del menú principal,
+
+00:09:27.850 --> 00:09:30.870
+pero no se despliega nada.
+
+00:09:30.870 --> 00:09:33.270
+En muchos sitios web,
+esto es lo que obtienen.
+
+00:09:34.320 --> 00:09:39.990
+Pueden ver que pueden acceder
+al elemento del menú principal,
+
+00:09:39.990 --> 00:09:41.090
+pero no baja.
+
+00:09:41.090 --> 00:09:47.710
+Entonces no pueden tener acceso a todos
+estos elementos del menú secundario
+
+00:09:47.710 --> 00:09:50.530
+que han puesto
+ahí por una buena razón.
+
+00:09:50.530 --> 00:09:53.670
+Así que miremos esto un poco más de cerca.
+
+00:09:53.670 --> 00:09:57.300
+Una vez más,
+así es como se ve al pasar el mouse sobre él.
+
+00:09:57.300 --> 00:10:01.740
+Entonces, si pasan el cursor sobre esta
+categoría, todos estos menús desplegables.
+
+00:10:01.740 --> 00:10:07.210
+El segundo, bueno,
+supongo que nos perdimos el segundo,
+
+00:10:07.210 --> 00:10:08.480
+es exactamente lo mismo.
+
+00:10:08.480 --> 00:10:11.180
+Es solo una mirada más cercana.
+
+00:10:11.180 --> 00:10:15.530
+Bien, la siguiente diapositiva explica
+por qué esto es un problema.
+
+00:10:15.530 --> 00:10:17.460
+Bueno, ¿quién deserta?
+
+00:10:17.460 --> 00:10:22.650
+Si puede acceder a
+los elementos del menú principal,
+
+00:10:22.650 --> 00:10:26.600
+pero no los elementos del menú secundario,
+entonces esto afecta a los usuarios del teclado
+
+00:10:26.600 --> 00:10:29.640
+porque ahora todas esas
+personas que están navegando
+
+00:10:30.840 --> 00:10:33.880
+porque no pueden usar ratones,
+tal vez sus ratones están rotos
+
+00:10:33.880 --> 00:10:39.740
+o tienen temblores y por eso
+no pueden tener el control motor fino
+
+00:10:39.740 --> 00:10:44.290
+para poder
+navegar por el sitio.
+
+00:10:45.800 --> 00:10:47.900
+O personas que simplemente prefieren
+navegar con el teclado.
+
+00:10:47.900 --> 00:10:50.560
+Hay muchas razones
+por las que la gente podría hacerlo.
+
+00:10:50.560 --> 00:10:57.170
+Y entonces hay una cierta
+porción de la población
+
+00:10:57.170 --> 00:11:02.230
+que simplemente navegará
+por su sitio mediante el teclado.
+
+00:11:02.230 --> 00:11:07.590
+Por lo tanto, tener el menú desplegable solo al pasar
+el mouse influye en ellos.
+
+00:11:07.590 --> 00:11:10.110
+o detiene su capacidad
+de usar el menú.
+
+00:11:11.220 --> 00:11:13.090
+También podría afectar
+a los usuarios de dispositivos Switch.
+
+00:11:13.090 --> 00:11:16.020
+Esos son usuarios que
+tienen un dispositivo de conmutación
+
+00:11:16.020 --> 00:11:19.410
+donde solo usan
+un botón para avanzar
+
+00:11:19.410 --> 00:11:24.580
+o para seleccionar típicamente
+lo que moverá su enfoque,
+
+00:11:26.020 --> 00:11:32.560
+pero no necesariamente moverá
+su cursor o su puntero.
+
+00:11:32.560 --> 00:11:34.990
+Y entonces
+no obtendrían el menú desplegable.
+
+00:11:37.090 --> 00:11:40.890
+Nuevamente, los usuarios de dispositivos de conmutación pueden
+ser personas sin habilidades motoras finas.
+
+00:11:40.890 --> 00:11:46.550
+o personas con
+discapacidades cognitivas limitadas a quienes les ayuda
+
+00:11:46.550 --> 00:11:49.620
+simplemente tener la opción de sí o
+no, sí o no.
+
+00:11:51.600 --> 00:11:54.250
+A veces, esto también
+afectará a los usuarios de lectores de pantalla.
+
+00:11:54.250 --> 00:11:57.710
+Dependiendo de la
+configuración del lector de pantalla.
+
+00:11:58.730 --> 00:12:04.720
+Entonces, si está configurado para que el
+cursor virtual siga el foco,
+
+00:12:04.720 --> 00:12:11.990
+entonces podría estar bien
+con el menú desplegable al pasar el mouse.
+
+00:12:11.990 --> 00:12:14.350
+Pero si no está configurado de esa
+manera, entonces...
+
+00:12:14.350 --> 00:12:17.763
+también podría tener problemas al usar...
+
+00:12:17.764 --> 00:12:22.350
+Tuvimos una
+pequeña interrupción interesante
+
+00:12:25.710 --> 00:12:26.770
+por un lector de pantalla.
+
+00:12:26.770 --> 00:12:29.120
+Pero sí,
+eso podría ser problemático.
+
+00:12:31.510 --> 00:12:33.170
+Bien, nuestro segundo problema aquí.
+
+00:12:35.730 --> 00:12:43.390
+Si el menú desplegable funciona en
+foco, pero no hay ninguna habilidad
+
+00:12:43.390 --> 00:12:46.050
+para volver a abrir el menú.
+
+00:12:46.050 --> 00:12:54.050
+Entonces, ¿qué sucede si este es el
+caso? Cuando tabulas
+
+00:12:55.170 --> 00:13:00.510
+en el menú y se despliega
+, la siguiente pestaña sería
+
+00:13:00.510 --> 00:13:04.610
+al elemento del submenú, y
+tendría que pasar por eso,
+
+00:13:04.610 --> 00:13:07.770
+lo cual está bien si solo hay
+unos pocos elementos de submenú.
+
+00:13:08.830 --> 00:13:13.720
+Con BlackPast, tengo este
+programa que enumerará
+
+00:13:13.720 --> 00:13:15.800
+cuántas tabulaciones hay en la página.
+
+00:13:15.800 --> 00:13:19.580
+Y como pueden ver,
+para llegar al final de este menú,
+
+00:13:19.580 --> 00:13:23.860
+en realidad tienen 87 tabulaciones.
+
+00:13:23.860 --> 00:13:29.230
+Entonces, si quieren llegar al
+Consejo Asesor Internacional,
+
+00:13:29.230 --> 00:13:35.280
+en el menú Acerca de nosotros,
+tendrían que presionar la tecla Tab 87 veces
+
+00:13:35.280 --> 00:13:39.410
+Para 	llegar allí, lo cual es problemático.
+
+00:13:39.410 --> 00:13:43.070
+Si tienen la capacidad
+de absorber ese menú,
+
+00:13:43.070 --> 00:13:45.370
+entonces no tienen ese problema.
+
+00:13:46.400 --> 00:13:47.780
+Bien, ¿a quién afecta esto?
+
+00:13:47.780 --> 00:13:50.760
+Una vez más,
+usuarios de teclado, cambien de usuario de dispositivo,
+
+00:13:50.760 --> 00:13:52.110
+a veces usuarios de lectores de pantalla.
+
+00:13:53.810 --> 00:13:55.390
+¿Por qué es un problema?
+
+00:13:55.390 --> 00:14:01.400
+Probablemente
+aumente exponencialmente la cantidad de tiempo necesario
+
+00:14:01.400 --> 00:14:03.290
+para desplazarse por el menú.
+
+00:14:05.440 --> 00:14:09.920
+Entonces, como dije, en este
+caso particular, habrían...
+
+00:14:09.920 --> 00:14:16.170
+a la pestaña 87 veces,
+lo que no es probable que sea algo
+
+00:14:16.170 --> 00:14:18.030
+que cualquiera estaría
+dispuesto a hacer.
+
+00:14:18.030 --> 00:14:26.020
+Así que asegúrate de
+poder abrir el menú
+
+00:14:26.020 --> 00:14:29.070
+que han dejado
+caer es bastante importante.
+
+00:14:29.070 --> 00:14:31.040
+Generalmente eso será
+a través del control.
+
+00:14:31.040 --> 00:14:36.010
+Al igual que en este sitio, se
+suponía que debía haber este pequeño ícono más
+
+00:14:36.010 --> 00:14:42.010
+a la derecha del
+menú, el elemento del menú principal,
+
+00:14:42.010 --> 00:14:44.150
+pero el sitio
+lo había desactivado en algún momento.
+
+00:14:44.150 --> 00:14:45.970
+Por eso no funcionaba
+en BlackPast.
+
+00:14:48.510 --> 00:14:50.460
+Ahora bien, tengo una salvedad aquí.
+
+00:14:50.460 --> 00:14:51.600
+Por qué esto es un problema.
+
+00:14:51.600 --> 00:14:55.000
+Digo que probablemente
+aumenta exponencialmente la cantidad de tiempo necesario
+
+00:14:55.000 --> 00:15:01.030
+para moverse por un menú, pero
+no aumentaría esa cantidad
+
+00:15:01.030 --> 00:15:07.250
+de tiempo si implementas
+la navegación con las teclas de flecha de modo que puedas bajar
+
+00:15:07.250 --> 00:15:12.240
+en el menú y luego presione
+la tecla de flecha derecha o izquierda
+
+00:15:12.240 --> 00:15:16.400
+para ir al siguiente elemento del menú principal.
+
+00:15:19.490 --> 00:15:23.270
+No necesariamente necesitarías
+tener un control distinto
+
+00:15:23.270 --> 00:15:25.830
+para volver a
+abrir el menú si pueden hacerlo.
+
+00:15:25.830 --> 00:15:29.390
+Y hablaremos de eso
+un poco más más adelante,
+
+00:15:29.390 --> 00:15:34.430
+pero el segundo problema es problemático.
+
+00:15:34.430 --> 00:15:42.430
+Problema tres,
+si los elementos de su menú son desplegables
+
+00:15:44.760 --> 00:15:48.600
+no tienen
+el atributo aria-expanded.
+
+00:15:49.940 --> 00:15:53.860
+Ahora, el atributo expandido aria
+es simplemente algo
+
+00:15:53.860 --> 00:15:57.530
+que ayuda a
+los usuarios de tecnología de asistencia, principalmente a los usuarios de lectores de pantalla.
+
+00:15:57.530 --> 00:16:02.650
+Entonces, cuando mueven
+su atención hacia...
+
+00:16:03.800 --> 00:16:07.170
+en este caso, estoy mirando
+el sitio Black Past nuevamente...
+
+00:16:07.170 --> 00:16:13.720
+Elemento del menú
+principal de historia afroamericana
+, escucharían,
+
+00:16:13.720 --> 00:16:16.650
+si estaba en
+estado de colapso, si no estaba expandido,
+
+00:16:16.650 --> 00:16:21.420
+escucharían
+el colapso del vínculo con la historia afroamericana.
+
+00:16:21.420 --> 00:16:25.510
+Y eso les indicaría,
+oh, hay un submenú aquí.
+
+00:16:25.510 --> 00:16:32.720
+Entonces, si amplío este menú,
+el siguiente lugar al que voy es...
+
+00:16:32.720 --> 00:16:33.720
+estar dentro del menú.
+
+00:16:35.030 --> 00:16:37.610
+O si vienen
+aquí y escuchan
+
+00:16:37.610 --> 00:16:39.975
+Se amplió el vínculo con la historia
+afroamericana,
+
+00:16:39.976 --> 00:16:41.690
+van automáticamente
+
+00:16:41.690 --> 00:16:44.690
+pensar, OK,
+entonces este es un menú desplegable
+
+00:16:44.690 --> 00:16:47.700
+y lo abordaré
+con la siguiente pulsación de tecla.
+
+00:16:49.070 --> 00:16:53.840
+Si no reciben esa
+notificación contraída o expandida,
+
+00:16:53.840 --> 00:16:57.370
+luego agregarán un nuevo
+elemento del menú y terminarán pensando,
+
+00:16:57.370 --> 00:17:00.090
+Oh, estoy aquí en
+la historia afroamericana.
+
+00:17:00.090 --> 00:17:05.650
+Mi próxima parada será
+el siguiente elemento del menú principal.
+
+00:17:05.650 --> 00:17:11.790
+Pero después de superar seis
+o siete de estos no relacionados
+
+00:17:11.790 --> 00:17:18.630
+o elementos de menú que no sean de alto nivel,
+comenzarán a pensar
+
+00:17:18.630 --> 00:17:26.630
+o darse cuenta de que esto puede
+no ser lo que creen que es.
+
+00:17:28.120 --> 00:17:31.180
+Pero si tienen ese
+atributo expandido por aria, funcionará.
+
+00:17:32.270 --> 00:17:33.160
+¿A quién más afecta esto?
+
+00:17:33.160 --> 00:17:35.910
+Usuarios de dispositivos Braille actualizables.
+
+00:17:35.910 --> 00:17:39.540
+Entonces, personas que no pueden
+ver ni oír.
+
+00:17:42.220 --> 00:17:46.350
+¿Por qué esto es un problema una vez más?
+No entenderán el menú.
+
+00:17:46.350 --> 00:17:47.190
+y dónde están en él.
+
+00:17:47.190 --> 00:17:50.870
+Así que tendrán una
+concepción errónea de lo que está pasando.
+
+00:17:50.870 --> 00:17:55.410
+y podría frustrarse
+después de pasar por 20 cosas
+
+00:17:55.410 --> 00:17:57.120
+que creen que son
+elementos del menú principal
+
+00:17:57.120 --> 00:17:59.725
+que en realidad son elementos del submenú.
+
+00:18:03.740 --> 00:18:08.050
+O si su menú se despliega al
+hacer clic así, por ejemplo.
+
+00:18:08.050 --> 00:18:10.790
+Esta historia afroamericana
+se desplegaría al hacer clic
+
+00:18:10.790 --> 00:18:12.690
+sobre la
+historia afroamericana.
+
+00:18:14.640 --> 00:18:19.710
+Es posible que el usuario del lector de pantalla no
+sepa en absoluto qué sucedió.
+
+00:18:19.710 --> 00:18:23.340
+Si no tienes un
+estado expandido o contraído,
+
+00:18:24.360 --> 00:18:26.700
+Hacían clic en él
+y se desplegaba,
+
+00:18:26.700 --> 00:18:28.126
+pero no tendrían
+ninguna indicación
+
+00:18:28.127 --> 00:18:29.150
+que algo ha pasado.
+
+00:18:29.150 --> 00:18:32.090
+Pensarían que tal vez algo
+había salido mal y están
+
+00:18:32.090 --> 00:18:34.240
+en ningún lugar ahora.
+
+00:18:34.240 --> 00:18:35.290
+Eso podría ser problemático.
+
+00:18:36.360 --> 00:18:42.280
+Muy bien, una especie de barra lateral,
+la mejor práctica para los menús que he
+
+00:18:42.280 --> 00:18:49.510
+de decidir o encontrar es si tienen
+de cinco a siete elementos de menú,
+
+00:18:49.510 --> 00:18:51.490
+simplemente colóquenlos en el menú principal.
+
+00:18:51.490 --> 00:18:54.390
+No se preocupen por
+tener menús desplegables.
+
+00:18:54.390 --> 00:18:59.940
+Y eso es muy accesible
+porque entonces no tienen que
+
+00:18:59.940 --> 00:19:01.240
+preocuparse por aria-expanded.
+
+00:19:01.240 --> 00:19:03.870
+No tienen que preocuparse
+, ¿se entiende?
+
+00:19:03.870 --> 00:19:04.870
+¿No es así?
+
+00:19:05.690 --> 00:19:07.200
+Eso es genial.
+
+00:19:07.200 --> 00:19:13.140
+Pero si tienen entre 15 y 20 o
+más menús desplegables, y quieren,
+
+00:19:13.140 --> 00:19:16.530
+o 15 o 20 o más elementos que
+desea incluir en su menú,
+
+00:19:16.530 --> 00:19:19.600
+definitivamente quieren menús desplegables.
+
+00:19:19.600 --> 00:19:23.300
+Y deberán asegurarse de que
+el atributo aria-expanded esté allí
+
+00:19:23.300 --> 00:19:27.710
+para que el menú desplegable
+funcione para las personas.
+
+00:19:29.160 --> 00:19:29.900
+Está bien.
+
+00:19:29.900 --> 00:19:35.500
+Y aquí vamos con nuestra siguiente
+diapositiva evaluando los problemas.
+
+00:19:35.500 --> 00:19:36.500
+Entonces, la siguiente sección.
+
+00:19:38.620 --> 00:19:40.660
+Entonces, cómo evaluar.
+
+00:19:40.660 --> 00:19:45.630
+Entonces, si están trabajando en su
+página web o en la de otra persona,
+
+00:19:45.630 --> 00:19:50.670
+y quieren ver o
+evaluar si el menú
+
+00:19:50.670 --> 00:19:57.650
+lo que está ahí es accesible,
+bueno, usen un teclado.
+
+00:19:57.650 --> 00:19:58.650
+Empiecen de esa manera.
+
+00:19:59.490 --> 00:20:01.380
+Entonces van a presionar la pestaña.
+
+00:20:01.380 --> 00:20:04.510
+Van a pasar directamente
+al enlace de salto
+
+00:20:04.510 --> 00:20:07.230
+eso probablemente aparecerá
+primero o segundo.
+
+00:20:07.230 --> 00:20:10.560
+Entonces deberían poder
+acceder al menú real.
+
+00:20:10.560 --> 00:20:13.190
+Y van a
+empezar a navegar por él.
+
+00:20:13.190 --> 00:20:17.760
+Si llegan a un
+elemento del menú que es un menú desplegable,
+
+00:20:20.020 --> 00:20:23.680
+¿Cuando hacen clic en él,
+se despliega?
+
+00:20:23.680 --> 00:20:26.090
+Si no es así, tienen problemas.
+
+00:20:26.090 --> 00:20:28.540
+Y tendrán que
+descubrir cómo solucionarlo.
+
+00:20:28.540 --> 00:20:30.460
+Hablaremos sobre cómo
+solucionarlo en solo un minuto.
+
+00:20:30.460 --> 00:20:33.350
+Verán
+si el menú se despliega.
+
+00:20:33.350 --> 00:20:37.730
+Verán si hay
+alguna forma de hacer que se levante.
+
+00:20:37.730 --> 00:20:40.230
+A continuación, deberán evaluar
+con el lector de pantalla
+
+00:20:40.230 --> 00:20:45.070
+porque pueden usar la
+navegación de error estándar
+
+00:20:45.070 --> 00:20:47.550
+en el lector de pantalla para avanzar
+por el menú
+
+00:20:47.550 --> 00:20:51.890
+y escuchen a su lector de pantalla
+decir, contraído o expandido,
+
+00:20:51.890 --> 00:20:56.170
+lo que les indica
+que tienen el colapso
+
+00:20:56.170 --> 00:20:59.320
+o el atributo expandido de Aria
+como debe ser.
+
+00:21:01.890 --> 00:21:05.580
+Y finalmente,
+probablemente quieran inspeccionar.
+
+00:21:05.580 --> 00:21:12.120
+Utilicen el inspector de su navegador
+para inspeccionar un elemento.
+
+00:21:12.120 --> 00:21:14.850
+Echemos un vistazo más de cerca a esto.
+
+00:21:16.740 --> 00:21:21.620
+Bien, si lo inspeccionaran
+, esto está usando Chrome,
+
+00:21:21.620 --> 00:21:25.790
+pero Firefox y los otros navegadores
+suelen ser bastante similares.
+
+00:21:26.900 --> 00:21:31.590
+Entonces colocarían el puntero sobre
+el elemento que lo hace desplegarse.
+
+00:21:31.590 --> 00:21:35.000
+Harían clic derecho
+y elegirían inspeccionar,
+
+00:21:35.000 --> 00:21:37.390
+lo que abriría el
+inspector de elementos aquí.
+
+00:21:37.390 --> 00:21:45.390
+Lo que se busca es asegurarse
+de que el menú se despliegue.
+
+00:21:45.720 --> 00:21:48.910
+y que el atributo aria-expanded
+está ahí.
+
+00:21:48.910 --> 00:21:52.240
+Están buscando ver
+aquí en este elemento
+
+00:21:52.240 --> 00:21:54.270
+si existe esta
+aria-expanded es igual a verdadera.
+
+00:21:55.780 --> 00:22:00.440
+Como pueden ver aquí,
+no fue así inicialmente,
+
+00:22:00.440 --> 00:22:03.290
+pero remediaré BlackPast
+para que tenga
+
+00:22:03.290 --> 00:22:05.430
+el aria-expanded igual a true.
+
+00:22:05.430 --> 00:22:08.380
+Y como pueden ver un poco
+más abajo en esta siguiente,
+
+00:22:08.380 --> 00:22:11.590
+historia global afroamericana
+, ese elemento del menú,
+
+00:22:11.590 --> 00:22:16.560
+que también es un menú desplegable,
+tiene el aria-expanded igual a falso.
+
+00:22:16.560 --> 00:22:24.560
+Deberán asegurarse de que cuando aparezca el
+elemento del menú Historia africana global
+
+00:22:24.830 --> 00:22:27.010
+muestre que estos dos se intercambian.
+
+00:22:27.010 --> 00:22:30.680
+Entonces, el primero
+diría aria-expanded false
+
+00:22:30.680 --> 00:22:32.860
+y el segundo
+diría aria-expanded true.
+
+00:22:32.860 --> 00:22:40.520
+Si eso funciona, eres
+Oro, al menos en este aspecto.
+
+00:22:40.520 --> 00:22:43.660
+Eso es bueno.
+
+00:22:43.660 --> 00:22:44.660
+Está bien.
+
+00:22:46.750 --> 00:22:54.750
+Para prepararme para esta charla,
+revisé 15 sitios temáticos
+
+00:22:56.450 --> 00:22:57.850
+de temas de WordPress.
+
+00:22:57.850 --> 00:23:01.520
+Entonces revisé y
+fui a los temas populares.
+
+00:23:01.520 --> 00:23:06.650
+y traté de encontrar sitios que
+se crearon con esos temas
+
+00:23:06.650 --> 00:23:13.130
+y los evalué para ver si
+tenían alguno de estos tres problemas
+
+00:23:13.130 --> 00:23:14.470
+y esto es lo que encontré.
+
+00:23:14.470 --> 00:23:16.800
+Y luego también miré
+otros cinco grandes,
+
+00:23:16.800 --> 00:23:19.930
+Google y mucho
+más.
+
+00:23:19.930 --> 00:23:21.710
+Y esto es lo que encontré.
+
+00:23:22.970 --> 00:23:28.550
+De estos 20 sitios web,
+la mala noticia es que nueve de cada 20
+
+00:23:28.550 --> 00:23:31.480
+de ellos no se enfocaron.
+
+00:23:31.480 --> 00:23:33.030
+Solo se cayeron al volar.
+
+00:23:34.150 --> 00:23:39.980
+Una vez más, esto será
+malo para los navegadores de teclado.
+
+00:23:39.980 --> 00:23:41.670
+Primero conseguí algunos
+usuarios de lectores de pantalla.
+
+00:23:43.330 --> 00:23:45.590
+Y eso es casi la mitad de ellos.
+
+00:23:45.590 --> 00:23:52.750
+Entonces hay una gran cantidad de
+sitios que no funcionaron muy bien.
+
+00:23:52.750 --> 00:24:00.750
+De los que perdieron
+el foco, siete de ellos,
+
+00:24:02.340 --> 00:24:06.280
+así que 7 de 11
+no tenían forma de volver a abrir el menú.
+
+00:24:06.280 --> 00:24:07.870
+Así que, una vez más,
+eso también será un problema.
+
+00:24:09.120 --> 00:24:15.410
+Y luego, de estos 20 sitios web, 15 de
+ellos no tenían ningún atributo ampliado con aria.
+
+00:24:18.360 --> 00:24:24.940
+Muy pobre para los usuarios de lectores de pantalla.
+
+00:24:24.940 --> 00:24:29.790
+La buena noticia es que hubo cuatro
+sitios que funcionaron perfectamente.
+
+00:24:29.790 --> 00:24:36.640
+Google tenía menús desplegables muy limitados,
+pero el que tenía funcionó.
+
+00:24:36.640 --> 00:24:37.660
+Merriam-Webster.
+
+00:24:38.670 --> 00:24:40.430
+Entonces esos eran
+sitios de la industria.
+
+00:24:40.430 --> 00:24:43.560
+No sé si probablemente
+no estén construidos
+
+00:24:43.560 --> 00:24:45.460
+con WordPress, pero funcionaron.
+
+00:24:47.620 --> 00:24:52.060
+Y el
+sitio de demostración de Elementor también funcionó perfectamente.
+
+00:24:52.060 --> 00:24:53.820
+No tuvo ningún problema.
+
+00:24:53.820 --> 00:24:57.620
+Y el sitio de demostración del tema Astra
+funcionó perfectamente.
+
+00:24:57.620 --> 00:25:00.690
+Entonces hay algo de esperanza.
+
+00:25:02.010 --> 00:25:03.010
+Se puede hacer.
+
+00:25:04.410 --> 00:25:08.840
+Están ahí,
+los sitios que funcionan bien.
+
+00:25:08.840 --> 00:25:16.840
+Pero la mayoría de los sitios, al menos los que miré
+, no funcionaron como deseaba.
+
+00:25:19.090 --> 00:25:27.090
+Entonces, ¿qué soluciones pueden
+implementar en su menú de WordPress?
+
+00:25:29.380 --> 00:25:30.250
+Echémosle un vistazo.
+
+00:25:30.250 --> 00:25:34.040
+Bueno, pueden hacer
+alguna corrección de PHP.
+
+00:25:35.100 --> 00:25:39.750
+Y lo que querrán hacer
+es entrar
+
+00:25:39.750 --> 00:25:46.210
+y modifica la clase Navwalker
+que encontrarás en PHP.
+
+00:25:47.540 --> 00:25:55.540
+Y aquí tengo una imagen de una
+captura de pantalla de este Walker_Nav_Menu
+
+00:25:57.740 --> 00:25:59.860
+en algún código PHP.
+
+00:25:59.860 --> 00:26:02.820
+Es complicado, es confuso.
+
+00:26:03.970 --> 00:26:08.540
+Y así es, aunque probablemente sea la
+mejor solución porque está...
+
+00:26:08.540 --> 00:26:12.640
+en el corazón del
+problema, probablemente también
+
+00:26:12.640 --> 00:26:18.310
+más allá de lo que el desarrollador promedio de WordPress
+es capaz de hacer.
+
+00:26:18.310 --> 00:26:21.570
+Y definitivamente está más allá del
+alcance de esta presentación.
+
+00:26:23.090 --> 00:26:28.670
+Entonces, si quieren hacerlo
+, tengo un enlace aquí.
+
+00:26:28.670 --> 00:26:34.110
+Te invitamos a seguir
+los documentos de WordPress que hablan
+
+00:26:34.110 --> 00:26:35.700
+sobre este Walker_Nav_Menu.
+
+00:26:38.260 --> 00:26:41.860
+Hay maneras de
+cambiarlo por completo.
+
+00:26:41.860 --> 00:26:49.400
+No he encontrado ningún código al que puedan
+reemplazar ni instrucciones.
+
+00:26:49.400 --> 00:26:53.930
+sobre cómo hacerlo para asegurarse
+de que está cambiando su menú
+
+00:26:53.930 --> 00:26:56.366
+para que sea realmente
+accesible,
+
+00:26:56.367 --> 00:26:59.240
+pero presumiblemente hay una manera
+de hacerlo.
+
+00:27:01.880 --> 00:27:03.410
+Pero veamos
+otras soluciones.
+
+00:27:03.410 --> 00:27:07.930
+que probablemente sean más
+útiles para usted.
+
+00:27:08.990 --> 00:27:14.650
+Entonces, la solución para el
+menú desplegable solo al pasar el mouse.
+
+00:27:14.650 --> 00:27:19.120
+Entonces, si solo baja cuando
+pasan el mouse, generalmente pueden solucionarlo.
+
+00:27:19.120 --> 00:27:20.860
+con solo un poco de corrección de CSS.
+
+00:27:22.600 --> 00:27:25.480
+Entonces, agregar algo
+a la hoja de estilo.
+
+00:27:25.480 --> 00:27:29.310
+Así que se asegurarán de que
+el menú se muestre enfocado.
+
+00:27:33.780 --> 00:27:41.780
+Entonces inspeccionarán un elemento y
+luego mirarán aquí
+
+00:27:42.080 --> 00:27:44.750
+en el estilo en este
+estado del primer elemento, van
+
+00:27:44.750 --> 00:27:47.690
+a hacer clic en el cursor y descubrirán
+cuál
+
+00:27:47.690 --> 00:27:55.300
+de estos elementos en realidad hace que
+al pasar el mouse sobre ellos se desplieguen.
+
+00:27:55.300 --> 00:27:58.180
+Y así, al hacer clic
+y quitar el clic, con diferentes elementos 
+
+00:27:58.180 --> 00:28:01.470
+Seleccionados coloquen el cursor 
+aquí sobre el inspector,
+
+00:28:03.650 --> 00:28:07.160
+descubrirán cuál de
+ellos activa el menú desplegable.
+
+00:28:07.160 --> 00:28:12.690
+Luego pueden desplazarse hacia abajo en
+las reglas aquí para descubrirlo.
+
+00:28:12.690 --> 00:28:16.540
+qué está cambiando, averigüen en qué parte de
+la hoja de estilo lo está cambiando.
+
+00:28:16.540 --> 00:28:20.670
+Y luego, si simplemente agreguen una
+declaración de desplazamiento a eso,
+
+00:28:20.670 --> 00:28:28.010
+agregue una declaración de foco a la
+declaración de desplazamiento que ya está allí.
+
+00:28:31.320 --> 00:28:33.740
+Entonces déjenme ver si
+tengo todas mis cosas.
+
+00:28:33.740 --> 00:28:36.960
+Use las herramientas de desarrollo del navegador,
+agréguele una declaración de foco,
+
+00:28:36.960 --> 00:28:39.430
+y deberían conseguirlo.
+
+00:28:39.430 --> 00:28:40.910
+Bien, siguiente.
+
+00:28:42.010 --> 00:28:48.860
+Para el aria-expanded que falta,
+van a necesitar
+
+00:28:48.860 --> 00:28:51.410
+realizar alguna corrección de JavaScript.
+
+00:28:51.410 --> 00:28:56.590
+Entonces, usen JavaScript para modificar
+los atributos aria adecuados,
+
+00:28:56.590 --> 00:28:59.740
+lo que agrega algo de peso
+al tiempo de carga de su sitio.
+
+00:28:59.740 --> 00:29:03.860
+Entonces, cada vez que agregan JavaScript,
+es un recurso más.
+
+00:29:03.860 --> 00:29:06.100
+y tardará un
+poco más.
+
+00:29:06.100 --> 00:29:14.100
+Eso es algo a tener en cuenta, pero si
+se trata de agregar esta habilidad esencial,
+
+00:29:14.340 --> 00:29:17.660
+definitivamente vale la pena.
+
+00:29:17.660 --> 00:29:20.730
+Esto sólo funciona si los visitantes tienen
+JavaScript habilitado en sus navegadores.
+
+00:29:20.730 --> 00:29:24.620
+Y el 1,2% de los usuarios de Internet
+no tienen JavaScript habilitado,
+
+00:29:24.620 --> 00:29:29.470
+que en realidad es una gran cantidad
+de visitantes, 62 millones al año,
+
+00:29:31.680 --> 00:29:34.240
+que no tienen
+JavaScript habilitado.
+
+00:29:34.240 --> 00:29:41.230
+Así que es algo con lo que tendrán
+que lidiar o aceptar,
+
+00:29:41.230 --> 00:29:45.570
+que no va a funcionar
+para todos, desafortunadamente.
+
+00:29:45.570 --> 00:29:50.900
+¿Pero cómo lo hacen si les
+falta este atributo expandido por aria?
+
+00:29:50.900 --> 00:29:53.480
+Bueno,
+tienen que seleccionar el elemento.
+
+00:29:53.480 --> 00:29:57.330
+Y tengo en el
+lado derecho de la pantalla, una imagen
+
+00:29:57.330 --> 00:30:04.630
+del sitio BlackPast con
+la consola JavaScript abierta.
+
+00:30:04.630 --> 00:30:10.160
+Pueden ver algunas de las
+cosas que escribí aquí.
+
+00:30:10.160 --> 00:30:13.780
+Pueden intentarlo primero en
+la consola de JavaScript.
+
+00:30:16.270 --> 00:30:20.260
+Y luego, si funciona allí,
+pueden agregarlo a un recurso,
+
+00:30:20.260 --> 00:30:22.310
+[Inaudible 30:27]
+
+00:30:22.310 --> 00:30:25.540
+Archivo JavaScript que se
+llama en todo el sitio.
+
+00:30:25.540 --> 00:30:33.010
+Pero tienes que seleccionar el elemento
+y luego usar el método de establecer atributos
+
+00:30:33.010 --> 00:30:38.860
+para configurar aria-expanded en
+false antes de que caiga
+
+00:30:38.860 --> 00:30:42.100
+y true cuando aparece.
+
+00:30:42.100 --> 00:30:44.620
+Vas a probar,
+probar y probar, en la consola,
+
+00:30:45.710 --> 00:30:48.330
+en un entorno de desarrollo,
+en el entorno en vivo.
+
+00:30:48.330 --> 00:30:51.850
+Asegúrense de que esto funcione
+como esperan.
+
+00:30:51.850 --> 00:30:53.570
+o que así lo desees.
+
+00:30:53.570 --> 00:31:00.290
+Muy bien,
+miremos un poco más de cerca cómo se ve esto.
+
+00:31:00.290 --> 00:31:05.990
+Entonces pueden ver el código que usé
+aquí o que probé en la consola.
+
+00:31:09.580 --> 00:31:12.770
+Pero además de configurar el
+atributo inicial aria-expanded
+
+00:31:12.770 --> 00:31:16.610
+de aria-expanded es igual a
+falso, también necesitarán
+
+00:31:16.610 --> 00:31:22.340
+para agregar un detector de eventos en el foco
+que establece el atributo aria-expanded
+
+00:31:22.340 --> 00:31:25.630
+a true y otro
+en el desenfoque.
+
+00:31:25.630 --> 00:31:29.390
+Otro detector de eventos en
+desenfoque que lo establece nuevamente como falso.
+
+00:31:29.390 --> 00:31:37.390
+Entonces, asegúrese de que el
+atributo aria-expanded se modifique dinámicamente
+
+00:31:40.430 --> 00:31:43.830
+sobre la marcha a medida que
+cambian los estados de este.
+
+00:31:46.060 --> 00:31:52.580
+Pueden hacer algo como esto,
+desplegar elementos, i.addEventListener
+
+00:31:53.970 --> 00:31:59.040
+en foco, y luego usar
+su función que agrega
+
+00:31:59.040 --> 00:32:02.510
+o quita el atributo adecuado.
+
+00:32:03.760 --> 00:32:08.570
+Esto es solo la punta del
+iceberg, no profundiza.
+
+00:32:08.570 --> 00:32:13.830
+cómo hacer JavaScript, pero
+probablemente ya sepas esa parte.
+
+00:32:13.830 --> 00:32:17.610
+Muy bien, hablemos de esta
+mejora que mencioné antes.
+
+00:32:18.800 --> 00:32:24.440
+de la navegación con las teclas de flecha.
+
+00:32:29.640 --> 00:32:34.430
+Si tiene menús desplegables...
+tengo una imagen
+
+00:32:34.430 --> 00:32:42.430
+del sitio BlackPass una vez más
+porque ha implementado esto.
+
+00:32:44.240 --> 00:32:49.710
+Verán que es una imagen
+de alguien en uno de los menús,
+
+00:32:49.710 --> 00:32:52.380
+pero hay un pequeño mensaje
+encima del menú que dice:
+
+00:32:52.380 --> 00:32:54.230
+use las teclas de flecha
+para navegar por el menú.
+
+00:32:54.230 --> 00:32:57.000
+Para ingresar a la página, usen la
+tecla de flecha derecha desde el último elemento del menú,
+
+00:32:57.000 --> 00:32:59.020
+o presione Escape en cualquier momento.
+
+00:32:59.020 --> 00:33:02.840
+Entonces, lo que
+hace la navegación con las teclas de flecha es permitir a los visitantes
+
+00:33:02.840 --> 00:33:05.750
+que acceden al menú para
+mover el foco por él
+
+00:33:05.750 --> 00:33:10.190
+con las teclas de flecha, lo que
+hace que no tengan
+
+00:33:10.190 --> 00:33:18.090
+Que preocuparse por tener una forma de
+recuperar el menú necesariamente,
+
+00:33:18.090 --> 00:33:22.680
+porque siempre pueden ir a
+la derecha, al siguiente menú.
+
+00:33:25.020 --> 00:33:26.250
+¿Cómo hacerlo?
+
+00:33:26.250 --> 00:33:28.167
+No es un proceso sencillo,
+
+00:33:28.168 --> 00:33:31.780
+pero básicamente agregan
+detectores de eventos de pulsación de teclas
+
+00:33:31.780 --> 00:33:35.410
+mientras el elemento del menú tiene
+el foco y ustedes presionan el foco,
+
+00:33:35.410 --> 00:33:41.830
+dependiendo de las pulsaciones de
+las teclas de flecha derecha e izquierda,
+
+00:33:41.830 --> 00:33:43.840
+empujan el foco hacia
+el elemento deseado.
+
+00:33:46.250 --> 00:33:51.370
+Por lo tanto, requiere JavaScript, con
+todas las advertencias que eso requiere.
+
+00:33:51.370 --> 00:33:55.130
+Sin embargo, es
+útil para los navegantes por teclado.
+
+00:33:56.150 --> 00:34:02.940
+No es necesariamente muy
+útil para todos los demás usuarios,
+
+00:34:02.940 --> 00:34:04.450
+como los usuarios de lectores de pantalla.
+
+00:34:04.450 --> 00:34:10.320
+Hay una manera de hacerlo funcionar,
+pero es un poco complicado.
+
+00:34:10.320 --> 00:34:12.800
+y puede que no
+les sea útil, pero no es problemático.
+
+00:34:12.800 --> 00:34:13.940
+a ellos tampoco.
+
+00:34:13.940 --> 00:34:19.200
+Entonces no bloquea su
+capacidad de al menos ir
+
+00:34:19.200 --> 00:34:22.250
+a través de todos estos
+elementos del menú si así lo desean.
+
+00:34:22.250 --> 00:34:30.250
+Simplemente lo hace más fácil para
+los navegantes de teclado y no lo empeora para los demás.
+
+00:34:31.990 --> 00:34:33.000
+Está bien.
+
+00:34:33.000 --> 00:34:38.530
+Entonces, diría que la manera más fácil de hacer esto
+es usar el complemento Crow's Nest,
+
+00:34:38.530 --> 00:34:45.130
+que está disponible en el
+directorio de complementos de WordPress.
+
+00:34:45.130 --> 00:34:48.650
+Y también tengo un código QR aquí.
+
+00:34:50.130 --> 00:34:56.520
+Es un complemento que habilita la
+navegación con teclas de flecha en los menús.
+
+00:34:56.520 --> 00:34:57.840
+Hay algunas advertencias.
+
+00:34:57.840 --> 00:35:05.840
+Este complemento solo funciona si el menú desplegable
+en foco ya está habilitado.
+
+00:35:07.240 --> 00:35:09.130
+Así que primero tienen que arreglar eso.
+
+00:35:09.130 --> 00:35:17.130
+Y luego configurarán este complemento
+apuntando a varios elementos,
+
+00:35:25.220 --> 00:35:32.330
+haciendo los estilos CSS que
+apuntarían a varios elementos.
+
+00:35:33.993 --> 00:35:35.063
+Está bien.
+
+00:35:35.190 --> 00:35:37.210
+Entonces pregunta.
+
+00:35:38.540 --> 00:35:42.950
+¿Recuerdan a esa persona en el lago que
+miramos en la primera diapositiva?
+
+00:35:42.950 --> 00:35:50.480
+¿No preferirían que el sujeto esté
+remando alrededor de su lago?
+
+00:35:50.480 --> 00:35:57.380
+Observen que este tipo está listo para quedarse
+, tiene sus aparejos de pesca,
+
+00:35:57.380 --> 00:36:02.040
+su caña de pescar
+y tiene estos remos.
+
+00:36:02.040 --> 00:36:06.370
+Y si puede remar por
+el sitio, se quedará.
+
+00:36:08.750 --> 00:36:12.820
+Eso es lo que quieren
+hacer con su navegación.
+
+00:36:12.820 --> 00:36:15.420
+Denles a sus visitantes
+las paletas adecuadas,
+
+00:36:15.421 --> 00:36:24.110
+la forma de moverse por su sitio
+y permanecerán más tiempo.
+
+00:36:24.110 --> 00:36:29.550
+Así que debes asegurarte de que
+su menú esté enfocado
+
+00:36:29.550 --> 00:36:30.550
+Y que fluya.
+
+00:36:31.240 --> 00:36:35.140
+Hagan esto agregando o ajustando
+su CSS para agregar un activador de enfoque
+
+00:36:35.140 --> 00:36:38.520
+a los estilos de desplazamiento
+que hacen que eso suceda.
+
+00:36:38.520 --> 00:36:41.380
+Asegúrense de que su menú tenga
+un mecanismo para absorber el contenido,
+
+00:36:42.940 --> 00:36:45.220
+para
+usuarios de teclado y lector de pantalla.
+
+00:36:45.220 --> 00:36:48.780
+Entonces, cuando bajen,
+querrán que tenga una forma de subir.
+
+00:36:48.780 --> 00:36:52.220
+o, de lo contrario, recorrerán
+toda la lista desplegable,
+
+00:36:52.220 --> 00:36:55.370
+lo cual no es genial
+si es extenso.
+
+00:36:56.810 --> 00:36:59.960
+O pueden agregar
+navegación con teclas de flecha como hemos hablado.
+
+00:37:01.460 --> 00:37:05.480
+Asegúrense de que su menú tenga
+los atributos de aria adecuados
+
+00:37:05.480 --> 00:37:10.450 
+para que los lectores de pantalla y sus usuarios
+puedan entenderlo.
+
+00:37:12.850 --> 00:37:15.720
+Esa es la conclusión final.
+
+00:37:17.210 --> 00:37:20.470
+Si necesitan un poco de ayuda adicional
+con su menú, conectémonos.
+
+00:37:20.470 --> 00:37:26.550
+Allí tengo mi enlace de LinkedIn, 
+mi dirección de correo electrónico.
+
+00:37:26.550 --> 00:37:32.230
+Entonces, si notan que su menú
+no funciona como necesitan
+
+00:37:32.230 --> 00:37:34.800
+avisenme.
+
+00:37:34.800 --> 00:37:36.510
+Llámenme y hablamos.
+
+00:37:39.330 --> 00:37:39.590
+Está bien.
+
+00:37:39.590 --> 00:37:44.620
+Y supongo que eso es todo lo que tengo.
+
+00:37:44.620 --> 00:37:45.630
+JOOST: Gracias, Deneb.
+
+00:37:45.630 --> 00:37:48.720
+Eso fue excelente en realidad.
+
+00:37:48.720 --> 00:37:51.520
+Si pudieras dejar de compartir tu
+pantalla y así la gente podría 
+
+00:37:51.520 --> 00:37:52.710
+verte un poco mejor.
+
+00:37:54.150 --> 00:37:56.700
+Tenemos un montón de preguntas
+que resolver, lo cual es bueno.
+
+00:37:56.700 --> 00:38:04.240
+Así que intentaré repasarlas
+Un poco en orden.
+
+00:38:04.240 --> 00:38:06.160
+mientras hacías
+tu presentación.
+
+00:38:07.270 --> 00:38:11.290
+Hablaste sobre la cantidad de
+tabulaciones y puedo entenderlo perfectamente.
+
+00:38:11.290 --> 00:38:15.070
+por qué 87 tabulaciones para llegar
+a algún lugar es un poco excesivo.
+
+00:38:17.230 --> 00:38:21.210
+¿Qué número recomendarías como
+aceptable?
+
+00:38:22.300 --> 00:38:26.680
+DENEB: Sí, he pensado
+bastante en esto.
+
+00:38:26.680 --> 00:38:31.500
+porque hice este complemento
+y entonces tengo que decidir, bueno,
+
+00:38:31.500 --> 00:38:35.900
+¿Vale la pena instalar este
+complemento en varios sitios de clientes?
+
+00:38:35.900 --> 00:38:43.900
+Así que decidí que si un menú
+tiene quizás seis menús desplegables como elementos,
+
+00:38:49.550 --> 00:38:52.080
+principales del menú principal.
+
+00:38:52.080 --> 00:38:59.700
+Pero si están en 15
+elementos del submenú, entonces probablemente sea...
+
+00:38:59.700 --> 00:39:03.270
+dónde empiezo
+a pensar, OK, sí, tenemos
+
+00:39:03.270 --> 00:39:05.230
+que habilitar esta
+navegación con las teclas de flecha.
+
+00:39:06.910 --> 00:39:09.150
+Pero esa es mi opinión personal.
+
+00:39:09.150 --> 00:39:12.630
+JOOST: Bueno, no,
+pero es un buen número para empezar.
+
+00:39:12.630 --> 00:39:18.830
+Puedo entender cómo se
+llega a ese rango de números.
+
+00:39:18.830 --> 00:39:21.750
+Bien, para todos los que escuchan,
+si tienen sus propias preguntas,
+
+00:39:21.750 --> 00:39:23.900
+observen la parte inferior
+de la pantalla de Zoom.
+
+00:39:23.900 --> 00:39:27.280
+Hay un botón de preguntas y respuestas allí,
+pueden agregar sus propias preguntas.
+
+00:39:27.280 --> 00:39:30.200
+Eso hace que sea mucho más fácil
+para mí ver sus preguntas.
+
+00:39:30.200 --> 00:39:32.930
+y repasarlos
+con Deneb.
+
+00:39:32.930 --> 00:39:36.460
+Acabamos de responder la primera
+, pero aún no hemos terminado.
+
+00:39:36.460 --> 00:39:40.670
+Andrea Fertia, una ex colega
+mía, muy querida para mí,
+
+00:39:40.670 --> 00:39:44.450
+en realidad estaba preguntando, ¿qué herramienta
+usaste para contar las tabulaciones?
+
+00:39:44.450 --> 00:39:44.910
+¿en el menú?
+
+00:39:44.910 --> 00:39:46.190
+DENEB: Oh, sí.
+
+00:39:47.260 --> 00:39:48.690
+Déjame ver.
+
+00:39:48.690 --> 00:39:51.710
+Lo abriré para poder
+Recordar cual es.
+
+00:39:54.460 --> 00:39:54.990
+¿cuál fue?
+
+00:39:55.991 --> 00:39:56.660
+JOOST: ¿Sabes qué?
+
+00:39:56.660 --> 00:39:59.840
+Podrás compartir
+ese enlace más adelante.
+
+00:39:59.840 --> 00:40:03.990
+en el
+día de accesibilidad de WordPress Slack.
+
+00:40:03.990 --> 00:40:05.880
+DENEB: Lo pondré en Slack.
+
+00:40:05.880 --> 00:40:07.860
+Lo buscaré y
+lo pondré en Slack seguro.
+
+00:40:07.860 --> 00:40:08.790
+JOOST: Perfecto.
+
+00:40:08.790 --> 00:40:09.790
+Muchas gracias.
+
+00:40:10.800 --> 00:40:14.440
+Yolan pregunta
+si JavaScript básico es una buena manera.
+
+00:40:14.440 --> 00:40:17.360
+¿Cómo modificar el menú de navegación
+en lo que respecta a las pestañas?
+
+00:40:18.680 --> 00:40:28.400
+DENEB: Bueno, como lo 
+mencioné, la mejor manera es
+
+00:40:28.400 --> 00:40:36.530
+cambiar todo el menú
+con PHP para hacer esa clase NavWalker.
+
+00:40:38.810 --> 00:40:45.930
+Sin embargo, creo que la capacidad técnica
+necesaria para hacerlo de esa manera,
+
+00:40:45.930 --> 00:40:51.510
+es mucho más sustancial que
+cambiarlo con JavaScript.
+
+00:40:51.510 --> 00:40:59.150
+Y aunque no es
+bueno ser dependiente
+
+00:40:59.150 --> 00:41:06.440
+en un servicio del lado del cliente como
+JavaScript que podría deshabilitarse
+
+00:41:06.440 --> 00:41:10.190
+en los navegadores de las personas,
+aunque eso no es genial,
+
+00:41:10.190 --> 00:41:16.930
+Creo que vale la pena
+y es mejor que nada.
+
+00:41:16.930 --> 00:41:19.770
+Particularmente si en su
+declaración de accesibilidad dice, ya sabe,
+
+00:41:19.770 --> 00:41:25.860
+hay algunos...
+De hecho, podrían mencionar su menú,
+
+00:41:25.860 --> 00:41:29.640
+díganlo en la
+declaración de accesibilidad y mencionen:
+
+00:41:29.640 --> 00:41:32.950
+Oye, nuestro menú funciona mejor si
+tienes JavaScript habilitado.
+
+00:41:32.950 --> 00:41:36.150
+o simplemente ponga eso en general en su
+declaración de accesibilidad en algún lugar
+
+00:41:36.150 --> 00:41:40.080
+o el sitio funciona mejor
+entonces al menos lo saben, oh,
+
+00:41:40.080 --> 00:41:43.250
+Si quiero la mejor experiencia,
+puedo habilitar JavaScript,
+
+00:41:43.250 --> 00:41:45.610
+aunque normalmente no suelo
+necesitarlo, quizá por este lado,
+
+00:41:45.610 --> 00:41:46.610
+Lo tendré.
+
+00:41:48.100 --> 00:41:53.050
+JOOST: Y tu corrección de PHP,
+mencionaste que lleva demasiado lejos
+
+00:41:53.050 --> 00:41:55.770
+esta presentación,
+lo cual entiendo.
+
+00:41:55.770 --> 00:41:59.040
+Pero, ¿crees que eso es
+algo que realmente debería hacerse?
+
+00:41:59.040 --> 00:42:00.040
+en el núcleo de WordPress?
+
+00:42:03.580 --> 00:42:09.470
+DENEB: Según tengo entendido, cada tema
+pone su propio menú de navegación.
+
+00:42:14.240 --> 00:42:18.650
+con su propia clase PHP NavWalker.
+
+00:42:18.650 --> 00:42:21.060 
+JOOST: En su mayor parte, no
+deberían.
+
+00:42:21.860 --> 00:42:25.440
+DENEB: Sería útil
+si WordPress pusiera
+
+00:42:25.440 --> 00:42:31.890
+como un código de ejemplo
+totalmente accesible,
+
+00:42:31.890 --> 00:42:38.190
+o algo con lo que los desarrolladores
+podrían comenzar como base.
+
+00:42:39.620 --> 00:42:45.260
+Pero no sé mucho
+sobre ese lado de las cosas.
+
+00:42:45.260 --> 00:42:47.360
+JOOST: No, eso está absolutamente bien.
+
+00:42:47.360 --> 00:42:51.200
+En realidad estaba hablando con nuestro
+técnico, Jonathan Vossinger,
+
+00:42:51.200 --> 00:42:53.760
+sobre, oye,
+¿no debería estar esto en el core?
+
+00:42:53.760 --> 00:42:57.790
+Echaremos un vistazo después de esto,
+como ¿dónde debería implementarse ?
+
+00:42:57.790 --> 00:43:01.410
+Creo que hay bastantes personas
+escuchando que pueden tener opiniones.
+
+00:43:01.410 --> 00:43:06.000
+sobre eso, pero tal vez podamos hacer
+esto un poco mejor para todos
+
+00:43:06.000 --> 00:43:08.600
+y un poco más fácil porque
+estoy completamente de acuerdo contigo.
+
+00:43:08.600 --> 00:43:11.610
+Si la gente tiene que empezar a escribir
+clases NavWalker,
+
+00:43:11.610 --> 00:43:14.810
+eso es demasiado
+para la mayoría de las cosas.
+
+00:43:17.530 --> 00:43:20.830
+Otra pregunta de Karen Suika.
+
+00:43:20.830 --> 00:43:23.750
+Karen, no sé cómo
+pronunciar tu nombre, Karen, lo siento.
+
+00:43:25.350 --> 00:43:28.440
+¿Has probado el
+tema estándar actual 2023?
+
+00:43:28.440 --> 00:43:31.040
+¿Y tienes alguna
+experiencia con eso?
+
+00:43:31.040 --> 00:43:32.150
+DENEB: No, no lo he hecho.
+
+00:43:32.150 --> 00:43:33.980
+Esa fue una de
+las que no hice.
+
+00:43:33.980 --> 00:43:39.220
+De hecho, si ven mi presentación,
+pueden hacer clic en ese gráfico.
+
+00:43:39.220 --> 00:43:42.880
+y los llevará
+a la hoja de cálculo.
+
+00:43:42.880 --> 00:43:47.620
+que utilicé y que enumera todos
+los que probé.
+
+00:43:47.620 --> 00:43:49.670
+Pero ese no era uno de ellos.
+
+00:43:49.670 --> 00:43:52.550
+Ciertamente me interesaría.
+
+00:43:52.550 --> 00:43:59.620
+Si tienes curiosidad, contáctame
+o envíame esa solicitud por Slack.
+
+00:43:59.620 --> 00:44:02.700
+Y definitivamente estaría
+interesado en revisar eso.
+
+00:44:03.460 --> 00:44:06.210
+JOOST: Sí, definitivamente también deberíamos
+mirar el nuevo tema predeterminado
+
+00:44:06.210 --> 00:44:12.150
+que se está desarrollando para WordPress para ver
+, oye, ¿lo está haciendo bien?
+
+00:44:12.150 --> 00:44:16.220
+Creo que es bueno
+pensar en ello.
+
+00:44:16.220 --> 00:44:19.190
+Leah Roots pregunta:
+¿Tienes alguna recomendación
+
+00:44:19.190 --> 00:44:23.246 
+Para
+diseños de mega menú accesibles o complementos de ese tipo?
+
+00:44:25.800 --> 00:44:28.050
+DENEB: No lo sé.
+
+00:44:30.311 --> 00:44:40.640
+sé que, como dije, uno de
+los temas, supongo que era un tema.
+
+00:44:41.060 --> 00:44:45.000
+Era el
+tema Hello Elementor, pero con Elementor,
+
+00:44:45.000 --> 00:44:46.950
+Sé que tienen
+todo tipo de cosas.
+
+00:44:46.950 --> 00:44:52.200
+Entonces sé que su
+tema predeterminado funcionó perfectamente.
+
+00:44:53.610 --> 00:44:54.690
+Entonces su tema de demostración sería.
+
+00:44:54.690 --> 00:44:57.290
+Eso
+me indicaría que probablemente
+
+00:44:57.290 --> 00:45:02.780
+si tienen una opción de mega menú
+, probablemente funcionará,
+
+00:45:02.780 --> 00:45:06.950
+pero no lo he probado.
+
+00:45:06.950 --> 00:45:11.340
+Pero ahora, después de haber terminado
+mi presentación, ya sabes,
+
+00:45:11.340 --> 00:45:15.960
+tienes las diapositivas y demás, estás
+capacitado para probarlo tú mismo.
+
+00:45:15.960 --> 00:45:21.620
+O contáctame en LinkedIn o por
+correo electrónico o en Slack o lo que sea.
+
+00:45:21.620 --> 00:45:23.950
+Y lo repasaré contigo.
+
+00:45:25.390 --> 00:45:25.990
+JOOST: Perfecto.
+
+00:45:25.990 --> 00:45:27.500
+Es una gran oferta.
+
+00:45:27.500 --> 00:45:31.140
+Definitivamente aceptaría
+eso si fuera alguna de estas personas.
+
+00:45:32.240 --> 00:45:34.770
+La última pregunta que
+tengo abierta actualmente, si tiene alguna más,
+
+00:45:34.770 --> 00:45:38.180
+no duden en agregarlas
+, es de Jerry Ong.
+
+00:45:38.180 --> 00:45:41.500
+¿Cuál es tu opinión sobre
+la accesibilidad de los megamenús?
+
+00:45:41.500 --> 00:45:45.840
+que podría tener menús desplegables con
+diseños y contenidos variados?
+
+00:45:45.840 --> 00:45:49.660
+¿Evitar mega menús o simplemente aplicar
+las mismas técnicas de accesibilidad?
+
+00:45:52.900 --> 00:45:56.150
+DENEB: Como que no soy un
+gran admirador de los mega menús.
+
+00:45:58.030 --> 00:46:01.200
+Sin embargo, creo que están bien.
+
+00:46:02.440 --> 00:46:06.130
+Si te aseguras de que eviten
+esos tres problemas
+
+00:46:06.130 --> 00:46:11.000
+De los que hablé,
+los usuarios de lectores de pantalla podrían lograr
+
+00:46:11.000 --> 00:46:18.700
+entrar en ellos y recorrerlos.
+
+00:46:18.700 --> 00:46:21.090
+Los usuarios de teclado también lo harían,
+siempre que haya una manera
+
+00:46:21.090 --> 00:46:23.640
+para absorber ese mega menú.
+
+00:46:25.030 --> 00:46:32.430
+Si haces una pestaña de usuario de teclado
+a lo largo de esta amplia gama
+
+00:46:32.430 --> 00:46:38.010
+de opciones en el mega menú,
+va a ser un poco problemático.
+
+00:46:38.010 --> 00:46:44.980
+Y esa no es una
+característica de gran usabilidad, que es una de las razones
+
+00:46:44.980 --> 00:46:47.320
+por la qué no me gustan
+demasiado los Mega Menús.
+
+00:46:49.450 --> 00:46:54.580
+Pero mientras se
+muestre cuando está expandido,
+
+00:46:54.580 --> 00:46:58.570
+siempre y cuando puedas
+entrar con solo tener
+
+00:46:58.570 --> 00:47:03.210
+y no necesariamente
+tener que pasar el cursor sobre él,
+
+00:47:03.210 --> 00:47:05.270
+entonces creo que los mega menús pueden estar bien.
+
+00:47:06.300 --> 00:47:08.160
+JOOST: Sí, claro.
+
+00:47:08.160 --> 00:47:12.440
+Otro asistente anónimo
+pregunta: ¿qué pasa con los menús en el móvil?
+
+00:47:12.440 --> 00:47:14.340
+Todos los ejemplos compartidos
+fueron para computadoras de escritorio.
+
+00:47:14.340 --> 00:47:15.620
+¿Hay alguna diferencia?
+
+00:47:15.620 --> 00:47:18.630
+¿Eso cambia la
+perspectiva sobre esto?
+
+00:47:19.293 --> 00:47:24.310
+DENEB: eso es
+algo que debería haber mencionado.
+
+00:47:24.310 --> 00:47:25.070
+en la presentación.
+
+00:47:25.070 --> 00:47:29.370
+Debe asegurarse de que
+su menú funcione tanto en el escritorio
+
+00:47:29.370 --> 00:47:36.550
+y móviles para
+navegadores de teclado y lectores de pantalla
+
+00:47:36.550 --> 00:47:38.800
+porque es diferente.
+
+00:47:38.800 --> 00:47:44.360
+Normalmente, el menú de su dispositivo móvil
+tendría un único menú desplegable.
+
+00:47:44.360 --> 00:47:50.420
+Quiero decir, es el
+botón de hamburguesa en el que haces clic,
+
+00:47:50.420 --> 00:47:52.770
+y eso desplegaría el menú.
+
+00:47:52.770 --> 00:47:56.000
+Pero aún así debes
+asegurarte de que tenga
+
+00:47:56.000 --> 00:48:03.350
+el atributo Aria-expanded adecuado
+y que puede funcionar
+
+00:48:03.350 --> 00:48:07.660
+en el enfoque del teclado, porque
+a veces la gente va a estar,
+
+00:48:07.660 --> 00:48:12.090
+en un navegador muy estrecho
+y es posible que
+
+00:48:12.090 --> 00:48:13.930
+sigan usando su
+teclado para navegar.
+
+00:48:13.930 --> 00:48:17.980
+Por lo tanto, también
+debes revisar el menú móvil.
+
+00:48:17.980 --> 00:48:21.490
+Así que apliquen los mismos estándares para asegurarse
+de que el menú móvil funcione
+
+00:48:21.490 --> 00:48:22.610
+también.
+
+00:48:22.610 --> 00:48:24.120
+JOOST: Claro.
+
+00:48:24.120 --> 00:48:26.930
+Bueno, con eso, hemos llegado
+al final de nuestras preguntas,
+
+00:48:26.930 --> 00:48:28.370
+y por tanto el final de esta sesión.
+
+00:48:28.370 --> 00:48:32.610
+Gracias de nuevo, Deneb,
+por tu excelente presentación.
+
+00:48:32.610 --> 00:48:36.530
+Gracias a todos por asistir a esta
+sesión con Deneb Pulsipher.
+
+00:48:36.530 --> 00:48:39.050
+Pueden
+ continuar la
+conversación en el chat
+
+00:48:39.050 --> 00:48:47.050
+o en las redes sociales usando
+#WPA11Yday o #WPAD2023.
+
+00:48:47.090 --> 00:48:48.840
+También
+te agradeceríamos mucho que fueras.
+
+00:48:48.840 --> 00:48:52.600
+al sitio web WPAcessibilityDay
+para brindar comentarios anónimos
+
+00:48:52.600 --> 00:48:56.000
+a nuestros ponentes para que puedan
+aprender lo que hicieron bien
+
+00:48:56.000 --> 00:48:57.940
+y qué pueden
+hacer mejor la próxima vez.
+
+00:48:57.940 --> 00:49:01.530
+Y mientras estés allí podrás
+participar para ganar una camiseta.
+
+00:49:01.530 --> 00:49:03.740
+Estén atentos para una guía práctica
+
+00:49:03.741 --> 00:49:06.710
+a la accesibilidad automatizada
+a continuación
+
+00:49:06.710 --> 00:49:12.090
+con Mark Steadman en el punto
+en punto, que son las 11 a. m. UTC.
+
+00:49:12.090 --> 00:49:15.440
+Y mientras esperas, no
+olvides visitar nuestras páginas de patrocinadores.
+
+00:49:15.440 --> 00:49:20.720
+para obtener obsequios virtuales y participar para
+tener la oportunidad de ganar grandes premios.
+
+00:49:20.720 --> 00:49:22.820
+Te veremos
+justo después del rastrillo.
+
+00:49:22.820 --> 00:49:24.390
+Que tengas un excelente
+Día de Accesibilidad de WordPress.
+
+00:49:30.064 --> 00:49:34.160
+ÁMBAR: Gracias a
+los patrocinadores del Día de la Accesibilidad de WordPress 2023.
+
+00:49:34.710 --> 00:49:37.530
+Patrocinador platino: Equalize Digital.
+
+00:49:37.530 --> 00:49:40.320
+Complemento Comprobador de accesibilidad
+de Equalize Digital
+
+00:49:40.320 --> 00:49:43.070
+es una
+herramienta de escaneo de accesibilidad automatizada
+
+00:49:43.070 --> 00:49:46.260
+que ayuda a que los sitios web de WordPress
+sean y permanezcan accesibles.
+
+00:49:47.510 --> 00:49:50.380
+Patrocinador Platino, Gravity Forms.
+
+00:49:50.380 --> 00:49:53.990
+Gravity Forms es el
+creador de formularios profesional que necesitan
+
+00:49:53.990 --> 00:49:58.710
+para crear
+formas hermosas, poderosas y accesibles.
+
+00:49:58.710 --> 00:50:04.115
+Patrocinadores Gold, 20i, DQ,
+Empire Caption Solutions,
+
+00:50:04.116 --> 00:50:06.710
+Precibel y WP Engine.
+
+00:50:08.360 --> 00:50:15.240
+Patrocinadores Plata: Code Geek, Drake
+Cooper, GoDaddy, LoneRock Point,
+
+00:50:15.240 --> 00:50:20.460
+NerdPress, sitio web nocturno
+de KineticIris, Riola Networks,
+
+00:50:21.770 --> 00:50:24.740
+A11y Collective y Blogsmith.
+
+00:50:26.610 --> 00:50:31.960
+Patrocinadores de bronce: ExcessaCart,
+Green Geeks Web Hosting,
+
+00:50:31.960 --> 00:50:39.960
+Análisis de Hall Consultoría SEO,
+HDC, ITX, Ivy Cat, Metabox,
+
+00:50:43.770 --> 00:50:48.690
+Pixel chefs, simplemente programa
+citas, sitio de tierra,
+
+00:50:48.691 --> 00:50:53.910
+Termageddon, subrepresentado
+en tecnología, Weglot y Yoast.

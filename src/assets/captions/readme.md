@@ -86,6 +86,7 @@ No translations yet.
 10. Alt Text in the Age of Automation: How's it Actually Going?
    	- Spanish; Lucy Fonseca
 11. Immersive Audio Description
+   	- Spanish; Luz Zuniga
 12. A Recipe for an Accessible Accordion Block
 	- Italian; Alice Orru
 13. Plot a course!: Creating Accessible SVG Charts in WordPress

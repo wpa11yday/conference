@@ -222,6 +222,45 @@ function wpcs_register_post_types() {
 			'rest_base'       => 'drafts',
 		)
 	);
+
+	// Media Partner post type labels.
+	$mediapartnerslabels = array(
+		'name'               => __( 'Media Partners', 'wpa-conference' ),
+		'singular_name'      => __( 'Media Partner', 'wpa-conference' ),
+		'add_new'            => __( 'Add New', 'wpa-conference' ),
+		'add_new_item'       => __( 'Create New Media Partner', 'wpa-conference' ),
+		'edit'               => __( 'Edit', 'wpa-conference' ),
+		'edit_item'          => __( 'Edit Media Partner', 'wpa-conference' ),
+		'new_item'           => __( 'New Media Partner', 'wpa-conference' ),
+		'view'               => __( 'View Media Partner', 'wpa-conference' ),
+		'view_item'          => __( 'View Media Partner', 'wpa-conference' ),
+		'search_items'       => __( 'Search Media Partners', 'wpa-conference' ),
+		'not_found'          => __( 'No Media Partners found', 'wpa-conference' ),
+		'not_found_in_trash' => __( 'No Media Partners found in Trash', 'wpa-conference' )
+	);
+
+	// Media Partner sponsor post type.
+	register_post_type(
+		'wpcsp_media_partner',
+		array(
+			'labels'          => $mediapartnerslabels,
+			'rewrite'         => array(
+				'slug'       => 'media-partner',
+				'with_front' => false,
+			),
+			'supports'        => array( 'title', 'editor', 'revisions', 'thumbnail' ),
+			'menu_position'   => 23,
+			'public'          => true,
+			'show_ui'         => true,
+			'can_export'      => true,
+			'capability_type' => 'post',
+			'hierarchical'    => false,
+			'query_var'       => true,
+			'menu_icon'       => 'dashicons-networking',
+			'show_in_rest'    => true,
+			'rest_base'       => 'media-partner',
+		)
+	);
 }
 
 add_action( 'gettext', 'wpcs_change_title_text' );
@@ -333,6 +372,9 @@ function wpcsp_set_single_template( $single_template ) {
 	}
 	if ( 'wpcsp_sponsor' === $post->post_type ) {
 		$single_template = WPCS_DIR . '/templates/sponsor-template.php';
+	}
+	if ( 'wpcsp_media_partner' === $post->post_type ) {
+		$single_template = WPCS_DIR . '/templates/media-partner-template.php';
 	}
 	return $single_template;
 }

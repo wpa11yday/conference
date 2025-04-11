@@ -236,7 +236,7 @@ function wpcs_register_post_types() {
 		'view_item'          => __( 'View Media Partner', 'wpa-conference' ),
 		'search_items'       => __( 'Search Media Partners', 'wpa-conference' ),
 		'not_found'          => __( 'No Media Partners found', 'wpa-conference' ),
-		'not_found_in_trash' => __( 'No Media Partners found in Trash', 'wpa-conference' )
+		'not_found_in_trash' => __( 'No Media Partners found in Trash', 'wpa-conference' ),
 	);
 
 	// Media Partner sponsor post type.

@@ -1238,6 +1238,7 @@ $ac_pro_plugin_basename  = plugin_basename( __FILE__ );
  */
 add_action( 'wp_enqueue_scripts', 'wpcsp_pro_enqueue_styles' );
 add_action( 'cmb2_admin_init', 'wpcsp_speaker_metabox' );
+add_action( 'cmb2_admin_init', 'wpcsp_media_partner_metabox' );
 add_action( 'cmb2_admin_init', 'wpcsp_donor_metabox' );
 add_action( 'cmb2_admin_init', 'wpcsp_sponsor_metabox' );
 add_action( 'cmb2_admin_init', 'wpcsp_sponsor_level_metabox' );
@@ -1473,6 +1474,105 @@ function wpcsp_donor_metabox() {
 			'name' => __( 'Twitter/X Handle (Must include @ symbol)', 'wpa-conference' ),
 			'id'   => 'wpcsp_donor_twitter',
 			'type' => 'text',
+		)
+	);
+}
+
+/**
+ * Generate media partner metaboxes.
+ *
+ * @return void
+ */
+function wpcsp_media_partner_metabox() {
+
+	$cmb = new_cmb2_box(
+		array(
+			'id'           => 'wpcsp_media_partner_metabox',
+			'title'        => __( 'Media Partner Information', 'wpa-conference' ),
+			'object_types' => array( 'wpcsp_media_partner' ), // Post type.
+			'context'      => 'normal',
+			'priority'     => 'high',
+			'show_names'   => true, // Show field names on the left.
+		)
+	);
+
+	// Website URL.
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Website URL', 'wpa-conference' ),
+			'id'        => 'wpcsp_website_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
+		)
+	);
+
+	// Instagram URL.
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Instagram URL', 'wpa-conference' ),
+			'id'        => 'wpcsp_instagram_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
+		)
+	);
+
+	// Facebook URL.
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Facebook URL', 'wpa-conference' ),
+			'id'        => 'wpcsp_facebook_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
+		)
+	);
+
+	// Linkedin URL.
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Linkedin URL', 'wpa-conference' ),
+			'id'        => 'wpcsp_linkedin_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
+		)
+	);
+
+	// YouTube URL.
+	$cmb->add_field(
+		array(
+			'name'      => __( 'YouTube URL', 'wpa-conference' ),
+			'id'        => 'wpcsp_youtube_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
+		)
+	);
+
+	// Bluesky URL.
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Bluesky URL', 'wpa-conference' ),
+			'id'        => 'wpcsp_bluesky_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
+		)
+	);
+
+	// Threads URL.
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Threads URL', 'wpa-conference' ),
+			'id'        => 'wpcsp_threads_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
+		)
+	);
+
+	// Twitter URL.
+	$cmb->add_field(
+		array(
+			'name'      => __( 'Twitter URL', 'wpa-conference' ),
+			'id'        => 'wpcsp_twitter_url',
+			'type'      => 'text_url',
+			'protocols' => array( 'http', 'https' ), // Array of allowed protocols.
 		)
 	);
 }

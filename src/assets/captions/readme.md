@@ -113,6 +113,7 @@ No translations yet.
  	- Hebrew; Liron Milstein	
   	- Malay; Nicolas Y Z W
 22. How to Code for Keyboard Access in WordPress
+  	- Spanish; Debora Ermel
 23. Building an Accessible Theme for Accessible First Sites
 24. Understanding Color and Contrast Requirements in WCAG 2
     	- Spanish; Diana Córdoba Gómez

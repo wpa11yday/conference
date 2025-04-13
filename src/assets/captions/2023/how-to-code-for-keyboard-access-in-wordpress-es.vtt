@@ -1,0 +1,2671 @@
+WEBVTT
+
+00:00:01.127 --> 00:00:05.090
+AMBER HINDS:
+Día de la Accesibilidad de WordPress 2023.
+
+00:00:05.090 --> 00:00:10.860
+Cómo codificar para el acceso al teclado en WordPress
+con la oradora Priti Rohra,
+
+00:00:10.860 --> 00:00:14.230
+Directora de Accesibilidad
+en Barrier Break.
+
+00:00:14.230 --> 00:00:17.920
+Esta presentación se
+grabó el 28 de septiembre de 2023.
+
+00:00:20.576 --> 00:00:21.390
+JASON FERRARA: Muy bien.
+
+00:00:21.390 --> 00:00:22.930
+Bueno, hola a todos.
+
+00:00:22.930 --> 00:00:26.350
+Bienvenido al
+Día de la Accesibilidad de WordPress 2023.
+
+00:00:26.350 --> 00:00:27.700
+Mi nombre es Jason Ferrara.
+
+00:00:27.700 --> 00:00:31.020
+En mi trabajo diario, soy el
+responsable de accesibilidad para productos de consumo
+
+00:00:31.020 --> 00:00:32.350
+en Dow Jones.
+
+00:00:32.350 --> 00:00:35.210
+Pero por hoy, seré su anfitrión.
+
+00:00:35.210 --> 00:00:40.340
+Gracias a todos los que están
+en esta sala por acompañarnos
+
+00:00:40.340 --> 00:00:43.900
+cómo codificar para el acceso al teclado
+en WordPress con Priti Rohra.
+
+00:00:43.900 --> 00:00:46.870
+Un poco de información sobre Priti.
+
+00:00:46.870 --> 00:00:50.750
+Priti es una veterana en el
+campo de la accesibilidad digital.
+
+00:00:50.750 --> 00:00:52.930
+Como persona con baja
+visión, ingresó
+
+00:00:52.930 --> 00:00:56.100
+al mundo de la accesibilidad digital hace 20 años para asegurar
+
+00:00:56.100 --> 00:01:00.010
+que se incluyera la perspectiva
+de las personas con discapacidades visuales
+
+00:01:00.010 --> 00:01:02.280
+y que se atendieran sus necesidades tecnológicas.
+
+00:01:02.280 --> 00:01:05.250
+Luego, desarrolló un gran
+interés en descubrir cómo las personas
+
+00:01:05.250 --> 00:01:08.010
+con otros tipos de discapacidades
+acceden a los contenidos digitales
+
+00:01:08.010 --> 00:01:11.180
+y cuáles son las opciones tecnológicas disponibles para ellas.
+
+00:01:11.180 --> 00:01:13.230
+Esta iniciativa impulsó su camino en la accesibilidad
+
+00:01:13.230 --> 00:01:17.340
+y la ayudó a convertirse en una estudiante apasionada
+en el área de accesibilidad digital.
+
+00:01:17.340 --> 00:01:20.630
+Priti también trabajó con el equipo en
+la redacción de la política nacional de la India
+
+00:01:20.630 --> 00:01:23.810
+para tecnología de comunicación electrónica y de información.
+
+00:01:23.810 --> 00:01:25.360
+Creo que lo dije bien.
+
+00:01:25.360 --> 00:01:27.960
+Y a lo largo de su carrera,
+ha sido mentora
+
+00:01:27.960 --> 00:01:30.790
+de numerosos ingenieros de pruebas de accesibilidad, desarrolladores
+
+00:01:30.790 --> 00:01:32.280
+y expertos en la materia.
+
+00:01:33.360 --> 00:01:36.670
+Un último detalle antes de cederte la palabra, Priti.
+
+00:01:36.670 --> 00:01:39.434
+Asistentes, no duden
+en agregar sus preguntas
+
+00:01:39.435 --> 00:01:40.760
+en la sección de preguntas y respuestas de Zoom
+
+00:01:40.760 --> 00:01:43.410
+y las responderemos al
+final de la sesión.
+
+00:01:43.410 --> 00:01:45.620
+Utilice el chat para conectarse
+con otros asistentes
+
+00:01:45.620 --> 00:01:48.440
+y de esa manera la sesión de preguntas y respuestas será
+el lugar más fácil para nosotros
+
+00:01:48.440 --> 00:01:51.840
+para encontrar las preguntas
+después de la sesión.
+
+00:01:51.840 --> 00:01:54.240
+Y con eso, Priti,
+te paso la palabra.
+
+00:01:54.982 --> 00:01:57.610
+PRITI ROHRA: Gracias, Jason,
+primero que nada, por la presentación.
+
+00:01:57.610 --> 00:02:00.110
+Solo me gustaría agregar algo a eso.
+
+00:02:00.110 --> 00:02:02.504
+Soy una persona usuaria nativa de lector de pantalla,
+
+00:02:02.505 --> 00:02:05.550
+y tengo una discapacidad visual.
+
+00:02:05.550 --> 00:02:07.040
+Tengo baja visión.
+
+00:02:07.040 --> 00:02:11.070
+Así que, si alguien levanta la mano,
+es posible que no lo vea
+
+00:02:11.070 --> 00:02:15.350
+pero como bien dijo Jason,
+pueden compartir sus preguntas en el chat
+
+00:02:15.350 --> 00:02:18.980
+y con gusto las responderé
+al final de la sesión.
+
+00:02:20.240 --> 00:02:25.420
+Así que hoy estoy aquí para hablar sobre
+cómo codificar para el acceso al teclado
+
+00:02:25.420 --> 00:02:26.420
+en WordPress.
+
+00:02:27.650 --> 00:02:32.900
+A lo largo de la sesión,
+hablaremos sobre diferentes técnicas
+
+00:02:32.900 --> 00:02:35.570
+para garantizar el acceso por teclado.
+
+00:02:35.570 --> 00:02:37.600
+¿Cuáles son los diferentes grupos de usuarios?
+
+00:02:37.600 --> 00:02:39.810
+¿Quién se beneficiará de eso?
+
+00:02:39.810 --> 00:02:45.860
+Y cuáles son los consejos y trucos que
+he aprendido a lo largo de los años.
+
+00:02:45.860 --> 00:02:50.000
+Estoy encantada de compartirlos con todos
+ustedes para asegurar que la accesibilidad
+
+00:02:51.230 --> 00:02:56.210
+se implemente correctamente
+para todos los grupos de usuarios.
+
+00:02:58.040 --> 00:03:02.820
+Entonces, antes de entrar en
+el tema de hoy, me gustaría hablar un poco
+
+00:03:02.820 --> 00:03:04.810
+sobre mi empresa.
+
+00:03:04.810 --> 00:03:08.340
+Trabajo como directora de accesibilidad
+en BarrierBreak.
+
+00:03:09.590 --> 00:03:12.490
+Y cuento con la certificación IWAPCBW.
+
+00:03:13.760 --> 00:03:18.410
+BarrierBreak es líder
+y pionero en el campo
+
+00:03:18.410 --> 00:03:20.900
+de accesibilidad digital en la India.
+
+00:03:20.900 --> 00:03:26.010
+Comenzamos la conversación en
+India, ya sabes, bajo la guía
+
+00:03:26.010 --> 00:03:30.030
+de Shilpi Kapoor,
+quien es la directora ejecutiva de BarrierBreak
+
+00:03:30.030 --> 00:03:31.050
+hace más de dos décadas.
+
+00:03:32.140 --> 00:03:35.870
+En aquel entonces, no había muchos oídos dispuestos a escuchar,
+
+00:03:35.870 --> 00:03:39.630
+pero con los años, la conversación
+
+00:03:39.630 --> 00:03:41.600
+sobre accesibilidad digital ha evolucionado.
+
+00:03:41.600 --> 00:03:43.850
+Y ese es el caso en la India.
+
+00:03:43.850 --> 00:03:49.400
+Entonces, sabes,
+llevamos más de 18 años en este campo,
+
+00:03:49.400 --> 00:03:50.400
+casi dos décadas.
+
+00:03:52.260 --> 00:03:56.020
+Prestamos servicios a clientes
+en 14 países alrededor del mundo
+
+00:03:56.020 --> 00:04:01.160
+y atendemos a diferentes tipos de
+clientes, desde tecnología hasta gobierno,
+
+00:04:01.160 --> 00:04:04.730
+fintech, salud,
+seguros, y más.
+
+00:04:07.940 --> 00:04:11.830
+En BarrierBreak, creemos
+en un enfoque centrado en las personas.
+
+00:04:11.830 --> 00:04:15.510
+Las personas con discapacidad
+son parte de la conversación
+
+00:04:15.510 --> 00:04:17.120
+y de las soluciones.
+
+00:04:17.120 --> 00:04:21.020
+Por eso, cuando hacemos
+pruebas de accesibilidad, desarrollo accesible,
+
+00:04:21.020 --> 00:04:22.311
+remediación de documentos,
+
+00:04:22.312 --> 00:04:25.630
+todos los diferentes servicios
+que ofrece BarrierBreak,
+
+00:04:25.630 --> 00:04:31.010
+tenemos personas con discapacidad
+que son parte de estas soluciones.
+
+00:04:32.200 --> 00:04:37.990
+Esto garantiza que elaboraremos
+recomendaciones prácticas
+
+00:04:37.990 --> 00:04:42.670
+que no solo ayudan a nuestros clientes a cumplir
+con los requisitos de conformidad
+
+00:04:42.670 --> 00:04:45.554
+pero también asegúrese de que
+la experiencia del usuario
+
+00:04:45.555 --> 00:04:48.720
+para personas con discapacidad está
+a la altura.
+
+00:04:50.860 --> 00:04:55.910
+Tenemos personas con discapacidades
+como parte de nuestro equipo,
+
+00:04:55.910 --> 00:05:01.840
+donde entre el 40% y el 50% de nuestro personal
+
+00:05:01.840 --> 00:05:04.120
+son personas con discapacidades vividas.
+
+00:05:04.120 --> 00:05:10.930
+En total, somos un equipo de más de 270
+profesionales de accesibilidad
+
+00:05:10.930 --> 00:05:13.720
+con base en Mumbai, India.
+
+00:05:15.650 --> 00:05:19.620
+Además, trabajamos en un modelo híbrido y remoto,
+
+00:05:19.620 --> 00:05:27.210
+lo que nos permite adaptarnos a distintos husos horarios
+
+00:05:27.210 --> 00:05:33.170
+ya sea en Estados Unidos, Canadá, Europa y otras regiones del mundo.
+
+00:05:35.110 --> 00:05:40.120
+Así que vayamos directo al
+tema de hoy, que es cómo codificar
+
+00:05:40.120 --> 00:05:42.420
+para el acceso al teclado en WordPress.
+
+00:05:42.420 --> 00:05:43.830
+¿Qué vamos a cubrir aquí?
+
+00:05:45.250 --> 00:05:48.620
+Vamos a hablar sobre,
+¿Cuál es la importancia
+
+00:05:48.620 --> 00:05:51.660
+de accesibilidad del teclado?
+En resumen.
+
+00:05:51.660 --> 00:05:55.940
+Comprenderemos los desafíos que
+enfrentarán las personas que navegan con el teclado
+
+00:05:55.940 --> 00:05:57.330
+en la web.
+
+00:05:57.330 --> 00:06:02.350
+Cómo implementar
+el acceso al teclado a través de la navegación,
+
+00:06:02.350 --> 00:06:07.840
+visibilidad de enfoque,
+orden de tabulación, operatividad del teclado,
+
+00:06:07.840 --> 00:06:10.720
+y lo más importante,
+la gestión del enfoque.
+
+00:06:10.720 --> 00:06:15.310
+Por último,
+veremos cómo evaluar y poner a prueba
+
+00:06:15.310 --> 00:06:16.450
+para acceso al teclado.
+
+00:06:19.540 --> 00:06:23.630
+Comenzando con la importancia
+de la accesibilidad del teclado.
+
+00:06:23.630 --> 00:06:28.790
+La accesibilidad del teclado es
+importante por diferentes motivos.
+
+00:06:30.210 --> 00:06:33.480
+Todos usamos el teclado
+de una forma u otra
+
+00:06:33.481 --> 00:06:35.050
+en nuestra vida cotidiana.
+
+00:06:36.460 --> 00:06:40.990
+Obviamente, mientras navega por la
+web o trabaja en la computadora.
+
+00:06:42.550 --> 00:06:45.870
+Pero es una necesidad para
+las personas con discapacidad,
+
+00:06:45.870 --> 00:06:49.790
+Las personas con discapacidades motoras o visuales,
+
+00:06:49.790 --> 00:06:54.680
+dependen del teclado como su principal medio
+
+00:06:54.680 --> 00:06:56.300
+para interactuar con sus computadoras.
+
+00:06:58.530 --> 00:07:01.960
+No solo las personas con
+discapacidad visual y de movilidad,
+
+00:07:01.960 --> 00:07:09.630
+el teclado es muy importante
+también para los usuarios avanzados que quieren
+
+00:07:09.630 --> 00:07:14.320
+completar tareas de manera más rápida y eficiente.
+
+00:07:14.320 --> 00:07:16.920
+Por lo general, dependen del teclado.
+
+00:07:16.920 --> 00:07:20.540
+Y también puede ayudar a alguien
+cuyo mouse dejó de funcionar,
+
+00:07:20.540 --> 00:07:22.680
+lo que sería una discapacidad situacional.
+
+00:07:22.680 --> 00:07:24.790
+En ese caso, el teclado resulta muy útil.
+
+00:07:24.790 --> 00:07:29.220
+Todo esto sería posible
+si diseñamos nuestras soluciones,
+
+00:07:29.220 --> 00:07:35.160
+con el acceso por teclado en mente.
+
+00:07:35.160 --> 00:07:39.690
+Garantizamos que las personas puedan completar formularios,
+
+00:07:39.690 --> 00:07:41.990
+navegar e interactuar con elementos usando un teclado.
+
+00:07:41.990 --> 00:07:47.340
+¿Y qué
+aporta la implementación de accesibilidad del teclado?
+
+00:07:47.340 --> 00:07:52.590
+Como ventaja añadida,
+garantiza que cuando habilitamos
+
+00:07:52.590 --> 00:07:57.700
+el acceso mediante el teclado, la compatibilidad
+con otras tecnologías de asistencia
+
+00:07:57.700 --> 00:08:00.590
+también esté asegurada.
+
+00:08:00.590 --> 00:08:05.230
+Cosas como compatibilidad para
+sistemas de reconocimiento de voz,
+
+00:08:05.230 --> 00:08:08.210
+compatibilidad para dispositivos de control de interruptores.
+
+00:08:08.210 --> 00:08:11.980
+Si sus elementos, sus interacciones
+son accesibles mediante el teclado,
+
+00:08:11.980 --> 00:08:16.350
+las personas que utilizan estas
+tecnologías de asistencia también se beneficiarían
+
+00:08:16.350 --> 00:08:17.350
+del mismo.
+
+00:08:20.410 --> 00:08:26.130
+Además de los desafíos que
+generalmente enfrentan las personas que usan un teclado,
+
+00:08:26.130 --> 00:08:31.480
+en la web, no todos los elementos
+pueden ser navegados con un teclado.
+
+00:08:31.480 --> 00:08:37.240
+Menús, información sobre herramientas, controles deslizantes..
+no se pueden interactuar con el teclado.
+
+00:08:37.240 --> 00:08:40.510
+Sólo están programados
+para funcionar con un ratón.
+
+00:08:40.510 --> 00:08:43.310
+Si no puedo acceder a
+un menú con un teclado,
+
+00:08:43.310 --> 00:08:46.580
+¿Cómo se supone que puedo acceder
+a las diferentes listas de productos
+
+00:08:46.580 --> 00:08:48.250
+que están disponibles
+en el menú de productos?
+
+00:08:51.280 --> 00:08:55.135
+Otros problemas comunes que
+las personas pueden enfrentar
+
+00:08:55.136 --> 00:08:56.420
+usando un teclado:
+
+00:08:57.820 --> 00:09:01.580
+Pueden navegar a elementos en
+algunas partes, pero no pueden ver
+
+00:09:01.580 --> 00:09:02.440
+dónde están.
+
+00:09:02.440 --> 00:09:04.280
+El foco del teclado no es visible.
+
+00:09:05.370 --> 00:09:08.390
+Cuando están navegando
+por diferentes elementos,
+
+00:09:08.390 --> 00:09:10.120
+el orden de enfoque no es lógico.
+
+00:09:11.330 --> 00:09:15.920
+Estos son problemas bastante antiguos
+si lo pensamos bien.
+
+00:09:15.920 --> 00:09:19.950
+Ya existían cuando comenzaron las conversaciones
+
+00:09:19.950 --> 00:09:22.610
+sobre accesibilidad web con WCAG 1.0.
+
+00:09:22.610 --> 00:09:27.440
+Pero créanme, siguen existiendo incluso hoy en día.
+
+00:09:28.620 --> 00:09:30.860
+El enfoque no se gestiona correctamente.
+
+00:09:30.860 --> 00:09:33.990
+El enfoque se mueve a elementos no interactivos.
+
+00:09:33.990 --> 00:09:37.220
+Estos son algunos de los problemas que
+las personas generalmente enfrentan
+
+00:09:38.480 --> 00:09:42.050
+cuando navegan por
+la web usando un teclado.
+
+00:09:46.170 --> 00:09:51.430
+Entonces, cuando se trata de WordPress,
+la accesibilidad es [Inaudible 09:50].
+
+00:09:51.430 --> 00:09:55.890
+Hay soporte para agregar
+texto alternativo para imágenes.
+
+00:09:55.890 --> 00:10:01.110
+Hay soporte para acceder a los
+paneles de administración usando atajos de teclado.
+
+00:10:01.110 --> 00:10:06.550
+Incluso yo puedo controlar mi sitio web
+usando un lector de pantalla e interactuar
+
+00:10:06.550 --> 00:10:10.410
+con el panel de administración y diferentes
+controles y configurar los ajustes.
+
+00:10:11.440 --> 00:10:14.410
+Desde la perspectiva del desarrollo web,
+
+00:10:14.410 --> 00:10:16.750
+Hay muchos
+temas de accesibilidad disponibles,
+
+00:10:16.750 --> 00:10:22.870
+que pueden utilizarse para
+crear sitios web accesibles.
+
+00:10:22.870 --> 00:10:28.190
+Y hay muchas extensiones de accesibilidad
+disponibles para ayudar a garantizar
+
+00:10:28.190 --> 00:10:33.920
+que podemos probar la accesibilidad,
+así como codificar diferentes elementos,
+
+00:10:33.920 --> 00:10:37.120
+todo a través de estos complementos.
+
+00:10:37.120 --> 00:10:44.820
+No entraremos en detalles sobre los
+temas y extensiones porque,
+
+00:10:44.820 --> 00:10:48.250
+Como todos sabemos, hay muchísimos
+disponibles.
+
+00:10:48.250 --> 00:10:54.050
+Y cada uno de ellos tiene sus
+propias ventajas y beneficios.
+
+00:10:55.940 --> 00:11:03.940
+Por lo tanto, nos enfocaremos en las prácticas y técnicas
+
+00:11:04.270 --> 00:11:07.140
+que son necesarias para
+implementar el acceso mediante teclado.
+
+00:11:08.690 --> 00:11:14.070
+Y las cinco áreas diferentes que cubriremos
+son: navegación con el teclado,
+
+00:11:15.140 --> 00:11:20.310
+visibilidad de enfoque, orden lógico de tabulación,
+operatividad del teclado,
+
+00:11:20.310 --> 00:11:21.920
+la gestión del enfoque.
+
+00:11:25.020 --> 00:11:28.720
+El mantra del éxito para
+implementar el acceso al teclado
+
+00:11:28.720 --> 00:11:34.180
+en la web
+es utilizar elementos nativos de HTML.
+
+00:11:34.180 --> 00:11:36.360
+El acceso al teclado está integrado.
+
+00:11:37.410 --> 00:11:37.890
+Bien,
+
+00:11:37.890 --> 00:11:43.280
+Navegación, operatividad,
+visibilidad de enfoque, todo está cubierto.
+
+00:11:44.940 --> 00:11:49.800
+Pero tú y yo sabemos que
+no siempre es posible
+
+00:11:49.800 --> 00:11:51.920
+utilizar solo el marcado HTML nativo.
+
+00:11:51.920 --> 00:11:56.450
+En ciertos casos, necesitamos utilizar
+
+00:11:56.450 --> 00:11:59.080
+componentes personalizados.
+
+00:11:59.080 --> 00:12:02.170
+Así que vamos a analizar cada una de estas áreas en detalle.
+
+00:12:04.650 --> 00:12:07.350
+Comencemos con la navegación con el teclado.
+
+00:12:09.710 --> 00:12:14.170
+Navegación con el teclado,
+hay algunos aspectos fundamentales
+
+00:12:14.170 --> 00:12:18.940
+que debemos tener en cuenta.
+
+00:12:21.390 --> 00:12:24.690
+Todos los elementos deben ser
+navegables con un teclado.
+
+00:12:24.690 --> 00:12:29.320
+Ya sea usando la tecla Tab, usando la
+tecla Mayús tab o usando las teclas de flecha.
+
+00:12:29.320 --> 00:12:33.590
+Sí, diferentes componentes
+requieren diferentes interacciones.
+
+00:12:33.590 --> 00:12:38.180
+Veremos esos detalles más adelante cuando
+hablemos de la operatividad del teclado
+
+00:12:38.180 --> 00:12:39.460
+y gestión del enfoque.
+
+00:12:41.140 --> 00:12:44.960
+Cuando decimos que todos los elementos deben
+ser navegables con un teclado,
+
+00:12:44.960 --> 00:12:48.940
+nos referimos a que debemos poder acceder a los menús, submenús,
+
+00:12:48.940 --> 00:12:50.020
+incluso la información sobre herramientas.
+
+00:12:51.270 --> 00:12:54.170
+También elementos como los enlaces de salto.
+
+00:12:54.170 --> 00:12:58.120
+Uno debería poder
+navegar al contenido principal,
+
+00:12:58.120 --> 00:13:03.510
+a las secciones de navegación
+usando los enlaces de salto.
+
+00:13:03.510 --> 00:13:08.920
+Métodos de interacción estándar incluyen tabulación,
+tecla de desplazamiento, teclas de flecha, entre otros.
+
+00:13:10.990 --> 00:13:16.000
+Cuando los usuarios utilizan estas
+teclas, deben poder
+
+00:13:16.000 --> 00:13:19.510
+navegar a diferentes elementos.
+
+00:13:19.510 --> 00:13:23.410
+Para que esto suceda correctamente,
+existen ciertas técnicas
+
+00:13:23.410 --> 00:13:30.090
+que debemos tener en cuenta.
+
+00:13:30.090 --> 00:13:32.600
+En primer lugar,
+utilice elementos HTML nativos.
+
+00:13:33.920 --> 00:13:36.280
+En segundo lugar,
+cuando se utilizan componentes personalizados,
+
+00:13:36.280 --> 00:13:39.440
+asegúrate de que sean enfocables.
+
+00:13:39.440 --> 00:13:43.420
+Entonces, primero hablemos de
+los elementos HTML nativos.
+
+00:13:43.420 --> 00:13:49.300
+La etiqueta del botón, el elemento ancla,
+la etiqueta de entrada, los elementos seleccionados,
+
+00:13:49.300 --> 00:13:51.970
+área de texto, y otras más.
+
+00:13:51.970 --> 00:13:57.710
+Todos estos elementos, por defecto,
+pueden navegarse con el teclado.
+
+00:13:58.960 --> 00:14:03.400
+Como desarrolladores, no necesitamos
+hacer nada extra para asegurarnos
+
+00:14:03.400 --> 00:14:08.550
+de que estos elementos puedan ser
+navegados con un teclado.
+
+00:14:08.550 --> 00:14:13.040
+En el caso de una etiqueta de anclaje, asegúrese
+de definir el atributo href.
+
+00:14:16.650 --> 00:14:21.640
+La navegación predeterminada, se rompe cuando se especifica
+
+00:14:21.640 --> 00:14:25.936 
+o se especifica
+un valor de índice de tabulación negativo,
+
+00:14:25.937 --> 00:14:28.670
+o cuando se define un script
+
+00:14:28.670 --> 00:14:30.750
+que impide este comportamiento predeterminado
+
+00:14:30.750 --> 00:14:34.240
+en todos estos elementos
+relacionados con el foco de tabulación.
+
+00:14:34.240 --> 00:14:37.820
+De lo contrario, se pueden tabular
+y enfocar de forma predeterminada.
+
+00:14:38.960 --> 00:14:45.710
+Cuando se trata de componentes personalizados,
+debemos especificar el índice de la pestaña.
+
+00:14:46.950 --> 00:14:49.760
+Es importante cuando
+creamos un botón
+
+00:14:49.760 --> 00:14:55.000
+o un campo de entrada
+usando una etiqueta div o un span.
+
+00:14:55.000 --> 00:14:59.010
+Estos no reciben foco de tabulación
+por defecto.
+
+00:14:59.010 --> 00:15:04.000
+Necesitamos especificar
+tabindex cero para asegurarnos
+
+00:15:04.000 --> 00:15:05.970
+de que reciben el enfoque del teclado.
+
+00:15:07.120 --> 00:15:10.710
+Sí, el tabindex cero no es
+suficiente para un componente personalizado.
+
+00:15:10.710 --> 00:15:14.760
+Necesitamos hacer otras cosas también
+para hacerlos accesibles.
+
+00:15:14.760 --> 00:15:16.710
+Hablaremos de
+eso a medida que avancemos.
+
+00:15:19.380 --> 00:15:25.780
+Entonces, cuando navegamos
+por las páginas, surgen varios problemas
+
+00:15:25.780 --> 00:15:27.230
+que se ven por defecto.
+
+00:15:28.680 --> 00:15:31.440
+Tomemos un ejemplo con
+un enlace de salto.
+
+00:15:31.440 --> 00:15:35.640
+Cuando se añaden enlaces de salto en un sitio
+y los usuarios
+
+00:15:35.640 --> 00:15:41.700
+los navegan,
+esperan que al activarlos
+
+00:15:41.700 --> 00:15:44.180
+sean dirigidos directamente al contenido principal
+
+00:15:44.180 --> 00:15:45.860
+o a la sección de navegación.
+
+00:15:47.110 --> 00:15:53.450
+Pero lo que sucede en la mayoría de los casos
+es que la página se desplaza visualmente,
+
+00:15:53.450 --> 00:16:00.090
+pero programáticamente, el enfoque
+no se mueve a la sección correspondiente.
+
+00:16:00.090 --> 00:16:02.010
+¿Por qué sucede esto?
+
+00:16:02.010 --> 00:16:05.550
+Hay múltiples razones.
+
+00:16:05.550 --> 00:16:10.310
+Pueden ser los scripts
+o incluso el propio marcado HTML.
+
+00:16:10.310 --> 00:16:13.560
+Por eso es importante que,
+al activar el enlace
+
+00:16:13.560 --> 00:16:18.130
+el enlace de salto,
+presionemos Tab de nuevo
+
+00:16:18.130 --> 00:16:21.320
+para verificar
+si el enfoque realmente se mueve allí.
+
+00:16:21.320 --> 00:16:26.500
+Si no es así, es hora de
+depurar nuestro código y asegurarnos
+
+00:16:26.500 --> 00:16:34.500
+de que estamos definiendo correctamente el ID
+y el atributo href del marcador.
+
+00:16:36.090 --> 00:16:40.400
+Además, si hay algún script asociado
+
+00:16:40.400 --> 00:16:44.130
+con nuestros enlaces de salto,
+también debemos revisarlos.
+
+00:16:46.690 --> 00:16:52.510
+Aquí hay un ejemplo del
+sitio web BarrierBreak, en la navegación superior.
+
+00:16:53.550 --> 00:17:01.550
+En la sección Acerca de, la opción
+Trabajar con BarrierBreak está seleccionada.
+
+00:17:02.140 --> 00:17:06.590
+Todas estas opciones,
+tanto la navegación superior
+
+00:17:06.590 --> 00:17:10.380
+así como las opciones del submenú,
+son accesibles con tabulación
+
+00:17:10.380 --> 00:17:11.960
+y se pueden enfocar con el teclado.
+
+00:17:11.960 --> 00:17:14.520
+¿Qué hicimos? Nada complicado.
+
+00:17:15.750 --> 00:17:18.450
+Solo usamos marcado HTML básico.
+
+00:17:18.450 --> 00:17:22.290
+Sí, dado que estos son
+menús expandibles y plegables,
+
+00:17:22.290 --> 00:17:26.990
+Entonces JavaScript entra en
+juego para esa funcionalidad.
+
+00:17:26.990 --> 00:17:30.700
+De lo contrario,
+como muestra el código en la pantalla,
+
+00:17:30.700 --> 00:17:34.120
+hemos utilizado elementos de anclaje estándar,
+
+00:17:34.120 --> 00:17:40.750
+envueltos dentro de una lista desordenada
+con elementos de lista.
+
+00:17:40.750 --> 00:17:43.360
+Y tienen un
+atributo href válido.
+
+00:17:45.570 --> 00:17:47.920
+Simple, pero muy, muy efectivo.
+
+00:17:51.030 --> 00:17:53.920
+Después de la navegación con el teclado,
+lo siguiente que vamos
+
+00:17:53.920 --> 00:17:58.360
+a hablar es la visibilidad del enfoque,
+lo cual es muy importante.
+
+00:17:58.360 --> 00:18:02.310
+Como usuario del teclado,
+puedo navegar hasta un elemento,
+
+00:18:02.310 --> 00:18:04.900
+pero no puedo ver dónde estoy.
+
+00:18:04.900 --> 00:18:10.550
+Por eso es importante que el
+indicador de enfoque sea claramente visible.
+
+00:18:10.550 --> 00:18:15.490
+Eso ayuda a los usuarios a entender
+dónde están.
+
+00:18:15.490 --> 00:18:19.310
+Otras páginas están llenas de
+elementos interactivos: enlaces,
+
+00:18:19.310 --> 00:18:21.800
+menús, botones, formularios, etcétera.
+
+00:18:23.300 --> 00:18:28.020
+El indicador de enfoque ayuda a los usuarios
+a comprender dónde se encuentran.
+
+00:18:28.020 --> 00:18:31.440
+Son útiles para personas
+con discapacidades motoras,
+
+00:18:31.440 --> 00:18:35.560
+que dependen del teclado y
+es muy, muy importante para las personas
+
+00:18:35.560 --> 00:18:36.960
+con baja visión.
+
+00:18:38.170 --> 00:18:43.310
+La baja visión es un espectro.
+
+00:18:43.310 --> 00:18:48.210
+No todas las personas con baja visión,
+como yo, usan un lector de pantalla.
+
+00:18:48.210 --> 00:18:51.480
+Algunos usan un magnificador de pantalla,
+o algunos de ellos
+
+00:18:51.480 --> 00:18:54.240
+usan simplemente la
+opción de zoom del navegador.
+
+00:18:55.650 --> 00:18:58.230
+Para aquellos que
+miran la pantalla,
+
+00:18:58.230 --> 00:19:02.690
+que están viendo la información
+a través de sus pantallas,
+
+00:19:02.690 --> 00:19:05.900
+necesitarían saber
+dónde está el enfoque del teclado
+
+00:19:05.900 --> 00:19:08.990
+en cualquier momento dado.
+
+00:19:08.990 --> 00:19:14.470
+En ausencia de un
+indicador de enfoque visible, se sentirían perdidos
+
+00:19:14.470 --> 00:19:15.690
+en cuanto a su ubicación exacta.
+
+00:19:16.780 --> 00:19:23.500
+Ahora, para lograr esto, nuevamente,
+hay dos opciones.
+
+00:19:25.290 --> 00:19:29.060
+Por defecto, cada navegador
+proporciona un indicador de enfoque predeterminado
+
+00:19:29.060 --> 00:19:33.340
+para todos los elementos nativos,
+ya sean botones, enlaces, etcétera.
+
+00:19:35.170 --> 00:19:37.570
+No deshabilite el
+enfoque predeterminado del navegador.
+
+00:19:39.400 --> 00:19:44.520
+Si decides desactivarlo,
+porque lo encuentras aburrido,
+
+00:19:44.520 --> 00:19:49.160
+o sientes que no encaja bien
+con el diseño de tus páginas web,
+
+00:19:50.480 --> 00:19:57.930
+cuando diseñes clases de hover, asegúrate
+
+00:19:57.930 --> 00:20:00.820
+que las clases de enfoque
+también están definidas.
+
+00:20:00.820 --> 00:20:05.090
+Simplemente deshabilitando el
+el enfoque predeterminado del navegador
+
+00:20:05.090 --> 00:20:12.450
+y no definir la clase de enfoque para
+los elementos interactivos es muy,
+
+00:20:12.450 --> 00:20:18.440
+muy incómodo
+para los usuarios que solo usan el teclado.
+
+00:20:18.440 --> 00:20:22.490
+Así que asegúrate de que cuando estés
+definiendo tus pseudoclases
+
+00:20:22.490 --> 00:20:29.030
+a través de CSS para el cursor del ratón
+haga lo mismo para el foco también.
+
+00:20:29.030 --> 00:20:33.250
+Y CSS tiene muchas opciones
+para hacer esto posible.
+
+00:20:34.940 --> 00:20:36.990
+Cuando quieras hacerlo
+a través de pseudoclases,
+
+00:20:36.990 --> 00:20:42.240
+tienes la pseudoclase de enfoque,
+que es antigua pero sigue siendo efectiva,
+
+00:20:42.240 --> 00:20:47.060
+tienes el foco visible
+y el foco interior.
+
+00:20:47.060 --> 00:20:48.400
+Estas son las adiciones más recientes.
+
+00:20:49.680 --> 00:20:53.420
+O podría decir las últimas
+incorporaciones en las pseudoclases,
+
+00:20:53.420 --> 00:20:54.420
+que se puede utilizar.
+
+00:20:55.640 --> 00:20:57.780
+En cuanto a las diferentes propiedades CSS,
+
+00:20:57.780 --> 00:21:00.820
+podemos usar la
+propiedad de contorno opacidad
+
+00:21:01.940 --> 00:21:08.470
+y también la
+propiedad de desplazamiento del contorno.
+
+00:21:10.150 --> 00:21:16.050
+Asegúrate de que el contorno
+no esté configurado en cero.
+
+00:21:16.050 --> 00:21:20.300
+En la mayoría de las páginas web que
+auditamos vemos que las personas
+
+00:21:20.300 --> 00:21:24.190
+definen su contorno a cero.
+
+00:21:24.190 --> 00:21:27.940
+Esto deshabilitará el
+enfoque predeterminado del navegador
+
+00:21:27.940 --> 00:21:32.440
+y si no se especifica un enfoque personalizado,
+no será visible
+
+00:21:32.440 --> 00:21:34.190
+porque el valor del esquema es cero.
+
+00:21:34.190 --> 00:21:40.230
+Ese es uno de los
+errores de código CSS más comunes con los que nos topamos
+
+00:21:40.230 --> 00:21:42.860
+cuando revisamos una
+página para la visibilidad de enfoque.
+
+00:21:46.200 --> 00:21:50.540
+Definir una pseudoclase de enfoque no es suficiente.
+
+00:21:50.540 --> 00:21:53.720
+Además, debemos asegurarnos
+de cumplir con WCAG
+
+00:21:53.720 --> 00:21:58.620
+de que el enfoque tenga
+suficiente contraste.
+
+00:21:58.620 --> 00:22:06.000
+El requisito según el
+criterio de éxito 1.4.11 es de 3:1.
+
+00:22:06.000 --> 00:22:09.320
+Cuando diseñas todos
+estos indicadores de enfoque personalizados,
+
+00:22:09.320 --> 00:22:14.350
+asegúrate de que tenga un contraste de
+3:1 con los colores adyacentes.
+
+00:22:17.280 --> 00:22:22.000
+Nuevamente, si hablamos del mismo
+ejemplo en el sitio web BarrierBreak,
+
+00:22:23.570 --> 00:22:26.010
+el marcado que ya revisamos.
+
+00:22:26.010 --> 00:22:31.250
+Cuando miramos el CSS,
+la clase de enfoque está definida
+
+00:22:31.250 --> 00:22:35.610
+para asegurarse de que el foco esté
+claramente visible cuando toca
+
+00:22:35.610 --> 00:22:41.700
+a los enlaces y subopciones
+usando su teclado.
+
+00:22:45.320 --> 00:22:49.150
+Siguiente punto: el orden de tabulación.
+
+00:22:49.150 --> 00:22:54.430 
+Es muy importante que el orden del enfoque visual
+y el orden de tabulación coincidan.
+
+00:22:57.050 --> 00:22:58.750
+Es más fácil decirlo que hacerlo.
+
+00:22:58.750 --> 00:23:04.410
+Sí, dependiendo de los diferentes diseños,
+existen desafíos
+
+00:23:04.410 --> 00:23:09.270
+que uno encuentra a menudo y
+necesita ajustar el diseño.
+
+00:23:09.270 --> 00:23:15.900
+Aquí diría que, como mínimo,
+se debe garantizar que el orden
+
+00:23:15.900 --> 00:23:20.450
+en el que una persona navega con el teclado
+
+00:23:20.450 --> 00:23:22.680
+o la secuencia no está rota.
+
+00:23:24.050 --> 00:23:30.620
+Así que no dejes que el foco salte
+desde el medio de una sección
+
+00:23:30.620 --> 00:23:32.960
+a otro bloque de contenido.
+
+00:23:34.600 --> 00:23:38.520
+Termina un bloque y luego
+debería pasar al siguiente.
+
+00:23:38.520 --> 00:23:42.820
+Sí, necesitamos ajustar los estilos
+para cumplir con los requisitos de diseño
+
+00:23:44.490 --> 00:23:50.080
+y mantener contentos a todos los involucrados,
+pero también es importante
+
+00:23:50.080 --> 00:23:53.360
+que no interrumpamos
+la accesibilidad al hacerlo.
+
+00:23:53.360 --> 00:24:00.980
+Cuando ajustamos nuestros diseños usando CSS,
+debemos asegurarnos de que el código esté correcto
+
+00:24:00.980 --> 00:24:03.530
+en el DOM,
+en el orden correcto
+
+00:24:03.530 --> 00:24:05.520
+el orden de enfoque
+no se verá afectado,
+
+00:24:05.520 --> 00:24:10.170
+pero cuando ajustamos visualmente los
+elementos o movemos los bloques
+
+00:24:10.170 --> 00:24:14.740
+de contenido, la experiencia del usuario
+para quienes usan solo el teclado
+
+00:24:14.740 --> 00:24:19.700
+y los usuarios con baja visión que usan
+un teclado son muy, muy malas.
+
+00:24:20.840 --> 00:24:26.430
+De repente, el enfoque saltará
+de una parte a otra.
+
+00:24:26.430 --> 00:24:31.320
+Así que técnicamente, el
+orden del código es correcto,
+
+00:24:31.320 --> 00:24:35.640
+pero visualmente el orden visual
+no coincidirá con el orden de enfoque.
+
+00:24:37.030 --> 00:24:38.030
+Bien.
+
+00:24:40.170 --> 00:24:45.450
+Entonces, como ya entendimos
+que el orden del código es importante,
+
+00:24:45.450 --> 00:24:52.090
+pero mientras lo hace, asegúrese
+de que el orden de enfoque sea lógico.
+
+00:24:52.090 --> 00:24:56.360
+Si hay enlaces,
+como en el ejemplo del sitio de BarrierBreak,
+
+00:24:56.360 --> 00:25:01.330
+y los enlaces son la
+navegación superior, el enfoque debe moverse
+
+00:25:01.330 --> 00:25:05.090
+de izquierda a derecha
+Y cuando el menú se expande
+
+00:25:05.090 --> 00:25:09.580
+o aparecen las subopciones,
+el enfoque debe moverse de arriba
+
+00:25:09.580 --> 00:25:10.580
+abajo.
+
+00:25:11.010 --> 00:25:14.543
+El enfoque tampoco debe
+ir a elementos ocultos,
+
+00:25:14.544 --> 00:25:16.820
+porque cuando el enfoque se mueve
+
+00:25:16.820 --> 00:25:20.880
+hacia un área oculta,
+puede resultar muy desorientador.
+
+00:25:20.880 --> 00:25:27.180
+No sabes dónde estás aterrizado
+ni qué se activará
+
+00:25:27.180 --> 00:25:29.870
+si decide presionar Enter.
+
+00:25:36.520 --> 00:25:40.000
+Después del orden de enfoque, vamos a
+hablar sobre la operatividad del teclado.
+
+00:25:42.780 --> 00:25:46.480
+La operatividad del teclado, todos los
+elementos, toda la funcionalidad
+
+00:25:46.480 --> 00:25:49.210
+debe poder operarse con un teclado.
+
+00:25:49.210 --> 00:25:53.320
+Ya sean sus botones, ya sean sus
+menús desplegables, ya sean sus pestañas,
+
+00:25:53.320 --> 00:25:56.850
+ya sean sus controles deslizantes y demás.
+
+00:25:56.850 --> 00:25:59.810
+Todos estos necesitan
+funcionar con un teclado.
+
+00:25:59.810 --> 00:26:02.880
+Ahora, todos ellos tienen un
+patrón de interacción diferente.
+
+00:26:04.010 --> 00:26:08.230
+Estos patrones de interacción
+son estándar y cuando los miras
+
+00:26:08.230 --> 00:26:12.780
+en las especificaciones de ARIA,
+tienen todos estos patrones de interacción
+
+00:26:12.780 --> 00:26:17.750
+definidos para diferentes tipos de
+interacciones, tanto para los componentes estándar
+
+00:26:17.750 --> 00:26:20.310
+como para los personalizados.
+
+00:26:21.740 --> 00:26:25.620
+Cuando buscamos la
+operatividad del teclado,
+
+00:26:27.160 --> 00:26:30.850
+para asegurarnos de que todos los elementos
+sean accesibles, puedo llegar
+
+00:26:30.850 --> 00:26:33.820
+a un control deslizante, pero si
+no puedo cambiar sus valores,
+
+00:26:35.090 --> 00:26:39.480
+las personas con discapacidad visuales
+no podrán usar el control deslizante.
+
+00:26:39.480 --> 00:26:40.980
+No podrán operarlo.
+
+00:26:42.160 --> 00:26:45.990
+Lo mismo será el caso de
+las personas con problemas de movilidad.
+
+00:26:45.990 --> 00:26:52.300
+Así que no sólo es importante que uno
+pueda llegar allí, sino que el enfoque es visible
+
+00:26:52.300 --> 00:26:57.070
+el orden de tabulación debe ser lógico,
+pero es igualmente importante
+
+00:26:57.070 --> 00:27:00.550
+que se puede interactuar
+con el control dado.
+
+00:27:04.590 --> 00:27:07.670
+Entonces, cuando hablamos de
+operatividad del teclado,
+
+00:27:07.670 --> 00:27:12.170
+los elementos nativos ya
+tienen toda la información
+
+00:27:12.170 --> 00:27:14.070
+y funcionalidad incorporada.
+
+00:27:14.070 --> 00:27:19.570
+Se puede operar un botón usando
+la tecla Enter o la barra espaciadora
+
+00:27:19.570 --> 00:27:22.850
+o incluso la tecla de retorno.
+
+00:27:24.550 --> 00:27:28.120
+Lo mismo ocurre con
+enlaces y menús desplegables de selección.
+
+00:27:28.120 --> 00:27:33.370
+Se puede navegar hasta ellos con la tecla Tab y usar
+las teclas de flecha para moverse
+
+00:27:33.370 --> 00:27:34.860
+entre las opciones.
+
+00:27:34.860 --> 00:27:39.130
+Cuando se trata de
+componentes personalizados, debemos asegurarnos
+
+00:27:39.130 --> 00:27:42.730
+que solicitamos
+controladores de teclado redundantes.
+
+00:27:44.340 --> 00:27:49.000
+Si se define un evento onClick
+para un div,
+
+00:27:49.000 --> 00:27:52.900
+que se utiliza para estructurar
+o codificar un botón,
+
+00:27:52.900 --> 00:27:56.840
+también hay que añadir eventos para las teclas,
+como onKeyPress o onKeyDown.
+
+00:27:58.180 --> 00:28:05.540
+Además, el JavaScript
+también debe estar acoplado con oyentes clave.
+
+00:28:05.540 --> 00:28:10.700
+Ahora, al presionar la
+tecla Enter o la barra espaciadora,
+
+00:28:10.700 --> 00:28:13.190
+el botón debe activarse,
+la acción debe activarse.
+
+00:28:14.500 --> 00:28:17.731
+Todo esto es importante
+
+00:28:17.732 --> 00:28:20.270
+para implementar una navegación accesible con teclado.
+
+00:28:23.240 --> 00:28:24.930
+A continuación, gestión de enfoque.
+
+00:28:26.150 --> 00:28:30.180
+Muy, muy importante con las
+interacciones ricas y dinámicas
+
+00:28:30.180 --> 00:28:35.940
+que encontramos en todos los sitios web
+y aplicaciones web hoy en día.
+
+00:28:40.480 --> 00:28:44.100
+Los cuatro puntos que mencionamos:
+navegación,
+
+00:28:44.100 --> 00:28:50.100
+visibilidad de enfoque, orden de tabulación
+y operatividad del teclado –
+
+00:28:50.101 --> 00:28:56.042
+deben considerarse
+junto con la gestión del enfoque
+
+00:28:56.043 --> 00:29:03.610
+para garantizar una
+experiencia completa y útil para los usuarios de teclados.
+
+00:29:05.690 --> 00:29:09.170
+Entonces, cuando hablamos de
+gestión del enfoque, hay diferentes formas
+
+00:29:09.170 --> 00:29:10.670
+de abordarlo.
+
+00:29:10.670 --> 00:29:13.820
+Y mientras hacemos
+eso, es importante
+
+00:29:13.820 --> 00:29:18.090
+seguir los métodos estándar
+de interacción con el teclado.
+
+00:29:18.090 --> 00:29:21.720
+Cuando utilizamos
+métodos de interacción de teclado no estándar,
+
+00:29:21.720 --> 00:29:24.630
+estos tienen que estar documentados.
+
+00:29:25.710 --> 00:29:32.350
+Así como proporcionar instrucciones
+para que los usuarios del teclado sepan cómo interactuar
+
+00:29:32.350 --> 00:29:37.930
+con un componente determinado utilizando
+los métodos no estándar dados.
+
+00:29:39.250 --> 00:29:43.220
+Entonces, ¿qué entra en juego para
+que la gestión del enfoque suceda?
+
+00:29:44.650 --> 00:29:50.300
+Cuando hablamos de gestión del enfoque,
+JavaScript juega un papel clave.
+
+00:29:50.300 --> 00:29:52.200
+Tiene un papel importante que desempeñar.
+
+00:29:53.560 --> 00:29:58.580
+Junto con JavaScript, sí,
+el teclado también maneja
+
+00:29:58.580 --> 00:30:03.600
+las diferentes técnicas que se
+mencionan en la especificación ARIA,
+
+00:30:03.600 --> 00:30:08.410
+como el índice de la pestaña Roving,
+así como el descenso activo ARIA.
+
+00:30:08.410 --> 00:30:13.530 
+También
+Veremos un ejemplo de esto
+
+00:30:13.530 --> 00:30:21.470
+para que podamos entender cómo
+se puede implementar la gestión del enfoque.
+
+00:30:21.470 --> 00:30:28.080
+Ahora, la gestión del enfoque, varía según el tipo
+
+00:30:28.080 --> 00:30:29.420
+de interacción.
+
+00:30:30.530 --> 00:30:34.960
+Si se activa un modal, el foco
+debe moverse dentro del modal.
+
+00:30:34.960 --> 00:30:38.500
+El foco debe
+rastrearse dentro del modal.
+
+00:30:38.500 --> 00:30:41.860
+Cuando cierras el modal,
+el foco debe volver
+
+00:30:41.860 --> 00:30:44.120
+al elemento que lo activó.
+
+00:30:44.120 --> 00:30:47.570
+Cuando interactúas con un
+menú, el foco debe ir
+
+00:30:47.570 --> 00:30:48.670
+al primer elemento secundario.
+
+00:30:50.340 --> 00:30:53.400
+Cuando cierras el menú,
+el foco debe volver
+
+00:30:53.400 --> 00:30:55.140
+al menú principal.
+
+00:30:57.370 --> 00:31:02.850
+Del mismo modo, en una lista desplegable
+el foco debe ir al botón de activación
+
+00:31:02.850 --> 00:31:07.070
+y, desde ahí, los usuarios pueden recorrer
+las diferentes opciones
+
+00:31:07.070 --> 00:31:08.660
+usando las teclas de flecha.
+
+00:31:09.750 --> 00:31:15.400
+Cuando interactuamos con
+interfaces de pestañas, el foco debe ir
+
+00:31:15.400 --> 00:31:22.060
+a la pestaña reactiva actual y
+se pueden navegar por todas las pestañas inactivas
+
+00:31:22.060 --> 00:31:23.950
+usando las teclas de flecha.
+
+00:31:23.950 --> 00:31:29.030
+Una vez que seleccione cualquiera de las
+pestañas inactivas, las pestañas restantes
+
+00:31:30.220 --> 00:31:33.580
+que se volverán inactivos se pueden
+navegar usando las teclas de flecha.
+
+00:31:34.630 --> 00:31:41.120
+La gestión del enfoque es diferente
+pero no difícil de implementar.
+
+00:31:41.120 --> 00:31:44.250
+Si se implementa correctamente,
+
+00:31:44.250 --> 00:31:47.530
+mejora la experiencia del usuario
+para quienes usan solo el teclado,
+
+00:31:47.530 --> 00:31:52.430
+usuarios de lectores de pantalla,
+usuarios con baja visión, usuarios de control por interruptores
+
+00:31:52.430 --> 00:31:56.410
+e incluso para quienes
+usan comandos de voz.
+
+00:32:00.570 --> 00:32:07.400
+Aquí hay un ejemplo de pestañas implementadas
+en un blog de BarrierBreak.
+
+00:32:07.400 --> 00:32:12.800
+Hay diferentes pestañas desde Todas
+hasta Pruebas ADA, pruebas de la sección 508
+
+00:32:12.800 --> 00:32:13.800
+y así sucesivamente.
+
+00:32:14.660 --> 00:32:20.610
+Actualmente, la pestaña "Todas" está activa
+y, por lo tanto, tiene el foco.
+
+00:32:20.610 --> 00:32:23.450
+no sólo programáticamente
+sino también visualmente.
+
+00:32:25.180 --> 00:32:26.380
+Veamos el código.
+
+00:32:27.470 --> 00:32:32.150
+Hemos utilizado las etiquetas de botón nativas
+a las que se les ha asignado una función de pestaña.
+
+00:32:33.930 --> 00:32:36.350
+Aunque hemos
+usado la etiqueta del botón,
+
+00:32:36.350 --> 00:32:39.530
+verás que le hemos dado
+un tabindex cero para cada uno
+
+00:32:39.530 --> 00:32:43.500
+de estos botones que
+tienen una regla de tabulación.
+
+00:32:43.500 --> 00:32:46.860
+Y para las pestañas inactivas,
+el tabindex es menos uno.
+
+00:32:48.000 --> 00:32:53.360
+Porque en una interfaz con pestañas,
+si todas las pestañas son tabulables,
+
+00:32:53.360 --> 00:32:57.990
+eso se convierte en una mala
+experiencia de usuario para los usuarios que solo usan teclado.
+
+00:32:57.990 --> 00:33:03.630
+Los usuarios de teclado
+están acostumbrados a que,
+
+00:33:03.630 --> 00:33:08.110
+en una interfaz con pestañas,
+puedes tocar el control activo
+
+00:33:08.110 --> 00:33:11.420
+y desde ese punto en adelante,
+usarías las teclas de flecha.
+
+00:33:11.420 --> 00:33:14.540
+En una implementación de pestaña horizontal,
+usaríamos la izquierda
+
+00:33:14.540 --> 00:33:15.930
+y las teclas de flecha derecha.
+
+00:33:15.930 --> 00:33:19.860
+En una implementación de pestaña vertical,
+serán las teclas de flecha hacia arriba y hacia abajo.
+
+00:33:21.460 --> 00:33:26.560
+Ahora, es muy importante
+que los valores del índice de tabulación
+
+00:33:26.560 --> 00:33:30.960
+de cero a menos uno se
+alternan con [Inaudible 33:30].
+
+00:33:30.960 --> 00:33:34.870
+Y esto se hace con JavaScript
+y el método de índice de la pestaña Roving.
+
+00:33:37.150 --> 00:33:40.920
+Como podemos ver en el
+código JS en la pantalla,
+
+00:33:42.510 --> 00:33:48.100
+los valores del índice de la pestaña se alternan
+utilizando este método,
+
+00:33:49.850 --> 00:33:52.290
+y el foco del usuario es monitoreado,
+
+00:33:52.290 --> 00:33:54.960
+se detecta cuáles son las teclas que
+presiona el usuario,
+
+00:33:54.960 --> 00:33:59.260
+y en consecuencia,
+los valores se ajustan.
+
+00:33:59.260 --> 00:34:02.790
+Ahora, cuando activamos desde
+la primera pestaña, cuando nos movemos
+
+00:34:02.790 --> 00:34:08.480
+a la siguiente pestaña y activarla,
+esa pestaña obtendrá un índice de pestañas
+
+00:34:08.480 --> 00:34:15.760
+de cero y todas las demás pestañas
+tendrán un índice de pestaña de menos uno.
+
+00:34:15.760 --> 00:34:20.430
+Por último, hablaremos de
+pruebas de acceso con teclado.
+
+00:34:20.430 --> 00:34:25.500
+Podemos probar tanto con herramientas
+automatizadas como con pruebas manuales.
+
+00:34:26.540 --> 00:34:29.930
+Pero quiero repetir esto:
+
+00:34:29.930 --> 00:34:34.460
+Todos sabemos que, en accesibilidad,
+
+00:34:34.460 --> 00:34:39.530
+las pruebas automatizadas
+solo llegan hasta cierto punto.
+
+00:34:39.530 --> 00:34:42.498
+Incluso las mejores herramientas
+solo pueden detectar
+
+00:34:42.499 --> 00:34:44.410
+entre el 30 y 40% de los errores.
+
+00:34:44.410 --> 00:34:49.220
+Si queremos capturar todos los errores
+y mejorar la experiencia del usuario,
+
+00:34:49.220 --> 00:34:50.990
+las pruebas manuales son la mejor opción.
+
+00:34:52.950 --> 00:34:57.350
+Aquí voy a hablar sobre
+ANDI, la herramienta
+
+00:34:57.350 --> 00:34:59.090
+de inspección de nombre y descripción accesibles.
+
+00:35:00.240 --> 00:35:04.670
+Con el bookmarklet ANDI, puedes
+verificar errores de teclado.
+
+00:35:06.000 --> 00:35:12.550
+Una vez que ANDI esté instalado, en
+la opción de seleccionar elementos,
+
+00:35:12.550 --> 00:35:16.420
+tenemos diferentes opciones
+disponibles, como enlaces y botones.
+
+00:35:17.830 --> 00:35:19.810
+Tenemos elementos enfocables.
+
+00:35:19.810 --> 00:35:22.980
+Podemos inspeccionar contenido oculto
+e indicadores de orden de tabulación.
+
+00:35:22.980 --> 00:35:28.770
+Usaré indicadores de orden de tabulación para
+ver cuál es el orden de tabulación definido
+
+00:35:28.770 --> 00:35:32.619
+y cómo los diferentes
+elementos reciben el enfoque  de la pestaña,
+
+00:35:32.620 --> 00:35:35.100
+y cuál sería el orden.
+
+00:35:35.100 --> 00:35:37.260
+Con enlaces y botones, podemos verificar si:
+
+00:35:37.260 --> 00:35:43.150
+(a) Están correctamente estructurados con HTML nativo,
+
+00:35:43.150 --> 00:35:51.150
+o (b) Si fueron creados usando
+scripts personalizados para span y div.
+
+00:35:52.860 --> 00:35:55.530
+A partir de ahí, podemos depurar más a fondo
+
+00:35:55.530 --> 00:35:58.110
+o continuar probando manualmente con el teclado.
+
+00:36:00.630 --> 00:36:05.020
+Indicadores de enfoque, sí, necesitamos
+ver los diferentes elementos
+
+00:36:05.020 --> 00:36:08.740
+que son enfocables y los indicadores asociados a ellos.
+
+00:36:11.540 --> 00:36:13.030
+También el contenido oculto.
+
+00:36:13.030 --> 00:36:15.090
+Ahora, ¿qué contenido está oculto?
+
+00:36:15.090 --> 00:36:18.570
+Cuando los elementos enfocables o tabulables
+están ocultos,
+
+00:36:18.570 --> 00:36:22.170
+su indicador de enfoque
+terminará en un espacio oculto
+
+00:36:22.170 --> 00:36:26.840
+y esi será una
+experiencia muy confusa para los usuarios.
+
+00:36:26.840 --> 00:36:31.530
+Así que ANDI puede proporcionarte fácilmente
+toda esta información
+
+00:36:31.530 --> 00:36:37.980
+y de ahí puedes extraer los
+resultados o realizar análisis adicionales
+
+00:36:37.980 --> 00:36:43.490
+sobre qué se necesita hacer a
+nivel de código para implementar el acceso al teclado.
+
+00:36:45.220 --> 00:36:49.750
+Cuando hablamos de pruebas
+manuales, con un teclado,
+
+00:36:49.750 --> 00:36:54.320
+ya sea que uses Windows,
+Mac o cualquier otro sistema operativo,
+
+00:36:55.510 --> 00:37:00.920
+usa la tecla tabulador para navegar a enlaces,
+botones, seleccionar menús desplegables,
+
+00:37:00.920 --> 00:37:06.440
+áreas de texto, vistas previas,
+controles deslizantes, etc.
+
+00:37:06.440 --> 00:37:10.920
+Al presionar la tecla tabulador, avanzará
+en la dirección hacia adelante,
+
+00:37:10.920 --> 00:37:13.330
+mientras que Shift + Tab te llevará atrás.
+
+00:37:13.330 --> 00:37:16.730
+Las teclas de flecha,
+te ayudarán a desplazarte
+
+00:37:16.730 --> 00:37:20.510
+a través de las opciones desplegables,
+menús, nodos de vista previa,
+
+00:37:21.700 --> 00:37:26.380
+ajustar los valores del control deslizante y
+desplazarse por la página.
+
+00:37:26.380 --> 00:37:29.390
+Si desea desplazarse
+horizontalmente, puede usar el botón izquierdo
+
+00:37:29.390 --> 00:37:30.040
+y flecha derecha.
+
+00:37:30.040 --> 00:37:33.860
+Si desea desplazarse verticalmente,
+utilizará las flechas arriba y abajo.
+
+00:37:35.620 --> 00:37:36.820
+¿Qué más debes comprobar?
+
+00:37:38.010 --> 00:37:42.680
+Debes verificar si todo
+el contenido y la funcionalidad
+
+00:37:42.680 --> 00:37:45.740
+tiene acceso al teclado,
+comprobar si podemos navegar
+
+00:37:45.740 --> 00:37:48.530
+a todos los elementos interactivos
+usando el teclado.
+
+00:37:48.530 --> 00:37:51.590
+Verás si la
+navegación, el orden de enfoque,
+
+00:37:51.590 --> 00:37:55.210
+el orden de tabulación es lógico,
+no altera el significado.
+
+00:37:55.210 --> 00:37:59.590
+Comprobar si el enfoque es
+visible y claramente distinguible.
+
+00:38:02.870 --> 00:38:06.890
+Si no has definido el
+enfoque, aquí me gustaría
+
+00:38:06.890 --> 00:38:09.500
+agregar esta información:
+
+00:38:09.500 --> 00:38:14.170
+Si no has personalizado el
+enfoque de los elementos interactivos
+
+00:38:14.170 --> 00:38:20.020
+en tus páginas web,
+y estás usando el enfoque predeterminado del navegador,
+
+00:38:20.020 --> 00:38:24.250
+y el contraste de color es débil
+en el caso del foco del navegador predeterminado,
+
+00:38:24.250 --> 00:38:28.230
+es responsabilidad de los
+desarrolladores del navegador y no tuya
+
+00:38:28.230 --> 00:38:32.490
+como desarrollador de la página web
+solucionar ese problema,
+
+00:38:32.490 --> 00:38:35.850
+porque obviamente
+no está bajo tu control.
+
+00:38:37.710 --> 00:38:42.190
+A continuación, comprobaremos si todos los
+elementos interactivos son operables
+
+00:38:42.190 --> 00:38:46.880
+con un teclado, ya sean
+elementos nativos o componentes personalizados.
+
+00:38:46.880 --> 00:38:50.680
+Verificaremos si el enfoque
+se gestiona correctamente.
+
+00:38:50.680 --> 00:38:57.060
+Verificaremos que el enfoque
+no termine en elementos no interactivos.
+
+00:38:57.060 --> 00:39:00.035
+Aquí, me gustaría
+compartir un consejo con respecto
+
+00:39:00.036 --> 00:39:01.680
+la prueba con lectores de pantalla.
+
+00:39:01.680 --> 00:39:06.190
+Muchas personas creen que cada elemento
+de la página o cada pieza
+
+00:39:06.190 --> 00:39:08.700
+del contenido de la página
+debe ser navegable con tabulación.
+
+00:39:09.920 --> 00:39:14.210
+Solo así un usuario de lector de pantalla
+podrá acceder a él.
+
+00:39:14.210 --> 00:39:16.530
+Sólo entonces podrán
+navegar hasta él
+
+00:39:16.530 --> 00:39:19.180
+y el lector de pantalla
+leería el contenido.
+
+00:39:19.180 --> 00:39:20.650
+Por favor, por favor,
+por favor no hagan eso.
+
+00:39:22.470 --> 00:39:26.390
+A) es una mala experiencia,
+no sólo para los usuarios de lectores de pantalla,
+
+00:39:26.390 --> 00:39:31.980
+Sino B) también
+elimina el orden de enfoque para los usuarios que solo usan el teclado.
+
+00:39:33.290 --> 00:39:36.690
+Los usuarios de lectores de pantalla tienen
+muchas combinaciones de teclas
+
+00:39:36.690 --> 00:39:38.700
+para acceder al contenido.
+
+00:39:38.700 --> 00:39:43.300
+Solo para asegurarnos de que el
+lector de pantalla se centre en el párrafo,
+
+00:39:43.300 --> 00:39:45.330
+no le dé un índice de tabulación de cero.
+
+00:39:45.330 --> 00:39:48.990
+Si no es interactivo,
+no debe ser navegable con tabulación.
+
+00:39:52.810 --> 00:39:55.880
+Con eso,
+llegamos al final de la sesión.
+
+00:39:55.880 --> 00:39:59.450
+Por mi parte, si hay
+alguna pregunta, estaré feliz
+
+00:39:59.450 --> 00:40:00.990
+de responderla.
+
+00:40:00.990 --> 00:40:04.660
+Si quieres charlar conmigo sobre
+accesibilidad digital, pueden
+
+00:40:04.660 --> 00:40:08.640
+enviarme un correo a
+priti.rhora@barrierbreak.com
+
+00:40:09.820 --> 00:40:12.478
+o encontrarme en
+Twitter @PritiRhora
+
+00:40:12.479 --> 00:40:14.250
+y también en LinkedIn.
+
+00:40:15.430 --> 00:40:18.843
+Gracias por escuchar y,
+
+00:40:18.844 --> 00:40:21.020
+estoy lista para responder cualquier
+pregunta.
+
+00:40:24.050 --> 00:40:25.600
+JASON: Muy bien,
+gracias, Priti.
+
+00:40:25.600 --> 00:40:27.000
+Eso fue fantástico.
+
+00:40:28.090 --> 00:40:30.184
+Como recordatorio para
+quienes están asistiendo,
+
+00:40:30.185 --> 00:40:31.630
+puedes ingresar sus preguntas
+
+00:40:31.630 --> 00:40:34.920
+en la sesión de preguntas y respuestas de Zoom y haremos
+todo lo posible para responderlas
+
+00:40:34.920 --> 00:40:36.540
+en el tiempo que tenemos.
+
+00:40:36.540 --> 00:40:38.120
+Tenemos algunas
+preguntas aquí, Priti.
+
+00:40:38.120 --> 00:40:40.470
+Así que empezaré por la primera.
+
+00:40:40.470 --> 00:40:44.440
+Una persona llamada Deneb Pulsifer
+ha hecho un par de preguntas.
+
+00:40:44.440 --> 00:40:45.830
+Así que las tomaremos una por una.
+
+00:40:47.570 --> 00:40:51.940
+Primero, preguntaron: En cuanto a las
+trampas de teclado, hay situaciones
+
+00:40:51.940 --> 00:40:54.650
+donde sean aceptables.
+
+00:40:54.650 --> 00:40:56.070
+Estoy pensando en las ventanas emergentes.
+
+00:40:56.070 --> 00:40:59.530
+Mi pregunta es, ¿cuál es la mejor
+manera de permitir que las personas salgan de una
+
+00:40:59.530 --> 00:41:02.530
+trampa intencional de teclado en estos casos?
+
+00:41:02.530 --> 00:41:03.970
+¿La mejor manera es un botón de cerrar?
+
+00:41:03.970 --> 00:41:05.660
+¿Debe ser la tecla Escape?
+
+00:41:05.660 --> 00:41:09.280
+¿Quizás una combinación de
+ambos o alguna otra alternativa?
+
+00:41:09.280 --> 00:41:11.360
+¿Y hay algún
+problema al hacerlo de esta manera?
+
+00:41:13.270 --> 00:41:14.820
+PRITI: Gracias, Deneb.
+
+00:41:14.820 --> 00:41:20.310
+Entonces, en el caso de las ventanas emergentes,
+o modales, es importante
+
+00:41:20.310 --> 00:41:22.630
+mantener el enfoque dentro de ellos.
+
+00:41:22.630 --> 00:41:25.710
+Y si vas a proporcionar un botón de cierre,
+
+00:41:25.710 --> 00:41:29.330
+si tu diseño incluye un
+botón de cierre, asegúrate de que funcione
+
+00:41:29.330 --> 00:41:32.580
+tanto con el botón de cierre como con la tecla de escape.
+
+00:41:32.580 --> 00:41:39.120
+En cuanto a la tecla Escape,
+esa es la tecla principal
+
+00:41:39.120 --> 00:41:43.370
+que la mayoría de los usuarios usarían para
+cerrar una ventana emergente o un modal.
+
+00:41:46.727 --> 00:41:47.911
+JASÓN: Muy bien, gracias.
+
+00:41:49.350 --> 00:41:52.690
+La siguiente pregunta de la
+misma persona es: ¿Qué opinas
+
+00:41:52.690 --> 00:41:55.670
+de los sitios que usan JavaScript
+para mostrar el anillo de enfoque en movimiento
+
+00:41:55.670 --> 00:41:57.920
+de un elemento enfocable
+al siguiente?
+
+00:41:57.920 --> 00:42:00.890
+¿Esto es útil
+o resulta más bien una distracción?
+
+00:42:00.890 --> 00:42:03.200
+¿Hay una mejor manera de hacer esto más evidente?
+
+00:42:03.200 --> 00:42:05.560
+Mencionaron como
+ejemplo el sitio del Museo Van Gogh,
+
+00:42:05.560 --> 00:42:13.010
+así que podemos echarle un
+vistazo más tarde.
+
+00:42:13.010 --> 00:42:17.570
+PRITI: Recomendaría que
+realicemos pruebas de usuario para ver
+
+00:42:19.140 --> 00:42:24.180
+cuál es el pulso o cómo es la
+experiencia para un usuario que solo usa el teclado,
+
+00:42:24.180 --> 00:42:25.150
+asi como un usuario con baja visión.
+
+00:42:25.150 --> 00:42:27.030
+Lo ideal es probarlo con una variedad de usuarios.
+
+00:42:27.030 --> 00:42:34.760
+Y desde un truco de accesibilidad,
+diría que si CSS puede hacerlo por ti,
+
+00:42:34.760 --> 00:42:36.940
+si HTML puede hacerlo por ti, no necesitas
+
+00:42:36.940 --> 00:42:40.950
+aumentar el peso de tu código con JavaScript.
+
+00:42:40.950 --> 00:42:45.560
+Existen
+soluciones más ligeras disponibles,
+
+00:42:45.560 --> 00:42:51.370
+pero dejaría que los usuarios decidan
+aquí qué prefieren,
+
+00:42:51.370 --> 00:42:55.880
+si prefieren el anillo de enfoque con JavaScript
+o la visibilidad de enfoque predeterminada.
+
+00:42:57.860 --> 00:43:00.880
+JASON: Muy bien,
+es genial saberlo.
+
+00:43:00.880 --> 00:43:04.250
+Entonces nuestra siguiente pregunta es, ¿cuál es
+la mejor manera de obtener instrucciones
+
+00:43:04.250 --> 00:43:06.480
+sobre la operatividad del teclado para los usuarios?
+
+00:43:06.480 --> 00:43:09.570
+Sé que mencionaste que cuando
+hay controles únicos,
+
+00:43:09.570 --> 00:43:13.520
+cómo comunicar eso a los usuarios.
+
+00:43:13.520 --> 00:43:17.990
+¿Considerarías un
+mensaje tipo información sobre herramientas, algo diferente,
+
+00:43:17.990 --> 00:43:19.860
+quizás un mensaje en la
+parte superior de la página?
+
+00:43:19.860 --> 00:43:20.740
+No lo sé.
+
+00:43:20.740 --> 00:43:21.760
+¿Qué opinas?
+
+00:43:23.100 --> 00:43:27.430
+PRITI: Yo diría que cualquier
+método que decidas usar
+
+00:43:27.430 --> 00:43:31.200
+según el diseño, asegúrese de que
+sea accesible con el teclado.
+
+00:43:31.200 --> 00:43:33.324
+Créanme,
+hemos encontrado auditorías
+
+00:43:33.325 --> 00:43:35.230
+donde se han añadido instrucciones
+
+00:43:35.230 --> 00:43:38.890
+para beneficiar
+a los usuarios de teclado y lectores de pantalla,
+
+00:43:38.890 --> 00:43:43.870
+pero esas mismas interacciones
+no son accesibles con el teclado.
+
+00:43:43.870 --> 00:43:47.420
+Primero que todo, asegúrate de
+que sean accesibles con el teclado.
+
+00:43:47.420 --> 00:43:49.980
+Si es una información sobre herramientas,
+debe funcionar con un teclado.
+
+00:43:51.080 --> 00:43:54.270
+Si es un elemento no modal, también
+debe funcionar con el teclado.
+
+00:43:55.470 --> 00:43:58.920
+La decisión
+dependería en gran medida del diseño
+
+00:43:58.920 --> 00:44:03.340
+pero si estás empezando temprano,
+justo en la etapa de diseño,
+
+00:44:03.340 --> 00:44:07.280
+entonces obviamente por favor proporciona una breve
+instrucción en la página misma
+
+00:44:07.280 --> 00:44:10.660
+y luego puedes ofrecer a los usuarios
+un enlace o un botón para ir
+
+00:44:10.660 --> 00:44:14.480
+a la sección de ayuda o a la
+sección de soporte para más detalles.
+
+00:44:14.480 --> 00:44:19.470
+Pero solo incluirlo en la
+sección de ayuda no siempre funciona,
+
+00:44:19.470 --> 00:44:24.000
+porque los usuarios podrían
+ni siquiera notar
+
+00:44:24.000 --> 00:44:24.900
+que hay ayuda disponible.
+
+00:44:28.005 --> 00:44:31.240
+JASON: Sí, eso es muy
+importante, involucrar al diseño
+
+00:44:31.240 --> 00:44:34.070
+y considerar todo desde el principio.
+
+00:44:34.070 --> 00:44:37.460
+En mi experiencia,
+eso es algo enorme, enorme.
+
+00:44:37.460 --> 00:44:42.660
+Así que sí, definitivamente es
+un gran consejo.
+
+00:44:42.660 --> 00:44:45.480
+Muy bien,
+entonces la siguiente pregunta.
+
+00:44:45.480 --> 00:44:48.700
+Esta es un poco más técnica,
+así que tengan paciencia.
+
+00:44:48.700 --> 00:44:52.050
+¿Si cambias el rol de un
+botón semántico a pestaña,
+
+00:44:52.050 --> 00:44:55.030
+eso afecta la comprensión
+de las personas que usan dispositivos de asistencia
+
+00:44:55.030 --> 00:44:57.730
+sobre lo que pueden hacer con ese elemento?
+
+00:44:57.730 --> 00:45:00.820
+¿O el rol de pestaña
+implica las mismas habilidades?
+
+00:45:00.820 --> 00:45:02.560
+Como presionar Enter para seleccionar, etc.
+
+00:45:02.560 --> 00:45:06.510
+Creo que esta pregunta es más
+sobre la previsibilidad del teclado
+
+00:45:06.510 --> 00:45:10.200
+y cómo los roles afectan eso.
+
+00:45:10.200 --> 00:45:15.080
+PRITI: Bien, dividiré
+la pregunta en partes.
+
+00:45:15.080 --> 00:45:20.120
+La primera parte, cuando defines el
+rol de un elemento de botón semántico,
+
+00:45:20.120 --> 00:45:23.960
+ese elemento ya no es un botón para nosotros,
+los usuarios de tecnología de asistencia.
+
+00:45:23.960 --> 00:45:27.210
+Para cualquier usuario de tecnología asistiva,
+eso será una pestaña.
+
+00:45:28.810 --> 00:45:32.680
+En cuanto a la interacción,
+la segunda parte de la pregunta,
+
+00:45:32.680 --> 00:45:34.760
+funcionará con la tecla Enter.
+
+00:45:35.980 --> 00:45:39.020
+Y en general,
+como los usuarios están familiarizados
+
+00:45:39.020 --> 00:45:40.880
+con los métodos de interacción
+con los métodos de interacción estándar,
+
+00:45:40.880 --> 00:45:44.230
+no intentarían usar la tecla de barra espaciadora en una pestaña.
+
+00:45:44.230 --> 00:45:47.300
+Tan pronto como escuchamos una pestaña,
+presionamos la tecla Enter.
+
+00:45:48.560 --> 00:45:52.210
+Por eso es importante
+mantener las interacciones
+
+00:45:52.210 --> 00:45:58.560
+lo más estándar posible, para que
+los usuarios estén familiarizados con ellas.
+
+00:45:58.560 --> 00:46:01.250
+Y si hay algún cambio
+en los métodos estándar,
+
+00:46:01.250 --> 00:46:04.020
+luego dales instrucciones
+sobre lo mismo.
+
+00:46:07.016 --> 00:46:09.620
+JASON: Genial, sí, la previsibilidad
+es definitivamente clave cuando se trata
+
+00:46:09.620 --> 00:46:11.750
+de este tipo de cosas.
+
+00:46:12.960 --> 00:46:14.921
+OK, así que la última pregunta
+que tengo por ahora,
+
+00:46:14.922 --> 00:46:16.680
+y tenemos un par de minutos más.
+
+00:46:16.680 --> 00:46:20.270
+Así que si alguien tiene más preguntas,
+no duden en dejarlas.
+
+00:46:20.270 --> 00:46:22.410
+Esta pregunta viene de Beatrice.
+
+00:46:22.410 --> 00:46:27.480
+Ella dice, para los párrafos del texto en el contenido,
+
+00:46:27.480 --> 00:46:31.230
+¿Es obligatorio leerlos con
+un lector de pantalla usando el teclado?
+
+00:46:32.970 --> 00:46:37.080
+PRITI: Sí, porque si ese
+párrafo tiene información importante,
+
+00:46:37.080 --> 00:46:39.790
+podemos leerlo con un
+teclado usando las teclas de flecha.
+
+00:46:39.790 --> 00:46:44.530
+No necesitamos, como mencioné,
+definir un índice tabulador de cero
+
+00:46:44.530 --> 00:46:48.710
+para asegurarnos de que
+el enfoque de la pestaña del lector de pantalla caiga
+
+00:46:48.710 --> 00:46:49.690
+en ese párrafo.
+
+00:46:49.690 --> 00:46:50.870
+No necesitamos eso.
+
+00:46:50.870 --> 00:46:53.480
+Así que, por favor, no lo hagan.
+
+00:46:53.480 --> 00:46:56.000
+Ese es el consejo
+que siempre daré.
+
+00:46:56.000 --> 00:47:00.730
+Si no es interactivo, de todos modos podemos
+acceder a él con las teclas de flecha.
+
+00:47:00.730 --> 00:47:06.120
+Y como usuario de lector de pantalla,
+esa no es la única tecla que usamos
+
+00:47:06.120 --> 00:47:07.220
+para acceder al contenido.
+
+00:47:07.220 --> 00:47:09.890
+Tenemos muchas
+combinaciones de teclas.
+
+00:47:12.243 --> 00:47:13.400
+JASÓN: Exacto.
+
+00:47:13.400 --> 00:47:14.100
+Muy bien.
+
+00:47:14.100 --> 00:47:18.190
+Creo que esa fue la última
+pregunta que teníamos aquí.
+
+00:47:18.190 --> 00:47:22.380
+Haré una pausa de cinco segundos
+para ver si alguien más deja
+
+00:47:22.380 --> 00:47:25.664
+otra pregunta, pero mientras tanto,
+
+00:47:25.665 --> 00:47:27.780
+déjame decir, Priti, gracias.
+
+00:47:27.780 --> 00:47:29.520
+Esta fue una sesión excelente.
+
+00:47:29.520 --> 00:47:31.500
+Y gracias por responder
+todas las preguntas.
+
+00:47:33.040 --> 00:47:36.570
+Para quienes aún están aquí,
+podemos seguir la conversación
+
+00:47:36.570 --> 00:47:44.570
+en el chat o en las redes sociales usando los hashtags
+#WPA11Yday y #WPAD2023.
+
+00:47:46.370 --> 00:47:49.510
+Muy bien, Priti,
+
+00:47:49.510 --> 00:47:54.740
+Creo que podemos dejarte descansar y yo seguiré
+
+00:47:54.740 --> 00:47:57.440
+con algunos avisos generales.
+
+00:47:59.540 --> 00:48:04.150
+Para quienes nos acompañan, agradeceríamos mucho
+
+00:48:04.150 --> 00:48:11.430
+que visiten 2023.WPaccessibility.day/feedback
+para dejar comentarios anónimos
+
+00:48:11.430 --> 00:48:13.580
+sobre la presentación de nuestros oradores.
+
+00:48:13.580 --> 00:48:16.330
+Y mientras estén ahí,
+también pueden participar en el sorteo de una camiseta.
+
+00:48:17.570 --> 00:48:20.770
+No se pierdan la próxima charla, Construyendo un tema accesible
+
+00:48:20.770 --> 00:48:24.430
+para sitios accesibles desde el inicio,
+presentada por Gen Herres
+
+00:48:24.430 --> 00:48:29.320
+a la 1pm UTC,
+lo que equivale a la hora local en su zona.
+
+00:48:29.320 --> 00:48:31.820
+Y mientras esperan,
+por favor no olviden
+
+00:48:31.820 --> 00:48:35.130
+visitar nuestras páginas de patrocinadores y
+obtener un montón de obsequios virtuales
+
+00:48:35.130 --> 00:48:38.560
+y participa para tener la oportunidad
+de ganar fantásticos premios.
+
+00:48:38.560 --> 00:48:42.070
+Nos vemos todos aquí
+en la próxima hora después del descanso.
+
+00:48:42.070 --> 00:48:42.830
+Gracias a todos.
+
+00:48:42.830 --> 00:48:45.430
+PRITI: Gracias Jason
+por el apoyo.
+
+00:48:49.154 --> 00:48:53.430
+ÁMBAR: Gracias a
+los patrocinadores del Día de la Accesibilidad de WordPress 2023.
+
+00:48:53.920 --> 00:48:56.710
+Patrocinador platino -
+Equalize Digital.
+
+00:48:56.710 --> 00:48:59.440
+El plugin de verificación
+de accesibilidad de Equalize Digital
+
+00:48:59.440 --> 00:49:02.190
+es una herramienta automatizada
+de escaneo de accesibilidad
+
+00:49:02.190 --> 00:49:05.380
+que ayuda a que los sitios web de WordPress
+sean y permanezcan accesibles.
+
+00:49:06.640 --> 00:49:09.490
+Patrocinador Platino - Gravity Forms.
+
+00:49:09.490 --> 00:49:13.080
+Gravity Forms es el
+creador de formularios profesional que necesitas
+
+00:49:13.080 --> 00:49:17.830
+para crear formularios hermosos,
+potentes y accesibles.
+
+00:49:17.830 --> 00:49:24.840
+Patrocinadores de oro - 20i, Deque,
+Empire Caption Solutions, Pressable,
+
+00:49:24.840 --> 00:49:25.930
+y WP Engine.
+
+00:49:27.490 --> 00:49:34.350
+Patrocinadores Plata - Code Geek, Drake
+Cooper, GoDaddy, LoneRock Point,
+
+00:49:34.350 --> 00:49:39.590
+NerdPress, Overnight website de
+Kinetic Iris, Raiola Networks,
+
+00:49:40.920 --> 00:49:43.860
+A11Y Collective, y The Blogsmith.
+
+00:49:45.730 --> 00:49:51.140
+Patrocinadores de bronce - ExcessaCart,
+alojamiento web GreenGeeks,
+
+00:49:51.140 --> 00:50:02.889
+Consultoría SEO de Hall Analysis,
+HDC, ITX, Ivy Cat, Medabots,
+
+00:50:02.890 --> 00:50:07.810
+Pixel Chefs, Simply Schedule
+Appointments, SiteGround,
+
+00:50:07.811 --> 00:50:13.020
+Termagedón, Underrepresented
+in Tech, Weglot y Yoast.

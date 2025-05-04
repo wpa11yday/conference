@@ -187,8 +187,7 @@ class WPCS_Conference_Schedule {
 			array(),
 			'1.0.0'
 		);
-		$version = WPCS_VERSION;
-		$version = ( str_contains( home_url(), 'staging.wpaccessibility.day' ) ) ? $version . '-' . wp_rand( 1000, 10000 ) : $version;
+		$version   = ( str_contains( home_url(), 'staging.wpaccessibility.day' ) ) ? WPCS_VERSION . '-' . wp_rand( 1000, 10000 ) : WPCS_VERSION;
 		$timezones = ( SCRIPT_DEBUG ) ? 'assets/js/conference-time-zones.js' : 'assets/js/conference-time-zones-min.js';
 		$mastodon  = ( SCRIPT_DEBUG ) ? 'assets/js/mastodon-share.js' : 'assets/js/mastodon-share-min.js';
 		wp_enqueue_script( 'wpcs_scripts', plugins_url( $timezones, __FILE__ ), array( 'jquery' ), $version );
@@ -201,8 +200,7 @@ class WPCS_Conference_Schedule {
 	 * @uses wp_enqueue_style()
 	 */
 	public function wpcs_admin_css() {
-		$version = WPCS_VERSION;
-		$version = ( str_contains( home_url(), 'staging.wpaccessibility.day' ) ) ? $version . '-' . wp_rand( 1000, 10000 ) : $version;
+		$version = ( str_contains( home_url(), 'staging.wpaccessibility.day' ) ) ? WPCS_VERSION . '-' . wp_rand( 1000, 10000 ) : WPCS_VERSION;
 		wp_enqueue_style( 'wpcs-admin', plugins_url( '/assets/css/admin.css', __FILE__ ), array(), $version );
 	}
 

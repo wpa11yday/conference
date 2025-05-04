@@ -29,13 +29,13 @@ function wpcsp_post_information( $post_ID ) {
  */
 function wpcsp_create_urls( $post_ID ) {
 	$data     = wpcsp_post_information( $post_ID );
-	$twitter  = 'https://x.com/intent/tweet?text=' . urlencode( $data['title']  ) . '&url=' . urlencode( $data['url'] );
+	$twitter  = 'https://x.com/intent/tweet?text=' . urlencode( $data['title'] ) . '&url=' . urlencode( $data['url'] );
 	$facebook = 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode( $data['url'] );
 	$linkedin = 'https://www.linkedin.com/sharing/share-offsite/?url=' . urlencode( $data['url'] );
 	$mastodon = '#';
 	$bluesky  = 'https://bsky.app/intent/compose?text=' . urlencode( $data['title'] ) . ' ' . urlencode( $data['url'] );
 
-	return array( 
+	return array(
 		'twitter'  => $twitter,
 		'facebook' => $facebook,
 		'bluesky'  => $bluesky,
@@ -73,7 +73,7 @@ function wpcsp_create_links( $post_ID ) {
 					</li>';
 		}
 	}
-	
+
 	return '<ul class="wpcsp-links">' . $html . '</ul>';
 }
 
@@ -93,14 +93,14 @@ function wpcsp_social_block( $post_ID ) {
 					$links
 				</div>
 			</nav>";
-	
+
 	return $html;
 }
 
 /**
  * Use WordPress filter 'the_content' to add sharing links into post content.
  *
- * @param $content The current content of the post.
+ * @param string $content The current content of the post.
  *
  * @return $content The previous content of the post plus social sharing links.
  */
@@ -111,7 +111,7 @@ function wpcsp_post_content( $content ) {
 		$wpcsp_social = wpcsp_social_block( $post_ID );
 		$content      = $content . $wpcsp_social;
 	}
-	
+
 	return $content;
 }
 add_filter( 'the_content', 'wpcsp_post_content' );

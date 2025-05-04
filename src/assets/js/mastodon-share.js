@@ -2,19 +2,37 @@
 // I got the key, I got the secret…
 let key = 'mastodon-instance';
 let instance = localStorage.getItem(key);
+instance = ( null === instance ) ? '' : instance;
 
 // get the link from the DOM
 const button = document.querySelector('.mastodon-share');
 
 // refresh the link with the instance name
 const refreshlink = (instance) => {
-    button.href = `https://${instance}/share?text=${encodeURIComponent(document.title)}%0A${encodeURIComponent(location.href)}`;
+	let url = isValidUrl( instance );
+	console.log( url );
+	if ( ! url ) {
+		url = 'https://' + instance;
+	} else {
+		url = instance;
+	}
+    button.href = `${url}/share?text=${encodeURIComponent(document.title)}%0A${encodeURIComponent(location.href)}`;
+}
+
+// check whether stored value is a url
+function isValidUrl( string ) {
+	try {
+		new URL(string);
+		return true;
+	} catch (error) {
+		return false;
+	}
 }
 
 // got it? Let's go! 
 if (button) {
     // labels and texts from the link
-    let prompt = button.dataset.prompt || 'Please tell me your Mastodon instance';
+    let prompt = button.dataset.prompt || 'Let me know your Mastodon instance:';
     let editlabel = button.dataset.editlabel || 'Edit your Mastodon instance';
     let edittext = button.dataset.edittext || '✏️';
 

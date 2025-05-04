@@ -14,7 +14,7 @@
  */
 function wpcsp_post_information( $post_ID ) {
 	$data          = array();
-	$data['title'] = get_the_title( $post_ID ); 
+	$data['title'] = get_the_title( $post_ID );
 	$data['url']   = get_permalink( $post_ID );
 
 	return $data;
@@ -23,35 +23,31 @@ function wpcsp_post_information( $post_ID ) {
 /**
  * Generate the URLs used to post data to services.
  *
- * @param integer $post_ID of current post
+ * @param integer $post_ID of current post.
  *
  * @return array of URLs for posting to each service.
  */
 function wpcsp_create_urls( $post_ID ) {
-	$data      = wpcsp_post_information( $post_ID );
-	$twitter   = 'https://x.com/intent/tweet?text=' . urlencode( $data['title']  ). '&url=' . urlencode( $data['url'] );
-	$facebook  = 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode( $data['url'] );
-	$linkedin  = 'https://www.linkedin.com/sharing/share-offsite/?url=' . urlencode( $data['url'] );
-	$mastodon  = '#';
-	$bluesky   = 'https://bsky.app/intent/compose?text=' . urlencode( $data['title'] ) . ' ' . urlencode( $data['url'] );
-	
-	return apply_filters(
-		'wpcsp_social_service_links',
-		 array( 
-			'twitter'  => $twitter,
-			'facebook' => $facebook,
-			'bluesky'  => $bluesky,
-			'linkedin' => $linkedin,
-			'mastodon' => $mastodon,
-		),
-		$data
+	$data     = wpcsp_post_information( $post_ID );
+	$twitter  = 'https://x.com/intent/tweet?text=' . urlencode( $data['title']  ) . '&url=' . urlencode( $data['url'] );
+	$facebook = 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode( $data['url'] );
+	$linkedin = 'https://www.linkedin.com/sharing/share-offsite/?url=' . urlencode( $data['url'] );
+	$mastodon = '#';
+	$bluesky  = 'https://bsky.app/intent/compose?text=' . urlencode( $data['title'] ) . ' ' . urlencode( $data['url'] );
+
+	return array( 
+		'twitter'  => $twitter,
+		'facebook' => $facebook,
+		'bluesky'  => $bluesky,
+		'linkedin' => $linkedin,
+		'mastodon' => $mastodon,
 	);
 }
 
 /**
  * Generate the HTML links using URLs.
  *
- * @param integer $post_ID of current post
+ * @param integer $post_ID of current post.
  *
  * @return string block of HTML links.
  */
@@ -68,17 +64,17 @@ function wpcsp_create_links( $post_ID ) {
 			if ( 'mastodon' === $service ) {
 				$link_class .= ' mastodon-share';
 			}
-			$html       .= "
+			$html .= "
 					<li class='wpcsp-link " . esc_attr( $service ) . "'>
 						<a class='" . $link_class . "' href='" . esc_url( $url ) . "' target='_blank' rel='nofollow external'>
 							<span class='wpcsp-icon dashicons dashicons-" . esc_attr( $social_icon ) . "' aria-hidden='true'></span>
-							<span class='wpcsp-text $service'>" . esc_html( ucfirst( $service ) ) . "</span>
+							<span class='wpcsp-text $service'>" . esc_html( ucfirst( $service ) ) . '</span>
 						</a>
-					</li>";
+					</li>';
 		}
 	}
 	
-	return "<ul class='wpcsp-links'>" . $html . "</ul>";
+	return '<ul class="wpcsp-links">' . $html . '</ul>';
 }
 
 /**
@@ -90,10 +86,10 @@ function wpcsp_create_links( $post_ID ) {
  */
 function wpcsp_social_block( $post_ID ) {
 	$links = wpcsp_create_links( $post_ID );
-	$html = "
+	$html  = "
 			<nav aria-labelledby='wpa-conference'>
 				<h3 id='wpa-conference'>" . __( 'Share This Post', 'wpa-conference' ) . "</h3>			
-				<div class='wpcsp-social-share'>				
+				<div class='wpcsp-social-share'>
 					$links
 				</div>
 			</nav>";
@@ -108,7 +104,6 @@ function wpcsp_social_block( $post_ID ) {
  *
  * @return $content The previous content of the post plus social sharing links.
  */
-add_filter( 'the_content', 'wpcsp_post_content' );
 function wpcsp_post_content( $content ) {
 	global $post;
 	$post_ID = $post->ID;
@@ -119,3 +114,4 @@ function wpcsp_post_content( $content ) {
 	
 	return $content;
 }
+add_filter( 'the_content', 'wpcsp_post_content' );

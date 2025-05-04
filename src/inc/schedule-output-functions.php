@@ -23,36 +23,47 @@ function wpcsp_get_social_links( $post_id ) {
 		$social_icon  = strtolower( $social_icon );
 		$url          = get_post_meta( get_the_ID(), 'wpcsp_' . $social_icon . '_url', true );
 		if ( $url ) {
-
-			switch ( $social_icon ) {
-				case 'website':
-					$social_icon = 'admin-site-alt3';
-					break;
-				case 'facebook':
-					$social_icon = 'facebook-alt';
-					break;
-				case 'github':
-					$social_icon = ' fa-brands fa-github';
-					break;
-				case 'mastodon':
-					$social_icon = ' fa-brands fa-mastodon';
-					break;
-				case 'threads':
-					$social_icon = ' fa-brands fa-threads';
-					break;
-				case 'bluesky':
-					$social_icon = ' fa-brands fa-bluesky';
-					break;
-				case 'twitter':
-					$social_icon = ' fa-brands fa-x-twitter';
-					break;
-			}
-
+			$social_icon    = wpcsp_social_icon_class( $social_icon );
 			$social_icons[] = '<a class="wpcsp-' . $post_type . '-social-icon-link" href="' . esc_url( $url ) . '"><span class="dashicons dashicons-' . $social_icon . '" aria-hidden="true"></span><span class="screen-reader-text">' . $social_label . '</a>';
 		}
 	}
 
 	return $social_icons;
+}
+
+/**
+ * Get the classes for rendering a social media icon.
+ *
+ * @param string $social_icon Social Icon designation.
+ *
+ * @return string
+ */
+function wpcsp_social_icon_class( $social_icon ) {
+	switch ( $social_icon ) {
+		case 'website':
+			$social_icon = 'admin-site-alt3';
+			break;
+		case 'facebook':
+			$social_icon = 'facebook-alt';
+			break;
+		case 'github':
+			$social_icon = ' fa-brands fa-github';
+			break;
+		case 'mastodon':
+			$social_icon = ' fa-brands fa-mastodon';
+			break;
+		case 'threads':
+			$social_icon = ' fa-brands fa-threads';
+			break;
+		case 'bluesky':
+			$social_icon = ' fa-brands fa-bluesky';
+			break;
+		case 'twitter':
+			$social_icon = ' fa-brands fa-x-twitter';
+			break;
+	}
+
+	return $social_icon;
 }
 
 /**

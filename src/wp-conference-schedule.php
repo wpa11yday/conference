@@ -189,10 +189,10 @@ class WPCS_Conference_Schedule {
 		);
 		$version = WPCS_VERSION;
 		$version = ( str_contains( home_url(), 'staging.wpaccessibility.day' ) ) ? $version . '-' . wp_rand( 1000, 10000 ) : $version;
-		$timezones = ( SCRIPT_DEBUG ) ? 'conference-time-zones.js' : 'conference-time-zones-min.js';
-		$mastodon  = ( SCRIPT_DEBUG ) ? 'mastodon-share.js' : 'mastodon-share-min.js';
+		$timezones = ( SCRIPT_DEBUG ) ? 'assets/js/conference-time-zones.js' : 'assets/js/conference-time-zones-min.js';
+		$mastodon  = ( SCRIPT_DEBUG ) ? 'assets/js/mastodon-share.js' : 'assets/js/mastodon-share-min.js';
 		wp_enqueue_script( 'wpcs_scripts', plugins_url( $timezones, __FILE__ ), array( 'jquery' ), $version );
-		wp_enqueue_script( 'mastodon-share', plugins_url( $mastodon, __FILE__ ), $version );
+		wp_enqueue_script( 'mastodon-share', plugins_url( $mastodon, __FILE__ ), array(), $version, true );
 	}
 
 	/**

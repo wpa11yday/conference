@@ -14,7 +14,8 @@
  */
 function wpcsp_post_information( $post_ID ) {
 	$data          = array();
-	$data['title'] = get_the_title( $post_ID );
+	$post          = get_post( $post_ID );
+	$data['title'] = $post->post_title;
 	$data['url']   = get_permalink( $post_ID );
 
 	return $data;

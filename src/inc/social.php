@@ -13,9 +13,9 @@
  * @return array of post data for use in sharing.
  */
 function wpcsp_post_information( $post_ID ) {
-	$data         = array();
-	$data['text'] = get_the_title( $post_ID ); 
-	$data['url']  = get_permalink( $post_ID );
+	$data          = array();
+	$data['title'] = get_the_title( $post_ID ); 
+	$data['url']   = get_permalink( $post_ID );
 
 	return $data;
 }
@@ -33,7 +33,7 @@ function wpcsp_create_urls( $post_ID ) {
 	$facebook  = 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode( $data['url'] );
 	$linkedin  = 'https://www.linkedin.com/sharing/share-offsite/?url=' . urlencode( $data['url'] );
 	$mastodon  = '#';
-	$bluesky   = 'https://bsky.app/intent/compose?text=' . urlencode( $data['text'] ) . ' ' . urlencode( $data['url'] );
+	$bluesky   = 'https://bsky.app/intent/compose?text=' . urlencode( $data['title'] ) . ' ' . urlencode( $data['url'] );
 	
 	return apply_filters(
 		'wpcsp_social_service_links',
@@ -58,29 +58,22 @@ function wpcsp_create_urls( $post_ID ) {
 function wpcsp_create_links( $post_ID ) {
 	$urls     = wpcsp_create_urls( $post_ID );
 	$html     = '';
-	$defaults = array(
-		'twitter'  => 'on',
-		'facebook' => 'on',
-		'bluesky'  => 'on',
-		'linkedin' => 'on',
-		'mastodon' => 'on',
-	);
-	$settings = get_option( 'wpcsp_settings', $defaults );
-	$enabled  = ( isset( $settings['enabled'] ) ) ? $settings['enabled'] : array();
-
+	$defaults = array( 'twitter', 'facebook', 'bluesky', 'linkedin', 'mastodon' );
 	foreach ( $urls as $service => $url ) {
-		$is_enabled = in_array( $service, array_keys( $enabled ) );
+		$is_enabled = in_array( $service, $defaults, true );
+
 		if ( $url && $is_enabled ) {
 			$social_icon = wpcsp_social_icon_class( $service );
+			$link_class  = $service;
+			if ( 'mastodon' === $service ) {
+				$link_class .= ' mastodon-share';
+			}
 			$html       .= "
 					<li class='wpcsp-link " . esc_attr( $service ) . "'>
-						<a href='" . esc_url( $url ) . "' rel='nofollow external' aria-describedby='description-$service'>
+						<a class='" . $link_class . "' href='" . esc_url( $url ) . "' target='_blank' rel='nofollow external'>
 							<span class='wpcsp-icon dashicons dashicons-" . esc_attr( $social_icon ) . "' aria-hidden='true'></span>
 							<span class='wpcsp-text $service'>" . esc_html( ucfirst( $service ) ) . "</span>
 						</a>
-						<span class='description' role='tooltip' id='description-" . esc_attr( $service ) . "'>
-							" . __( 'Share this post' ) . "
-						</span>
 					</li>";
 		}
 	}

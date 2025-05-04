@@ -37,11 +37,11 @@ function wpcsp_create_urls( $post_ID ) {
 	$bluesky  = 'https://bsky.app/intent/compose?text=' . urlencode( $data['title'] ) . ' ' . urlencode( $data['url'] );
 
 	return array(
-		'twitter'  => $twitter,
 		'facebook' => $facebook,
-		'bluesky'  => $bluesky,
 		'linkedin' => $linkedin,
+		'bluesky'  => $bluesky,
 		'mastodon' => $mastodon,
+		'twitter'  => $twitter,
 	);
 }
 
@@ -55,7 +55,7 @@ function wpcsp_create_urls( $post_ID ) {
 function wpcsp_create_links( $post_ID ) {
 	$urls     = wpcsp_create_urls( $post_ID );
 	$html     = '';
-	$defaults = array( 'twitter', 'facebook', 'bluesky', 'linkedin', 'mastodon' );
+	$defaults = array( 'facebook', 'linkedin', 'bluesky', 'mastodon', 'twitter' );
 	foreach ( $urls as $service => $url ) {
 		$is_enabled = in_array( $service, $defaults, true );
 

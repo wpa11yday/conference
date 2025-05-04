@@ -89,7 +89,7 @@ function wpcsp_social_block( $post_ID ) {
 	$links = wpcsp_create_links( $post_ID );
 	$html  = "
 			<nav aria-labelledby='wpa-conference'>
-				<h3 id='wpa-conference'>" . __( 'Share This Post', 'wpa-conference' ) . "</h3>			
+				<h2 id='wpa-conference'>" . __( 'Share This Post', 'wpa-conference' ) . "</h2>			
 				<div class='wpcsp-social-share'>
 					$links
 				</div>

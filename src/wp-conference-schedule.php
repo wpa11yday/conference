@@ -41,6 +41,7 @@ require_once WPCS_DIR . 'inc/post-types.php';
 require_once WPCS_DIR . 'inc/taxonomies.php';
 require_once WPCS_DIR . 'inc/schedule-output-functions.php';
 require_once WPCS_DIR . 'inc/settings.php';
+require_once WPCS_DIR . 'inc/social.php';
 require_once WPCS_DIR . 'inc/activation.php';
 require_once WPCS_DIR . 'inc/deactivation.php';
 require_once WPCS_DIR . 'inc/uninstall.php';

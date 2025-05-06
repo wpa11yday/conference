@@ -69,6 +69,7 @@ No translations yet.
 	- Spanish; Diana Córdoba
 	- French; Celine Rey-Greffier
 4. Is my WordPress site accessible? How to Perform Accessibility and Usability Tests
+   	- Spanish; Luz Zuniga
    	- French; Laetitia de Perthius
    	- Hebrew; Liron Milstein
 5. Complex Data Visualizations and the Accessibility Phenomena

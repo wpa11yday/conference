@@ -32,7 +32,7 @@ function isValidUrl( string ) {
 // got it? Let's go! 
 if (button) {
     // labels and texts from the link
-    let prompt = button.dataset.prompt || 'Let me know your Mastodon instance:';
+    let prompt = button.dataset.prompt || 'Add your Mastodon instance, e.g. wptoots.social';
     let editlabel = button.dataset.editlabel || 'Edit your Mastodon instance';
     let edittext = button.dataset.edittext || '✏️';
 

@@ -10,7 +10,6 @@ const button = document.querySelector('.mastodon-share');
 // refresh the link with the instance name
 const refreshlink = (instance) => {
 	let url = isValidUrl( instance );
-	console.log( url );
 	if ( ! url ) {
 		url = 'https://' + instance;
 	} else {

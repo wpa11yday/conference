@@ -89,6 +89,7 @@ No translations yet.
 11. Immersive Audio Description
    	- Spanish; Luz Zuniga
 12. A Recipe for an Accessible Accordion Block
+	- French; Louis Chance
 	- Italian; Alice Orru
 13. Plot a course!: Creating Accessible SVG Charts in WordPress
 14. Creating an Animation Pause Button in WordPress
@@ -116,6 +117,7 @@ No translations yet.
 22. How to Code for Keyboard Access in WordPress
   	- Spanish; Debora Ermel
 23. Building an Accessible Theme for Accessible First Sites
+  	- Spanish; Debora Ermel
 24. Understanding Color and Contrast Requirements in WCAG 2
     	- Spanish; Diana Córdoba Gómez
 

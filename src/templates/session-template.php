@@ -117,16 +117,6 @@ get_header(); ?>
 						}
 							the_content();
 						?>
-							<div class="wpcs-session-links">
-								<?php
-								wpcs_slides( get_the_ID() );
-								wpcs_resources( get_the_ID() );
-								?>
-							</div>
-							<?php
-							$speakers = wpcs_session_speakers( get_the_ID(), $session_type );
-							echo $speakers['html'];
-							?>
 					</div><!-- .entry-content -->
 
 					<?php if ( get_option( 'wpcs_field_schedule_page_url' ) ) { ?>

@@ -115,4 +115,4 @@ function wpcsp_post_content( $content ) {
 
 	return $content;
 }
-add_filter( 'the_content', 'wpcsp_post_content' );
+add_filter( 'the_content', 'wpcsp_post_content', 100 );

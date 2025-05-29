@@ -757,7 +757,7 @@ function wpcs_slides( $session_ID ) {
 		foreach ( $slides as $slide ) {
 			$output .= '<li>' . $slide . '</li>';
 		}
-		echo wp_kses_post( '<div class="wpcs-slides-wrapper"><h3>' . __( 'Slides', 'wpa-conference' ) . '</h3><ul class="wpcs-slides">' . $output . '</ul></div>' );
+		return '<div class="wpcs-slides-wrapper"><ul class="wpcs-slides">' . $output . '</ul></div>';
 	}
 }
 
@@ -823,7 +823,7 @@ function wpcs_resources( $session_ID ) {
 		foreach ( $resources as $resource ) {
 			$output .= '<li>' . $resource . '</li>';
 		}
-		echo wp_kses_post( '<div class="wpcs-resources-wrapper"><h3>' . __( 'Resources', 'wpa-conference' ) . '</h3><ul class="wpcs-resources">' . $output . '</ul></div>' );
+		return '<div class="wpcs-resources-wrapper"><ul class="wpcs-resources">' . $output . '</ul></div>';
 	}
 }
 
@@ -843,3 +843,24 @@ function wpcs_ends_with( $source, $ext ) {
 
 	return ( substr( $source, -$length ) === $ext );
 }
+
+/**
+ * Add grouped session data after post content.
+ */
+function wpcs_session_details( $content ) {
+	global $post;
+	$post_ID = $post->ID;
+	if ( is_main_query() && in_the_loop() && 'wpcs_session' === get_post_type( $post ) ) {
+		$session_type = get_post_meta( $post_ID, '_wpcs_session_type', true );
+		$slides       = wpcs_slides( $post_ID );
+		$resources    = wpcs_resources( $post_ID );
+		$speakers     = wpcs_session_speakers( $post_ID, $session_type )['html'];
+		$topics       = wpad_draw_topics( $post_ID );
+		$translations = wpad_draw_langs( $post_ID );
+	
+		$content = $content . '<div class="session-blocks"><div><h3>' . __( 'Resources', 'wpa-conference' ) . '</h3>' . $slides  . $resources . '</div><div>' . $topics . '</div><div>' . $translations . '</div></div>' . $speakers;
+	}
+
+	return $content;
+}
+add_filter( 'the_content', 'wpcs_session_details' );

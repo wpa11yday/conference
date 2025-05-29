@@ -881,8 +881,8 @@ function wpcs_session_details( $content ) {
 		if ( empty( $slides ) && empty( $resources ) ) {
 			$slides = '<p>' . __( 'None provided.', 'wpa-conference' ) . '</p>';
 		}
-	
-		$content = $content . '<div class="session-blocks"><div><h3>' . __( 'Resources', 'wpa-conference' ) . '</h3>' . $slides  . $resources . '</div><div>' . $topics . '</div><div>' . $translations . '</div></div>' . $speakers;
+
+		$content = $content . '<div class="session-blocks"><div><h3>' . __( 'Resources', 'wpa-conference' ) . '</h3>' . $slides . $resources . '</div><div>' . $topics . '</div><div>' . $translations . '</div></div>' . $speakers;
 	}
 
 	return $content;

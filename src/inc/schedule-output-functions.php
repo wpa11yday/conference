@@ -401,7 +401,7 @@ function wpad_get_track_name( $talk_id ) {
  * @return string
  */
 function wpad_draw_langs( $talk_id ) {
-	$tag_heading_txt = __( 'Translations', 'wpa-conference' );
+	$tag_heading_txt = __( 'Languages', 'wpa-conference' );
 	$tags_html       = wpad_get_langs_html( $talk_id );
 	if ( ! empty( $tags_html ) ) {
 		$tags_html = "

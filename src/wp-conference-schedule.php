@@ -1775,7 +1775,7 @@ function wpcs_get_video() {
 	<div class="wp-block-group alignwide wpad-video-player">
 		<h2>Session Video</h2>
 		<div class="video-wrapper">
-			<video id="able-player-' . get_the_ID() . '" data-skin="2020" data-able-player data-transcript-div="able-player-transcript-' . get_the_ID() . '" preload="auto" poster="' . wpcs_get_poster() . '" data-youtube-id="' . wpcs_get_youtube() . '"' . $sign_src . '>
+			<video id="able-player-' . get_the_ID() . '" data-skin="2020" data-heading-level="0" data-able-player data-transcript-div="able-player-transcript-' . get_the_ID() . '" preload="auto" poster="' . wpcs_get_poster() . '" data-youtube-id="' . wpcs_get_youtube() . '"' . $sign_src . '>
 				' . $subtitles . '
 			</video>
 			' . $holder . '

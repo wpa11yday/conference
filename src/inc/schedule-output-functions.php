@@ -320,7 +320,7 @@ function wpad_get_langs_html( $talk_id ) {
  * @return object
  */
 function wpad_filter_term_name( $term, $taxonomy ) {
-	if ( 'wpcs_session_lang' === $taxonomy ) {
+	if ( 'wpcs_session_lang' === $taxonomy && ! is_admin() ) {
 		$term->name = ( ! str_contains( $term->name, 'span lang' ) ) ? '<span lang="' . $term->slug . '">' . $term->name . '</span>' : $term->name;
 	}
 

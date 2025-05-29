@@ -1760,7 +1760,7 @@ function wpcs_get_video() {
 			$subtitles .= '<track kind="captions" src="' . esc_url( $caption ) . '" srclang="' . esc_attr( $lang ) . '" label="' . $label . '">';
 		}
 	}
-	$count    = count( $captions ) - 1;
+	$count    = count( $captions );
 	if ( $count <= 1 ) {
 		// translators: Link to translation interest form.
 		$translate = sprintf( __( 'This session is only available in English! Can you <a href="%s">help translate it</a>?', 'wpa-conference' ), 'https://wpaccessibility.day/translate/' );

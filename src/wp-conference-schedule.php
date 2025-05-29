@@ -1827,6 +1827,10 @@ function wpcs_get_captions() {
 	$languages   = wpcs_get_languages( false );
 	$captions    = array();
 	$has_caption = false;
+	$args        = array(
+		'fields' => 'slugs',
+	);
+	$terms       = wp_get_object_terms( $post_id, 'wpcs_session_lang', $args );
 	foreach ( $languages as $key => $language ) {
 		$filename = get_post_field( 'post_name', $post_id ) . '-' . $key;
 		$year     = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
@@ -1836,6 +1840,10 @@ function wpcs_get_captions() {
 		require_once ABSPATH . '/wp-admin/includes/file.php';
 		WP_Filesystem();
 		if ( $wp_filesystem->exists( $filepath ) ) {
+			if ( ! has_term( $key, 'wpcs_session_lang' ) ) {
+				$terms[] = $key;
+				wp_set_object_terms( $post_id, $terms, 'wpcs_session_lang' );
+			}
 			$has_caption      = ( 'en' === $key ) ? true : $has_caption;
 			$captions[ $key ] = ( $cache_break ) ? add_query_arg( 'version', wp_rand( 10000, 99999 ), $file_url ) : $file_url;
 		}

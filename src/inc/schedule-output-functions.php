@@ -863,6 +863,10 @@ function wpcs_ends_with( $source, $ext ) {
 
 /**
  * Add grouped session data after post content.
+ *
+ * @param string $content Post content.
+ *
+ * @return string
  */
 function wpcs_session_details( $content ) {
 	global $post;
@@ -875,7 +879,7 @@ function wpcs_session_details( $content ) {
 		$topics       = wpad_draw_topics( $post_ID );
 		$translations = wpad_draw_langs( $post_ID );
 		if ( empty( $slides ) && empty( $resources ) ) {
-			$slides = '<p>' . __( 'None provided.', 'wpad-conference' ) . '</p>';
+			$slides = '<p>' . __( 'None provided.', 'wpa-conference' ) . '</p>';
 		}
 	
 		$content = $content . '<div class="session-blocks"><div><h3>' . __( 'Resources', 'wpa-conference' ) . '</h3>' . $slides  . $resources . '</div><div>' . $topics . '</div><div>' . $translations . '</div></div>' . $speakers;

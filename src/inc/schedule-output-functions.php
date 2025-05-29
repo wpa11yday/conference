@@ -857,6 +857,9 @@ function wpcs_session_details( $content ) {
 		$speakers     = wpcs_session_speakers( $post_ID, $session_type )['html'];
 		$topics       = wpad_draw_topics( $post_ID );
 		$translations = wpad_draw_langs( $post_ID );
+		if ( empty( $slides ) && empty( $resources ) ) {
+			$slides = '<p>' . __( 'None provided.', 'wpad-conference' ) . '</p>';
+		}
 	
 		$content = $content . '<div class="session-blocks"><div><h3>' . __( 'Resources', 'wpa-conference' ) . '</h3>' . $slides  . $resources . '</div><div>' . $topics . '</div><div>' . $translations . '</div></div>' . $speakers;
 	}

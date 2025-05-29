@@ -301,7 +301,7 @@ function wpad_get_langs_html( $talk_id ) {
 			$tags_html .= '<ul class="talks-wrapper">';
 			foreach ( $all_tags as $tag ) {
 				$tags_html .= '<li class="talk-lang-wrapper ' . $tag->slug . '">';
-				$tags_html .= '<span lang="' . $tag->slug . '"><a href="' . esc_url( get_term_link( $tag->term_id ) ) . '">' . esc_html( $tag->name ) . '</a></span>';
+				$tags_html .= '<a href="' . esc_url( get_term_link( $tag->term_id ) ) . '">' . $tag->name . '</a>';
 				$tags_html .= '</li>';
 			}
 			$tags_html .= '</ul>';
@@ -310,6 +310,23 @@ function wpad_get_langs_html( $talk_id ) {
 
 	return $tags_html;
 }
+
+/**
+ * Filter term output for the languages taxonomy to wrap terms in appropriate lang tags.
+ *
+ * @param object $term Term object.
+ * @param string $taxonomy Taxonomy name.
+ *
+ * @return object
+ */
+function wpad_filter_term_name( $term, $taxonomy ) {
+	if ( 'wpcs_session_lang' === $taxonomy ) {
+		$term->name = ( ! str_contains( $term->name, 'span lang' ) ) ? '<span lang="' . $term->slug . '">' . $term->name . '</span>' : $term->name;
+	}
+
+	return $term;
+}
+add_filter( 'get_term', 'wpad_filter_term_name', 10, 2 );
 
 /**
  * Get tags for a session.

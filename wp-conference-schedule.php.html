@@ -1786,6 +1786,14 @@ function wpcs_get_video() {
 			$subtitles .= '&lt;track kind="captions" src="' . esc_url( $caption ) . '" srclang="' . esc_attr( $lang ) . '" label="' . $label . '">';
 		}
 	}
+	$count    = count( $captions ) - 1;
+	if ( $count &lt;= 1 ) {
+		// translators: Link to translation interest form.
+		$translate = sprintf( __( 'This session is only available in English! Can you &lt;a href="%s">help translate it&lt;/a>?', 'wpa-conference' ), 'https://wpaccessibility.day/translate/' );
+	} else {
+		// translators: Number of translations available; Link to translation interest form.
+		$translate = sprintf( __( 'This session is available in %d languages! Can you &lt;a href="%s">help translate more&lt;/a>?', 'wpa-conference' ), $count, 'https://wpaccessibility.day/translate/' );
+	}
 	$sign_src = ( wpcs_get_asl() ) ? ' data-sign-src="' . wpcs_get_asl() . '"' : '';
 	$holder   = $sign_src ? '&lt;div class="holder">&lt;p>&lt;em>Space for positioning sign language player&lt;/em>&lt;/p>&lt;/div>' : '';
 
@@ -1799,6 +1807,11 @@ function wpcs_get_video() {
 			' . $holder . '
 		&lt;/div>
 		&lt;div id="able-player-transcript-' . get_the_ID() . '">&lt;/div>
+		&lt;div class="please-translate">
+			&lt;p>
+				' . $translate . '
+			&lt;/p>
+		&lt;/div>
 	&lt;/div>';
 }
 

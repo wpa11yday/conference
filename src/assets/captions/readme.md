@@ -112,6 +112,7 @@ No translations yet.
 20. Accessibility Pitfalls of WordPress Menus
 	- Spanish; Diana Córdoba Gómez
 21. A Practical Guide To Automated Accessibility
+	- Spanish; Luz Zuniga
 	- French; Emilie Sirotic
  	- Hebrew; Liron Milstein	
   	- Malay; Nicolas Y Z W

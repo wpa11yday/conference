@@ -94,6 +94,7 @@ No translations yet.
 13. Plot a course!: Creating Accessible SVG Charts in WordPress
 14. Creating an Animation Pause Button in WordPress
 	- Spanish; Kim Ortiz
+	- Hindi; Shashank Dubey
 15. The Impact of Bad ARIA on Web Accessibility
 	- Spanish; Azul Vazquez de Novoa
 	- Hebrew; Liron Milstein

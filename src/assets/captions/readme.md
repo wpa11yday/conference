@@ -72,6 +72,7 @@ No translations yet.
    	- Spanish; Luz Zuniga
    	- French; Laetitia de Perthius
    	- Hebrew; Liron Milstein
+   	- Italian; Alessandra Vallera
 5. Complex Data Visualizations and the Accessibility Phenomena
 	- Spanish; Maria Gabriela (Gaby) Gandica
 	- French; Béryl de La Grandière

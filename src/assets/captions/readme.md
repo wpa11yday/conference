@@ -99,7 +99,8 @@ No translations yet.
 15. The Impact of Bad ARIA on Web Accessibility
 	- Spanish; Azul Vazquez de Novoa
 	- Hebrew; Liron Milstein
-	- Italian; Alice Orru
+	- Hindi: Nikunj Hatkar
+ 	- Italian; Alice Orru
 15. Sponsored Lightning Talk #1
 15. Sponsored Lightning Talk #2
 15. Sponsored Lightning Talk #3

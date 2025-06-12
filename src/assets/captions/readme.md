@@ -72,6 +72,7 @@ No translations yet.
    	- Spanish; Luz Zuniga
    	- French; Laetitia de Perthius
    	- Hebrew; Liron Milstein
+   	- Italian; Alessandra Vallera
 5. Complex Data Visualizations and the Accessibility Phenomena
 	- Spanish; Maria Gabriela (Gaby) Gandica
 	- French; Béryl de La Grandière
@@ -94,10 +95,12 @@ No translations yet.
 13. Plot a course!: Creating Accessible SVG Charts in WordPress
 14. Creating an Animation Pause Button in WordPress
 	- Spanish; Kim Ortiz
+	- Hindi; Shashank Dubey
 15. The Impact of Bad ARIA on Web Accessibility
 	- Spanish; Azul Vazquez de Novoa
 	- Hebrew; Liron Milstein
-	- Italian; Alice Orru
+	- Hindi; Nikunj Hatkar
+ 	- Italian; Alice Orru
 15. Sponsored Lightning Talk #1
 15. Sponsored Lightning Talk #2
 15. Sponsored Lightning Talk #3
@@ -111,6 +114,7 @@ No translations yet.
 20. Accessibility Pitfalls of WordPress Menus
 	- Spanish; Diana Córdoba Gómez
 21. A Practical Guide To Automated Accessibility
+	- Spanish; Luz Zuniga
 	- French; Emilie Sirotic
  	- Hebrew; Liron Milstein	
   	- Malay; Nicolas Y Z W

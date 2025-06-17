@@ -1,0 +1,2418 @@
+﻿WEBVTT
+
+00:00:01.140 --> 00:00:05.603
+AMBER HINDS :
+Journée de l'accessibilité WordPress 2023.
+
+00:00:05.603 --> 00:00:11.720
+L'impact d'un mauvais usage d'ARIA sur l'accessibilité Web.
+Avec Rashmi Katakwar,
+
+00:00:11.720 --> 00:00:14.100
+consultante en accessibilité Web.
+
+00:00:14.100 --> 00:00:17.710
+Cette présentation a été
+enregistrée le 28 septembre 2023.
+
+00:00:17.710 --> 00:00:22.720
+RONAK GANATRA : Bienvenue à
+la Journée de l'accessibilité WordPress 2023.
+
+00:00:22.720 --> 00:00:27.520
+Je m'appelle Ronak Ganatra et
+je suis ingénieur WordPress chez Multidots.
+
+00:00:28.580 --> 00:00:34.250
+Merci de nous rejoindre pour cette session
+sur l'impact d'un mauvais usage d'ARIA
+
+00:00:34.250 --> 00:00:38.560
+sur l'accessibilité Web,
+présentée par Rashmi Katakwar.
+
+00:00:38.560 --> 00:00:41.190
+L'accessibilité est un sujet qui
+passionne Rashmi,
+
+00:00:41.190 --> 00:00:43.520
+qui est consultante free-lance
+en accessibilité Web.
+
+00:00:43.520 --> 00:00:48.840
+Elle est également "expert invité" du W3C
+et contribue activement au travail
+
+00:00:48.840 --> 00:00:52.500
+sur l'accessibilité pour les personnes
+ayant des troubles cognitifs et d'apprentissage.
+
+00:00:52.500 --> 00:00:57.200
+Rashmi est très engagée à
+garantir un accès égal à la technologie
+
+00:00:57.200 --> 00:00:58.630
+pour tous les individus.
+
+00:00:58.630 --> 00:01:02.960
+Son intérêt pour l'accessibilité
+est porté par son absolue conviction
+
+00:01:02.960 --> 00:01:07.250
+que la technologie peut créer
+une société plus inclusive.
+
+00:01:09.726 --> 00:01:13.326
+N'hésitez pas à ajouter
+vos questions dans la section Q&amp;A,
+
+00:01:13.410 --> 00:01:16.360
+nous y répondrons à la fin de la session.
+
+00:01:16.360 --> 00:01:18.800
+Utilisez le chat pour interagir avec
+d'autres participants.
+
+00:01:20.260 --> 00:01:22.540
+Rashmi,
+je pense que c'est maintenant à vous.
+
+00:01:22.540 --> 00:01:23.340
+Vous pouvez commencer.
+
+00:01:23.340 --> 00:01:23.870
+Merci.
+
+00:01:24.733 --> 00:01:26.140
+RASHMI KATAKWAR : Bonjour à tous.
+
+00:01:26.140 --> 00:01:28.180
+Merci encore
+pour cette merveilleuse introduction.
+
+00:01:28.180 --> 00:01:29.710
+Je suis Rashmi Katakwar.
+
+00:01:30.800 --> 00:01:31.890
+Je viens d'Inde.
+
+00:01:31.890 --> 00:01:36.200
+Je suis consultante en accessibilité Web
+et "expert invité" du W3C.
+
+00:01:37.580 --> 00:01:42.710
+Je contribue aussi activement
+au groupe de travail COGA
+
+00:01:42.710 --> 00:01:44.020
+dans le cadre du W3C.
+
+00:01:48.600 --> 00:01:51.390
+Je suis également
+Social Media Manager pour la communauté
+
+00:01:51.390 --> 00:01:53.220
+LinkedIn Hello A11y.
+
+00:01:53.220 --> 00:01:57.000
+Je vous souhaite donc bienvenue dans
+cette présentation qui porte sur l'impact
+
+00:01:57.000 --> 00:01:58.710
+d'un mauvais ARIA sur l'accessibilité Web.
+
+00:02:01.120 --> 00:02:03.690
+Je vais d'abord
+vous dire brièvement
+
+00:02:03.690 --> 00:02:04.970
+pourquoi j'ai choisi ce sujet.
+
+00:02:05.833 --> 00:02:09.633
+Lors d'audits d'accessibilité,
+j'ai constaté que de nombreux problèmes
+
+00:02:09.800 --> 00:02:14.240
+d'accessibilité et d'utilisabilité venaient
+d'un mauvais usage d'ARIA dans le code.
+
+00:02:14.240 --> 00:02:17.410
+Ces mauvais usages d'ARIA
+créaient d'importantes difficultés
+
+00:02:17.410 --> 00:02:22.340
+pour ceux qui utilisent des technologies
+d'assistance pour naviguer sur le Web.
+
+00:02:23.780 --> 00:02:28.780
+Il est appréciable que les développeurs
+utilisent ARIA avec de bonnes intentions,
+
+00:02:28.780 --> 00:02:33.180
+mais sans connaissances suffisantes,
+ils se font piéger par un mauvais usage d'ARIA,
+
+00:02:33.180 --> 00:02:35.700
+ce qui peut aboutir à la création
+de solutions non accessibles.
+
+00:02:37.180 --> 00:02:42.100
+ARIA est un outil très puissant pour
+améliorer l'accessibilité des personnes
+
+00:02:42.100 --> 00:02:45.760
+qui utilisent des technologies d’assistance,
+...à condition d'être utilisé de manière adéquate.
+
+00:02:45.760 --> 00:02:48.210
+Son mauvais usage crée, cependant,
+plus de mal que de bien.
+
+00:02:49.320 --> 00:02:51.575
+Donc aujourd'hui,
+à l'aide de ma présentation
+
+00:02:51.576 --> 00:02:53.020
+et d'exemples concrets,
+
+00:02:53.020 --> 00:02:57.850
+je vais expliquer comment le mauvais usage
+d'ARIA génère des difficultés pour les utilisateurs
+
+00:02:57.850 --> 00:03:00.630
+et comment supprimer ces difficultés
+en utilisant correctement ARIA
+
+00:03:00.630 --> 00:03:01.880
+et en suivant les meilleures pratiques.
+
+00:03:03.410 --> 00:03:05.900
+Je vous assure
+qu'à la fin de cette session
+
+00:03:05.900 --> 00:03:10.070
+vous aurez une meilleure
+compréhension de tous les concepts ARIA.
+
+00:03:10.070 --> 00:03:12.620
+Cela vous aidera également
+à aligner vos efforts et
+
+00:03:12.620 --> 00:03:14.670
+votre impact sur
+l'amélioration de l'accessibilité Web.
+
+00:03:16.190 --> 00:03:19.950
+Suivre les meilleures pratiques ARIA
+et utiliser une approche proactive
+
+00:03:19.950 --> 00:03:23.570
+aidera également à réduire la charge pesant
+sur les développeurs et les entreprises
+
+00:03:23.570 --> 00:03:25.190
+en termes de temps, d'efforts et d'argent.
+
+00:03:26.960 --> 00:03:29.445
+Cela améliorera également
+l'expérience utilisateur
+
+00:03:29.446 --> 00:03:31.370
+et réduira les risques juridiques.
+
+00:03:33.670 --> 00:03:36.230
+Je suis sûre que vous avez tous
+entendu la célèbre citation
+
+00:03:36.230 --> 00:03:38.900
+du film Spider-Man :
+"Un grand pouvoir
+
+00:03:38.900 --> 00:03:40.980
+implique de grandes responsabilités".
+
+00:03:40.980 --> 00:03:43.410
+Ceci est également applicable
+lorsque nous utilisons ARIA.
+
+00:03:45.730 --> 00:03:49.050
+ARIA nous donne le pouvoir
+d'améliorer l'accessibilité.
+
+00:03:49.050 --> 00:03:53.210
+Donc, lorsque nous utilisons ARIA,
+nous devons le faire judicieusement.
+
+00:03:54.880 --> 00:03:57.250
+Parce qu'un mauvais usage d'ARIA
+crée plus de mal que de bien.
+
+00:03:59.340 --> 00:04:03.130
+Un mauvais ARIA est comme une rampe d'accès
+qui ne remplit pas son objectif.
+
+00:04:05.540 --> 00:04:08.070
+Imaginez une rampe d'accès
+installée 30 cm plus haut
+
+00:04:08.070 --> 00:04:08.870
+que le niveau du sol.
+
+00:04:08.870 --> 00:04:11.740
+Cette rampe
+aide-t-elle vraiment les futurs utilisateurs ?
+
+00:04:11.740 --> 00:04:13.150
+Bien sûr que non.
+
+00:04:13.150 --> 00:04:17.260
+Son but n'est pas que les skateurs
+puissent faire des prouesses.
+
+00:04:19.000 --> 00:04:22.980
+L'architecte avait de bonnes
+intentions lorsqu'il l'a installée,
+
+00:04:22.980 --> 00:04:26.334
+mais il n'a pas suivi
+les directives appropriées
+
+00:04:26.335 --> 00:04:28.620
+ni compris les besoins des utilisateurs.
+
+00:04:28.620 --> 00:04:34.660
+Il n'a pas réussi à comprendre tous
+les besoins des utilisateurs
+
+00:04:34.660 --> 00:04:36.410
+ni à aider les personnes en fauteuil roulant.
+
+00:04:36.410 --> 00:04:40.080
+De la même manière, si les développeurs
+utilisent ARIA sans le comprendre
+
+00:04:40.080 --> 00:04:44.100
+et l'implémentent dans le code,
+ils échouent à aider les utilisateurs comme prévu.
+
+00:04:45.890 --> 00:04:49.600
+La dernière enquête WebAIM
+confirme également mes inquiétudes.
+
+00:04:50.870 --> 00:04:54.530
+Selon les données
+du rapport WebAIM Million 2023,
+
+00:04:54.530 --> 00:04:57.360
+l'utilisation d'ARIA a augmenté
+de 29 % en seulement un an.
+
+00:04:58.770 --> 00:05:01.000
+Et cela a augmenté
+[Inaudible 04:49]
+
+00:05:01.000 --> 00:05:02.560
+depuis 2019.
+
+00:05:02.560 --> 00:05:03.980
+Alors, quel est le problème ?
+
+00:05:05.270 --> 00:05:07.700
+Ce qui est préoccupant,
+c'est qu'il apparaît également
+
+00:05:07.700 --> 00:05:13.160
+que 68,6 % d'erreurs supplémentaires
+sont détectées sur les pages avec ARIA.
+
+00:05:14.730 --> 00:05:16.940
+Plus il y a d'attributs ARIA
+présents,
+
+00:05:16.940 --> 00:05:18.810
+plus on s'attendait
+à des erreurs d'accessibilité.
+
+00:05:20.140 --> 00:05:23.750
+En fin de compte,
+si vous utilisez ARIA de manière incorrecte,
+
+00:05:23.750 --> 00:05:25.720
+vous risquez rendre
+vos sites moins accessibles.
+
+00:05:26.950 --> 00:05:30.230
+Pourquoi ne pas essayer de comprendre cela
+avec un exemple concret ?
+
+00:05:34.690 --> 00:05:36.010
+Découvrons Bob !
+
+00:05:36.010 --> 00:05:37.990
+[Voix du lecteur d'écran]
+
+00:05:40.930 --> 00:05:42.700
+Bob est non voyant
+et utilise un lecteur d'écran.
+
+00:05:44.010 --> 00:05:47.910
+Il voulait faire une surprise à Sara,
+sa femme, pour leur anniversaire de rencontre
+
+00:05:49.430 --> 00:05:51.710
+et lui offrir
+quelque chose de personnalisé.
+
+00:05:54.490 --> 00:05:59.900
+Avec beaucoup d'enthousiasme, il a ouvert
+un site Web pour rechercher des cadeaux.
+
+00:05:59.900 --> 00:06:03.720
+Mais à sa grande consternation,
+dès qu'il a commencé à explorer le site
+
+00:06:03.720 --> 00:06:09.060
+avec un clavier et un lecteur d'écran,
+...il a été submergé
+
+00:06:09.060 --> 00:06:10.720
+d'annonces soudaines et inattendues.
+
+00:06:12.940 --> 00:06:17.940
+Cela l'a laissé désorienté et
+a interrompu le flux de son lecteur d'écran.
+
+00:06:17.940 --> 00:06:23.030
+Il pouvait à peine se concentrer sur le contenu
+au milieu d'interruptions incessantes.
+
+00:06:23.030 --> 00:06:25.240
+J'ai enregistré son
+expérience dans une vidéo.
+
+00:06:26.600 --> 00:06:31.130
+La vidéo montre un utilisateur utilisant le
+lecteur d'écran NVDA avec clavier.
+
+00:06:32.340 --> 00:06:35.890
+La fenêtre du lecteur vocal affiche
+le texte lu par le lecteur d'écran
+
+00:06:35.890 --> 00:06:36.890
+dans l'ordre linéaire.
+
+00:06:39.010 --> 00:06:40.640
+Écoutons cet audio ensemble
+
+00:06:40.640 --> 00:06:43.250
+pour mieux comprendre
+l'expérience de Bob.
+
+00:06:45.212 --> 00:07:38.637
+[Voix du lecteur d'écran]
+
+00:07:40.633 --> 00:07:41.602
+C'est ennuyeux.
+
+00:07:43.567 --> 00:07:46.349
+Alors, qu'est-il arrivé à
+la recherche de cadeaux de Bob ?
+
+00:07:46.350 --> 00:07:49.730
+Après avoir bataillé durant quelques minutes,
+il a fermé le site
+
+00:07:49.730 --> 00:07:51.890
+et a abandonné l'idée
+d'acheter un cadeau en ligne à sa femme.
+
+00:07:52.990 --> 00:07:55.200
+Comment expliquer tout ça ?
+
+00:07:55.200 --> 00:07:58.340
+Cela s'est produit en raison d'un mauvais usage
+de l'attribut aria-live="polite"
+
+00:07:58.340 --> 00:08:01.480
+sur les carrousels à rotation automatique.
+
+00:08:01.480 --> 00:08:04.410
+Nous en discuterons plus tard.
+Pour le moment, concentrons-nous
+
+00:08:04.410 --> 00:08:08.010
+sur le fait que l'auteur a utilisé ARIA
+en pensant
+
+00:08:08.010 --> 00:08:11.420
+que cela aiderait
+les utilisateurs de lecteurs d'écran.
+
+00:08:11.420 --> 00:08:12.870
+Mais que s'est-il passé en réalité ?
+
+00:08:12.870 --> 00:08:15.930
+Cela a gravement détérioré
+l'expérience des utilisateurs.
+
+00:08:15.930 --> 00:08:20.040
+Voilà donc ce qui arrive lorsque
+des sites Web sont créés avec un mauvais ARIA.
+
+00:08:22.830 --> 00:08:25.300
+D'après l'expérience de Bob,
+nous avons compris que
+
+00:08:25.300 --> 00:08:28.140
+au lieu d'être une aide pour
+les utilisateurs de technologies d'assistance,
+
+00:08:28.141 --> 00:08:30.590
+un mauvais ARIA crée des difficultés.
+
+00:08:31.020 --> 00:08:33.460
+Cela rend
+l'utilisateur perdu, frustré,
+
+00:08:33.460 --> 00:08:36.100
+et crée parfois de
+fausses attentes à leur égard.
+
+00:08:36.100 --> 00:08:38.590
+Cela les empêche de vivre
+des expériences entièrement numériques.
+
+00:08:39.650 --> 00:08:43.730
+De telles expériences peuvent obliger
+les utilisateurs à abandonner la tâche en cours
+
+00:08:43.730 --> 00:08:46.310
+ou à dépendre d'autres pour la terminer.
+
+00:08:46.310 --> 00:08:47.740
+Cela va à l'encontre du but d'ARIA.
+
+00:08:50.580 --> 00:08:52.650
+Alors parlons de ce qu'est ARIA.
+
+00:08:52.650 --> 00:08:55.960
+Parce que le comprendre et
+l'utiliser à bon escient est crucial.
+
+00:08:56.990 --> 00:08:59.500
+De nos jours,
+les pages Web se comportent
+
+00:08:59.500 --> 00:09:02.810
+plutôt comme
+des applications Internet riches.
+
+00:09:02.810 --> 00:09:06.010
+Leurs interfaces utilisateur
+sont riches, avancées,
+
+00:09:06.010 --> 00:09:07.330
+et leurs contenus sont dynamiques.
+
+00:09:08.600 --> 00:09:12.610
+Malheureusement, le HTML n'a pas
+toute la sémantique
+
+00:09:12.610 --> 00:09:17.310
+pour transmettre la sémantique
+des éléments riches comme les onglets,
+
+00:09:17.310 --> 00:09:19.970
+les listes d'onglets, les pré-menus, etc.
+
+00:09:19.970 --> 00:09:22.270
+Les utilisateurs voyants peuvent percevoir
+ces éléments
+
+00:09:22.270 --> 00:09:24.950
+grâce aux modèles de conception visuelle.
+
+00:09:24.950 --> 00:09:27.440
+Mais sans sémantique,
+les personnes qui utilisent une assistance
+
+00:09:27.440 --> 00:09:30.300
+ne connaissent peut-être pas toutes
+les fonctionnalités et le comportement
+
+00:09:30.300 --> 00:09:31.720
+de ces éléments.
+
+00:09:31.720 --> 00:09:33.970
+Donc, ARIA agit comme un pont
+destiné à combler cette lacune.
+
+00:09:35.950 --> 00:09:37.509
+Initiative pour l'accessibilité Web,
+
+00:09:37.510 --> 00:09:39.660
+applications Internet riches et accessibles,
+
+00:09:39.660 --> 00:09:43.230
+concept appelé WAI-ARIA ou ARIA.
+
+00:09:43.230 --> 00:09:45.800
+ARIA est une spécification W3C.
+
+00:09:45.800 --> 00:09:50.150
+Elle comprend des rôles et des attributs
+que les auteurs peuvent ajouter
+
+00:09:50.150 --> 00:09:54.540
+au HTML pour améliorer
+l'accessibilité du contenu Web
+
+00:09:54.540 --> 00:09:59.220
+et des application Web,
+pour les utilisateurs de technologies d'assistance,
+
+00:09:59.220 --> 00:10:00.220
+principalement les lecteurs d'écran.
+
+00:10:02.950 --> 00:10:06.910
+Supposons que vous lisiez un livre
+et que quelqu'un ait ajouté des notes
+
+00:10:06.910 --> 00:10:08.830
+pour vous aider
+à mieux comprendre l'histoire.
+
+00:10:08.830 --> 00:10:11.420
+ARIA est comme ces notes,
+pour le dire simplement.
+
+00:10:11.420 --> 00:10:15.620
+Le pouvoir d'ARIA est immense.
+
+00:10:15.620 --> 00:10:17.220
+Il contient de nombreuses fonctionnalités.
+
+00:10:18.610 --> 00:10:21.120
+Nous avons peu de temps,
+alors examinons-en quelques-unes aujourd'hui.
+
+00:10:22.160 --> 00:10:23.160
+OK.
+
+00:10:23.700 --> 00:10:29.520
+ARIA aide donc les auteurs à décrire
+le type de widgets
+
+00:10:29.520 --> 00:10:32.540
+à l'aide de rôles tels que liste d'onglets,
+onglet, menu, arborescence, etc.
+
+00:10:33.800 --> 00:10:37.570
+L'état peut être défini à l'aide
+d'attributs aria-selected,
+
+00:10:37.570 --> 00:10:39.090
+aria-controls, etc.
+
+00:10:42.260 --> 00:10:45.060
+Les relations entre éléments
+peuvent être définies avec aria-owns,
+
+00:10:45.060 --> 00:10:46.140
+aria-controls, par exemple.
+
+00:10:47.710 --> 00:10:50.990
+Les auteurs peuvent fournir
+des noms accessibles grâce à aria-label
+
+00:10:50.990 --> 00:10:52.510
+ou aria-labelledby.
+
+00:10:52.510 --> 00:10:54.730
+Les auteurs peuvent aussi fournir
+une description accessible
+
+00:10:54.730 --> 00:10:58.060
+avec aria-describedby.
+
+00:10:58.060 --> 00:11:01.107
+Pour les contenus dynamiques,
+
+00:11:01.108 --> 00:11:03.450
+les auteurs peuvent utiliser
+des attributs dynamique "live"
+
+00:11:03.450 --> 00:11:07.010
+pour des messages de réussite,
+des messages d'erreur, des avertissements
+
+00:11:07.010 --> 00:11:08.390
+ou des mises à jour de résultats sportifs,
+entre autres.
+
+00:11:10.050 --> 00:11:13.110
+Ils peuvent utiliser les attributs aria-hidden
+pour masquer des éléments décoratifs.
+
+00:11:14.350 --> 00:11:18.710
+Il s'agit maintenant de savoir comment
+ARIA aide les technologies d'assistance ?
+
+00:11:21.510 --> 00:11:25.560
+ARIA aide à ajouter
+le rôle, le nom, l'état, et autres
+
+00:11:25.560 --> 00:11:29.270
+à l'arborescence d'accessibilité créée
+à partir du modèle d'objet de document.
+
+00:11:31.340 --> 00:11:34.800
+Cela aide ensuite l'API d'accessibilité
+à transmettre ces informations
+
+00:11:34.800 --> 00:11:36.150
+aux technologies d’assistance.
+
+00:11:40.360 --> 00:11:42.050
+Nous savons maintenant ce que ARIA peut faire.
+
+00:11:43.470 --> 00:11:45.660
+Voyons aussi
+ce qu'ARIA ne peut pas faire.
+
+00:11:47.120 --> 00:11:49.120
+ARIA ne peut pas ajouter
+de comportement à un élément.
+
+00:11:50.390 --> 00:11:52.940
+Il ne peut pas modifier
+l'apparence d'un élément.
+
+00:11:52.940 --> 00:11:57.130
+Il ne peut pas ajouter de focusabilité,
+ni ajouter de fonctionnalités clavier
+
+00:11:57.130 --> 00:11:58.460
+aux éléments.
+
+00:11:59.500 --> 00:12:03.667
+Pour ajouter ces fonctionnalités,
+l'auteur doit utiliser des scripts et des CSS.
+
+00:12:05.100 --> 00:12:07.133
+Pour optimiser l'utilisation d'ARIA,
+
+00:12:07.133 --> 00:12:10.820
+l'auteur doit respecter
+cinq règles d'ARIA.
+
+00:12:10.820 --> 00:12:12.360
+Quelles sont-elles ?
+
+00:12:12.360 --> 00:12:15.050
+Examinons-les une par une.
+
+00:12:15.050 --> 00:12:20.130
+Règle numéro un : ne pas utiliser ARIA
+si la même sémantique est disponible en HTML.
+
+00:12:20.130 --> 00:12:24.250
+Donc pour créer une case à cocher,
+utilisez des éléments d'entrée natifs
+
+00:12:24.250 --> 00:12:28.650
+avec le type case à cocher
+au lieu d'utiliser le rôle case à cocher
+
+00:12:28.817 --> 00:12:29.817
+sur l'élément "div".
+
+00:12:33.130 --> 00:12:36.170
+La plupart des éléments HTML ont
+une sémantique native qu'ils transmettent
+
+00:12:36.170 --> 00:12:38.100
+aux lecteurs d'écran.
+
+00:12:38.100 --> 00:12:40.750
+Donc règle numéro deux :
+ne pas modifier la sémantique native,
+
+00:12:40.750 --> 00:12:41.780
+sauf impératif.
+
+00:12:42.970 --> 00:12:47.050
+Il se peut en effet qu'ARIA change la
+sémantique et les significations
+
+00:12:47.050 --> 00:12:48.310
+pour les utilisateurs de lecteurs d'écran.
+
+00:12:49.930 --> 00:12:52.653
+Règle numéro trois : toutes les commandes
+interactives doivent être activables
+
+00:12:52.654 --> 00:12:53.560
+via un clavier.
+
+00:12:53.560 --> 00:12:55.280
+Qu'est-ce que ça veut dire ?
+
+00:12:55.280 --> 00:12:57.220
+Les règles ARIA ajoutent uniquement
+de la sémantique.
+
+00:12:57.220 --> 00:13:02.290
+Ce qui est lié à la navigation et à l'opérabilité
+est du ressort de l'auteur.
+
+00:13:02.290 --> 00:13:05.420
+Donc si vous utilisez role="button"
+sur un élément,
+
+00:13:05.420 --> 00:13:08.440
+vous devez le rendre
+focusable au clavier.
+
+00:13:08.440 --> 00:13:12.800
+L'utilisateur devrait alors pouvoir
+l'activer à l'aide
+
+00:13:12.800 --> 00:13:14.750
+de la touche Entrée et
+de la barre d'espace sous Windows.
+
+00:13:16.720 --> 00:13:20.500
+Règle numéro quatre : 
+ne pas ajouter role="presentation" ou
+
+00:13:20.500 --> 00:13:23.020
+ou aria-hidden="true"
+sur un élément focusable.
+
+00:13:24.480 --> 00:13:27.392
+L'utilisation de l'un ou l'autre
+aura pour conséquence
+
+00:13:27.393 --> 00:13:29.680
+que l'utilisateur n'a le focus sur rien.
+
+00:13:34.740 --> 00:13:38.970
+Les noms accessibles sont des noms
+utilisés par les technologies d'assistance,
+
+00:13:38.970 --> 00:13:42.360
+ou du texte utilisé par ces technologies
+pour identifier l'élément.
+
+00:13:42.360 --> 00:13:45.286
+Donc règle numéro cinq :
+tous les éléments interactifs
+
+00:13:45.287 --> 00:13:46.370
+doivent avoir un nom accessible.
+
+00:13:47.930 --> 00:13:51.920
+Si les auteurs ne suivent pas ces règles,
+ARIA fait plus de mal que de bien.
+
+00:13:51.920 --> 00:13:56.440
+C'est pourquoi on dit souvent qu'il
+vaut mieux pas d'ARIA qu'un mauvais ARIA.
+
+00:13:58.250 --> 00:14:02.432
+Essayons de comprendre cela avec
+un exemple intéressant
+
+00:14:02.433 --> 00:14:04.440
+de mon audit personnel.
+
+00:14:05.480 --> 00:14:10.180
+Examinons le cas d'un curseur de volume.
+
+00:14:10.180 --> 00:14:13.190
+C'est le curseur
+de contrôle du volume qui est créé
+
+00:14:13.190 --> 00:14:17.880
+avec un élément d'entrée natif
+ayant un rôle de type "range".
+
+00:14:17.880 --> 00:14:25.880
+L'auteur a utilisé un élément "label"
+pour le lier au curseur,
+
+00:14:26.310 --> 00:14:28.010
+avec l'attribut "id".
+
+00:14:28.010 --> 00:14:33.120
+L'auteur a également ajouté
+un élément "label" avec les attributs
+
+00:14:33.120 --> 00:14:35.770
+aria-label="volume control"
+et aria-hidden="true".
+
+00:14:35.770 --> 00:14:39.630
+Je répète : l'auteur a également
+ajouté aria-label="volume control"
+
+00:14:39.630 --> 00:14:42.910
+et aria-hidden="true"
+sur l'élément "label" lui-même.
+
+00:14:45.150 --> 00:14:48.260
+Prenez maintenant quelques instants et
+dites-moi via le chat :
+
+00:14:48.260 --> 00:14:50.220
+Quel sera le
+nom accessible du curseur ?
+
+00:14:56.040 --> 00:14:59.640
+Malheureusement, il n'y aura pas
+de nom accessible pour le curseur.
+
+00:14:59.640 --> 00:15:04.630
+Les utilisateurs de lecteur d'écran
+n'entendront aucun nom,
+
+00:15:04.630 --> 00:15:06.830
+et ils ne connaîtront pas
+la finalité de l'élément.
+
+00:15:08.350 --> 00:15:09.350
+Quel a été le problème ?
+
+00:15:10.390 --> 00:15:12.890
+En raison de aria-hidden="true"
+sur l'élément "label",
+
+00:15:14.570 --> 00:15:18.080
+le label visible et aria-label ont été masqués.
+
+00:15:18.080 --> 00:15:22.340
+Les lecteurs d'écran ne connaissent donc pas
+la finalité de l'élément.
+
+00:15:22.340 --> 00:15:28.900
+L'auteur avait ajouté
+des attributs ARIA inutiles sur les éléments,
+
+00:15:28.900 --> 00:15:32.850
+sans les comprendre correctement,
+
+00:15:32.850 --> 00:15:36.800
+et a fini par
+créer des interfaces non accessibles.
+
+00:15:36.800 --> 00:15:38.760
+En bref,
+ARIA ne sert à rien ici
+
+00:15:38.760 --> 00:15:41.490
+parce que l'élément "label" lui-même
+était suffisant
+
+00:15:41.490 --> 00:15:42.640
+pour fournir un nom accessible.
+
+00:15:44.040 --> 00:15:47.370
+La leçon à retenir :
+utiliser ARIA si et seulement si
+
+00:15:47.370 --> 00:15:48.770
+cela améliore l'accessibilité.
+
+00:15:50.290 --> 00:15:51.670
+Ne pas utiliser ARIA est mieux
+que mal utiliser ARIA.
+
+00:15:52.800 --> 00:15:54.820
+Passons à un autre exemple
+avec Emily.
+
+00:15:56.820 --> 00:15:59.680
+Emily est une utilisatrice de saisie vocale.
+
+00:15:59.680 --> 00:16:04.120
+Elle a perdu ses membres
+dans un accident tragique.
+
+00:16:04.120 --> 00:16:07.100
+Elle utilise donc un logiciel de saisie vocale
+pour interagir avec le monde numérique.
+
+00:16:08.250 --> 00:16:10.970
+Elle aime beaucoup lire des livres.
+
+00:16:12.480 --> 00:16:14.690
+Elle veut suivre
+son auteur préféré sur Facebook.
+
+00:16:15.720 --> 00:16:20.230
+Le lien visible sur le site de l'auteur est
+"Follow me on Facebook" [suivez-moi sur Facebook].
+
+00:16:22.080 --> 00:16:26.210
+Si vous étiez à la place d'Emily,
+quelle commande vocale auriez-vous donnée
+
+00:16:26.210 --> 00:16:27.210
+pour accéder au lien ?
+
+00:16:28.560 --> 00:16:29.700
+Faites-le moi savoir via le chat.
+
+00:16:35.080 --> 00:16:40.820
+Je suis sûre que vous avez tous dû utiliser
+"cliquer sur Follow me
+
+00:16:40.820 --> 00:16:41.910
+on Facebook".
+
+00:16:41.910 --> 00:16:44.980
+C'est ce qu'a essayé Emily,
+mais ça n'a pas marché.
+
+00:16:47.100 --> 00:16:49.223
+L'auteur a utilisé aria-label=
+
+00:16:49.224 --> 00:16:50.450
+"Opens in a new window"
+[ouvrir dans une nouvelle fenêtre]
+
+00:16:51.700 --> 00:16:55.950
+pour aider les utilisateurs de lecteurs d'écran
+à comprendre que le lien
+
+00:16:55.950 --> 00:16:58.290
+s'ouvrira
+dans une nouvelle fenêtre.
+
+00:16:58.290 --> 00:17:04.520
+Il ne savait malheureusement pas
+que le texte natif à l'intérieur du lien
+
+00:17:04.520 --> 00:17:06.180
+serait écrasé par aria-label.
+
+00:17:07.730 --> 00:17:10.720
+Et la non-concordance entre
+le label visible et aria-label
+
+00:17:10.720 --> 00:17:13.710
+ou un nom accessible
+génère des difficultés pour les utilisateurs.
+
+00:17:17.083 --> 00:17:20.193
+Une méthode correcte consiste à
+ajouter "Opens in a new window"
+
+00:17:20.360 --> 00:17:23.080
+à l'intérieur-même du lien.
+
+00:17:23.080 --> 00:17:24.120
+Cela aidera les utilisateurs.
+
+00:17:26.030 --> 00:17:29.350
+Comment les développeurs peuvent-ils éviter
+ces erreurs et utiliser le bon ARIA ?
+
+00:17:30.720 --> 00:17:33.600
+Décomposons les concepts ARIA
+un par un
+
+00:17:33.600 --> 00:17:34.730
+pour savoir
+comment les utiliser correctement.
+
+00:17:43.820 --> 00:17:46.650
+Commençons par les points clés
+à connaître pour fournir des noms accessibles
+
+00:17:46.650 --> 00:17:47.650
+en utilisant ARIA.
+
+00:17:48.860 --> 00:17:52.750
+Les mécanismes ARIA ont toujours la priorité
+
+00:17:52.750 --> 00:17:54.580
+sur les techniques HTML natives.
+
+00:17:54.580 --> 00:17:55.640
+Choisissez-les donc avec précaution.
+
+00:17:56.710 --> 00:18:00.650
+La bonne pratique est de faire commencer
+un nom accessible avec l'étiquette visible.
+
+00:18:02.250 --> 00:18:06.920
+aria-label ou aria-labelledby
+ne fonctionnent pas sur les éléments génériques
+
+00:18:06.920 --> 00:18:09.580
+s'ils n'ont pas les rôles appropriés.
+
+00:18:09.580 --> 00:18:12.940
+Supposons que vous ayez
+aria-label="cookie banner" [bannière des cookies]
+
+00:18:14.360 --> 00:18:16.950
+sur l'élément "div" et
+vous oubliez de définir le rôle.
+
+00:18:18.020 --> 00:18:22.690
+Le lecteur d'écran ne lira pas
+le label "cookie banner".
+
+00:18:24.120 --> 00:18:28.470
+Gardez donc toujours ces points à l'esprit
+lorsque vous définissez des noms accessibles.
+
+00:18:30.300 --> 00:18:35.630
+Il existe plusieurs façons de fournir
+des noms accessibles sans recourir à ARIA.
+
+00:18:37.110 --> 00:18:42.260
+Par exemple, si vous souhaitez ajouter
+un nom au bouton ou au lien,
+
+00:18:42.260 --> 00:18:46.270
+vous pouvez placer du texte à l'intérieur d'un lien
+ou d'un bouton. Vous pouvez également
+
+00:18:46.270 --> 00:18:50.950
+ajouter du texte alternatif aux images, 
+ou encore utiliser l'attribut "id"
+
+00:18:50.950 --> 00:18:53.870
+pour lier les éléments de label
+aux champs de formulaire.
+
+00:18:53.870 --> 00:18:57.800
+Mais si vous pensez qu'ARIA est la
+bonne solution, que devez-vous faire ?
+
+00:18:57.800 --> 00:18:59.614
+Si vous pensez qu'ARIA est
+la bonne solution
+
+00:18:59.615 --> 00:19:01.020
+pour fournir un nom accessible,
+
+00:19:01.020 --> 00:19:03.790
+vérifiez si du texte
+existe déjà dans le document,
+
+00:19:03.790 --> 00:19:05.740
+puis utilisez aria-labelledby.
+
+00:19:05.740 --> 00:19:08.150
+Et si le texte n'est pas
+déjà dans le document,
+
+00:19:08.150 --> 00:19:09.420
+vous pouvez alors utiliser aria-label.
+
+00:19:11.250 --> 00:19:14.530
+Ici, l'autre point à considérer
+est le suivant :
+
+00:19:14.530 --> 00:19:16.480
+aria-describedby sert à fournir
+une description accessible,
+
+00:19:16.480 --> 00:19:18.340
+et non pas à fournir
+des noms accessibles.
+
+00:19:20.590 --> 00:19:23.690
+Par exemple, pour associer programmatiquement
+la description de l'erreur
+
+00:19:23.690 --> 00:19:25.050
+avec le champ de formulaire correspondant,
+
+00:19:26.500 --> 00:19:29.420
+les auteurs confondent parfois
+aria-describedby
+
+00:19:29.420 --> 00:19:30.420
+et aria-labelledby.
+
+00:19:32.050 --> 00:19:33.890
+Gardez donc toujours ces points
+à l'esprit.
+
+00:19:36.243 --> 00:19:40.203
+La diapositive suivante concerne les rôles qui
+nécessitent des attributs parent-enfant,
+
+00:19:40.370 --> 00:19:41.570
+des relations parent-enfant.
+
+00:19:42.890 --> 00:19:46.690
+Certains rôles nécessitent
+une relation parent-enfant,
+
+00:19:46.690 --> 00:19:51.320
+par exemple tablist-tab, listbox-option,
+radiogroup-radio,
+
+00:19:51.320 --> 00:19:54.410
+menu-menuitem, -menuitemradio, 
+-menuitemcheckbox, etc.
+
+00:19:55.810 --> 00:19:58.125
+Fournir des relations parent-enfant claires
+
+00:19:58.126 --> 00:20:00.700
+facilite la navigation
+pour les utilisateurs de lecteurs d'écran.
+
+00:20:00.700 --> 00:20:03.870
+Et cela aide à transmettre
+correctement la structure et les relations.
+
+00:20:05.670 --> 00:20:08.290
+Donc si une relation
+est transmise correctement,
+
+00:20:09.510 --> 00:20:11.950
+le lecteur d'écran
+communiquera l'information
+
+00:20:11.950 --> 00:20:15.650
+à l'utilisateur - par exemple la position
+d'un élément dans une liste ou un menu,
+
+00:20:15.650 --> 00:20:18.260
+ou le niveau d'un élément dans
+une structure arborescente.
+
+00:20:20.950 --> 00:20:25.670
+D'autres fournissent
+un rôle parent sur l'élément parent,
+
+00:20:25.670 --> 00:20:29.300
+et ils oublient de définir...
+Ils fournissent l'élément parent,
+
+00:20:29.300 --> 00:20:32.470
+le rôle parent,
+mais oublient de définir le rôle enfant.
+
+00:20:32.470 --> 00:20:35.620
+Parfois ils attribuent un rôle enfant
+et oublient de définir le rôle parent.
+
+00:20:37.050 --> 00:20:40.400
+Par exemple, ils fournissent role="menu"
+sur l'élément parent,
+
+00:20:40.400 --> 00:20:43.650
+mais oublient de définir role="menuitemradio"
+
+00:20:43.650 --> 00:20:47.950
+ou "menuitemcheckbox" sur
+l'élément secondaire.
+
+00:20:47.950 --> 00:20:52.640
+De même, ils fournissent role="tab"
+sur l'élément enfant,
+
+00:20:52.640 --> 00:20:56.040
+mais oublient de définir
+role="tablist" sur l'élément parent.
+
+00:20:57.690 --> 00:21:00.100
+Il est possible que la combinaison
+lecteur d'écran-navigateur
+
+00:21:00.100 --> 00:21:05.230
+puisse lire les informations,
+mais d'autres ne le pourront pas.
+
+00:21:05.230 --> 00:21:07.100
+Ce sont donc des solutions peu fiables.
+
+00:21:08.500 --> 00:21:12.300
+Ne pas définir une relation appropriée
+laisse l'utilisateur avec un contexte partiel.
+
+00:21:13.610 --> 00:21:17.040
+La question est la suivante :
+comment vérifier ces relations ?
+
+00:21:17.040 --> 00:21:21.870
+Pour trouver les problèmes liés
+aux relations parent-enfant,
+
+00:21:21.870 --> 00:21:24.490
+vous pouvez inspecter le code
+manuellement
+
+00:21:24.490 --> 00:21:27.320
+ou utiliser des linters d'accessibilité
+lorsque vous codez,
+
+00:21:27.320 --> 00:21:31.760
+ou encore utiliser des outils de test automatisés
+comme axe DevTools, etc.
+
+00:21:35.010 --> 00:21:38.660
+De même, certains rôles
+possèdent certains attributs ARIA.
+
+00:21:40.730 --> 00:21:43.990
+Certains rôles nécessitent que
+des attributs ARIA
+
+00:21:43.990 --> 00:21:44.770
+leur soient associés.
+
+00:21:44.770 --> 00:21:47.490
+Par exemple, role="heading"
+doit être associé
+
+00:21:47.490 --> 00:21:49.600
+à l'attribut aria-level approprié,
+
+00:21:49.601 --> 00:21:54.210
+role="checkbox" doit être associé
+à l'attribut aria-checked.
+
+00:21:54.210 --> 00:21:57.690
+role="slider" doit être associé
+à l'attribut aria-valuenow.
+
+00:21:57.690 --> 00:22:01.250
+Sans ces attributs, ils ne transmettront pas
+la sémantique appropriée
+
+00:22:01.250 --> 00:22:02.760
+aux utilisateurs de lecteurs d'écran.
+
+00:22:04.010 --> 00:22:06.440
+Les auteurs oublient souvent ce point.
+
+00:22:07.640 --> 00:22:10.400
+Supposons que vous utilisiez role="heading"
+sur un élément "div.
+
+00:22:11.930 --> 00:22:15.810
+Vous n'avez pas fourni
+le bon attribut aria-level.
+
+00:22:15.810 --> 00:22:18.430
+Il est fort probable que le lecteur d'écran
+ne transmette pas le niveau exact
+
+00:22:18.430 --> 00:22:20.310
+qui devrait être transmis
+pour l'élément.
+
+00:22:22.070 --> 00:22:25.650
+Reportez-vous donc toujours à la dernière
+spécification ARIA pour vérifier
+
+00:22:25.650 --> 00:22:27.260
+les rôles et les attributs associés.
+
+00:22:30.670 --> 00:22:32.930
+L'autre fonctionnalité mal utilisée est
+ARIA live-region.
+
+00:22:35.760 --> 00:22:39.290
+Les contenus dynamiques changent,
+et ils ne sont pas focusables.
+
+00:22:39.290 --> 00:22:42.610
+Ils ne reçoivent pas le focus et ne sont pas
+évidents pour les utilisateurs de lecteur d'écran.
+
+00:22:44.530 --> 00:22:48.720
+Par exemple, messages d'avertissement,
+messages de réussite, mises à jour de statut
+
+00:22:48.720 --> 00:22:53.720
+ou mises à jour périodiques des scores, etc.
+
+00:22:53.720 --> 00:22:57.030
+Cette région doit être marquée
+avec un attribut aria-live.
+
+00:22:57.030 --> 00:22:58.777
+Voici donc quelques points clés
+à prendre en compte
+
+00:22:58.778 --> 00:23:01.280
+en utilisant ARIA live-region :
+
+00:23:01.280 --> 00:23:04.970
+role="alert" est utilisé pour
+les informations urgentes ou critiques.
+
+00:23:04.970 --> 00:23:07.140
+Alors que aria-live="polite" est à utiliser
+
+00:23:07.140 --> 00:23:09.200
+pour les messages de faible priorité
+ou les mises à jour.
+
+00:23:11.410 --> 00:23:14.130
+Parfois, les auteurs
+utilisent par erreur role="alert"
+
+00:23:14.130 --> 00:23:17.230
+ou aria-live="assertive"
+sur un message de faible priorité ;
+
+00:23:17.230 --> 00:23:18.230
+c'est un mauvais usage.
+
+00:23:20.060 --> 00:23:23.820
+Nous avons déjà vu un mauvais usage
+d'aria-live="polite"
+
+00:23:23.820 --> 00:23:26.052
+sur notre exemple
+de carrousel à rotation automatique
+
+00:23:26.053 --> 00:23:27.940
+dans le cas de l'expérience de Bob.
+
+00:23:29.980 --> 00:23:34.990
+Pour les carrousels à rotation automatique,
+aria-live="off" doit être utilisé
+
+00:23:34.990 --> 00:23:36.370
+pour supprimer les annonces.
+
+00:23:38.940 --> 00:23:43.460
+Si vous souhaitez que l'intégralité de
+la live-region ARIA soit lue
+
+00:23:43.460 --> 00:23:47.340
+par le lecteur d'écran,
+vous devez utiliser aria-atomic="true"
+
+00:23:47.340 --> 00:23:48.550
+avec aria-live.
+
+00:23:49.880 --> 00:23:52.800
+Parce que la valeur par défaut
+de aria-atomic est "false".
+
+00:23:54.860 --> 00:24:00.440
+Parfois, l'auteur ajoute des live-regions
+ARIA sur la mise à jour du contenu,
+
+00:24:00.440 --> 00:24:01.430
+mais ça ne marche pas.
+
+00:24:01.430 --> 00:24:01.890
+Pourquoi ?
+
+00:24:01.890 --> 00:24:04.190
+Parce que aria-live opère uniquement
+
+00:24:04.190 --> 00:24:08.780
+lorsque le contenu change réellement,
+pas lors du chargement initial.
+
+00:24:09.980 --> 00:24:14.080
+Donc l'élément avec aria-live
+doit être présent dans la structure DOM
+
+00:24:14.080 --> 00:24:17.930
+lors du chargement de la page afin que
+le lecteur d'écran puisse le récupérer et
+
+00:24:17.930 --> 00:24:18.930
+ surveiller les changements.
+
+00:24:22.420 --> 00:24:24.150
+Venons-en maintenant aux rôles.
+
+00:24:25.180 --> 00:24:26.930
+Les rôles ARIA définissent certaines attentes.
+
+00:24:26.930 --> 00:24:28.390
+Le choix des rôles est donc crucial.
+
+00:24:30.280 --> 00:24:32.666
+Les rôles "menubar" et "menu"
+sont appropriés
+
+00:24:32.667 --> 00:24:34.150
+pour proposer une liste de choix.
+
+00:24:34.150 --> 00:24:38.120
+Ils sont similaires à un menu
+dans une application de bureau.
+
+00:24:38.120 --> 00:24:42.130
+Par exemple, pour fournir une liste
+d'actions ou de fonctions comme ajouter,
+
+00:24:42.130 --> 00:24:43.380
+modifier, enregistrer, etc.
+
+00:24:45.080 --> 00:24:47.950
+Si vous créez une navigation de site
+à l'aide de role="menubar",
+
+00:24:47.950 --> 00:24:50.290
+les utilisateurs de lecteur d'écran
+
+00:24:50.290 --> 00:24:55.390
+s'attendent à pouvoir naviguer
+dans le menu et les sous-menus
+
+00:24:55.390 --> 00:24:56.940
+à l'aide des touches fléchées.
+
+00:24:58.070 --> 00:25:02.210
+Mais lorsque cela n’est pas le cas,
+ils se sentent confus et désorientés.
+
+00:25:03.490 --> 00:25:06.460
+Donc, pour les navigations de site types
+avec un groupe extensible de liens,
+
+00:25:06.460 --> 00:25:09.280
+des modèles de divulgation doivent être utilisés.
+
+00:25:11.760 --> 00:25:14.940
+De même, role="presentation"
+est souvent mal interprété.
+
+00:25:16.410 --> 00:25:18.770
+Contrairement à une idée reçue,
+role="presentation"
+
+00:25:18.770 --> 00:25:22.510
+ne masque pas
+le contenu pour les lecteurs d'écran
+
+00:25:22.510 --> 00:25:23.520
+ou les technologies d'assistance.
+
+00:25:24.950 --> 00:25:29.030
+Il empêche uniquement
+la sémantique ARIA implicite d'être exposée
+
+00:25:29.030 --> 00:25:30.160
+dans l'arborescence d'accessibilité.
+
+00:25:32.170 --> 00:25:34.560
+Le contenu de l'élément
+reste toujours disponible
+
+00:25:34.560 --> 00:25:36.490
+aux technologies d'assistance.
+
+00:25:36.490 --> 00:25:38.650
+Les rôles agissent parfois comme un voile.
+
+00:25:38.650 --> 00:25:39.720
+Alors choisissez-les judicieusement.
+
+00:25:47.230 --> 00:25:50.530
+Abordons maintenant
+l'usage incorrect de certains attributs ARIA.
+
+00:25:55.350 --> 00:25:58.160
+Les auteurs comprennent mal
+certains attributs ARIA.
+
+00:25:58.160 --> 00:26:01.460
+Ils ne font pas la différence
+entre aria-selected,
+
+00:26:01.460 --> 00:26:02.680
+aria-pressed et aria-checked.
+
+00:26:06.560 --> 00:26:11.390
+Parfois, ils utilisent aria-selected
+pour simuler les boutons bascule,
+
+00:26:11.390 --> 00:26:13.540
+ou pour indiquer qu'une case à cocher
+est cochée.
+
+00:26:16.040 --> 00:26:18.560
+Mais pour les boutons bascule,
+aria-pressed doit être utilisé.
+
+00:26:19.650 --> 00:26:21.770
+Pour les cases à cocher
+ou les cases d'option,
+
+00:26:21.770 --> 00:26:23.590
+le bon attribut est aria-checked.
+
+00:26:24.770 --> 00:26:29.068
+aria-selected doit être utilisé
+pour indiquer l'option sélectionnée
+
+00:26:29.069 --> 00:26:31.680
+dans une liste déroulante, un menu
+ou un onglet dans une liste d'onglets, etc.
+
+00:26:33.850 --> 00:26:36.120
+L'autre fonctionnalité mal utilisée est
+aria-expanded.
+
+00:26:38.950 --> 00:26:42.150
+aria-expanded doit être
+utilisé sur des liens ou des boutons
+
+00:26:42.150 --> 00:26:45.320
+qui permettent de développer ou de réduire
+le contenu.
+
+00:26:47.150 --> 00:26:49.618
+Mais ce qui arrive souvent,
+c'est que les auteurs l'utilisent
+
+00:26:49.619 --> 00:26:50.800
+sur le contenu lui-même.
+
+00:26:50.800 --> 00:26:52.880
+C'est un usage incorrect de l'attribut
+aria-expanded.
+
+00:26:53.970 --> 00:26:57.810
+Il arrive même parfois
+que les auteurs utilisent aria-expanded
+
+00:26:57.810 --> 00:27:00.000
+au dernier niveau
+de la hiérarchie du menu.
+
+00:27:02.100 --> 00:27:05.660
+Cela transmet donc une
+sémantique erronée aux utilisateurs.
+
+00:27:05.660 --> 00:27:10.050
+Les utilisateurs de lecteurs d'écran
+pensent que le dernier niveau
+
+00:27:10.050 --> 00:27:12.350
+de la hiérarchie du menu
+peut être développé.
+
+00:27:12.350 --> 00:27:13.710
+Mais en réalité, ce n'est pas possible.
+
+00:27:15.220 --> 00:27:17.060
+Les utilisateurs sont alors perdus.
+
+00:27:19.250 --> 00:27:22.260
+Choisissez donc toujours les attributs
+avec précaution.
+
+00:27:25.220 --> 00:27:28.590
+Nous avons exploré
+de nombreux concepts théoriques sur ARIA.
+
+00:27:28.590 --> 00:27:32.870
+Mais la véritable accessibilité va
+au-delà de la théorie et des lignes directrices.
+
+00:27:32.870 --> 00:27:34.400
+L'accessibilité ne peut pas être présumée.
+
+00:27:35.670 --> 00:27:38.760
+Vous vous souvenez de la rampe défectueuse
+du début de notre séance ?
+
+00:27:39.990 --> 00:27:43.970
+Si l'architecte avait testé la rampe
+avec des utilisateurs de fauteuil roulant,
+
+00:27:44.137 --> 00:27:45.607
+l'objectif de la rampe
+aurait été mieux atteint.
+
+00:27:47.070 --> 00:27:50.480
+Visuellement,
+tout peut sembler bien et parfait,
+
+00:27:50.480 --> 00:27:53.630
+mais les véritables difficultés n'apparaissent
+que lorsque vous faites des tests
+
+00:27:53.630 --> 00:27:57.890
+avec de vrais utilisateurs, de vrais dispositifs
+et des technologies d'assistance.
+
+00:27:59.330 --> 00:28:03.140
+Il convient également de mentionner
+que les tests d'automatisation ne couvrent pas
+
+00:28:03.140 --> 00:28:04.440
+tous les problèmes d'accessibilité.
+
+00:28:06.350 --> 00:28:09.960
+Regardons l'importance des tests manuels
+et des tests avec lecteur d'écran
+
+00:28:09.960 --> 00:28:13.200
+à l'aide d'un exemple
+tiré d'une expérience personnelle.
+
+00:28:17.230 --> 00:28:21.840
+J'ai suivi un modèle connu
+pour créer des listes d'onglets accessibles.
+
+00:28:21.840 --> 00:28:25.600
+J'ai copié le code et
+l'ai testé dans le navigateur.
+
+00:28:27.050 --> 00:28:31.000
+Il y a trois onglets dans la liste des onglets :
+HTML, CSS et JavaScript.
+
+00:28:32.210 --> 00:28:34.830
+Les trois onglets
+fonctionnaient bien visuellement,
+
+00:28:34.830 --> 00:28:36.170
+jusqu'à ce que je démarre le lecteur d'écran.
+
+00:28:38.590 --> 00:28:41.590
+Regardons cette vidéo
+pour savoir ce qui s'est passé
+
+00:28:41.590 --> 00:28:49.590
+quand j'ai démarré le lecteur d'écran.
+
+00:28:54.030 --> 00:28:59.440
+[Voix du lecteur d'écran]
+
+00:29:06.610 --> 00:29:14.610
+Donc même avec les lecteurs d'écran,
+tout fonctionnait bien.
+
+00:29:17.740 --> 00:29:20.700
+Mais en passant aux onglets deux et trois,
+
+00:29:20.700 --> 00:29:24.020
+le lecteur d'écran ne lisait pas
+le contenu du panneau d'onglet deux
+
+00:29:24.020 --> 00:29:25.740
+et du panneau d'onglet trois.
+
+00:29:26.950 --> 00:29:34.950
+En observant le code, j'ai constaté
+que l'auteur avait mis à jour la valeur
+
+00:29:36.380 --> 00:29:41.240
+de l'attribut natif aria-hidden
+sur les panneaux d'onglet deux et trois.
+
+00:29:41.240 --> 00:29:44.100
+Mais il a oublié de mettre à jour la
+valeur de l'attribut aria-hidden="true"
+
+00:29:44.100 --> 00:29:48.170
+sur le panneau d'onglet deux
+
+00:29:48.170 --> 00:29:49.170
+et le panneau d'onglet trois.
+
+00:29:50.320 --> 00:29:55.780
+À cause d'une mauvaise gestion
+de aria-hidden sur les panneaux d'onglets,
+
+00:29:55.780 --> 00:29:58.643
+le contenu des onglets deux et trois
+est indisponible
+
+00:29:58.644 --> 00:29:59.990
+pour les utilisateurs de lecteurs d'écran.
+
+00:30:01.210 --> 00:30:04.340
+Cet exemple souligne
+l'importance des tests manuels.
+
+00:30:05.880 --> 00:30:12.190
+Il est impératif de vérifier le code
+avec des lecteurs d'écran
+
+00:30:12.190 --> 00:30:14.890
+pour s'assurer de l'implémentation correcte
+d'ARIA dans le code.
+
+00:30:16.690 --> 00:30:20.250
+Ici, l'utilisation de aria-hidden est répétitive.
+
+00:30:20.250 --> 00:30:23.610
+Elle est redondante,
+car la valeur de l'attribut aria-hidden
+
+00:30:23.610 --> 00:30:27.870
+s'occupait déjà de l'état
+des panneaux des onglets deux et trois.
+
+00:30:29.310 --> 00:30:32.830
+Donc pour rappel, ne pas utiliser ARIA
+si ce n'est pas impératif.
+
+00:30:34.680 --> 00:30:38.800
+Nous avons vu les concepts de base importants
+concernant certains attributs.
+
+00:30:40.020 --> 00:30:42.700
+Regardons à présent l'utilisabilité du clavier.
+
+00:30:44.590 --> 00:30:47.650
+Le but d'ARIA
+est donc d'aider les développeurs Web
+
+00:30:47.650 --> 00:30:50.140
+à créer des expériences Web riches,
+
+00:30:50.140 --> 00:30:54.440
+comme les applications logicielles natives.
+
+00:30:54.440 --> 00:30:57.250
+Dans les applications logicielles natives,
+l'utilisateur utilise la touche de tabulation
+
+00:30:57.250 --> 00:31:00.760
+pour les interfaces utilisateur
+ou widgets complexes,
+
+00:31:00.760 --> 00:31:03.920
+puis utilise les touches fléchées pour
+naviguer à l'intérieur du widget.
+
+00:31:06.040 --> 00:31:10.170
+Ainsi, lorsque les développeurs utilisent ARIA
+pour créer des applications Internet riches,
+
+00:31:10.170 --> 00:31:13.940
+ils doivent suivre les conventions de base
+concernant la navigation au clavier.
+
+00:31:15.160 --> 00:31:17.380
+Celles-ci sont communes
+à toutes les plateformes.
+
+00:31:18.410 --> 00:31:21.980
+Pour les widgets composites,
+la tabulation doit diriger le focus vers le widget,
+
+00:31:21.980 --> 00:31:25.090
+et les touches fléchées
+doivent être utilisées en premier lieu
+
+00:31:25.090 --> 00:31:29.790
+pour se déplacer dans les widgets
+contenant plusieurs éléments focalisables
+
+00:31:29.790 --> 00:31:32.090
+comme des listes déroulantes, des arbres,
+des grilles de menu, etc.
+
+00:31:34.750 --> 00:31:38.605
+Ne pas suivre
+la convention d'utilisabilité
+
+00:31:38.606 --> 00:31:41.670
+sera source de confusion
+pour les utilisateurs
+
+00:31:41.670 --> 00:31:44.310
+et réduira considérablement
+l'utilisabilité.
+
+00:31:46.750 --> 00:31:51.310
+Passons à la mauvaise gestion
+du focus dans les widgets composites
+
+00:31:51.310 --> 00:31:52.770
+avec aria-activedescendant.
+
+00:31:55.080 --> 00:31:58.920
+Deux méthodes permettent de gérer
+le focus dans les widgets composites.
+
+00:32:00.040 --> 00:32:03.440
+La première est
+l'index de tabulation itinérant,
+
+00:32:03.440 --> 00:32:07.290
+la seconde utilise aria-activedescendant
+sur l'élément conteneur.
+
+00:32:09.060 --> 00:32:12.620
+Chaque technique nous donne la possibilité
+de naviguer à l'intérieur du widget
+
+00:32:12.620 --> 00:32:13.620
+avec les touches fléchées.
+
+00:32:15.600 --> 00:32:17.230
+Nous allons nous intéresser
+à la deuxième méthode.
+
+00:32:18.390 --> 00:32:21.500
+L'attribut aria-activedescendant
+sur l'élément conteneur
+
+00:32:21.500 --> 00:32:26.190
+indique au lecteur d'écran quel élément
+est actuellement actif dans le widget.
+
+00:32:27.750 --> 00:32:30.200
+Cela fonctionne comme un projecteur
+pour les utilisateurs de lecteur d'écran.
+
+00:32:31.300 --> 00:32:33.870
+Lorsque la valeur de l'attribut
+aria-activedescendant change,
+
+00:32:33.870 --> 00:32:36.540
+le lecteur d'écran reçoit
+les événements de changement de focus,
+
+00:32:36.540 --> 00:32:38.960
+comme si le focus avait
+réellement été déplacé.
+
+00:32:41.190 --> 00:32:44.330
+Les auteurs ont inclus aria-activedescendant
+sur l'élément conteneur,
+
+00:32:44.330 --> 00:32:47.640
+mais ils ont oublié de
+le mettre à jour dynamiquement
+
+00:32:47.640 --> 00:32:53.470
+lorsque l'utilisateur appuie sur
+les flèches vers le haut ou le bas pour naviguer.
+
+00:32:54.620 --> 00:32:57.310
+Comme nous pouvons le voir ici dans
+la liste déroulante
+
+00:32:57.310 --> 00:32:59.277
+permettant de choisir un aliment,
+
+00:32:59.278 --> 00:33:02.070
+l'élément actuellement actif
+est visuellement indiqué
+
+00:33:02.070 --> 00:33:04.240
+comme étant "Burger",
+à savoir la troisième option.
+
+00:33:05.790 --> 00:33:07.610
+Mais la valeur de
+aria-activedescendant
+
+00:33:07.610 --> 00:33:13.290
+sur l'élément conteneur indique "opt1",
+à savoir "Pizza".
+
+00:33:13.290 --> 00:33:14.600
+Donc l'attribut n'a pas été mis à jour.
+
+00:33:16.000 --> 00:33:19.270
+Si l'auteur oublie
+de le mettre à jour dynamiquement,
+
+00:33:19.270 --> 00:33:22.690
+l'utilisateur aura du mal à
+choisir l'élément actuellement actif
+
+00:33:22.690 --> 00:33:26.310
+et il ne saura pas
+quel élément sélectionner
+
+00:33:26.310 --> 00:33:28.760
+car il n'aura pas
+toutes les informations
+
+00:33:28.760 --> 00:33:32.230
+puisque le lecteur d'écran
+ne lira pas ces informations.
+
+00:33:33.510 --> 00:33:36.310
+Donc, chaque fois que vous choisissez
+cette méthode de gestion du focus
+
+00:33:36.310 --> 00:33:40.690
+avec aria-activedescendant
+sur l'élément conteneur, soyez très vigilant.
+
+00:33:44.620 --> 00:33:47.920
+Que pouvons-nous donc faire
+pour tirer le meilleur parti d'ARIA ?
+
+00:33:47.920 --> 00:33:48.920
+Résumons.
+
+00:33:50.610 --> 00:33:53.870
+Avant tout,
+n'utilisez jamais ARIA si ce n'est pas impératif.
+
+00:33:55.930 --> 00:34:00.330
+Restez informé de la spécification ARIA
+la plus récente, actuellement 1.2,
+
+00:34:01.640 --> 00:34:05.000
+et consultez le guide pratique de création ARIA
+pour apprendre à utiliser correctement ARIA.
+
+00:34:06.320 --> 00:34:08.270
+Utilisez des linters d'accessibilité.
+
+00:34:08.270 --> 00:34:11.271
+Les linters d'accessibilité
+sont les plug-ins
+
+00:34:11.272 --> 00:34:14.580
+qui signalent les bugs en temps réel
+lorsque vous écrivez le code.
+
+00:34:16.210 --> 00:34:20.590
+Utilisez des vérificateurs d'accessibilité
+automatisés comme axe DevTool, Wave, etc.,
+
+00:34:20.590 --> 00:34:22.920
+lorsque vous exécutez votre code
+dans le navigateur.
+
+00:34:26.620 --> 00:34:30.570
+Testez toujours votre code avec
+des lecteurs d'écran à clavier comme NVDA,
+
+00:34:30.570 --> 00:34:33.770
+JAWS, Talkback, VoiceOver et
+avec des logiciels de saisie vocale.
+
+00:34:36.190 --> 00:34:39.640
+Lors du choix des thèmes, plug-ins,
+composants, bibliothèques, frameworks
+
+00:34:39.640 --> 00:34:40.640
+et autres,
+
+00:34:41.480 --> 00:34:45.500
+assurez-vous toujours de vérifier
+leur prise en charge en matière d'accessibilité
+
+00:34:45.500 --> 00:34:46.500
+avant de les utiliser.
+
+00:34:47.890 --> 00:34:52.420
+Documentez l'utilisation d'ARIA dans votre code
+pour faciliter la compréhension
+
+00:34:52.420 --> 00:34:53.960
+et la maintenance par d'autres.
+
+00:34:56.070 --> 00:34:58.880
+La meilleure façon de garantir
+l'accessibilité est de toujours impliquer
+
+00:34:58.880 --> 00:35:02.020
+les utilisateurs de technologies d'assistance
+lors des tests.
+
+00:35:04.970 --> 00:35:11.780
+Lorsque les meilleures pratiques ARIA
+sont suivies avec une approche proactive,
+
+00:35:11.780 --> 00:35:16.200
+nous rendons nos sites Web plus accessibles
+et nous économisons également
+
+00:35:16.200 --> 00:35:17.200
+beaucoup de ressources.
+
+00:35:19.300 --> 00:35:25.990
+À l'inverse, quand on utilise
+un mauvais ARIA sans le comprendre
+
+00:35:25.990 --> 00:35:31.160
+et sans le tester en profondeur,
+et si on livre du code non accessible
+
+00:35:31.160 --> 00:35:33.600
+dans la précipitation,
+nous accumulons une dette d'accessibilité,
+
+00:35:35.220 --> 00:35:40.990
+car corriger l'accessibilité à des stades ultérieurs
+peut nécessiter du temps, des efforts
+
+00:35:40.990 --> 00:35:41.990
+et de l'argent.
+
+00:35:44.930 --> 00:35:52.930
+Si vous créez des composants open source,
+cadres, plug-ins,
+
+00:35:53.150 --> 00:35:56.680
+systèmes de gestion de contenu
+ou systèmes de gestion de l'apprentissage,
+
+00:35:56.680 --> 00:36:03.190
+outils de création, etc.,
+imaginez simplement à long terme
+
+00:36:03.190 --> 00:36:08.250
+les économies exponentielles que
+vous pouvez faire en coûts, temps et efforts,
+
+00:36:08.250 --> 00:36:10.400
+si l'accessibilité est
+prise en compte dès le premier jour.
+
+00:36:12.000 --> 00:36:14.840
+Faisons donc de l'accessibilité une priorité,
+pas une réflexion après coup.
+
+00:36:14.840 --> 00:36:19.230
+Et ne laissez pas cette dette
+aux derniers sprints.
+
+00:36:21.660 --> 00:36:25.930
+Enfin, je voudrais ajouter qu'ARIA est fait
+
+00:36:25.930 --> 00:36:28.180
+pour aider
+ les utilisateurs de technologies assistées.
+
+00:36:28.180 --> 00:36:31.440
+ARIA ne doit donc pas être traité
+comme une mise en forme du code,
+
+00:36:31.440 --> 00:36:35.310
+mais plutôt comme un outil puissant destiné à
+autonomiser les personnes handicapées.
+
+00:36:37.450 --> 00:36:41.720
+Pour exploiter tout le potentiel d'ARIA,
+utilisez ARIA judicieusement
+
+00:36:41.720 --> 00:36:44.130
+et seulement lorsque cela est nécessaire.
+
+00:36:44.130 --> 00:36:47.420
+Parce qu'un mauvais usage d'ARIA
+fait plus de mal que de bien.
+
+00:36:50.080 --> 00:36:52.540
+L’accessibilité est
+une responsabilité partagée.
+
+00:36:52.540 --> 00:36:54.150
+Ce n'est pas le travail d'une seule personne.
+
+00:36:56.740 --> 00:37:00.410
+Alors unissons nos efforts
+pour rendre le monde plus inclusif
+
+00:37:00.410 --> 00:37:01.500
+et accessible à tous.
+
+00:37:02.760 --> 00:37:03.810
+Parce que le Web est pour tous.
+
+00:37:05.300 --> 00:37:06.300
+Merci.
+
+00:37:08.410 --> 00:37:09.990
+Merci d'avoir suivi cette session.
+
+00:37:12.780 --> 00:37:15.420
+Et si vous avez des questions,
+vous pouvez me les poser via le chat.
+
+00:37:16.530 --> 00:37:19.240
+Ou vous pouvez me contacter
+plus tard par e-mail
+
+00:37:19.240 --> 00:37:20.790
+ou via les réseaux sociaux.
+
+00:37:22.540 --> 00:37:23.490
+Merci à tous.
+
+00:37:26.967 --> 00:37:29.950
+RONAK : Merci Rashmi
+pour cette excellente session.
+
+00:37:29.950 --> 00:37:34.410
+C'était très instructif,
+également pour moi en tant que développeur.
+
+00:37:37.010 --> 00:37:41.960
+Nous avons quelques questions et
+beaucoup demandent le diaporama.
+
+00:37:41.960 --> 00:37:45.330
+Donc oui, vous pouvez le publier
+dès qu'il est prêt.
+
+00:37:45.330 --> 00:37:48.520
+Voyons quelques autres questions.
+
+00:37:48.520 --> 00:37:53.650
+Par exemple :
+Pensez-vous que dire
+
+00:37:53.650 --> 00:37:58.430
+"la règle d'utilisation d'ARIA est de ne pas
+utiliser ARIA" est toujours vrai aujourd'hui ?
+
+00:38:01.829 --> 00:38:04.430
+RASHMI : Désolée,
+je ne vous ai pas bien écouté.
+
+00:38:04.430 --> 00:38:08.120
+RONAK : Regardez la section des questions,
+vous pourrez également la lire.
+
+00:38:08.120 --> 00:38:14.050
+Pensez-vous que dire "la règle
+d'utilisation d'ARIA est de ne pas utiliser ARIA"
+
+00:38:14.050 --> 00:38:15.040
+est toujours vrai aujourd'hui ?
+
+00:38:17.333 --> 00:38:19.940
+RASHMI : Oui,
+ça dépend du contexte en fait.
+
+00:38:19.940 --> 00:38:23.110
+Si vous n'avez pas
+de composants dynamiques
+
+00:38:23.110 --> 00:38:25.530
+ou vous n'avez pas
+de commandes interactives,
+
+00:38:25.530 --> 00:38:28.760
+alors bien sûr vous pouvez vous passer d'ARIA,
+
+00:38:28.760 --> 00:38:31.870
+si vous avez un contenu limité
+sur vos pages.
+
+00:38:33.230 --> 00:38:36.840
+Mais si vous avez des interfaces riches
+et des commandes interactives
+
+00:38:36.840 --> 00:38:39.690
+et du contenu dynamique,
+vous devrez certainement opter pour ARIA.
+
+00:38:40.600 --> 00:38:41.070
+RONAK : D'accord.
+
+00:38:41.070 --> 00:38:43.940
+RASHMI : Mais pendant la conception,
+nous pouvons également vérifier
+
+00:38:43.940 --> 00:38:47.420
+quels composants devons-nous utiliser, afin
+de pouvoir utiliser le minimum d'ARIA.
+
+00:38:51.433 --> 00:38:53.300
+RONAK : Merci, Rashmi.
+
+00:38:53.300 --> 00:38:54.300
+Encore une question.
+
+00:38:56.250 --> 00:39:00.620
+Est-il possible d'utiliser ARIA
+si un texte alternatif est déjà disponible ?
+
+00:39:00.620 --> 00:39:03.550
+Peuvent-ils aller de pair
+ou est-ce une utilisation excessive ?
+
+00:39:12.718 --> 00:39:15.469
+RASHMI : Si cela sert le but,
+
+00:39:15.470 --> 00:39:18.060
+s'il n'y a pas de description supplémentaire,
+alors ce n'est pas gênant
+
+00:39:18.060 --> 00:39:19.740
+de donner uniquement le texte alternatif.
+
+00:39:19.740 --> 00:39:23.790
+Si l'image a du contenu supplémentaire
+que vous devez décrire,
+
+00:39:23.790 --> 00:39:28.420
+alors vous pouvez utiliser
+aria-describedby pour donner les détails.
+
+00:39:31.270 --> 00:39:32.233
+RONAK : Merci.
+
+00:39:35.170 --> 00:39:38.170
+Une question de Rajat :
+Bonjour Rashmi,
+
+00:39:38.170 --> 00:39:41.360
+existe-t-il un contenu similaire disponible
+pour les applications basées sur Android ?
+
+00:39:43.267 --> 00:39:47.090
+RASHMI : C'est essentiellement pour HTML,
+
+00:39:47.090 --> 00:39:50.010
+pas pour les applications natives.
+
+00:39:50.010 --> 00:39:53.630
+C'est donc destiné aux pages Web
+basées sur HTML.
+
+00:39:55.900 --> 00:39:56.890
+RONAK : Merci.
+
+00:39:56.890 --> 00:40:00.780
+Passons à la conclusion.
+
+00:40:00.780 --> 00:40:04.300
+Regardons la dernière question, Rashmi.
+
+00:40:04.300 --> 00:40:07.170
+Y a-t-il un attribut ARIA
+que vous n'utiliseriez absolument pas
+
+00:40:07.170 --> 00:40:08.710
+à cause d'une mauvaise prise en charge ?
+
+00:40:12.333 --> 00:40:16.600
+RASHMI : Je pense qu'actuellement
+aria-grab est obsolète.
+
+00:40:16.600 --> 00:40:21.600
+ARIA recherche donc
+un autre attribut
+
+00:40:21.600 --> 00:40:23.720
+pour améliorer les choses.
+
+00:40:26.870 --> 00:40:31.280
+RONAK : Merci à tous
+d'avoir assisté à cette session avec Rashmi.
+
+00:40:31.280 --> 00:40:33.440
+Vous pouvez continuer
+la conversation dans le chat
+
+00:40:33.440 --> 00:40:40.250
+ou sur les réseaux sociaux en utilisant
+#WPA11yday et #WPAD2023.
+
+00:40:42.000 --> 00:40:45.307
+Nous apprécierions également que
+vous consultiez la page
+
+00:40:45.308 --> 00:40:50.000
+2023.wpaccessibility.day/creditbit.
+
+00:40:50.400 --> 00:40:54.420
+Je transmettrai également le lien
+dans le chat pour donner un avis anonyme
+
+00:40:54.420 --> 00:40:57.480
+sur nos intervenants
+et participer pour tenter
+
+00:40:57.480 --> 00:40:59.420
+de gagner un T-shirt
+pendant que vous y êtes.
+
+00:41:00.450 --> 00:41:02.861
+Restez à l'écoute de prochaine session
+
+00:41:02.862 --> 00:41:08.633
+qui propose des mini-conférences sponsorisées
+
+00:41:08.633 --> 00:41:10.850
+et en attendant
+
+00:41:10.850 --> 00:41:15.520
+vous pouvez visiter les pages de
+nos sponsors pour récupérer des cadeaux virtuels
+
+00:41:15.520 --> 00:41:18.660
+et tenter de gagner de superbes prix.
+
+00:41:18.660 --> 00:41:21.240
+On se retrouve juste ici après la pause.
+
+00:41:21.240 --> 00:41:21.560
+Merci.
+
+00:41:22.267 --> 00:41:27.000
+AMBER : Merci aux sponsors
+de la Journée de l'accessibilité WordPress 2023.
+
+00:41:27.000 --> 00:41:29.860
+Sponsor Platine : Equalize Digital.
+
+00:41:29.860 --> 00:41:32.610
+Le plug-in Accessibility Checker d'Equalize Digital
+
+00:41:32.610 --> 00:41:35.360
+est un outil d'analyse d'accessibilité automatisé
+
+00:41:35.360 --> 00:41:38.510
+qui aide les sites Web WordPress
+à devenir accessibles et à le rester.
+
+00:41:39.810 --> 00:41:42.670
+Sponsor Platine : Gravity Forms.
+
+00:41:42.670 --> 00:41:46.280
+Gravity Forms est le générateur de formulaires professionnel qu'il vous faut
+
+00:41:46.280 --> 00:41:51.000
+pour créer des formulaires esthétiques, puissants et accessibles.
+
+00:41:51.000 --> 00:41:58.000
+Sponsors Or : 20i, Deque,
+Empire Caption Solutions, Pressable
+
+00:41:58.000 --> 00:41:59.080
+et WP Engine.
+
+00:42:00.650 --> 00:42:07.520
+Sponsors Argent : Code Geek, Drake Cooper,
+GoDaddy, Lone Rock Point,
+
+00:42:07.520 --> 00:42:12.740
+NerdPress, Overnight Website by Kinetic Iris, Raiola Networks,
+
+00:42:14.030 --> 00:42:17.030
+A11Y Collective et The Blogsmith.
+
+00:42:18.900 --> 00:42:24.250
+Sponsors Bronze : AccessiCart, GreenGeeks Web Hosting,
+
+00:42:24.250 --> 00:42:32.250
+HallAnalysis SEO Consulting, HDC, ITX, IvyCat, Meta Box,
+
+00:42:36.070 --> 00:42:40.975
+Pixel Chefs, Simply Schedule Appointments, SiteGround,
+
+00:42:40.976 --> 00:42:46.170
+Termageddon, Underrepresented In Tech, Weglot et Yoast.

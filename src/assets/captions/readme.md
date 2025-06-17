@@ -98,6 +98,7 @@ No translations yet.
 	- Hindi; Shashank Dubey
 15. The Impact of Bad ARIA on Web Accessibility
 	- Spanish; Azul Vazquez de Novoa
+	- French; Celine Rey-Greffier
 	- Hebrew; Liron Milstein
 	- Hindi; Nikunj Hatkar
  	- Italian; Alice Orru

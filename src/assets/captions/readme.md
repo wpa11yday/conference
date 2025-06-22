@@ -90,6 +90,7 @@ No translations yet.
 11. Immersive Audio Description
    	- Spanish; Luz Zuniga
 12. A Recipe for an Accessible Accordion Block
+	- Spanish; Debora Ermel	
 	- French; Louis Chance
 	- Italian; Alice Orru
 13. Plot a course!: Creating Accessible SVG Charts in WordPress

@@ -108,7 +108,7 @@ function wpcsp_social_block( $post_ID ) {
 function wpcsp_post_content( $content ) {
 	global $post;
 	$post_ID = $post->ID;
-	if ( is_main_query() && in_the_loop() ) {
+	if ( is_main_query() && in_the_loop() && 'post' === $post->post_type ) {
 		$wpcsp_social = wpcsp_social_block( $post_ID );
 		$content      = $content . $wpcsp_social;
 	}

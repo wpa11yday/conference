@@ -135,7 +135,7 @@ No translations yet.
 4. Agile Accessibility: Building Inclusivity into the Product Roadmap
 5. Practical Text Accessibility Tips for Content Creators
 6. Accessibility Challenges with Single Page Applications
-    	- Italian; Daniele Daniele
+    	- Italian; Daniele Manca
 7. Accessible Firebrand: “Why can’t I use my brand color there, and if not there, then where?”
 8. Is Your Page Builder Actually Accessible?
 9. Captchas and Other Gotchas: Make Sure Your Secure Website is Accessible

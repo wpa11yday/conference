@@ -53,6 +53,7 @@ require_once WPCS_DIR . 'inc/cmb2-conditional-logic/cmb2-conditional-logic.php';
 
 add_shortcode( 'schedule', 'wpcs_schedule' );
 add_shortcode( 'donors', 'wpcsp_donors_shortcode', 10, 2 );
+add_shortcode( 'partners', 'wpcsp_partners_shortcode', 10, 2 );
 add_shortcode( 'microsponsors', 'wpcs_display_microsponsors', 10, 2 );
 add_shortcode( 'attendees', 'wpcs_shortcode_people' );
 add_shortcode( 'able', 'wpcs_get_video' );
@@ -1901,6 +1902,54 @@ function wpcs_get_youtube( $type = 'main' ) {
 	}
 
 	return $session_youtube;
+}
+
+/**
+ * Execute the partners shortcode
+ *
+ * @return string
+ */
+function wpcsp_partners_shortcode() {
+	if ( current_user_can( 'manage_options' ) ) {
+		ob_start();
+		wpcsp_partners_list();
+		return ob_get_clean();
+	}
+}
+
+/**
+ * Function to retrieve and display the list of partners
+ */
+function wpcsp_partners_list() {
+	$args = array(
+		'post_type'      => 'wpcsp_media_partner',
+		'post_status'    => 'publish',
+		'posts_per_page' => -1,
+		'orderby'        => 'title',
+		'order'          => 'ASC',
+	);
+
+	$query = new WP_Query( $args );
+
+	if ( $query->have_posts() ) {
+		echo '<div class="wpcsp-partners"><ul>';
+		while ( $query->have_posts() ) {
+			$query->the_post();
+
+			echo '<li class="' . esc_attr( sanitize_title( get_the_title() ) ) . '">';
+			echo '<a href="' . esc_url( get_the_permalink() ) . '">';
+			echo '<figure>';
+			the_post_thumbnail( 'medium', array( 'alt' => '' ) );
+			echo '<figcaption>';
+			the_title();
+			echo '</figcaption>';
+			echo '</figure>';
+			echo '</a>';
+			echo '</li>';
+		}
+		echo '</ul></div>';
+		wp_reset_postdata();
+	}
 }
 
 /**

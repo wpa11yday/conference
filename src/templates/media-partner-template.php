@@ -19,8 +19,21 @@ get_header(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 					<div class="entry-content">
-						<?php the_title( '<h1>About ', '</h1>' ); ?>
-						<?php the_content(); ?>
+						<?php the_title( '<h1>', '</h1>' ); ?>
+						<div class="media-partner-description">
+							<?php the_post_thumbnail( 'medium' ); ?>
+							<div class="description">
+							<?php the_content(); ?>
+							</div>
+						</div>
+						<?php
+						$link = get_post_meta( get_the_ID(), 'wpcsp_website_url', true );
+						?>
+						<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+							<div class="wp-block-button is-style-fill">
+								<a class="wp-block-button__link wp-element-button" href="<?php echo esc_attr( $link ); ?>">Visit <?php the_title(); ?></span></a>
+							</div>
+						</div>
 					</div><!-- .entry-content -->
 
 				</article><!-- #post-${ID} -->

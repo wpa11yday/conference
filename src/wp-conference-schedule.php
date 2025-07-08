@@ -1910,11 +1910,9 @@ function wpcs_get_youtube( $type = 'main' ) {
  * @return string
  */
 function wpcsp_partners_shortcode() {
-	if ( current_user_can( 'manage_options' ) ) {
-		ob_start();
-		wpcsp_partners_list();
-		return ob_get_clean();
-	}
+	ob_start();
+	wpcsp_partners_list();
+	return ob_get_clean();
 }
 
 /**

@@ -60,7 +60,7 @@ No translations yet.
 
 ## 2023
 
-23 completed translations.
+37 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -129,13 +129,16 @@ No translations yet.
 
 ## 2024
 
+2 completed translations.
+
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
 3. How to Remediate Accessibility Issues in WordPress
 4. Agile Accessibility: Building Inclusivity into the Product Roadmap
 5. Practical Text Accessibility Tips for Content Creators
 6. Accessibility Challenges with Single Page Applications
-    	- Italian; Daniele Manca
+  	- Spanish; Diana Córdoba Gómez
+  	- Italian; Daniele Manca
 7. Accessible Firebrand: “Why can’t I use my brand color there, and if not there, then where?”
 8. Is Your Page Builder Actually Accessible?
 9. Captchas and Other Gotchas: Make Sure Your Secure Website is Accessible

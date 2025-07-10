@@ -135,6 +135,7 @@ No translations yet.
 4. Agile Accessibility: Building Inclusivity into the Product Roadmap
 5. Practical Text Accessibility Tips for Content Creators
 6. Accessibility Challenges with Single Page Applications
+    	- Spanish; Diana Córdoba Gómez
     	- Italian; Daniele Manca
 7. Accessible Firebrand: “Why can’t I use my brand color there, and if not there, then where?”
 8. Is Your Page Builder Actually Accessible?
@@ -153,5 +154,6 @@ No translations yet.
 21. Creating a Developer Culture of Accessibility
 22. How to Juggle Different Teams at Different Places in Their Accessibility Journey
 23. How to Design and Implement Accessible Cards
+    	- Italian; Daniele Manca
 24. Creating Inclusive Experience with WooCommerce
 25. Maintaining Your Site’s Accessibility Well After Launch

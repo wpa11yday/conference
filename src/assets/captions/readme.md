@@ -129,13 +129,14 @@ No translations yet.
 
 ## 2024
 
-2 completed translations.
+3 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
 3. How to Remediate Accessibility Issues in WordPress
 4. Agile Accessibility: Building Inclusivity into the Product Roadmap
 5. Practical Text Accessibility Tips for Content Creators
+  	- Spanish; Diana Córdoba Gómez
 6. Accessibility Challenges with Single Page Applications
   	- Spanish; Diana Córdoba Gómez
   	- Italian; Daniele Manca

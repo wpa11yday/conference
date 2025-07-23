@@ -125,7 +125,7 @@ No translations yet.
 23. Building an Accessible Theme for Accessible First Sites
   	- Spanish; Debora Ermel
 24. Understanding Color and Contrast Requirements in WCAG 2
-    	- Spanish; Diana Córdoba Gómez
+    - Spanish; Diana Córdoba Gómez
 
 ## 2024
 

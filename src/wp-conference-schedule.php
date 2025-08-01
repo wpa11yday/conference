@@ -140,15 +140,7 @@ class WPCS_Conference_Schedule {
 	 * @return void
 	 */
 	public function wpcs_admin_enqueue_scripts() {
-		global $post_type;
-
-		// Enqueues scripts and styles for session admin page.
-		if ( 'wpcs_session' === $post_type ) {
-			wp_enqueue_script( 'jquery-ui-datepicker' );
-			wp_register_style( 'jquery-ui', plugins_url( '/assets/css/jquery-ui.css', __FILE__ ) );
-
-			wp_enqueue_style( 'jquery-ui' );
-		}
+		// Doesn't do anything since removing datepicker.
 	}
 
 	/**
@@ -163,11 +155,13 @@ class WPCS_Conference_Schedule {
 
 			<script type="text/javascript">
 				jQuery( document ).ready( function( $ ) {
-					$( '#wpcs-session-date' ).datepicker( {
-						dateFormat:  'yy-mm-dd',
-						changeMonth: true,
-						changeYear:  true
-					} );
+					$( '#wpcs-session-hour' ).on( 'change', function(e) {
+						let selected = $( this ).val();
+						let date     = $( '#wpcs-session-hour option[value=' + selected + ']' ).data( 'date' );
+						$( '#wpcs-session-date' ).val( date );
+						$( this ).parent( 'p' ).find( 'span.description' ).remove();
+						$( this ).parent( 'p' ).append( '<span class="description" id="wpcs-session-hour-description">' + date + '</span>' );
+					});
 				} );
 			</script>
 
@@ -283,6 +277,8 @@ class WPCS_Conference_Schedule {
 			return;
 		}
 		$session_time    = absint( get_post_meta( $post->ID, '_wpcs_session_time', true ) );
+		$start_date      = gmdate( 'Y-m-d', strtotime( get_option( 'wpad_start_time' ) ) );
+		$end_date        = gmdate( 'Y-m-d', strtotime( get_option( 'wpad_start_time' ) . ' + 24 hours' ) );
 		$default_date    = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'Y-m-d', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'Y-m-d', strtotime( get_option( 'wpad_start_time' ) ) );
 		$default_hours   = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'G', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'G', strtotime( get_option( 'wpad_start_time' ) ) );
 		$default_minutes = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'i', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'i', strtotime( get_option( 'wpad_start_time' ) ) );
@@ -308,25 +304,24 @@ class WPCS_Conference_Schedule {
 		<fieldset>
 			<legend><?php _e( 'Session Schedule', 'wpa-conference' ); ?></legend>
 		<p>
-			<label for="wpcs-session-date"><?php esc_html_e( 'Date:', 'wpa-conference' ); ?></label>
-			<input type="text" id="wpcs-session-date" data-date="<?php echo esc_attr( $session_date ); ?>" name="wpcs-session-date" value="<?php echo esc_attr( $session_date ); ?>" /><br />
-			<label><?php esc_html_e( 'Time:', 'wpa-conference' ); ?></label>
+			<input type="hidden" id="wpcs-session-date" name="wpcs-session-date" value="<?php echo esc_attr( $session_date ); ?>" />
+			<label for="wpcs-session-hour"><?php esc_html_e( 'Hour:', 'wpa-conference' ); ?></label>
 
-			<select name="wpcs-session-hour" aria-label="<?php esc_attr_e( 'Session Start Hour', 'wpa-conference' ); ?>">
+			<select id="wpcs-session-hour" name="wpcs-session-hour" aria-describedby="wpcs-session-hour-description">
 					<option value="">Not assigned</option>
-				<?php for ( $i = 0; $i <= 23; $i++ ) : ?>
-					<option value="<?php echo esc_attr( $i ); ?>" <?php selected( $i, $session_hours ); ?>>
+				<?php for ( $i = 0; $i <= 23; $i++ ) :
+					$setdate = ( $i >= 14 ) ? $start_date : $end_date;
+						?>
+					<option data-date="<?php echo esc_attr( $setdate ); ?>" value="<?php echo esc_attr( $i ); ?>" <?php selected( $i, $session_hours ); ?>>
 						<?php echo esc_html( $i ); ?>
 					</option>
 				<?php endfor; ?>
 			</select> :
 
-			<select name="wpcs-session-minutes" aria-label="<?php esc_attr_e( 'Session Start Minutes', 'wpa-conference' ); ?>">
-				<?php for ( $i = '00'; (int) $i <= 55; $i = sprintf( '%02d', (int) $i + 5 ) ) : ?>
-					<option value="<?php echo esc_attr( $i ); ?>" <?php selected( $i, $session_minutes ); ?>>
-						<?php echo esc_html( $i ); ?>
-					</option>
-				<?php endfor; ?>
+			<label for="wpcs-session-minutes" class="screen-reader-text"><?php esc_html_e( 'Minutes:', 'wpa-conference' ); ?></label>
+			<select id="wpcs-session-minutes" name="wpcs-session-minutes">
+				<option value="00" <?php selected( 00, $session_minutes ); ?>>00</option>
+				<option value="45" <?php selected( 45, $session_minutes ); ?>>45</option>
 			</select>
 		</p>
 		<p>

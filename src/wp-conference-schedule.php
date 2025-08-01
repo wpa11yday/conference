@@ -308,14 +308,17 @@ class WPCS_Conference_Schedule {
 			<label for="wpcs-session-hour"><?php esc_html_e( 'Hour:', 'wpa-conference' ); ?></label>
 
 			<select id="wpcs-session-hour" name="wpcs-session-hour" aria-describedby="wpcs-session-hour-description">
-					<option value="">Not assigned</option>
-				<?php for ( $i = 0; $i <= 23; $i++ ) :
+				<option value="">Not assigned</option>
+				<?php
+				for ( $i = 0; $i <= 23; $i++ ) {
 					$setdate = ( $i >= 14 ) ? $start_date : $end_date;
-						?>
-					<option data-date="<?php echo esc_attr( $setdate ); ?>" value="<?php echo esc_attr( $i ); ?>" <?php selected( $i, $session_hours ); ?>>
-						<?php echo esc_html( $i ); ?>
-					</option>
-				<?php endfor; ?>
+					?>
+				<option data-date="<?php echo esc_attr( $setdate ); ?>" value="<?php echo esc_attr( $i ); ?>" <?php selected( $i, $session_hours ); ?>>
+					<?php echo esc_html( $i ); ?>
+				</option>
+					<?php
+				}
+				?>
 			</select> :
 
 			<label for="wpcs-session-minutes" class="screen-reader-text"><?php esc_html_e( 'Minutes:', 'wpa-conference' ); ?></label>
@@ -931,11 +934,11 @@ class WPCS_Conference_Schedule {
 
 		$cmb->add_field(
 			array(
-				'name'       => 'Speakers',
-				'id'         => 'wpcsp_session_speakers',
-				'desc'       => 'Select speakers. Drag to reorder.',
-				'type'       => 'pw_multiselect',
-				'options'    => $speakers,
+				'name'    => 'Speakers',
+				'id'      => 'wpcsp_session_speakers',
+				'desc'    => 'Select speakers. Drag to reorder.',
+				'type'    => 'pw_multiselect',
+				'options' => $speakers,
 			)
 		);
 

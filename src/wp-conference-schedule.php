@@ -925,20 +925,6 @@ class WPCS_Conference_Schedule {
 	 */
 	public function filter_session_speaker_meta_field( $cmb ) {
 
-		$cmb->add_field(
-			array(
-				'name'             => 'Speaker Display',
-				'id'               => 'wpcsp_session_speaker_display',
-				'type'             => 'radio',
-				'show_option_none' => false,
-				'options'          => array(
-					'typed' => __( 'Speaker Names (Typed)', 'wpa-conference' ),
-					'cpt'   => __( 'Speaker Select (from Speakers CPT)', 'wpa-conference' ),
-				),
-				'default'          => 'cpt',
-			)
-		);
-
 		// Get speakers.
 		$args     = array(
 			'numberposts' => -1,
@@ -955,23 +941,6 @@ class WPCS_Conference_Schedule {
 				'desc'       => 'Select speakers. Drag to reorder.',
 				'type'       => 'pw_multiselect',
 				'options'    => $speakers,
-				'attributes' => array(
-					'data-conditional-id'    => 'wpcsp_session_speaker_display',
-					'data-conditional-value' => 'cpt',
-				),
-			)
-		);
-
-		// Speaker Name(s).
-		$cmb->add_field(
-			array(
-				'name'       => __( 'Speaker Name(s)', 'wpa-conference' ),
-				'id'         => '_wpcs_session_speakers',
-				'type'       => 'text',
-				'attributes' => array(
-					'data-conditional-id'    => 'wpcsp_session_speaker_display',
-					'data-conditional-value' => 'typed',
-				),
 			)
 		);
 

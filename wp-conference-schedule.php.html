@@ -334,14 +334,17 @@ class WPCS_Conference_Schedule {
 			&lt;label for="wpcs-session-hour">&lt;?php esc_html_e( 'Hour:', 'wpa-conference' ); ?>&lt;/label>
 
 			&lt;select id="wpcs-session-hour" name="wpcs-session-hour" aria-describedby="wpcs-session-hour-description">
-					&lt;option value="">Not assigned&lt;/option>
-				&lt;?php for ( $i = 0; $i &lt;= 23; $i++ ) :
+				&lt;option value="">Not assigned&lt;/option>
+				&lt;?php
+				for ( $i = 0; $i &lt;= 23; $i++ ) {
 					$setdate = ( $i >= 14 ) ? $start_date : $end_date;
-						?>
-					&lt;option data-date="&lt;?php echo esc_attr( $setdate ); ?>" value="&lt;?php echo esc_attr( $i ); ?>" &lt;?php selected( $i, $session_hours ); ?>>
-						&lt;?php echo esc_html( $i ); ?>
-					&lt;/option>
-				&lt;?php endfor; ?>
+					?>
+				&lt;option data-date="&lt;?php echo esc_attr( $setdate ); ?>" value="&lt;?php echo esc_attr( $i ); ?>" &lt;?php selected( $i, $session_hours ); ?>>
+					&lt;?php echo esc_html( $i ); ?>
+				&lt;/option>
+					&lt;?php
+				}
+				?>
 			&lt;/select> :
 
 			&lt;label for="wpcs-session-minutes" class="screen-reader-text">&lt;?php esc_html_e( 'Minutes:', 'wpa-conference' ); ?>&lt;/label>
@@ -957,11 +960,11 @@ class WPCS_Conference_Schedule {
 
 		$cmb->add_field(
 			array(
-				'name'       => 'Speakers',
-				'id'         => 'wpcsp_session_speakers',
-				'desc'       => 'Select speakers. Drag to reorder.',
-				'type'       => 'pw_multiselect',
-				'options'    => $speakers,
+				'name'    => 'Speakers',
+				'id'      => 'wpcsp_session_speakers',
+				'desc'    => 'Select speakers. Drag to reorder.',
+				'type'    => 'pw_multiselect',
+				'options' => $speakers,
 			)
 		);
 

@@ -149,10 +149,12 @@ No translations yet.
 12. Developing Accessible Gutenberg Blocks
 13. Navigating Neurodiversity: Creating Websites with Inclusivity in Mind
 14. Accessible Design: WCAG or Trendy? No, WCAG AND Trendy!
+	- Spanish; Diana Córdoba Gómez
 15. How to Read a VPAT and ACR
 16. WPAD Organizers: Ask Me Anything!
 17. Same Editor, Same Language: How Gutenberg’s Accessibility Enhances Creativity and Inclusion
 18. Inclusive Design Strategies for WordPress Professionals
+  	- Spanish; Andy Amado
 19. Improving and Enforcing Digital Accessibility Laws and Standards in Africa
 20. Beyond Automation: Why Manual Accessibility Testing is Important
 21. Creating a Developer Culture of Accessibility

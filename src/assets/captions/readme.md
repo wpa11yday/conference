@@ -90,7 +90,7 @@ No translations yet.
 11. Immersive Audio Description
    	- Spanish; Luz Zuniga
 12. A Recipe for an Accessible Accordion Block
-	- Spanish; Debora Ermel	
+	- Spanish; Debora Ermel
 	- French; Louis Chance
 	- Italian; Alice Orru
 13. Plot a course!: Creating Accessible SVG Charts in WordPress
@@ -118,7 +118,7 @@ No translations yet.
 21. A Practical Guide To Automated Accessibility
 	- Spanish; Luz Zuniga
 	- French; Emilie Sirotic
- 	- Hebrew; Liron Milstein	
+ 	- Hebrew; Liron Milstein
   	- Malay; Nicolas Y Z W
 22. How to Code for Keyboard Access in WordPress
   	- Spanish; Debora Ermel
@@ -129,7 +129,7 @@ No translations yet.
 
 ## 2024
 
-5 completed translations.
+7 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community

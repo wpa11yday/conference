@@ -1,0 +1,2702 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.759
+ANUNCIANTE:
+Dia da Acessibilidade do WordPress 2024.
+
+00:00:03.760 --> 00:00:07.319
+CSS Tiny Tips: Coleção de dicas de linguagem CSS
+
+00:00:07.320 --> 00:00:10.559
+para tornar a leitura dos sites mais fáceis,
+com Gen Herres,
+
+00:00:10.560 --> 00:00:13.519
+desenvolvedora no Easy Accessibility Guide.
+
+00:00:13.520 --> 00:00:17.240
+Esta apresentação
+foi gravada em outubro de 2024.
+
+00:00:19.040 --> 00:00:21.579
+Simon Miner: Onde ela ajuda agências
+
+00:00:21.580 --> 00:00:26.799
+a enfrentarem o problema desafiador
+
+00:00:26.800 --> 00:00:33.120
+de garantir que a acessibilidade da web
+esteja em primeiro plano em suas funcionalidades.
+
+00:00:33.840 --> 00:00:37.800
+Ela ajudou plug-ins, temas,
+
+00:00:37.840 --> 00:00:43.640
+e agências web a definirem
+seus processos de acessibilidade
+
+00:00:43.720 --> 00:00:47.999
+e sites a garantirem
+que pessoas de verdade possam utilizá-los.
+
+00:00:48.000 --> 00:00:53.400
+Ela também organiza
+o Baltimore WordPress Meetup Group.
+
+00:00:54.400 --> 00:00:59.379
+Os slides e links desta apresentação
+estão disponíveis de forma online
+
+00:00:59.380 --> 00:01:05.220
+em easya11yguide.com/learn.
+
+00:01:05.320 --> 00:01:08.414
+Vou postar isso no chat agora mesmo.
+
+00:01:09.720 --> 00:01:12.530
+Caso você queira acompanhar por lá.
+
+00:01:12.600 --> 00:01:14.239
+Convidamos vocês a ficarem à vontade para adicionar
+
+00:01:14.240 --> 00:01:17.199
+suas perguntas na seção de perguntas e respostas do Zoom.
+
+00:01:17.200 --> 00:01:21.119
+Nós as responderemos
+no final da apresentação.
+
+00:01:21.120 --> 00:01:24.719
+Use também o chat para conversar
+com outros participantes.
+
+00:01:24.720 --> 00:01:27.973
+Com isso, quero passar a palavra à Gen.
+
+00:01:28.920 --> 00:01:31.759
+Gen Herres: Muito obrigada, Simon.
+
+00:01:31.760 --> 00:01:34.679
+Daremos algumas dicas de CSS.
+
+00:01:34.680 --> 00:01:36.498
+Deixe-me abrir os meus slides.
+
+00:01:47.640 --> 00:01:48.120
+Gen: Tudo bem.
+
+00:01:48.121 --> 00:01:51.999
+Durante esta apresentação
+haverá um pouco de texto para ler.
+
+00:01:52.000 --> 00:01:57.479
+Então farei o meu melhor para
+ler o texto que é relevante nos slides.
+
+00:01:57.480 --> 00:01:59.839
+Se você é como Simon e
+não tem a melhor visão
+
+00:01:59.840 --> 00:02:01.359
+ou não consegue ver o seu computador
+
+00:02:01.360 --> 00:02:05.519
+Bem, então não precisa se preocupar,
+pois você poderá obter os slides mais tarde,
+
+00:02:05.520 --> 00:02:08.852
+e você pode acompanhar
+apenas ouvindo.
+
+00:02:10.280 --> 00:02:11.599
+Nesta apresentação
+
+00:02:11.600 --> 00:02:15.439
+abordaremos
+um monte de pequenas dicas diferentes para CSS.
+
+00:02:15.440 --> 00:02:18.699
+Incluiremos informações sobre noções básicas de CSS
+
+00:02:18.700 --> 00:02:22.440
+e outras não tão básicas, como CSS overrides.
+
+00:02:22.480 --> 00:02:25.999
+Falaremos sobre o WordPress
+e os padrões dos navegadores,
+
+00:02:26.000 --> 00:02:31.439
+tornando textos mais fáceis de ler,
+tornando links mais fáceis de ver,
+
+00:02:31.440 --> 00:02:33.423
+e algumas classes utilitárias.
+
+00:02:34.640 --> 00:02:39.480
+Os slides e links já estão disponíveis,
+e foram postados no chat.
+
+00:02:40.800 --> 00:02:44.160
+Primeiro, os conceitos básicos de CSS e overrides.
+
+00:02:44.960 --> 00:02:48.759
+Você precisará ter uma
+noção básica de CSS para esta apresentação.
+
+00:02:48.760 --> 00:02:52.159
+Se você ainda não
+tem uma boa base para CSS,
+
+00:02:52.160 --> 00:02:56.879
+dê uma olhada
+no curso de CSS da W3Schools.
+
+00:02:56.880 --> 00:03:00.319
+É um ótimo curso iniciante
+para começar a usar CSS,
+
+00:03:00.320 --> 00:03:02.639
+e tem uma quantidade maravilhosa de documentação
+
+00:03:02.640 --> 00:03:06.720
+de referências que ainda uso
+regularmente.
+
+00:03:08.720 --> 00:03:12.959
+Durante esta apresentação,
+lerei um pouco de CSS.
+
+00:03:12.960 --> 00:03:14.799
+Não lerei o código literalmente.
+
+00:03:14.800 --> 00:03:16.920
+Vou ler o código com calma.
+
+00:03:17.160 --> 00:03:21.479
+Por exemplo, tenho este texto de exemplo aqui, 
+que lerei como se estivesse em sala de aula,
+
+00:03:21.480 --> 00:03:26.240
+texto do leitor de tela,
+estado de foco, posição relativa.
+
+00:03:28.800 --> 00:03:33.322
+Para começar, o CSS deve estar
+na sua folha de estilo, não inline.
+
+00:03:34.240 --> 00:03:38.639
+Aqui está um exemplo de CSS inline
+e o que queremos evitar fazer.
+
+00:03:38.640 --> 00:03:42.799
+Temos um intervalo HTML
+com um atributo de estilo,
+
+00:03:42.800 --> 00:03:45.960
+cor azul, e então ele diz blue text.
+
+00:03:47.160 --> 00:03:50.599
+Um exemplo de como deveríamos fazer,
+o que queremos ver,
+
+00:03:50.600 --> 00:03:54.199
+seria um span class igual a blue text,
+
+00:03:54.200 --> 00:03:56.759
+e então o texto que queremos que seja azul.
+
+00:03:56.760 --> 00:04:00.839
+O motivo é que os clientes mudam
+de ideia o tempo todo.
+
+00:04:00.840 --> 00:04:02.679
+Às vezes são pequenas mudanças.
+
+00:04:02.680 --> 00:04:04.239
+Às vezes são grandes mudanças.
+
+00:04:04.240 --> 00:04:09.719
+Uma empresa mudou
+sua cor primária de verde para vermelho,
+
+00:04:09.720 --> 00:04:13.759
+e a opção era que você poderia
+atualizar uma pequena quantidade
+
+00:04:13.760 --> 00:04:16.779
+de texto porque você já
+o marcou bem,
+
+00:04:16.780 --> 00:04:21.302
+ou você pode estar fazendo
+uma grande quantidade de busca e substituição.
+
+00:04:21.720 --> 00:04:26.479
+Ao nomear essas classes, você deve
+nomeá-las com base no seu público.
+
+00:04:26.480 --> 00:04:30.319
+Se você tem clientes
+lá e esstá editando seu conteúdo,
+
+00:04:30.320 --> 00:04:35.679
+você vai querer usar texto azul, mesmo que
+no futuro ele possa ser verde.
+
+00:04:35.680 --> 00:04:37.919
+Pelo menos os clientes conseguem se lembrar disso.
+
+00:04:37.920 --> 00:04:42.799
+Se você estiver usando desenvolvedores, você pode querer
+usar a cor primária da classe
+
+00:04:42.800 --> 00:04:45.894
+porque essa é mais uma linguagem de desenvolvedor.
+
+00:04:46.960 --> 00:04:51.839
+Quando você copia e cola,
+você quer deixar HTML indesejado para trás.
+
+00:04:51.840 --> 00:04:56.919
+HTML indesejado é o que aparece
+quando você copia de algum lugar
+
+00:04:56.920 --> 00:05:02.360
+como um documento do Word ou outro site
+e cola no seu site.
+
+00:05:03.280 --> 00:05:05.759
+Para evitar isso, você deve usar
+
+00:05:06.020 --> 00:05:10.859
+Command-Shift-V para colar no Mac,
+
+00:05:10.860 --> 00:05:14.720
+e Control-Shift-V para colar em um PC.
+
+00:05:15.160 --> 00:05:18.079
+É frequentemente chamado de
+past and match style
+
+00:05:18.080 --> 00:05:21.968
+se você clicar no menu Editar
+do seu aplicativo.
+
+00:05:22.320 --> 00:05:26.759
+Variáveis CSS são suas mãos amigas.
+
+00:05:26.760 --> 00:05:29.879
+Você pode economizar muito
+tempo e energia no hunting
+
+00:05:29.880 --> 00:05:33.320
+através de arquivos CSS usando variáveis.
+
+00:05:34.040 --> 00:05:37.359
+Você pode referenciar
+variáveis em um arquivo CSS
+
+00:05:37.360 --> 00:05:39.799
+que foram declarados em outro arquivo CSS,
+
+00:05:39.800 --> 00:05:42.894
+então eles são muito úteis de se ter.
+
+00:05:43.280 --> 00:05:47.719
+Variáveis permitem que você atualize
+algo em um local
+
+00:05:47.720 --> 00:05:51.119
+em vez de ter
+toda essa busca e substituição.
+
+00:05:51.120 --> 00:05:54.359
+Para definir sua variável,
+você usará apenas root.
+
+00:05:54.360 --> 00:06:00.310
+Normalmente, as variáveis CSS são definidas
+com dois traços antes do seu nome.
+
+00:06:03.800 --> 00:06:05.799
+Então, quando você for referenciá-los mais tarde,
+
+00:06:05.800 --> 00:06:10.259
+você dirá classe, texto azul, cor, var,
+
+00:06:10.260 --> 00:06:13.839
+esse é o V-A-R, Victor Alpha Romeo,
+
+00:06:13.840 --> 00:06:16.919
+o alfabeto da OTAN,
+pessoal, abre parênteses,
+
+00:06:16.920 --> 00:06:22.400
+e então você terá o nome da variável
+que escolheu.
+
+00:06:23.640 --> 00:06:28.920
+Espaços de cores CSS são uma das minhas
+formas favoritas de lidar com cores.
+
+00:06:29.120 --> 00:06:32.219
+Temos os valores hexadecimais comuns,
+
+00:06:32.220 --> 00:06:37.260
+como 0000FF para azul.
+
+00:06:38.560 --> 00:06:41.300
+Também podemos listar isso como RGB,
+
+00:06:41.620 --> 00:06:44.860
+que seria 0, 0, 255,
+
+00:06:45.220 --> 00:06:48.779
+o mesmo azul, ou podemos representar isso
+
+00:06:48.780 --> 00:06:53.039
+no espectro de luminosidade de saturação de matiz,
+
+00:06:53.040 --> 00:06:57.180
+que é 240, 100% 50%.
+
+00:06:57.760 --> 00:07:03.239
+Sempre tento evitar incluir
+os valores alfa ou de opacidade neles.
+
+00:07:03.240 --> 00:07:09.479
+Existe RGBA, HSLA,
+mas tento evitá-los como alfas
+
+00:07:09.480 --> 00:07:12.495
+podem apresentar muitos problemas de contraste.
+
+00:07:13.680 --> 00:07:17.920
+Por que gosto
+tanto desse espaço de cores HSL?
+
+00:07:18.720 --> 00:07:23.919
+Principalmente porque posso começar a usar
+valores relativos com o espaço de cores HSL,
+
+00:07:23.920 --> 00:07:27.119
+e isso me permite
+escolher a coordenação
+
+00:07:27.120 --> 00:07:30.199
+cores de forma muito rápida e fácil.
+
+00:07:30.200 --> 00:07:32.539
+Aqui está um exemplo com a cor azul
+
+00:07:32.540 --> 00:07:34.679
+sobre o qual estamos falando.
+
+00:07:34.680 --> 00:07:40.120
+Podemos dizer HSL a partir desse código hexadecimal azul.
+
+00:07:40.979 --> 00:07:45.019
+Então, se dissermos apenas H espaço S espaço L,
+
+00:07:45.480 --> 00:07:47.959
+que nos dará
+exatamente a mesma cor azul,
+
+00:07:47.960 --> 00:07:52.960
+mas também podemos usar esse
+espaço de cor HSL para fazer uma mudança de matiz.
+
+00:07:53.160 --> 00:07:56.019
+Isso pega o matiz
+e apenas o desloca um pouco
+
+00:07:56.020 --> 00:07:57.759
+para a esquerda ou para a direita,
+
+00:07:57.760 --> 00:08:01.079
+dependendo se fazemos
+um mais ou um menos.
+
+00:08:01.080 --> 00:08:06.999
+Aqui eu tenho HSL da cor azul em hexadecimal,
+
+00:08:07.000 --> 00:08:10.700
+calc, H mais 30,
+
+00:08:11.060 --> 00:08:14.520
+feche o cálculo, S espaço L.
+
+00:08:14.521 --> 00:08:16.919
+Isso nos dá uma bela cor roxa.
+
+00:08:16.920 --> 00:08:20.279
+Uma pequena variação
+do azul, ainda divertido,
+
+00:08:20.280 --> 00:08:23.679
+ainda alinhado
+com nossa paleta de cores existente.
+
+00:08:23.680 --> 00:08:27.219
+Eu realmente gosto de usar a mudança de matiz
+porque isso me permite
+
+00:08:27.220 --> 00:08:30.479
+para manter minha saturação
+e minha leveza onde estão,
+
+00:08:30.480 --> 00:08:33.812
+mas me dá alguns valores de coordenação interessantes.
+
+00:08:36.160 --> 00:08:39.599
+O CSS Nesting é outra
+coisa que eu realmente gosto.
+
+00:08:39.600 --> 00:08:44.079
+Nesting nos permite salvar código
+e torná-lo mais legível,
+
+00:08:44.080 --> 00:08:45.760
+o que é vantajoso para todos.
+
+00:08:45.960 --> 00:08:49.134
+Isso é feito usando o símbolo ampersand "&amp;".
+
+00:08:49.400 --> 00:08:52.679
+Aqui tenho um exemplo,
+classe, parent rule,
+
+00:08:52.680 --> 00:08:56.159
+e então eu listaria
+minhas propriedades de parent rule.
+
+00:08:56.160 --> 00:09:00.600
+Então colocarei um ampersand "&amp;", dois pontos, hover, 
+ou passar o mouse,
+
+00:09:00.840 --> 00:09:03.719
+e listarei
+algumas propriedades de child rules.
+
+00:09:03.720 --> 00:09:07.519
+Isso é muito popular
+para coisas como âncoras.
+
+00:09:07.520 --> 00:09:12.994
+Você pode listar o código âncora
+e então incluir o que fazer ao passar o mouse.
+
+00:09:14.400 --> 00:09:18.799
+Como esse aninhamento CSS
+realmente aparece no navegador.
+
+00:09:18.800 --> 00:09:21.759
+O navegador interpreta
+isso como uma regra pai.
+
+00:09:21.760 --> 00:09:24.639
+Então todas as propriedades
+da parent rule,
+
+00:09:24.640 --> 00:09:27.839
+e então em uma declaração CSS separada,
+
+00:09:27.840 --> 00:09:31.039
+como é interpretado
+pelo navegador é a parent rule
+
+00:09:31.040 --> 00:09:35.721
+com o estado de foco
+e, em seguida, todas as propriedades da child rule.
+
+00:09:38.120 --> 00:09:42.080
+O próximo tópico é CSS:has.
+
+00:09:42.320 --> 00:09:46.439
+Isso é particularmente útil
+para muitos usos diferentes.
+
+00:09:46.440 --> 00:09:47.799
+Permite que você diga
+
+00:09:47.800 --> 00:09:50.700
+se um elemento parent HTML
+
+00:09:51.100 --> 00:09:54.959
+tem um child desse tipo específico,
+
+00:09:54.960 --> 00:09:57.559
+então eu quero executar meu CSS,
+
+00:09:57.560 --> 00:10:02.359
+o que me permite aplicar
+o CSS ao parent, não apenas ao child.
+
+00:10:02.360 --> 00:10:04.039
+Isso é muito útil.
+
+00:10:04.040 --> 00:10:06.239
+Tenho um exemplo aqui.
+
+00:10:06.240 --> 00:10:11.220
+HTML tem a classe body,
+
+00:10:11.540 --> 00:10:13.679
+tamanho do texto grande,
+
+00:10:13.680 --> 00:10:17.409
+e então aumentei o
+tamanho da fonte para 125%.
+
+00:10:19.720 --> 00:10:23.559
+Um exemplo está no alterador de tema do Kaya.
+
+00:10:23.560 --> 00:10:26.159
+Tenho um painel de preferências de acessibilidade
+
+00:10:26.160 --> 00:10:29.651
+e agora estou mostrando
+o site de demonstração do tema Kaya.
+
+00:10:29.680 --> 00:10:33.120
+Aqui no tamanho do meu texto, posso marcá-lo como pequeno.
+
+00:10:33.360 --> 00:10:36.253
+Tudo isso é resolvido apenas aplicando
+
+00:10:36.560 --> 00:10:42.480
+uma classe para o body do site usando
+JavaScript.
+
+00:10:42.800 --> 00:10:45.359
+Este alterador controla o JavaScript,
+
+00:10:45.360 --> 00:10:49.644
+que apenas adiciona ou remove
+uma classe CSS à tag body.
+
+00:10:49.800 --> 00:10:56.399
+Então, uma vez que o body tem,
+ou não, um elemento específico,
+
+00:10:56.400 --> 00:10:59.812
+ele modifica o
+tamanho da fonte HTML de 100% para,
+
+00:11:00.960 --> 00:11:03.520
+no caso de pequeno, algo menor.
+
+00:11:03.840 --> 00:11:07.440
+Podemos fazer algo grande, extra grande, enorme.
+
+00:11:07.520 --> 00:11:11.999
+Todas essas coisas diferentes
+foram realizadas apenas com CSS,
+
+00:11:12.000 --> 00:11:14.879
+e colocando algo na tag body.
+
+00:11:14.880 --> 00:11:17.999
+Tenho várias
+outras opções diferentes aqui,
+
+00:11:18.000 --> 00:11:21.679
+incluindo a troca
+da fonte para todo o site, novamente,
+
+00:11:21.680 --> 00:11:26.360
+apenas colocando
+uma classe diferente na tag body.
+
+00:11:27.800 --> 00:11:30.815
+Isso pode ser muito útil e poderoso.
+
+00:11:33.360 --> 00:11:36.320
+A seguir, temos as CSS overrides.
+
+00:11:37.320 --> 00:11:40.919
+Gostamos de adicionar
+CSS overrides comumente usando
+
+00:11:40.920 --> 00:11:46.680
+body ou HTML acrescentado
+ao código CSS existente.
+
+00:11:46.960 --> 00:11:50.839
+Por exemplo, podemos ter
+um código CSS em um tema que diz:
+
+00:11:50.840 --> 00:11:55.759
+classe body WP block button link,
+
+00:11:55.760 --> 00:11:59.280
+e então alguma
+cor apropriada adicionada a ele.
+
+00:11:59.760 --> 00:12:03.539
+No meu tema child,
+eu poderia acrescentar isso dizendo:
+
+00:12:03.540 --> 00:12:09.780
+Classe body HTML block button link,
+
+00:12:10.580 --> 00:12:12.720
+e a cor azul.
+
+00:12:14.640 --> 00:12:19.400
+Outra maneira de fazer
+CSS overrides é repetindo a classe.
+
+00:12:20.000 --> 00:12:27.000
+Se eu tivesse o
+block button link WP da classe CSS,
+
+00:12:27.820 --> 00:12:29.439
+e a cor branca,
+
+00:12:29.440 --> 00:12:34.920
+Posso substituir isso de outra forma,
+repetindo o nome da classe.
+
+00:12:35.160 --> 00:12:40.040
+Eu tenho um block button link de classe WP,
+
+00:12:40.440 --> 00:12:46.640
+block button link WP
+e a cor azul.
+
+00:12:47.200 --> 00:12:50.839
+É uma maneira fácil e tranquila
+de substituir estilos,
+
+00:12:50.840 --> 00:12:53.879
+especialmente de
+temas parent para temas child,
+
+00:12:53.880 --> 00:12:57.768
+ou de vários plug-ins
+para seu próprio tema child.
+
+00:12:58.920 --> 00:13:00.809
+CSS!importante.
+
+00:13:01.200 --> 00:13:04.559
+Esta é a override do último recurso.
+
+00:13:04.560 --> 00:13:06.199
+Tentamos todo o resto,
+
+00:13:06.200 --> 00:13:10.484
+e não temos outra escolha
+a não ser implementar!importante.
+
+00:13:10.880 --> 00:13:12.980
+Tente evitar usá-lo,
+
+00:13:13.020 --> 00:13:16.079
+mas é uma ferramenta que
+você provavelmente precisará
+
+00:13:16.080 --> 00:13:19.120
+usar em algum momento.
+
+00:13:19.720 --> 00:13:22.499
+Se você acha o uso de!importante em alguns lugares
+
+00:13:22.500 --> 00:13:27.239
+como núcleo, temas ou plug-ins do WordPress,
+
+00:13:27.240 --> 00:13:30.279
+você deveria reclamar
+com os desenvolvedores que estão usando esse código,
+
+00:13:30.280 --> 00:13:32.399
+a menos que você veja algum comentário
+
+00:13:32.400 --> 00:13:35.279
+no código explicando
+por que eles adicionaram!importante,
+
+00:13:35.280 --> 00:13:37.919
+e não apenas porque estavam com preguiça.
+
+00:13:37.920 --> 00:13:40.813
+Sim, eu vi!importante no núcleo.
+
+00:13:44.840 --> 00:13:46.199
+Uma das vezes que você precisa
+
+00:13:46.200 --> 00:13:51.240
+para usar o CSS!important
+O override mais importante é para estilos inline.
+
+00:13:51.360 --> 00:13:55.679
+Como dissemos antes,
+gostamos de evitar usar estilos inline,
+
+00:13:55.680 --> 00:13:59.719
+mas às vezes recebemos
+sites que já os possuem,
+
+00:13:59.720 --> 00:14:02.759
+e para corrigir muitos dos problemas,
+
+00:14:02.760 --> 00:14:09.720
+talvez precisemos substituir
+todos esses problemas de CSS inline.
+
+00:14:10.400 --> 00:14:14.519
+Aqui está um exemplo de como usar
+o seletor universal
+
+00:14:14.520 --> 00:14:18.599
+com CSS e capturar todas essas strings
+
+00:14:18.600 --> 00:14:23.160
+que têm a cor roxa para estilo de parágrafo.
+
+00:14:24.080 --> 00:14:29.640
+Temos o CSS para parágrafo,
+abre colchete,
+
+00:14:29.760 --> 00:14:34.959
+o estilo universal é igual a purple, feche colchete.
+
+00:14:34.960 --> 00:14:39.856
+Isso capturará
+todo o CSS com uma substring roxa,
+
+00:14:40.400 --> 00:14:46.079
+o que significa que se alguém usasse
+a cor roxa ou o fundo roxo,
+
+00:14:46.080 --> 00:14:47.759
+ela pegaria isso.
+
+00:14:47.760 --> 00:14:50.279
+Você precisa ter um pouco
+de cuidado se estiver usando
+
+00:14:50.280 --> 00:14:53.090
+o asterisco para capturar suas substrings.
+
+00:14:55.320 --> 00:15:00.639
+Neste caso, usei cor,
+usei uma variável, ou var, my purple,
+
+00:15:00.640 --> 00:15:03.459
+e eu tenho que colocar
+!important porque a única maneira
+
+00:15:03.460 --> 00:15:06.960
+de dar override
+estilos inline é com !importante.
+
+00:15:07.680 --> 00:15:10.219
+Caso você se depare com uma situação
+
+00:15:10.220 --> 00:15:12.719
+onde a pessoa escreveu
+
+00:15:12.720 --> 00:15:17.759
+algo como estilo p
+é igual à color purple !importante,
+
+00:15:17.760 --> 00:15:21.806
+então eles colocam o important diretamente
+no CSS inline,
+
+00:15:22.120 --> 00:15:25.679
+seu único recurso é abrir
+lá com algum JavaScript
+
+00:15:25.680 --> 00:15:28.400
+para dar override e limpar isso.
+
+00:15:28.440 --> 00:15:31.455
+Ou se você tiver acesso ao banco de dados,
+
+00:15:31.480 --> 00:15:35.639
+para abrir lá e limpar isso
+se estava em uma página ou postagem.
+
+00:15:35.640 --> 00:15:41.320
+Infelizmente, já
+vi plug-ins por aí fazendo isso.
+
+00:15:42.120 --> 00:15:44.399
+Então reclame sempre com o desenvolvedor do plug-in,
+
+00:15:44.400 --> 00:15:49.795
+mas talvez seja necessário adicionar JavaScript
+para corrigi-lo no seu tema child.
+
+00:15:51.800 --> 00:15:54.439
+Targeting classes e IDs.
+
+00:15:54.440 --> 00:15:56.899
+Sempre que possível com seu CSS,
+
+00:15:56.900 --> 00:16:01.541
+tente dar target na sua classe ou no seu ID.
+
+00:16:01.640 --> 00:16:05.239
+Tente evitar targeting tags HTML.
+
+00:16:05.240 --> 00:16:09.840
+O motivo é que muitos plug-ins
+são desenvolvidos por desenvolvedores
+
+00:16:09.960 --> 00:16:11.999
+que não necessariamente pensaram sobre
+
+00:16:12.000 --> 00:16:15.159
+acessibilidade quando
+começaram a criá-lo.
+
+00:16:15.160 --> 00:16:19.119
+Frequentemente, eles eram informados
+sobre acessibilidade posteriormente.
+
+00:16:19.120 --> 00:16:22.999
+Então eles percebem que precisam
+fazer algo como corrigir
+
+00:16:23.000 --> 00:16:27.599
+o nesting de um botão e um heading
+porque certas coisas são permitidas
+
+00:16:27.600 --> 00:16:30.479
+em HTML semântico
+e certas coisas não são,
+
+00:16:30.480 --> 00:16:33.416
+então eles podem precisar corrigir a ordem.
+
+00:16:33.880 --> 00:16:35.039
+Para fazer isso,
+
+00:16:35.040 --> 00:16:40.799
+eles geralmente conseguem manter
+suas classes na mesma ordem,
+
+00:16:40.800 --> 00:16:47.000
+mas eles precisam mudar as tags HTML
+para criar HTML semântico.
+
+00:16:47.160 --> 00:16:49.840
+Se você está direcionando as tags...
+
+00:16:50.847 --> 00:16:55.679
+desculpe, se você está direcionando
+a classe ou o ID ao invés da tag,
+
+00:16:55.680 --> 00:16:59.159
+então normalmente
+o desenvolvedor tentará manter
+
+00:16:59.160 --> 00:17:01.919
+as classes e IDs na mesma ordem,
+
+00:17:01.920 --> 00:17:06.125
+mesmo que eles estejam mudando
+os elementos HTML.
+
+00:17:08.360 --> 00:17:13.520
+O HTML semântico
+dá muito menos trabalho em CSS.
+
+00:17:13.880 --> 00:17:19.119
+Sempre que possível, certifique-se
+de que, antes mesmo de chegar lá para CSS,
+
+00:17:19.120 --> 00:17:23.279
+você garantiu
+que o HTML semântico está em vigor.
+
+00:17:23.280 --> 00:17:26.800
+Por exemplo, divs não são botões.
+
+00:17:27.080 --> 00:17:30.279
+Se você já tem
+um elemento de botão HTML,
+
+00:17:30.280 --> 00:17:33.559
+então é muito fácil estilizar com CSS.
+
+00:17:33.560 --> 00:17:38.160
+O navegador cuida
+de um monte de coisas para você.
+
+00:17:39.280 --> 00:17:43.360
+Se alguém codificou
+esse botão usando apenas divs,
+
+00:17:43.680 --> 00:17:46.439
+agora você tem que adicionar mais um monte de CSS e,
+
+00:17:46.440 --> 00:17:49.167
+claro, um monte de JavaScript.
+
+00:17:50.040 --> 00:17:54.719
+Sobre o tópico de que divs não são botões,
+divs também não são conjuntos de campos.
+
+00:17:54.720 --> 00:17:59.239
+Isso pode causar mais problemas
+com o HTML semântico.
+
+00:17:59.240 --> 00:18:03.839
+Lembre-se sempre de que:
+div é seu elemento HTML mais genérico.
+
+00:18:03.840 --> 00:18:07.799
+É definitivamente muito útil,
+mas certifique-se de que não haja nada
+
+00:18:07.800 --> 00:18:10.700
+mais apropriado que você possa usar.
+
+00:18:17.000 --> 00:18:21.200
+Algumas coisas específicas do WordPress
+e padrões do navegador.
+
+00:18:21.800 --> 00:18:25.839
+Queremos sempre ter certeza
+de que nosso CSS inclui resets.
+
+00:18:25.840 --> 00:18:28.359
+Existem diferenças entre os navegadores,
+
+00:18:28.360 --> 00:18:31.679
+existem diferenças
+entre os sistemas operacionais,
+
+00:18:31.680 --> 00:18:34.919
+e usar reset de CSS lhe dá uma boa
+
+00:18:34.920 --> 00:18:40.279
+tela em branco para que você saiba
+exatamente qual é o estado de tudo.
+
+00:18:40.280 --> 00:18:43.279
+Se você depender apenas
+do navegador para tudo,
+
+00:18:43.280 --> 00:18:45.594
+isso pode ser um pouco imprevisível.
+
+00:18:46.000 --> 00:18:50.160
+A maioria dos temas incluirá
+um conjunto de estilos de resets.
+
+00:18:50.680 --> 00:18:54.599
+Caso contrário, há vários
+estilos de resets disponíveis.
+
+00:18:54.600 --> 00:18:58.679
+Você pode dar uma olhada no
+tema sublinhado, que está disponível gratuitamente.
+
+00:18:58.680 --> 00:19:02.479
+Basta digitar o
+nome do tema que você deseja e fazer o download,
+
+00:19:02.480 --> 00:19:06.160
+e isso já inclui alguns estilos de 
+reset para você.
+
+00:19:06.720 --> 00:19:12.560
+Certifique-se de sempre incluir
+estilos de body e form.
+
+00:19:12.600 --> 00:19:18.840
+Muitas vezes, elementos de formulário
+como entradas não herdam necessariamente
+
+00:19:18.880 --> 00:19:23.280
+suas propriedades de fonte
+do elemento body.
+
+00:19:23.560 --> 00:19:27.279
+Você precisa ter certeza
+de que está direcionando as entradas,
+
+00:19:27.280 --> 00:19:30.479
+áreas de texto, seleções, coisas assim,
+
+00:19:30.480 --> 00:19:35.796
+porque muitos desses
+elementos form não serão herdados do body.
+
+00:19:38.920 --> 00:19:43.799
+Falando em resetting as coisas
+e mantê-las em seus recipientes,
+
+00:19:43.800 --> 00:19:47.839
+certifique-se de que coisas
+como embeds, iframes,
+
+00:19:47.840 --> 00:19:51.880
+e os objetos ficam dentro de seus recipientes.
+
+00:19:52.040 --> 00:19:56.800
+Já vi inúmeros
+temas não incluir esse código.
+
+00:19:57.120 --> 00:19:58.799
+É muito simples.
+
+00:19:58.800 --> 00:20:02.863
+Iframe, largura máxima 100%.
+
+00:20:03.240 --> 00:20:06.320
+O motivo é que tenho duas imagens aqui.
+
+00:20:06.560 --> 00:20:08.919
+Um mostra o vídeo do YouTube
+
+00:20:08.920 --> 00:20:12.439
+bem contido
+dentro da área do site,
+
+00:20:12.440 --> 00:20:16.679
+e o outro mostra
+o vídeo do YouTube muito para o lado.
+
+00:20:16.680 --> 00:20:19.573
+A maior parte do vídeo não ficará visível.
+
+00:20:22.200 --> 00:20:25.199
+Enquanto falamos
+sobre padrões e resets,
+
+00:20:25.200 --> 00:20:29.008
+você quer ter certeza
+de deixar o navegador em paz.
+
+00:20:29.160 --> 00:20:34.559
+Eu vi todos os tipos
+de CSS interessantes e estranhos
+
+00:20:34.560 --> 00:20:40.080
+e hacks de JavaScript que alteram
+as configurações do navegador.
+
+00:20:40.680 --> 00:20:43.199
+Os navegadores são o espaço de conforto das pessoas.
+
+00:20:43.200 --> 00:20:48.479
+Eles estão visitando seu site
+no contexto de todos os outros sites
+
+00:20:48.480 --> 00:20:50.794
+que eles já visitaram.
+
+00:20:50.800 --> 00:20:55.399
+Eles geralmente
+o visitam no contexto de um mecanismo de busca
+
+00:20:55.400 --> 00:20:57.999
+ou um site de mídia social que eles estavam apenas
+
+00:20:58.000 --> 00:21:00.900
+antes de eles acessarem seu site,
+
+00:21:01.120 --> 00:21:04.679
+então certifique-se
+de que o navegador deles ainda se pareça
+
+00:21:04.680 --> 00:21:07.439
+com aquilo que eles 
+conhecem e confiam.
+
+00:21:07.440 --> 00:21:11.879
+Recebi relatos
+de clientes que insistiram
+
+00:21:11.880 --> 00:21:15.133
+ao alterar coisas como a barra de rolagem.
+
+00:21:16.440 --> 00:21:17.479
+E sabe o que aconteceu?
+
+00:21:17.480 --> 00:21:21.719
+Os clientes ligaram para eles
+e disseram que o site deles havia sido hackeado
+
+00:21:21.720 --> 00:21:26.879
+porque as coisas não estavam
+como a pessoa esperava.
+
+00:21:26.880 --> 00:21:30.159
+É muito importante atender
+às expectativas das pessoas.
+
+00:21:30.160 --> 00:21:35.317
+Uma dessas expectativas
+é que o navegador tenha uma determinada aparência.
+
+00:21:36.360 --> 00:21:38.799
+Não altere a velocidade de rolagem.
+
+00:21:38.800 --> 00:21:41.599
+Eu vi alguns temas que pensam
+
+00:21:41.600 --> 00:21:45.840
+é uma ótima ideia mudar
+a velocidade da rolagem.
+
+00:21:46.520 --> 00:21:47.919
+A questão é a seguinte.
+
+00:21:47.920 --> 00:21:53.236
+Minha mão tem memória muscular
+para saber a velocidade com que uma página deve rolar.
+
+00:21:53.320 --> 00:21:55.059
+Quando pego minha mão e a coloco
+
+00:21:55.060 --> 00:21:59.640
+no meu mouse ou no meu trackpad e eu rolo,
+
+00:22:00.240 --> 00:22:03.359
+Eu sei o quanto minha mão
+deve se mover
+
+00:22:03.360 --> 00:22:06.559
+para obter uma certa quantidade de rolagem na tela.
+
+00:22:06.560 --> 00:22:09.559
+Quando seu site não funciona dessa maneira,
+
+00:22:09.560 --> 00:22:12.459
+é como se alguém tivesse tirado
+o mouse de mim
+
+00:22:12.460 --> 00:22:17.479
+e me entregou outro dispositivo de entrada,
+e eu pensei: isso não é meu.
+
+00:22:17.480 --> 00:22:19.319
+Tire isso daqui. Quero o meu de volta.
+
+00:22:19.320 --> 00:22:22.440
+Quero que isso atenda às minhas expectativas.
+
+00:22:24.600 --> 00:22:26.749
+Outra coisa, o cursor.
+
+00:22:26.880 --> 00:22:29.599
+Por favor, deixe o cursor em paz.
+
+00:22:29.600 --> 00:22:35.039
+Na verdade, não queremos um rastro de estrelas
+nos seguindo pelo seu site.
+
+00:22:35.040 --> 00:22:40.399
+Isso pode ser muito, muito distrativo
+e desorientador para muita gente.
+
+00:22:40.400 --> 00:22:44.240
+Novamente, pode parecer
+que seu site foi hackeado.
+
+00:22:46.360 --> 00:22:49.600
+Atenda às expectativas do usuário.
+
+00:22:51.800 --> 00:22:53.800
+texto para leitor de tela.
+
+00:22:53.960 --> 00:22:58.999
+Seus temas devem aceitar
+texto para leitor de tela como uma classe CSS.
+
+00:22:59.000 --> 00:23:00.399
+Isso foi incluído
+
+00:23:00.400 --> 00:23:04.679
+como uma classe recomendada pelo WordPress
+para temas por um bom tempo.
+
+00:23:04.680 --> 00:23:07.699
+Isso nos permite ocultar o texto visualmente
+
+00:23:07.700 --> 00:23:10.559
+que é necessário principalmente
+para usuários de leitores de tela.
+
+00:23:10.560 --> 00:23:14.559
+O mais comum, é claro,
+é o link para pular para o conteúdo.
+
+00:23:14.560 --> 00:23:18.319
+Também pode ser usado
+para coisas como mudar
+
+00:23:18.320 --> 00:23:22.239
+seu botão de blog
+de leia mais, leia mais,
+
+00:23:22.240 --> 00:23:26.921
+leia mais na página toda para saber
+mais sobre filhotes fofos.
+
+00:23:28.000 --> 00:23:28.499
+Ótimo.
+
+00:23:28.500 --> 00:23:30.659
+Agora sei sobre o que estou lendo mais.
+
+00:23:30.660 --> 00:23:34.199
+Isso também permite que os links,
+quando são acessados por um leitor de tela,
+
+00:23:34.200 --> 00:23:37.479
+para ter conteúdo útil,
+porque eles podem dizer
+
+00:23:37.480 --> 00:23:39.939
+a diferença entre leia mais sobre
+
+00:23:39.940 --> 00:23:43.510
+filhotes fofos e leia
+mais sobre gatinhos fofos.
+
+00:23:44.280 --> 00:23:48.399
+O que isso parece em HTML
+é que você terá uma tag de âncora
+
+00:23:48.400 --> 00:23:50.880
+com um href para o URL.
+
+00:23:51.320 --> 00:23:55.079
+Então você terá lido
+mais ou continuado a ler.
+
+00:23:55.080 --> 00:23:59.285
+Então você terá uma classe span
+com texto de leitor de tela.
+
+00:23:59.520 --> 00:24:04.439
+É aí que estão as informações sobre
+cachorrinhos ou gatinhos fofos,
+
+00:24:04.440 --> 00:24:07.839
+ou qualquer que seja
+o título real do post do blog ,
+
+00:24:07.840 --> 00:24:11.680
+está naquela tag span dentro da âncora.
+
+00:24:15.123 --> 00:24:17.279
+Align wide e align full.
+
+00:24:17.280 --> 00:24:20.720
+Essas são classes
+usadas pelo editor de blocos.
+
+00:24:21.120 --> 00:24:25.399
+Se você estiver usando o editor de blocos,
+seu tema deverá suportar isso.
+
+00:24:25.400 --> 00:24:28.556
+Se não for, bem, temos o código à mão.
+
+00:24:28.557 --> 00:24:31.840
+Align full significa completo.
+
+00:24:32.400 --> 00:24:35.279
+A largura total do navegador.
+
+00:24:35.280 --> 00:24:39.600
+Align wide significa mais amplo que o normal.
+
+00:24:39.840 --> 00:24:45.079
+Não significa necessariamente
+que vá até a borda do navegador.
+
+00:24:45.080 --> 00:24:49.919
+Como eu normalmente implemento
+isso é o alinhamento de classe completo.
+
+00:24:49.920 --> 00:24:52.482
+Vou colocar uma margem de 32 pixels.
+
+00:24:53.120 --> 00:25:00.000
+Usarei um cálculo
+para 50% menos 50VW.
+
+00:25:00.200 --> 00:25:02.440
+Essa é a largura da janela de visualização.
+
+00:25:02.580 --> 00:25:05.595
+O 32 é a barra de rolagem à direita.
+
+00:25:06.360 --> 00:25:11.041
+Então definirei uma largura máxima
+de 100 VW e uma largura de 100 VW.
+
+00:25:11.160 --> 00:25:17.119
+No alinhamento de classe amplo,
+farei a mesma coisa,
+
+00:25:17.120 --> 00:25:20.719
+mas vou subtrair só
+um pouquinho da margem,
+
+00:25:20.720 --> 00:25:23.365
+que são 8 pixels adicionais.
+
+00:25:24.280 --> 00:25:28.460
+Vou definir a largura máxima para 1.800 pixels.
+
+00:25:28.960 --> 00:25:32.539
+Um site típico
+terá cerca de 1.100
+
+00:25:32.540 --> 00:25:35.476
+ou 1.200 pixels para o conteúdo principal.
+
+00:25:35.640 --> 00:25:39.920
+Isso permitirá que nossos alinhamentos
+sejam mais largos do que isso.
+
+00:25:40.120 --> 00:25:45.800
+Algumas pessoas usam telas de computador
+com quase 3.000 pixels de largura.
+
+00:25:45.960 --> 00:25:49.959
+Não queremos necessariamente que
+ele chegue até essas bordas.
+
+00:25:49.960 --> 00:25:54.720
+É por isso que coloquei a largura máxima
+para o align wide.
+
+00:25:56.120 --> 00:25:59.879
+Align left, align right e align center.
+
+00:25:59.880 --> 00:26:05.434
+Eles tem sido usados para
+alinhamentos de imagens no WordPress há muito tempo.
+
+00:26:05.880 --> 00:26:08.719
+Todos os seus temas devem aceitá-los,
+
+00:26:08.720 --> 00:26:11.639
+mas caso eles não o aceitem,
+temos o código aqui.
+
+00:26:11.640 --> 00:26:17.180
+Para a classe align left,
+temos display inline,
+
+00:26:17.620 --> 00:26:22.220
+float left, margin right de 1,5 EM.
+
+00:26:22.500 --> 00:26:27.039
+EM é uma unidade relativa,
+então ela se tornará um pouco mais ampla
+
+00:26:27.040 --> 00:26:32.673
+como se a pessoa aumentasse o
+tamanho da fonte, por exemplo, no site.
+
+00:26:34.200 --> 00:26:40.199
+Então, para alinhar ao centro, limparemos ambos,
+bloco de exibição e definiremos
+
+00:26:40.200 --> 00:26:45.120
+a margem à esquerda e
+à direita para centralizá-la automaticamente.
+
+00:26:51.920 --> 00:26:55.440
+Agora, para tornar o texto mais fácil de ler.
+
+00:26:55.800 --> 00:26:57.159
+Configurando suas fontes.
+
+00:26:57.160 --> 00:27:01.439
+Muitas pessoas me perguntam:
+o que devo definir para minhas fontes?
+
+00:27:01.440 --> 00:27:04.320
+Você quer usar rems, não pixels.
+
+00:27:04.680 --> 00:27:08.439
+No HTML, definirei o tamanho da fonte como 100,
+
+00:27:08.440 --> 00:27:13.179
+e no body,
+definirei o tamanho da fonte para 1 rem.
+
+00:27:13.180 --> 00:27:18.119
+1 rem significa o que essa pessoa
+configurou em seu navegador como padrão.
+
+00:27:18.120 --> 00:27:19.999
+Algumas pessoas gostam de texto grande.
+
+00:27:20.000 --> 00:27:22.893
+Se o fizerem, quero respeitar isso.
+
+00:27:24.800 --> 00:27:27.879
+Em seguida, você precisa definir a line height.
+
+00:27:27.880 --> 00:27:31.319
+Defina uma line height relativa razoável.
+
+00:27:31.320 --> 00:27:33.599
+Não use pixels.
+
+00:27:33.600 --> 00:27:38.800
+Repito, não use
+pixels para a line height.
+
+00:27:38.880 --> 00:27:43.799
+Eu vi vários
+plug-ins tentando usar pixels
+
+00:27:43.800 --> 00:27:46.479
+para a line height e altura fixa.
+
+00:27:46.480 --> 00:27:49.920
+Isso significa que as pessoas não podem redimensionar o texto.
+
+00:27:50.040 --> 00:27:53.360
+Isso causa muitos problemas de acessibilidade.
+
+00:27:54.320 --> 00:27:58.842
+Normalmente, na maioria dos conteúdos,
+eu uso uma line height de 1,5.
+
+00:27:58.920 --> 00:28:01.879
+Isso já está definido
+como uma line height relativa.
+
+00:28:01.880 --> 00:28:06.492
+Isso significa 1,5 vez
+do tamanho da fonte.
+
+00:28:06.520 --> 00:28:09.165
+Normalmente é bem legível.
+
+00:28:11.320 --> 00:28:14.000
+Quando usar quais unidades.
+
+00:28:14.080 --> 00:28:18.279
+Se você estiver usando um tamanho de fonte,
+ele deve ser feito em rems.
+
+00:28:18.280 --> 00:28:23.680
+Se você estiver usando uma espessura de fonte,
+ela estará entre 300 e 700.
+
+00:28:24.200 --> 00:28:27.639
+Você deve evitar qualquer coisa menor que 300.
+
+00:28:27.640 --> 00:28:29.639
+Essa tende a ser uma fonte bem
+
+00:28:29.640 --> 00:28:32.519
+leve e pode ser muito difícil de ler.
+
+00:28:32.520 --> 00:28:39.079
+Tentei ler no meu celular
+uma fonte de espessura 100 sob luz solar intensa.
+
+00:28:39.080 --> 00:28:41.239
+Não importa se é preto no branco,
+
+00:28:41.240 --> 00:28:44.255
+ainda é quase impossível de ler.
+
+00:28:45.180 --> 00:28:46.979
+Evite também os super pesados,
+
+00:28:46.980 --> 00:28:50.039
+que seriam
+pesos de fonte maiores que 700.
+
+00:28:50.040 --> 00:28:52.999
+Eles podem ser
+tão grossos e grossos que,
+
+00:28:53.000 --> 00:28:56.332
+de novo, não consigo ler no meu celular.
+
+00:28:56.880 --> 00:29:00.399
+As alturas das linhas estão em
+unidades relativas porque você sempre quer
+
+00:29:00.400 --> 00:29:04.319
+a line height deve ser ajustada
+com base no tamanho da sua fonte.
+
+00:29:04.320 --> 00:29:07.319
+Normalmente,
+quando você está fazendo preenchimentos e margens,
+
+00:29:07.320 --> 00:29:10.999
+Eu os mantenho em pixels
+porque não os quero
+
+00:29:11.000 --> 00:29:15.126
+ficando enormes só
+porque alguém quer um texto maior.
+
+00:29:18.400 --> 00:29:22.359
+Quando você trabalha com clientes
+e escolhe fontes,
+
+00:29:22.360 --> 00:29:26.600
+você quer estabelecer
+a mentalidade do cliente.
+
+00:29:26.880 --> 00:29:30.959
+Usaremos um texto
+com o qual você não está familiarizado.
+
+00:29:30.960 --> 00:29:33.239
+Estamos usando isso porque seus visitantes
+
+00:29:33.240 --> 00:29:36.493
+não estão familiarizados com o conteúdo do seu site.
+
+00:29:37.080 --> 00:29:41.239
+Dessa forma, os clientes são forçados a realmente
+ler o conteúdo da fonte,
+
+00:29:41.240 --> 00:29:43.885
+não olhe apenas para a estética.
+
+00:29:44.240 --> 00:29:46.306
+Eu geralmente uso pangramas.
+
+00:29:46.320 --> 00:29:49.199
+Essas são frases
+que contêm todas as letras
+
+00:29:49.200 --> 00:29:51.840
+no alfabeto pelo menos uma vez.
+
+00:29:52.120 --> 00:29:54.239
+Normalmente são escritos para serem breves
+
+00:29:54.240 --> 00:29:58.959
+e pode ser bastante difícil de ler,
+o que é ótimo porque força
+
+00:29:58.960 --> 00:30:01.896
+para seu cliente realmente tentar ler.
+
+00:30:01.920 --> 00:30:07.280
+Por exemplo, a rápida
+raposa marrom salta sobre o cão preguiçoso.
+
+00:30:08.880 --> 00:30:11.599
+Quando você trabalha com fontes de body,
+
+00:30:11.600 --> 00:30:15.759
+o texto principal do seu site,
+use fonte sem serifa.
+
+00:30:15.760 --> 00:30:20.719
+É consenso geral que a fonte sem
+serifa é a mais fácil de ler
+
+00:30:20.720 --> 00:30:23.719
+em um computador para grandes blocos de texto.
+
+00:30:23.720 --> 00:30:26.499
+Na versão impressa, na verdade é o inverso
+
+00:30:26.500 --> 00:30:29.062
+e muitas pessoas gostam de serifas.
+
+00:30:29.520 --> 00:30:32.880
+Tenho um link para uma página de exemplos de fontes
+
+00:30:33.000 --> 00:30:36.359
+e isso tem um monte
+de exemplos de fontes,
+
+00:30:36.360 --> 00:30:41.160
+incluindo fontes de sites
+e algumas fontes do Google.
+
+00:30:41.400 --> 00:30:44.239
+Isso lhe dá um exemplo
+de vários pangramas,
+
+00:30:44.240 --> 00:30:47.760
+números, algumas das
+letras espelhadas comuns,
+
+00:30:47.880 --> 00:30:52.119
+todas as letras maiúsculas,
+todas essas coisas estranhas,
+
+00:30:52.120 --> 00:30:56.559
+símbolos malucos que você nem pensou que
+poderia usar em algum momento,
+
+00:30:56.560 --> 00:31:01.320
+incluindo aspas curvas,
+aspas simples curvas, aspas retas,
+
+00:31:02.200 --> 00:31:05.612
+muitas coisas diferentes,
+itálico e negrito,
+
+00:31:05.680 --> 00:31:08.760
+e funciona nos combos ILLI.
+
+00:31:10.680 --> 00:31:12.479
+Elas podem ser muito difíceis de ler
+
+00:31:12.480 --> 00:31:17.320
+dependendo da fonte, pois elas podem ficar
+muito amassadas.
+
+00:31:18.720 --> 00:31:21.735
+Tem um monte de coisas úteis lá.
+
+00:31:23.360 --> 00:31:27.119
+De modo geral,
+se você estiver escolhendo uma fonte para o body,
+
+00:31:27.120 --> 00:31:30.839
+Prefiro fontes um pouco mais largas.
+
+00:31:30.840 --> 00:31:35.559
+Conversei com várias pessoas
+de diferentes faixas etárias,
+
+00:31:35.560 --> 00:31:40.759
+diferentes origens, diferentes
+níveis de visão e, de modo geral,
+
+00:31:40.760 --> 00:31:44.999
+se eu der a eles esse bloco
+de texto em Arial versus Verdana,
+
+00:31:45.000 --> 00:31:49.400
+eles vão escolher
+Verdana na maioria das vezes.
+
+00:31:49.680 --> 00:31:52.580
+Obviamente, nem todo mundo é igual.
+
+00:31:53.160 --> 00:31:55.259
+Outra razão pela qual gosto mais de Verdana
+
+00:31:55.260 --> 00:32:00.840
+é porque o I maiúsculo e o l minúsculo
+realmente parecem diferentes.
+
+00:32:04.080 --> 00:32:05.639
+Quando falamos de fontes,
+
+00:32:05.640 --> 00:32:09.239
+queremos ter certeza
+de incluir uma fonte reserva,
+
+00:32:09.240 --> 00:32:14.000
+caso contrário, ele vai para o que
+quer que seja o padrão do sistema.
+
+00:32:14.280 --> 00:32:16.759
+Se eu estiver usando uma fonte sem serifa,
+
+00:32:16.760 --> 00:32:20.799
+como, por exemplo, Lato,
+esse é popular,
+
+00:32:20.800 --> 00:32:25.920
+Vou especificar uma fonte de sistema,
+Verdana, como alternativa,
+
+00:32:26.040 --> 00:32:32.399
+e então, só por precaução, também especificarei
+sans serif como alternativa,
+
+00:32:32.400 --> 00:32:35.719
+só para ter certeza
+de que, se houver algum problema no carregamento
+
+00:32:35.720 --> 00:32:39.687
+a fonte que eu queria,
+algo decente ainda aparece.
+
+00:32:41.680 --> 00:32:44.440
+Espaçamento entre letras em suas fontes.
+
+00:32:44.560 --> 00:32:49.819
+Eu quase sempre uso
+um pequeno espaçamento entre letras
+
+00:32:49.820 --> 00:32:53.440
+nas minhas fontes, especialmente nas fontes do body.
+
+00:32:54.480 --> 00:33:01.479
+Aqui está um exemplo de
+espaçamento de letras EM de 0,015.
+
+00:33:01.480 --> 00:33:07.668
+EM é uma unidade relativa, então, não importa o tamanho
+da fonte, ela será relativa a ela.
+
+00:33:07.680 --> 00:33:11.839
+Aqui você pode ver a fonte Arial
+à esquerda e a fonte Arial
+
+00:33:11.840 --> 00:33:14.919
+com um pouco de espaçamento à direita.
+
+00:33:14.920 --> 00:33:18.199
+Isso só torna
+algumas palavras como willing,
+
+00:33:18.200 --> 00:33:22.439
+billing, drilling,
+um pouco mais fáceis de ler,
+
+00:33:22.440 --> 00:33:28.040
+e ajuda a evitar que coisas como um nn
+se tornem um m visualmente.
+
+00:33:28.920 --> 00:33:32.960
+Outro que costumo
+usar é 0,2 pixels.
+
+00:33:33.160 --> 00:33:35.559
+"Mas Gen, você acabou de dizer que deveríamos
+
+00:33:35.560 --> 00:33:39.240
+usar pesos relativos
+para o espaçamento das letras."
+
+00:33:40.880 --> 00:33:46.513
+O problema com as fontes é que, quanto maiores,
+mais fáceis elas são de ler.
+
+00:33:46.800 --> 00:33:50.399
+Embora eu precisasse de mais
+espaçamento entre letras e um tamanho de fonte menor,
+
+00:33:50.400 --> 00:33:55.320
+Na verdade, preciso de menos
+espaçamento entre letras em um tamanho de fonte maior.
+
+00:33:56.120 --> 00:34:01.599
+Usar 0,2 pixels
+diminui o espaçamento entre letras
+
+00:34:01.600 --> 00:34:03.831
+enquanto o tamanho da fonte aumenta.
+
+00:34:04.040 --> 00:34:08.007
+Descobri que funciona
+muito bem visualmente.
+
+00:34:09.040 --> 00:34:10.479
+Itens da lista.
+
+00:34:10.480 --> 00:34:13.290
+Todos nós temos listas em nossos sites.
+
+00:34:13.640 --> 00:34:20.398
+Aqui está um exemplo do conteúdo do ID, LI.
+
+00:34:20.480 --> 00:34:27.320
+Coloquei um padding bottom de 0,7 rem
+de volta nas unidades relativas.
+
+00:34:27.520 --> 00:34:30.119
+O motivo é que ele espaça
+meus marcadores
+
+00:34:30.120 --> 00:34:33.840
+e os torna
+muito mais fáceis de escanear e ler.
+
+00:34:40.600 --> 00:34:43.440
+Tornando seus links mais fáceis de ver.
+
+00:34:44.120 --> 00:34:48.120
+Você quer definir a
+word wrap nos seus links.
+
+00:34:49.080 --> 00:34:52.079
+É assim que você evita
+que seu link seja executado
+
+00:34:52.080 --> 00:34:55.333
+no lado direito da tela do seu celular.
+
+00:34:55.800 --> 00:35:01.880
+Você definirá sua âncora com display
+inline, word wrap e break word.
+
+00:35:04.080 --> 00:35:06.600
+Underlines em seus links.
+
+00:35:06.680 --> 00:35:11.879
+Eu adoro empurrar as underlines
+um pouco para baixo para que elas não fiquem
+
+00:35:11.880 --> 00:35:16.619
+divididas por coisas
+como parênteses ou j's minúsculos
+
+00:35:16.620 --> 00:35:20.220
+ou p's minúsculos, ou y's, etc.
+
+00:35:20.620 --> 00:35:23.359
+Se quiser,
+você pode adicionar uma cor diferente.
+
+00:35:23.360 --> 00:35:29.359
+Tenho a âncora,
+a underline do texto deslocado em 4 pixels.
+
+00:35:29.360 --> 00:35:32.680
+Descobri que esse é quase o ponto ideal.
+
+00:35:33.600 --> 00:35:36.959
+Cor da decoração do texto, azul violeta,
+
+00:35:36.960 --> 00:35:40.159
+só para dar uma cor ligeiramente diferente
+ao sublinhado.
+
+00:35:40.160 --> 00:35:44.127
+Ajuda a fazer o link se destacar
+um pouco mais visualmente.
+
+00:35:45.660 --> 00:35:48.120
+Caixas de seleção e rádios.
+
+00:35:48.800 --> 00:35:52.799
+No WCAG 2.2,
+havia um novo requisito dizendo
+
+00:35:52.800 --> 00:35:55.039
+para fazer coisas grandes o suficiente para clicar nelas.
+
+00:35:55.040 --> 00:35:59.007
+Ou mais especificamente,
+faça-os ter pelo menos 24 pixels.
+
+00:35:59.400 --> 00:36:04.399
+Por padrão, caixas de seleção e opções
+são renderizadas menores que isso.
+
+00:36:04.400 --> 00:36:07.520
+Gosto de definir largura mínima e min--
+
+00:36:08.400 --> 00:36:11.559
+desculpe, deveria dizer altura mínima.
+
+00:36:11.560 --> 00:36:13.519
+Vou consertar isso nos meus slides depois.
+
+00:36:13.520 --> 00:36:15.700
+Altura mínima, 24 pixels.
+
+00:36:15.980 --> 00:36:21.187
+Também defini uma largura de 1,5
+rem e uma altura de 1,5 rem.
+
+00:36:22.240 --> 00:36:25.572
+Isso significa que eles têm
+pelo menos 24 pixels,
+
+00:36:25.680 --> 00:36:27.679
+mas então eles podem crescer mais,
+
+00:36:27.680 --> 00:36:30.239
+porque normalmente se alguém
+quer uma fonte maior,
+
+00:36:30.240 --> 00:36:31.919
+isso é porque eles não veem
+
+00:36:31.920 --> 00:36:38.040
+também, então dar a eles uma área maior
+para mirar é uma grande melhoria para eles.
+
+00:36:39.680 --> 00:36:43.079
+Não se esqueça dos
+links visitados em sua âncora.
+
+00:36:43.080 --> 00:36:48.480
+Certifique-se de listar a âncora
+e também a âncora com o estado visitado.
+
+00:36:49.960 --> 00:36:54.440
+Estado de foco,
+o tema de tudo isso.
+
+00:36:55.040 --> 00:36:56.399
+Ao definir seu estado de foco,
+
+00:36:56.400 --> 00:36:58.919
+você quer usar duas cores diferentes.
+
+00:36:58.920 --> 00:37:01.565
+Normalmente, uso azul e branco.
+
+00:37:02.800 --> 00:37:06.120
+Não pergunte ao seu cliente sobre o foco.
+
+00:37:06.720 --> 00:37:09.199
+Eles não têm uma opinião informada.
+
+00:37:09.200 --> 00:37:10.759
+Eles não precisam de um.
+
+00:37:10.760 --> 00:37:12.479
+Basta configurar para eles.
+
+00:37:12.480 --> 00:37:17.399
+Aqui você pode ver em cada um deles,
+o foco é visualmente claro.
+
+00:37:18.640 --> 00:37:21.239
+E quando o cliente diz:
+
+00:37:21.240 --> 00:37:23.879
+temos um fundo azul,
+um botão branco,
+
+00:37:23.880 --> 00:37:26.773
+e será apenas uma borda?
+
+00:37:26.780 --> 00:37:27.619
+Ótimo.
+
+00:37:27.620 --> 00:37:31.359
+Sua combinação azul e branca
+não está mais visível,
+
+00:37:31.360 --> 00:37:34.199
+porque esse é o estado padrão
+do botão.
+
+00:37:34.200 --> 00:37:38.722
+É aqui que sua
+borda tracejada se torna sua melhor amiga.
+
+00:37:38.760 --> 00:37:41.559
+Aqui tenho um exemplo
+do estado desfocado
+
+00:37:41.560 --> 00:37:45.560
+e o estado focado,
+e temos uma borda tracejada.
+
+00:37:45.760 --> 00:37:47.959
+Sim, eu usei!importante.
+
+00:37:47.960 --> 00:37:50.975
+Isso é para substituir todos os plug-ins.
+
+00:37:52.640 --> 00:37:55.960
+Porque eles anulavam tudo o que eu definia.
+
+00:37:57.040 --> 00:37:58.720
+Algumas classes utilitárias.
+
+00:38:01.600 --> 00:38:05.239
+Gosto de configurar
+algumas classes utilitárias diferentes.
+
+00:38:05.240 --> 00:38:08.879
+Minha classe é texto branco.
+
+00:38:08.880 --> 00:38:10.639
+Acho isso muito útil.
+
+00:38:10.640 --> 00:38:13.679
+Os clientes sempre querem
+algum lugar em seu site
+
+00:38:13.680 --> 00:38:16.399
+ter texto branco em um fundo escuro.
+
+00:38:16.400 --> 00:38:18.719
+Aqui adicionamos apenas texto branco.
+
+00:38:18.720 --> 00:38:21.282
+É fácil para eles lembrarem.
+
+00:38:21.800 --> 00:38:23.199
+Tamanho do texto.
+
+00:38:23.200 --> 00:38:27.399
+Novamente, os clientes sempre querem
+alterar o tamanho do texto.
+
+00:38:27.400 --> 00:38:31.559
+O editor de blocos quer
+colocar isso com estilos inline,
+
+00:38:31.560 --> 00:38:33.461
+que queremos evitar.
+
+00:38:33.560 --> 00:38:34.479
+Temos uma classe.
+
+00:38:34.480 --> 00:38:35.759
+Aqui está um exemplo.
+
+00:38:35.760 --> 00:38:39.479
+Body, classe, texto extra grande.
+
+00:38:39.480 --> 00:38:42.042
+Meu tamanho de fonte é 1,5 rems.
+
+00:38:45.040 --> 00:38:47.040
+Margens e preenchimentos.
+
+00:38:47.280 --> 00:38:49.919
+Um monte de coisas
+no editor de blocos
+
+00:38:49.920 --> 00:38:52.719
+não tem nada
+para definir margens ou preenchimentos.
+
+00:38:52.720 --> 00:38:54.759
+Tudo o que temos é aquele pequeno bloco
+
+00:38:54.760 --> 00:38:58.251
+no final, em avançado
+, diz classes CSS.
+
+00:38:58.680 --> 00:39:03.199
+Aqui eu tenho um monte de
+classes CSS muito úteis que posso usar.
+
+00:39:03.200 --> 00:39:04.390
+Por exemplo,
+
+00:39:04.460 --> 00:39:10.360
+O MT100 me dá margem nos 100 pixels superiores.
+
+00:39:10.560 --> 00:39:14.759
+Novamente, eu uso o!important
+porque tenho que substituir qualquer coisa
+
+00:39:14.760 --> 00:39:18.279
+está acontecendo com o construtor
+ou os vários plug-ins
+
+00:39:18.280 --> 00:39:21.059
+instalado no site,
+porque isso é algo
+
+00:39:21.060 --> 00:39:25.344
+o usuário está inserindo
+e ele realmente quer que funcione.
+
+00:39:25.980 --> 00:39:28.559
+Índice Z, também incluo.
+
+00:39:28.560 --> 00:39:31.300
+Por exemplo, classe Z0.
+
+00:39:31.580 --> 00:39:33.811
+Esse é apenas o índice zero.
+
+00:39:35.240 --> 00:39:38.280
+A última classe é flexbox.
+
+00:39:39.080 --> 00:39:42.279
+Isso é muito útil.
+
+00:39:42.280 --> 00:39:44.879
+Se você não sabe tudo sobre flexbox,
+
+00:39:44.880 --> 00:39:51.759
+O guia de truques CSS tem um
+guia maravilhoso sobre flexbox.
+
+00:39:51.760 --> 00:39:54.239
+Tenho isso impresso.
+
+00:39:54.240 --> 00:39:55.879
+Está perto de mim.
+
+00:39:55.880 --> 00:39:58.039
+Posso consultá-lo o tempo todo.
+
+00:39:58.040 --> 00:40:04.520
+É simplesmente uma
+introdução fabulosa ao flexbox e como usá-lo.
+
+00:40:05.040 --> 00:40:08.134
+Tenho uma classe no meu tema para flexbox.
+
+00:40:08.200 --> 00:40:11.520
+Meu flexbox também não responde.
+
+00:40:12.240 --> 00:40:17.640
+Isso significa que ainda quero
+que seja flexbox, mesmo no celular.
+
+00:40:18.280 --> 00:40:22.690
+Meu flexbox padrão
+tem uma largura mínima de 768 pixels.
+
+00:40:25.800 --> 00:40:29.320
+Certifique-se de incluir
+um espaço no seu flexbox.
+
+00:40:29.440 --> 00:40:32.085
+Gosto de cerca de 30 pixels como espaço.
+
+00:40:34.920 --> 00:40:37.519
+Essas são pequenas dicas de CSS.
+
+00:40:37.520 --> 00:40:40.080
+Noções básicas de CSS e substituições.
+
+00:40:40.560 --> 00:40:43.122
+Padrões do WordPress e do navegador.
+
+00:40:43.200 --> 00:40:46.079
+Tornando o texto mais fácil de ler.
+
+00:40:46.080 --> 00:40:48.600
+Tornando os links mais fáceis de visualizar.
+
+00:40:49.037 --> 00:40:50.525
+Classes utilitárias.
+
+00:40:50.760 --> 00:40:53.399
+Temos perguntas, tenho certeza.
+
+00:40:53.400 --> 00:40:55.299
+Slides e links estão disponíveis
+
+00:40:55.300 --> 00:41:01.180
+em easya11yguide.com/learn.
+
+00:41:01.640 --> 00:41:05.766
+Você pode me encontrar online
+no site ou no LinkedIn.
+
+00:41:08.120 --> 00:41:09.040
+Simon: Obrigado, Gen.
+
+00:41:09.041 --> 00:41:10.919
+Isso foi absolutamente fantástico.
+
+00:41:10.920 --> 00:41:13.879
+Acho que
+todos nós apredemos algo.
+
+00:41:13.880 --> 00:41:15.368
+Gen: Espero que sim.
+
+00:41:15.400 --> 00:41:18.732
+Simon: Muitas
+coisas boas, como sempre.
+
+00:41:18.960 --> 00:41:22.199
+Temos algumas perguntas, 
+como você previu.
+
+00:41:22.200 --> 00:41:24.183
+Vou começar do topo.
+
+00:41:24.360 --> 00:41:28.439
+Alguém perguntou:
+"Como você evita blocos duplicados
+
+00:41:28.440 --> 00:41:31.879
+de CSS com o mesmo nome de classe?
+
+00:41:31.880 --> 00:41:36.400
+Ou como você evita
+nomes duplicados de blocos/classes CSS?"
+
+00:41:38.160 --> 00:41:42.119
+Algo assim acontece
+quando há múltiplos
+
+00:41:42.120 --> 00:41:45.840
+plug-ins ou desenvolvedores
+no mesmo projeto.
+
+00:41:47.900 --> 00:41:50.079
+Gen: Claro, comunicação.
+
+00:41:50.080 --> 00:41:53.679
+Vocês só precisam comunicar
+uns aos outros o que é,
+
+00:41:53.680 --> 00:41:58.839
+quem vai fazer o quê, quais
+serão suas práticas de nomenclatura,
+
+00:41:58.840 --> 00:42:00.799
+onde você vai colocar tudo isso.
+
+00:42:00.800 --> 00:42:05.279
+Claro, use
+o Git para que todos compartilhem seu código
+
+00:42:05.280 --> 00:42:08.612
+e vocês podem ver o que cada um está fazendo.
+
+00:42:10.080 --> 00:42:11.369
+Simon: Ótimo.
+
+00:42:11.540 --> 00:42:12.631
+David pergunta,
+
+00:42:12.660 --> 00:42:17.658
+"Quais são os pares de famílias de fontes
+recomendados para postagens de blog?"
+
+00:42:19.240 --> 00:42:23.128
+Gen: Há muitas fontes diferentes
+que eu gosto.
+
+00:42:24.000 --> 00:42:28.680
+Tenho alguns exemplos
+na minha página de exemplos de fontes.
+
+00:42:28.880 --> 00:42:32.119
+Se eu for me limitar
+a fontes de sites,
+
+00:42:32.120 --> 00:42:37.319
+Eu provavelmente usaria
+Tahoma para títulos e Verdana para body.
+
+00:42:37.320 --> 00:42:41.920
+Se eu for usar fontes do Google,
+gosto de incluir,
+
+00:42:43.920 --> 00:42:50.000
+vamos ver-- sou meio fã
+do Lato às vezes.
+
+00:42:51.640 --> 00:42:54.239
+Ou usando Nunito Sans.
+
+00:42:54.240 --> 00:42:57.140
+Esse é outro dos meus favoritos.
+
+00:42:57.200 --> 00:43:01.119
+Para títulos, gosto particularmente de PT Sans.
+
+00:43:01.120 --> 00:43:04.611
+Pessoalmente,
+gosto muito desse visualmente.
+
+00:43:06.760 --> 00:43:07.960
+Simon: Legal.
+
+00:43:12.960 --> 00:43:17.440
+Reg pergunta e diz: "Muito obrigado
+
+00:43:20.520 --> 00:43:25.280
+pela a dica sobre
+bottom padding para itens de lista
+
+00:43:25.640 --> 00:43:27.959
+e assim como todas as suas outras dicas.
+
+00:43:27.960 --> 00:43:32.939
+Para atenuar o último item
+
+00:43:32.940 --> 00:43:38.420
+em uma lista gerando espaço extra indesejado
+
+00:43:39.060 --> 00:43:40.319
+no final da lista,
+
+00:43:40.320 --> 00:43:44.279
+você recomendaria
+ajustar o bottom padding
+
+00:43:44.280 --> 00:43:49.000
+do último item ou da lista em si?"
+
+00:43:49.720 --> 00:43:54.359
+Gen: Muitas vezes, o elemento UL ou OL
+
+00:43:54.360 --> 00:43:58.439
+terá seu próprio
+preenchimento inferior da planilha de reset.
+
+00:43:58.440 --> 00:44:02.279
+O que eu costumo fazer é eliminar
+isso e deixar
+
+00:44:02.280 --> 00:44:07.099
+o item da lista atual
+deve ter algum bottom padding
+
+00:44:07.100 --> 00:44:10.559
+porque gosto de um pouco de espaço
+no final da lista,
+
+00:44:10.560 --> 00:44:14.419
+assim como eu gosto de um pouco de espaço
+no final de um parágrafo
+
+00:44:14.420 --> 00:44:17.514
+antes de chegarmos ao próximo elemento HTML.
+
+00:44:19.320 --> 00:44:21.634
+Simon: Faz muito sentido.
+
+00:44:22.400 --> 00:44:27.240
+Nick pergunta, ou diz:
+"Você mencionou diminuir o sublinhado,
+
+00:44:28.040 --> 00:44:29.941
+mas estou pensando sobre
+
+00:44:30.540 --> 00:44:36.040
+usando decoração de texto hip link,
+
+00:44:36.280 --> 00:44:40.379
+o que permitirá que ele não cruze
+
+00:44:40.380 --> 00:44:45.859
+através de J, G, etc.
+
+00:44:45.860 --> 00:44:50.199
+Coisas com caudas
+embaixo, eu acho.
+
+00:44:50.200 --> 00:44:52.319
+"O que você acha de usar isso?
+
+00:44:52.320 --> 00:44:57.880
+Atualmente, o suporte ao navegador
+é parcial na maioria dos navegadores modernos.
+
+00:44:59.520 --> 00:45:03.566
+Gen: A resposta é que há
+suporte parcial em navegadores.
+
+00:45:03.680 --> 00:45:07.079
+Eu trabalho com muitos clientes
+e sites diferentes,
+
+00:45:07.080 --> 00:45:11.279
+e desenvolvo um tema e não sei
+onde ele será usado,
+
+00:45:11.280 --> 00:45:15.960
+então eu me atenho a coisas
+com muito suporte.
+
+00:45:16.720 --> 00:45:18.719
+Tento evitar os apoios parciais,
+
+00:45:18.720 --> 00:45:20.759
+embora algumas
+das coisas de suporte parcial
+
+00:45:20.760 --> 00:45:25.719
+são muito divertidos e eu quero brincar
+com eles, mas eu desenvolvo um tema,
+
+00:45:25.720 --> 00:45:29.132
+então preciso continuar
+com o que é amplamente utilizado.
+
+00:45:31.840 --> 00:45:32.659
+Simon: Ótimo.
+
+00:45:32.660 --> 00:45:35.553
+Temos algumas pessoas perguntando sobre
+
+00:45:36.360 --> 00:45:40.400
+textos grandes ou extremamente grandes em sites.
+
+00:45:40.840 --> 00:45:47.526
+Às vezes, é preciso uma tela inteira
+porque os designers do H1,
+
+00:45:47.600 --> 00:45:50.720
+As tags H2 deixam tudo realmente em negrito.
+
+00:45:51.800 --> 00:45:56.243
+Basicamente, como eles devem se comportar
+no caso de zoom?
+
+00:45:57.720 --> 00:45:59.880
+Gen: Você deveria dar zoom.
+
+00:46:00.800 --> 00:46:03.959
+O zoom deve acontecer
+conforme o zoom acontece.
+
+00:46:03.960 --> 00:46:05.999
+Esse é um controle do navegador.
+
+00:46:06.000 --> 00:46:09.079
+Isso é algo que o usuário controla.
+
+00:46:09.080 --> 00:46:14.839
+O designer não deve usar
+H1 e H2s absolutamente massivos,
+
+00:46:14.840 --> 00:46:20.479
+na minha opinião,
+especialmente quando você tem algo
+
+00:46:20.480 --> 00:46:24.119
+na vizinhança de 6 rems,
+
+00:46:24.120 --> 00:46:27.239
+e então você diminui
+para 1 rem para o tamanho da fonte,
+
+00:46:27.240 --> 00:46:28.759
+e você fica tipo, meu Deus,
+
+00:46:28.760 --> 00:46:32.479
+essa é uma
+diferença muito grande entre eles.
+
+00:46:32.480 --> 00:46:36.880
+Eu realmente tento limitar
+até mesmo H1s em cerca de 3 rems,
+
+00:46:37.960 --> 00:46:41.000
+ou três vezes o tamanho da fonte do body.
+
+00:46:42.560 --> 00:46:44.240
+Simon: Faz sentido.
+
+00:46:44.760 --> 00:46:46.079
+Mais uma pergunta aqui.
+
+00:46:46.080 --> 00:46:49.579
+Mark pergunta: "Quando é que existe um momento
+
+00:46:49.580 --> 00:46:53.720
+e quando é que se deve usar apenas fontes do sistema?"
+
+00:46:54.680 --> 00:47:00.520
+Gen: Há muitos sites
+em que uso Verdana como fonte do body.
+
+00:47:01.960 --> 00:47:03.159
+É algo aceito.
+
+00:47:03.160 --> 00:47:04.319
+Está em todos os dispositivos.
+
+00:47:04.320 --> 00:47:06.799
+Não preciso me preocupar em dar load nisso.
+
+00:47:06.800 --> 00:47:09.279
+Principalmente se eu estiver trabalhando
+com um cliente que deseja
+
+00:47:09.280 --> 00:47:11.319
+apenas algo construído rapidamente.
+
+00:47:11.320 --> 00:47:13.199
+Eles não querem se preocupar com nada.
+
+00:47:13.200 --> 00:47:16.374
+Vou prosseguir e usar fontes do sistema.
+
+00:47:16.520 --> 00:47:18.000
+Funciona muito bem.
+
+00:47:19.040 --> 00:47:20.329
+Simon: Ótimo.
+
+00:47:20.640 --> 00:47:23.202
+Isso encerra nossas perguntas.
+
+00:47:23.880 --> 00:47:25.719
+Só quero agradecer novamente.
+
+00:47:25.720 --> 00:47:27.639
+Eu pessoalmente me beneficiei muito
+
+00:47:27.640 --> 00:47:31.959
+de todos os recursos do Guia Easy A11y.
+
+00:47:31.960 --> 00:47:34.359
+Eu encorajaria todos
+aqui a conferirem ele.
+
+00:47:34.360 --> 00:47:39.834
+Você acabou de fornecer muitos vídeos
+e ferramentas excelentes para fontes e cores.
+
+00:47:39.960 --> 00:47:43.959
+Muito obrigado
+por isso e pela sua apresentação hoje.
+
+00:47:43.960 --> 00:47:45.640
+Tudo foi realmente ótimo.
+
+00:47:45.880 --> 00:47:47.519
+Gen: Foi um prazer estar aqui, Simon.
+
+00:47:47.520 --> 00:47:49.503
+Obrigada por me receber.
+
+00:47:50.480 --> 00:47:53.125
+Simon: Agradeça à equipe organizadora.
+
+00:47:53.680 --> 00:47:55.480
+Sou apenas o mestre de cerimônias.
+
+00:47:57.000 --> 00:48:00.999
+Obrigado a todos por comparecerem
+a esta sessão com o Gen Herres.
+
+00:48:01.000 --> 00:48:03.859
+Você pode continuar
+a conversa no chat
+
+00:48:03.860 --> 00:48:09.859
+ou nas redes sociais usando
+as hashtags poundWPA11Yday
+
+00:48:09.860 --> 00:48:13.920
+e poundWPAD2024.
+
+00:48:14.400 --> 00:48:17.260
+Também agradeceríamos
+se você pudesse acessar a url
+
+00:48:17.300 --> 00:48:22.260
+2024.wpaccessibility.day/feedback
+
+00:48:22.700 --> 00:48:24.399
+para fornecer feedback anônimo
+
+00:48:24.400 --> 00:48:26.879
+para nossos palestrantes e suas apresentações.
+
+00:48:26.880 --> 00:48:30.679
+Você também pode concorrer
+a uma camiseta enquanto estiver lá.
+
+00:48:30.680 --> 00:48:36.100
+Fique ligado para
+obter insights sobre o Unlocking Digital Access
+
+00:48:36.580 --> 00:48:38.480
+de uma Pesquisa Conduzida pela Comunidade,
+
+00:48:38.481 --> 00:48:44.757
+que é nossa próxima sessão
+com Nick Goodrum e Norbert Rum.
+
+00:48:44.960 --> 00:48:47.800
+Isso começará à 1h UTC.
+
+00:48:48.160 --> 00:48:49.479
+Enquanto você espera por ela,
+
+00:48:49.480 --> 00:48:53.839
+não se esqueça de visitar nossa
+página de patrocinadores para ganhar alguns brindes virtuais
+
+00:48:53.840 --> 00:48:57.359
+e participe para ter a chance de ganhar
+ótimos prêmios.
+
+00:48:57.360 --> 00:48:58.719
+Muito obrigado a todos.
+
+00:48:58.720 --> 00:49:01.199
+Vejo vocês logo depois do intervalo.
+
+00:49:03.680 --> 00:49:08.159
+LOCUTOR: Obrigado aos
+patrocinadores do Dia da Acessibilidade do WordPress 2024.
+
+00:49:08.160 --> 00:49:09.978
+Patrocinador Platinum, 20i.
+
+00:49:10.260 --> 00:49:13.099
+Crie, implante
+e gerencie facilmente todos os seus projetos
+
+00:49:13.100 --> 00:49:15.839
+com hospedagem WordPress gerenciada pela 20i.
+
+00:49:15.840 --> 00:49:18.119
+Uma interface de usuário para todos os seus servidores, aplicativos,
+
+00:49:18.120 --> 00:49:22.439
+sites, bancos de dados,
+segurança, DNS e e-mail.
+
+00:49:22.440 --> 00:49:24.599
+Perfeito para agências, e-commerce,
+
+00:49:24.600 --> 00:49:28.884
+desenvolvedores, hospedagem multisite
+e sites de alto tráfego.
+
+00:49:28.960 --> 00:49:31.439
+Patrocinador Platinum, Equalize Digital.
+
+00:49:31.440 --> 00:49:33.559
+Já que tudo o que eles fazem é acessibilidade,
+
+00:49:33.560 --> 00:49:36.959
+cada postagem no blog deles
+é um recurso de acessibilidade.
+
+00:49:36.960 --> 00:49:39.479
+Você pode encontrar gravações de webinars, artigos,
+
+00:49:39.480 --> 00:49:44.400
+e recursos adicionais
+em equalizedigital.com/resources.
+
+00:49:45.280 --> 00:49:48.119
+Patrocinador Platinum, WP Engine.
+
+00:49:48.120 --> 00:49:50.039
+O WP Engine fornece o mais confiável
+
+00:49:50.040 --> 00:49:52.879
+sobre e
+produtos WordPress confiáveis para empresas,
+
+00:49:52.880 --> 00:49:56.040
+marcas e agências de todos os tamanhos.
+
+00:49:56.640 --> 00:49:59.794
+Obrigado aos nossos patrocinadores ouro, GoDaddy,
+
+00:49:59.795 --> 00:50:05.080
+GrackleDocs, Gravity Forms,
+GreenGeeks, TPGI e Yoast.
+
+00:50:05.520 --> 00:50:10.679
+Obrigado aos nossos patrocinadores prata,
+CodeGeek, Drake Cooper, Elementor,
+
+00:50:10.680 --> 00:50:13.199
+Site da Overnight, Pressable,
+
+00:50:13.200 --> 00:50:16.612
+Second Melody
+e Accessibility Collective.

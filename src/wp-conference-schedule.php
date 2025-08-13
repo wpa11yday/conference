@@ -610,7 +610,7 @@ class WPCS_Conference_Schedule {
 					$sponsors->the_post();
 					$website     = get_post_meta( get_the_ID(), 'wpcsp_website_url', true );
 					$logo_height = ( get_term_meta( $term->term_id, 'wpcsp_logo_height', true ) ) ? get_term_meta( $term->term_id, 'wpcsp_logo_height', true ) . 'px' : 'auto';
-					$logo_width  = ( 'micro' === $term->slug ) ? '120px' : 'auto';
+					$logo_width  = ( 'micro' === $term->slug ) ? '140px' : 'auto';
 					$image       = ( has_post_thumbnail() ) ? '<img class="wpcsp-sponsor-image" src="' . get_the_post_thumbnail_url( get_the_ID(), 'full' ) . '" alt="' . get_the_title( get_the_ID() ) . '" style="width: auto; max-width: ' . $logo_width . '; max-height: ' . $logo_height . ';"  />' : null;
 					?>
 

@@ -1,0 +1,3514 @@
+﻿WEBVTT
+
+00:00:00.840 --> 00:00:03.570
+Anunciante:
+Día de la Accesibilidad de WordPress 2024.
+
+00:00:04.140 --> 00:00:07.416
+Cómo corregir problemas de accesibilidad
+en WordPress,
+
+00:00:07.799 --> 00:00:10.836
+con el ponente Cam Coulter,
+especialista en Acceso Digital
+
+00:00:10.837 --> 00:00:12.500
+de la Universidad de Santa Clara.
+
+00:00:13.130 --> 00:00:16.717
+Esta presentación
+se grabó en octubre de 2024.
+
+00:00:19.372 --> 00:00:20.416
+Laura Adamonis: Hola a todos.
+
+00:00:20.417 --> 00:00:21.682
+Estamos de vuelta.
+
+00:00:22.761 --> 00:00:23.761
+¿Cómo están?
+
+00:00:24.665 --> 00:00:27.715
+Es genial tenerlos aquí.
+Vamos a empezar
+
+00:00:27.716 --> 00:00:29.179
+nuestra próxima sesión.
+
+00:00:29.180 --> 00:00:33.412
+Bienvenidos
+al Día de la Accesibilidad de WordPress 2024.
+
+00:00:34.895 --> 00:00:37.745
+Mi nombre es Laura
+y soy la presentadora de esta charla.
+
+00:00:38.467 --> 00:00:44.399
+Gracias por ser parte de esta charla
+sobre cómo corregir problemas de accesibilidad
+
+00:00:44.400 --> 00:00:46.428
+en WordPress, con Cam Coulter.
+
+00:00:47.016 --> 00:00:48.494
+Cam Coulter le gusta escribir
+
+00:00:48.495 --> 00:00:51.179
+y es un nerd de la accesibilidad,
+entre otras cosas,
+
+00:00:51.719 --> 00:00:56.850
+que piensa incesantemente
+en tecnología ética,
+
+00:00:57.060 --> 00:01:00.810
+ficción especulativa
+y comunidad intencional.
+
+00:01:01.349 --> 00:01:05.669
+Es profesional certificado
+en accesibilidad web y trabaja
+
+00:01:05.670 --> 00:01:09.540
+en la Universidad de Santa Clara
+como especialista en acceso digital.
+
+00:01:10.199 --> 00:01:13.679
+Anteriormente desempeñó
+un rol en consultoría de accesibilidad.
+
+00:01:13.890 --> 00:01:17.249
+en Level Access
+y como especialista en formación
+
+00:01:17.250 --> 00:01:21.240
+en Hope Services,
+una gran organización sin fines de lucro
+
+00:01:21.510 --> 00:01:23.399
+en el área de la Bahía de San Francisco,
+
+00:01:23.579 --> 00:01:26.489
+al servicio de personas
+con discapacidades del desarrollo
+
+00:01:26.639 --> 00:01:28.289
+y necesidades de salud mental.
+
+00:01:28.740 --> 00:01:31.665
+No duden en poner
+sus preguntas en la sección de preguntas y respuestas de Zoom
+
+00:01:31.890 --> 00:01:34.289
+en la parte inferior de la pantalla
+y las responderemos
+
+00:01:34.320 --> 00:01:35.789
+al final de la sesión.
+
+00:01:36.209 --> 00:01:39.060
+Usen el chat para conectarte
+con otros participantes.
+
+00:01:39.329 --> 00:01:40.679
+Por favor, denle la bienvenida a Cam.
+
+00:01:43.589 --> 00:01:44.939
+Cam Coulter: Gracias,
+Laura, y gracias a todos
+
+00:01:44.940 --> 00:01:46.180
+por acompañarnos hoy.
+
+00:01:47.829 --> 00:01:49.680
+Como dijo Laura, soy Cam Coulter.
+
+00:01:49.950 --> 00:01:53.608
+Uso el pronombre "elle"
+y soy profesional certificado
+
+00:01:53.609 --> 00:01:56.744
+en accesibilidad web a través de
+la Asociación Internacional
+
+00:01:56.745 --> 00:01:58.770
+de Profesionales de Accesibilidad.
+
+00:01:59.250 --> 00:02:03.750
+Actualmente trabajo en la Universidad de Santa Clara
+como especialista en acceso digital,
+
+00:02:04.080 --> 00:02:05.640
+y este, de hecho, es un nuevo rol para mí.
+
+00:02:06.179 --> 00:02:08.610
+Hasta hace poco
+trabajé en Level Access
+
+00:02:08.669 --> 00:02:10.420
+en un rol en la consultoría de accesibilidad.
+
+00:02:12.780 --> 00:02:16.828
+En ese puesto, evalué un montón de sitios web
+para verificar su compatibilidad
+
+00:02:16.829 --> 00:02:19.503
+con las
+Pautas de Accesibilidad para el Contenido Web,
+
+00:02:19.504 --> 00:02:22.672
+e identificaba y reportaba
+los problemas de accesibilidad,
+
+00:02:23.717 --> 00:02:28.289
+y luego trabajaba con nuestros clientes
+para arreglar o corregir esos problemas.
+
+00:02:29.460 --> 00:02:32.699
+Corregir es solo
+una forma elegante de decir arreglar las cosas,
+
+00:02:33.450 --> 00:02:35.309
+así que, en la mayoría de los casos, son
+intercambiables,
+
+00:02:36.693 --> 00:02:38.640
+y de eso es de lo que vamos a hablar hoy.
+
+00:02:39.299 --> 00:02:40.920
+Cuando trabajaba con clientes
+
+00:02:42.659 --> 00:02:44.609
+para informar y ayudarles a arreglar los problemas,
+
+00:02:45.180 --> 00:02:48.450
+en mi último puesto, solía hacerlo
+a nivel de HTML,
+
+00:02:48.479 --> 00:02:51.390
+CSS y JavaScript porque, uno,
+
+00:02:51.780 --> 00:02:56.609
+ahí es donde, al final, deben solucionarse los problemas
+para que el impacto
+
+00:02:56.670 --> 00:02:58.709
+sea apreciado por las personas
+con discapacidad.
+
+00:02:59.220 --> 00:03:00.220
+Dos,
+
+00:03:00.240 --> 00:03:07.091
+Muchas veces no sabía exactamente cómo
+estaba codificado un sitio web en el backend,
+
+00:03:07.290 --> 00:03:10.628
+qué marco o
+Sistema de Gestión de Contenido se estaban usando.
+
+00:03:10.629 --> 00:03:14.699
+Las recomendaciones a nivel HTML
+son lo suficientemente generales como para que funcionen
+
+00:03:14.700 --> 00:03:17.250
+para todos, más o menos.
+
+00:03:19.199 --> 00:03:21.269
+Sin embargo, si usas WordPress,
+
+00:03:21.900 --> 00:03:25.950
+las recomendaciones a nivel de código
+pueden no ser tan útiles para ti.
+
+00:03:26.789 --> 00:03:30.030
+En WordPress, tu sitio web
+se genera combinando
+
+00:03:30.059 --> 00:03:31.950
+muchas piezas diferentes
+
+00:03:32.430 --> 00:03:36.929
+y solucionar problemas de accesibilidad
+en WordPress puede no ser tan simple como editar
+
+00:03:36.960 --> 00:03:38.579
+esta línea de código aquí.
+
+00:03:40.019 --> 00:03:42.178
+Esa es una razón por la que
+a muchos de nosotros nos gusta usar WordPress,
+
+00:03:42.179 --> 00:03:46.919
+¿verdad? Tiene una interfaz gráfica de usuario
+y puedes crear un sitio web fácilmente
+
+00:03:46.920 --> 00:03:48.870
+sin necesidad de escribir
+cada línea de código.
+
+00:03:49.560 --> 00:03:53.970
+Pero eso deja abierta la pregunta:
+¿Cómo arreglas o corriges
+
+00:03:54.059 --> 00:03:56.099
+los problemas de accesibilidad en WordPress?
+
+00:03:57.359 --> 00:03:59.008
+De eso es de lo que vamos
+a hablar durante esta hora.
+
+00:03:59.009 --> 00:04:00.640
+Voy a compartir mi pantalla aquí.
+
+00:04:00.944 --> 00:04:10.831
+[silencio]
+
+00:04:10.832 --> 00:04:13.289
+Genial. Creo que ya deberían poder
+ver mi pantalla.
+
+00:04:13.979 --> 00:04:17.549
+Ese es nuestro tema de hoy: cómo arreglar
+o corregir problemas de accesibilidad
+
+00:04:17.550 --> 00:04:18.600
+en WordPress.
+
+00:04:22.019 --> 00:04:26.519
+Esta charla es para ti si eres
+propietario de un sitio de WordPress y sabes
+
+00:04:26.520 --> 00:04:30.270
+un poco sobre accesibilidad digital
+y buscas arreglar
+
+00:04:30.299 --> 00:04:33.810
+los problemas de accesibilidad que has identificado
+en tu sitio
+
+00:04:33.900 --> 00:04:37.409
+o que tal vez identificó
+un tercero en una auditoría reciente.
+
+00:04:38.070 --> 00:04:41.010
+Este lugar también es
+para evaluadores y consultores de accesibilidad,
+
+00:04:41.130 --> 00:04:44.167
+quiénes podrían ser esos terceros
+que auditan o evalúan
+
+00:04:44.549 --> 00:04:45.549
+otros sitios web,
+
+00:04:46.410 --> 00:04:50.940
+y que específicamente quieren poder
+dar recomendaciones específicas de WordPress
+
+00:04:50.969 --> 00:04:52.170
+cuando marquen los problemas.
+
+00:04:53.070 --> 00:04:55.318
+Esta charla también es
+para diseñadores, desarrolladores,
+
+00:04:55.319 --> 00:04:57.960
+y creadores de contenido
+que trabajan en WordPress,
+
+00:04:58.230 --> 00:05:01.109
+que pueden haber identificado problemas
+en los sitios en los que están trabajando
+
+00:05:01.110 --> 00:05:03.269
+y necesitamos solucionar esos problemas.
+
+00:05:04.320 --> 00:05:08.879
+Debo señalar que considero que esta es
+una charla de nivel intermedio.
+
+00:05:09.839 --> 00:05:11.599
+No necesitas ser un experto.
+
+00:05:11.600 --> 00:05:14.849
+No vamos a profundizar
+en demasiados detalles técnicos,
+
+00:05:15.209 --> 00:05:19.619
+pero asumiré que tienen
+un conocimiento básico de WordPress
+
+00:05:20.039 --> 00:05:23.463
+y una comprensión general
+de la accesibilidad digital,
+
+00:05:23.464 --> 00:05:27.419
+y que conozcan algunos tipos comunes
+de problemas de accesibilidad.
+
+00:05:27.449 --> 00:05:31.139
+No tendremos tiempo para explicarlos
+con tanto detalle como si lo hiciéramos
+
+00:05:31.140 --> 00:05:34.649
+en otro contexto;
+así que de ahí es de donde comenzamos.
+
+00:05:37.020 --> 00:05:38.020
+Objetivos de aprendizaje.
+
+00:05:38.279 --> 00:05:39.780
+Al final de esta hora juntos,
+
+00:05:40.229 --> 00:05:43.440
+mi objetivo es
+que puedas identificar
+
+00:05:43.469 --> 00:05:47.850
+la fuente probable de un
+problema de accesibilidad en un sitio de WordPress.
+
+00:05:48.900 --> 00:05:53.309
+Espero que puedan corregir
+los problemas de accesibilidad a nivel de página,
+
+00:05:53.610 --> 00:05:57.059
+como encabezados implícitos,
+contraste de color insuficiente
+
+00:05:57.480 --> 00:05:59.760
+e imágenes con texto alternativo inadecuado.
+
+00:06:00.960 --> 00:06:06.599
+Espero que puedan determinar
+cómo abordar la corrección a nivel de plugin
+
+00:06:06.600 --> 00:06:08.040
+o problemas a nivel de tema.
+
+00:06:08.520 --> 00:06:11.219
+Estos pueden ser más complicados,
+así que al final de nuestra charla de hoy,
+
+00:06:11.220 --> 00:06:15.450
+puede que no sientan que saben
+exactamente cómo hacerlo,
+
+00:06:15.660 --> 00:06:18.239
+pero deberían tener la sensación de:
+"Muy bien, así es como puedo hacerlo.
+
+00:06:18.240 --> 00:06:19.520
+Así es como empezaría.
+
+00:06:19.559 --> 00:06:20.974
+Así es como podría abordarlo."
+
+00:06:26.910 --> 00:06:29.610
+Las partes principales de un sitio de WordPress,
+diría yo,
+
+00:06:29.639 --> 00:06:30.869
+son el núcleo de WordPress,
+
+00:06:31.379 --> 00:06:35.009
+su tema y cualquier personalización
+que hayan instalado en él,
+
+00:06:35.789 --> 00:06:37.470
+cualquier plugin que hayan instalado,
+
+00:06:38.130 --> 00:06:41.340
+sus páginas y sus publicaciones,
+y su biblioteca multimedia.
+
+00:06:41.759 --> 00:06:44.728
+La biblioteca multimedia suele ser
+una colección de fotos
+
+00:06:44.729 --> 00:06:47.218
+en su sitio de WordPress,
+pero también puede incluir otras cosas
+
+00:06:47.219 --> 00:06:49.200
+como documentos o vídeos.
+
+00:06:50.550 --> 00:06:53.699
+Ahora, para arreglar un problema de accesibilidad
+en WordPress,
+
+00:06:54.059 --> 00:06:58.140
+debes comenzar por identificar
+exactamente de dónde proviene el problema.
+
+00:06:58.979 --> 00:07:00.570
+¿Es específico de su tema?
+
+00:07:00.599 --> 00:07:02.850
+¿Es un problema con su tema
+y cómo lo configuraron?
+
+00:07:03.510 --> 00:07:06.089
+¿O quizás sea específico
+de algún plugin que estén usando?
+
+00:07:06.780 --> 00:07:09.659
+¿O es solo
+un problema a nivel de página, por ejemplo?
+
+00:07:13.170 --> 00:07:15.182
+Pasaremos por
+estas categorías una por una.
+
+00:07:15.183 --> 00:07:17.428
+Nos centraremos en las páginas,
+luego en los plugins
+
+00:07:17.429 --> 00:07:18.429
+y luego en los temas.
+
+00:07:18.840 --> 00:07:21.329
+Hablaremos sobre los tipos
+de problemas que pueden esperar
+
+00:07:21.330 --> 00:07:24.420
+encontrarse en cada nivel
+y cómo arreglarlos.
+
+00:07:26.790 --> 00:07:27.929
+Para esta presentación,
+
+00:07:28.079 --> 00:07:31.440
+me centraré en temas clásicos
+en lugar de temas de bloques,
+
+00:07:32.039 --> 00:07:35.010
+pero algo de lo que hablemos
+se aplicará a esos también.
+
+00:07:36.870 --> 00:07:39.569
+Debo señalar
+que no siempre será perfectamente claro,
+
+00:07:39.570 --> 00:07:43.019
+al principio, de dónde proviene
+exactamente un problema en un sitio de WordPress,
+
+00:07:43.379 --> 00:07:47.159
+pero podemos hacer suposiciones informadas,
+y si son administradores,
+
+00:07:47.190 --> 00:07:50.430
+pueden iniciar sesión en ese panel de administración,
+en el back-end,
+
+00:07:50.820 --> 00:07:53.758
+y buscar para averiguar
+de dónde exactamente surge el problema.
+
+00:07:53.759 --> 00:07:55.139
+y cómo arreglarlo.
+
+00:07:56.790 --> 00:07:59.746
+Aquí, también señalaré que si ustedes son
+consultores externos que están evaluando
+
+00:07:59.849 --> 00:08:01.946
+un sitio, o incluso simplemente evaluar su propio sitio.
+
+00:08:02.640 --> 00:08:06.419
+Cuando reporten los problemas de accesibilidad
+en un sitio de WordPress,
+
+00:08:06.659 --> 00:08:07.659
+Les recomiendo
+
+00:08:07.950 --> 00:08:10.084
+que incluyan un campo de origen probable
+
+00:08:10.085 --> 00:08:12.840
+por cada problema de accesibilidad
+que marquen,
+
+00:08:13.110 --> 00:08:16.439
+creo que eso puede ayudar a indicar
+de dónde creen que proviene el problema.
+
+00:08:17.220 --> 00:08:19.258
+Por ejemplo,
+¿es algo que ven repetido
+
+00:08:19.259 --> 00:08:20.460
+en varias páginas?
+
+00:08:21.100 --> 00:08:23.220
+En ese caso, podría ser
+un problema a nivel de tema.
+
+00:08:23.789 --> 00:08:27.089
+Pero si el problema parece ser específico
+de esta publicación del blog,
+
+00:08:27.359 --> 00:08:29.909
+podría ser un problema a nivel de publicación o de página.
+
+00:08:31.709 --> 00:08:34.109
+Si quieren ir más allá,
+tal vez incluso puedan conseguir
+
+00:08:34.110 --> 00:08:36.840
+una lista de los plugins
+que se usan en un sitio,
+
+00:08:37.200 --> 00:08:41.369
+y luego intentar suponer cuál plugin
+podría estar causando el problema,
+
+00:08:41.370 --> 00:08:42.930
+si creen que es un problema a nivel de plugin.
+
+00:08:43.080 --> 00:08:48.510
+Por ejemplo, si hay un plugin
+instalado para pestañas o acordeones
+
+00:08:48.539 --> 00:08:50.578
+y notan que hay un problema
+con las pestañas o los acordeones,
+
+00:08:50.579 --> 00:08:52.109
+podría ser específico de ese plugin.
+
+00:08:53.580 --> 00:08:58.169
+Ahora, si ustedes son propietarios de un sitio y tienen
+los problemas de accesibilidad ordenados por tipo
+
+00:08:58.170 --> 00:08:59.170
+de esta manera,
+
+00:08:59.459 --> 00:09:02.459
+eso podría ayudarles a acelerar
+las cosas cuando intenten
+
+00:09:02.460 --> 00:09:05.159
+arreglarlos. Por ejemplo,
+pueden tomar todos sus problemas
+
+00:09:05.160 --> 00:09:07.859
+que parecen estar relacionados
+con su tema y luego enviarlo
+
+00:09:07.860 --> 00:09:10.680
+a su desarrollador de temas
+para que trabaje en solucionarlos.
+
+00:09:11.010 --> 00:09:13.919
+Pero si tienen muchos problemas
+que son realmente problemas a nivel de página,
+
+00:09:14.459 --> 00:09:16.978
+probablemente puedan hacer que
+sus creadores de contenido arreglen la mayoría de esos problemas
+
+00:09:16.979 --> 00:09:21.088
+porque esas son cosas
+que los creadores de contenido deberían poder
+
+00:09:21.089 --> 00:09:23.249
+arreglar y deben saber
+cuándo están creando
+
+00:09:23.279 --> 00:09:24.960
+contenido adicional para el sitio de ustedes.
+
+00:09:27.869 --> 00:09:30.299
+Con todo eso,
+ahondemos en ello y hablemos
+
+00:09:30.300 --> 00:09:33.930
+sobre los problemas de accesibilidad a nivel de página
+que podrían encontrar en un sitio de WordPress.
+
+00:09:39.149 --> 00:09:41.340
+Los problemas a nivel de página pueden incluir
+
+00:09:41.880 --> 00:09:44.310
+encabezados implícitos o innecesarios.
+
+00:09:45.118 --> 00:09:47.909
+Eso significa que tienen un encabezado
+que lógicamente es un encabezado,
+
+00:09:47.910 --> 00:09:50.100
+pero se le hizo el marcado programático
+como tal,
+
+00:09:50.459 --> 00:09:51.479
+o tal vez lo contrario,
+
+00:09:51.480 --> 00:09:53.579
+tienes algo
+que no es lógicamente un encabezado,
+
+00:09:53.580 --> 00:09:55.410
+pero en realidad lo has etiquetado
+como encabezado.
+
+00:09:56.550 --> 00:09:59.249
+Asimismo, otro problema a nivel de página
+podría ser la lista implícita,
+
+00:09:59.250 --> 00:10:02.219
+que es que tienes una lista,
+pero no se le hizo el marcado programático
+
+00:10:02.220 --> 00:10:03.220
+como una lista.
+
+00:10:04.110 --> 00:10:06.750
+Estos problemas son importantes
+principalmente para los usuarios de los lectores de pantalla
+
+00:10:06.779 --> 00:10:10.108
+porque estos pueden navegar por su página
+saltando a los encabezados o saltando
+
+00:10:10.109 --> 00:10:11.109
+a las listas de elementos.
+
+00:10:11.520 --> 00:10:12.593
+Además, si no tienes
+
+00:10:12.869 --> 00:10:15.371
+un encabezado etiquetado como tal
+puede ser confuso para el usuario
+
+00:10:15.372 --> 00:10:17.590
+que no se da cuenta
+de que es un encabezado para una sección.
+
+00:10:19.282 --> 00:10:22.929
+Otros problemas a nivel de página podrían incluir
+un contraste de color insuficiente,
+
+00:10:23.529 --> 00:10:25.869
+pero solo para bloques de texto específicos.
+
+00:10:26.080 --> 00:10:28.869
+A veces, los problemas de contraste de color
+son problemas a nivel de tema.
+
+00:10:28.870 --> 00:10:31.899
+Si lo ven
+en varias páginas de su sitio,
+
+00:10:32.110 --> 00:10:33.999
+o si lo ven,
+por ejemplo, en su pie de página,
+
+00:10:34.329 --> 00:10:36.310
+eso es probablemente más
+un problema a nivel de tema,
+
+00:10:36.580 --> 00:10:38.348
+pero si solamente es
+un bloque de texto en particular,
+
+00:10:38.349 --> 00:10:41.649
+en una página en particular,
+probablemente sea un problema a nivel de página.
+
+00:10:42.963 --> 00:10:47.228
+Otro problema a nivel de página podría ser
+que a las imágenes de esa página les falte
+
+00:10:47.229 --> 00:10:50.559
+el texto alternativo o que tengan
+un texto alternativo inapropiado.
+
+00:10:54.520 --> 00:10:56.499
+Voy a cambiar
+de mi PowerPoint aquí
+
+00:10:57.220 --> 00:10:59.919
+a un sitio real de WordPress,
+y vamos a ver
+
+00:10:59.920 --> 00:11:02.200
+en algunos problemas específicos a nivel de página.
+
+00:11:03.729 --> 00:11:07.269
+Voy a desplazarme hacia abajo en esta página
+y quiero que piensen en cuáles
+
+00:11:07.270 --> 00:11:11.350
+son algunos tipos de problemas
+que uno detecta o piensa,
+
+00:11:11.710 --> 00:11:13.990
+"Oye, creo que podría ser
+un problema a nivel de página.
+
+00:11:14.469 --> 00:11:16.330
+Eso es algo que me gustaría
+investigar más."
+
+00:11:18.039 --> 00:11:20.103
+Les voy
+a dar unos 30 segundos para eso.
+
+00:11:54.461 --> 00:11:58.270
+Cam: Bien. Voy a repasar brevemente
+los problemas a nivel de página en esta página.
+
+00:11:58.479 --> 00:12:01.330
+Primero, quizás hayan notado
+que tenemos algo de texto aquí
+
+00:12:01.510 --> 00:12:03.309
+que tiene un contraste de color muy bajo.
+
+00:12:04.239 --> 00:12:06.580
+Es un texto gris claro
+sobre un fondo blanco.
+
+00:12:06.939 --> 00:12:09.866
+Puede que ni siquiera lo hayas notado
+porque es bastante difícil de ver.
+
+00:12:09.867 --> 00:12:11.827
+Lo voy a resaltar aquí
+por si sirve de ayuda.
+
+00:12:11.952 --> 00:12:14.258
+Dice: "Estos frijoles negros
+son deliciosos y fáciles de preparar.
+
+00:12:14.259 --> 00:12:15.490
+Te van a encantar."
+
+00:12:15.491 --> 00:12:18.695
+Este es un problema de tipo página.
+Es una receta,
+
+00:12:20.590 --> 00:12:21.938
+así que ese es un problema a nivel de página.
+
+00:12:21.939 --> 00:12:24.160
+Este texto tiene un contraste de color muy malo.
+
+00:12:24.639 --> 00:12:27.040
+Justo debajo de eso, tenemos
+una imagen de frijoles negros,
+
+00:12:27.400 --> 00:12:29.649
+y voy a proceder
+a inspeccionar este elemento.
+
+00:12:32.679 --> 00:12:37.149
+Puedes verlo aquí
+en el panel de accesibilidad dentro de DevTools,
+
+00:12:37.420 --> 00:12:41.799
+dice: "La imagen tiene el texto alternativo vacío",
+lo cual no es deseable.
+
+00:12:41.800 --> 00:12:45.428
+Esta es una página para una receta,
+
+00:12:45.429 --> 00:12:48.700
+así que probablemente quieras saber
+cómo luce realmente la comida.
+
+00:12:49.450 --> 00:12:51.951
+En este caso, creo que queremos
+asegurarnos de que la imagen tenga texto alternativo.
+
+00:12:51.952 --> 00:12:53.980
+Así que ese es otro problema a nivel de página.
+
+00:12:55.120 --> 00:12:56.439
+Luego, justo debajo de eso,
+
+00:12:56.440 --> 00:13:00.069
+tenemos el encabezado "ingredientes",
+que anticipa a una lista de ingredientes.
+
+00:13:01.029 --> 00:13:02.200
+Cuando inspecciono esto,
+
+00:13:05.019 --> 00:13:08.258
+verán que esto es solo
+un elemento de párrafo con un elemento fuerte
+
+00:13:08.259 --> 00:13:09.259
+anidado dentro de él.
+
+00:13:09.430 --> 00:13:12.379
+No se programó
+ni es lógicamente un encabezado,
+
+00:13:12.854 --> 00:13:14.258
+así que eso también es un problema.
+
+00:13:14.259 --> 00:13:17.229
+Nuevamente, los usuarios de los lectores de pantalla
+no sabrán que es un encabezado,
+
+00:13:17.259 --> 00:13:19.450
+y les resultará más difícil
+navegar por la página.
+
+00:13:21.189 --> 00:13:22.569
+¿Cómo podemos arreglar esto?
+
+00:13:25.480 --> 00:13:26.844
+Déjame revisar mis notas.
+
+00:13:28.649 --> 00:13:31.157
+Genial, sí.
+Para solucionar un problema a nivel de página,
+
+00:13:32.409 --> 00:13:35.469
+pueden ir al backend de WordPress,
+al panel de administración,
+
+00:13:35.770 --> 00:13:37.658
+y luego será necesario que 
+naveguen esa página.
+
+00:13:37.659 --> 00:13:39.219
+En este caso, voy a ir a Páginas,
+
+00:13:39.729 --> 00:13:40.729
+Todas las páginas,
+
+00:13:41.919 --> 00:13:43.773
+y después seleccionaré el título de la página.
+
+00:13:44.742 --> 00:13:47.229
+Eso me llevará
+al editor de bloques de WordPress
+
+00:13:47.230 --> 00:13:48.447
+para esta página.
+
+00:13:50.919 --> 00:13:54.569
+La forma de arreglar la mayoría de los problemas a nivel de página
+es a través del editor de bloques de WordPress.
+
+00:13:54.570 --> 00:13:58.236
+Por ejemplo, voy a navegar
+por este bloque de texto que tiene
+
+00:13:58.237 --> 00:13:59.638
+un contraste de color muy bajo.
+
+00:14:01.158 --> 00:14:04.239
+Luego, aquí,
+en el lado derecho de mi pantalla,
+
+00:14:04.480 --> 00:14:08.799
+verán que hay un panel
+para el bloque actual seleccionado,
+
+00:14:09.190 --> 00:14:10.899
+un pequeño control de pestañas allí.
+
+00:14:11.200 --> 00:14:12.880
+Justo debajo
+dice que es un párrafo.
+
+00:14:13.299 --> 00:14:16.413
+Luego hay una sección para el color,
+para el color del texto de este bloque.
+
+00:14:17.097 --> 00:14:20.293
+De hecho, verán que WordPress
+generalmente les advertirá si el texto tiene
+
+00:14:20.295 --> 00:14:22.330
+contraste de color insuficiente,
+lo cual es genial.
+
+00:14:22.839 --> 00:14:26.739
+Aquí dice: "Esta combinación de colores
+puede ser difícil de leer para las personas.
+
+00:14:27.070 --> 00:14:30.669
+Intenta usar
+un color de fondo más brillante y/o
+
+00:14:30.880 --> 00:14:32.229
+un color de texto más oscuro."
+
+00:14:34.329 --> 00:14:38.230
+Ese es un aviso de que esto realmente
+es un problema, lo cual es genial.
+
+00:14:38.650 --> 00:14:44.799
+Para cambiar esto, simplemente seleccionaré
+el color del texto aquí... Perdón, un segundo...
+
+00:14:46.359 --> 00:14:47.920
+y luego puedo elegir un nuevo color.
+
+00:14:48.700 --> 00:14:52.029
+En este caso, puedo simplemente hacer clic en negro
+para cambiar el color del texto a negro,
+
+00:14:52.659 --> 00:14:54.160
+y eso lo hará.
+
+00:14:54.190 --> 00:14:56.679
+Así que ahora pueden ver que este texto
+tiene un contraste de color mucho mejor.
+
+00:14:57.037 --> 00:15:00.070
+Esa es una forma de solucionar
+problemas de contraste de color a nivel de página.
+
+00:15:01.029 --> 00:15:03.550
+A continuación, pasaré
+al siguiente encabezado.
+
+00:15:04.239 --> 00:15:06.405
+Haré clic en este encabezado
+para ver los ingredientes.
+
+00:15:07.120 --> 00:15:10.358
+Verán, si vuelven a mirar debajo
+del panel de bloques,
+
+00:15:10.359 --> 00:15:13.173
+debajo de la pestaña de bloque, dice:
+"Esto es solo un párrafo".
+
+00:15:13.174 --> 00:15:14.589
+pero esto en realidad debería estar configurado
+
+00:15:14.590 --> 00:15:17.938
+no como un bloque de párrafo,
+sino como un bloque de encabezado.
+
+00:15:18.679 --> 00:15:23.169
+Para cambiar eso, voy a navegar
+a la barra de herramientas de este bloque,
+
+00:15:23.740 --> 00:15:26.349
+y aquí a la izquierda,
+al inicio de esta barra de herramientas,
+
+00:15:26.380 --> 00:15:28.030
+hay un botón titulado Párrafo.
+
+00:15:28.479 --> 00:15:30.519
+Cuando hago clic ahí,
+se abre una pequeña ventana emergente
+
+00:15:31.029 --> 00:15:34.210
+y tengo opciones para transformar
+esto en otro tipo de bloque.
+
+00:15:34.660 --> 00:15:36.280
+En este caso, seleccionaré Encabezado.
+
+00:15:39.760 --> 00:15:41.229
+Eso no está funcionando del todo.
+
+00:15:41.379 --> 00:15:43.360
+Creo que necesito intentarlo una vez más.
+
+00:15:52.179 --> 00:15:55.043
+Listo.
+Ya lo puse como encabezado.
+
+00:15:56.679 --> 00:15:59.289
+Ahora puedes ver de nuevo,
+debajo del bloque en la barra lateral derecha,
+
+00:15:59.833 --> 00:16:01.989
+en realidad lo identifica
+como un bloque de encabezado.
+
+00:16:02.859 --> 00:16:04.838
+Debes asegurarte de que tus títulos
+tengan los etiquetados apropiados.
+
+00:16:04.839 --> 00:16:06.070
+Nuevamente, en la barra de herramientas,
+
+00:16:06.459 --> 00:16:09.569
+para WordPress, hay un control
+para el nivel de cambio.
+
+00:16:09.570 --> 00:16:11.104
+Tiene este ícono H2.
+
+00:16:11.470 --> 00:16:13.479
+Si seleccionas eso,
+puedes cambiarlo a encabezado uno,
+
+00:16:13.480 --> 00:16:14.709
+encabezado dos, o encabezado tres.
+
+00:16:15.009 --> 00:16:17.649
+En este caso, un encabezado dos tiene
+sentido, así que lo dejaremos así,
+
+00:16:18.100 --> 00:16:20.349
+y así es como pueden arreglar
+un problema de nivel de encabezado
+
+00:16:20.350 --> 00:16:23.410
+en el editor de bloques de WordPress
+para una página específica.
+
+00:16:24.339 --> 00:16:25.899
+A continuación, veamos esta foto.
+
+00:16:26.619 --> 00:16:30.255
+Cuando selecciono esta foto nuevamente
+en la barra de herramientas del bloque, aquí,
+
+00:16:30.880 --> 00:16:32.380
+en configuración,
+
+00:16:32.560 --> 00:16:35.589
+hay un campo para texto alternativo,
+y pueden ver que está en blanco,
+
+00:16:36.340 --> 00:16:37.380
+que no es lo que queremos.
+
+00:16:37.930 --> 00:16:40.930
+Queremos asegurarnos de que esta imagen
+tenga un buen texto alternativo informativo.
+
+00:16:41.859 --> 00:16:44.109
+En este caso, antes de hacer eso,
+
+00:16:44.110 --> 00:16:46.601
+voy a
+salir del editor de bloques por un momento.
+
+00:16:46.602 --> 00:16:48.478
+Voy a hacer clic en Guardar solo por ahora.
+
+00:16:50.834 --> 00:16:54.609
+En el backend de WordPress,
+el panel de control aquí,
+
+00:16:54.789 --> 00:16:56.439
+Voy a navegar la multimedia,
+
+00:16:56.470 --> 00:16:58.548
+donde podrán encontrar
+las fotos en su sitio.
+
+00:16:58.871 --> 00:17:02.199
+Voy a seleccionar esta foto
+que subí de frijoles negros,
+
+00:17:02.709 --> 00:17:06.518
+y pueden ver que hay un campo aquí
+para texto alternativo y también un campo
+
+00:17:06.519 --> 00:17:07.519
+para descripción.
+
+00:17:07.630 --> 00:17:08.630
+Aquí, agregué
+
+00:17:08.859 --> 00:17:11.372
+un tazón pequeño de
+frijoles negros cocidos junto a una lima.
+
+00:17:11.791 --> 00:17:14.359
+De hecho, eso debería configurarse
+como texto alternativo en este caso;
+
+00:17:14.361 --> 00:17:17.818
+así que lo voy a copiar y pegar
+en texto alternativo.
+
+00:17:18.837 --> 00:17:23.260
+Ahora, la próxima vez que use esta foto,
+cuando la suba de nuevo a otra página,
+
+00:17:23.349 --> 00:17:26.457
+lo tendrá como texto predeterminado,
+lo cual es fantástico.
+
+00:17:27.087 --> 00:17:29.967
+Volvamos a la página que estábamos viendo
+y veamos cómo le afecta.
+
+00:17:39.477 --> 00:17:42.426
+Cuando vuelvo a esta imagen,
+aunque acabamos de agregarla
+
+00:17:42.427 --> 00:17:45.549
+texto alternativo, verás que todavía
+no tiene ningún texto alternativo.
+
+00:17:46.089 --> 00:17:48.289
+De hecho, en cierto modo,
+lo llamaría una característica
+
+00:17:48.369 --> 00:17:51.820
+porque un buen texto alternativo
+es contextual.
+
+00:17:52.060 --> 00:17:54.999
+Para la misma imagen, en diferentes contextos,
+querrán usar
+
+00:17:55.000 --> 00:17:56.110
+un texto alternativo diferente.
+
+00:17:56.650 --> 00:17:58.210
+Eso es lo que WordPress asume aquí.
+
+00:17:58.960 --> 00:18:01.032
+Si volviera a agregar la imagen,
+según entiendo,
+
+00:18:01.033 --> 00:18:03.160
+creo que usaría
+el texto alternativo predeterminado,
+
+00:18:03.369 --> 00:18:07.147
+pero como ya lo tengo en la página,
+piensa que no quiero ningún texto alternativo aquí.
+
+00:18:07.148 --> 00:18:10.630
+En este caso, puedo pegar
+aquí el texto alternativo que tenía antes,
+
+00:18:10.660 --> 00:18:13.570
+pero si quisiera cambiarlo
+para que sea más específico para esta página,
+
+00:18:13.689 --> 00:18:14.689
+podría.
+
+00:18:14.889 --> 00:18:16.599
+Una razón por la que podrían querer
+hacer esto, por ejemplo,
+
+00:18:16.600 --> 00:18:19.687
+es si tienen
+una imagen de un perro en un parque
+
+00:18:19.749 --> 00:18:23.109
+y si el tema de la página
+solo habla de perros en general
+
+00:18:23.312 --> 00:18:25.627
+para un grupo de personas que tienen perros,
+
+00:18:25.628 --> 00:18:27.608
+quizás quieran tener
+un texto alternativo general que diga:
+
+00:18:27.609 --> 00:18:29.488
+"Un golden retriever persigue una pelota",
+
+00:18:30.009 --> 00:18:32.800
+pero si es para su blog personal
+en donde comparten sobre su vida,
+
+00:18:33.189 --> 00:18:35.989
+En ese caso, podrían describir
+al perro por su nombre y decir:
+
+00:18:36.610 --> 00:18:39.388
+"Koda persigue una pelota en un parque".
+
+00:18:41.428 --> 00:18:44.619
+Esa es una razón por la que podrías querer
+tener texto alternativo para distintos casos.
+
+00:18:44.829 --> 00:18:46.329
+En este caso, agregamos el texto alternativo aquí.
+
+00:18:46.330 --> 00:18:48.208
+Voy a seguir adelante y presionar Guardar.
+
+00:18:49.179 --> 00:18:53.518
+Luego regresaremos a esta página
+y la actualizaré.
+
+00:18:54.988 --> 00:18:57.640
+Ahora pueden ver que este texto
+tiene un contraste de color mucho mejor.
+
+00:18:58.120 --> 00:19:00.208
+Este encabezado, si lo inspeccionamos,
+
+00:19:01.539 --> 00:19:04.539
+se hizo el marcado programático
+como un encabezado dos,
+
+00:19:04.540 --> 00:19:05.788
+lo cual es genial.
+
+00:19:06.550 --> 00:19:08.179
+Si también inspecciono la imagen,
+
+00:19:08.180 --> 00:19:11.168
+Verás que ahora
+tiene texto alternativo.
+
+00:19:12.789 --> 00:19:14.708
+Ese sería un ejemplo
+de cómo se pueden corregir
+
+00:19:14.709 --> 00:19:17.199
+algunos problemas de accesibilidad a nivel de página
+en WordPress.
+
+00:19:17.590 --> 00:19:19.780
+En esencia, los problemas a nivel de página
+son cosas que pueden,
+
+00:19:19.960 --> 00:19:22.899
+generalmente, arreglar
+al ver la página aquí
+
+00:19:22.900 --> 00:19:24.670
+en el editor de bloques de WordPress.
+
+00:19:25.090 --> 00:19:27.519
+Deben asegurarse de usar
+el tipo de bloque adecuado
+
+00:19:27.789 --> 00:19:30.640
+si es una lista, un encabezado
+o un párrafo.
+
+00:19:31.660 --> 00:19:36.349
+Deben asegurarse de tener
+suficiente contraste de color.
+
+00:19:36.350 --> 00:19:39.790
+Sí, eso lo cubre casi todo, así que tendremos
+que seguir adelante a partir de ahí.
+
+00:19:41.589 --> 00:19:43.270
+Volveré a nuestra presentación.
+
+00:19:49.120 --> 00:19:52.240
+A continuación, hablaremos
+de los problemas a nivel de plugin.
+
+00:19:55.090 --> 00:19:57.699
+Los problemas a nivel de plugin son,
+diría yo, quizás
+
+00:19:57.789 --> 00:20:00.849
+los complicados de corregir,
+o al menos los más complicados
+
+00:20:00.850 --> 00:20:05.500
+de resolver porque los plugins
+hacen muchas cosas diferentes en WordPress.
+
+00:20:06.099 --> 00:20:10.629
+Si un plugin agrega un componente a su sitio
+y hay un problema de accesibilidad
+
+00:20:10.630 --> 00:20:14.799
+con ese componente específicamente,
+probablemente sea un problema a nivel de plugin.
+
+00:20:14.979 --> 00:20:18.790
+Por ejemplo, si quisieran un control de pestañas
+en su sitio o un acordeón,
+
+00:20:18.819 --> 00:20:21.699
+y agregan un plugin para hacer eso,
+y luego hay
+
+00:20:21.700 --> 00:20:24.900
+un problema de accesibilidad con eso,
+probablemente sea de ese plugin.
+
+00:20:26.319 --> 00:20:29.799
+Les recomiendo que mantengan
+sus plugins lo más limitados posible
+
+00:20:29.979 --> 00:20:33.190
+y que los usen para fines muy específicos,
+de lo contrario,
+
+00:20:33.191 --> 00:20:37.420
+podría ser más difícil identificar
+la fuente exacta de los problemas a nivel de plugin;
+
+00:20:37.421 --> 00:20:42.550
+si tienen varios complementos
+para acordeones,
+
+00:20:42.552 --> 00:20:45.461
+por ejemplo, o si tienen
+plugins que se superponen,
+
+00:20:47.079 --> 00:20:51.070
+así que intenten usar la menor cantidad de plugins posible,
+úsenlos para propósitos muy específicos,
+
+00:20:51.340 --> 00:20:52.629
+y eso les ayudará a identificar,
+
+00:20:52.630 --> 00:20:55.599
+"Oh, hay un problema
+con esto específico en el sitio.
+
+00:20:55.630 --> 00:20:58.328
+Sabemos que está relacionado
+con un complemento, así que probablemente sea
+
+00:20:58.329 --> 00:21:00.095
+la fuente de este problema."
+
+00:21:02.465 --> 00:21:06.254
+Aquí, volveré
+a nuestro sitio de prueba
+
+00:21:06.255 --> 00:21:08.045
+y les mostraré un problema a nivel de plugin.
+
+00:21:10.625 --> 00:21:15.790
+En esta página, instalé un plugin
+para un componente de control de pestañas.
+
+00:21:16.079 --> 00:21:17.079
+Es muy sencillo.
+
+00:21:17.080 --> 00:21:19.449
+Solo hay dos pestañas llamadas
+"primera pestaña" y "segunda pestaña",
+
+00:21:19.450 --> 00:21:22.779
+y ambas tienen
+texto de relleno de Lorem Ipsum.
+
+00:21:24.460 --> 00:21:28.329
+El problema con este componente de pestaña
+es que le falta un indicador de enfoque visible.
+
+00:21:29.079 --> 00:21:32.349
+Voy a intentar navegar por esta página
+usando la tecla de tabulación por un momento.
+
+00:21:34.089 --> 00:21:38.289
+Esto es algo que los usuarios videntes
+con problemas de movilidad podrían hacer
+
+00:21:38.290 --> 00:21:40.868
+para navegar por un sitio.
+En lugar de usar el ratón,
+
+00:21:40.869 --> 00:21:42.788
+o una pantalla táctil,
+podrían usar un teclado
+
+00:21:42.789 --> 00:21:45.400
+u otros tipos de tecnología de asistencia
+que imitan un teclado.
+
+00:21:46.089 --> 00:21:48.099
+Para saber
+cómo activar un control,
+
+00:21:48.130 --> 00:21:50.199
+necesitan ver
+un indicador de enfoque visible.
+
+00:21:50.894 --> 00:21:53.229
+Ahora mismo, pueden ver
+que hay un contorno punteado
+
+00:21:53.260 --> 00:21:55.120
+alrededor del enlace de un comentario,
+
+00:21:55.810 --> 00:21:57.640
+y eso indica
+que si presiono Enter,
+
+00:21:57.730 --> 00:21:59.439
+eso activará ese control ahora mismo.
+
+00:21:59.739 --> 00:22:01.330
+Eso tiene un indicador de enfoque visible,
+
+00:22:01.899 --> 00:22:04.569
+pero cuando presiono Tab para intentar
+navegar al siguiente control,
+
+00:22:05.758 --> 00:22:06.758
+no hay nada.
+
+00:22:06.759 --> 00:22:09.698
+No hay ningún indicador visible
+de qué tiene actualmente el foco del teclado,
+
+00:22:09.699 --> 00:22:13.179
+de lo que se activará si presiono Tab.
+Si presiono Tab de nuevo,
+
+00:22:13.840 --> 00:22:15.940
+todavía no hay ningún indicador de foco del teclado visible.
+
+00:22:16.899 --> 00:22:19.748
+Si lo presiono nuevamente, verás
+este control de edición en la parte inferior.
+
+00:22:19.749 --> 00:22:22.389
+ahora tiene un contorno de enfoque.
+
+00:22:23.319 --> 00:22:26.379
+Eso es lo que yo llamaría
+un problema a nivel de plugin porque instalé
+
+00:22:26.380 --> 00:22:27.380
+este plugin aquí
+
+00:22:27.789 --> 00:22:29.050
+para este control de pestaña,
+
+00:22:29.500 --> 00:22:33.369
+y le falta un indicador de enfoque,
+muy claramente relacionado con eso.
+
+00:22:35.050 --> 00:22:37.659
+¿Cómo podemos arreglar
+estos problemas a nivel de plugin?
+
+00:22:41.950 --> 00:22:45.970
+Primero, les recomiendo asegurarse
+de que están usando el plugin correctamente.
+
+00:22:46.870 --> 00:22:51.070
+Si es posible, que quieran cambiar
+el funcionamiento de ese plugin o ese componente específico
+
+00:22:51.099 --> 00:22:53.260
+está configurado para arreglar el problema.
+
+00:22:54.069 --> 00:22:56.678
+Algunos plugins son muy simples
+y no les dan muchas opciones,
+
+00:22:56.679 --> 00:22:58.300
+pero otros son muy complejos.
+
+00:22:59.169 --> 00:23:01.628
+Es posible que se pueda usar
+el plugin de forma accesible,
+
+00:23:01.629 --> 00:23:04.509
+pero podría no ser el predeterminado,
+lo cual es lamentable,
+
+00:23:04.510 --> 00:23:06.640
+pero suele ser el caso
+con muchos plugins,
+
+00:23:06.970 --> 00:23:09.069
+que si lo configuran
+de una manera particular,
+
+00:23:09.129 --> 00:23:11.169
+será accesible,
+pero el valor predeterminado no lo es.
+
+00:23:11.830 --> 00:23:14.770
+Primero, asegúrense de haberlo configurado
+de la mejor manera posible,
+
+00:23:14.799 --> 00:23:17.378
+de que hayan revisado
+todas las opciones y de que también se hayan 
+
+00:23:17.379 --> 00:23:19.060
+asegurado de que han consultado
+algo de documentación.
+
+00:23:19.634 --> 00:23:22.900
+Los plugins más grandes tendrán documentación
+sobre cómo configurarlos
+
+00:23:23.620 --> 00:23:26.078
+y usarlos correctamente, así que
+asegúrense de leerlo.
+
+00:23:26.079 --> 00:23:30.368
+Es muy posible que puedan arreglar
+los problemas a nivel de plugins simplemente cambiando
+
+00:23:30.369 --> 00:23:32.199
+cómo han configurado su plugin.
+
+00:23:32.770 --> 00:23:36.640
+Esto va a variar mucho
+dependiendo de cuál sea el problema real
+
+00:23:36.790 --> 00:23:38.019
+y qué plugin están usando.
+
+00:23:39.640 --> 00:23:42.999
+Ahora bien, si eso no funciona,
+y si se trata de un problema a nivel de CSS,
+
+00:23:43.449 --> 00:23:48.070
+pueden intentar agregar CSS personalizado
+en el panel CSS adicional
+
+00:23:48.520 --> 00:23:50.590
+dentro del personalizador de temas.
+
+00:23:51.160 --> 00:23:53.441
+Y les mostraré
+cómo hacer esto en un minuto.
+
+00:23:53.920 --> 00:23:57.259
+De hecho, deberíamos mostrárselos ahora
+y luego volvemos.
+
+00:23:57.260 --> 00:24:03.250
+Los problemas a nivel de CSS suelen provocar
+un bajo contraste de color,
+
+00:24:03.729 --> 00:24:09.608
+o simplemente estamos viendo la falta
+de un indicador de foco visible en el teclado,
+
+00:24:09.609 --> 00:24:11.409
+que también es un problema a nivel de CSS.
+
+00:24:12.310 --> 00:24:14.040
+Veamos cómo podemos arreglarlo.
+
+00:24:15.040 --> 00:24:16.830
+Aquí voy a inspeccionar este código,
+
+00:24:17.460 --> 00:24:25.300
+este control de pestaña en Chrome DevTools
+y voy a filtrar por estilos de enfoque.
+
+00:24:26.859 --> 00:24:32.049
+Verán que hay una regla CSS
+aquí que dice que en realidad tiene
+
+00:24:32.050 --> 00:24:34.358
+un contorno,
+pero es un contorno transparente,
+
+00:24:34.359 --> 00:24:36.399
+para que no lo veas, lo cual no es genial.
+
+00:24:36.640 --> 00:24:38.949
+Lo que voy a hacer es copiar
+esta regla CSS,
+
+00:24:39.939 --> 00:24:41.560
+y luego en el backend de WordPress,
+
+00:24:42.879 --> 00:24:44.140
+Voy a navegar
+
+00:24:45.130 --> 00:24:46.210
+a Apariencia,
+
+00:24:46.780 --> 00:24:48.130
+y luego a Personalizar.
+
+00:24:52.479 --> 00:24:55.719
+Después, en la siguiente página,
+navegaré hacia abajo hasta CSS Adicional
+
+00:24:55.720 --> 00:24:57.550
+en esta barra lateral izquierda con opciones,
+
+00:24:58.750 --> 00:25:01.359
+y aquí puedo agregar un
+CSS adicional al sitio.
+
+00:25:01.839 --> 00:25:05.080
+Voy a pegar
+esa regla CSS que había copiado,
+
+00:25:06.160 --> 00:25:08.019
+y voy a cambiar
+eso por algo nuevo,
+
+00:25:08.049 --> 00:25:11.308
+Entonces, usamos el mismo selector CSS,
+pero en lugar de decir que el contorno
+
+00:25:11.391 --> 00:25:13.194
+es transparente, voy a decir...
+
+00:25:14.442 --> 00:25:15.657
+Dame un momento.
+
+00:25:15.658 --> 00:25:26.589
+[silencio]
+
+00:25:26.590 --> 00:25:28.231
+Lo siento, tengo problemas con el teclado.
+
+00:25:28.870 --> 00:25:29.870
+Ahí vamos.
+
+00:25:30.189 --> 00:25:33.909
+En lugar de decir que debería tener
+un contorno transparente,
+
+00:25:33.939 --> 00:25:36.399
+Voy a darle
+una decoración de texto de subrayado,
+
+00:25:36.669 --> 00:25:38.139
+y luego haré clic en Publicar.
+
+00:25:39.181 --> 00:25:40.920
+Ahora, volvamos y recarguemos esa página,
+
+00:25:45.310 --> 00:25:49.230
+y voy a intentar nuevamente usar
+la tecla de tabulación para navegar por esta página.
+
+00:25:59.141 --> 00:26:01.130
+Déjenme ponerlo un poco más grande para ustedes.
+
+00:26:01.131 --> 00:26:02.559
+Presionaré Tab,
+
+00:26:04.749 --> 00:26:07.599
+y pueden ver que el control de comentario
+tiene un indicador de enfoque,
+
+00:26:07.630 --> 00:26:08.679
+y presionaré Tab nuevamente,
+
+00:26:09.370 --> 00:26:13.947
+y ahora puedes ver
+que el control de First Tab tiene un subrayado,
+
+00:26:13.948 --> 00:26:15.909
+eso indica
+que tiene un enfoque del teclado.
+
+00:26:15.999 --> 00:26:17.019
+Si presiono Tab nuevamente,
+
+00:26:17.530 --> 00:26:20.710
+el control de Second Tab tiene un subrayado,
+lo que significa que tiene un enfoque del teclado,
+
+00:26:20.739 --> 00:26:21.910
+entonces si presiono Enter ahora,
+
+00:26:23.049 --> 00:26:24.640
+eso cambiará a la otra pestaña.
+
+00:26:25.297 --> 00:26:28.629
+Esa es una forma de arreglar 
+problemas a nivel de CSS con el plugin,
+
+00:26:28.960 --> 00:26:35.710
+encuentren el selector CSS específico
+y luego escriban un nuevo estilo para anularlo.
+
+00:26:42.159 --> 00:26:43.238
+¿Y si eso no funciona?
+
+00:26:43.239 --> 00:26:46.600
+¿Qué pasa si tienes lo que yo diría que es
+un plugin fundamentalmente inaccesible?
+
+00:26:47.559 --> 00:26:50.828
+En ese caso, deben comunicarse
+con el desarrollador del plugin y registrar
+
+00:26:50.829 --> 00:26:52.090
+un error de accesibilidad.
+
+00:26:52.749 --> 00:26:57.040
+Es importante que los desarrolladores de plugins
+sepan que existen problemas de accesibilidad
+
+00:26:57.188 --> 00:26:58.188
+en su código.
+
+00:26:58.329 --> 00:27:00.569
+Es importante que sepan
+que eso es importante para los usuarios,
+
+00:27:00.999 --> 00:27:03.099
+y es importante
+que lo arreglen para todos los usuarios.
+
+00:27:03.340 --> 00:27:06.229
+Incluso si ustedes pueden arreglarlo
+cambiando el CSS,
+
+00:27:06.460 --> 00:27:07.860
+de todas formas, quizá necesitarán contactarlos.
+
+00:27:09.699 --> 00:27:12.670
+También es importante saber
+que muchos desarrolladores de plugins
+
+00:27:13.570 --> 00:27:16.389
+puede que no estén trabajando
+a tiempo completo en esto,
+
+00:27:16.390 --> 00:27:18.969
+podría ser su trabajo secundario,
+o para algunas personas incluso podría ser
+
+00:27:18.970 --> 00:27:20.050
+su pasatiempo no remunerado;
+
+00:27:20.350 --> 00:27:24.699
+así que me acercaría con mucha amabilidad
+y les ofrecería trabajar con ellos.
+
+00:27:25.237 --> 00:27:27.158
+Entiendan
+que para algunas personas puede tomar
+
+00:27:27.159 --> 00:27:30.850
+un poco más de tiempo dependiendo
+de cuánto soporte haya detrás de este plugin.
+
+00:27:31.749 --> 00:27:36.189
+También recomendaría que describieran
+los impactos reales para los usuarios
+
+00:27:36.219 --> 00:27:39.010
+para que los desarrolladores del plugin
+puedan comprender cómo afecta a las personas,
+
+00:27:39.640 --> 00:27:41.888
+y si es importante
+para ustedes, también pueden describir
+
+00:27:41.889 --> 00:27:44.919
+cómo afecta
+la compatibilidad de accesibilidad de su sitio.
+
+00:27:46.449 --> 00:27:50.379
+También les recomendaría que intenten
+ser lo más descriptivos posible
+
+00:27:50.679 --> 00:27:52.839
+sobre cuál es el problema actual
+
+00:27:53.830 --> 00:27:56.290
+y cómo podría o debería arreglarse.
+
+00:27:56.619 --> 00:27:59.110
+Recuerden que si hay
+problemas de accesibilidad en un plugin,
+
+00:27:59.709 --> 00:28:02.349
+quizás ustedes sepan más sobre accesibilidad
+que el desarrollador del plugin,
+
+00:28:02.500 --> 00:28:04.140
+así que intenten compartir ese conocimiento con ellos.
+
+00:28:04.510 --> 00:28:06.578
+De lo contrario, si simplemente dicen:
+"Hay un problema,
+
+00:28:06.579 --> 00:28:09.699
+necesitamos que lo arreglen", es posible que ellos no sepan
+cómo hacerlo
+
+00:28:09.789 --> 00:28:11.650
+o cómo deberían arreglarlo.
+
+00:28:12.490 --> 00:28:14.919
+Intenten trabajar con ellos,
+sean educados, sean cooperativos,
+
+00:28:15.639 --> 00:28:19.719
+lean toda la documentación que tengan
+sobre cómo contactarlos y trabajar
+
+00:28:19.720 --> 00:28:20.720
+a partir de allí.
+
+00:28:21.460 --> 00:28:23.859
+Si por alguna razón
+eso no les funciona,
+
+00:28:23.920 --> 00:28:26.520
+si no les responden,
+si no desean cambiarlo
+
+00:28:27.969 --> 00:28:30.429
+Eso significa que básicamente necesitas encontrar
+un plugin de reemplazo.
+
+00:28:30.490 --> 00:28:34.449
+Busquen uno que pueda cubrir la misma necesidad
+en su sitio pero que no tenga
+
+00:28:34.450 --> 00:28:35.829
+problemas de accesibilidad incorporados.
+
+00:28:36.099 --> 00:28:38.485
+Siempre tengan cuidado al cambiar
+
+00:28:38.486 --> 00:28:40.418
+a un nuevo plugin o al decidir
+usar uno en su sitio.
+
+00:28:40.419 --> 00:28:42.939
+Les recomiendo que siempre hagan
+algunas pruebas de accesibilidad en un principio,
+
+00:28:42.940 --> 00:28:45.675
+antes de realmente
+comprometerse con ello.
+
+00:28:46.737 --> 00:28:49.659
+Pero eso es esencialmente
+lo que tienen que hacer,
+
+00:28:49.690 --> 00:28:51.996
+encuentren un reemplazo
+si no va a funcionar.
+
+00:28:51.997 --> 00:28:54.668
+Ahora, sé que algunas personas
+podrían estar pensando: "Estoy muy apegado
+
+00:28:54.669 --> 00:28:55.909
+a este plugin que estamos usando.
+
+00:28:56.169 --> 00:28:58.599
+El desarrollador del plugin no va
+a trabajar con nosotros para arreglarlo.
+
+00:28:58.719 --> 00:29:00.068
+No puedo encontrar un reemplazo.
+
+00:29:00.069 --> 00:29:01.445
+¿Hay algo que pueda hacer?".
+
+00:29:01.446 --> 00:29:04.389
+En ese caso, si realmente necesitan
+hacer algo,
+
+00:29:04.780 --> 00:29:08.498
+o intentan arreglar su plugin,
+pueden intentar crear
+
+00:29:08.499 --> 00:29:13.947
+un plugin secundario que ampliará
+el plugin original mediante hook personalizados.
+
+00:29:14.470 --> 00:29:18.639
+Ahora, esto solo funcionará
+si el desarrollador del plugin original
+
+00:29:18.849 --> 00:29:22.568
+creó hooks personalizados
+en ese plugin original que
+
+00:29:22.569 --> 00:29:24.339
+los conectaras y trabajaras con ellos.
+
+00:29:25.509 --> 00:29:28.599
+Si esos hooks personalizados no están
+en ese plugin original,
+
+00:29:28.930 --> 00:29:31.629
+entonces necesitarán
+modificar su versión local,
+
+00:29:31.989 --> 00:29:36.309
+agregar hooks personalizados y luego poder
+crear ese plugin secundario.
+
+00:29:36.669 --> 00:29:38.529
+Si están haciendo eso,
+les recomiendo que lo envíen
+
+00:29:38.530 --> 00:29:40.299
+un parche para el desarrollador original
+y decirle:
+
+00:29:40.300 --> 00:29:42.788
+"¿Podrías agregar
+al menos estos hooks personalizados para que la gente
+
+00:29:42.789 --> 00:29:44.919
+pueda modificar los plugins?
+
+00:29:46.390 --> 00:29:48.848
+Quizás se pregunten: "¿Por qué
+debería crear un plugin secundario en lugar de
+
+00:29:48.849 --> 00:29:51.250
+simplemente editar
+el plugin original en mi sitio?"
+
+00:29:52.419 --> 00:29:57.100
+Esto se debe a que, por lo general, deberían tratar
+de evitar la modificación de un plugin directamente,
+
+00:29:57.370 --> 00:30:00.970
+como la versión local de un plugin
+que hayan instalado en su sitio.
+
+00:30:02.289 --> 00:30:04.929
+Eso es porque si continúan
+y actualizan ese plugin,
+
+00:30:05.469 --> 00:30:07.419
+sus cambios se sobrescribirán.
+
+00:30:07.599 --> 00:30:08.599
+Los perderán.
+
+00:30:09.339 --> 00:30:11.219
+Podrías pensar: "Está bien,
+simplemente no lo actualizaré",
+
+00:30:11.349 --> 00:30:14.378
+pero si no actualizan su plugin,
+eso significa que se perderán
+
+00:30:14.379 --> 00:30:16.479
+nuevas funciones,
+e incluso podrían perderse algunas
+
+00:30:16.480 --> 00:30:17.799
+sobre parches de seguridad,
+
+00:30:17.800 --> 00:30:20.200
+así que eso es algo que
+que no querrán hacer.
+
+00:30:21.399 --> 00:30:23.709
+Nuevamente, si hay
+un problema con su plugin,
+
+00:30:24.009 --> 00:30:26.769
+y en serio quieren arreglarlo,
+pero el desarrollador no va a
+
+00:30:27.729 --> 00:30:28.729
+arréglalo,
+
+00:30:28.870 --> 00:30:33.460
+pueden intentar crear el plugin secundario
+que se conectará a él usando los hooks personalizados.
+
+00:30:34.000 --> 00:30:36.550
+A veces, esto se denomina
+add-on plugin,
+
+00:30:38.109 --> 00:30:41.872
+pero aquí voy a señalar que
+esto es bastante avanzado
+
+00:30:41.873 --> 00:30:43.859
+y realmente está más allá
+del alcance de esta presentación.
+
+00:30:43.860 --> 00:30:46.288
+Creo que es probable hacer
+otra presentación completa sobre esto,
+
+00:30:46.289 --> 00:30:48.119
+así que espero verlo.
+
+00:30:48.419 --> 00:30:50.970
+Esta es la parte
+en la que menos experiencia tengo,
+
+00:30:51.270 --> 00:30:53.429
+y diré que esto
+es bastante complicado.
+
+00:30:55.433 --> 00:30:58.378
+Realmente necesitan a alguien que sea más
+un desarrollador de WordPress,
+
+00:30:58.379 --> 00:31:00.900
+que sepa cómo diseñar
+plugins para poder hacer esto.
+
+00:31:01.446 --> 00:31:03.366
+Si no tienen a alguien
+así en su equipo,
+
+00:31:03.630 --> 00:31:05.510
+tendrán que
+encontrar un reemplazo,
+
+00:31:05.699 --> 00:31:08.399
+pero si realmente necesitan una opción,
+esto es algo que puedes considerar.
+
+00:31:08.400 --> 00:31:11.819
+Al final de esta presentación, compartiré
+un par de enlaces a la documentación de WordPress
+
+00:31:11.849 --> 00:31:14.323
+sobre los hooks personalizados que pueden leer
+
+00:31:14.324 --> 00:31:17.219
+para tener una mejor idea
+de cómo podría funcionar.
+
+00:31:18.509 --> 00:31:21.450
+Sin embargo, mi consejo general
+es no hacer esto.
+
+00:31:22.110 --> 00:31:23.849
+Si es un problema de accesibilidad
+con un plugin,
+
+00:31:23.850 --> 00:31:28.559
+debería arreglarse desde la base
+para que sea una solución para todos,
+
+00:31:28.799 --> 00:31:30.352
+para todos los distintos usuarios del plugin,
+
+00:31:30.353 --> 00:31:32.159
+y para todos los distintos usuarios
+de esos sitios.
+
+00:31:32.700 --> 00:31:34.963
+Además, esto puede ser bastante complicado.
+
+00:31:35.730 --> 00:31:37.649
+Intenten no hacer esto,
+pero si realmente lo necesitas,
+
+00:31:37.799 --> 00:31:39.343
+es algo que pueden investigar.
+
+00:31:43.033 --> 00:31:45.720
+Esta es otra diapositiva que voy
+a omitir porque acabo de mostrarles
+
+00:31:45.721 --> 00:31:48.659
+cómo pueden arreglar
+algunos problemas a nivel de plugin agregando CSS
+
+00:31:49.979 --> 00:31:51.943
+en el panel CSS adicional.
+
+00:31:58.165 --> 00:31:59.526
+Ahí vamos.
+
+00:31:59.528 --> 00:32:02.368
+A continuación, hablemos
+de los problemas a nivel de tema.
+
+00:32:04.108 --> 00:32:06.959
+Problemas a nivel de tema en un sitio de WordPress
+
+00:32:07.710 --> 00:32:10.919
+puede incluir un color de texto predeterminado
+que resulte
+
+00:32:10.920 --> 00:32:12.660
+con contraste de color insuficiente.
+
+00:32:13.346 --> 00:32:16.470
+Esto sería texto
+en varias páginas de su sitio.
+
+00:32:17.669 --> 00:32:20.159
+Otro problema a nivel de tema
+podrían ser los enlaces en línea,
+
+00:32:20.160 --> 00:32:22.799
+que son enlaces
+en medio de un párrafo que utilizan
+
+00:32:22.829 --> 00:32:26.159
+color solo para indicar visualmente
+que son interactivos.
+
+00:32:26.910 --> 00:32:29.549
+Normalmente, si tienes enlaces
+en medio de un párrafo,
+
+00:32:29.850 --> 00:32:31.888
+debes asegurarte de que estén
+subrayados para que los usuarios
+
+00:32:31.889 --> 00:32:35.939
+puedan ver con facilidad y decir:
+"Oye, ese es un control interactivo".
+
+00:32:37.199 --> 00:32:39.899
+Eso normalmente se establece
+como un estilo a nivel de tema,
+
+00:32:40.139 --> 00:32:43.059
+y si hay un problema con eso,
+probablemente sea un problema a nivel de tema.
+
+00:32:44.850 --> 00:32:47.908
+Otros problemas a nivel de tema
+pueden incluir prácticamente cualquier cosa en el encabezado
+
+00:32:47.909 --> 00:32:50.309
+o en tu pie de página, o quizás incluso
+en tus barras laterales,
+
+00:32:51.270 --> 00:32:53.249
+componentes comunes
+que se repiten a lo largo
+
+00:32:53.250 --> 00:32:54.446
+todo su sitio.
+
+00:32:54.764 --> 00:32:59.129
+Esos son probablemente los ejemplos arquetípicos
+de problemas a nivel temático,
+
+00:32:59.130 --> 00:33:01.276
+cualquier cosa en el pie de página o encabezado.
+
+00:33:03.197 --> 00:33:06.557
+Veamos ahora
+un problema a nivel temático en el sitio.
+
+00:33:08.327 --> 00:33:10.817
+Denme un momento
+para revisar mis notas sobre esto.
+
+00:33:11.820 --> 00:33:13.739
+En este caso,
+solo se los mostraré en esta página.
+
+00:33:14.429 --> 00:33:17.940
+Aquí tenemos el título «Hola mundo»
+para esta entrada del blog,
+
+00:33:18.269 --> 00:33:20.755
+y justo debajo,
+se muestra la fecha.
+
+00:33:20.756 --> 00:33:24.120
+Dice «28 de septiembre de
+2024», y luego un comentario
+
+00:33:24.150 --> 00:33:27.390
+antes de que te dé una vista previa
+del texto real en la publicación,
+
+00:33:27.900 --> 00:33:31.589
+pero ese texto con la fecha real
+tiene un contraste de color muy bajo.
+
+00:33:31.650 --> 00:33:35.578
+Es nuevamente texto gris claro
+sobre un fondo blanco,
+
+00:33:35.579 --> 00:33:36.579
+así que es difícil de ver.
+
+00:33:36.810 --> 00:33:38.699
+Esto es algo que se establece
+a nivel de tema
+
+00:33:38.700 --> 00:33:41.910
+porque es parte de un componente
+que se repite en muchas páginas.
+
+00:33:42.360 --> 00:33:44.969
+Si fuera
+a esta publicación de «Hola Mundo» en mi sitio
+
+00:33:45.330 --> 00:33:49.589
+y mirándolo solo en la vista de página,
+no vería esa fecha de septiembre
+
+00:33:49.590 --> 00:33:51.750
+en cualquier lugar porque es parte
+de los metadatos de la publicación.
+
+00:33:52.274 --> 00:33:57.090
+Cuando los usuarios
+vuelven a visitar el sitio, eso se debe al tema.
+
+00:33:57.569 --> 00:34:00.644
+Este es un ejemplo de lo que yo diría que es
+un problema a nivel de tema.
+
+00:34:01.754 --> 00:34:03.734
+¿Cómo podrían arreglarlo?
+
+00:34:04.349 --> 00:34:07.335
+Primero, con los problemas a nivel tema,
+tenemos lo que yo llamaría el camino fácil.
+
+00:34:08.358 --> 00:34:09.358
+Tienes dos opciones aquí.
+
+00:34:09.359 --> 00:34:13.709
+Lo primero es ir al personalizador de temas
+y buscar las opciones relevantes
+
+00:34:13.769 --> 00:34:17.699
+y luego ajústalos según corresponda,
+si tienes buenas opciones.
+
+00:34:18.309 --> 00:34:20.369
+Si hay problemas
+en la barra lateral o el pie de página,
+
+00:34:20.370 --> 00:34:22.589
+En el personalizador de temas,
+puedes buscar en widgets
+
+00:34:22.590 --> 00:34:26.579
+y es posible que puedas editarlos
+usando el editor de bloques de WordPress.
+
+00:34:27.600 --> 00:34:29.820
+Por otra parte, si hay problemas a nivel de CSS
+
+00:34:30.420 --> 00:34:35.417
+con su tema, pueden intentar nuevamente agregar
+CSS personalizado en el panel CSS adicional.
+
+00:34:36.467 --> 00:34:40.228
+Les mostraré
+cómo hacerlo para solucionar este problema
+
+00:34:40.229 --> 00:34:43.847
+en nuestro sitio.
+De nuevo, iré a la página principal.
+
+00:34:46.169 --> 00:34:48.609
+Verán que tenemos este texto
+que tiene un contraste de color muy bajo.
+
+00:34:50.010 --> 00:34:51.010
+En WordPress,
+
+00:34:51.149 --> 00:34:53.940
+voy al back-end,
+navegaré a Apariencia,
+
+00:34:54.599 --> 00:34:55.697
+Personalizar.
+
+00:34:57.149 --> 00:35:00.086
+Este tema que instalé
+se llama Nucleare.
+
+00:35:00.087 --> 00:35:02.279
+De hecho, tiene una opción para colores aquí.
+
+00:35:02.669 --> 00:35:05.129
+Las opciones exactas
+que puedan tener variarán
+
+00:35:05.130 --> 00:35:08.610
+según el tema que hayas instalado
+y las opciones que te ofrezca,
+
+00:35:09.449 --> 00:35:13.109
+pero este tema que estoy usando me permite
+seleccionar un color de texto secundario.
+
+00:35:13.529 --> 00:35:14.698
+Puedes ver que esto en realidad es
+
+00:35:14.699 --> 00:35:16.918
+un gris claro, así que voy
+a hacer clic en esto.
+
+00:35:16.919 --> 00:35:19.316
+Voy a intentar cambiar
+esto a, digamos, negro.
+
+00:35:21.594 --> 00:35:23.728
+Tan pronto como haga eso,
+podrán ver que este texto
+
+00:35:23.729 --> 00:35:26.816
+que estábamos viendo,
+el «28 de septiembre de 2024»,
+
+00:35:27.270 --> 00:35:28.270
+ahora es negro.
+
+00:35:28.456 --> 00:35:30.840
+Si hago clic en Publicar,
+se realizará el cambio.
+
+00:35:31.499 --> 00:35:33.139
+Voy a seguir adelante y recargar la página.
+
+00:35:33.899 --> 00:35:35.097
+Y eso de verdad lo arregló.
+
+00:35:35.098 --> 00:35:38.849
+Algunos problemas a nivel de tema,
+puedes solucionarlos simplemente viniendo
+
+00:35:38.850 --> 00:35:43.379
+al personalizador y explorar
+las opciones disponibles aquí y viendo
+
+00:35:43.410 --> 00:35:44.519
+lo que puedes cambiar.
+
+00:35:44.549 --> 00:35:46.980
+Para algunos problemas a nivel de tema,
+eso funcionará,
+
+00:35:47.219 --> 00:35:48.219
+lo que es fantástico.
+
+00:35:48.629 --> 00:35:51.048
+Eso es
+lo que yo llamaría el camino fácil.
+
+00:35:51.557 --> 00:35:56.609
+Nuevamente, eso variará según el tema
+y las opciones que permitan a los usuarios
+
+00:35:56.610 --> 00:35:58.398
+modificarlo de esa manera.
+
+00:36:00.660 --> 00:36:01.660
+¿Y qué hay del camino difícil?
+
+00:36:02.489 --> 00:36:05.158
+De nuevo, pueden comunicarse
+con el desarrollador del tema y registrar
+
+00:36:05.159 --> 00:36:06.209
+un error de accesibilidad.
+
+00:36:06.869 --> 00:36:08.998
+De nuevo, incluso si pueden hacerlo
+de la manera fácil,
+
+00:36:08.999 --> 00:36:11.279
+de todas formas, quizás necesiten hacerlo así
+para arreglarlo
+
+00:36:11.280 --> 00:36:13.915
+para todos los usuarios de ese tema
+en varios sitios.
+
+00:36:14.605 --> 00:36:17.279
+Mucho de lo que dije
+sobre trabajar con desarrolladores
+
+00:36:17.849 --> 00:36:19.230
+para plugins se aplica aquí.
+
+00:36:19.529 --> 00:36:20.820
+Sean corteses. Trabajen con ellos.
+
+00:36:20.879 --> 00:36:23.549
+Sean específicos sobre el problema
+y cómo podría solucionarse.
+
+00:36:24.809 --> 00:36:25.809
+Si eso no funciona,
+
+00:36:25.949 --> 00:36:28.109
+Una vez más, deben
+cambiar de tema
+
+00:36:28.169 --> 00:36:30.660
+a un tema diferente,
+uno que sea más accesible.
+
+00:36:31.200 --> 00:36:34.500
+Si van a wordpress.org y buscan
+en el repositorio de temas allí
+
+00:36:34.770 --> 00:36:36.359
+hay una etiqueta que deberían buscar.
+
+00:36:36.360 --> 00:36:39.587
+Se llama "accessibility-ready".
+
+00:36:39.959 --> 00:36:43.529
+Todos los temas que están marcados
+como accesibles,
+
+00:36:43.799 --> 00:36:46.740
+se han sometido
+a pruebas de accesibilidad adicionales.
+
+00:36:47.070 --> 00:36:49.770
+Ahora bien, eso no garantiza
+que sean perfectos e impecables,
+
+00:36:49.950 --> 00:36:52.980
+pero significa que han superado
+un nivel de accesibilidad mucho más alto
+
+00:36:53.040 --> 00:36:54.359
+que la mayoría de los temas.
+
+00:36:55.049 --> 00:36:57.298
+Si están buscando un tema,
+siempre sugeriría comenzar
+
+00:36:57.299 --> 00:36:58.738
+con los temas compatibles con accesibilidad.
+
+00:36:58.739 --> 00:37:01.740
+Es probable que esos sean los que
+menos problemas tengan.
+
+00:37:03.269 --> 00:37:06.119
+Ahora, algunos de ustedes pueden estar diciendo:
+"Me gusta mucho mi tema,
+
+00:37:06.239 --> 00:37:08.548
+y el desarrollador no lo arreglará,
+y no puedo arreglarlo del todo
+
+00:37:08.549 --> 00:37:10.829
+de la manera fácil, y no quiero
+cambiar a otra.
+
+00:37:10.830 --> 00:37:11.830
+¿Qué puedo hacer?
+
+00:37:12.270 --> 00:37:17.160
+En ese caso, puedes crear
+un tema hijo para anular
+
+00:37:17.430 --> 00:37:19.980
+las partes rotas de tu tema padre.
+
+00:37:21.119 --> 00:37:24.210
+Ahora, nuevamente, ¿por qué crearías
+un tema hijo en lugar de simplemente editar
+
+00:37:24.269 --> 00:37:27.150
+el tema en local que tienen
+instalado en su servidor?
+
+00:37:27.810 --> 00:37:28.810
+De manera similar,
+
+00:37:28.829 --> 00:37:33.750
+si editan esa versión local directamente
+y luego actualizan su tema más tarde,
+
+00:37:34.140 --> 00:37:37.049
+sus cambios serán deshabilitados
+y eliminados,
+
+00:37:37.440 --> 00:37:40.109
+que no es algo que realmente quieran,
+pero con un tema hijo,
+
+00:37:40.110 --> 00:37:41.110
+si configuran uno,
+
+00:37:41.340 --> 00:37:45.628
+y luego, si actualizan su tema más tarde,
+el tema padre,
+
+00:37:46.198 --> 00:37:48.060
+sus ediciones se mantendrán.
+
+00:37:48.662 --> 00:37:50.908
+Esa es la gran ventaja
+de usar un tema hijo.
+
+00:37:53.819 --> 00:37:56.520
+Ahora bien, los temas hijos son,
+diría yo, relativamente fáciles
+
+00:37:56.579 --> 00:38:00.883
+de configurar y empezar a usar,
+pero pueden volverse bastante complicados
+
+00:38:00.884 --> 00:38:05.254
+y requerir algunas revisiones importantes
+del tema padre.
+
+00:38:06.994 --> 00:38:08.369
+Ténganlo en cuenta.
+
+00:38:08.370 --> 00:38:10.799
+Si solo hacen
+un par de ajustes, no es tan difícil,
+
+00:38:10.830 --> 00:38:12.899
+yo diría que es más bien
+algo de nivel intermedio,
+
+00:38:12.900 --> 00:38:17.284
+pero si realmente estás haciendo grandes cambios,
+entonces puede ser una tarea más avanzada.
+
+00:38:18.214 --> 00:38:21.839
+Básicamente, la forma en que
+el tema hijo funciona es agregando una carpeta
+
+00:38:21.869 --> 00:38:25.200
+a su servidor de WordPress donde almacenan
+sus temas para su tema hijo.
+
+00:38:25.499 --> 00:38:28.649
+Hay que configurarlo de una manera particular,
+pero no es demasiado complicado.
+
+00:38:29.189 --> 00:38:32.998
+Entonces, cualquier archivo que tengan
+en la carpeta del tema hijo deshabilitará
+
+00:38:32.999 --> 00:38:35.335
+los archivos equivalentes para el tema padre.
+
+00:38:35.725 --> 00:38:38.465
+La única excepción es
+para su archivo functions.php,
+
+00:38:38.520 --> 00:38:40.885
+que se añadirá además de eso.
+
+00:38:41.335 --> 00:38:43.975
+Se cargará inmediatamente
+antes que los padres.
+
+00:38:45.390 --> 00:38:47.005
+Si estás configurando un tema hijo,
+
+00:38:47.790 --> 00:38:51.118
+lo que puedes hacer es intentar
+identificar los atributos relevantes
+
+00:38:51.119 --> 00:38:53.880
+en el código fuente
+y luego buscarlos,
+
+00:38:53.900 --> 00:38:55.349
+el código fuente del tema padre.
+
+00:38:55.709 --> 00:38:56.709
+Búsquenlos.
+
+00:38:57.000 --> 00:38:58.769
+A través de prueba y error,
+puedes descubrir
+
+00:38:58.770 --> 00:39:02.219
+cómo modificar el tema padre
+para solucionar cualquier problema que tengas con él
+
+00:39:03.330 --> 00:39:07.229
+y luego,
+básicamente, están listo para comenzar.
+
+00:39:07.980 --> 00:39:10.798
+Si están creando un tema hijo,
+les recomiendo con ahínco que configuren
+
+00:39:10.799 --> 00:39:16.079
+un entorno local de WordPress
+o un sitio de prueba donde puedes probar
+
+00:39:16.080 --> 00:39:18.870
+sus cambios antes de enviarlos
+al sitio de producción
+
+00:39:19.560 --> 00:39:21.568
+porque puede haber
+un poco de prueba y error,
+
+00:39:21.569 --> 00:39:23.906
+y podrían accidentalmente 
+romper cosas en su tema
+
+00:39:24.599 --> 00:39:27.240
+antes de determinar los cambios correctos
+que debe realizar.
+
+00:39:27.929 --> 00:39:29.489
+Luego, de nuevo,
+cuando estén actualizando su tema,
+
+00:39:29.490 --> 00:39:32.699
+existe la posibilidad de que las cosas
+se rompan de nuevo
+
+00:39:32.700 --> 00:39:36.179
+y, por lo tanto, si hay más posibilidades de hacer
+cambios grandes en lugar de pequeños 
+
+00:39:36.180 --> 00:39:39.778
+al tema, probablemente estará bien,
+pero cada vez que actualices
+
+00:39:39.779 --> 00:39:42.478
+el tema, es posible que tengan que volver atrás
+y hacer algunos ajustes
+
+00:39:42.479 --> 00:39:43.479
+a su tema hijo
+
+00:39:44.099 --> 00:39:46.890
+y eso es algo que necesitarían
+hacer en un entorno local
+
+00:39:47.009 --> 00:39:48.327
+o en un sitio de prueba.
+
+00:39:49.259 --> 00:39:51.446
+¿Cómo logran
+encontrar todo eso?
+
+00:39:54.686 --> 00:39:56.430
+Esto es algo en lo que puedo entrar
+en más detalle,
+
+00:39:56.431 --> 00:39:59.220
+pero ya casi llevamos 40 minutos,
+así que lo cortaré aquí.
+
+00:39:59.310 --> 00:40:02.549
+Si tienes más preguntas
+sobre los temas hijos,
+
+00:40:03.089 --> 00:40:06.440
+puedo explicarlos con más detalle.
+
+00:40:06.980 --> 00:40:09.210
+En esencia, algo
+que es realmente útil
+
+00:40:09.539 --> 00:40:12.150
+en algunos editores de código
+como Visual Studio Code
+
+00:40:12.479 --> 00:40:18.930
+es que puedes buscar
+texto no solo dentro de un archivo,
+
+00:40:19.050 --> 00:40:20.400
+sino en todo un directorio.
+
+00:40:20.879 --> 00:40:22.559
+En este caso, en Visual Studio Code,
+
+00:40:23.610 --> 00:40:25.859
+abrí la carpeta
+del tema padre
+
+00:40:26.100 --> 00:40:29.490
+y sabía que había un problema
+con este selector CSS en particular,
+
+00:40:30.360 --> 00:40:31.859
+el de la clase smallPart.
+
+00:40:32.279 --> 00:40:35.608
+Busqué ese selector CSS
+y me llevó directamente
+
+00:40:35.609 --> 00:40:39.840
+a ese style.css
+y me mostró dónde estaba.
+
+00:40:40.290 --> 00:40:46.683
+Cambiar esa variable de color a negro
+también podría solucionar este problema.
+
+00:40:49.529 --> 00:40:52.890
+Así es básicamente
+como crean un tema hijo.
+
+00:40:52.919 --> 00:40:57.559
+Busquen selectores CSS
+o clases muy específicos y vea dónde están
+
+00:40:57.560 --> 00:41:01.520
+en el tema padre y luego intenta hacer
+cambios para ver si puedes lograr que funcione.
+
+00:41:02.960 --> 00:41:06.199
+Como referencia, tengo un par de enlaces
+aquí a hooks y hooks personalizados.
+
+00:41:06.230 --> 00:41:10.099
+en la documentación para desarrolladores de WordPress,
+que es un excelente lugar para buscar
+
+00:41:10.100 --> 00:41:13.130
+si necesitan intentar editar un plugin.
+
+00:41:13.339 --> 00:41:15.559
+De nuevo, recomendaría evitar
+eso si pueden,
+
+00:41:15.620 --> 00:41:17.535
+pero pueden profundizar en eso si quieren.
+
+00:41:18.293 --> 00:41:20.786
+También tengo enlaces
+a los temas accessibility-ready
+
+00:41:20.787 --> 00:41:24.022
+que pueden investigar, y la documentación
+de los temas hijos,
+
+00:41:24.023 --> 00:41:26.453
+lo que creo que 
+no sea tan difícil.
+
+00:41:27.140 --> 00:41:29.568
+La mayoría de los usuarios de nivel intermedio
+deberían poder configurar
+
+00:41:29.569 --> 00:41:32.084
+si solo están haciendo cambios limitados.
+
+00:41:33.944 --> 00:41:37.789
+También tengo un par de enlaces aquí
+al tema que usé para esta presentación,
+
+00:41:37.819 --> 00:41:38.819
+Nucleare,
+
+00:41:38.959 --> 00:41:42.230
+el plugin de pestañas que usé,
+que se llamaba Tabby responsive tabs,
+
+00:41:42.709 --> 00:41:46.610
+y la foto de frijoles negros que usé,
+por si tienen interés en alguna de ellas.
+
+00:41:48.200 --> 00:41:49.219
+Gracias por su tiempo.
+
+00:41:50.240 --> 00:41:53.659
+Y ahora podemos hacer una pausa para las preguntas
+por los próximos 10 minutos aproximadamente.
+
+00:41:53.660 --> 00:41:55.308
+Creo.
+Laura: Genial.
+
+00:41:55.309 --> 00:41:56.478
+Muchas gracias, Cam.
+
+00:41:56.479 --> 00:41:57.529
+Te lo agradezco,
+
+00:41:58.130 --> 00:41:59.564
+un trabajo increíble.
+
+00:41:59.565 --> 00:42:04.039
+Sí, tenemos muchas preguntas
+y tuvimos una larga charla,
+
+00:42:04.339 --> 00:42:07.789
+lo que es genial, y siempre es bueno
+aprender unos de otros.
+
+00:42:08.419 --> 00:42:10.632
+Nuestra primera pregunta es de Sherry.
+
+00:42:10.633 --> 00:42:16.482
+¿Hay algún lugar en donde se encuentren enlistados 
+los problemas de compatibilidad conocidos
+
+00:42:16.483 --> 00:42:18.792
+en relación con la accesibilidad?
+
+00:42:23.463 --> 00:42:25.062
+Cam: ¿Puedes leer eso una vez más?
+
+00:42:25.063 --> 00:42:29.868
+Laura: ?Hay algún lugar en donde se encuentren enlistados
+los problemas de compatibilidad conocidos
+
+00:42:29.869 --> 00:42:32.480
+en relación con la accesibilidad?
+
+00:42:33.068 --> 00:42:34.068
+Esa es una buena pregunta.
+
+00:42:34.069 --> 00:42:36.589
+No creo que haya
+un solo lugar porque, como vimos
+
+00:42:36.590 --> 00:42:37.639
+en esta presentación,
+
+00:42:38.359 --> 00:42:41.254
+hay muchas cosas
+que se incluyen en un sitio de WordPress,
+
+00:42:41.255 --> 00:42:43.670
+así que probablemente necesiten
+ver, por ejemplo,
+
+00:42:44.000 --> 00:42:49.158
+si tu tema tuviera un rastreador de errores
+y pudiera enumerar problemas de accesibilidad
+
+00:42:49.159 --> 00:42:50.104
+con su tema,
+
+00:42:50.105 --> 00:42:54.109
+pero probablemente estaría
+en un repositorio de GitHub
+
+00:42:54.110 --> 00:42:57.978
+o repositorio de código diferente que aquel
+donde hay problemas de accesibilidad
+
+00:42:57.979 --> 00:42:59.689
+para el núcleo de WordPress se rastrean,
+
+00:43:00.800 --> 00:43:03.678
+y entonces dependerá
+de dónde se encuentre el problema exacto
+
+00:43:03.679 --> 00:43:04.826
+al final.
+
+00:43:05.606 --> 00:43:09.296
+Laura: Yo también creo que, dependiendo
+de su nivel de experiencia,
+
+00:43:09.650 --> 00:43:15.859
+sé que muchos de nosotros hemos hecho
+presentaciones donde las cinco cosas más importantes,
+
+00:43:16.070 --> 00:43:18.290
+como esas cosas básicas de qué verificar,
+
+00:43:18.799 --> 00:43:21.620
+el contraste es uno, como tú señalaste,
+
+00:43:22.519 --> 00:43:26.126
+el tamaño de la fuente y ese
+tipo de cosas, así que sí,
+
+00:43:26.389 --> 00:43:28.759
+también depende de tu nivel
+de experiencia,
+
+00:43:28.760 --> 00:43:31.133
+y simplemente tienes que aprender
+y desarrollar eso también.
+
+00:43:32.963 --> 00:43:34.613
+Muy bien, nuestra siguiente pregunta.
+
+00:43:34.969 --> 00:43:36.680
+¿El texto usa
+
+00:43:37.310 --> 00:43:39.260
+una fuente accesible?
+
+00:43:39.710 --> 00:43:40.818
+¿Cómo podemos saberlo?
+
+00:43:40.819 --> 00:43:44.723
+¿Hay checks
+para identificar fuentes inaccesibles?
+
+00:43:47.506 --> 00:43:48.676
+Cam: Sí.
+
+00:43:50.836 --> 00:43:53.135
+En este caso, quiero
+mencionar a Equalize Digital.
+
+00:43:53.136 --> 00:43:57.258
+Tienen un plugin que puedes usar
+en un sitio de WordPress.
+
+00:43:57.259 --> 00:43:59.658
+Instalas el plugin
+y este se marcará
+
+00:43:59.659 --> 00:44:02.727
+problemas de accesibilidad para usted
+a través de la interfaz de WordPress.
+
+00:44:03.709 --> 00:44:05.787
+Esa es una buena manera de verlo rápidamente
+
+00:44:05.788 --> 00:44:09.085
+qué tipos de problemas de accesibilidad
+podría tener en su sitio.
+
+00:44:09.086 --> 00:44:11.928
+Puede que no lo detecten todo,
+pero creo que es una forma bastante decente
+
+00:44:11.929 --> 00:44:13.936
+para detectar
+al menos algunos de los problemas principales.
+
+00:44:15.362 --> 00:44:17.359
+Laura: La siguiente pregunta es de Jen.
+
+00:44:17.780 --> 00:44:21.530
+¿Sería redundante
+dejar la descripción de la imagen
+
+00:44:21.590 --> 00:44:26.851
+en el campo de descripción y luego
+agregarlo al campo de texto alternativo?
+
+00:44:27.550 --> 00:44:30.559
+Cam: Buena pregunta.
+No creo que importe mucho.
+
+00:44:30.829 --> 00:44:33.259
+Según entiendo
+que el campo de descripción del problema
+
+00:44:33.799 --> 00:44:37.999
+cuando vas a la biblioteca multimedia
+de tu sitio es solo para el back-end,
+
+00:44:38.030 --> 00:44:41.988
+para que puedas tener una nota
+sobre la descripción de la imagen.
+
+00:44:41.989 --> 00:44:44.059
+No creo que se presente
+a los usuarios en ningún lugar.
+
+00:44:45.350 --> 00:44:49.279
+Es un poco redundante
+y depende de cómo lo gestionen
+
+00:44:49.280 --> 00:44:50.280
+eso en tu sitio.
+
+00:44:50.464 --> 00:44:53.358
+En definitiva, el campo de texto alternativo
+es el más importante
+
+00:44:53.359 --> 00:44:54.424
+para accesibilidad.
+
+00:44:55.933 --> 00:44:59.593
+Laura: Para seguir con eso,
+la siguiente pregunta de Philippe,
+
+00:45:00.620 --> 00:45:04.608
+y esto también siempre surge:
+cuándo usar ese texto alternativo?
+
+00:45:04.609 --> 00:45:05.900
+Nuestra discusión más importante,
+
+00:45:08.300 --> 00:45:13.219
+en mi opinión, esta es
+una imagen decorativa y una persona ciega
+
+00:45:13.220 --> 00:45:18.858
+no aprende nada de la imagen,
+no necesita ninguna información de ella,
+
+00:45:18.859 --> 00:45:21.033
+así que estabas haciendo la imagen del frijol,
+
+00:45:21.034 --> 00:45:23.614
+¿correcto?
+Cam: Sí, sí.
+
+00:45:25.205 --> 00:45:28.023
+Laura: ¿Hay alguna pauta general?
+
+00:45:28.310 --> 00:45:31.243
+¿Qué piensas
+cuando haces un sitio web?
+
+00:45:31.933 --> 00:45:35.239
+Cam: Honestamente, eso podría tener
+su propia presentación para profundizar
+
+00:45:35.240 --> 00:45:38.839
+porque depende mucho,
+pero en última instancia es contextual,
+
+00:45:38.840 --> 00:45:40.606
+y algunas personas tendrán
+diferentes puntos de vista.
+
+00:45:40.607 --> 00:45:43.969
+El que compartí, creo que podría decirse que es
+un caso un poco más límite,
+
+00:45:45.109 --> 00:45:48.469
+pero en este caso,
+como un usuario vidente que está viendo 
+
+00:45:48.470 --> 00:45:52.158
+una página de recetas, definitivamente querré
+ver una foto de cómo se ve la comida
+
+00:45:52.159 --> 00:45:54.948
+así que creo que
+es razonable intentar ofrecer
+
+00:45:54.949 --> 00:46:01.128
+esa experiencia equivalente
+para usuarios con discapacidad visual.
+
+00:46:01.129 --> 00:46:03.969
+En este caso, probablemente podría haber hecho
+un mejor trabajo intentando describir
+
+00:46:04.249 --> 00:46:05.810
+cómo eran exactamente esos frijoles.
+
+00:46:06.440 --> 00:46:08.718
+Creo que si tuviéramos
+un mejor ejemplo de texto alternativo en ese caso,
+
+00:46:08.719 --> 00:46:11.049
+sería más claro decir:
+"Sí, esto es útil".
+
+00:46:12.519 --> 00:46:15.489
+Laura: Hay personas
+con baja visión.
+
+00:46:16.522 --> 00:46:22.518
+también, por eso aprecian
+poder ver partes de una imagen también.
+
+00:46:22.519 --> 00:46:23.675
+Cam: Sí.
+
+00:46:23.676 --> 00:46:28.550
+Laura: Soy cautelosa
+y al menos pongo algo en
+
+00:46:28.850 --> 00:46:33.318
+en una imagen
+que podría considerarse decoración,
+
+00:46:33.319 --> 00:46:38.149
+a menos que también se mencione
+en el texto,
+
+00:46:39.200 --> 00:46:41.929
+entonces estás duplicando eso.
+
+00:46:42.889 --> 00:46:44.389
+La siguiente pregunta es,
+
+00:46:44.749 --> 00:46:48.568
+¿puedes hablar
+sobre la jerarquía del encabezado en una página?
+
+00:46:49.750 --> 00:46:50.960
+Cam: Sí, sí.
+
+00:46:51.170 --> 00:46:54.049
+Hay seis niveles de encabezado,
+del uno al seis.
+
+00:46:54.260 --> 00:46:57.079
+El encabezado de nivel uno debe ser
+el encabezado de la página principal.
+
+00:46:57.680 --> 00:46:59.839
+En WordPress, esto suele configurarse para ser
+
+00:47:00.530 --> 00:47:03.319
+el nombre de una página o una publicación,
+
+00:47:04.219 --> 00:47:07.279
+entonces cualquier encabezado debajo
+de eso debería ser de nivel dos.
+
+00:47:07.459 --> 00:47:09.169
+Si tienen un subtítulo debajo de
+uno de esos,
+
+00:47:09.170 --> 00:47:11.960
+debería ser tres,
+y así sucesivamente.
+
+00:47:12.740 --> 00:47:14.839
+Lo mejor es intentar seguir ese orden.
+Los encabezados
+
+00:47:15.350 --> 00:47:17.600
+empiezan con uno,
+y los subtítulos debajo son dos.
+
+00:47:17.960 --> 00:47:20.749
+Si tiene un subtítulo,
+debe ser un encabezado de nivel tres,
+
+00:47:20.780 --> 00:47:21.780
+y así sucesivamente.
+
+00:47:23.237 --> 00:47:24.707
+Laura: Está bien.
+Gracias.
+
+00:47:31.490 --> 00:47:38.411
+De Roger, ¿qué opinas sobre usar
+.focus en lugar de .focus-visible?
+
+00:47:39.290 --> 00:47:40.010
+Cam: Esa es una buena pregunta.
+
+00:47:40.250 --> 00:47:46.789
+El pseudo selector CSS para el enfoque
+mostrará el estilo de enfoque
+
+00:47:46.790 --> 00:47:50.239
+en cualquier momento en que el elemento tenga enfoque,
+lo que suele incluir
+
+00:47:50.240 --> 00:47:53.467
+cuando un usuario vidente haga clic
+en el elemento por un momento.
+
+00:47:53.468 --> 00:47:57.088
+Enfoque visible, el pseudo selector CSS
+enfocado como visible,
+
+00:47:58.288 --> 00:48:02.060
+tu navegador intentará adivinar
+si usas el teclado o el ratón,
+
+00:48:02.330 --> 00:48:04.357
+y entonces, si usas el ratón
+y haces clic en él,
+
+00:48:04.358 --> 00:48:05.600
+probablemente no se mostrará.
+
+00:48:07.220 --> 00:48:10.399
+Suelo preferir usar
+el pseudo selector de enfoque,
+
+00:48:10.790 --> 00:48:13.220
+y me gusta diseñar
+estados de enfoque hermosos
+
+00:48:13.280 --> 00:48:15.099
+que sean satisfactorias,
+
+00:48:15.919 --> 00:48:19.629
+pero también pueden usar enfoque visible.
+
+00:48:20.209 --> 00:48:21.739
+Suele funcionar bastante bien.
+
+00:48:21.770 --> 00:48:26.359
+Todo depende del diseño
+y la visión del sitio.
+
+00:48:27.060 --> 00:48:29.959
+Creo que el enfoque es genial
+porque va a funcionar para todos,
+
+00:48:30.019 --> 00:48:34.199
+pero he visto que el enfoque visible funciona
+y también puede ser aceptable.
+
+00:48:36.419 --> 00:48:40.469
+Laura: Muy bien. Siguiente pregunta.
+Tengo unos dos minutos más.
+
+00:48:42.019 --> 00:48:44.449
+A medida que aumenta la conciencia 
+sobre los problemas de accesibilidad,
+
+00:48:44.450 --> 00:48:48.050
+particularmente
+debido a los requisitos legales como tal,
+
+00:48:50.000 --> 00:48:54.889
+los sitios web están cada vez más equipados
+con funciones integradas que facilitan
+
+00:48:54.890 --> 00:48:57.230
+la creación de sitios accesibles.
+
+00:48:57.709 --> 00:49:03.078
+Esta tendencia es especialmente evidente
+en el sector gubernamental, donde Civic Plus
+
+00:49:03.079 --> 00:49:05.929
+se ha consolidado
+como un actor importante.
+
+00:49:06.230 --> 00:49:11.929
+¿Qué crees que pasará especialmente
+porque muchos sitios web tienen que reducir su tamaño
+
+00:49:11.989 --> 00:49:13.730
+en los sitios web atractivos?
+
+00:49:14.059 --> 00:49:17.553
+¿Crees que se fusionarán para que un diseño muy atractivo
+
+00:49:17.554 --> 00:49:21.775
+y un diseño básico
+sean lo mismo para el año 2026?
+
+00:49:22.975 --> 00:49:24.865
+Cam: Esa es una gran pregunta.
+
+00:49:32.068 --> 00:49:36.019
+Espero ver sitios web accesibles, 
+bonitos y atractivos.
+
+00:49:36.185 --> 00:49:38.448
+Definitivamente he visto sitios
+que son ambas cosas, y no creo que haya
+
+00:49:38.449 --> 00:49:41.448
+una razón por la que necesitan tener
+un sitio muy básico para
+
+00:49:41.449 --> 00:49:42.449
+para que sean accesibles.
+
+00:49:43.789 --> 00:49:46.008
+Creo que hay algunos diseños
+por ahí que son exagerados,
+
+00:49:46.009 --> 00:49:47.869
+y creo que podríamos beneficiarnos
+de una sociedad
+
+00:49:47.870 --> 00:49:50.569
+de sitios web más tranquilos,
+
+00:49:51.230 --> 00:49:54.200
+pero no creo que
+necesariamente haya contraste
+
+00:49:54.290 --> 00:49:58.908
+o luchar allí entre el diseño
+y la accesibilidad.
+
+00:50:00.019 --> 00:50:01.347
+Laura: Sí, definitivamente.
+
+00:50:01.348 --> 00:50:04.176
+Equalize Digital, visiten su sitio web.
+
+00:50:04.339 --> 00:50:08.448
+Tienen un sitio web genial que
+incluye muchos colores y cosas diferentes,
+
+00:50:08.449 --> 00:50:10.576
+así, pero aún así es accesible.
+
+00:50:10.577 --> 00:50:13.429
+Ese es uno de ellos.
+
+00:50:14.270 --> 00:50:15.349
+Siguiente pregunta de Heather.
+
+00:50:15.350 --> 00:50:22.458
+¿Alguien puede compartir el...?
+Oh, lo siento, anónimo,
+
+00:50:22.459 --> 00:50:27.939
+¿Cómo trabajar con mapas y coordenadas
+en marcado XML y problemas del sitio?
+
+00:50:32.559 --> 00:50:36.259
+Cam: Marcado XML y mapas,
+de nuevo siento que eso podría ser fácilmente
+
+00:50:36.260 --> 00:50:38.390
+su propia presentación de una hora o más.
+
+00:50:42.500 --> 00:50:44.000
+Específicamente para WordPress,
+
+00:50:44.360 --> 00:50:46.670
+Creo que si están usando
+un mapa en WordPress,
+
+00:50:47.359 --> 00:50:48.409
+probablemente estén usando
+
+00:50:49.069 --> 00:50:52.699
+algún tipo de plugin o están integrando
+algo de otro sitio,
+
+00:50:53.179 --> 00:50:54.740
+y en ese caso,
+
+00:50:54.859 --> 00:50:57.229
+solo necesitaré
+hacer tantas pruebas como sea posible
+
+00:50:57.230 --> 00:51:02.259
+sobre lo que sea que traigan
+y asegúrense de que sea accesible,
+
+00:51:02.439 --> 00:51:05.558
+y en ese caso, tendrán
+que trabajar con el plugin que estén usando
+
+00:51:05.559 --> 00:51:08.261
+o cualquier otro sitio
+en el que estés insertando.
+
+00:51:09.430 --> 00:51:11.773
+Creo que eso es lo máximo que puedo decir
+sobre esto y esta vez.
+
+00:51:12.432 --> 00:51:17.079
+Laura: Gracias, Cam, y gracias
+a todos por asistir a esta sesión.
+
+00:51:17.409 --> 00:51:21.292
+Pueden continuar la conversación
+en el chat o en las redes sociales usando
+
+00:51:21.293 --> 00:51:30.401
+#WPA11yDay y #WPAD2024.
+
+00:51:30.670 --> 00:51:38.699
+También agradeceremos que visiten
+2024.wpaccessibility.day/feedback
+
+00:51:38.700 --> 00:51:42.069
+para dar su feedback anónimo
+para nuestros oradores sobre su presentación.
+
+00:51:42.489 --> 00:51:44.829
+Pueden participar para ganar
+una camiseta mientras están allí.
+
+00:51:45.369 --> 00:51:50.358
+Manténganse al tanto de Accesibilidad Ágil:
+Construyendo inclusividad
+
+00:51:50.680 --> 00:51:55.570
+en la estrategia del producto
+que viene a continuación con Nasah Kuma.
+
+00:51:56.349 --> 00:51:59.733
+Mientras esperan, no olviden
+visitar la página de patrocinadores para conseguir
+
+00:51:59.739 --> 00:52:03.460
+regalos virtuales y participen para tener
+la oportunidad de ganar grandes premios.
+
+00:52:03.880 --> 00:52:05.178
+Nos vemos después del descanso.
+
+00:52:06.348 --> 00:52:07.909
+Cam: Gracias, Laura.
+Gracias a todos.
+
+00:52:11.259 --> 00:52:15.109
+Locutor: Gracias a
+los patrocinadores del Día de la Accesibilidad de WordPress 2024.
+
+00:52:15.670 --> 00:52:17.449
+Patrocinador Platino: 20i.
+
+00:52:17.740 --> 00:52:20.488
+Crea, implementa
+y administra fácilmente todos tus proyectos
+
+00:52:20.489 --> 00:52:22.930
+con alojamiento WordPress administrado por 20i.
+
+00:52:23.379 --> 00:52:25.149
+Una interfaz de usuario para todos sus servidores,
+
+00:52:25.150 --> 00:52:29.680
+aplicaciones, sitios, bases de datos,
+seguridad, DNS y correo electrónico.
+
+00:52:30.040 --> 00:52:31.269
+Perfecto para agencias,
+
+00:52:31.329 --> 00:52:34.360
+comercio electrónico, desarrolladores,
+alojamiento multisitio,
+
+00:52:34.389 --> 00:52:35.739
+y sitios de alto tráfico.
+
+00:52:36.519 --> 00:52:38.469
+Patrocinador Platino: Equalize Digital.
+
+00:52:39.039 --> 00:52:42.549
+Ya que se enfocan en la accesibilidad,
+cada publicación en su blog es
+
+00:52:42.550 --> 00:52:44.109
+un recurso de accesibilidad.
+
+00:52:44.530 --> 00:52:48.460
+Pueden encontrar grabaciones de seminarios web,
+artículos y recursos adicionales.
+
+00:52:48.790 --> 00:52:52.131
+en equalizedigital.com/resources.
+
+00:52:52.840 --> 00:52:54.939
+Patrocinador Platino, WP Engine.
+
+00:52:55.420 --> 00:52:59.468
+WP Engine ofrece los
+productos de WordPress más confiables y fiables
+
+00:52:59.469 --> 00:53:03.441
+para empresas, marcas
+y agencias de todos los tamaños.
+
+00:53:04.180 --> 00:53:07.821
+Gracias a nuestros Patrocinadores Oro GoDaddy,
+GrackleDocs,
+
+00:53:08.020 --> 00:53:12.441
+Gravity Forms, Green Geeks,
+TPGi y Yoast.
+
+00:53:12.771 --> 00:53:17.980
+Gracias a nuestros Patrocinadores Plata: CodeGeek,
+Drake Cooper, Elementor,
+
+00:53:18.250 --> 00:53:21.760
+Overnight Website,
+Pressable, Second Melody,
+
+00:53:22.000 --> 00:53:23.679
+y Accessility Collective.

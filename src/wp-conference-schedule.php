@@ -1711,6 +1711,7 @@ function wpcs_get_languages( $lang = false ) {
 		'ja' => array( 'Japanese', '日本語' ),
 		'ms' => array( 'Malay', 'Melayu' ),
 		'nl' => array( 'Dutch', 'Nederlands' ),
+		'pt' => array( 'Portuguese', 'Português' )
 	);
 	if ( ! $lang ) {
 		return $labels;

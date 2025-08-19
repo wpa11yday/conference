@@ -406,7 +406,7 @@ function wpad_draw_langs( $talk_id ) {
 	if ( ! empty( $tags_html ) ) {
 		$tags_html = "
 			<div class='talk-langs-wrapper'>
-				<h3>$tag_heading_txt</h3>   
+				<h3>$tag_heading_txt</h3>
 				<div class='wp-block-columns inside talk-langs'>
 					$tags_html
 				</div>
@@ -430,7 +430,7 @@ function wpad_draw_topics( $talk_id ) {
 	if ( ! empty( $tags_html ) ) {
 		$tags_html = "
 			<div class='talk-tags-wrapper'>
-				<h3>$tag_heading_txt</h3>   
+				<h3>$tag_heading_txt</h3>
 				<div class='wp-block-columns inside talk-tags'>
 					$tags_html
 				</div>
@@ -879,7 +879,7 @@ function wpcs_session_details( $content ) {
 		$topics       = wpad_draw_topics( $post_ID );
 		$translations = wpad_draw_langs( $post_ID );
 		if ( empty( $slides ) && empty( $resources ) ) {
-			$slides = '<p>' . __( 'None provided.', 'wpa-conference' ) . '</p>';
+			$slides = '<p>' . __( 'None provided yet.', 'wpa-conference' ) . '</p>';
 		}
 
 		$content = $content . '<div class="session-blocks"><div><h3>' . __( 'Resources', 'wpa-conference' ) . '</h3>' . $slides . $resources . '</div><div>' . $topics . '</div><div>' . $translations . '</div></div>' . $speakers;

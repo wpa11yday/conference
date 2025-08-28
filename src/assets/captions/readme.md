@@ -129,7 +129,7 @@ No translations yet.
 
 ## 2024
 
-11 completed translations.
+16 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -139,18 +139,22 @@ No translations yet.
 4. Agile Accessibility: Building Inclusivity into the Product Roadmap
 5. Practical Text Accessibility Tips for Content Creators
   	- Spanish; Diana Córdoba Gómez
+  	- Portuguese (Brazilian); Paloma Marques
 6. Accessibility Challenges with Single Page Applications
   	- Spanish; Diana Córdoba Gómez
   	- Italian; Daniele Manca
 7. Accessible Firebrand: “Why can’t I use my brand color there, and if not there, then where?”
 8. Is Your Page Builder Actually Accessible?
+	- Spanish; Andy Amado
 9. Captchas and Other Gotchas: Make Sure Your Secure Website is Accessible
 10. CSS Tiny Tips: Collection of CSS Tips for Making Websites Easier to Read
 	- Spanish; Debora Ermel
 	- Portuguese (Brazilian); Paloma Marques
 11. Unlocking Digital Access: Insights from a Community-Driven Survey
 12. Developing Accessible Gutenberg Blocks
+	- Spanish; Debora Ermel
 13. Navigating Neurodiversity: Creating Websites with Inclusivity in Mind
+	- Spanish; Diana Córdoba Gómez
 14. Accessible Design: WCAG or Trendy? No, WCAG AND Trendy!
 	- Spanish; Diana Córdoba Gómez
 15. How to Read a VPAT and ACR
@@ -164,6 +168,7 @@ No translations yet.
 21. Creating a Developer Culture of Accessibility
 22. How to Juggle Different Teams at Different Places in Their Accessibility Journey
 23. How to Design and Implement Accessible Cards
+  	- Spanish; Luz Zuniga
   	- Portuguese; Melissa Antunes
 24. Creating Inclusive Experience with WooCommerce
 25. Maintaining Your Site’s Accessibility Well After Launch

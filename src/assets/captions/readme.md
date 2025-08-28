@@ -129,7 +129,7 @@ No translations yet.
 
 ## 2024
 
-11 completed translations.
+12 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -151,6 +151,7 @@ No translations yet.
 11. Unlocking Digital Access: Insights from a Community-Driven Survey
 12. Developing Accessible Gutenberg Blocks
 13. Navigating Neurodiversity: Creating Websites with Inclusivity in Mind
+	- Spanish; Diana Córdoba Gómez
 14. Accessible Design: WCAG or Trendy? No, WCAG AND Trendy!
 	- Spanish; Diana Córdoba Gómez
 15. How to Read a VPAT and ACR

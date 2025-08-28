@@ -129,7 +129,7 @@ No translations yet.
 
 ## 2024
 
-13 completed translations.
+14 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -145,6 +145,7 @@ No translations yet.
   	- Italian; Daniele Manca
 7. Accessible Firebrand: “Why can’t I use my brand color there, and if not there, then where?”
 8. Is Your Page Builder Actually Accessible?
+	- Spanish; Andy Amado
 9. Captchas and Other Gotchas: Make Sure Your Secure Website is Accessible
 10. CSS Tiny Tips: Collection of CSS Tips for Making Websites Easier to Read
 	- Spanish; Debora Ermel

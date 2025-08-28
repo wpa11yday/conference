@@ -129,7 +129,7 @@ No translations yet.
 
 ## 2024
 
-14 completed translations.
+15 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -167,6 +167,7 @@ No translations yet.
 21. Creating a Developer Culture of Accessibility
 22. How to Juggle Different Teams at Different Places in Their Accessibility Journey
 23. How to Design and Implement Accessible Cards
+  	- Spanish; Luz Zuniga
   	- Portuguese; Melissa Antunes
 24. Creating Inclusive Experience with WooCommerce
 25. Maintaining Your Site’s Accessibility Well After Launch

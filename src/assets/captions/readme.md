@@ -139,6 +139,7 @@ No translations yet.
 4. Agile Accessibility: Building Inclusivity into the Product Roadmap
 5. Practical Text Accessibility Tips for Content Creators
   	- Spanish; Diana Córdoba Gómez
+  	- Portuguese; Paloma Marques
 6. Accessibility Challenges with Single Page Applications
   	- Spanish; Diana Córdoba Gómez
   	- Italian; Daniele Manca

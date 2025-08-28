@@ -1,0 +1,2741 @@
+WEBVTT
+
+00:00:00.533 --> 00:00:03.240
+Anunciador:
+Día de la Accesibilidad de WordPress 2024.
+
+00:00:03.640 --> 00:00:05.853
+Desarrollo de bloques accesibles en Gutenberg
+
+00:00:05.870 --> 00:00:07.573
+con el presidente Kevin Sholander,
+
+00:00:07.826 --> 00:00:09.866
+Desarrollador web sénior en CodeGeek.
+
+00:00:10.360 --> 00:00:13.506
+Esta presentación se grabó
+en octubre de 2024.
+
+00:00:14.880 --> 00:00:16.600
+Jessica Sams: Hola a todos.
+
+00:00:16.880 --> 00:00:20.120
+Este es el Día de la Accesibilidad de WordPress 2024.
+
+00:00:20.160 --> 00:00:24.893
+Mi nombre es Jessica Sams, de Yalantis,
+mentora de sitios web.
+
+00:00:25.960 --> 00:00:27.626
+Gracias por acompañarnos en
+
+00:00:27.906 --> 00:00:31.400
+Desarrollo de bloques accesibles en Gutenberg
+
+00:00:31.800 --> 00:00:33.373
+con Kevin Sholander.
+
+00:00:34.626 --> 00:00:38.080
+Pueden dejar sus preguntas en la sección
+de preguntas y respuestas de Zoom.
+
+00:00:38.120 --> 00:00:40.546
+Es el ícono con un signo de interrogación,
+
+00:00:40.586 --> 00:00:42.800
+para que podamos verlas y responderlas.
+
+00:00:43.120 --> 00:00:46.080
+Pueden escribir sus preguntas cuando se les ocurran,
+
+00:00:46.200 --> 00:00:49.733
+y haremos lo posible para responder
+al final de la sesión.
+
+00:00:50.253 --> 00:00:54.040
+Utilice el icono de chat para conectarse
+con otros asistentes
+
+00:00:54.106 --> 00:00:57.680
+y esté atento a los mensajes
+de nuestro soporte técnico.
+
+00:00:58.680 --> 00:01:00.946
+Permítanme presentarles a Kevin.
+
+00:01:01.946 --> 00:01:04.813
+Kevin es un desarrollador web senior en CodeGeek
+
+00:01:04.866 --> 00:01:08.480
+donde en los últimos cinco años ha creado
+
+00:01:08.546 --> 00:01:11.240
+experiencias digitales accesibles y fáciles de usar.
+
+00:01:11.440 --> 00:01:14.266
+Especializado en accesibilidad web,
+Kevin garantiza
+
+00:01:14.306 --> 00:01:18.746
+que los sitios web y las aplicaciones
+estén diseñados para personas con todo tipo de capacidades,
+
+00:01:19.173 --> 00:01:21.906
+beneficiando a una gran variedad de clientes
+
+00:01:22.040 --> 00:01:25.720
+desde empresas locales
+hasta corporaciones internacionales.
+
+00:01:26.720 --> 00:01:29.400
+Antes de unirme a CodeGeek,
+
+00:01:29.533 --> 00:01:32.706
+Kevin pasó un tiempo
+como instructor adjunto
+
+00:01:33.066 --> 00:01:36.173
+de desarrollo web
+y sistemas informáticos
+
+00:01:36.213 --> 00:01:38.026
+en el colegio comunitario local.
+
+00:01:38.346 --> 00:01:41.666
+También tuvo una carrera previa
+en ingeniería de hardware,
+
+00:01:41.866 --> 00:01:46.000
+diseñando procesadores CPU y GPU para AMD,
+
+00:01:46.560 --> 00:01:49.133
+HP y National Semiconductor.
+
+00:01:49.586 --> 00:01:51.426
+Además de su trabajo profesional,
+
+00:01:51.720 --> 00:01:54.986
+Kevin también es un emprendedor
+que diseña, construye,
+
+00:01:55.040 --> 00:01:59.560
+y dirigiendo The Markey Escape Rooms
+en Fort Collins, Colorado,
+
+00:01:59.666 --> 00:02:00.760
+con su familia.
+
+00:02:01.573 --> 00:02:03.400
+Kevin, ¿listo para comenzar?
+
+00:02:04.626 --> 00:02:05.880
+Kevin Sholander: Claro que sí.
+
+00:02:05.960 --> 00:02:07.946
+Voy a compartir mi pantalla.
+
+00:02:10.080 --> 00:02:13.426
+Gracias, Jessica,
+por esa amable presentación.
+
+00:02:16.333 --> 00:02:20.413
+Como dijo Jessica, soy Kevin Sholander,
+
+00:02:20.480 --> 00:02:22.506
+y vamos a pasar los próximos 50 minutos
+
+00:02:22.520 --> 00:02:26.253
+hablando cómo desarrollar
+bloques accesibles en Gutenberg.
+
+00:02:28.613 --> 00:02:33.773
+Voy a compartir varios enlaces que espero
+resulten útiles para todos.
+
+00:02:34.560 --> 00:02:38.253
+Hay sitios que tengo marcados como favoritos
+y que consulto diario
+
+00:02:38.346 --> 00:02:41.853
+y que están incluidos en la sección de
+recursos de este documento.
+
+00:02:41.866 --> 00:02:45.613
+Si aún no has tenido la oportunidad de revisar
+el documento
+
+00:02:45.653 --> 00:02:46.946
+con las diapositivas,
+
+00:02:47.013 --> 00:02:51.626
+Puedes descargarlo desde la
+página del programa del Día de la Accesibilidad de WordPress
+
+00:02:51.680 --> 00:02:54.280
+o usando el código QR que aparece aquí.
+
+00:02:55.800 --> 00:02:57.573
+Antes de empezar,
+
+00:02:57.613 --> 00:03:01.960
+quiero mencionar
+una sesión anterior que vi hoy y que,
+
+00:03:02.186 --> 00:03:04.280
+si no la alcanzaron a ver,
+
+00:03:04.573 --> 00:03:08.653
+fue una excelente presentación de Natalie MacLees
+
+00:03:08.706 --> 00:03:12.893
+sobre los desafíos de accesibilidad
+con aplicaciones de una sola página,
+
+00:03:13.226 --> 00:03:15.786
+que personalmente me pareció
+muy interesante.
+
+00:03:15.826 --> 00:03:18.293
+Si les interesa el tema de esta charla
+
+00:03:18.520 --> 00:03:21.120
+y no vieron la suya,
+
+00:03:21.573 --> 00:03:24.173
+solo puedo aspirar a presentar tan bien como ella.
+
+00:03:25.386 --> 00:03:27.680
+Cuando la grabación esté disponible, no se la pierdan.
+
+00:03:30.333 --> 00:03:32.080
+Jessica ya contó todo sobre mí,
+
+00:03:32.106 --> 00:03:36.186
+así que voy a saltarme esa parte
+para que podamos empezar.
+
+00:03:37.866 --> 00:03:41.586
+Esta presentación está diseñada
+para desarrolladores web
+
+00:03:42.613 --> 00:03:46.560
+que crean temas o plugins
+personalizados en WordPress.
+
+00:03:48.546 --> 00:03:51.960
+Asumo que vengas
+a esta presentación
+
+00:03:52.013 --> 00:03:56.413
+con algunos conocimientos de HTML, PHP,
+CSS, JavaScript,
+
+00:03:56.920 --> 00:03:59.026
+los componentes básicos de la web.
+
+00:04:01.693 --> 00:04:05.800
+Si estás aquí solo porque quieres ver
+cómo se combinan las cosas,
+
+00:04:05.840 --> 00:04:06.746
+también está bien.
+
+00:04:07.720 --> 00:04:12.760
+Quizás vas a estar inundado de información.
+
+00:04:13.786 --> 00:04:20.466
+Estoy intentando hacer
+una presentación más avanzada
+
+00:04:20.533 --> 00:04:24.800
+para que cualquier desarrollador
+que haya estado sentado
+
+00:04:24.840 --> 00:04:26.893
+en otras sesiones de hoy
+y diciendo,
+
+00:04:26.933 --> 00:04:29.613
+"Esto está muy bien,
+es información interesante,
+
+00:04:29.630 --> 00:04:31.240
+pero ¿cómo lo aplico realmente?"
+
+00:04:31.720 --> 00:04:34.413
+De eso se trata esta presentación.
+
+00:04:34.853 --> 00:04:36.906
+Hacia el final de esta presentación,
+
+00:04:36.933 --> 00:04:42.146
+espero poder ofrecer algunas demostraciones sobre pruebas con teclado
+y lectores de pantalla.
+
+00:04:42.800 --> 00:04:47.440
+Esto te dará algunas habilidades
+útiles para probar sus propios sitios.
+
+00:04:50.053 --> 00:04:51.280
+Antes de empezar,
+
+00:04:51.320 --> 00:04:55.346
+quiero decir lo que significa la accesibilidad para mí
+como desarrollador.
+
+00:04:55.853 --> 00:04:59.280
+Probablemente cada quien tenga una visión
+un poco distinta.
+
+00:05:00.040 --> 00:05:03.506
+Para mí,
+la accesibilidad significa que el código
+
+00:05:03.520 --> 00:05:06.133
+que desarrollo ofrezca
+un conjunto consistente
+
+00:05:06.333 --> 00:05:09.040
+y conforme de comportamientos y
+estructuras
+
+00:05:09.573 --> 00:05:11.746
+para que los usuarios puedan experimentar
+
+00:05:12.160 --> 00:05:14.613
+e interactuar con los sitios que construyo
+
+00:05:14.866 --> 00:05:17.493
+usando la tecnología que mejor
+les funcione.
+
+00:05:19.560 --> 00:05:22.586
+Deliberadamente dejo fuera cosas
+como los lectores de pantalla
+
+00:05:22.653 --> 00:05:25.093
+y navegación con el teclado.
+
+00:05:25.120 --> 00:05:27.800
+Eso no es lo que quiero decir con accesibilidad.
+
+00:05:28.080 --> 00:05:33.026
+Lo que espero es que, cuando diseño un sitio,
+sea responsivo.
+
+00:05:33.066 --> 00:05:35.413
+Que funciona bien en todos los dispositivos.
+
+00:05:35.800 --> 00:05:38.893
+Si accede al sitio desde
+un dispositivo móvil
+
+00:05:38.946 --> 00:05:41.266
+o una computadora portátil o de escritorio,
+
+00:05:41.506 --> 00:05:45.626
+tendrás una experiencia positiva
+
+00:05:45.706 --> 00:05:49.120
+y obtengas la información
+que buscas.
+
+00:05:49.546 --> 00:05:53.373
+Si usas un lector de pantalla o un teclado,
+
+00:05:54.093 --> 00:05:55.680
+espero lo mismo.
+
+00:05:56.680 --> 00:06:01.000
+La accesibilidad abarca
+todas las tecnologías disponibles
+
+00:06:01.386 --> 00:06:05.026
+para acceder, leer e interactuar
+con los sitios web.
+
+00:06:05.320 --> 00:06:07.600
+Usamos herramientas como BrowserStack
+
+00:06:11.080 --> 00:06:13.706
+y lectores de pantalla como VoiceOver
+
+00:06:13.760 --> 00:06:18.866
+y otros, para probar que todo
+el código personalizado
+
+00:06:18.893 --> 00:06:23.946
+que construimos sea realmente accesible
+para el máximo número de usuarios.
+
+00:06:27.426 --> 00:06:28.840
+En esta presentación,
+
+00:06:28.906 --> 00:06:31.293
+Vamos a ver
+un bloque de Gutenberg en particular
+
+00:06:31.346 --> 00:06:35.146
+que armé y cuyo código
+está disponible para todos
+
+00:06:35.920 --> 00:06:38.520
+en GitHub,
+o pueden descargar el archivo zip
+
+00:06:38.573 --> 00:06:45.266
+desde los detalles del Día de la Accesibilidad de WordPress
+para esta presentación.
+
+00:06:47.760 --> 00:06:53.293
+El bloque de Gutenberg que elegí
+implementar es un botón con un pop-up.
+
+00:06:53.706 --> 00:06:54.520
+Muy sencillo.
+
+00:06:54.573 --> 00:06:56.560
+Haces clic en el botón, el pop-up se abre.
+
+00:06:58.733 --> 00:07:02.826
+En este punto, vamos a dejar
+las diapositivas atrás y empezar a ver
+
+00:07:05.040 --> 00:07:08.053
+qué es lo que estamos construyendo y algo de código.
+
+00:07:09.746 --> 00:07:16.520
+Comenzaré mostrándoles
+un ejemplo de uso de este botón:
+
+00:07:17.106 --> 00:07:18.106
+este “Contáctanos”.
+
+00:07:18.173 --> 00:07:20.653
+Haces clic y se abre un formulario de contacto.
+
+00:07:20.786 --> 00:07:22.066
+Puedes completar la información.
+
+00:07:22.106 --> 00:07:23.293
+Puedes hacer clic para enviar.
+
+00:07:23.346 --> 00:07:26.680
+Y hay un botón para cerrarlo
+y volver a abrirlo.
+
+00:07:30.786 --> 00:07:34.386
+En el back-end,
+lo que vemos es que es un bloque de Gutenberg.
+
+00:07:34.453 --> 00:07:39.426
+Podemos ir al editor de páginas
+y agregar el bloque ahí.
+
+00:07:39.520 --> 00:07:45.466
+Si quiero agregar una nueva versión de esto,
+
+00:07:45.906 --> 00:07:47.746
+puedo seleccionarlo de la lista.
+
+00:07:48.400 --> 00:07:49.533
+Pop-up accesible.
+
+00:07:50.120 --> 00:07:52.240
+Puedes ver que hay un botón en blanco.
+
+00:07:54.893 --> 00:07:57.906
+El pop-up vacío aparece
+automáticamente ahí
+
+00:07:57.946 --> 00:07:59.866
+cuando agregas el bloque.
+
+00:08:00.133 --> 00:08:05.626
+Luego hay algunos campos ACF que se pueden
+completar aquí para agregar la etiqueta del botón.
+
+00:08:06.333 --> 00:08:09.253
+Lo que queramos poner aquí,
+simplemente usaremos la etiqueta del botón.
+
+00:08:13.160 --> 00:08:16.546
+Después necesitamos un nuevo pop-up por defecto.
+
+00:08:17.946 --> 00:08:18.573
+Listo.
+
+00:08:19.160 --> 00:08:22.506
+Eso agregará un título a mi pop-up cuando se abra.
+
+00:08:23.373 --> 00:08:26.920
+Y como es Gutenberg
+y trabajamos en bloques,
+
+00:08:26.973 --> 00:08:31.040
+podemos añadir bloques
+dentro de nuestro pop-up para agregar contenido.
+
+00:08:31.613 --> 00:08:34.853
+Digamos que quiero poner un párrafo
+aquí que diga:
+
+00:08:35.186 --> 00:08:40.400
+Por favor, complete el formulario a continuación
+
+00:08:41.333 --> 00:08:44.080
+Puedo poner lo que quiera aquí.
+No importa.
+
+00:08:45.800 --> 00:08:47.480
+Puedo añadir otros bloques aquí.
+
+00:08:47.533 --> 00:08:52.693
+Si quiero agregar un bloque de formulario,
+puedo seleccionar el formulario de contacto.
+
+00:08:53.570 --> 00:08:54.160
+Ahí está.
+
+00:08:54.213 --> 00:08:57.293
+Creé un pop-up
+que contiene un formulario de contacto.
+
+00:08:59.146 --> 00:09:03.240
+He añadido un par de funciones
+que están disponibles en el editor Gutenberg
+
+00:09:05.413 --> 00:09:06.586
+en la pestaña Avanzado.
+
+00:09:06.613 --> 00:09:11.946
+He habilitado la opción de añadir una ancla personalizada
+o clases CSS adicionales.
+
+00:09:12.800 --> 00:09:15.240
+Les mostraré en un momento
+de dónde viene eso.
+
+00:09:15.520 --> 00:09:20.733
+También agregué
+el mínimo de estilos necesarios
+
+00:09:20.773 --> 00:09:25.840
+para poder dar un ejemplo de cómo
+hacerlo sin complicar demasiado el código.
+
+00:09:26.186 --> 00:09:32.173
+Veamos si puedo agregar algo
+de padding-top y padding-bottom
+
+00:09:32.226 --> 00:09:38.106
+y también a los lados
+para que mi bloque
+
+00:09:38.133 --> 00:09:40.480
+se vea como quiero que se vea
+en el front-end.
+
+00:09:42.200 --> 00:09:44.346
+Haga clic en Guardar. Puedo volver a la página.
+
+00:09:44.560 --> 00:09:45.266
+La cargo.
+
+00:09:51.493 --> 00:09:53.426
+De hecho, agregué extras.
+
+00:09:53.613 --> 00:09:55.200
+Aquí está mi hermoso pop-up.
+
+00:09:57.200 --> 00:10:01.480
+Por favor complete el formulario a continuación
+y podrá ver el padding y demás información que aparece allí.
+
+00:10:03.586 --> 00:10:05.626
+Voy a eliminar los que me equivoqué.
+
+00:10:06.680 --> 00:10:07.520
+Vamos a borrar eso.
+
+00:10:08.946 --> 00:10:12.280
+También quitaremos ese.
+Era una práctica de antes.
+
+00:10:14.760 --> 00:10:15.373
+Muy bien.
+
+00:10:16.640 --> 00:10:18.586
+Veamos el código
+que hace esto posible.
+
+00:10:19.040 --> 00:10:23.933
+Cuando descargues el archivo zip,
+encontrarás un archivo README.
+
+00:10:24.026 --> 00:10:28.320
+Ahí hay algunas notas
+sobre consideraciones
+
+00:10:28.373 --> 00:10:31.066
+que tuve en cuenta al crear este bloque.
+
+00:10:31.160 --> 00:10:36.720
+También incluye consideraciones
+de accesibilidad.
+
+00:10:37.560 --> 00:10:40.373
+Cosas que necesitamos asegurar
+que este bloque haga.
+
+00:10:41.546 --> 00:10:45.160
+Veremos cada una de estas funciones
+a medida que avancemos.
+
+00:10:46.173 --> 00:10:49.400
+Y si quieres probar este bloque
+en tu propio tema,
+
+00:10:49.466 --> 00:10:50.680
+o en tu propio plugin,
+
+00:10:51.186 --> 00:10:55.186
+todo lo que tienes que hacer es clonar el repositorio
+en tu tema o plugin,
+
+00:10:55.480 --> 00:11:01.720
+añadir esta línea 'require_once'
+a tu functions.php
+
+00:11:01.773 --> 00:11:03.920
+o al código de tu plugins.php,
+
+00:11:04.333 --> 00:11:08.546
+y luego ya puedes insertar
+el bloque en el editor de páginas.
+
+00:11:09.333 --> 00:11:13.853
+Nota que desarrollé este bloque
+usando el plugin ACF Pro
+
+00:11:14.053 --> 00:11:16.186
+sólo porque lo tengo a mano.
+
+00:11:16.320 --> 00:11:21.293
+Tenemos la licencia aquí y la usamos
+frecuentemente para muchas cosas.
+
+00:11:21.306 --> 00:11:26.506
+Da acceso a los campos ACF
+y demás en el back-end.
+
+00:11:26.853 --> 00:11:33.706
+Si desea desarrollar tus bloques
+con código React nativo,
+
+00:11:34.320 --> 00:11:37.440
+eso no cambiará ninguno de los conceptos
+que vamos a ver aquí.
+
+00:11:38.493 --> 00:11:40.413
+Este bloque requiere ACF Pro,
+
+00:11:40.440 --> 00:11:44.480
+pero sin duda puedes reescribirlo
+en React si lo prefieres.
+
+00:11:46.626 --> 00:11:53.586
+Al ver los archivos individuales,
+WordPress espera un archivo block.json.
+
+00:11:53.666 --> 00:11:58.480
+Este archivo define algunas
+de las propiedades de nuestro bloque.
+
+00:11:58.560 --> 00:12:03.266
+No ofrece mucha funcionalidad,
+pero indica cuál es el nombre del bloque.
+
+00:12:03.613 --> 00:12:06.613
+Tenemos una lista de palabras clave aquí.
+
+00:12:06.640 --> 00:12:11.400
+Este es el ícono que se usará cuando
+trabajes con el bloque en el editor.
+
+00:12:11.893 --> 00:12:16.306
+Una descripción para que la gente sepa
+qué hace.
+
+00:12:17.946 --> 00:12:22.106
+Algunas de esas cosas aparecen aquí
+en el editor de bloques.
+
+00:12:24.013 --> 00:12:28.493
+Solo está ahí para hacer más fácil la vida
+a los autores
+
+00:12:28.533 --> 00:12:30.653
+que van a añadir
+tu bloque a la página.
+
+00:12:32.000 --> 00:12:36.000
+También hay un script que se cargará
+en el front-end.
+
+00:12:36.840 --> 00:12:40.640
+Ten en cuenta que si está escribiendo
+un bloque en React nativo,
+
+00:12:40.700 --> 00:12:43.826
+También tendrás
+un script de back-end que contendrá
+
+00:12:43.880 --> 00:12:47.186
+tu JavaScript de back-end
+que en realidad renderiza el bloque.
+
+00:12:47.893 --> 00:12:51.760
+Aquí he incluido un archivo CSS
+para este pop-up.
+
+00:12:52.386 --> 00:12:55.986
+Debido a que este es un bloque ACF,
+hay una sección ACF aquí
+
+00:12:56.013 --> 00:13:00.733
+que apunta a un archivo PHP
+que actúa como nuestro callback de render.
+
+00:13:01.293 --> 00:13:03.613
+Ese se llamará
+cada vez que se renderice el bloque
+
+00:13:03.653 --> 00:13:05.960
+tanto en el front-end como en el back-end.
+
+00:13:07.253 --> 00:13:10.560
+Luego aquí hay una sección de propiedades.
+
+00:13:10.666 --> 00:13:15.946
+Esto define qué funciones
+del editor Gutenberg queremos usar.
+
+00:13:16.066 --> 00:13:23.586
+Como vimos antes, tenemos el ancla
+y las clases que apoyo.
+
+00:13:23.680 --> 00:13:27.533
+Eso se define
+en estas propiedades de soporte aquí,
+
+00:13:27.546 --> 00:13:29.293
+ancla y nombre de clase personalizado.
+
+00:13:29.453 --> 00:13:31.600
+Luego está el espaciado.
+
+00:13:32.013 --> 00:13:36.493
+Activé el padding
+para que podamos ajustarlo en el back-end.
+
+00:13:38.093 --> 00:13:42.533
+Voy a señalar este extra aquí abajo,
+al final, JSX.
+
+00:13:42.866 --> 00:13:48.480
+Lo establecí como verdadero porque eso permite que
+mi bloque se comporte como un contenedor
+
+00:13:48.586 --> 00:13:51.213
+que puede contener otros bloques.
+
+00:13:51.826 --> 00:13:56.520
+Eso es lo que me da la capacidad de arrastrar
+y soltar cosas
+
+00:13:56.613 --> 00:14:01.253
+dentro de mi bloque
+y agregar más contenido dentro de ese bloque.
+
+00:14:03.613 --> 00:14:09.866
+Pasando al archivo popup.php,
+este es realmente el corazón, la base del bloque.
+
+00:14:09.920 --> 00:14:12.626
+Aquí es donde vive toda la lógica.
+
+00:14:12.880 --> 00:14:14.866
+He creado una clase llamada popup
+
+00:14:15.520 --> 00:14:22.346
+y para no entrar en tecnicismos,
+es una clase singleton,
+
+00:14:22.426 --> 00:14:25.480
+lo que significa que solo va a existir
+una instancia de este popup
+
+00:14:25.533 --> 00:14:31.080
+en cualquier momento durante la ejecución
+de todo el código de WordPress.
+
+00:14:31.160 --> 00:14:34.146
+Sin importar cuántos popups
+haya en una página.
+
+00:14:35.120 --> 00:14:39.000
+Lo controlo creando
+esta función de inicio que dice:
+
+00:14:39.053 --> 00:14:45.360
+Si una instancia de este objeto ya existe,
+entonces solo devuelve esa instancia.
+
+00:14:45.453 --> 00:14:48.000
+De lo contrario, si no existe,
+vamos a crear una nueva.
+
+00:14:48.733 --> 00:14:51.093
+Aquí hay un constructor,
+
+00:14:51.133 --> 00:14:56.533
+y aquí es donde se llama al bloque
+por primera vez.
+
+00:14:57.280 --> 00:15:01.320
+Vamos a informar a WordPress
+
+00:15:01.613 --> 00:15:04.746
+que tenemos un nuevo bloque que estamos creando,
+registrar el tipo de bloque,
+
+00:15:05.040 --> 00:15:08.653
+mira en este directorio,
+encuentra el archivo block.json,
+
+00:15:08.826 --> 00:15:12.813
+y usar eso para poner en cola todos los activos
+necesarios para el bloque.
+
+00:15:13.533 --> 00:15:17.106
+Lo agrega en el back-end en Gutenberg
+
+00:15:17.466 --> 00:15:21.333
+y en general, informa a WordPress
+lo que está pasando.
+
+00:15:22.493 --> 00:15:28.813
+De manera similar, estamos
+haciendo un llamado a ACF para decirles:
+
+00:15:28.920 --> 00:15:33.080
+oye, también tenemos un archivo ACF.json
+en esta carpeta.
+
+00:15:34.360 --> 00:15:37.946
+Cuando ACF arranca y pasa por todas
+sus inicializaciones,
+
+00:15:38.040 --> 00:15:40.906
+por favor, incluya nuestro ACF.json ahí.
+
+00:15:41.133 --> 00:15:45.053
+De esa manera obtendremos los grupos de formularios
+
+00:15:45.293 --> 00:15:50.173
+que aparecen para ingresar las etiquetas
+de botones y título del popup y demás.
+
+00:15:52.493 --> 00:15:55.200
+Hay una función auxiliar
+aquí llamada decodeSpacing
+
+00:15:55.266 --> 00:15:59.880
+que descubrí que necesitaba en algún momento y
+lo reescribí varias veces y luego decidí,
+
+00:15:59.920 --> 00:16:02.666
+oye, va a ser parte de la clase
+y siempre va a vivir aquí.
+
+00:16:04.200 --> 00:16:12.133
+Cuando Gutenberg devuelve la información
+que configuramos para el padding
+
+00:16:12.173 --> 00:16:13.860
+o para otro espaciado,
+
+00:16:15.640 --> 00:16:17.586
+como márgenes o algo así,
+
+00:16:18.173 --> 00:16:26.720
+devuelve un nombre de variable
+o una unidad CSS para la distancia,
+
+00:16:26.773 --> 00:16:31.386
+como 10 píxeles o 3 rems
+o algo así.
+
+00:16:31.560 --> 00:16:36.106
+Esta es solo una función auxiliar rápida
+que analiza lo que se devuelve
+
+00:16:36.146 --> 00:16:39.506
+de Gutenberg y lo convierte
+en algo que puedo usar
+
+00:16:39.720 --> 00:16:42.146
+para añadir estilos a mi bloque.
+
+00:16:44.413 --> 00:16:44.866
+Bien.
+
+00:16:44.906 --> 00:16:51.000
+Aquí, el bloque de display,
+esta es nuestra parte de renderizado del código,
+
+00:16:51.320 --> 00:16:53.386
+y aquí es donde se pone realmente a prueba.
+
+00:16:53.426 --> 00:16:55.080
+Aquí es donde pasa todo.
+
+00:16:56.506 --> 00:17:00.400
+En este bloque de display, esto se llama
+ya sea que estemos renderizando en el front-end
+
+00:17:00.453 --> 00:17:01.546
+o en el back-end.
+
+00:17:03.426 --> 00:17:07.160
+Gutenberg dirá:
+"Oye, necesitamos mostrar este bloque en la página",
+
+00:17:07.240 --> 00:17:10.733
+y nos pasa información
+sobre la configuración
+
+00:17:10.773 --> 00:17:14.160
+que se hizo en Gutenberg,
+parte del contenido.
+
+00:17:14.440 --> 00:17:16.613
+Esta vista previa es útil.
+
+00:17:16.680 --> 00:17:20.226
+Nos dice básicamente
+si estamos en el editor
+
+00:17:20.293 --> 00:17:21.813
+o si estamos en el front-end.
+
+00:17:22.386 --> 00:17:25.333
+Luego hay otra información
+que se transmite aquí.
+
+00:17:25.480 --> 00:17:27.173
+Este bloque no usa todo,
+
+00:17:27.200 --> 00:17:32.400
+pero las listé por si alguien
+quiere meterse
+
+00:17:32.453 --> 00:17:34.106
+y ver qué hay allí.
+
+00:17:35.413 --> 00:17:38.640
+Empiezo analizando
+toda la información del bloque
+
+00:17:38.786 --> 00:17:41.373
+que nos da Gutenberg.
+
+00:17:41.480 --> 00:17:49.586
+Si el autor ha introducido un ancla aquí,
+vamos a usar ese ancla.
+
+00:17:49.640 --> 00:17:51.893
+De lo contrario,
+simplemente generaremos uno único.
+
+00:17:52.840 --> 00:17:57.666
+Toma los nombres de las clases en caso de que hayan escrito
+un nombre de clase en el editor.
+
+00:17:58.040 --> 00:18:03.013
+Vamos a pedirle a ACF que nos proporcione
+la etiqueta del botón
+
+00:18:03.040 --> 00:18:09.186
+y el título del pop-up que se pusieron
+cuando se agregó el bloque en Gutenberg.
+
+00:18:09.440 --> 00:18:12.920
+Luego aquí está el código
+que usa decodeSpacing
+
+00:18:12.973 --> 00:18:19.746
+que analiza todos los diferentes espacios
+para padding-left,
+
+00:18:19.853 --> 00:18:21.933
+padding-top, padding-right, padding-bottom.
+
+00:18:23.013 --> 00:18:26.466
+Si tuviera que hacer márgenes,
+se vería idéntico a esto.
+
+00:18:28.000 --> 00:18:28.586
+Bien.
+
+00:18:28.920 --> 00:18:32.466
+Eso es solo contexto.
+Aquí está lo importante.
+
+00:18:32.533 --> 00:18:35.200
+Aquí es donde ocurre la magia.
+
+00:18:37.080 --> 00:18:40.506
+En la web,
+todo nuestro contenido se entrega como HTML.
+
+00:18:41.840 --> 00:18:45.933
+El propósito de todo este código es
+generar HTML
+
+00:18:45.986 --> 00:18:48.400
+y generarlo de forma accesible.
+
+00:18:50.200 --> 00:18:51.506
+Lo más importante,
+
+00:18:51.626 --> 00:18:54.253
+si te llevas una sola cosa
+de esta presentación,
+
+00:18:54.840 --> 00:18:57.080
+es que al escribir HTML,
+
+00:18:57.573 --> 00:19:00.426
+El HTML semántico es la única forma de hacerlo.
+
+00:19:02.666 --> 00:19:05.226
+Si no estás familiarizado con el HTML semántico,
+
+00:19:05.613 --> 00:19:10.720
+lo que eso realmente significa es que HTML nos proporciona
+
+00:19:10.773 --> 00:19:14.360
+un gran vocabulario
+de diferentes elementos,
+
+00:19:14.493 --> 00:19:17.013
+y cada uno tiene un propósito.
+
+00:19:17.720 --> 00:19:21.960
+Si utiliza el elemento correcto
+para su propósito,
+
+00:19:22.506 --> 00:19:27.186
+la mayor parte del trabajo
+de accesibilidad ya estará hecho.
+
+00:19:27.533 --> 00:19:30.400
+El navegador lo hará automáticamente.
+
+00:19:31.640 --> 00:19:35.426
+Por ejemplo, he añadido un botón al sitio,
+
+00:19:35.880 --> 00:19:44.066
+y ese botón recarga
+con solo ese botón ahí.
+
+00:19:45.626 --> 00:19:47.920
+Ese botón es un botón,
+
+00:19:48.200 --> 00:19:52.800
+y seguro que ya te lo han repetido
+varias veces hoy,
+
+00:19:52.840 --> 00:19:54.320
+pero si no, aquí está.
+
+00:19:55.026 --> 00:19:59.853
+Un botón es un elemento que, al hacer clic en él,
+ejecuta una acción.
+
+00:20:00.640 --> 00:20:01.466
+Hace algo.
+
+00:20:01.560 --> 00:20:04.040
+Cambia algún estado en la página.
+
+00:20:04.706 --> 00:20:08.293
+Un enlace es un elemento en la página
+que cuando lo haces clic,
+
+00:20:08.360 --> 00:20:09.680
+te lleva a otro lugar.
+
+00:20:12.573 --> 00:20:17.760
+Este botón,
+no debería, pero podría haber usado,
+
+00:20:17.826 --> 00:20:20.600
+digamos, un elemento div en su lugar aquí.
+
+00:20:23.173 --> 00:20:25.280
+Si lo guardo como un div,
+
+00:20:25.480 --> 00:20:27.760
+verás que aún tenemos la sección “Contáctanos”.
+
+00:20:27.800 --> 00:20:29.066
+Se sigue viendo igual.
+
+00:20:29.120 --> 00:20:31.653
+Aún puedo hacer clic
+y funciona perfectamente,
+
+00:20:32.240 --> 00:20:34.440
+pero no es semánticamente correcto.
+
+00:20:34.506 --> 00:20:35.920
+Es un elemento div,
+
+00:20:36.000 --> 00:20:38.960
+y puede que no lo notes cuando estés haciendo la prueba,
+
+00:20:38.986 --> 00:20:42.240
+pero si hago pruebas con teclado
+y empiezo a tabular,
+
+00:20:42.653 --> 00:20:47.453
+puedes ver que mi estado de enfoque se marca
+con este pequeño cuadro naranja aquí.
+
+00:20:47.613 --> 00:20:49.120
+Cuando tabulo desde aquí,
+
+00:20:49.426 --> 00:20:52.533
+esperaría que se posara
+en el siguiente elemento interactivo,
+
+00:20:52.640 --> 00:20:53.706
+y cuando presiono Tab,
+
+00:20:53.733 --> 00:20:56.480
+me lleva hasta el pie de página
+y se salta el botón.
+
+00:20:57.320 --> 00:20:58.706
+¿Por qué se salta el botón?
+
+00:20:58.880 --> 00:21:01.840
+Bueno, un div no es un elemento interactivo.
+
+00:21:02.106 --> 00:21:06.106
+El navegador no sabe
+qué intentas hacer con ese div,
+
+00:21:06.146 --> 00:21:09.853
+así que quizá pienses,
+
+00:21:09.880 --> 00:21:12.600
+"Bueno, ¿por qué no le agrego un role='button'?"
+
+00:21:12.893 --> 00:21:14.586
+Eso ahora lo haría un botón.
+
+00:21:18.040 --> 00:21:19.053
+Sí y no.
+
+00:21:20.066 --> 00:21:22.466
+Los lectores de pantalla lo anunciarán
+como si fuera un botón,
+
+00:21:22.533 --> 00:21:25.813
+pero aún no puedo tabular hasta él.
+Estoy presionando tab y lo salta.
+
+00:21:26.013 --> 00:21:29.680
+Los botones tienen mucho más que
+solo un rol asignado.
+
+00:21:29.720 --> 00:21:31.413
+Hacen muchas otras cosas,
+
+00:21:31.546 --> 00:21:36.760
+así que luego tendrás que añadir u índice de tabulación
+y otras cosas,
+
+00:21:36.840 --> 00:21:38.920
+y se vuelve muy, muy desordenado
+
+00:21:38.973 --> 00:21:43.880
+cuando empiezas a añadir
+todo este código ARIA a algo,
+
+00:21:44.066 --> 00:21:49.586
+mientras que si solo usas
+el elemento semántico correcto desde el inicio,
+
+00:21:50.026 --> 00:21:53.053
+el navegador
+hace todo ese trabajo por ti.
+
+00:21:54.653 --> 00:21:57.280
+Si eso es todo lo que te queda
+de esta presentación,
+
+00:21:57.560 --> 00:21:59.760
+Sería bastante feliz.
+
+00:22:02.600 --> 00:22:03.200
+Muy bien.
+
+00:22:04.690 --> 00:22:09.786
+En general, al crear bloques en Gutenberg,
+
+00:22:11.000 --> 00:22:13.146
+no vas a tener que usar mucho ARIA
+
+00:22:13.320 --> 00:22:17.573
+a menos que estés construyendo
+algo tipo interfaz interactiva,
+
+00:22:17.693 --> 00:22:19.333
+que es nuestro caso.
+
+00:22:19.360 --> 00:22:21.880
+Quería proponer
+un ejemplo que requiriera
+
+00:22:21.933 --> 00:22:25.653
+al menos un poco de ARIA para que
+puedas ver cómo se hace.
+
+00:22:32.333 --> 00:22:38.533
+En general, nada de ARIA es mejor que ARIA mal usado.
+
+00:22:40.426 --> 00:22:45.493
+Si no estás seguro
+de qué necesitas agregar,
+
+00:22:45.920 --> 00:22:51.053
+si no añades nada,
+no es una mala decisión.
+
+00:22:53.360 --> 00:22:57.640
+Sin embargo, para este botón en particular,
+he agregado bastante ARIA
+
+00:22:57.693 --> 00:23:00.733
+porque quiero decirle a los lectores de pantalla y,
+
+00:23:02.280 --> 00:23:05.853
+a través de ellos, decirle al usuario
+qué es lo que va a hacer este botón,
+
+00:23:05.933 --> 00:23:10.013
+para que tengan una idea antes de hacer clic
+y sepan si quieren hacerlo o no,
+
+00:23:10.093 --> 00:23:12.680
+y qué va a pasar después.
+
+00:23:15.066 --> 00:23:20.066
+Este botón tiene un pop-up que será
+anunciado por el lector de pantalla.
+
+00:23:20.213 --> 00:23:22.306
+Estás en un botón. Tiene un pop-up.
+
+00:23:22.786 --> 00:23:25.053
+El tipo de pop-up es un diálogo.
+
+00:23:25.600 --> 00:23:32.280
+A menudo verás un verdadero puesto ahí,
+
+00:23:32.360 --> 00:23:34.573
+y eso significa que el tipo de pop-up es un menú.
+
+00:23:34.666 --> 00:23:37.226
+Ese es el ajuste por defecto de aria-haspopup.
+
+00:23:37.586 --> 00:23:41.080
+También podrías indicar
+específicamente menú ahí.
+
+00:23:41.613 --> 00:23:44.213
+En este caso, estoy abriendo un diálogo.
+
+00:23:44.280 --> 00:23:47.946
+Me gustaría que se anunciara como un diálogo
+para que el usuario no se sorprenda.
+
+00:23:47.973 --> 00:23:50.826
+Que no espere un menú
+y luego se encuentre un diálogo.
+
+00:23:52.706 --> 00:23:55.853
+Esto es lo que se conoce como un estado.
+
+00:23:56.200 --> 00:24:00.866
+ARIA tiene estados, roles y propiedades.
+
+00:24:01.293 --> 00:24:02.506
+Este es un estado.
+
+00:24:03.333 --> 00:24:06.453
+Lo que les mostré antes, el rol es botón.
+
+00:24:07.120 --> 00:24:11.320
+El rol indica cuál
+es el propósito del elemento.
+
+00:24:13.666 --> 00:24:16.400
+Disculpe, esto es una propiedad, no un estado.
+Entendido.
+
+00:24:18.613 --> 00:24:21.253
+La propiedad es que tiene un pop-up.
+
+00:24:22.066 --> 00:24:26.760
+Un estado es algo que va a cambiar
+a medida que el botón hace su función.
+
+00:24:26.813 --> 00:24:29.546
+Si hace clic en él, el botón puede cambiar de estado.
+
+00:24:30.200 --> 00:24:33.093
+En este caso, aria-expanded es el estado.
+
+00:24:33.453 --> 00:24:39.066
+Eso nos dice si el pop-up del que hablamos
+en la línea anterior,
+
+00:24:39.106 --> 00:24:40.773
+está abierto o cerrado.
+
+00:24:41.160 --> 00:24:45.240
+aria-expanded falsa significa que
+cuando cargamos la página por primera vez,
+
+00:24:45.320 --> 00:24:46.506
+el pop-up no está abierto.
+
+00:24:46.786 --> 00:24:50.346
+Cuando hacemos clic en el botón,
+nos gustaría que ese estado cambie.
+
+00:24:50.880 --> 00:24:53.733
+El navegador no va a
+controlar esos estados por nosotros.
+
+00:24:53.773 --> 00:24:58.813
+Tendremos que escribir algo de JavaScript
+para manejar los estados de ARIA.
+
+00:25:00.200 --> 00:25:03.466
+Hay otra propiedad aquí, aria-controls.
+
+00:25:03.813 --> 00:25:08.000
+Lo que hace es enlazar
+este botón
+
+00:25:08.226 --> 00:25:11.453
+con el diálogo que se está controlando.
+
+00:25:12.426 --> 00:25:13.600
+Es una identificación.
+
+00:25:14.906 --> 00:25:17.053
+Aquí está el ID del pop-up.
+
+00:25:17.306 --> 00:25:18.600
+Cuando se hace clic en este botón,
+
+00:25:18.986 --> 00:25:21.333
+este es el elemento que se está controlando.
+
+00:25:21.693 --> 00:25:25.240
+Si tienes un menú que es una lista desordenada,
+
+00:25:25.340 --> 00:25:29.893
+aria-controls lo enlazaría con esa lista.
+
+00:25:31.986 --> 00:25:36.080
+Pasando al diálogo en sí,
+cuando abrimos el diálogo,
+
+00:25:36.960 --> 00:25:40.120
+Hay mucha información ahí
+
+00:25:40.173 --> 00:25:45.693
+con la que nos gustaría que el lector de pantalla
+nos ayude.
+
+00:25:46.400 --> 00:25:49.226
+Una es que este diálogo necesita una etiqueta.
+
+00:25:50.293 --> 00:25:54.453
+La etiqueta que le hemos puesto es "Contáctanos".
+
+00:25:55.586 --> 00:26:00.040
+Lo agregué como elemento H2 aquí abajo
+y lo llamé título.
+
+00:26:00.826 --> 00:26:05.546
+Usé el campo de ACF que proporcionó el usuario.
+
+00:26:06.533 --> 00:26:10.573
+Lo completaron y dijeron que
+el título del pop-up sería "Contáctenos".
+
+00:26:12.906 --> 00:26:15.240
+Y sí, cuando lo abrimos,
+
+00:26:15.293 --> 00:26:19.226
+podemos ver que hay un H2 allí
+que dice contáctenos.
+
+00:26:20.493 --> 00:26:25.120
+El ID está conectado al diálogo
+usando aria-labelledby.
+
+00:26:25.520 --> 00:26:28.346
+aria-labelledby es parecido a aria-label,
+
+00:26:28.373 --> 00:26:33.053
+pero significa que la etiqueta
+viene de otro elemento en la página.
+
+00:26:33.360 --> 00:26:42.080
+Cada vez que abras este elemento,
+ve y consulta el otro elemento
+
+00:26:42.133 --> 00:26:45.040
+y le dirá al usuario qué es lo
+que está sucediendo aquí.
+
+00:26:48.080 --> 00:26:50.986
+Dentro de este bloque de display, cuando lo llamamos,
+
+00:26:51.053 --> 00:26:55.426
+una de las cosas que mencioné
+antes es que esta es una vista previa
+
+00:26:55.493 --> 00:26:59.000
+para saber si estamos en el editor
+o en el front-end.
+
+00:26:59.906 --> 00:27:04.160
+Lo que estoy haciendo en este bloque es que
+si estamos en el editor,
+
+00:27:04.253 --> 00:27:10.226
+le pongo "abierto" como verdadero al diálogo,
+para que ya esté abierto
+
+00:27:10.253 --> 00:27:11.520
+y podemos agregarle cosas.
+
+00:27:11.720 --> 00:27:14.106
+Cuando construí el bloque por primera vez
+no tenía eso,
+
+00:27:14.573 --> 00:27:18.506
+no tenía un diálogo visible porque
+tendría que hacer clic al botón de Contáctenos,
+
+00:27:18.533 --> 00:27:21.093
+pero como no había metido el JavaScript
+en el back-end,
+
+00:27:21.120 --> 00:27:24.280
+y tampoco quería que
+mi JavaScript estuviera en cola en el back-end,
+
+00:27:25.586 --> 00:27:27.426
+No pudía entrar ahí.
+
+00:27:27.946 --> 00:27:32.853
+Tener acceso a esta vista previa
+nos da la posibilidad de presentar
+
+00:27:33.013 --> 00:27:38.160
+una vista diferente de nuestro bloque en el editor
+de la que tendremos en el front-end.
+
+00:27:40.680 --> 00:27:43.080
+El bloque contiene un botón de cerrar,
+
+00:27:43.346 --> 00:27:46.626
+y todos sabemos que es botón de cerrar
+porque tiene una X negra,
+
+00:27:46.706 --> 00:27:48.620
+y todos estamos acostumbrados a ver eso.
+
+00:27:48.973 --> 00:27:50.920
+Sin embargo, si estás usando un lector de pantalla,
+
+00:27:51.040 --> 00:27:57.026
+esa X negra es en realidad un SVG que consiste simplemente en
+un conjunto de polígonos y puntos.
+
+00:27:57.573 --> 00:28:00.493
+Por eso le puse aria-hidden
+
+00:28:00.546 --> 00:28:04.226
+para que los lectores de pantalla
+lo ignoren.
+
+00:28:05.013 --> 00:28:08.120
+Eso significa que este botón no tiene contenido.
+
+00:28:08.506 --> 00:28:12.773
+Un botón sin contenido necesita
+una etiqueta para que
+
+00:28:12.813 --> 00:28:16.600
+los lectores de pantalla entiendan
+qué es ese botón.
+
+00:28:19.200 --> 00:28:23.413
+Cuando el botón recibe enfoque,
+debe anunciarse como “Cerrar pop-up”
+
+00:28:25.280 --> 00:28:27.866
+gracias al aria-label que le añadí.
+
+00:28:28.986 --> 00:28:35.013
+Una ventaja de usar el elemento diálogo en HTML,
+
+00:28:35.300 --> 00:28:41.186
+volviendo a lo de HTML semántico,
+los diálogos aportan muchas funciones listas
+
+00:28:41.226 --> 00:28:45.973
+que evitan que tengamos que escribir
+tanto JavaScript.
+
+00:28:46.226 --> 00:28:49.000
+Una de las cosas
+que podemos hacer dentro del diálogo
+
+00:28:49.066 --> 00:28:53.080
+es agregar la propiedad de enfoque automático a un elemento.
+
+00:28:53.240 --> 00:28:55.280
+Cada vez que se abre el pop-up,
+
+00:28:55.613 --> 00:28:58.093
+ese elemento recibe enfoque de inmediato.
+
+00:28:58.160 --> 00:29:00.586
+En este caso, cuando se abre el pop-up,
+
+00:29:00.906 --> 00:29:09.133
+verás que automáticamente se enfoca
+en el botón de cerrar.
+
+00:29:09.413 --> 00:29:11.906
+Cuando lo cierro, el diálogo,
+
+00:29:12.186 --> 00:29:16.106
+como el navegador sabe qué es un diálogo
+y sabe qué botón se hizo clic para abrirlo,
+
+00:29:16.133 --> 00:29:19.106
+va a enfocar automáticamente de nuevo
+en el botón
+
+00:29:19.293 --> 00:29:22.546
+que usamos para abrir el elemento.
+
+00:29:23.466 --> 00:29:25.160
+Eso nos ahorra un montón de trabajo.
+
+00:29:25.493 --> 00:29:29.440
+Al principio yo había hecho esta presentación usando
+un div para el diálogo
+
+00:29:29.546 --> 00:29:33.586
+porque no sabía que existía ese diálogo
+hasta que alguien lo señaló,
+
+00:29:33.746 --> 00:29:35.693
+¿Por qué no usas simplemente el elemento de diálogo?
+
+00:29:39.120 --> 00:29:39.946
+Lo miré.
+
+00:29:41.213 --> 00:29:44.186
+Y pude eliminar aproximadamente dos tercios
+de mi JavaScript
+
+00:29:44.200 --> 00:29:47.746
+que manejaba el enfoque
+y las pulsaciones del teclado y demás
+
+00:29:47.800 --> 00:29:53.053
+el resultado fue
+una implementación mucho más simple
+
+00:29:53.160 --> 00:29:57.386
+y mucho más fácil de construir y usar.
+
+00:30:01.410 --> 00:30:03.253
+Rápido, yendo al final,
+
+00:30:03.280 --> 00:30:05.900
+solo quiero señalar que
+estos bloques internos aquí abajo son
+
+00:30:05.933 --> 00:30:09.826
+una función específica de Gutenberg
+que nos permite,
+
+00:30:10.253 --> 00:30:11.986
+dondequiera que pongamos los bloques internos,
+
+00:30:12.026 --> 00:30:16.626
+ahí es donde
+se nos mostrará el contenido del bloque de Gutenberg
+
+00:30:17.040 --> 00:30:18.786
+cuando renderizamos este bloque.
+
+00:30:19.866 --> 00:30:21.506
+Estos son todos los bloques de nuestros hijos.
+
+00:30:21.546 --> 00:30:23.760
+El formulario, el párrafo
+
+00:30:23.800 --> 00:30:28.533
+y demás cosas
+se insertan en eses bloques internos
+
+00:30:28.933 --> 00:30:33.613
+cuando Gutenberg recorre la jerarquía
+de bloques que está renderizando.
+
+00:30:36.360 --> 00:30:36.853
+Bien.
+
+00:30:36.893 --> 00:30:40.800
+Eso fue mucha información
+y vamos avanzando rápido.
+
+00:30:42.760 --> 00:30:43.560
+Veamos.
+
+00:30:43.786 --> 00:30:47.626
+Aquí está el callback de renderizado
+que registramos en nuestro block.json.
+
+00:30:47.666 --> 00:30:50.893
+Lo único que hace es ejecutar ese bloque de display.
+
+00:30:51.840 --> 00:30:54.426
+ACF quiere ver un solo archivo.
+
+00:30:55.106 --> 00:30:58.826
+Ese es el callback. No quería pasar
+toda la clase aquí
+
+00:30:58.853 --> 00:31:02.253
+porque hacía las cosas más complejas.
+
+00:31:02.480 --> 00:31:04.733
+Lo único que hago es llamar a ese bloque de display.
+
+00:31:06.280 --> 00:31:08.453
+El código JavaScript que viene con esto.
+
+00:31:09.560 --> 00:31:11.186
+Es muy simple porque,
+
+00:31:11.453 --> 00:31:14.893
+otra vez, el elemento diálogo hace la mayor parte
+del trabajo por nosotros.
+
+00:31:15.253 --> 00:31:21.240
+Aquí, al final, tenemos un par
+de event listeners rápidos,
+
+00:31:21.560 --> 00:31:24.413
+uno que abre nuestro pop-up y otro que lo cierra.
+
+00:31:24.826 --> 00:31:27.053
+Estamos permitiendo múltiples pop-ups en la página,
+
+00:31:27.080 --> 00:31:31.493
+así que podemos recorrer todos los que
+encontremos y agregarles ese listener.
+
+00:31:32.480 --> 00:31:34.400
+¿Qué significa abrir el pop-up?
+
+00:31:36.240 --> 00:31:39.173
+Pues, vamos a usar ese atributo
+que configuramos antes
+
+00:31:40.000 --> 00:31:43.333
+para saber qué controla este botón,
+
+00:31:44.506 --> 00:31:46.560
+encontrar el elemento que se está controlando,
+
+00:31:46.760 --> 00:31:53.546
+y luego usar la función "show modal",
+que está integrada en el navegador.
+
+00:31:53.600 --> 00:31:55.786
+Es parte del elemento de diálogo.
+
+00:31:56.573 --> 00:31:58.893
+Puedes usar show o showModal.
+
+00:31:58.973 --> 00:32:03.893
+Si usas showModal,
+atrapa el enfoque dentro de ese cuadro
+
+00:32:04.026 --> 00:32:08.333
+y pone en gris el fondo de la pantalla.
+
+00:32:11.880 --> 00:32:13.546
+Nosotros la estamos abriendo libremente.
+
+00:32:14.320 --> 00:32:19.173
+Vamos a gestionar nuestro estado
+poniendo aria-expanded como verdadera
+
+00:32:19.200 --> 00:32:21.893
+para que los lectores de pantalla sepan
+que ahora este elemento
+
+00:32:21.920 --> 00:32:25.093
+que antes dijimos que estaba cerrado,
+ahora está abierto.
+
+00:32:25.586 --> 00:32:32.493
+Voy a agregar rápidamente
+una clase HasModalOpen al elemento HTML
+
+00:32:32.773 --> 00:32:39.080
+ya que WordPress ha definido esto como
+un estándar HasModalOpen
+
+00:32:39.160 --> 00:32:40.560
+cada vez que se abre un modal.
+
+00:32:40.853 --> 00:32:43.866
+Evita el desplazamiento
+de la página debajo.
+
+00:32:45.000 --> 00:32:48.613
+Sin eso, puedes abrir el modal
+pero aún así desplazarte por la página.
+
+00:32:48.653 --> 00:32:49.293
+No quiero eso.
+
+00:32:50.066 --> 00:32:52.066
+Me parece un mal comportamiento.
+
+00:32:53.266 --> 00:32:57.280
+Cerrar el pop-up es básicamente
+
+00:32:57.493 --> 00:33:00.240
+lo contrario de lo que hicimos cuando lo abrimos.
+
+00:33:01.946 --> 00:33:03.680
+Al hacer clic en el botón cerrar,
+
+00:33:03.693 --> 00:33:08.160
+va a encontrar el pop-up
+en el que vive ese botón de cerrar.
+
+00:33:08.826 --> 00:33:13.613
+Va a llamar a la función
+de cierre del navegador para el diálogo.
+
+00:33:14.733 --> 00:33:21.400
+Luego, va a averiguar
+qué botón se usa para abrirlo,
+
+00:33:21.440 --> 00:33:24.973
+ir a buscar ese botón,
+y cambiar aria-expanded a falso.
+
+00:33:25.120 --> 00:33:27.373
+Luego va a quitar HasModalOpen.
+
+00:33:30.413 --> 00:33:32.520
+Si abro el inspector en esto,
+
+00:33:34.746 --> 00:33:35.826
+aquí está el botón.
+
+00:33:35.986 --> 00:33:39.560
+Verás que cuando hago clic en él, los estados cambian.
+
+00:33:39.626 --> 00:33:41.920
+Puedes ver que aria-expanded pasa a ser verdadera.
+
+00:33:43.573 --> 00:33:49.066
+El elemento de diálogo en sí obtiene
+el atributo abierto que
+
+00:33:49.466 --> 00:33:52.133
+el navegador gestiona por mí.
+
+00:33:52.933 --> 00:33:54.253
+Yo no hice eso.
+
+00:33:54.333 --> 00:33:55.693
+Nuestro código no hace eso.
+
+00:33:55.733 --> 00:33:58.453
+Simplemente llamamos a showModal
+y esto aparece.
+
+00:33:58.666 --> 00:34:00.306
+Luego, cuando hago clic en cerrar,
+
+00:34:01.613 --> 00:34:06.320
+puedes ver que el atributo abierto se eliminó
+aquí y aria-expanded pasó a ser falsa.
+
+00:34:09.466 --> 00:34:09.986
+Bien.
+
+00:34:10.040 --> 00:34:12.920
+Luego hay un CSS que controla esto.
+
+00:34:12.973 --> 00:34:15.600
+No voy a profundizar mucho en el CSS
+
+00:34:16.600 --> 00:34:20.106
+aparte de una práctica recomendada que utilizo
+
+00:34:20.426 --> 00:34:24.626
+cuando puedo, uso esos atributos de ARIA
+
+00:34:24.853 --> 00:34:29.320
+para controlar la visibilidad
+y el estilo de las cosas.
+
+00:34:29.786 --> 00:34:32.306
+Eso me da una respuesta rápida
+
+00:34:32.386 --> 00:34:37.440
+si mi ARIA no funciona correctamente
+
+00:34:37.493 --> 00:34:41.933
+y mi aria-expanded verdadera
+no se aplica a algo,
+
+00:34:42.053 --> 00:34:43.520
+eso no va a aparecer.
+
+00:34:43.613 --> 00:34:48.106
+Sabré que está roto sin siquiera
+tener que abrir un lector de pantalla.
+
+00:34:48.133 --> 00:34:49.773
+o hacer cualquier otra cosa para probarlo.
+
+00:34:52.320 --> 00:34:52.986
+Bien.
+
+00:34:54.586 --> 00:34:55.746
+Ese es el código.
+
+00:34:56.746 --> 00:34:58.413
+Todo el mundo tiene acceso a eso.
+
+00:34:58.480 --> 00:35:00.826
+Úsalo con confianza. Pruébalo.
+
+00:35:00.906 --> 00:35:02.626
+Pruébelo en tus propios entornos.
+
+00:35:03.920 --> 00:35:05.453
+¿Cómo nos aseguramos de que funcione?
+
+00:35:07.453 --> 00:35:13.146
+Aquí en CodeGeek, tenemos varias etapas
+de desarrollo.
+
+00:35:13.280 --> 00:35:14.853
+Hacemos cosas diferentes.
+
+00:35:14.920 --> 00:35:22.440
+Utilizamos verificadores automáticos de conformidad
+que ejecutan pruebas en el sitio.
+
+00:35:22.920 --> 00:35:30.960
+Nos informan sobre problemas como
+contraste de color deficiente o etiquetas que faltan.
+
+00:35:31.146 --> 00:35:35.093
+Nos dice si nuestros botones son demasiado pequeños,
+así como los objetivos táctiles.
+
+00:35:35.213 --> 00:35:37.040
+Hay muchas cosas que se revisan allí.
+
+00:35:39.066 --> 00:35:42.800
+Hacemos pruebas con teclado
+y luego con el lector de pantalla.
+
+00:35:43.013 --> 00:35:47.600
+Ambas son manuales y requieren
+que una persona real se siente
+
+00:35:47.653 --> 00:35:50.920
+y realmente intente usar el sitio.
+
+00:35:52.133 --> 00:35:56.880
+Para la verificación automática de conformidad,
+Lighthouse es una excelente opción,
+
+00:35:58.160 --> 00:36:04.253
+supongo que la mayoría de la gente ya ha tenido
+al menos algo de contacto con Lighthouse,
+
+00:36:04.680 --> 00:36:09.480
+pero normalmente lo ejecuto en una ventana de incógnito.
+
+00:36:09.826 --> 00:36:13.080
+Puedes abrir el inspector y
+ir a la pestaña Lighthouse.
+
+00:36:13.426 --> 00:36:16.373
+Aquí hay una casilla de accesibilidad.
+
+00:36:16.773 --> 00:36:21.453
+Tarda entre 15 y 30 segundos
+en analizar una sola página,
+
+00:36:21.520 --> 00:36:26.293
+y te da retroalimentación instantánea sobre:
+​​¿Estoy haciendo un buen trabajo?
+
+00:36:29.106 --> 00:36:34.546
+Algo que me gusta de Lighthouse
+es que no solo te dice lo que probó,
+
+00:36:34.586 --> 00:36:37.106
+también te dice lo que no probó
+
+00:36:37.186 --> 00:36:41.520
+y cosas que tú, como desarrollador
+de esta página o de este bloque,
+
+00:36:41.920 --> 00:36:43.986
+ahora tienes que revisar y asegurarte de que
+
+00:36:44.240 --> 00:36:46.960
+tus controles interactivos se puedan
+enfocar con el teclado.
+
+00:36:47.493 --> 00:36:49.346
+Lo haremos en un momento.
+
+00:36:49.706 --> 00:36:53.733
+Que tus elementos indiquen su propósito
+y su estado
+
+00:36:53.786 --> 00:36:57.960
+y todas esas otras cosas
+que no son fáciles de comprobar
+
+00:36:58.053 --> 00:36:59.306
+por un verificador automático.
+
+00:37:01.413 --> 00:37:03.520
+Lo abordaremos en un momento.
+
+00:37:04.586 --> 00:37:05.840
+Cuando lanzamos nuestros sitios,
+
+00:37:05.880 --> 00:37:09.506
+quiero mencionar a Equalize Digital.
+
+00:37:09.520 --> 00:37:12.586
+Tienen un excelente producto
+que usamos en muchos de nuestros sitios,
+
+00:37:12.626 --> 00:37:14.653
+que hace monitoreo continuo
+
+00:37:15.626 --> 00:37:20.613
+y realizar un seguimiento
+de nuestras auditorías de accesibilidad a lo largo del tiempo,
+
+00:37:20.640 --> 00:37:23.240
+para que podamos ver cómo han progresado las cosas
+
+00:37:23.320 --> 00:37:27.146
+y si el contenido agregado
+este mes ha roto algo.
+
+00:37:31.386 --> 00:37:31.853
+Veamos,
+
+00:37:31.893 --> 00:37:40.733
+Personalmente uso la herramienta de integración
+continua Pa11y CI que encontré en NPM.
+
+00:37:41.200 --> 00:37:45.800
+Es un gran paquete que,
+en mi entorno de desarrollo,
+
+00:37:45.853 --> 00:37:49.440
+he creado un script que ejecutan
+esta herramienta
+
+00:37:49.493 --> 00:37:53.280
+y recorrerá todo el sitio,
+todas las páginas de mi sitio,
+
+00:37:53.586 --> 00:37:56.906
+y cada vez que hago un cambio local,
+puedo ejecutar esta prueba.
+
+00:37:58.546 --> 00:38:05.093
+Lo ejecuté hace un rato
+y produce una salida HTML.
+
+00:38:05.320 --> 00:38:10.933
+Hice un cambio para eliminar la etiqueta ARIA
+de mi botón y lo encontró de inmediato.
+
+00:38:11.066 --> 00:38:14.480
+Me alegró ver que sí funcionó y,
+si hago clic en eso,
+
+00:38:14.546 --> 00:38:16.013
+me dice cuál es el problema,
+
+00:38:16.346 --> 00:38:21.720
+identifica el elemento que causó
+el problema,
+
+00:38:22.533 --> 00:38:28.080
+y me permite encontrar problemas en
+todo el sitio de manera muy rápida y sencilla.
+
+00:38:30.160 --> 00:38:31.693
+Está disponible en NPM.
+
+00:38:31.773 --> 00:38:35.093
+Aquí hay un enlace de descarga
+que brinda más información.
+
+00:38:35.493 --> 00:38:37.506
+Yo no soy responsable
+de escribir eso,
+
+00:38:37.520 --> 00:38:38.786
+pero me resulta muy útil.
+
+00:38:39.906 --> 00:38:42.733
+Pruebas con teclado,
+ya hicimos un poco de eso,
+
+00:38:42.760 --> 00:38:47.226
+pero no hay sustituto
+para la prueba con teclado.
+
+00:38:49.053 --> 00:38:53.093
+Solo tienes que entrar
+y empezar a presionar Tab
+
+00:38:53.133 --> 00:38:56.173
+y flechas y lo que haga falta.
+
+00:38:57.120 --> 00:38:58.773
+En esta página en particular,
+
+00:39:00.573 --> 00:39:03.506
+siempre debes comenzar con
+Saltar al contenido principal.
+
+00:39:05.466 --> 00:39:07.093
+Esa es la primera señal de que
+
+00:39:07.466 --> 00:39:10.600
+alguien se ha esforzado
+por hacer algo accesible.
+
+00:39:10.933 --> 00:39:13.560
+Cuando estás en un sistema de menú,
+
+00:39:13.813 --> 00:39:21.026
+deberías poder presionar Enter
+o Espacio en un botón para alternarlo.
+
+00:39:21.653 --> 00:39:25.826
+Si estás en un menú, con suerte,
+las teclas de flecha funcionarán,
+
+00:39:25.853 --> 00:39:27.653
+así que estoy presionando flechas de izquierda a derecha.
+
+00:39:29.000 --> 00:39:31.346
+La barra espaciadora activa y desactiva un botón.
+
+00:39:31.680 --> 00:39:34.240
+Puedo presionar Tab. Esto es un modal.
+
+00:39:35.346 --> 00:39:40.920
+Curiosamente, cuando estoy dentro de un modal,
+un modal de diálogo en Chrome,
+
+00:39:41.813 --> 00:39:45.946
+Una de las cosas que pasa es
+que sí atrapa el enfoque
+
+00:39:45.973 --> 00:39:48.733
+dentro de la página cuando estás en ella,
+pero si sigues tocando,
+
+00:39:48.760 --> 00:39:53.866
+sales de la página y te encuentras con todo
+el contenido de Chrome en la parte superior,
+
+00:39:53.920 --> 00:39:56.266
+y luego, cuando regresas
+a la página,
+
+00:39:56.640 --> 00:39:58.333
+terminas otra vez dentro del modal.
+
+00:40:00.413 --> 00:40:01.733
+Solo una rareza de Chrome.
+
+00:40:03.306 --> 00:40:04.080
+Veamos.
+
+00:40:04.173 --> 00:40:09.760
+Para probar nuestro botón, queremos asegurarnos
+de que podamos presionar la barra espaciadora para abrirlo.
+
+00:40:10.440 --> 00:40:14.200
+Observe que el botón de cerrar está enfocado.
+
+00:40:14.400 --> 00:40:16.906
+Ahí puedo presionar la tecla Enter.
+
+00:40:17.026 --> 00:40:20.506
+Cuando está abierto,
+debería poder usar la tecla Escape.
+
+00:40:20.693 --> 00:40:22.013
+Eso debería cerrarlo otra vez.
+
+00:40:23.186 --> 00:40:26.426
+Hay un recurso excelente
+que compartí con enlace
+
+00:40:28.173 --> 00:40:32.440
+que te muestra qué esperar
+de cada elemento
+
+00:40:32.506 --> 00:40:35.813
+cuando navegas con
+el teclado en una página.
+
+00:40:38.946 --> 00:40:40.333
+Lo consulto todo el tiempo.
+
+00:40:40.400 --> 00:40:41.400
+Voy a seleccionar,
+
+00:40:41.466 --> 00:40:42.600
+¿Qué debería seleccionar hacer?
+
+00:40:42.666 --> 00:40:45.586
+Bueno, veo aquí abajo
+y dice que debo poder usar las teclas de flecha,
+
+00:40:45.733 --> 00:40:49.680
+la barra espaciadora,
+Enter y Escape para seleccionar cosas.
+
+00:40:52.253 --> 00:40:54.000
+Jessica: Estabas en WebAIM.
+
+00:40:54.040 --> 00:40:57.546
+Kevin: De hecho, estoy probando el lector de pantalla.
+Ah, se nos acabó el tiempo, ¿verdad?
+
+00:40:57.653 --> 00:41:02.453
+Jessica: Sí, pero estabas justo
+en el tutorial de WebAIM
+
+00:41:02.480 --> 00:41:05.653
+para enseñarnos sobre las pruebas con teclado.
+
+00:41:05.680 --> 00:41:07.893
+¿Nos puedes leer esa URL?
+
+00:41:08.280 --> 00:41:09.210
+Porque no la podemos leer.
+
+00:41:09.253 --> 00:41:11.533
+Kevin: Oh, está bien.
+
+00:41:11.546 --> 00:41:23.306
+Es
+webaim.org/techniques/keyboard#testing.
+
+00:41:24.520 --> 00:41:25.960
+Jessica: Súper útil.
+
+00:41:27.040 --> 00:41:31.146
+Kevin: Sí, realmente lo es. Vengo aquí todo el tiempo.
+
+00:41:31.960 --> 00:41:33.520
+Si estás haciendo pruebas con teclado.
+
+00:41:33.800 --> 00:41:37.640
+Pruebas con lector de pantalla,
+ojalá una de estas otras sesiones
+
+00:41:37.800 --> 00:41:41.826
+que la gente está haciendo muestre
+cómo probar con lector de pantalla.
+
+00:41:42.173 --> 00:41:46.146
+Solo quiero dejar a todos con esto:
+usen HTML semántico siempre que sea posible,
+
+00:41:46.266 --> 00:41:47.946
+agregue ARIA según sea necesario.
+
+00:41:51.493 --> 00:41:57.360
+Puse aquí los usos de JavaScript
+y algunos recursos excelentes.
+
+00:41:58.573 --> 00:41:59.946
+Jessica: Nos encantan los buenos recursos.
+
+00:42:00.106 --> 00:42:01.960
+Kevin: Muchos recursos buenos.
+
+00:42:02.000 --> 00:42:03.600
+Tengo todos estos guardados en mis favoritos,
+
+00:42:03.640 --> 00:42:06.120
+y simplemente los revisé
+y los copié aquí.
+
+00:42:07.573 --> 00:42:08.960
+Estoy abierto a preguntas.
+
+00:42:09.560 --> 00:42:11.213
+Jessica: Sí recibí algunas preguntas.
+
+00:42:11.253 --> 00:42:14.173
+Yo las leeré en voz alta para ti
+para nuestra grabación.
+
+00:42:14.240 --> 00:42:16.946
+Primero, quiero terminar con una nota de agradecimiento
+
+00:42:16.986 --> 00:42:19.866
+porque recibiste algunos elogios
+mientras hablabas.
+
+00:42:21.586 --> 00:42:25.440
+Tienes uno que dice:
+"Excelente sesión. Gracias, Kevin".
+
+00:42:25.706 --> 00:42:26.866
+Tienes otro que dice,
+
+00:42:26.906 --> 00:42:30.986
+"Por fin entiendo el uso de los bloques internos.
+Gracias, Kevin."
+
+00:42:35.506 --> 00:42:41.840
+Muchas gracias por hacer una
+demostración tan clara y práctica
+
+00:42:41.893 --> 00:42:44.586
+y cubriste mucho en tan poco tiempo.
+
+00:42:45.773 --> 00:42:51.386
+Voy a pasar a las preguntas que surgieron
+en el panel de preguntas y respuestas.
+
+00:42:51.413 --> 00:42:56.826
+Tenemos unos 10 minutos para repasarlas,
+y a 10 minutos de la hora en punto,
+
+00:42:56.840 --> 00:42:58.293
+vamos a tomar un descanso.
+
+00:42:59.800 --> 00:43:02.800
+Ese es el tiempo que nos queda.
+Voy a empezar con el primero.
+
+00:43:02.866 --> 00:43:05.760
+Según auditorías de terceros que he visto,
+
+00:43:06.400 --> 00:43:10.146
+no es raro
+que algunos servicios de pruebas de accesibilidad
+
+00:43:10.173 --> 00:43:15.173
+y de reportes
+digan que los encabezados de los modales deberían ser un H1
+
+00:43:15.706 --> 00:43:19.266
+porque es una entidad independiente.
+¿Cuál es tu respuesta a eso?
+
+00:43:23.680 --> 00:43:24.640
+Kevin: Lo puedo creer.
+
+00:43:24.680 --> 00:43:33.546
+Lucho con nombrar las cosas como son,
+y ese es un problema común que tengo.
+
+00:43:33.786 --> 00:43:37.013
+Una vez que sé lo que es, sé cómo manejarlo.
+
+00:43:37.613 --> 00:43:40.200
+¿Debería un encabezado de modal ser un H1?
+
+00:43:43.640 --> 00:43:48.706
+Ojalá fuera un usuario nativo
+de tecnologías de lectura de pantalla
+
+00:43:48.733 --> 00:43:57.200
+para poder experimentar el sitio como
+lo hacen quienes lo usan a diario.
+
+00:44:00.440 --> 00:44:03.333
+Soy cauteloso con añadir un H1 ahí
+
+00:44:03.373 --> 00:44:13.893
+porque no quiero que aparezca como
+un tema muy importante los landmarks.
+
+00:44:14.106 --> 00:44:16.880
+Esto no es equivalente a la página en sí,
+
+00:44:17.320 --> 00:44:20.520
+pero al mismo tiempo, es realmente una entidad propia.
+
+00:44:20.560 --> 00:44:23.600
+Te estamos sacando de la página a este pop-up.
+
+00:44:23.853 --> 00:44:25.760
+Puedo ver que va en cualquier dirección.
+
+00:44:25.986 --> 00:44:34.786
+Si H1 es el mecanismo aprobado para eso,
+ciertamente puedo entenderlo,
+
+00:44:34.813 --> 00:44:38.626
+y es un ajuste sencillo en el HTML.
+
+00:44:39.133 --> 00:44:43.133
+Jessica: ¿No hay un encabezado semántico
+para lo que está en la barra de título,
+
+00:44:43.173 --> 00:44:46.066
+pero luego puedes tener un H1
+en el contenido del modal?
+
+00:44:47.346 --> 00:44:52.066
+Kevin: Exacto. En mi modal mismo,
+usé el atributo aria-labelledby,
+
+00:44:52.106 --> 00:44:59.026
+y usé un H2 porque no quería que
+compitiera con el H1 en la página.
+
+00:44:59.120 --> 00:45:02.000
+Puse un H2 ahí, y podría haber usado un H1,
+
+00:45:02.106 --> 00:45:09.173
+y puedo ser convencido si alguien dice
+que esa es la manera correcta de hacerlo,
+
+00:45:09.320 --> 00:45:10.653
+con gusto lo cambio.
+
+00:45:12.733 --> 00:45:15.040
+Jessica: Nuestra siguiente pregunta es larga.
+
+00:45:15.120 --> 00:45:16.560
+Lo voy a leer para que quede grabado.
+
+00:45:17.440 --> 00:45:20.866
+En tu amplia experiencia con WordPress,
+
+00:45:21.280 --> 00:45:25.146
+¿cómo sugerirías construir
+un sitio web conforme a WCAG
+
+00:45:25.200 --> 00:45:29.306
+con una complejidad baja o media
+para un cliente con un presupuesto bajo a medio,
+
+00:45:29.346 --> 00:45:31.960
+por ejemplo, sin fines de lucro con WordPress?
+
+00:45:32.333 --> 00:45:33.733
+¿Es absolutamente necesario
+
+00:45:33.773 --> 00:45:37.813
+un tema personalizado para asegurar
+que todos los componentes sean conformes de forma programática,
+
+00:45:37.960 --> 00:45:39.866
+como rol, etiqueta, estado,
+
+00:45:39.880 --> 00:45:43.173
+más allá de las decisiones de CSS accesible
+en el front-end?
+
+00:45:43.866 --> 00:45:47.080
+Intentando explorar
+qué se puede aprovechar directamente
+
+00:45:47.120 --> 00:45:51.586
+de WordPress para reducir costos de desarrollo
+para este grupo demográfico de clientes
+
+00:45:51.613 --> 00:45:54.706
+que necesitan un creador web bastante intuitivo,
+
+00:45:54.810 --> 00:45:59.480
+pero no pueden pagar por sitios web personalizados,
+pero aun así el sitio resultante en WordPress
+
+00:45:59.533 --> 00:46:02.520
+necesite tener el potencial
+de ser conforme con WCAG.
+
+00:46:05.040 --> 00:46:06.946
+Kevin: Buena pregunta.
+
+00:46:09.440 --> 00:46:15.386
+Hace unos dos años, aquí en CodeGeek,
+realizamos una investigación sobre,
+
+00:46:15.600 --> 00:46:20.653
+si íbamos a construirlo desde cero
+o si necesitábamos un tema accesible,
+
+00:46:20.693 --> 00:46:23.226
+o al menos lo más accesible posible.
+
+00:46:26.386 --> 00:46:30.746
+En ese momento, WordPress estaba lanzando
+la nueva edición completa de sitios,
+
+00:46:30.773 --> 00:46:35.250
+y queríamos adoptarla
+y avanzar con WordPress.
+
+00:46:36.213 --> 00:46:40.453
+Lo que hicimos fue revisar varios temas,
+
+00:46:40.480 --> 00:46:43.226
+encontramos uno que era algo accesible,
+
+00:46:43.266 --> 00:46:46.733
+pero no ofrecía todas las funciones
+que estábamos buscando.
+
+00:46:47.733 --> 00:46:50.813
+Si buscas un tema listo para usar,
+
+00:46:52.480 --> 00:46:54.920
+nosotros probamos uno llamado JACE.
+
+00:46:55.013 --> 00:46:59.280
+No sé si todavía está disponible,
+pero creo que se escribe J-A-C-E.
+
+00:47:02.840 --> 00:47:05.226
+Al final, terminamos creando el nuestro,
+
+00:47:05.440 --> 00:47:09.866
+desarrollando nuestro propio tema que ahora usamos
+para todos nuestros clientes accesibles.
+
+00:47:09.986 --> 00:47:11.973
+Lo haces una vez, inviertes el esfuerzo.
+
+00:47:12.226 --> 00:47:17.506
+Recientemente hemos lanzado nuestra nueva
+navegación accesible,
+
+00:47:17.520 --> 00:47:21.933
+porque hemos estado luchando con
+la navegación nativa de WordPress durante mucho tiempo,
+
+00:47:22.146 --> 00:47:25.253
+que de entrada no era accesible.
+
+00:47:25.706 --> 00:47:28.760
+Luego comenzaron
+a agregar funciones de accesibilidad,
+
+00:47:28.813 --> 00:47:30.600
+pero nosotros ya las habíamos agregado,
+
+00:47:30.653 --> 00:47:32.933
+y eso nos empezó a generar choques.
+
+00:47:33.973 --> 00:47:38.000
+Parece que WordPress está avanzando
+hacia una navegación más accesible,
+
+00:47:38.093 --> 00:47:43.880
+pero nosotros terminamos creando
+nuestro propio plugin para navegación,
+
+00:47:43.920 --> 00:47:50.026
+que esperamos que sea lo más accesible posible,
+y además tener control sobre él,
+
+00:47:50.066 --> 00:47:52.386
+así podemos modificarlo en el futuro.
+
+00:47:53.293 --> 00:47:57.200
+La idea es aprovechar
+la inversión que hicimos en ese tema
+
+00:47:57.253 --> 00:48:03.066
+y en ese plugin, y usarlo para muchos,
+muchos clientes una y otra vez,
+
+00:48:03.520 --> 00:48:05.600
+para mantener bajos los costos.
+
+00:48:05.973 --> 00:48:15.720
+Implementar un tema personalizado para un solo sitio
+probablemente no sea rentable.
+
+00:48:17.146 --> 00:48:20.560
+Jessica: Pregunta de seguimiento
+de otro miembro de la audiencia.
+
+00:48:20.653 --> 00:48:27.600
+¿Está Kevin dispuesto a dejar
+que otras personas usen su tema base? (emoji de guiño)
+
+00:48:27.746 --> 00:48:33.853
+Kevin: Oh, tendría que consultarlo
+con mi equipo y ver qué dicen.
+
+00:48:34.866 --> 00:48:41.893
+Le hemos invertido muchas horas,
+
+00:48:47.373 --> 00:48:48.920
+así que lo consultaré con el equipo.
+
+00:48:52.040 --> 00:48:53.720
+Jessica: Tráelos como nuevos clientes.
+
+00:48:58.520 --> 00:49:00.560
+Kevin: No sé, ¿hay más preguntas?
+
+00:49:01.640 --> 00:49:02.733
+Jessica: No, solo comentarios.
+
+00:49:02.746 --> 00:49:05.000
+Kevin: Si no, puedo hacer un anuncio de Cogi.
+
+00:49:05.053 --> 00:49:06.880
+Hacemos mucho trabajo de accesibilidad.
+
+00:49:06.970 --> 00:49:11.026
+Hay un enlace al final de la presentación
+
+00:49:11.080 --> 00:49:13.933
+que te lleva a nuestra página de accesibilidad,
+
+00:49:13.960 --> 00:49:18.306
+y ahí pueden ver algunos de los productos
+y servicios que ofrecemos.
+
+00:49:18.720 --> 00:49:21.826
+Si necesitan ayuda para lograr
+sus metas de accesibilidad
+
+00:49:22.946 --> 00:49:29.080
+y quieren acceder a parte del trabajo
+que hemos hecho, visítennos.
+
+00:49:29.906 --> 00:49:31.653
+Jessica: Eso fue suave.
+
+00:49:31.706 --> 00:49:32.560
+Kevin: Autopromoción descarada.
+
+00:49:33.800 --> 00:49:36.586
+Jessica: Me alegra que me hayas dicho
+que había un elemento de diálogo
+
+00:49:36.626 --> 00:49:39.320
+porque no estoy tan metida en el código
+como para saber
+
+00:49:39.440 --> 00:49:43.026
+cada una de las etiquetas semánticas, así que gracias por eso.
+
+00:49:43.746 --> 00:49:45.880
+Voy a hacer nuestra transición.
+
+00:49:46.733 --> 00:49:49.106
+Gracias por asistir a esta sesión.
+
+00:49:51.533 --> 00:49:53.973
+Gracias por asistir a la sesión
+con Kevin Sholander
+
+00:49:54.000 --> 00:49:56.226
+en desarrollo de bloques accesibles en Gutenberg.
+
+00:49:56.253 --> 00:49:59.800
+Puedes continuar la conversación
+con el chat
+
+00:49:59.880 --> 00:50:06.373
+o en redes sociales
+usando el hashtag WPA11yDay
+
+00:50:06.853 --> 00:50:12.080
+y el hashtag WPAD2024.
+
+00:50:12.893 --> 00:50:16.400
+Te agradeceríamos que fueras a W--
+
+00:50:16.960 --> 00:50:24.026
+No, la dirección es
+2024.WPAccessibility.day/feedback
+
+00:50:24.786 --> 00:50:28.586
+para dejar comentarios anónimos
+sobre la presentación de nuestros ponentes.
+
+00:50:28.693 --> 00:50:31.320
+Al hacerlo, podrán participar
+en el sorteo de una camiseta.
+
+00:50:32.226 --> 00:50:35.293
+Manténganse atentos para nuestra próxima sesión.
+
+00:50:37.106 --> 00:50:41.026
+La siguiente sesión es
+“Navegando la neurodiversidad,
+
+00:50:41.266 --> 00:50:45.520
+creando sitios web con la inclusión en mente”
+con Christina Workman.
+
+00:50:46.626 --> 00:50:49.720
+Mientras esperan,
+no olvides visitar la página de patrocinadores
+
+00:50:49.986 --> 00:50:53.960
+para obtener obsequios virtuales y participar para
+tener la oportunidad de ganar grandes premios.
+
+00:50:54.000 --> 00:50:56.533
+Nos vemos después de la pausa,
+al inicio de la próxima hora.
+
+00:50:59.560 --> 00:51:03.520
+Locutor: Gracias a
+los patrocinadores del Día de la Accesibilidad de WordPress 2024.
+
+00:51:03.973 --> 00:51:05.706
+Patrocinador Platino: 20i.
+
+00:51:05.970 --> 00:51:07.533
+Fácilmente construya, implemente,
+
+00:51:07.586 --> 00:51:11.293
+y administra todos tus proyectos
+con el hosting WordPress administrado por 20i.
+
+00:51:11.720 --> 00:51:14.560
+Una sola interfaz para todos tus servidores, apps, sitios,
+
+00:51:14.640 --> 00:51:18.026
+bases de datos, seguridad, DNS y correo electrónico.
+
+00:51:18.320 --> 00:51:21.373
+Perfecto para agencias, comercio electrónico, desarrolladores,
+
+00:51:21.546 --> 00:51:24.106
+alojamiento multisitio y sitios con alto tráfico.
+
+00:51:24.853 --> 00:51:26.773
+Patrocinador Platino: Equalize Digital.
+
+00:51:27.226 --> 00:51:29.226
+Como todo lo que hacen es accesibilidad,
+
+00:51:29.360 --> 00:51:32.466
+cada publicación en su blog es
+un recurso de accesibilidad.
+
+00:51:32.813 --> 00:51:36.786
+Puede encontrar grabaciones de seminarios web, artículos
+y recursos adicionales
+
+00:51:37.013 --> 00:51:40.360
+en equalizedigital.com/resources.
+
+00:51:41.240 --> 00:51:43.253
+Patrocinador Platino: WP Engine.
+
+00:51:43.693 --> 00:51:46.306
+WP Engine proporciona la herramienta más confiable
+
+00:51:46.333 --> 00:51:48.613
+y productos confiables de WordPress
+para empresas,
+
+00:51:48.800 --> 00:51:51.493
+marcas y agencias de todos los tamaños.
+
+00:51:52.480 --> 00:51:53.946
+Gracias a nuestros patrocinadores de oro,
+
+00:51:54.186 --> 00:51:57.426
+GoDaddy, Grackle Docs, Gravity Forms,
+
+00:51:57.613 --> 00:52:00.613
+GreenGeeks, TPGi y Yoast.
+
+00:52:01.146 --> 00:52:03.093
+Gracias a nuestros patrocinadores de plata,
+
+00:52:03.253 --> 00:52:06.293
+CodeGeek, Drake Cooper, Elementor,
+
+00:52:06.560 --> 00:52:10.040
+Overnight Website, Pressable, Second Melody,
+
+00:52:10.266 --> 00:52:11.893
+y Accessibility Collective.

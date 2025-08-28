@@ -129,7 +129,7 @@ No translations yet.
 
 ## 2024
 
-15 completed translations.
+16 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -139,7 +139,7 @@ No translations yet.
 4. Agile Accessibility: Building Inclusivity into the Product Roadmap
 5. Practical Text Accessibility Tips for Content Creators
   	- Spanish; Diana Córdoba Gómez
-  	- Portuguese; Paloma Marques
+  	- Portuguese (Brazilian); Paloma Marques
 6. Accessibility Challenges with Single Page Applications
   	- Spanish; Diana Córdoba Gómez
   	- Italian; Daniele Manca
@@ -152,6 +152,7 @@ No translations yet.
 	- Portuguese (Brazilian); Paloma Marques
 11. Unlocking Digital Access: Insights from a Community-Driven Survey
 12. Developing Accessible Gutenberg Blocks
+	- Spanish; Debora Ermel
 13. Navigating Neurodiversity: Creating Websites with Inclusivity in Mind
 	- Spanish; Diana Córdoba Gómez
 14. Accessible Design: WCAG or Trendy? No, WCAG AND Trendy!

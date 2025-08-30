@@ -1268,6 +1268,24 @@ function wpcsp_speaker_metabox() {
 		)
 	);
 
+	// Country.
+	$cmb->add_field(
+		array(
+			'name' => __( 'Country', 'wpa-conference' ),
+			'id'   => 'wpcsp_country',
+			'type' => 'text',
+		)
+	);
+
+	// Pronouns.
+	$cmb->add_field(
+		array(
+			'name' => __( 'Pronouns', 'wpa-conference' ),
+			'id'   => 'wpcsp_pronouns',
+			'type' => 'text',
+		)
+	);
+
 	// Author email.
 	$cmb->add_field(
 		array(

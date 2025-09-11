@@ -60,7 +60,7 @@ No translations yet.
 
 ## 2023
 
-37 completed translations.
+38 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -85,6 +85,7 @@ No translations yet.
    	- Spanish; Diana Córdoba Gómez
 9. How to Address Accessibility and Privacy to Help Avoid Fines and Lawsuits
    	- Spanish; Diana Córdoba Gómez
+   	- French; Jb Audras
 10. Alt Text in the Age of Automation: How's it Actually Going?
    	- Spanish; Lucy Fonseca
 11. Immersive Audio Description
@@ -129,7 +130,7 @@ No translations yet.
 
 ## 2024
 
-19 completed translations.
+20 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community

@@ -133,6 +133,7 @@ No translations yet.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
+  	- Spanish; Diana Córdoba Gómez
 3. How to Remediate Accessibility Issues in WordPress
   	- Spanish; Estefani Pahola Suarez
   	- Portuguese; Melissa Antunes

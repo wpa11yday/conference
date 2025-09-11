@@ -157,6 +157,7 @@ No translations yet.
 	- Spanish; Diana Córdoba Gómez
 14. Accessible Design: WCAG or Trendy? No, WCAG AND Trendy!
 	- Spanish; Diana Córdoba Gómez
+  	- Portuguese (Brazilian); Paloma Marques
 15. How to Read a VPAT and ACR
 	- Spanish; Andy Amado
 16. WPAD Organizers: Ask Me Anything!

@@ -60,7 +60,7 @@ No translations yet.
 
 ## 2023
 
-37 completed translations.
+38 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -85,6 +85,7 @@ No translations yet.
    	- Spanish; Diana Córdoba Gómez
 9. How to Address Accessibility and Privacy to Help Avoid Fines and Lawsuits
    	- Spanish; Diana Córdoba Gómez
+   	- French; Jb Audras
 10. Alt Text in the Age of Automation: How's it Actually Going?
    	- Spanish; Lucy Fonseca
 11. Immersive Audio Description
@@ -129,10 +130,11 @@ No translations yet.
 
 ## 2024
 
-17 completed translations.
+20 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
+  	- Spanish; Diana Córdoba Gómez
 3. How to Remediate Accessibility Issues in WordPress
   	- Spanish; Estefani Pahola Suarez
   	- Portuguese; Melissa Antunes
@@ -157,9 +159,11 @@ No translations yet.
 	- Spanish; Diana Córdoba Gómez
 14. Accessible Design: WCAG or Trendy? No, WCAG AND Trendy!
 	- Spanish; Diana Córdoba Gómez
+  	- Portuguese (Brazilian); Paloma Marques
 15. How to Read a VPAT and ACR
 	- Spanish; Andy Amado
 16. WPAD Organizers: Ask Me Anything!
+	- Spanish; Sidney del Rocio
 17. Same Editor, Same Language: How Gutenberg’s Accessibility Enhances Creativity and Inclusion
 18. Inclusive Design Strategies for WordPress Professionals
   	- Spanish; Andy Amado

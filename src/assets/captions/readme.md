@@ -129,7 +129,7 @@ No translations yet.
 
 ## 2024
 
-17 completed translations.
+19 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -161,6 +161,7 @@ No translations yet.
 15. How to Read a VPAT and ACR
 	- Spanish; Andy Amado
 16. WPAD Organizers: Ask Me Anything!
+	- Spanish; Sidney del Rocio
 17. Same Editor, Same Language: How Gutenberg’s Accessibility Enhances Creativity and Inclusion
 18. Inclusive Design Strategies for WordPress Professionals
   	- Spanish; Andy Amado

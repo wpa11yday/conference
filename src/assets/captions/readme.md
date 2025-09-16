@@ -60,7 +60,7 @@ No translations yet.
 
 ## 2023
 
-38 completed translations.
+39 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -78,6 +78,7 @@ No translations yet.
 	- French; Béryl de La Grandière
 6. Go Beyond Checklists to Build a Great Course Learning Experience
    	- Spanish; Lucy Fonseca
+   	- French; Jb Audras
 7. CSS + Accessibility: Inclusion Through User Choice
    	- Spanish; Kim Ortiz
    	- French; Béryl de La Grandière

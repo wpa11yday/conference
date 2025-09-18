@@ -132,7 +132,7 @@ No translations yet.
 
 ## 2024
 
-21 completed translations.
+22 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -180,3 +180,4 @@ No translations yet.
   	- Portuguese; Melissa Antunes
 24. Creating Inclusive Experience with WooCommerce
 25. Maintaining Your Site’s Accessibility Well After Launch
+  	- Spanish; Luz Zuniga

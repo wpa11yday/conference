@@ -60,7 +60,7 @@ No translations yet.
 
 ## 2023
 
-39 completed translations.
+40 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -110,6 +110,7 @@ No translations yet.
 15. Sponsored Lightning Talk #3
 16. Mobile Accessibility: Building Accessible Mobile Sites and Native Apps for Accessibility
 	- Spanish; Lucy Fonseca
+ 	- French; Jb Audras
 17. Beyond the Visible: Crafting Inclusive WordPress Events for Those with Invisible Illnesses and Chronic Disabilities
 18. Simple Ways to Make Your Emails Accessible
 19. Authoring Tool Accessibility Guidelines: Going Above and Beyond Web Content Accessibility Guidelines
@@ -131,7 +132,7 @@ No translations yet.
 
 ## 2024
 
-20 completed translations.
+22 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -166,6 +167,7 @@ No translations yet.
 16. WPAD Organizers: Ask Me Anything!
 	- Spanish; Sidney del Rocio
 17. Same Editor, Same Language: How Gutenberg’s Accessibility Enhances Creativity and Inclusion
+	- Spanish; Estefani Pahola Suarez
 18. Inclusive Design Strategies for WordPress Professionals
   	- Spanish; Andy Amado
 19. Improving and Enforcing Digital Accessibility Laws and Standards in Africa
@@ -178,3 +180,4 @@ No translations yet.
   	- Portuguese; Melissa Antunes
 24. Creating Inclusive Experience with WooCommerce
 25. Maintaining Your Site’s Accessibility Well After Launch
+  	- Spanish; Luz Zuniga

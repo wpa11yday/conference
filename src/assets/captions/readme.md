@@ -131,7 +131,7 @@ No translations yet.
 
 ## 2024
 
-20 completed translations.
+21 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -166,6 +166,7 @@ No translations yet.
 16. WPAD Organizers: Ask Me Anything!
 	- Spanish; Sidney del Rocio
 17. Same Editor, Same Language: How Gutenberg’s Accessibility Enhances Creativity and Inclusion
+	- Spanish; Estefani Pahola Suarez
 18. Inclusive Design Strategies for WordPress Professionals
   	- Spanish; Andy Amado
 19. Improving and Enforcing Digital Accessibility Laws and Standards in Africa

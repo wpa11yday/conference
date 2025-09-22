@@ -60,7 +60,7 @@ No translations yet.
 
 ## 2023
 
-40 completed translations.
+41 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -129,6 +129,7 @@ No translations yet.
   	- Spanish; Debora Ermel
 24. Understanding Color and Contrast Requirements in WCAG 2
     - Spanish; Diana Córdoba Gómez
+    - French; Jb Audras
 
 ## 2024
 

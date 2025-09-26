@@ -60,7 +60,7 @@ No translations yet.
 
 ## 2023
 
-42 completed translations.
+43 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -97,6 +97,7 @@ No translations yet.
 	- French; Louis Chance
 	- Italian; Alice Orru
 13. Plot a course!: Creating Accessible SVG Charts in WordPress
+   	- French; Jb Audras
 14. Creating an Animation Pause Button in WordPress
 	- Spanish; Kim Ortiz
 	- Hindi; Shashank Dubey

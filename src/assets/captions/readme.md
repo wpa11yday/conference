@@ -172,6 +172,7 @@ No translations yet.
 18. Inclusive Design Strategies for WordPress Professionals
   	- Spanish; Andy Amado
 19. Improving and Enforcing Digital Accessibility Laws and Standards in Africa
+   	- Spanish; Luz Zuniga
 20. Beyond Automation: Why Manual Accessibility Testing is Important
   	- Portuguese; Melissa Antunes
 21. Creating a Developer Culture of Accessibility

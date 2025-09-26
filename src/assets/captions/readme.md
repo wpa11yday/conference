@@ -133,7 +133,7 @@ No translations yet.
 
 ## 2024
 
-22 completed translations.
+24 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -173,6 +173,7 @@ No translations yet.
   	- Spanish; Andy Amado
 19. Improving and Enforcing Digital Accessibility Laws and Standards in Africa
    	- Spanish; Luz Zuniga
+    - Portuguese; Melissa Antunes
 20. Beyond Automation: Why Manual Accessibility Testing is Important
   	- Portuguese; Melissa Antunes
 21. Creating a Developer Culture of Accessibility

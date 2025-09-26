@@ -60,7 +60,7 @@ No translations yet.
 
 ## 2023
 
-41 completed translations.
+42 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -89,6 +89,7 @@ No translations yet.
    	- French; Jb Audras
 10. Alt Text in the Age of Automation: How's it Actually Going?
    	- Spanish; Lucy Fonseca
+    - French; Isabelle Desouches
 11. Immersive Audio Description
    	- Spanish; Luz Zuniga
 12. A Recipe for an Accessible Accordion Block

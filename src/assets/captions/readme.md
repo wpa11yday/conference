@@ -60,7 +60,7 @@ No translations yet.
 
 ## 2023
 
-41 completed translations.
+43 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -89,6 +89,7 @@ No translations yet.
    	- French; Jb Audras
 10. Alt Text in the Age of Automation: How's it Actually Going?
    	- Spanish; Lucy Fonseca
+    - French; Isabelle Desouches
 11. Immersive Audio Description
    	- Spanish; Luz Zuniga
 12. A Recipe for an Accessible Accordion Block
@@ -96,6 +97,7 @@ No translations yet.
 	- French; Louis Chance
 	- Italian; Alice Orru
 13. Plot a course!: Creating Accessible SVG Charts in WordPress
+   	- French; Jb Audras
 14. Creating an Animation Pause Button in WordPress
 	- Spanish; Kim Ortiz
 	- Hindi; Shashank Dubey
@@ -133,7 +135,7 @@ No translations yet.
 
 ## 2024
 
-22 completed translations.
+26 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -156,6 +158,7 @@ No translations yet.
 	- Spanish; Debora Ermel
 	- Portuguese (Brazilian); Paloma Marques
 11. Unlocking Digital Access: Insights from a Community-Driven Survey
+	- Spanish; Debora Ermel
 12. Developing Accessible Gutenberg Blocks
 	- Spanish; Debora Ermel
 13. Navigating Neurodiversity: Creating Websites with Inclusivity in Mind
@@ -172,10 +175,13 @@ No translations yet.
 18. Inclusive Design Strategies for WordPress Professionals
   	- Spanish; Andy Amado
 19. Improving and Enforcing Digital Accessibility Laws and Standards in Africa
+   	- Spanish; Luz Zuniga
+    - Portuguese; Melissa Antunes
 20. Beyond Automation: Why Manual Accessibility Testing is Important
   	- Portuguese; Melissa Antunes
 21. Creating a Developer Culture of Accessibility
 22. How to Juggle Different Teams at Different Places in Their Accessibility Journey
+  	- Spanish; Diana Córdoba Gómez
 23. How to Design and Implement Accessible Cards
   	- Spanish; Luz Zuniga
   	- Portuguese; Melissa Antunes

@@ -1768,7 +1768,7 @@ function wpcs_get_video() {
 			$sign_src =' data-youtube-sign-src="' . esc_attr( $sign_src ) . '"';
 		}
 	}
-	$holder   = $sign_src ? '<div class="holder"><p><em>Space for positioning sign language player</em></p></div>' : '';
+	$holder = $sign_src ? '<div class="holder"><p><em>Space for positioning sign language player</em></p></div>' : '';
 
 	return '
 	<div class="wp-block-group alignwide wpad-video-player">

@@ -1762,11 +1762,7 @@ function wpcs_get_video() {
 	}
 	$sign_src = wpcs_get_asl();
 	if ( $sign_src ) {
-		if ( str_contains( $sign_src, '.mp4' ) ) {
-			$sign_src = ' data-sign-src="' . esc_attr( $sign_src ) . '"';
-		} else {
-			$sign_src =' data-youtube-sign-src="' . esc_attr( $sign_src ) . '"';
-		}
+		$sign_src = ' data-youtube-sign-src="' . esc_attr( $sign_src ) . '"';
 	}
 	$holder = $sign_src ? '<div class="holder"><p><em>Space for positioning sign language player</em></p></div>' : '';
 
@@ -1861,26 +1857,7 @@ function wpcs_get_captions() {
  * @return string
  */
 function wpcs_get_asl() {
-	$post_id    = get_the_ID();
-	$youtube_id = get_post_meta( $post_id, '_wpcs_asl_id', true );
-	if ( $youtube_id ) {
-		$asl = $youtube_id;
-	} else {
-		$asl      = '';
-		$filename = get_post_field( 'post_name', $post_id );
-		$year     = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
-		// 2024 is the first year we did this. Exit early if earlier than 2024.
-		if ( absint( $year ) < 2024 ) {
-			return $asl;
-		}
-		$filepath = plugin_dir_path( __FILE__ ) . 'assets/asl/' . $year . '/' . $filename . '.mp4';
-		global $wp_filesystem;
-		require_once ABSPATH . '/wp-admin/includes/file.php';
-		WP_Filesystem();
-		if ( $wp_filesystem->exists( $filepath ) ) {
-			$asl = str_replace( '/home/wp/www/2024', '', $filepath );
-		}
-	}
+	$asl     = get_post_meta( get_the_ID(), '_wpcs_asl_id', true );
 
 	return $asl;
 }

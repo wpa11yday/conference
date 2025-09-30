@@ -135,7 +135,7 @@ No translations yet.
 
 ## 2024
 
-26 completed translations.
+29 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -163,6 +163,7 @@ No translations yet.
 	- Spanish; Debora Ermel
 13. Navigating Neurodiversity: Creating Websites with Inclusivity in Mind
 	- Spanish; Diana Córdoba Gómez
+	- Portuguese; Paloma Marques
 14. Accessible Design: WCAG or Trendy? No, WCAG AND Trendy!
 	- Spanish; Diana Córdoba Gómez
   	- Portuguese (Brazilian); Paloma Marques
@@ -184,7 +185,8 @@ No translations yet.
   	- Spanish; Diana Córdoba Gómez
 23. How to Design and Implement Accessible Cards
   	- Spanish; Luz Zuniga
-  	- Portuguese; Melissa Antunes
+    - German; Sylvia Egger
+	- Portuguese; Melissa Antunes
 24. Creating Inclusive Experience with WooCommerce
 25. Maintaining Your Site’s Accessibility Well After Launch
   	- Spanish; Luz Zuniga

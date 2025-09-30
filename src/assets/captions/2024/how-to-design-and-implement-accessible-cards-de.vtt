@@ -1,0 +1,3119 @@
+WEBVTT
+
+00:00:00.560 --> 00:00:03.300
+Moderator: WordPress
+Accessibility Day 2024.
+
+00:00:03.900 --> 00:00:08.000
+Gestaltung und Umsetzung barrierefreier Karten mit Referent*in Tina Rice,
+
+00:00:08.440 --> 00:00:12.870
+WordPress-Entwickler*in und SEO-
+Beratende bei Tina Rice Webentwicklung.
+
+00:00:13.440 --> 00:00:16.780
+Diese Präsentation wurde
+im Oktober 2024 aufgezeichnet.
+
+00:00:17.410 --> 00:00:21.850
+Sherose Badruddin: Herzlich willkommen
+zum WordPress Accessibility Day 2024.
+
+00:00:22.180 --> 00:00:25.520
+Wenn ihr wie ich in der östlichen Zeitzone (Eastern Time Zone) lebt,
+ist es Morgen, also Guten Morgen.
+
+00:00:25.990 --> 00:00:27.440
+Ich bin Sherose Badruddin.
+
+00:00:27.640 --> 00:00:29.890
+Ich arbeite an der University
+of North Carolina.
+
+00:00:30.190 --> 00:00:34.200
+Ich bin Beraterin für digitale Barrierefreiheit
+und sehr dankbar, hier zu sein.
+
+00:00:34.460 --> 00:00:38.300
+Ich möchte kurz darauf hinweisen,
+dass Melissa Spiegel,
+
+00:00:38.370 --> 00:00:41.040
+die heute hier sein sollte,
+nicht teilnehmen konnte.
+
+00:00:41.740 --> 00:00:44.840
+Sie ist in Florida und bekämpft die Folgen
+des Hurrikans Milton.
+
+00:00:44.910 --> 00:00:48.640
+Wir sind dankbar, dass sie sich ehrenamtlich engagiert.
+Wir sind daher besonders dankbar
+
+00:00:49.040 --> 00:00:53.620
+Tina Rice, die hier ist und
+heute anstatt ihr teilnehmen kann, mit der Session
+
+00:00:53.850 --> 00:00:56.820
+"Gestaltung und Umsetzung von barrierefreien UI-Karten (UI Cards)".
+
+00:00:57.150 --> 00:00:58.480
+Ein paar Worte zu Tina.
+
+00:00:58.920 --> 00:01:02.720
+Tina ist SEO-Berater*in
+und WordPress-Entwickler*in,
+
+00:01:02.960 --> 00:01:06.260
+spezialisiert auf Barrierefreiheit im Internet und lebt in Berlin, Deutschland.
+
+00:01:07.660 --> 00:01:10.970
+Tina begann mit der Entwicklung
+von SEO-Strategien für Websites,
+
+00:01:11.030 --> 00:01:14.500
+große und kleinere, von E-Commerce-Sites
+bis zu Non-Profit-Sites.
+
+00:01:15.070 --> 00:01:17.040
+Später
+entdeckte Tina die Liebe zu WordPress
+
+00:01:17.110 --> 00:01:19.970
+während der Arbeit in einer Agentur
+und brachte sich selbst Kenntnisse und Techniken
+
+00:01:20.040 --> 00:01:22.940
+der Frontend-Entwicklung bei und
+lernte mit jedem Projekt mehr dazu.
+
+00:01:23.340 --> 00:01:26.750
+Mit über acht Jahren Erfahrung
+hat Tina nun ein eigenes Unternehmen
+
+00:01:26.820 --> 00:01:30.750
+und entwickelt WordPress-Sites mit Schwerpunkt
+auf Barrierefreiheit und Nachhaltigkeit.
+
+00:01:31.090 --> 00:01:34.190
+Tina hält auch Workshops
+und hilft Organisationen,
+
+00:01:34.260 --> 00:01:37.350
+ihre Online-Sichtbarkeit mit SEO zu erhöhen.
+
+00:01:38.930 --> 00:01:41.460
+Bitte bringt eure
+Fragen gerne in Zoom ein im
+
+00:01:41.570 --> 00:01:44.460
+Q&amp;A-Bereich. Wir werden sie
+am Ende der Sitzung beantworten.
+
+00:01:44.640 --> 00:01:47.200
+Nutzt den Chat, um
+mit anderen Teilnehmenden in Kontakt zu treten.
+
+00:01:47.400 --> 00:01:49.040
+Tina, du kannst starten.
+
+00:01:49.740 --> 00:01:50.840
+Tina Reis: Vielen Dank.
+
+00:01:50.870 --> 00:01:53.880
+Ja, ich werde meinen Bildschirm freigeben.
+
+00:01:55.060 --> 00:01:59.310
+Hallo, ich werde darüber sprechen,
+wie man barrierefreie UI-Karten (UI Cards)
+
+00:01:59.440 --> 00:02:01.640
+designed und implementiert.
+
+00:02:02.680 --> 00:02:04.590
+Zunächst möchte ich sagen, dass
+ich hoffe, dass alle,
+
+00:02:04.730 --> 00:02:07.360
+der vom Hurrikan
+in Florida betroffen sind, in Sicherheit sind.
+
+00:02:11.130 --> 00:02:14.350
+Ich hatte zwar bereits eine gute Vorstellung,
+vielen Dank.
+
+00:02:15.300 --> 00:02:18.930
+Ich möchte nur noch eines sagen
+: Ich habe selbst eine Einschränkung.
+
+00:02:18.970 --> 00:02:22.440
+Ich habe ADHS und eine motorische Einschränkung.
+
+00:02:22.840 --> 00:02:25.610
+Das betrifft bisher nur meine Beine.
+
+00:02:26.070 --> 00:02:30.880
+Meine Barrieren, wenn es
+um das Internet geht ...
+
+00:02:31.480 --> 00:02:35.220
+Meistens bin ich nicht sehr betroffen,
+was gut ist.
+
+00:02:36.920 --> 00:02:39.450
+Ich möchte das nur sagen
+, denn alles, worüber ich sprechen werde,
+
+00:02:39.450 --> 00:02:43.020
+ist hauptsächlich das, was ich gelernt habe,
+
+00:02:43.190 --> 00:02:46.130
+nicht aus eigener Erfahrung,
+sondern aus dem, was ich gelernt habe.
+
+00:02:46.190 --> 00:02:49.200
+Ich werde auch
+auf einige wirklich gute Ressourcen verweisen
+
+00:02:49.400 --> 00:02:52.870
+von Menschen
+, die bereits über dieses Thema geschrieben haben.
+
+00:02:55.200 --> 00:02:56.600
+Zunächst möchte ich beginnen,
+
+00:02:56.600 --> 00:02:59.710
+indem wir einfach eine ganz einfache Frage stellen:
+Was ist eine Karte (UI Card)?
+
+00:03:01.680 --> 00:03:07.280
+Ich habe mir meine Lieblings-Komponentenbibliothek angesehen
+, Cody House.
+
+00:03:07.530 --> 00:03:08.720
+Hier auf der Folie
+
+00:03:08.720 --> 00:03:12.220
+die ich gerade zeige,
+könnt ihr diese Komponentengalerie sehen
+
+00:03:12.290 --> 00:03:15.490
+und ich habe das Menü genützt
+, das die
+
+00:03:15.920 --> 00:03:18.630
+Komponenten-Galerie vorfiltert,
+dort habe ich "Karte" ausgewählt
+
+00:03:19.090 --> 00:03:21.460
+und es werden 23 Elemente angezeigt.
+
+00:03:21.550 --> 00:03:23.640
+Sie sind alle sehr unterschiedlich
+.
+
+00:03:24.530 --> 00:03:28.800
+Es gibt so etwas wie eine Videogalerie
+, die mit Karten realisiert sind.
+
+00:03:28.870 --> 00:03:34.840
+Es gibt Elemente
+, die wie ein Karussell (Slider) aussehen,
+
+00:03:35.280 --> 00:03:37.400
+und dann gibt es noch den Klassiker,
+
+00:03:37.510 --> 00:03:41.820
+wie ich denke, Bild mit Text und einer Schaltfläche.
+Das sind alles Beispiele für Karten.
+
+00:03:42.650 --> 00:03:46.220
+Ich denke, wenn wir darüber nachdenken,
+was all dem gemeinsam hat,
+
+00:03:46.330 --> 00:03:48.570
+dann können wir sagen, Karten
+
+00:03:49.490 --> 00:03:51.510
+sind normalerweise interaktiv.
+
+00:03:51.760 --> 00:03:55.460
+Hier habe ich eine kleine Beispielkarte,
+
+00:03:55.900 --> 00:03:58.670
+die ich in diesem Vortrag
+verwenden werde.
+
+00:03:59.430 --> 00:04:05.740
+Es ist nur eine sehr einfache interaktive Funktion,
+eine Karte mit einem Bild.
+
+00:04:05.950 --> 00:04:09.240
+Es gibt hier das Bild
+eines kleinen Vogels.
+
+00:04:09.310 --> 00:04:11.750
+In dieser Präsentation
+werdet ihr viele Vögel sehen.
+
+00:04:11.910 --> 00:04:13.480
+Dann gibt es eine Überschrift
+
+00:04:14.220 --> 00:04:17.450
+"Wie man mit der Vogelbeobachtung anfängt",
+und darunter ein kleiner
+
+00:04:18.090 --> 00:04:21.460
+Beschreibungstext (Platzhalter-Text) 
+und dann eine Schaltfläche zum Weiterlesen.
+
+00:04:22.620 --> 00:04:26.490
+Ich denke, in diesem einfachen Beispiel,
+aber wie alle Karten,
+
+00:04:26.690 --> 00:04:31.300
+egal, was ihr damit macht,
+Karten sind interaktiv.
+
+00:04:31.730 --> 00:04:34.700
+Hier, diese Karte möchte, dass ihr daraufklickt
+
+00:04:35.370 --> 00:04:38.020
+und zum Artikel geht und ihn lest.
+
+00:04:40.860 --> 00:04:44.910
+Die andere Sache, die Karten
+normalerweise gemeinsam haben
+
+00:04:45.060 --> 00:04:46.620
+ist, dass Karten viele Elemente haben.
+
+00:04:47.380 --> 00:04:50.450
+Man verwendet die Karten-komponente, um
+
+00:04:50.520 --> 00:04:53.350
+eine Übersicht über verschiedene Elemente
+auf der Seite zu zeigen.
+
+00:04:53.620 --> 00:04:57.290
+Hier ein sehr einfaches Beispiel, wiederum
+nur eine Blogansicht.
+
+00:04:57.360 --> 00:05:01.660
+Jede Karte führt zu einem Blog-Artikel.
+
+00:05:02.430 --> 00:05:06.200
+Ich werde
+in dieser Präsentation mit diesem einfachen Beispiel arbeiten.
+
+00:05:06.600 --> 00:05:11.110
+Hier auf Bild
+habe ich das gleiche Kartenbeispiel,
+
+00:05:11.170 --> 00:05:14.310
+das ich gerade erwähnt habe,
+mit einem Bild, einer Überschrift,
+
+00:05:14.380 --> 00:05:17.550
+einer kurzen Beschreibung
+und einer Schaltfläche „Mehr lesen“,
+
+00:05:17.660 --> 00:05:20.170
+und sechs davon in einem Grid.
+
+00:05:24.020 --> 00:05:26.720
+Was ich heute tun möchte:
+
+00:05:27.490 --> 00:05:30.190
+Ich denke, die Karte
+ist ein wirklich interessantes Beispiel
+
+00:05:30.430 --> 00:05:32.890
+aus Sicht der Barrierefreiheit,
+
+00:05:32.960 --> 00:05:37.700
+weil man kann --
+Es sieht so einfach aus, aber es gibt tatsächlich
+
+00:05:37.770 --> 00:05:41.400
+viele Überlegungen,
+viele Möglichkeiten, darüber nachzudenken
+
+00:05:42.470 --> 00:05:43.770
+im Hinblick auf Barrierefreiheit.
+
+00:05:43.840 --> 00:05:46.570
+Ich möchte mich heute auf Barrierefreiheit konzentrieren,
+
+00:05:46.640 --> 00:05:49.940
+die über Konformität, über die Einhaltung der WCAG hinausgeht,
+
+00:05:50.950 --> 00:05:53.350
+nämlich mit dem Fokus auf Benutzerfreundlichkeit.
+
+00:05:53.350 --> 00:05:55.970
+Wie können wir wirklich
+das Beste aus der Komponente herausholen
+
+00:05:56.150 --> 00:05:57.590
+mit dem Fokus auf Benutzerfreundlichkeit?
+
+00:05:59.950 --> 00:06:04.130
+Denn ich glaube,
+es geht viel einfacher, konform zu werden
+
+00:06:04.240 --> 00:06:08.330
+, als etwas tatsächlich auch nutzbar zu machen.
+
+00:06:10.530 --> 00:06:14.170
+Trotzdem
+erfinde ich das Rad nicht neu.
+
+00:06:14.700 --> 00:06:19.040
+Es gibt wirklich tolle Ressourcen,
+von denen ich all diese Techniken gelernt habe,
+
+00:06:19.110 --> 00:06:24.080
+Wissen, das ich im Laufe der Jahre
+bei der Entwicklung von WordPress-Websites erworben haben.
+
+00:06:24.150 --> 00:06:26.850
+Ich möchte nur einige davon nennen.
+
+00:06:27.220 --> 00:06:29.850
+Eine von ihnen ist von Heydon Pickering,
+der diese
+
+00:06:29.920 --> 00:06:32.260
+großartige, inklusive Komponenten-Bibliothek entwickelt
+
+00:06:32.710 --> 00:06:36.060
+und die hat auch eine Karten-Komponente,
+was großartig ist.
+
+00:06:37.020 --> 00:06:39.860
+Dann gibt es noch wirklich gute
+Ansätze für barrierefreie Karten
+
+00:06:39.930 --> 00:06:43.970
+von Adrian Roselli und Kitty Giraudel,
+die ebenfalls in Berlin ist.
+
+00:06:46.570 --> 00:06:49.370
+Wenn ihr die Folien später erhaltet,
+findet ihr auch dort den Link
+
+00:06:49.440 --> 00:06:51.260
+auf der Folie.
+
+00:06:51.440 --> 00:06:53.410
+Ich habe diese Techniken gelernt
+
+00:06:53.470 --> 00:06:55.680
+im Laufe der Jahre
+und was ich euch zeigen werde,
+
+00:06:55.680 --> 00:06:58.950
+beschreibt, wie dies speziell mit WordPress
+funktioniert.
+
+00:06:59.010 --> 00:07:02.200
+Alle Codebeispiele, die ich
+zeigen werde, sind meine Codebeispiele
+
+00:07:02.370 --> 00:07:04.400
+von meinem WordPress-Projekt.
+
+00:07:06.530 --> 00:07:07.560
+Außerdem,
+
+00:07:07.730 --> 00:07:10.220
+wir werden
+eher einen Versuch-und-Irrtum-Ansatz verfolgen.
+
+00:07:10.290 --> 00:07:13.360
+Ich werden euch
+durch alle Überlegungen führen
+
+00:07:13.430 --> 00:07:15.660
+und wir werden nicht
+mit einem fertigen Ergebnis beginnen,
+
+00:07:15.660 --> 00:07:18.470
+das ich euch jetzt schon zeige,
+sondern wir werden daran arbeiten,
+
+00:07:18.530 --> 00:07:20.750
+während des Vortrags nach und nach
+ein fertiges Ergebnis erstellen.
+
+00:07:21.020 --> 00:07:22.540
+Lasst uns anfangen.
+
+00:07:23.600 --> 00:07:25.710
+Erstens: Was sind die Anforderungen?
+
+00:07:25.770 --> 00:07:28.980
+Wir möchten, dass die Karte
+eine logische Struktur hat.
+
+00:07:29.280 --> 00:07:32.350
+Dies ist besonders wichtig für
+Nutzende mit Screenreader, zum Beispiel,
+
+00:07:32.510 --> 00:07:35.950
+für die alle Informationen
+in einer semantischen Struktur enthalten sein müssen.
+
+00:07:37.080 --> 00:07:39.820
+Wir möchten ein bestimmtes visuelles Layout
+haben.
+
+00:07:40.560 --> 00:07:41.920
+Ich bin zwar Entwickler*in.
+
+00:07:41.920 --> 00:07:45.490
+Aber ich bekomme Designs von Designenden
+und so habe ich es --
+
+00:07:45.560 --> 00:07:48.260
+Ich muss ein bestimmtes visuelles Layout
+umsetzen.
+
+00:07:50.670 --> 00:07:53.300
+Dann möchte ich auch sicherstellen
+, dass es interaktiv ist.
+
+00:07:53.370 --> 00:07:57.220
+Denn das ist die Hauptanforderung
+für eine Karte.
+
+00:08:01.280 --> 00:08:03.780
+Dann habe ich --
+Lasst uns zuerst das Wichtigste angehen.
+
+00:08:03.950 --> 00:08:06.750
+Das Vorhandensein mehrerer Elemente in einer Reihe.
+
+00:08:06.810 --> 00:08:12.190
+Hier zeige ich noch einmal mein kleines Grid
+mit der Vorschau der Karten,
+
+00:08:12.550 --> 00:08:15.260
+Sechs Karten im Grid.
+
+00:08:15.990 --> 00:08:19.330
+Jetzt zeige ich
+zuerst das schlechte Beispiel,
+
+00:08:19.390 --> 00:08:22.100
+wenn ihr das nur mit Divs in HTML realisiert.
+
+00:08:23.100 --> 00:08:27.440
+Hier auf der linken Seite
+habe ich ein Beispiel, HTML-Markup,
+
+00:08:27.500 --> 00:08:31.740
+wo es nur Divs für den Container
+und dann Divs für jede der Karten in HTML gibt.
+
+00:08:32.310 --> 00:08:35.910
+Diese HTML-Struktur gibt keine Information aus
+, was das eigentlich ist.
+
+00:08:35.980 --> 00:08:37.950
+Zum Beispiel an einen Screenreader.
+
+00:08:41.220 --> 00:08:43.990
+Ein weiteres Beispiel, wie ihr das umsetzen könnt,
+dass es etwas besser ist,
+
+00:08:44.050 --> 00:08:48.520
+ist, dass ihr beispielsweise
+das main-Element in HTML für den Container verwendet.
+
+00:08:49.020 --> 00:08:53.490
+Und für jede der Karten
+das article-Element in HTML.
+
+00:08:53.930 --> 00:08:56.400
+Das ist etwas besser
+, denn es gibt
+
+00:08:56.400 --> 00:09:01.100
+wenigstens einige Informationen
+darüber, was das ist,
+
+00:09:01.170 --> 00:09:03.970
+an einen Screenreader aus.
+
+00:09:04.140 --> 00:09:06.710
+Der Screenreader kann den Nutzenden
+
+00:09:10.180 --> 00:09:12.380
+mehr Informationen, mehr Funktionen geben.
+
+00:09:12.450 --> 00:09:15.280
+Beispielsweise
+würde das main-Element in HTML integriert,
+
+00:09:15.350 --> 00:09:18.990
+wenn jemand den Screenreader verwendet
+und durch die Inhaltsbereiche (landmarks) navigiert,
+
+00:09:19.820 --> 00:09:23.420
+könnte man dann damit direkt
+zum Hauptinhalt gelangen
+
+00:09:23.990 --> 00:09:27.030
+, aber es gibt immer noch ein Problem
+mit dem article-Element in HTML.
+
+00:09:27.860 --> 00:09:31.800
+Noch nicht alle Screenreader kennen
+diesen Inhaltsbereich (landmark).
+
+00:09:32.170 --> 00:09:34.900
+Denn ich glaube, nur JAWS kündigt
+
+00:09:34.970 --> 00:09:37.670
+es als Inhaltsbereich (landmark) an.
+
+00:09:38.070 --> 00:09:42.780
+Auch wenn ihr
+das semantische HTML5-Element verwendet,
+
+00:09:43.010 --> 00:09:47.080
+werden den Nutzenden von Screenreadern
+nicht wirklich viele Informationen ausgegeben.
+
+00:09:49.640 --> 00:09:51.390
+Jetzt ein besseres Beispiel,
+
+00:09:51.510 --> 00:09:54.910
+und es ist ein Best-Practice-Beispiel
+eine HTML Liste zu verwenden.
+
+00:09:55.560 --> 00:09:59.260
+Hier zeige ich ein
+einfaches HTML-Beispiel
+
+00:09:59.490 --> 00:10:02.930
+mit einer unnummerierten HTML Liste (ul),
+
+00:10:03.300 --> 00:10:06.200
+und dann jede der Karten
+in einem HTML-Listenelement (li).
+
+00:10:06.530 --> 00:10:09.900
+Das gibt Ihnen --
+Das gibt ein wirklich --
+
+00:10:09.970 --> 00:10:12.670
+weil es eine Karte unter mehreren ist.
+
+00:10:13.470 --> 00:10:17.750
+Eine Liste gibt diese Informationen
+an Screenreader-Nutzende weiter.
+
+00:10:17.810 --> 00:10:19.440
+"Das ist die Liste von",
+
+00:10:19.650 --> 00:10:22.680
+und dann wird der Screenreader
+sechs Elemente ansagen,
+
+00:10:22.750 --> 00:10:26.320
+und es gibt einige Navigationsfunktionen
+, die auch mit dem Screenreader
+
+00:10:26.390 --> 00:10:27.600
+funktionieren.
+
+00:10:28.390 --> 00:10:30.930
+Nun, ich habe mir angesehen, was
+
+00:10:30.990 --> 00:10:33.730
+die meisten WordPress-Themes verwenden.
+
+00:10:34.960 --> 00:10:39.770
+Die meisten, insbesondere die häufig verwendeten,
+von Page Buildern erzeugten,
+
+00:10:40.840 --> 00:10:43.570
+verwenden das Markup als HTML-Liste nicht für Karten.
+
+00:10:43.640 --> 00:10:46.970
+Ich habe tatsächlich öfter
+das Markup mit dem article-Element in HTML gesehen.
+
+00:10:48.180 --> 00:10:51.450
+Und hier ein Gruß
+an Amber Hinds von Equalize Digital,
+
+00:10:51.950 --> 00:10:57.060
+die 10 Page Builder analysiert hat,
+und nur zwei davon verwenden das Markup mit einer HTML-Liste
+
+00:10:57.220 --> 00:10:58.790
+für Blog- oder Beitragsübersichten.
+
+00:10:59.950 --> 00:11:03.160
+Das ist wirklich etwas,
+was in vielen WordPress Themes
+
+00:11:03.220 --> 00:11:05.930
+und Page Buildern fehlt.
+
+00:11:07.530 --> 00:11:09.860
+Ich
+arbeite zum Beispiel mit GeneratePress,
+
+00:11:09.860 --> 00:11:14.280
+und das hat auch ein Markup mit dem article-Element
+und so baue ich oft
+
+00:11:14.400 --> 00:11:16.930
+meine eigenen Übersichten
+mit meinen eigenen Karten.
+
+00:11:18.530 --> 00:11:21.350
+Ich möchte auch
+Avada und Bricks loben,
+
+00:11:22.110 --> 00:11:26.730
+weil es sich um zwei Page Builder handelt,
+die ein Markup als HTML-Liste  verwenden.
+
+00:11:30.520 --> 00:11:33.490
+Wir haben uns ja entschieden, ein Markup als HTML-Liste
+zu verwenden und ich habe hier
+
+00:11:33.550 --> 00:11:38.330
+eine sehr einfache HTML-Struktur
+
+00:11:38.480 --> 00:11:41.030
+für den Karteneintrag und für die Karte selbst.
+
+00:11:41.800 --> 00:11:46.430
+Die einfache Karte, nur zur Erinnerung,
+besteht aus einer Vorschau und einem Bild,
+
+00:11:46.730 --> 00:11:51.940
+einer Überschrift, einem kurzen
+beschreibenden Text und einem Link zum Weiterlesen.
+
+00:11:53.020 --> 00:11:55.220
+Manchmal sage ich „Schalter“,
+was nicht korrekt ist.
+
+00:11:56.040 --> 00:11:58.370
+, denn ich meine einen „Mehr lesen“-Link.
+
+00:12:00.080 --> 00:12:03.420
+Das grundlegende HTML-Markup
+, mit dem wir arbeiten werden,
+
+00:12:03.570 --> 00:12:06.120
+ist nur ein HTML-Listenelement (li).
+
+00:12:06.650 --> 00:12:08.260
+Ich habe ihm eine CSS-Klasse "card" zugewiesen,
+
+00:12:08.420 --> 00:12:11.160
+dann darin gibt es ein Bild.
+
+00:12:11.860 --> 00:12:14.430
+Ich habe den Alternativtext leer gelassen
+
+00:12:14.500 --> 00:12:17.770
+und wir werden noch über Bilder sprechen,
+also keine Sorge.
+
+00:12:18.970 --> 00:12:21.740
+Dann die Überschrift, die ich als h2-Überschrift
+integriert habe,
+
+00:12:21.940 --> 00:12:25.170
+und den beschreibenden Text als HTML-Absatz (p)
+
+00:12:25.240 --> 00:12:27.570
+und dann haben wir noch den Link
+
+00:12:27.910 --> 00:12:29.460
+am Ende.
+
+00:12:34.050 --> 00:12:37.490
+Das ist im Allgemeinen wie --
+
+00:12:37.750 --> 00:12:42.660
+, aber das Problem liegt beim Link.
+
+00:12:42.720 --> 00:12:45.430
+Hier zum Beispiel ist nur
+
+00:12:46.160 --> 00:12:48.330
+der "Mehr lesen"-Link tatsächlich verlinkt.
+
+00:12:48.400 --> 00:12:51.470
+Aber das ist normalerweise nicht
+das, was man von einer Karte erwartet.
+
+00:12:51.530 --> 00:12:56.270
+Man erwartet sicherlich, wenn man sein Smartphone
+nutzt und auf das Bild klickt,
+
+00:12:56.340 --> 00:12:58.330
+dass man direkt
+zum Artikel gelangt.
+
+00:12:58.680 --> 00:13:03.060
+Ich denke, das ist auch das, was
+ihr wollt, wenn ihr ein Karten-Element entwerft.
+
+00:13:03.170 --> 00:13:04.810
+Sei es ein Marketing-Banner,
+
+00:13:04.880 --> 00:13:09.550
+für das die Marketingleute auch
+den Klickbereich vergrößern möchten.
+
+00:13:11.490 --> 00:13:17.660
+Was ich bei vielen WordPress-Themes sehe,
+ist, dass man
+
+00:13:17.730 --> 00:13:20.430
+das so erreichen will, indem man einfach Links
+zu allen Elementen hinzufügt.
+
+00:13:21.530 --> 00:13:28.170
+Da ist beispielsweise ein Beispielbild
+
+00:13:28.240 --> 00:13:31.110
+von der GeneratePress Solar-Demo-Site.
+
+00:13:31.840 --> 00:13:34.540
+Ich zeige viel vom GeneratePress Theme,
+nicht weil es so schlecht ist,
+
+00:13:34.680 --> 00:13:36.840
+einfach nur, weil es das Theme ist
+, mit dem ich normalerweise arbeite.
+
+00:13:36.840 --> 00:13:39.550
+Es ist tatsächlich ein wirklich cooles Theme.
+
+00:13:39.730 --> 00:13:42.550
+Hier kann man sehen, dass es auch eine einfache Karte
+hat,
+
+00:13:42.730 --> 00:13:44.290
+die zu einem Blog-Artikel führt.
+
+00:13:45.050 --> 00:13:48.660
+Und es hat auch ein Bild,
+und einige Kategorien.
+
+00:13:49.720 --> 00:13:53.060
+Und es hat eine Überschrift
+und einen „Mehr lesen“-Link.
+
+00:13:53.130 --> 00:13:56.060
+Sehr ähnlich zu dem, womit wir arbeiten.
+Aber hier hat man das Problem,
+
+00:13:56.130 --> 00:13:58.930
+den Klickbereich zu vergrößern,
+so gelöst,
+
+00:14:00.300 --> 00:14:02.000
+dass man das Bild
+
+00:14:02.150 --> 00:14:05.540
+verlinkt hat und die Überschrift
+und den "Mehr lesen"-Link.
+
+00:14:05.610 --> 00:14:08.310
+Wir haben also drei Links,
+die zum selben Ziel führen.
+
+00:14:08.420 --> 00:14:10.000
+Das ist nicht gut.
+
+00:14:12.110 --> 00:14:15.050
+Wozu das führen kann,
+wie hier zum Beispiel,
+
+00:14:15.120 --> 00:14:19.220
+wenn man das Wave-Tool zum Testen der Barrierefreiheit verwendet
+, dann werden Fehler ausgegeben.
+
+00:14:19.590 --> 00:14:22.260
+Hier der Fehler:
+
+00:14:22.360 --> 00:14:25.530
+Ich habe einen Screenshot des Fehlers gemacht,
+da steht „redundanter Link“
+
+00:14:25.690 --> 00:14:28.400
+und dann viele Icons
+, die zeigen, okay, hier ist ein Fehler.
+
+00:14:29.760 --> 00:14:32.870
+Die Erklärung dafür ist, dass angrenzende
+
+00:14:33.170 --> 00:14:36.240
+Links zum selben Ziel führen.
+Das ist eine schlechte Praxis,
+
+00:14:36.300 --> 00:14:40.140
+weil es verwirrend ist
+, wenn man einen Screenreader verwendet, und es ist
+
+00:14:41.210 --> 00:14:42.380
+einfach auch redundant.
+
+00:14:42.410 --> 00:14:44.440
+Es verursacht viel "Lärm" in der Ausgabe.
+
+00:14:48.480 --> 00:14:51.150
+Sind wir also wieder bei der Lösung, nur den Link 
+
+00:14:51.220 --> 00:14:53.620
+auf der Schaltfläche „Mehr lesen“ zu nutzen?
+
+00:14:53.690 --> 00:14:56.110
+Nein, es gibt eine bessere Lösung.
+
+00:14:56.520 --> 00:14:58.630
+Wir wollen nur mit einem Link arbeiten,
+
+00:14:58.630 --> 00:15:00.800
+, aber die ganze Karte anklickbar machen.
+
+00:15:02.460 --> 00:15:04.670
+Und wenn wir den Link nur
+
+00:15:04.840 --> 00:15:08.040
+auf „Mehr lesen“ haben, was passiert dann,
+
+00:15:08.370 --> 00:15:12.270
+wenn ein Screenreader
+die Website nutzt
+
+00:15:13.470 --> 00:15:16.040
+beim Auflisten aller Verlinkungen
+
+00:15:16.110 --> 00:15:21.050
+auf der Seite?
+Das ist eine Möglichkeit, wie Screenreader-Nutzende
+
+00:15:21.120 --> 00:15:24.920
+durch eine Seite navigieren können, indem man sagt:
+„Okay, gib mir alle Links.“
+
+00:15:24.990 --> 00:15:27.790
+Das, was dann ausgegeben
+wird: "Mehr lesen",
+
+00:15:27.860 --> 00:15:30.860
+"Mehr lesen", "Mehr lesen"
+und das ist nicht wirklich verständlich.
+
+00:15:30.930 --> 00:15:32.830
+Das ist definitiv keine gute Lösung.
+
+00:15:33.080 --> 00:15:34.950
+So können wir das nicht machen.
+
+00:15:38.900 --> 00:15:41.600
+Die Best-Practice-Lösung wäre,
+
+00:15:42.200 --> 00:15:46.640
+sich selbst zu fragen: „Okay,
+was ist das Wichtigste,
+
+00:15:46.710 --> 00:15:50.110
+das aussagekräftigste Element
+auf dieser Karte?"
+
+00:15:50.180 --> 00:15:53.650
+Und ich glaube, das ist in unserem Beispiel
+die Überschrift.
+
+00:15:54.320 --> 00:15:58.820
+Wir haben die Überschrift hier eingefügt, ich zeige
+noch einmal das grundlegende HTML-Markup.
+
+00:15:58.890 --> 00:16:03.820
+Wir platzieren den Link in HTML (a)
+um die Überschrift.
+
+00:16:04.830 --> 00:16:08.460
+Jetzt brauchen wir die Schaltfläche
+„Mehr lesen“ nicht mehr.
+
+00:16:10.400 --> 00:16:12.570
+Wir werden das
+später besprechen, ob das wirklich stimmt.
+
+00:16:12.570 --> 00:16:16.870
+Aber jetzt
+haben wir ein gutes Markup, das
+
+00:16:17.140 --> 00:16:19.810
+Screenreader-Nutzenden einen verständlichen Linktext bietet.
+
+00:16:21.540 --> 00:16:24.210
+Aber trotzdem ist nicht
+der gesamte Bereich anklickbar.
+
+00:16:24.280 --> 00:16:27.610
+Was wir jetzt tun können,
+ist, einen kleinen Trick anzuwenden,
+
+00:16:29.150 --> 00:16:32.790
+indem wir in CSS ein
+Pseudoelement für den Link erstellen,
+
+00:16:33.150 --> 00:16:35.860
+und lassen den Link
+
+00:16:36.020 --> 00:16:39.640
+mit absoluter Positionierung und CSS,
+die ganze Karte umfassen.
+
+00:16:40.230 --> 00:16:42.930
+Das ist wirklich toll
+und ich liebe diesen Trick.
+
+00:16:43.560 --> 00:16:45.600
+Seit ich ihn gelernt habe,
+verwende ich ihn ständig.
+
+00:16:45.600 --> 00:16:50.000
+Dadurch haben wir nur einen Link
+und dieser befindet sich rund um das informative Element (Überschrift).
+
+00:16:50.140 --> 00:16:55.060
+Das ist gut für Nutzende von Screenreadern,
+aber der ganze Bereich ist auch, der --
+
+00:16:55.800 --> 00:16:58.440
+Das gesamte Kartenelement
+, das relativ positioniert ist,
+
+00:16:58.550 --> 00:17:00.950
+, das funktioniert also, wenn es angeklickt wird.
+
+00:17:02.440 --> 00:17:04.080
+Das ist cool.
+
+00:17:04.420 --> 00:17:06.280
+Hier habe ich das CSS.
+
+00:17:06.710 --> 00:17:10.440
+Wenn ihr die Folien später erhaltet,
+könnt ihr das einfach kopieren.
+
+00:17:16.200 --> 00:17:19.530
+Dann denkt man sich:
+„Oh, ich habe eine gute Lösung.“
+
+00:17:19.600 --> 00:17:23.440
+Aber dann sagt der Designer:
+"Hey, ich möchte die Autorenzeile
+
+00:17:23.500 --> 00:17:28.840
+da einfügen." Hier zum Beispiel
+habe ich noch eine Karte.
+
+00:17:29.040 --> 00:17:30.980
+Ich ändere die Bilder ein wenig.
+
+00:17:31.050 --> 00:17:33.750
+Dies ist ein anderer Vogel
+als Vorschaubild.
+
+00:17:34.650 --> 00:17:36.620
+Hier unter der Überschrift
+
+00:17:36.620 --> 00:17:40.620
+haben wir nun die Autorenzeile und die
+
+00:17:40.790 --> 00:17:42.240
+ist oft verknüpft.
+
+00:17:44.730 --> 00:17:46.260
+In diesem Fall,
+
+00:17:46.330 --> 00:17:48.630
+Ich denke, Heydon Pickering
+hat einen wirklich guten Punkt,
+
+00:17:48.630 --> 00:17:52.070
+weil er fragt: „Hey,
+muss das wirklich verlinkt sein?
+
+00:17:52.700 --> 00:17:55.670
+Ist es wirklich so--".
+Wird man das in einer Blog-Übersicht
+
+00:17:55.740 --> 00:17:58.950
+sehen und sagen:
+"Oh, ich klicke direkt
+
+00:17:59.060 --> 00:18:02.410
+auf die Autorenzeile, ohne
+den Artikel vorher gelesen zu haben,
+
+00:18:02.580 --> 00:18:05.380
+ohne vorher durchgeklickt
+und den Artikel gelesen zu haben."
+
+00:18:05.450 --> 00:18:07.880
+Ich empfehle das auf jeden Fall –
+ich denke, das ist ein wirklich guter Punkt
+
+00:18:07.880 --> 00:18:10.880
+und ich denke, wir sollten darüber nachdenken,
+ob wir den Link dort wirklich brauchen.
+
+00:18:11.450 --> 00:18:14.190
+Wenn wir sagen würden: „Ja,
+wir brauchen diesen Link wirklich, er ist wichtig.“
+
+00:18:14.890 --> 00:18:17.590
+Eine Sache, die man dann tun kann,
+ist, dass man einfach
+
+00:18:17.720 --> 00:18:21.230
+für die Verlinkung
+
+00:18:21.300 --> 00:18:23.110
+der Autorenzeile in CSS
+
+00:18:24.470 --> 00:18:28.640
+den z-index höher setzt
+als für das CSS-Pseudoelement -
+
+00:18:28.700 --> 00:18:30.840
+Das ist der Hauptkarten-Link (Überschrift).
+
+00:18:30.900 --> 00:18:34.270
+Hier zum Beispiel hat das Pseudoelement
+, das die ganze Karte anklickbar
+
+00:18:34.440 --> 00:18:38.350
+macht, einen z-index von 1.
+
+00:18:38.950 --> 00:18:42.720
+Ich möchte, dass auch
+die Autorenzeile anklickbar ist.
+
+00:18:43.150 --> 00:18:45.800
+Ich werde daher in CSS dafür
+den z-index auf 2 erhöhen.
+
+00:18:46.020 --> 00:18:48.520
+Jetzt kann man sehen, was ich hier markiert habe.
+
+00:18:48.590 --> 00:18:52.160
+Der Klickbereich befindet sich auf der gesamten Karte
+, die zum gesamten Artikel führt,
+
+00:18:52.230 --> 00:18:53.570
+aber dann--
+
+00:18:55.440 --> 00:18:58.570
+Ich liebe die Reaktionen
+im Raum.
+
+00:18:59.840 --> 00:19:04.240
+Dann ist auch die Autorenzeile anklickbar.
+
+00:19:04.840 --> 00:19:08.410
+Ich denke, dass man es jetzt gut sehen kann.
+
+00:19:08.480 --> 00:19:11.350
+Der Klickbereich für die Autorenzeile.
+
+00:19:13.000 --> 00:19:14.600
+Er ist ziemlich klein.
+
+00:19:16.620 --> 00:19:17.780
+Was kann hier passieren,
+
+00:19:17.910 --> 00:19:25.360
+und ich zeige dazu ein Vorschaubild
+und habe ein Foto von meinem Finger eingefügt
+
+00:19:25.730 --> 00:19:29.460
+und ich lege ihn über die Autorenzeile
+und jetzt kann man sehen, dass --
+
+00:19:29.530 --> 00:19:33.100
+Tatsächlich
+ist die Autorenzeile kleiner als mein Finger.
+
+00:19:33.230 --> 00:19:36.740
+Was kann passieren, wenn man diese Links
+nacheinander integriert,
+
+00:19:36.800 --> 00:19:39.510
+direkt aneinander,
+dass es zu Problemen kommen kann.
+
+00:19:39.640 --> 00:19:41.880
+Vor allem für alle, die
+
+00:19:41.940 --> 00:19:45.850
+auf dem Smartphone versuchen,
+in Eile etwas anzuklicken,
+
+00:19:46.050 --> 00:19:48.750
+auch zum Beispiel für jene, die,
+ich weiß nicht, einen Tremor haben
+
+00:19:49.110 --> 00:19:51.150
+und motorische Einschränkungen.
+
+00:19:51.730 --> 00:19:54.060
+Es kann
+unglaublich frustrierend sein,
+
+00:19:54.280 --> 00:19:58.390
+wenn man auf eine Sache klickt
+und ganz woanders landet.
+
+00:19:59.290 --> 00:20:01.800
+Das kann glücklicherweise behoben werden.
+
+00:20:03.600 --> 00:20:05.870
+Was wir tun müssen, ist, dass wir einfach in CSS padding
+
+00:20:06.800 --> 00:20:09.660
+zum Link hinzufügen
+und dann kann man hören: „Okay, cool.“
+
+00:20:09.750 --> 00:20:11.880
+Jetzt haben wir einen Abstand in CSS integriert
+und wir können ihn hier auch sehen.
+
+00:20:11.970 --> 00:20:14.040
+Ich habe in CSS padding grün markiert.
+
+00:20:14.150 --> 00:20:16.180
+Mein Finger ist jetzt ungefähr gleich groß wie
+
+00:20:16.280 --> 00:20:18.780
+der Klickbereich für die Autorenzeile, super.
+
+00:20:19.970 --> 00:20:22.380
+Man kann natürlich
+das gleiche sichtbare Layout beibehalten, indem man -
+
+00:20:22.620 --> 00:20:28.160
+ich weiß nicht - den Abstand in CSS (margin)
+der Überschrift entfernt und verändert.
+
+00:20:28.260 --> 00:20:31.750
+Es sieht immer noch gleich aus,
+hat aber einen größeren Abstand.
+
+00:20:33.690 --> 00:20:36.040
+Dann möchte ich noch eines sagen,
+
+00:20:36.500 --> 00:20:39.280
+wenn wir über das Tippen auf Smartphones sprechen.
+
+00:20:40.020 --> 00:20:47.680
+Hier zeige ich eine mobile Ansicht
+desselben Rasters. Und eine mobile Ansicht,
+
+00:20:48.150 --> 00:20:51.800
+alle Karten werden
+übereinander angeordnet.
+
+00:20:52.680 --> 00:20:55.710
+Hier ist noch einmal mein Finger,
+der zeigt, dass der Abstand zwischen
+
+00:20:55.800 --> 00:20:59.330
+den Karten ziemlich klein ist ...
+Wenn der Abstand zwischen den Karten zu klein ist, dann
+
+00:20:59.380 --> 00:21:03.510
+hat man ein Problem mit dem Tippen auf Mobilgeräten,
+wenn man scrollt.
+
+00:21:03.710 --> 00:21:05.060
+Ich möchte scrollen
+
+00:21:06.120 --> 00:21:11.750
+und ich tippe unerwartet auf etwas
+
+00:21:11.850 --> 00:21:14.360
+und dann bricht die "Hölle" los.
+
+00:21:16.460 --> 00:21:19.240
+Ich glaube, dass man dann vielleicht denkt:
+„Oh, das passiert mir nicht.“
+
+00:21:19.420 --> 00:21:22.800
+Oder wenn man beispielsweise motorische Einschränkungen habt,
+
+00:21:23.430 --> 00:21:24.930
+das kann durchaus passieren.
+
+00:21:26.730 --> 00:21:30.110
+Was wir da tun können, ist,
+den Abstand wieder zu vergrößern,
+
+00:21:30.350 --> 00:21:33.680
+dass zwischen
+den Karten ein Abstand bleibt,
+
+00:21:33.860 --> 00:21:37.710
+mehr Abstand, sodass man jetzt
+sehen kann, dass mein Finger wieder passt,
+
+00:21:39.420 --> 00:21:41.480
+wo man nun einen sicheren Abstand habt,
+
+00:21:41.480 --> 00:21:43.260
+damit man scrollen kann.
+
+00:21:44.600 --> 00:21:47.080
+Jetzt haben wir
+eine wirklich gute Lösung dafür.
+
+00:21:48.860 --> 00:21:51.030
+Das Einzige – Oh,
+ich gehe noch einmal zurück.
+
+00:21:51.130 --> 00:21:55.970
+Das Einzige, was ich jetzt gelernt habe, ist, dass
+dieses Pseudoelement ein guter Trick ist.
+
+00:21:56.070 --> 00:21:59.240
+Aber das Problem dabei ist,
+dass der Text nicht mehr markierbar ist,
+
+00:21:59.970 --> 00:22:03.140
+weil das Pseudoelement
+gewissermaßen nun in CSS über
+
+00:22:03.210 --> 00:22:05.710
+dem Absatz liegt.
+Und wenn jemand etwas markieren möchte -
+
+00:22:05.810 --> 00:22:09.550
+diese Inhaltsbeschreibung etwa - und die
+Information kopieren möchte, funktioniert das nicht.
+
+00:22:10.180 --> 00:22:12.380
+Ich muss zugeben, dass ich persönlich,
+
+00:22:12.380 --> 00:22:15.280
+wenn ich
+eine Blogübersicht gestalte, wie wir hier eine haben,
+
+00:22:15.710 --> 00:22:17.400
+hier normalerweise anhalte,
+
+00:22:17.860 --> 00:22:19.950
+weil ich denke, für diesen Anwendungsfall
+ist es nicht --
+
+00:22:20.110 --> 00:22:22.060
+Man kann sagen, dass man damit nicht einverstanden ist,
+
+00:22:22.160 --> 00:22:26.230
+aber ich denke, es ist nicht wirklich notwendig,
+dass man das an der Stelle markieren kann.
+
+00:22:26.330 --> 00:22:29.430
+Weil ich denke, dass es viel wahrscheinlicher ist
+, dass man auf den Artikel klickt,
+
+00:22:29.530 --> 00:22:32.440
+und nachdem man entschieden hat:
+„Oh, das ist ein guter Artikel.“,
+
+00:22:32.600 --> 00:22:35.740
+ich weiß nicht, den Text markiert
+und kopiert oder was auch immer.
+
+00:22:36.200 --> 00:22:38.420
+Aber es könnte andere Anwendungsfälle 
+für Karten geben,
+
+00:22:39.040 --> 00:22:42.380
+wo der Text markierbar sein muss,
+
+00:22:42.860 --> 00:22:45.150
+obwohl die ganze Karte klickbar ist.
+
+00:22:45.280 --> 00:22:47.170
+Ich werde auf das
+nicht weiter eingehen,
+
+00:22:47.280 --> 00:22:49.950
+weil ich, wie gesagt, diese Technik normalerweise
+nicht verwende,
+
+00:22:50.450 --> 00:22:53.400
+aber es gibt eine JavaScript-Lösung
+dafür.
+
+00:22:53.620 --> 00:22:59.420
+Und es gibt ein wirklich tolles Codebeispiel
+in der inklusiven Kartenkomponente
+
+00:23:00.710 --> 00:23:02.270
+im Bereich
+
+00:23:02.370 --> 00:23:06.100
+"redundanter Klick-Event",
+ebenfalls von Heydon Pickering,
+
+00:23:06.200 --> 00:23:10.310
+und man einen Anwendungsfall dafür habt, dann
+empfehle ich wirklich, sich das anzusehen.
+
+00:23:10.420 --> 00:23:11.410
+Das ist sehr gut.
+
+00:23:11.770 --> 00:23:15.350
+Für unseren Anwendungsfall
+bleiben wir vorerst dabei.
+
+00:23:17.240 --> 00:23:18.920
+Jetzt möchte ich darüber sprechen,
+
+00:23:19.020 --> 00:23:22.820
+und dies ist das einzige Mal, dass
+ich Theorie einbringe.
+
+00:23:23.280 --> 00:23:26.020
+Ich möchte darüber sprechen
+, denn es ist
+
+00:23:26.120 --> 00:23:27.800
+wichtig für den nächsten Teil.
+
+00:23:28.960 --> 00:23:31.000
+Das ist ein Begriff, der häufig fällt.
+
+00:23:31.150 --> 00:23:32.360
+Ich lerne
+
+00:23:32.360 --> 00:23:35.630
+für eine Zertifizierung im Moment
+und das ist ein Konzept, das oft auftaucht
+
+00:23:36.370 --> 00:23:40.740
+und es heißt -- es wird definiert
+als "eine Design-Affordanz (affordance) ist ein Hinweis,
+
+00:23:40.840 --> 00:23:44.910
+wie ein Objekt verwendet werden soll,
+
+00:23:45.010 --> 00:23:48.240
+und wird normalerweise vom Objekt selbst
+oder seinem Kontext bereitgestellt."
+
+00:23:48.410 --> 00:23:54.080
+Das ist ein Zitat von Sheri
+
+00:23:54.180 --> 00:23:58.150
+Byrne-Haber,
+einer Spezialistin für Barrierefreiheit.
+
+00:23:59.260 --> 00:24:01.220
+Der Link ist auch auf der Folie.
+
+00:24:02.960 --> 00:24:05.900
+Im Grunde bedeutet das
+, dass man etwas sehen kann
+
+00:24:06.300 --> 00:24:08.560
+und man weiß intuitiv,
+was man damit tun soll.
+
+00:24:09.570 --> 00:24:13.470
+Und das ist wirklich wichtig für etwas
+, das interaktiv sein soll.
+
+00:24:13.570 --> 00:24:15.200
+Man muss wissen, was man damit tun soll.
+
+00:24:15.940 --> 00:24:19.950
+Ich denke, in unserem Beispiel
+
+00:24:21.880 --> 00:24:24.950
+ist ganz klar,
+es ist ein Blog-Artikel
+
+00:24:25.040 --> 00:24:27.350
+und man sollte daraufklicken können
+
+00:24:27.820 --> 00:24:30.000
+und man sollte wissen, dass man daraufklicken kann.
+
+00:24:31.390 --> 00:24:33.310
+Es ist die wichtigste
+Affordanz / Anforderung für Karten,
+
+00:24:33.440 --> 00:24:37.390
+dass man mit ihnen
+interagieren kann, und wie ich sagte, in unserem Fall
+
+00:24:37.490 --> 00:24:39.370
+dass man daraufklicken kann, um mehr zu lesen.
+
+00:24:39.860 --> 00:24:44.220
+Bedeutet das jetzt, dass wir
+den Link „Mehr lesen“ wieder integrieren müssen?
+
+00:24:44.550 --> 00:24:49.110
+Ja, ich denke schon, denn
+allein durch das Hinzufügen dieses Links erhält man,
+
+00:24:49.240 --> 00:24:50.740
+obwohl wir ihn nicht mehr
+
+00:24:50.810 --> 00:24:56.810
+als Link brauchen, ein klares,
+ein sehr, sehr klares Signal:
+
+00:24:56.910 --> 00:24:59.800
+"Das passiert, wenn man
+hier klickt, und man soll hier klicken".
+
+00:25:00.820 --> 00:25:03.390
+Ich denke, das ist eine gute Sache
+für die Barrierefreiheit, aber natürlich,
+
+00:25:03.490 --> 00:25:06.520
+weil wir den Inhalt nicht als Link benötigen,
+fügen wir ihn nicht wieder als Link ein.
+
+00:25:06.920 --> 00:25:09.090
+Wir fügen ihn einfach wieder als Inhalt ein.
+
+00:25:11.460 --> 00:25:12.560
+Wir können das machen, indem
+
+00:25:12.560 --> 00:25:15.060
+wir nur ein span-Element in HTML hinzufügen
+
+00:25:15.970 --> 00:25:18.770
+mit dem Inhalt „Mehr lesen“.
+
+00:25:18.870 --> 00:25:22.710
+Und mit CSS heben wir es sichtbar hervor,
+, wie man will,
+
+00:25:22.810 --> 00:25:25.270
+was auch immer das Designsystem vorgibt,
+
+00:25:25.480 --> 00:25:28.000
+dass der Link aussehen soll.
+
+00:25:29.650 --> 00:25:31.450
+Es spielt keine Rolle
+, dass es eigentlich kein Link ist,
+
+00:25:31.450 --> 00:25:38.020
+weil die ganze Karte anklickbar ist
+und man einfach draufklicken kann.
+
+00:25:38.240 --> 00:25:43.910
+Wir wollen das nicht für
+
+00:25:44.020 --> 00:25:46.730
+Screenreader-Nutzende ausgeben
+, denn für sie
+
+00:25:47.200 --> 00:25:51.020
+ist es verwirrend, dass
+es der Inhalt kein Link ist.
+
+00:25:51.130 --> 00:25:55.240
+Es ist für alle, die die Karte sehen können.
+
+00:25:55.540 --> 00:25:59.680
+Denn wenn man einen Screenreader verwendet,
+sagt der Screenreader
+
+00:25:59.780 --> 00:26:01.000
+"Dies ist ein Link".
+
+00:26:03.350 --> 00:26:05.920
+Wir verwenden hier ein wenig ARIA
+
+00:26:06.650 --> 00:26:10.290
+mit einem aria-hidden Wert
+von „true“ für das span-Element in HTML.
+
+00:26:10.510 --> 00:26:11.620
+Wir entfernen es dadurch von der Screenreader-Ausgabe.
+
+00:26:12.790 --> 00:26:18.260
+Dies ist eine gute Lösung für
+Screenreader-Nutzende, die die Karte nicht sehen können.
+
+00:26:19.300 --> 00:26:22.870
+Aber es gibt auch sehende
+
+00:26:22.970 --> 00:26:25.500
+Screenreader-Nutzende,
+also jene, die einen Screenreader verwenden
+
+00:26:25.600 --> 00:26:29.340
+aus verschiedenen Gründen
+, weil sie eine Sehschwäche haben oder
+
+00:26:29.410 --> 00:26:31.970
+er ihnen hilft,
+Informationen zu verarbeiten.
+
+00:26:33.110 --> 00:26:35.580
+Dann ist es für sie etwas verwirrend,
+dass es etwas gibt,
+
+00:26:35.580 --> 00:26:38.080
+was wie ein Link aussieht.
+
+00:26:39.320 --> 00:26:41.080
+Es sieht aus wie etwas,
+mit dem man interagieren kann,
+
+00:26:41.080 --> 00:26:42.930
+aber es wird nicht vorgelesen.
+
+00:26:43.650 --> 00:26:46.060
+Das kann verwirrend sein.
+
+00:26:46.160 --> 00:26:49.990
+Um dies zu beheben,
+
+00:26:50.090 --> 00:26:52.600
+gibt es noch einen anderen Trick, den wir anwenden können.
+
+00:26:53.730 --> 00:26:58.200
+Wir können weiterhin mit aria-hidden den Inhalt entfernen,
+
+00:26:59.170 --> 00:27:01.670
+aber wir geben ihm eine ID in HTML
+
+00:27:01.970 --> 00:27:04.810
+und dann verknüpfen wir
+
+00:27:05.110 --> 00:27:09.580
+diese ID mit dem eigentlichen Link mit
+
+00:27:10.710 --> 00:27:12.750
+Hilfe von aria-describedby.
+
+00:27:12.850 --> 00:27:15.820
+Das bedeutet, dass man
+auf dem Link-Element das Attribut aria-describedby
+
+00:27:15.920 --> 00:27:18.350
+und die ID des span-Element "Mehr lesen" verbindet.
+
+00:27:19.660 --> 00:27:23.390
+Dadurch
+sieht es optisch nicht anders aus,
+
+00:27:23.790 --> 00:27:28.360
+aber es sorgt dafür, dass
+dass das "Mehr lesen" auch ausgegeben wird,
+
+00:27:28.460 --> 00:27:33.570
+wenn ein Screenreader den Linkinhalt vorliest.
+
+00:27:34.270 --> 00:27:37.940
+Er würde ausgeben: „Mehr lesen" --
+
+00:27:38.470 --> 00:27:41.440
+Ich bin wirklich schlecht darin – ich weiß nicht –
+ich erinnere mich nicht mehr, also welcher
+
+00:27:41.510 --> 00:27:45.410
+Screenreader es wie vorlesen würde,
+aber es wäre im Grunde genommen "Link Seltene Vögel
+
+00:27:45.510 --> 00:27:49.120
+zu sehen", weil das die Überschrift ist,
+und dann "Mehr lesen",
+
+00:27:49.220 --> 00:27:52.720
+weil der Inhalt von aria-describedby
+immer zuletzt vorgelesen wird.
+
+00:27:52.960 --> 00:27:55.890
+Das ist in diesem Anwendungsfall wirklich gut.
+
+00:27:56.830 --> 00:28:00.530
+So können wir es
+zugänglicher machen
+
+00:28:00.630 --> 00:28:03.130
+für alle Nutzende mit Screenreader.
+
+00:28:05.130 --> 00:28:07.640
+Dann schauen wir mal, was wir sonst noch tun können.
+
+00:28:08.970 --> 00:28:09.970
+Oh ja,
+
+00:28:10.210 --> 00:28:12.710
+entschuldigung, ich habe vergessen, was die nächste Folie ist.
+
+00:28:13.610 --> 00:28:16.050
+Dann in WordPress,
+wir arbeiten ja in WordPress,
+
+00:28:16.150 --> 00:28:19.110
+und wir arbeiten
+wahrscheinlich im Template mit einer Schleife (loop).
+
+00:28:19.480 --> 00:28:22.720
+Wir müssen jedoch nicht
+alle IDs per Hand codieren.
+
+00:28:23.290 --> 00:28:27.060
+Was wir brauchen, ist
+eine eindeutige ID, die
+
+00:28:27.680 --> 00:28:29.970
+automatisch in unserem Code generiert wird.
+
+00:28:34.360 --> 00:28:38.500
+Eine Möglichkeit, wie ich es in PHP mache
+
+00:28:39.940 --> 00:28:43.970
+ist, dass ich die Überschrift,
+den Titel des Artikels, verwende,
+
+00:28:44.770 --> 00:28:48.180
+den wir verlinkt haben,
+
+00:28:48.280 --> 00:28:53.720
+auf dem ich die ID generiere, weil ich annehme,
+
+00:28:54.780 --> 00:28:58.090
+dass diese Überschriften immer einzigartig sein werden.
+
+00:28:58.250 --> 00:29:00.160
+Ich hoffe nur, dass Redakteure
+so arbeiten,
+
+00:29:00.260 --> 00:29:03.230
+dass sie nicht
+viele Blog-Artikel mit genau der gleichen
+
+00:29:03.330 --> 00:29:04.880
+Überschrift nutzen.
+
+00:29:05.840 --> 00:29:11.970
+Ich generiere aus der Überschrift, dem Titel
+des Artikels, eine ID
+
+00:29:12.070 --> 00:29:14.800
+mit diesem raffinierten kleinen PHP-Schnipsel,
+
+00:29:14.900 --> 00:29:17.410
+der sich freut, dass wir hier PHP machen.
+
+00:29:18.310 --> 00:29:20.680
+Ich erkläre es nur kurz,
+aber es ist wahrscheinlich besser,
+
+00:29:20.770 --> 00:29:22.610
+wenn ihr die Folien erhaltet, es einfach zu kopieren.
+
+00:29:23.250 --> 00:29:27.480
+Im Grunde haben wir eine Variable, der geben
+
+00:29:27.750 --> 00:29:31.290
+wir die Überschrift, den Titel,
+und jetzt haben wir den Titel des Artikels.
+
+00:29:32.320 --> 00:29:36.030
+Dann müssen wir den Inhalt bearbeiten,
+da er Leerzeichen enthält
+
+00:29:36.130 --> 00:29:39.560
+und vielleicht ein paar unübliche Symbole
+oder was auch immer.
+
+00:29:40.040 --> 00:29:42.100
+So können wir das nicht für die ID nutzen.
+
+00:29:42.100 --> 00:29:45.080
+Wir müssen den Inhalt in etwas umwandeln,
+das tatsächlich als ID funktionieren kann.
+
+00:29:45.940 --> 00:29:48.400
+Ich verwende ein Trennzeichen "-" als --
+
+00:29:48.500 --> 00:29:51.010
+was ich als Trennzeichen zwischen den Wörtern
+verwenden möchte.
+
+00:29:52.510 --> 00:29:55.010
+Genau wie einen Bindestrich, eine Art URL.
+
+00:29:56.080 --> 00:29:58.550
+Dann generiere ich die ID
+
+00:29:58.650 --> 00:30:05.020
+mit grundsätzlich vielen PHP-Ersetzungen,
+
+00:30:05.120 --> 00:30:08.620
+wandele es in Kleinbuchstaben um,
+
+00:30:08.720 --> 00:30:11.230
+dann werden alle Leerzeichen
+
+00:30:14.360 --> 00:30:18.530
+ersetzt und alle
+mit Trennzeichen, etc.
+
+00:30:18.630 --> 00:30:20.020
+Man kann einfach den Code kopieren und
+
+00:30:20.170 --> 00:30:22.400
+dann im Template verwenden.
+
+00:30:22.500 --> 00:30:26.880
+Ich kann einfach so
+eine ID für jeden Link „Mehr lesen“ generieren.
+
+00:30:26.980 --> 00:30:30.050
+Und dann habe ich eine eindeutige
+ID in WordPress, was wirklich cool ist.
+
+00:30:33.420 --> 00:30:36.720
+Jetzt haben wir einen ziemlich guten Zustand erreicht,
+
+00:30:36.820 --> 00:30:39.620
+aber es gibt noch eine Menge
+Dinge, die wir tun können, um es zu verbessern.
+
+00:30:40.690 --> 00:30:44.860
+Worüber ich jetzt sprechen möchte,
+ist die Tastaturnavigation.
+
+00:30:45.030 --> 00:30:49.400
+Alle, die die Tastatur benutzen,
+und wie das für sie ist.
+
+00:30:50.030 --> 00:30:52.530
+Wenn man jetzt auf diese Karte tippt,
+
+00:30:53.870 --> 00:30:58.930
+geht der Tastaturfokus
+auf den eigentlichen Link.
+
+00:30:59.380 --> 00:31:01.880
+Hier zeige ich die Karte
+
+00:31:05.480 --> 00:31:07.350
+mit einem sichtbaren Tastaturfokus,
+
+00:31:07.350 --> 00:31:09.850
+einer gepunkteten Linie
+um die Überschrift.
+
+00:31:12.320 --> 00:31:17.060
+Das ist in Ordnung,
+
+00:31:17.390 --> 00:31:20.400
+aber es zeigt nicht wirklich,
+
+00:31:20.500 --> 00:31:22.970
+dass man mit der gesamten Karte interagieren kann.
+
+00:31:23.270 --> 00:31:25.800
+Es ist auch verwirrend.
+Warum geht der Fokus nicht zum "Mehr lesen",
+
+00:31:25.900 --> 00:31:27.310
+obwohl es wie ein Link aussieht.
+
+00:31:28.770 --> 00:31:30.010
+Was wir wollen
+
+00:31:30.110 --> 00:31:33.410
+ist, den sichtbaren Tastaturfokus
+auf die gesamte Karte zu setzen.
+
+00:31:34.040 --> 00:31:38.250
+Hier in diesem Beispiel habe ich eine
+gepunktete Linie um die ganze Karte gelegt.
+
+00:31:38.780 --> 00:31:42.180
+Und wir machen es
+so, dass wir in CSS die
+
+00:31:42.520 --> 00:31:45.750
+Auszeichnung des Links entfernen.
+
+00:31:46.510 --> 00:31:48.930
+Einer der ganz wenigen Fälle,
+
+00:31:49.040 --> 00:31:52.260
+in denen man das tun kann.
+Wir entfernen es an der einen Stelle,
+
+00:31:52.360 --> 00:31:56.800
+aber fügen es in CSS dem Pseudoelement hinzu,
+
+00:31:56.930 --> 00:31:59.220
+wenn der Link fokussiert wird.
+
+00:31:59.640 --> 00:32:02.300
+Auf diese Weise, wenn jemand auf die Karte tippt,
+
+00:32:02.670 --> 00:32:05.170
+erhält die ganze Karte den Fokus.
+
+00:32:06.710 --> 00:32:08.730
+So mache ich es in meinem Projekt.
+
+00:32:10.710 --> 00:32:13.720
+Was man vielleicht noch ergänzen kann,
+
+00:32:13.820 --> 00:32:17.420
+dass man auch eine Art Hover-effekt
+hinzufügt.
+
+00:32:17.850 --> 00:32:21.360
+Normalerweise erhalte ich einen Hover-Effekt,
+
+00:32:21.770 --> 00:32:23.570
+wenn jemand
+
+00:32:23.770 --> 00:32:26.700
+mit der Maus über die Karte fährt.
+
+00:32:26.860 --> 00:32:29.770
+Daher füge ich auch den Hover-Effekt
+zum Tastaturfokus hinzu,
+
+00:32:31.370 --> 00:32:33.220
+zum Fokusstil.
+
+00:32:34.340 --> 00:32:35.870
+Hier zum Beispiel gebe ich
+
+00:32:35.970 --> 00:32:39.810
+dem span-Element in HTML
+,unserem dekorativen
+
+00:32:39.910 --> 00:32:45.050
+Link „Mehr lesen“,
+eine andere Hintergrundfarbe.
+
+00:32:46.620 --> 00:32:49.590
+Für den Hover-Effekt können Sie
+natürlich einen eigenen Hover-Effekt verwenden.
+
+00:32:51.370 --> 00:32:53.240
+Man kann kreativ sein.
+
+00:32:55.770 --> 00:32:57.040
+Mal sehen.
+
+00:32:58.130 --> 00:33:00.000
+Jetzt sprechen wir noch über die Bilder.
+
+00:33:00.730 --> 00:33:05.860
+Ich hoffe, einige von euch
+haben vielleicht darauf gewartet.
+
+00:33:08.540 --> 00:33:13.110
+Bei Bildern stellt sich immer die Frage, ob
+sie wichtige Informationen vermitteln,
+
+00:33:13.980 --> 00:33:16.180
+sodass sie auch ein Screenreader ausgeben sollte,
+
+00:33:16.180 --> 00:33:18.650
+oder sind die Bilder rein dekorativ?
+
+00:33:18.750 --> 00:33:21.260
+Wenn sie informative Informationen enthalten
+, sollten die Bilder einen
+
+00:33:21.350 --> 00:33:23.640
+sinnvollen ALT-Text,
+Alternativtext, erhalten.
+
+00:33:24.620 --> 00:33:26.990
+Wenn nicht, dann kann man die Bilder
+
+00:33:26.990 --> 00:33:29.490
+als dekorativ mit einem leeren
+Alternativtext integrieren.
+
+00:33:30.530 --> 00:33:32.060
+In diesem Fall.
+
+00:33:32.160 --> 00:33:36.130
+Ich weiß, dass es auch eine Debatte darüber gibt,
+wann ein Bild dekorativ ist oder nicht.
+
+00:33:36.670 --> 00:33:41.640
+Ich muss sagen, dass ich bei Karten eher
+dazu tendiere
+
+00:33:42.140 --> 00:33:44.310
+, Screenreader-Nutzenden
+
+00:33:44.310 --> 00:33:46.810
+die gleiche Art von Effizienz, die ich
+
+00:33:47.310 --> 00:33:49.810
+als sehender Mensch habe, zu geben.
+
+00:33:49.950 --> 00:33:52.200
+Hier zum Beispiel ist das ein Blog-Artikel.
+
+00:33:52.880 --> 00:33:56.390
+Und ich bin ziemlich sicher,
+dass, wenn ich Bilder für den Blog-Artikel auswähle
+
+00:33:56.490 --> 00:33:58.990
+, suche ich nicht speziell nach --
+
+00:33:59.250 --> 00:34:01.760
+„Oh … In vielen Fällen schaue ich nicht hin.“ Oh,
+
+00:34:01.890 --> 00:34:05.390
+möchte ich genau
+dieses spezielle Bild eines Vogels zeigen?
+
+00:34:05.490 --> 00:34:10.670
+Nein, ich möchte nur einen Vogel oder einen Artikel über Vögel
+haben.
+
+00:34:11.070 --> 00:34:12.530
+Es ist nicht wirklich wichtig, dass es
+
+00:34:12.530 --> 00:34:15.470
+speziell dieses Foto ist,
+und ich denke, aus Effizienzgründen,
+
+00:34:15.570 --> 00:34:20.080
+damit Screenreader-Nutzende
+das alles nicht lesen oder anhören müssen,
+
+00:34:20.810 --> 00:34:23.310
+würde ich das ALT-Attribut leer lassen.
+
+00:34:23.850 --> 00:34:28.050
+Aber ich denke, es gibt Anwendungsfälle,
+in denen man definitiv
+
+00:34:29.050 --> 00:34:31.050
+ein informatives Bild in einer Karte haben will,
+
+00:34:31.150 --> 00:34:34.120
+das tatsächlich bestimmt,
+ob Nutzende daraufklicken möchten.
+
+00:34:35.760 --> 00:34:37.430
+Zum Beispiel hier,
+
+00:34:37.530 --> 00:34:40.300
+Ich zeige einen Use-Case im E-Commerce-Bereich,
+
+00:34:40.400 --> 00:34:44.870
+wobei die Karten nicht für einen Blog,
+sondern für Produkte verwendet werden.
+
+00:34:45.240 --> 00:34:47.150
+Jede Karte hat ein Produkt
+
+00:34:48.870 --> 00:34:51.370
+und hier
+habe ich also drei Karten nebeneinander.
+
+00:34:51.740 --> 00:34:55.740
+Statt eines „Mehr lesen“-Links
+haben wir jetzt einen „Kaufen“-Link. Das würde dann
+
+00:34:55.810 --> 00:34:59.080
+wahrscheinlich „gehe zu Details“
+
+00:34:59.220 --> 00:35:01.240
+oder so ähnlich lauten.
+
+00:35:01.910 --> 00:35:04.460
+Was
+ich damit sagen will, ist, dass
+
+00:35:06.950 --> 00:35:08.400
+viele Produktnamen
+
+00:35:08.490 --> 00:35:11.560
+manchmal die Sache
+nicht wirklich beschreiben.
+
+00:35:11.760 --> 00:35:14.960
+Hier habe ich zum Beispiel Produktnamen gewählt
+
+00:35:15.060 --> 00:35:17.870
+wie "Birdy Max Ultra Precision",
+
+00:35:17.970 --> 00:35:20.470
+und dann zeigt das Bild ein Teleskop
+
+00:35:20.800 --> 00:35:24.470
+oder "Birdy Max Lightweight On The Go".
+
+00:35:24.570 --> 00:35:25.410
+Man würde es allein an der Überschrift
+
+00:35:26.540 --> 00:35:27.780
+nicht erkennen, wenn man nicht
+
+00:35:27.880 --> 00:35:30.280
+das Bild eines Fernglases hätte, das zeigt,
+
+00:35:30.280 --> 00:35:32.780
+dass es sich tatsächlich um ein Fernglas handelt.
+
+00:35:32.880 --> 00:35:35.820
+Ich glaube, man kann sich im E-Commerce nicht darauf verlassen,
+
+00:35:36.180 --> 00:35:42.460
+dass die Überschrift immer sehr beschreibend ist
+und man das Bild nicht mehr braucht.
+
+00:35:42.460 --> 00:35:46.630
+Es gibt auch oft Varianten
+des gleichen Produkts
+
+00:35:47.130 --> 00:35:49.880
+und man muss das in einem Bild aufzeigen.
+
+00:35:51.370 --> 00:35:54.400
+Das ist sicherlich ein Fall für
+einen Alternativtext.
+
+00:35:56.170 --> 00:35:58.470
+Hier zeige ich noch einmal
+
+00:35:58.550 --> 00:36:01.620
+das HTML-Markup und füge
+hier den Alternativtext hinzu:
+
+00:36:02.180 --> 00:36:06.650
+"Das Birdy Max Ultra Precision ist ein violettes
+Teleskop mit einem dreibeinigen Ständer"
+
+00:36:07.000 --> 00:36:08.770
+Das ist der Alternativtext.
+
+00:36:11.090 --> 00:36:13.290
+Das Problem bei diesem Ansatz
+
+00:36:13.420 --> 00:36:16.660
+ist aber, dass, wenn Screenreader-Nutzende
+
+00:36:16.930 --> 00:36:21.030
+auf der Seite navigieren,
+, indem alle Überschriften aufgelistet werden,
+
+00:36:22.300 --> 00:36:27.060
+und dann zu der Überschrift springen,
+die sie interessant finden,
+
+00:36:27.740 --> 00:36:30.880
+überspringen sie das Bild, weil
+sie direkt zur Überschrift springen.
+
+00:36:31.000 --> 00:36:35.200
+Und hier ist das Bild
+vor der Überschrift.
+
+00:36:35.420 --> 00:36:37.600
+Sie würden einfach darüber springen.
+
+00:36:39.000 --> 00:36:44.440
+Eine bessere Semantik oder
+logische Struktur hier
+
+00:36:44.620 --> 00:36:47.390
+wäre, wenn die Überschrift
+
+00:36:47.720 --> 00:36:50.190
+vor dem Bild integriert ist.
+
+00:36:50.290 --> 00:36:52.630
+Das ist es, was ich hier zeige.
+
+00:36:52.730 --> 00:36:54.700
+Ich habe das Karten-Layout geändert,
+
+00:36:54.820 --> 00:36:56.820
+sodass das Bild unter der Überschrift im Code steht.
+
+00:36:57.000 --> 00:36:58.480
+Ich weiß nicht, wie es Ihnen geht,
+
+00:36:58.570 --> 00:37:01.220
+aber Designenden würde es nicht gefallen,
+wenn ich das täte.
+
+00:37:02.170 --> 00:37:06.240
+Normalerweise platzieren die das Bild
+
+00:37:06.340 --> 00:37:08.440
+im Layout vor der Überschrift.
+
+00:37:09.880 --> 00:37:12.350
+Was wir dann tun können,
+
+00:37:13.180 --> 00:37:17.850
+zum Glück können wir in CSS ein Flexbox-Layout verwenden,
+
+00:37:17.950 --> 00:37:20.390
+und wenn man in CSS die Karte als
+
+00:37:20.490 --> 00:37:22.990
+flex-direction: column integriert,
+
+00:37:23.590 --> 00:37:25.830
+wird die Reihenfolge mit CSS geändert,
+
+00:37:25.930 --> 00:37:31.060
+also die sichtbare Reihenfolge der Bilder
+innerhalb der Elemente auf der Karte.
+
+00:37:31.200 --> 00:37:33.140
+Man gibt dem Bild eine negative Reihenfolge und
+
+00:37:33.240 --> 00:37:34.770
+das Bild kommt per CSS an die oberste Stelle.
+
+00:37:37.620 --> 00:37:42.410
+In vielen, vielen Fällen sollten man
+die sichtbare Reihenfolge im Layout
+
+00:37:43.450 --> 00:37:47.420
+einer Seite mit CSS nicht ändern
+, weil es sehr verwirrend sein kann,
+
+00:37:48.450 --> 00:37:51.090
+zum Beispiel für die Tab-Reihenfolge
+
+00:37:51.650 --> 00:37:54.090
+, aber in diesem Fall ist das Bild
+nicht erreichbar mit Tastatur.
+
+00:37:54.090 --> 00:37:57.000
+Auf diese Weise
+bringen wir die Tabulatorreihenfolge nicht durcheinander
+.
+
+00:37:57.480 --> 00:37:59.570
+Ich denke, in diesem Fall ist es erlaubt.
+
+00:38:05.230 --> 00:38:07.740
+Das Einzige Problem vielleicht:
+
+00:38:08.470 --> 00:38:10.970
+Sehende Screenreader-Nutzende
+
+00:38:11.240 --> 00:38:12.910
+wären vielleicht ein bisschen verwirrt,
+
+00:38:12.910 --> 00:38:15.610
+wenn die sichtbare Reihenfolge
+nicht mit der vorgelesenen Reihenfolge übereinstimmt.
+
+00:38:16.210 --> 00:38:19.280
+Ich hoffe,
+und man kann mich korrigieren, wenn ich falsch liege,
+
+00:38:19.380 --> 00:38:22.020
+aber ich hoffe, dass
+es sich nur um eine kleine Irritation handelt.
+
+00:38:22.120 --> 00:38:24.240
+Es ist immer noch der beste Kompromiss.
+
+00:38:24.890 --> 00:38:27.460
+Wenn man das so nutzt,
+ist das ein sehr häufiges Muster.
+
+00:38:27.560 --> 00:38:30.130
+Ich erwarte also, dass man
+
+00:38:31.310 --> 00:38:32.750
+dieses Muster ein wenig kennt.
+
+00:38:33.620 --> 00:38:35.400
+Ich komme zum Ende.
+
+00:38:35.730 --> 00:38:38.230
+Die wichtigsten Punkte:
+
+00:38:39.170 --> 00:38:41.140
+Die Karten als HTML-Liste integrieren.
+
+00:38:42.400 --> 00:38:43.240
+Den Link für das
+
+00:38:43.240 --> 00:38:45.670
+wichtigste Element (Überschrift) einfügen.
+
+00:38:45.770 --> 00:38:48.880
+Die gesamte Karte anklickbar machen
+, indem man in CSS ein Pseudoelement hinzufügt
+
+00:38:48.980 --> 00:38:51.480
+oder mit einem JavaScript-Trick.
+
+00:38:53.000 --> 00:38:54.580
+Wenn man zusätzliche Links benötigt,
+
+00:38:54.580 --> 00:38:59.590
+macht man sie in der Karte anklickbar, indem man
+in CSS über das Pseudoelement mit z-index die Reihenfolge
+
+00:38:59.720 --> 00:39:03.390
+verändert und einen Abstand (padding) in CSS
+hinzufügt, um Fehler beim Scrollen zu reduzieren.
+
+00:39:04.330 --> 00:39:08.260
+Mit einem beschreibenden Call-to-Action-Text
+klar machen, was die Funktion der Karte ist,
+
+00:39:08.660 --> 00:39:11.600
+indem man diese Information mit dem Link
+mit Hilfe von aria-describedby verbindet.
+
+00:39:13.270 --> 00:39:15.740
+Hover-Stile
+für die gesamte Karte hinzufügen.
+
+00:39:16.670 --> 00:39:19.740
+Den Alternativtext leerlassen
+, wenn das Bild dekorativ ist.
+
+00:39:20.410 --> 00:39:23.580
+Den Alternativtext für alle Bilder hinzufügen
+, die wichtige Informationen enthalten.
+
+00:39:23.680 --> 00:39:26.180
+In diesem Fall sollte man eine Änderung
+
+00:39:26.520 --> 00:39:29.020
+der sichtbaren Reihenfolge durch CSS
+
+00:39:29.520 --> 00:39:31.650
+in Betracht ziehen, wenn das Bild 
+
+00:39:31.750 --> 00:39:34.220
+vor der Überschrift im Design sein soll.
+
+00:39:34.840 --> 00:39:37.330
+Das ist es.
+
+00:39:38.590 --> 00:39:41.160
+Ich würde mich riesig freuen, wenn ihr euch
+mit mir vernetzen würden, zum Beispiel über LinkedIn,
+
+00:39:41.310 --> 00:39:43.870
+und ihr mit mir eure Karten-Designs teilen würdet.
+
+00:39:43.970 --> 00:39:45.530
+Vielen Dank.
+
+00:39:48.880 --> 00:39:50.970
+Tina,
+vielen Dank für diese Präsentation.
+
+00:39:51.070 --> 00:39:54.380
+Wir hatten einen sehr lebhaften Chat
+und viele technische Fragen
+
+00:39:54.480 --> 00:39:57.980
+Im Q&amp;A-Bereich. Die Fragen können nun kurz beantwortet werden
+oder sie sind bereits beantwortet worden.
+
+00:39:58.110 --> 00:40:01.420
+Ich werde sie einfach vorlesen
+und so fangen wir an.
+
+00:40:03.050 --> 00:40:05.250
+Funktioniert der Trick
+mit dem Pseudoelement
+
+00:40:05.250 --> 00:40:07.260
+gut für Nutzende mit Spracheingabe?
+
+00:40:10.290 --> 00:40:11.750
+Tina: Das ist eine sehr gute Frage.
+
+00:40:12.690 --> 00:40:13.860
+Das muss ich testen.
+
+00:40:13.860 --> 00:40:17.730
+Ehrlich gesagt habe ich es nicht getestet,
+aber ich denke, dass es für Nutzende mit
+
+00:40:18.600 --> 00:40:21.100
+Spracheingabe, also ich gehe davon aus, dass
+
+00:40:25.220 --> 00:40:28.410
+Der Linktext
+für die Sprachausgabe zugänglich ist.
+
+00:40:29.510 --> 00:40:30.880
+Ja, das ist eine gute Frage.
+
+00:40:30.880 --> 00:40:33.080
+Das ist ein wirklich guter Punkt,
+danke, dass ihr das angesprochen habt.
+
+00:40:33.180 --> 00:40:35.860
+Tina: Ich werde darüber nachdenken.
+Sherose: Auf jeden Fall.
+
+00:40:36.040 --> 00:40:37.790
+Noch eine technische Frage.
+
+00:40:37.970 --> 00:40:41.660
+Wie groß sollten der Abstand in Pixeln etwa
+für Mobilgeräte sein,
+
+00:40:41.760 --> 00:40:45.360
+um eine Karte von,
+der anderen zu trennen?
+
+00:40:45.460 --> 00:40:47.200
+Gibt es dafür einen Standard?
+
+00:40:48.660 --> 00:40:51.170
+Tina:
+Soweit ich weiß, gibt es keinen Standard.
+
+00:40:52.800 --> 00:40:54.000
+Ich würde es testen.
+
+00:40:54.130 --> 00:40:57.480
+Einfach auf einem Smartphone den Daumen nutzen.
+
+00:40:59.310 --> 00:41:02.280
+Aber es gibt keine offiziellen Richtlinien
+oder ähnliches, soweit ich weiß.
+
+00:41:03.850 --> 00:41:04.840
+Sherose: Ausgezeichnet.
+
+00:41:05.550 --> 00:41:07.120
+Noch eine Frage.
+
+00:41:07.120 --> 00:41:11.050
+Genügt es für die Tastaturnavigation
+, den Fokus auf die ganze Karte zu setzen,
+
+00:41:11.150 --> 00:41:17.080
+um festzustellen, ob es sich um ein anklickbares Element handelt
+oder soll der Fokus doch auf „Mehr lesen“ liegen?
+
+00:41:19.790 --> 00:41:22.300
+Tina: Ja, auch eine gute Frage.
+
+00:41:22.530 --> 00:41:25.900
+Ich glaube, es gibt
+hier keine absolut richtige oder falsche Antwort.
+
+00:41:26.100 --> 00:41:30.470
+Es hängt davon ab, wenn man es testet,
+was da am verständlichsten ist.
+
+00:41:30.810 --> 00:41:33.310
+Ich glaube, ich lege es normalerweise auf die ganze Karte,
+
+00:41:34.380 --> 00:41:39.370
+um zu vermitteln: „Das ist das Element
+, das man anklicken kann.“
+
+00:41:39.660 --> 00:41:45.240
+Ich weiß nicht, aber ja.
+
+00:41:45.820 --> 00:41:49.820
+Dann füge ich auch Hover-Stile hinzu,
+um es noch klarer zu machen.
+
+00:41:51.600 --> 00:41:56.000
+Sherose: Dazu haben wir
+noch eine weitere Frage im Q&amp;A-Bereich.
+
+00:41:56.460 --> 00:42:00.500
+Kann man das auf Anfängerniveau erreichen,
+indem man die Karte voll fokussiert
+
+00:42:00.600 --> 00:42:05.110
+und den Hover-Effekt nutzt und das dann ausreicht,
+oder muss zuerst eine Karte erstellt
+
+00:42:05.210 --> 00:42:07.550
+und dann das CSS hinzugefügt werden?
+
+00:42:13.800 --> 00:42:15.250
+Tina: Entschuldigung, könnte man das noch einmal sagen?
+
+00:42:15.880 --> 00:42:18.390
+Sherose: Sicher, ja,
+ich werde es Wort für Wort lesen.
+
+00:42:18.890 --> 00:42:21.360
+Kann man das auf Anfängerniveau erreichen,
+indem man die Karte voll fokussiert
+
+00:42:21.560 --> 00:42:25.830
+und den Hover-Effekt nutzt und 
+das dann ausreicht, oder muss 
+
+00:42:26.090 --> 00:42:28.560
+zuerst eine Karte erstellt
+
+00:42:28.560 --> 00:42:30.800
+und dann das CSS hinzugefügt werden?
+
+00:42:32.620 --> 00:42:37.800
+Tina: Ja, also nur den Hover-Effekt zu benutzen,
+würde nicht ausreichen,
+
+00:42:38.310 --> 00:42:41.280
+weil es nur für Maus-Nutzende
+zugänglich wäre.
+
+00:42:42.440 --> 00:42:43.950
+Ich bin nicht sicher, ob ich die Frage richtig
+
+00:42:44.130 --> 00:42:48.480
+verstehe, aber im Allgemeinen ist das für jeden
+, der dies sieht
+
+00:42:48.620 --> 00:42:50.390
+und sagt:
+„Okay, das ist kein Anfängerniveau.“
+
+00:42:50.490 --> 00:42:54.660
+Denn nun ja,
+es ist bedauerlich, dass viele Themes
+
+00:42:54.760 --> 00:42:57.230
+es wirklich schwer machen, das
+standardmäßig umzusetzen.
+
+00:42:57.630 --> 00:43:00.500
+Das ist eher so, als ob --
+Was ich hier gezeigt habe, ist eher so: „Okay,
+
+00:43:00.730 --> 00:43:04.730
+do mache ich es, wenn ich
+meine Vorlagen mit benutzerdefiniertem PHP erstelle."
+
+00:43:06.000 --> 00:43:09.640
+Aber schaut euch auch das
+an,
+
+00:43:10.600 --> 00:43:13.510
+Was Amber Hinds beispielsweise
+mit
+
+00:43:15.140 --> 00:43:17.650
+dem Page-Builder-Vergleich erarbeitet hat.
+
+00:43:17.850 --> 00:43:20.980
+Wenn das ein bisschen zu technisch ist,
+
+00:43:21.080 --> 00:43:23.520
+dann führt man eine Recherche durch,
+wenn man ein Theme
+
+00:43:23.600 --> 00:43:29.480
+auswählt, damit die meisten
+der hier besprochenen Funktionen
+
+00:43:29.620 --> 00:43:31.430
+bereits vom Theme bereitgestellt werden.
+
+00:43:31.530 --> 00:43:33.910
+Und das ist meiner Meinung nach, was
+alle Themes tun sollten.
+
+00:43:34.750 --> 00:43:36.430
+Sherose: Ich denke auch, in einigen Fällen,
+
+00:43:36.530 --> 00:43:39.030
+Tina, haben die Entwickler keine
+
+00:43:39.130 --> 00:43:42.100
+andere Möglichkeit, als das ausgewählte
+Theme verwenden zu müssen.
+
+00:43:42.640 --> 00:43:45.940
+In diesem Fall entwickeln sie möglicherweise
+mit dem WordPress Blockeditor
+
+00:43:46.040 --> 00:43:48.540
+und haben nur eingeschränkten Zugriff auf das Backend,
+wenn überhaupt.
+
+00:43:48.840 --> 00:43:51.980
+In diesem Fall könnte es ein, dass dann
+
+00:43:53.080 --> 00:43:54.950
+beim Entwickeln der Karte sich zeigt,
+
+00:43:54.950 --> 00:43:57.450
+dass die Karte nur Hover-Fokus hat.
+
+00:43:57.550 --> 00:44:01.020
+Dann
+müssten sie in diesem Fall benutzerdefiniertes
+
+00:44:01.120 --> 00:44:05.430
+Sherose: CSS hinzufügen [Zwischenrede].
+Tina: Ja, ja, ja.
+
+00:44:05.530 --> 00:44:09.200
+Tina: In diesem Fall müsste man CSS hinzufügen.
+Sherose: Danke.
+
+00:44:09.500 --> 00:44:11.370
+Wir haben eine Frage zum DOM.
+
+00:44:11.470 --> 00:44:13.940
+Sollte die Überschrift nicht die Karte im Code einleiten,
+
+00:44:14.100 --> 00:44:16.600
+auch wenn optisch das Bild
+vor der Überschrift kommt?
+
+00:44:16.700 --> 00:44:20.570
+Dies ist ein Muster, das
+ich oft in inklusiven Komponenten gesehen habe.
+
+00:44:22.220 --> 00:44:27.310
+Tina: Die Frage wäre,
+ob sie einfach immer am Anfang sein sollte --
+
+00:44:28.350 --> 00:44:29.800
+Sherose: Ja--
+Tina: die Überschrift?
+
+00:44:29.850 --> 00:44:35.260
+Tina: Ja.
+Sherose: Ja, visuell sehen wir das Bild
+
+00:44:35.400 --> 00:44:37.660
+und, ob das einen Alternativtext hat oder nicht,
+ist die eine Sache.
+
+00:44:37.760 --> 00:44:40.030
+Wir haben das Bild,
+die Überschrift, die Kurzbeschreibung,
+
+00:44:40.030 --> 00:44:42.930
+und dann gibt es eine Schaltfläche zum Weiterlesen 
+"Mehr lesen".
+
+00:44:43.600 --> 00:44:46.870
+Die Frage zur Position im DOM ist,
+sollte es nicht anders angeordnet werden,
+
+00:44:47.100 --> 00:44:49.820
+dass die Überschrift
+vor dem Bild kommt?
+
+00:44:54.710 --> 00:44:58.150
+Tina: Ja, ich denke, das hängt davon ab,
+was das Bild ist.
+
+00:44:58.250 --> 00:45:00.320
+Fügt es wirklich Informationen hinzu oder nicht?
+
+00:45:00.320 --> 00:45:01.680
+Wenn es ein dekoratives Bild ist,
+
+00:45:01.680 --> 00:45:04.250
+dann ist es nicht wirklich wichtig,
+ob das Bild vor der Überschrift steht.
+
+00:45:04.820 --> 00:45:07.590
+Aber wenn jemand eine andere
+Meinung dazu hat und etwas hat,
+
+00:45:07.660 --> 00:45:11.060
+was ich vielleicht nicht bedacht habe,
+dann bin ich super glücklich, das zu diskutieren.
+
+00:45:11.600 --> 00:45:13.240
+Ihr könnt euch gerne an mich wenden.
+
+00:45:14.240 --> 00:45:17.000
+Sherose: Ich beobachte den Chat, um zu sehen,
+ob es dazu noch weitere Beiträge gibt.
+
+00:45:18.030 --> 00:45:20.540
+Noch eine, eher technische Frage.
+
+00:45:20.740 --> 00:45:23.810
+Würden das article-Element in HTML in einer Liste
+
+00:45:23.910 --> 00:45:26.410
+für die Karte semantisch
+mehr Sinn ergeben?
+
+00:45:28.440 --> 00:45:30.400
+Tina: article-Element in einer Liste?
+
+00:45:31.150 --> 00:45:32.450
+Sherose:
+Das ist die Frage.
+
+00:45:32.510 --> 00:45:37.060
+Ich bin mit dem article-Element in HTML nicht so vertraut
+und sehe es auch nicht immer in Blogs.
+
+00:45:37.970 --> 00:45:39.840
+Tina: Ja, ich glaube nicht --
+
+00:45:42.460 --> 00:45:51.730
+Eine Liste muss Listenelemente enthalten,
+um konform in HTML zu sein.
+
+00:45:52.700 --> 00:45:55.140
+Ich bin nicht sicher, ob man dort eine
+
+00:45:55.240 --> 00:45:58.940
+eine HTML Region wie article hinzufügen kann
+und damit immer noch konformes HTML hat.
+
+00:46:00.210 --> 00:46:02.280
+Und ich sehe nicht, dass --
+
+00:46:02.380 --> 00:46:08.660
+das article-Element einen wirklichen
+Mehrwert bieten würde
+
+00:46:08.910 --> 00:46:10.520
+für das Karten-Element, meiner Ansicht nach.
+
+00:46:10.620 --> 00:46:12.930
+Ich glaube nicht, dass ich das tun würde.
+
+00:46:15.060 --> 00:46:21.530
+Sherose: Die Frage ist: Man will eine
+HTML-Liste (ul) verwenden, dann das Listenelement (li)
+
+00:46:21.800 --> 00:46:24.930
+und innerhalb des Listenelements (li), das article-Element.
+Aber ich denke, was gemeint ist [Zwischenrede]-
+
+00:46:25.270 --> 00:46:29.000
+Tina: Ich bin nicht sicher, ob es konformes HTML ist,
+eine HTML-Region (article) in ein Listenelement (li) einzufügen.
+
+00:46:29.100 --> 00:46:29.840
+Ich bin nicht sicher.
+
+00:46:29.840 --> 00:46:32.440
+Das könnte sein, aber ja,
+das müsste ich nachschlagen.
+
+00:46:33.270 --> 00:46:35.080
+Sherose: Ob es funktioniert oder nicht,
+ist meiner Meinung nach die eine Sache.
+
+00:46:35.080 --> 00:46:37.950
+Aber ich denke, wenn man die Erfahrung mit
+einem Screenreader bedenkt,
+
+00:46:38.050 --> 00:46:41.520
+da navigiert man
+mit bestimmten HMTL-Elementen.
+
+00:46:41.680 --> 00:46:46.090
+Wenn man entlang der HTML-Elemente navigiert, könnten
+einige Kontextinformationen entgehen,
+
+00:46:46.520 --> 00:46:51.750
+wenn der Screenreader das article-Element erreicht, 
+bevor er die Überschrift erreicht
+
+00:46:51.860 --> 00:46:54.280
+oder ein Bild [Zwischenrede].
+
+00:46:55.100 --> 00:46:58.910
+Tina: Die meisten Screenreader
+unterstützen das derzeit nicht.
+
+00:46:59.040 --> 00:47:02.640
+Nehmt das article-Element nicht
+in die Liste der HTML-Regionen auf, wenn die
+
+00:47:02.740 --> 00:47:05.240
+Navigation mit Hilfe von HTML-Regionen (landmarks) genutzt wird.
+
+00:47:05.910 --> 00:47:07.780
+Das würde keinen Mehrwert hinzufügen
+
+00:47:07.880 --> 00:47:11.450
+für Nutzende mit Screenreader
+, wenn er eine Liste ausgibt
+
+00:47:11.550 --> 00:47:14.050
+und dann auch noch das article-Element darin.
+
+00:47:14.750 --> 00:47:15.720
+Sherose: Danke, Tina.
+
+00:47:15.770 --> 00:47:19.790
+Ich wusste nicht, dass das article-Element
+nicht für Screenreader zugänglich ist,
+
+00:47:19.890 --> 00:47:23.000
+Sherose: als HTML-Region [Zwischenrede].
+Tina: Nur JAWS macht das.
+
+00:47:23.460 --> 00:47:24.830
+Sherose: Das ist gut zu wissen.
+
+00:47:25.130 --> 00:47:28.700
+Aber so oder so, wenn man ein Listenelement (li) verwendet
+und es Absatztext (p) enthält,
+
+00:47:28.930 --> 00:47:32.430
+macht man das Karten-Element
+zugänglich für Screenreader,
+
+00:47:32.530 --> 00:47:35.170
+sehende Nutzende, Nutzende mit Maus
+und für die Touch-Nutzung.
+
+00:47:36.350 --> 00:47:38.340
+Das ist super. Danke.
+
+00:47:38.440 --> 00:47:39.910
+Mal sehen.
+
+00:47:43.810 --> 00:47:45.380
+Diese Frage hast du beantwortet:
+
+00:47:45.480 --> 00:47:47.420
+Könnte man bitte noch einmal beschreiben,
+
+00:47:47.520 --> 00:47:50.950
+was der Vorteil der Verwendung
+ungeordneter Listen (ul)
+
+00:47:51.050 --> 00:47:53.710
+und Listenelemente (li) in HTML
+für das Karten-Grid und das Karten-Element ist?
+
+00:47:53.880 --> 00:47:56.480
+Tina: Ja. Gerne.
+
+00:47:58.190 --> 00:48:00.900
+Der Vorteil
+der Verwendung einer Listenmarkierung für Karten
+
+00:48:01.000 --> 00:48:03.770
+ist, dass sie normalerweise mehrere Karten-Elemente haben.
+
+00:48:03.870 --> 00:48:06.370
+Man hat ein Grid mit mehreren Elementen
+
+00:48:06.800 --> 00:48:09.070
+und wenn man die Listenmarkierung (li) verwendet,
+
+00:48:10.170 --> 00:48:14.010
+bietet das Screenreader-Nutzenden
+zusätzliche Funktionen.
+
+00:48:14.280 --> 00:48:17.150
+So liest zum Beispiel
+der Screenreader vor:
+
+00:48:17.880 --> 00:48:20.480
+"Das ist eine Liste"
+und dann heißt es auch "Es gibt
+
+00:48:21.550 --> 00:48:24.790
+neun Elemente in dieser Liste"
+und dann gibt es zusätzliche Navigationsmöglichkeiten
+
+00:48:24.890 --> 00:48:30.190
+, die Screenreader den Nutzenden
+speziell für Listen bereitstellen.
+
+00:48:30.630 --> 00:48:32.790
+Ich glaube, davon profitieren Nutzende
+
+00:48:32.790 --> 00:48:35.330
+mit Screenreader am meisten.
+
+00:48:35.730 --> 00:48:38.200
+Sonst hätten sie
+diese Informationen einfach nicht.
+
+00:48:39.730 --> 00:48:40.840
+Sherose: Danke, Tina.
+
+00:48:41.440 --> 00:48:45.270
+Wir haben noch Zeit für eine weitere Frage
+, und diese wurde bereits behandelt.
+
+00:48:45.370 --> 00:48:47.880
+Aber könnte man noch einmal
+kurz darauf eingehen?
+
+00:48:48.080 --> 00:48:51.010
+Was ist der Vorteil für der Barrierefreiheit
+
+00:48:51.110 --> 00:48:55.380
+, die gesamte Karte anklickbar
+zu machen, im Vergleich
+
+00:48:56.020 --> 00:48:58.520
+zu nur einem anklickbaren Element
+in der Karte,
+
+00:48:58.820 --> 00:49:00.800
+zum Beispiel der Überschrift?
+
+00:49:05.290 --> 00:49:07.800
+Tina: Das ist eine Frage, die man stellen kann.
+
+00:49:08.500 --> 00:49:12.270
+Das wäre konform, wenn nur
+die Überschrift anklickbar ist.
+
+00:49:12.370 --> 00:49:16.570
+Ich würde es nicht als
+„Oh, das ist ein Fehler in der Barrierefreiheit“ markieren,
+
+00:49:16.670 --> 00:49:17.670
+oder so ähnlich.
+
+00:49:17.770 --> 00:49:21.080
+Nein, hier geht es eher um Benutzerfreundlichkeit.
+
+00:49:21.280 --> 00:49:24.950
+Ich weiß nicht, wie es anderen geht,
+aber wenn ich eine Liste von Blogbeiträgen sehe,
+
+00:49:25.910 --> 00:49:28.720
+Blogartikel und ihre Bilder, versuche ich 
+
+00:49:28.950 --> 00:49:34.260
+besonders auf dem Smartphone auf das Bild zu tippen
+und erwarte, dass man zum Artikel kommt.
+
+00:49:34.360 --> 00:49:36.770
+Und ich denke, das ist etwas
+, woran man gewöhnt ist,
+
+00:49:36.910 --> 00:49:38.390
+weil viele Karten so funktionieren.
+
+00:49:38.560 --> 00:49:41.060
+Auch in der Barrierefreiheit muss man
+
+00:49:42.840 --> 00:49:44.300
+berücksichtigen,
+
+00:49:44.300 --> 00:49:45.800
+was alle gewohnt sind.
+
+00:49:46.550 --> 00:49:48.340
+Dann denke ich auch, dass es besser ist
+
+00:49:48.480 --> 00:49:52.270
+für Menschen mit motorischen Einschränkungen,
+wenn man beispielsweise einen
+
+00:49:52.370 --> 00:49:54.080
+größeren Klickbereich zur Verfügung stellt.
+
+00:49:56.380 --> 00:50:00.180
+Manchmal ist es auch eine Anforderung
+, dass Designende sagen: „Hey,
+
+00:50:00.250 --> 00:50:02.110
+Ich möchte, dass das Ganze anklickbar ist".
+
+00:50:02.240 --> 00:50:04.120
+Es ist eine Frage der Benutzerfreundlichkeit.
+
+00:50:04.220 --> 00:50:05.860
+Es ist kein Fehler.
+
+00:50:07.020 --> 00:50:10.130
+Sherose: Was ich verstehe
+, ist, dass beide Umsetzungen
+
+00:50:10.200 --> 00:50:12.330
+die WCAG-Kriterien erfüllen würden.
+
+00:50:12.430 --> 00:50:17.100
+Ob man das eine oder das andere verwendet, beide Optionen.
+Aber es gibt
+
+00:50:17.300 --> 00:50:20.430
+die größere Touch-Fläche
+und für alle eine bessere Nutzung,
+
+00:50:20.540 --> 00:50:23.530
+weil die Karte selbst
+vollständig anklickbar gemacht wird.
+
+00:50:23.660 --> 00:50:26.060
+Tina: Ja.
+Sherose: Großartig.
+
+00:50:26.150 --> 00:50:28.110
+Sherose: Tina, vielen Dank.
+Wir haben keine Zeit mehr.
+
+00:50:28.440 --> 00:50:30.980
+Ich möchte allen anderen dafür danken
+, dass ihr an unserer Sitzung mit Tina teilgenommen habt.
+
+00:50:31.250 --> 00:50:34.220
+Ihr könnt das Gespräch
+im Chat oder in den sozialen Medien fortsetzen.
+
+00:50:34.320 --> 00:50:36.080
+Wir haben ein paar Hashtags.
+
+00:50:36.180 --> 00:50:40.820
+Hashtag #WPAllyDay und #WPAD2024.
+
+00:50:41.260 --> 00:50:47.730
+Wir würden uns auch freuen, wenn ihr auf
+2024.wpaccessibility.day/feedback geht,
+
+00:50:48.100 --> 00:50:51.400
+um für unsere Vortragenden anonymes Feedback
+zu ihren Präsentationen zu geben.
+
+00:50:51.930 --> 00:50:54.400
+Ihr könnt auch an der Verlosung eines T-Shirts teilnehmen,
+während ihr das macht.
+
+00:50:54.500 --> 00:50:58.470
+Bleibt dran, um
+inklusive Erlebnisse mit WooCommerce zu schaffen.
+
+00:50:59.140 --> 00:51:03.180
+Als nächstes kommt Athira
+und Fahad von BarrierBreak um
+
+00:51:04.040 --> 00:51:06.200
+13:00 Uhr UTC.
+
+00:51:06.330 --> 00:51:09.310
+Vergesst nicht,
+während ihr wartet, die Seiten unserer Sponsoren zu besuchen,
+
+00:51:09.440 --> 00:51:12.390
+um virtuelle Goodies zu erhalten und
+an der Verlosung toller Preise teilzunehmen.
+
+00:51:12.510 --> 00:51:14.330
+Wir sehen uns nach der Pause.
+
+00:51:17.830 --> 00:51:21.660
+Vielen Dank an
+die Sponsoren des WordPress Accessibility Day 2024.
+
+00:51:22.260 --> 00:51:24.200
+Platin-Sponsor 20i.
+
+00:51:24.300 --> 00:51:27.200
+Erstellen, implementieren und verwalten
+aller Projekte ganz einfach
+
+00:51:27.300 --> 00:51:29.800
+mit von 20i verwaltetem WordPress-Hosting.
+
+00:51:29.970 --> 00:51:33.740
+Eine Benutzeroberfläche für all Server, Apps,
+Sites, Datenbanken,
+
+00:51:34.040 --> 00:51:36.480
+Sicherheit, DNS und E-Mail.
+
+00:51:36.580 --> 00:51:39.550
+Perfekt für Agenturen, E-Commerce,
+Entwickelnde,
+
+00:51:39.850 --> 00:51:42.350
+Multisite-Hosting
+und Sites mit hohem Datenverkehr.
+
+00:51:43.120 --> 00:51:45.520
+Platin-Sponsor Equalize Digital.
+
+00:51:45.620 --> 00:51:47.590
+Da sie sich nur um die Barrierefreiheit kümmern,
+
+00:51:47.690 --> 00:51:50.660
+ist jeder Beitrag auf ihrem Blog
+eine Ressource zur Barrierefreiheit.
+
+00:51:51.130 --> 00:51:55.000
+Man findet Webinar-Aufzeichnungen,
+Artikel und zusätzliche Ressourcen
+
+00:51:55.330 --> 00:51:58.570
+unter equalizedigital.com/resources.
+
+00:51:59.470 --> 00:52:01.640
+Platin-Sponsor WP Engine.
+
+00:52:01.640 --> 00:52:05.540
+WP Engine  bietet
+die zuverlässigsten und vertrauenswürdigsten
+
+00:52:05.640 --> 00:52:09.640
+WordPress-Produkte für Unternehmen, Marken
+und Agenturen jeder Größe.
+
+00:52:10.780 --> 00:52:14.320
+Vielen Dank an unsere Gold-Sponsoren
+GoDaddy, Grackle Docs,
+
+00:52:14.550 --> 00:52:18.820
+Gravity Forms, GreenGeeks,
+TPGi und Yoast.
+
+00:52:19.280 --> 00:52:21.320
+Vielen Dank an unsere Silber-Sponsoren
+
+00:52:21.420 --> 00:52:25.960
+CodeGeek, Drake Cooper,
+Elementor, Overnight Website,
+
+00:52:26.260 --> 00:52:30.130
+Pressable, Second Melody
+und Accessibility Collective.

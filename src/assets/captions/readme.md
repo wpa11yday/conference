@@ -144,6 +144,7 @@ No translations yet.
 	- Spanish; Estefani Pahola Suarez
 	- Portuguese; Melissa Antunes
 4. Agile Accessibility: Building Inclusivity into the Product Roadmap
+  	- Spanish; Andy Amado
 5. Practical Text Accessibility Tips for Content Creators
 	- Spanish; Diana Córdoba Gómez
 	- Portuguese (Brazilian); Paloma Marques

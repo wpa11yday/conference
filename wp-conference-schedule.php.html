@@ -2104,6 +2104,76 @@ function wpcs_dashboard_widget_handler() {
 
 	echo $output;
 }
+
+/**
+ * Send iCal event to browser
+ *
+ * @return string headers &amp; text for iCal event.
+ */
+function wpad_send_vcal() {
+	$session_id = isset( $_GET['vcal'] ) ? absint( $_GET['vcal'] ) : false;
+	if ( ! $session_id ) {
+		return;
+	}
+	header( 'Content-Type: text/calendar' );
+	header( 'Cache-control: private' );
+	header( 'Pragma: private' );
+	header( 'Expires: Thu, 11 Nov 1977 05:40:00 GMT' ); // That's my birthday. :).
+	header( "Content-Disposition: inline; filename=wp-accessibility-day-$session_id.ics" );
+	$year    = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
+	$url     = get_the_permalink( $session_id );
+	$title   = get_the_title( $session_id );
+	$start   = gmdate( 'Y-m-d\THi00', get_post_meta( $session_id, '_wpcs_session_time', true ) );
+	$end     = gmdate( 'Y-m-d\THi00', get_post_meta( $session_id, '_wpcs_session_time', true ) + 50 * 60 );
+	$excerpt = get_the_excerpt( $session_id );
+
+	$output = "BEGIN:VCALENDAR
+VERSION:2.0
+METHOD:PUBLISH
+PRODID:-//WP Accessibility Day//Schedule//https://wpaccessibility.day//v1//EN';
+BEGIN:VEVENT
+UID:wpad-$year-$session_id
+LOCATION:Zoom
+SUMMARY:$title
+DTSTAMP:{ical_date_start}
+ORGANIZER;CN=WP Accessibility Day:MAILTO:contact@wpaccessibility.day
+DTSTART:$start
+DTEND:$end
+URL;VALUE=URI:$url
+DESCRIPTION:$excerpt
+END:VEVENT
+END:VCALENDAR";
+
+	return $output;
+}
+add_action( 'init', 'wpad_send_vcal', 200 );
+
+/**
+ * Generate Add to Google calendar.
+ *
+ * @return string
+ */
+function wpad_google_cal( $session_id ) {
+	$year    = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
+	$url     = get_the_permalink( $session_id );
+	$title   = get_the_title( $session_id );
+	$start   = gmdate( 'Y-m-d\THi00', get_post_meta( $session_id, '_wpcs_session_time', true ) );
+	$end     = gmdate( 'Y-m-d\THi00', get_post_meta( $session_id, '_wpcs_session_time', true ) + 50 * 60 );
+	$excerpt = get_the_excerpt( $session_id );
+	$source = 'https://www.google.com/calendar/render?action=TEMPLATE';
+
+	$args = array(
+		'dates'   => "$start/$end",
+		'sprop'   => 'website:' . $url,
+		'text'    => urlencode( $title ),
+		'sprop'   => 'name:' . urlencode( get_bloginfo( 'name' ) . ' ' . $year ),
+		'details' => urlencode( stripcslashes( trim( $excerpt ) ) ),
+		'sf'      => 'true',
+		'output'  => 'xml',
+	);
+
+	return add_query_arg( $args, $source );
+}
 </code></pre>
         </article>
     </section>

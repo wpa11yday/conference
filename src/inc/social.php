@@ -89,7 +89,7 @@ function wpcsp_social_block( $post_ID ) {
 	$links = wpcsp_create_links( $post_ID );
 	$html  = "
 			<nav aria-labelledby='wpa-conference'>
-				<h2 id='wpa-conference'>" . __( 'Share This Post', 'wpa-conference' ) . "</h2>			
+				<h2 id='wpa-conference'>" . __( 'Share This Post', 'wpa-conference' ) . "</h2>
 				<div class='wpcsp-social-share'>
 					$links
 				</div>
@@ -106,13 +106,14 @@ function wpcsp_social_block( $post_ID ) {
  * @return $content The previous content of the post plus social sharing links.
  */
 function wpcsp_post_content( $content ) {
-	global $post;
-	$post_ID = $post->ID;
-	if ( is_main_query() && in_the_loop() && 'post' === $post->post_type ) {
-		$wpcsp_social = wpcsp_social_block( $post_ID );
-		$content      = $content . $wpcsp_social;
+	if ( is_main_query() && in_the_loop() ) {
+		global $post;
+		$post_ID = $post->ID;
+		if ( 'post' === $post->post_type ) {
+			$wpcsp_social = wpcsp_social_block( $post_ID );
+			$content      = $content . $wpcsp_social;
+		}
 	}
-
 	return $content;
 }
 add_filter( 'the_content', 'wpcsp_post_content', 100 );

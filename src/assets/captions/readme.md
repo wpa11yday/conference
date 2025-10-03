@@ -60,7 +60,7 @@ No translations yet.
 
 ## 2023
 
-43 completed translations.
+44 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -129,6 +129,7 @@ No translations yet.
 	- Spanish; Debora Ermel
 23. Building an Accessible Theme for Accessible First Sites
 	- Spanish; Debora Ermel
+	- French; Jb Audras
 24. Understanding Color and Contrast Requirements in WCAG 2
 	- Spanish; Diana Córdoba Gómez
 	- French; Jb Audras

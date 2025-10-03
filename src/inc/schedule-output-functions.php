@@ -869,26 +869,27 @@ function wpcs_ends_with( $source, $ext ) {
  * @return string
  */
 function wpcs_session_details( $content ) {
-	global $post;
-	$post_ID = $post->ID;
-	if ( is_main_query() && in_the_loop() && 'wpcs_session' === get_post_type( $post ) ) {
-		$session_type = get_post_meta( $post_ID, '_wpcs_session_type', true );
-		$slides       = wpcs_slides( $post_ID );
-		$resources    = wpcs_resources( $post_ID );
-		$speakers     = wpcs_session_speakers( $post_ID, $session_type )['html'];
-		$topics       = wpad_draw_topics( $post_ID );
-		$translations = wpad_draw_langs( $post_ID );
-		if ( empty( $slides ) && empty( $resources ) ) {
-			$slides = '<p>' . __( 'None provided yet.', 'wpa-conference' ) . '</p>';
+	if ( is_main_query() && in_the_loop() ) {
+		global $post;
+		$post_ID = $post->ID;
+		if ( 'wpcs_session' === get_post_type( $post ) ) {
+			$session_type = get_post_meta( $post_ID, '_wpcs_session_type', true );
+			$slides       = wpcs_slides( $post_ID );
+			$resources    = wpcs_resources( $post_ID );
+			$speakers     = wpcs_session_speakers( $post_ID, $session_type )['html'];
+			$topics       = wpad_draw_topics( $post_ID );
+			$translations = wpad_draw_langs( $post_ID );
+			if ( empty( $slides ) && empty( $resources ) ) {
+				$slides = '<p>' . __( 'None provided yet.', 'wpa-conference' ) . '</p>';
+			}
+			$now              = current_time( 'timestamp', true ); // phpcs:ignore WordPress.DateTime.CurrentTimeTimestamp.RequestedUTC
+			$embargo          = strtotime( get_option( 'wpad_start_time' ) . ' -7 days' );
+			$resources_public = ( $now > $embargo ) ? true : false;
+			$resource_block   = ( $resources_public ) ? '<div><h3>' . __( 'Resources', 'wpa-conference' ) . '</h3>' . $slides . $resources . '</div>' : '';
+
+			$content = $content . '<div class="session-blocks">' . $resource_block . '<div>' . $topics . '</div><div>' . $translations . '</div></div>' . $speakers;
 		}
-		$now              = current_time( 'timestamp', true ); // phpcs:ignore WordPress.DateTime.CurrentTimeTimestamp.RequestedUTC
-		$embargo          = strtotime( get_option( 'wpad_start_time' ) . ' -7 days' );
-		$resources_public = ( $now > $embargo ) ? true : false;
-		$resource_block   = ( $resources_public ) ? '<div><h3>' . __( 'Resources', 'wpa-conference' ) . '</h3>' . $slides . $resources . '</div>' : '';
-
-		$content = $content . '<div class="session-blocks">' . $resource_block . '<div>' . $topics . '</div><div>' . $translations . '</div></div>' . $speakers;
 	}
-
 	return $content;
 }
 add_filter( 'the_content', 'wpcs_session_details' );

@@ -2086,7 +2086,7 @@ function wpcs_dashboard_widget_handler() {
  */
 function wpad_send_vcal() {
 	$session_id = isset( $_GET['vcal'] ) ? absint( $_GET['vcal'] ) : false;
-	if ( ! $session_id ) {
+	if ( ! $session_id || ! 'wpcs_session' === get_post_type( $session_id ) ) {
 		return;
 	}
 	header( 'Content-Type: text/calendar' );
@@ -2097,8 +2097,8 @@ function wpad_send_vcal() {
 	$year    = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
 	$url     = get_the_permalink( $session_id );
 	$title   = get_the_title( $session_id );
-	$start   = gmdate( 'Y-m-d\THi00', get_post_meta( $session_id, '_wpcs_session_time', true ) );
-	$end     = gmdate( 'Y-m-d\THi00', get_post_meta( $session_id, '_wpcs_session_time', true ) + 50 * 60 );
+	$start   = gmdate( 'Ymd\THi00\Z', get_post_meta( $session_id, '_wpcs_session_time', true ) );
+	$end     = gmdate( 'Ymd\THi00\Z', get_post_meta( $session_id, '_wpcs_session_time', true ) + 50 * 60 );
 	$excerpt = get_the_excerpt( $session_id );
 
 	$output = "BEGIN:VCALENDAR
@@ -2109,16 +2109,17 @@ BEGIN:VEVENT
 UID:wpad-$year-$session_id
 LOCATION:Zoom
 SUMMARY:$title
-DTSTAMP:{ical_date_start}
+DTSTAMP;TZID=Etc/UTC:$start
 ORGANIZER;CN=WP Accessibility Day:MAILTO:contact@wpaccessibility.day
-DTSTART:$start
-DTEND:$end
+DTSTART;TZID=Etc/UTC:$start
+DTEND;TZID=Etc/UTC:$end
 URL;VALUE=URI:$url
 DESCRIPTION:$excerpt
 END:VEVENT
 END:VCALENDAR";
 
-	return $output;
+	print wp_kses_post( $output );
+	die;
 }
 add_action( 'init', 'wpad_send_vcal', 200 );
 
@@ -2131,8 +2132,8 @@ function wpad_google_cal( $session_id ) {
 	$year    = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
 	$url     = get_the_permalink( $session_id );
 	$title   = get_the_title( $session_id );
-	$start   = gmdate( 'Y-m-d\THi00', get_post_meta( $session_id, '_wpcs_session_time', true ) );
-	$end     = gmdate( 'Y-m-d\THi00', get_post_meta( $session_id, '_wpcs_session_time', true ) + 50 * 60 );
+	$start   = gmdate( 'Ymd\THi00\Z', get_post_meta( $session_id, '_wpcs_session_time', true ) );
+	$end     = gmdate( 'Ymd\THi00\Z', get_post_meta( $session_id, '_wpcs_session_time', true ) + 50 * 60 );
 	$excerpt = get_the_excerpt( $session_id );
 	$source = 'https://www.google.com/calendar/render?action=TEMPLATE';
 
@@ -2147,4 +2148,25 @@ function wpad_google_cal( $session_id ) {
 	);
 
 	return add_query_arg( $args, $source );
+}
+
+/**
+ * Set up Add to Calendar links.
+ *
+ * @param int $session_id Session post ID.
+ *
+ * @return string
+ */
+function wpad_add_calendar_links( $session_id ) {
+	$google = wpad_google_cal( $session_id );
+	$ical   = add_query_arg( 'vcal', $session_id, get_the_permalink( $session_id ) );
+
+	$output = '<div class="wpad-calendar-links">
+		<ul>
+			<li><a href="' . esc_url( $google ) . '"><span class="dashicons dashicons-google" aria-hidden="true"></span> Add to Google Calendar</a></li>
+			<li><a href="' . esc_url( $ical ) . '"><span class="dashicons dashicons-calendar" aria-hidden="true"></span> Download iCal</a></li>
+		</ul>
+	</div>';
+
+	return $output;
 }

@@ -34,6 +34,10 @@ Easily add a custom conference schedule or event schedule (in responsive table f
 
 == Changelog ==
 
+= 2.1.0 =
+
+* Added Add to Calendar, incrementing for various changes.
+
 = 2.0.0 =
 
 * Add Github automatic updating by releases.

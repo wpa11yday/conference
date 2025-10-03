@@ -2095,6 +2095,8 @@ function wpad_send_vcal() {
 	header( 'Expires: Thu, 11 Nov 1977 05:40:00 GMT' ); // That's my birthday. :).
 	header( "Content-Disposition: inline; filename=wp-accessibility-day-$session_id.ics" );
 	$year    = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
+	$speaker = wpcs_session_speakers( $session_id );
+	$list    = implode( ', ', $speaker['list'] );
 	$url     = get_the_permalink( $session_id );
 	$title   = get_the_title( $session_id );
 	$start   = gmdate( 'Ymd\THi00\Z', get_post_meta( $session_id, '_wpcs_session_time', true ) );
@@ -2108,7 +2110,7 @@ PRODID:-//WP Accessibility Day//Schedule//https://wpaccessibility.day//v1//EN';
 BEGIN:VEVENT
 UID:wpad-$year-$session_id
 LOCATION:Zoom
-SUMMARY:$title
+SUMMARY:$list - $title
 DTSTAMP;TZID=Etc/UTC:$start
 ORGANIZER;CN=WP Accessibility Day:MAILTO:contact@wpaccessibility.day
 DTSTART;TZID=Etc/UTC:$start
@@ -2134,15 +2136,19 @@ function wpad_google_cal( $session_id ) {
 	$year    = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
 	$url     = get_the_permalink( $session_id );
 	$title   = get_the_title( $session_id );
-	$start   = gmdate( 'Ymd\THi00\Z', get_post_meta( $session_id, '_wpcs_session_time', true ) );
-	$end     = gmdate( 'Ymd\THi00\Z', get_post_meta( $session_id, '_wpcs_session_time', true ) + 50 * 60 );
+	$time    = get_post_meta( $session_id, '_wpcs_session_time', true );
+	$time    = ( $time ) ? $time : strtotime( get_option( 'wpad_start_time' ) );
+	$start   = gmdate( 'Ymd\THi00\Z', $time );
+	$end     = gmdate( 'Ymd\THi00\Z', $time + 50 * 60 );
 	$excerpt = get_the_excerpt( $session_id );
 	$source  = 'https://www.google.com/calendar/render?action=TEMPLATE';
+	$speaker = wpcs_session_speakers( $session_id );
+	$list    = implode( ', ', $speaker['list'] );
 
 	$args = array(
 		'dates'   => "$start/$end",
 		'sprop'   => 'website:' . $url,
-		'text'    => urlencode( $title ),
+		'text'    => urlencode( "$list: $title" ),
 		'sprop'   => 'name:' . urlencode( get_bloginfo( 'name' ) . ' ' . $year ),
 		'details' => urlencode( stripcslashes( trim( $excerpt ) ) ),
 		'sf'      => 'true',
@@ -2160,22 +2166,24 @@ function wpad_google_cal( $session_id ) {
  * @return string
  */
 function wpad_outlook_cal( $session_id ) {
-	$year    = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
-	$url     = get_the_permalink( $session_id );
 	$title   = get_the_title( $session_id );
-	$start   = gmdate( 'Y-m-d\THi00\Z', get_post_meta( $session_id, '_wpcs_session_time', true ) );
-	$end     = gmdate( 'Y-m-d\THi00\Z', get_post_meta( $session_id, '_wpcs_session_time', true ) + 50 * 60 );
+	$time    = get_post_meta( $session_id, '_wpcs_session_time', true );
+	$time    = ( $time ) ? $time : strtotime( get_option( 'wpad_start_time' ) );
+	$start   = gmdate( 'Ymd\THi00\Z', $time );
+	$end     = gmdate( 'Ymd\THi00\Z', $time + 50 * 60 );
 	$excerpt = get_the_excerpt( $session_id );
 	$source  = 'https://outlook.live.com/calendar/0/action/compose';
+	$speaker = wpcs_session_speakers( $session_id );
+	$list    = implode( ', ', $speaker['list'] );
 
 	$args = array(
-		'path'    => '/calendar/action/compose/',
-		'rru'     => 'addevent',
-		'allday'  => 'false',
-		'startdt' => $start,
-		'enddt'   => $end,
-		'subect'  => urlencode( $title ),
-		'body'    => urlencode( stripcslashes( trim( $excerpt ) ) ),
+		'path'     => '/calendar/action/compose/',
+		'rru'      => 'addevent',
+		'allday'   => 'false',
+		'startdt'  => $start,
+		'enddt'    => $end,
+		'subject'  => urlencode( "$list: $title" ),
+		'body'     => urlencode( stripcslashes( trim( $excerpt ) ) ),
 	);
 
 	return add_query_arg( $args, $source );
@@ -2203,17 +2211,19 @@ function wpad_office_cal( $session_id ) {
  * @return string
  */
 function wpad_add_calendar_links( $session_id ) {
-	if ( ! is_user_logged_in() ) {
-		return;
-	}
 	$google  = wpad_google_cal( $session_id );
 	$outlook = wpad_outlook_cal( $session_id );
 	$office  = wpad_office_cal( $session_id );
 	$ical    = add_query_arg( 'vcal', $session_id, get_the_permalink( $session_id ) );
 
+	$screen_reader_text = '';
+	if ( is_page( 'schedule' ) ) {
+		$screen_reader_text = ' <span class="screen-reader-text">(' . get_the_title( $session_id ) . ')</span>';
+	}
+
 	$output = '<div class="wpad-calendar-links">
-		<button class="button has-popup" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="wpad-add-links">Add to Calendar</button>
-		<ul id="wpad-add-links">
+		<button class="button has-popup" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="wpad-add-links-' . absint( $session_id ) . '">Add to Calendar' . $screen_reader_text . '</button>
+		<ul id="wpad-add-links-' . absint( $session_id ) . '">
 			<li><a href="' . esc_url( $google ) . '"><span class="dashicons dashicons-google" aria-hidden="true"></span> Add to Google</a></li>
 			<li><a href="' . esc_url( $outlook ) . '"><span class="fa-brands fa-microsoft" aria-hidden="true"></span> Add to Outlook</a></li>
 			<li><a href="' . esc_url( $office ) . '"><span class="fa-brands fa-microsoft" aria-hidden="true"></span> Add to Office 365</a></li>

@@ -506,6 +506,9 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 			$current_talk = "<p class='current-talk'><strong>$text</strong> <a href='#$session_id'>$time:$mins UTC - $talk->post_title</a></p>";
 		}
 	}
+	if ( current_user_can( 'manage_options' ) ) {
+		$calendar = wpad_add_calendar_links( $talk_ID );
+	}
 
 	$output = "
 	<div class='wp-block-group schedule $talk_type' id='$session_id'>
@@ -514,6 +517,7 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 			<div class='wp-block-columns inside $hidden'>
 				$talk_output
 			</div>
+			$calendar
 		</div>
 	</div>";
 

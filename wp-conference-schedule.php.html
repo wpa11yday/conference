@@ -2203,13 +2203,13 @@ function wpad_outlook_cal( $session_id ) {
 	$list    = implode( ', ', $speaker['list'] );
 
 	$args = array(
-		'path'     => '/calendar/action/compose/',
-		'rru'      => 'addevent',
-		'allday'   => 'false',
-		'startdt'  => $start,
-		'enddt'    => $end,
-		'subject'  => urlencode( "$list: $title" ),
-		'body'     => urlencode( stripcslashes( trim( $excerpt ) ) ),
+		'path'    => '/calendar/action/compose/',
+		'rru'     => 'addevent',
+		'allday'  => 'false',
+		'startdt' => $start,
+		'enddt'   => $end,
+		'subject' => urlencode( "$list: $title" ),
+		'body'    => urlencode( stripcslashes( trim( $excerpt ) ) ),
 	);
 
 	return add_query_arg( $args, $source );

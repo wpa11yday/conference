@@ -31,4 +31,23 @@ jQuery(($) => {
       .find(".time-wrapper")
       .append('<span class="localtime">' + userTime + " " + zone + "</span>");
   });
+
+  const hasPopup = $( 'button.has-popup' );
+  hasPopup.each(function() {
+	let controlId = $( this ).attr( 'aria-controls' );
+	let controlled = $( '#' + controlId );
+	$( this ).append( '<span class="dashicons dashicons-plus" aria-hidden="true">' );
+	controlled.hide();
+	$( this ).on( 'click', function() {
+		let visible = controlled.is( ':visible' );
+		if ( visible ) {
+			controlled.hide();
+			$( this ).attr( 'aria-expanded', 'false' );
+		} else {
+			controlled.show();
+			$( this ).attr( 'aria-expanded', 'true' );
+		}
+	});
+
+  });
 });

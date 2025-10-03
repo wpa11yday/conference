@@ -2153,6 +2153,49 @@ function wpad_google_cal( $session_id ) {
 }
 
 /**
+ * Generate Add to Outlook calendar.
+ *
+ * @param int $session_id Session post ID.
+ *
+ * @return string
+ */
+function wpad_outlook_cal( $session_id ) {
+	$year    = gmdate( 'Y', strtotime( get_option( 'wpad_start_time' ) ) );
+	$url     = get_the_permalink( $session_id );
+	$title   = get_the_title( $session_id );
+	$start   = gmdate( 'Y-m-d\THi00\Z', get_post_meta( $session_id, '_wpcs_session_time', true ) );
+	$end     = gmdate( 'Y-m-d\THi00\Z', get_post_meta( $session_id, '_wpcs_session_time', true ) + 50 * 60 );
+	$excerpt = get_the_excerpt( $session_id );
+	$source  = 'https://outlook.live.com/calendar/0/action/compose';
+
+	$args = array(
+		'path'    => '/calendar/action/compose/',
+		'rru'     => 'addevent',
+		'allday'  => 'false',
+		'startdt' => $start,
+		'enddt'   => $end,
+		'subect'  => urlencode( $title ),
+		'body'    => urlencode( stripcslashes( trim( $excerpt ) ) ),
+	);
+
+	return add_query_arg( $args, $source );
+}
+
+/**
+ * Generate Add to Office 365 calendar.
+ *
+ * @param int $session_id Session post ID.
+ *
+ * @return string
+ */
+function wpad_office_cal( $session_id ) {
+	$url = wpad_outlook_cal( $session_id );
+	$url = str_replace( 'outlook.live.com', 'outlook.office.com', $url );
+
+	return $url;
+}
+
+/**
  * Set up Add to Calendar links.
  *
  * @param int $session_id Session post ID.
@@ -2160,12 +2203,20 @@ function wpad_google_cal( $session_id ) {
  * @return string
  */
 function wpad_add_calendar_links( $session_id ) {
-	$google = wpad_google_cal( $session_id );
-	$ical   = add_query_arg( 'vcal', $session_id, get_the_permalink( $session_id ) );
+	if ( ! is_user_logged_in() ) {
+		return;
+	}
+	$google  = wpad_google_cal( $session_id );
+	$outlook = wpad_outlook_cal( $session_id );
+	$office  = wpad_office_cal( $session_id );
+	$ical    = add_query_arg( 'vcal', $session_id, get_the_permalink( $session_id ) );
 
 	$output = '<div class="wpad-calendar-links">
-		<ul>
-			<li><a href="' . esc_url( $google ) . '"><span class="dashicons dashicons-google" aria-hidden="true"></span> Add to Google Calendar</a></li>
+		<button class="button has-popup" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="wpad-add-links">Add to Calendar</button>
+		<ul id="wpad-add-links">
+			<li><a href="' . esc_url( $google ) . '"><span class="dashicons dashicons-google" aria-hidden="true"></span> Add to Google</a></li>
+			<li><a href="' . esc_url( $outlook ) . '"><span class="fa-brands fa-microsoft" aria-hidden="true"></span> Add to Outlook</a></li>
+			<li><a href="' . esc_url( $office ) . '"><span class="fa-brands fa-microsoft" aria-hidden="true"></span> Add to Office 365</a></li>
 			<li><a href="' . esc_url( $ical ) . '"><span class="dashicons dashicons-calendar" aria-hidden="true"></span> Download iCal</a></li>
 		</ul>
 	</div>';

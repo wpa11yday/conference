@@ -1883,7 +1883,7 @@ function wpcs_get_captions() {
  * @return string
  */
 function wpcs_get_asl() {
-	$asl     = get_post_meta( get_the_ID(), '_wpcs_asl_id', true );
+	$asl = get_post_meta( get_the_ID(), '_wpcs_asl_id', true );
 
 	return $asl;
 }
@@ -2152,6 +2152,8 @@ add_action( 'init', 'wpad_send_vcal', 200 );
 /**
  * Generate Add to Google calendar.
  *
+ * @param int $session_id Session post ID.
+ *
  * @return string
  */
 function wpad_google_cal( $session_id ) {
@@ -2161,7 +2163,7 @@ function wpad_google_cal( $session_id ) {
 	$start   = gmdate( 'Ymd\THi00\Z', get_post_meta( $session_id, '_wpcs_session_time', true ) );
 	$end     = gmdate( 'Ymd\THi00\Z', get_post_meta( $session_id, '_wpcs_session_time', true ) + 50 * 60 );
 	$excerpt = get_the_excerpt( $session_id );
-	$source = 'https://www.google.com/calendar/render?action=TEMPLATE';
+	$source  = 'https://www.google.com/calendar/render?action=TEMPLATE';
 
 	$args = array(
 		'dates'   => "$start/$end",

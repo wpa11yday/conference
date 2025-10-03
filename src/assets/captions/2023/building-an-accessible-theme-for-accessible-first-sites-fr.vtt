@@ -1,0 +1,2868 @@
+WEBVTT
+
+00:00:01.198 --> 00:00:04.410
+AMBER HINDS :
+Journée de l'accessibilité WordPress 2023 :
+
+00:00:04.410 --> 00:00:08.250
+Créer un thème accessible pour des
+sites construits pour l'accessibilité.
+
+00:00:08.250 --> 00:00:13.030
+Gen Herres,
+développeur WordPress chez FIRA LLC.
+
+00:00:13.030 --> 00:00:16.640
+Présentation enregistrée
+le 28 septembre 2023.
+
+00:00:19.565 --> 00:00:20.460
+JASON FERRERA : Très bien.
+
+00:00:20.460 --> 00:00:21.640
+Eh bien, bonjour à tous.
+
+00:00:22.860 --> 00:00:25.440
+Pour ceux d'entre vous qui nous
+rejoignent pour la première fois maintenant,
+
+00:00:25.440 --> 00:00:27.830
+bienvenue et pour ceux d'entre
+vous qui reviennent,
+
+00:00:27.830 --> 00:00:33.160
+Bienvenue à la Journée de
+l'accessibilité WordPress 2023.
+
+00:00:33.160 --> 00:00:35.970
+Je m'appelle Jason Ferrera
+et dans mon travail quotidien,
+
+00:00:35.970 --> 00:00:40.340
+Je suis responsable de l'accessibilité pour
+les produits de consommation chez Dow Jones.
+
+00:00:40.340 --> 00:00:42.590
+Mais pour aujourd'hui, je serai votre hôte.
+
+00:00:43.740 --> 00:00:47.950
+Et merci à tous de vous joindre
+à nous, pour la conférence :
+
+00:00:47.950 --> 00:00:52.010
+Créer un thème accessible pour des sites
+construits pour l'accessibilité, avec Gen Herres.
+
+00:00:53.820 --> 00:01:01.180
+Gen est la propriétaire de FIRA LLC,
+elle développe le guide "Easy A11Y",
+
+00:01:01.180 --> 00:01:04.960
+elle organise le groupe du Meetup
+WordPress de Baltimore.
+
+00:01:04.960 --> 00:01:08.560
+Avant de se lancer dans le
+développement WordPress il y a plus de dix ans,
+
+00:01:08.560 --> 00:01:12.010
+Gen était développeuse pour
+Boeing sur le bombardier B1.
+
+00:01:12.010 --> 00:01:14.384
+et était chargée de cours à
+l'Université d'État de l'Ohio,
+
+00:01:14.385 --> 00:01:15.880
+Département d'informatique.
+
+00:01:17.000 --> 00:01:21.030
+Gen a été présentée dans
+des podcasts et a remporté le titre de membre
+
+00:01:21.030 --> 00:01:24.610
+de l'année 2022 dans la
+communauté WordPress numéro 1.
+
+00:01:24.610 --> 00:01:28.260
+Elle est très active dans les groupes WordPress,
+encourageant les autres développeurs
+
+00:01:28.260 --> 00:01:29.490
+et les designers.
+
+00:01:29.490 --> 00:01:31.413
+Elle a intégré
+l'accessibilité
+
+00:01:31.414 --> 00:01:32.680
+sur des sites Web pendant plusieurs
+
+00:01:32.680 --> 00:01:35.880
+années et est une ardente
+défenseuse des processus
+
+00:01:35.880 --> 00:01:39.070
+qui placent l'accessibilité
+le plus tôt possible dans un projet
+
+00:01:39.070 --> 00:01:42.970
+et à rendre l'accessibilité plus facile
+à comprendre pour les novices.
+
+00:01:42.970 --> 00:01:45.940
+Une dernière petite question
+d'organisation pour les participants.
+
+00:01:45.940 --> 00:01:50.040
+N'hésitez pas à ajouter vos
+questions dans la section Q&amp;R de Zoom,
+
+00:01:50.040 --> 00:01:53.050
+et nous y répondrons à
+la fin de cette session.
+
+00:01:53.050 --> 00:01:55.450
+Pensez à utiliser le chat pour
+vous connecter avec d'autres participants
+
+00:01:55.450 --> 00:01:58.770
+et de cette façon c'est un
+peu plus propre
+
+00:01:58.771 --> 00:02:01.580
+pour trouver où se trouvent les questions.
+
+00:02:01.580 --> 00:02:03.320
+Et avec ça, ma partie est terminée.
+
+00:02:03.320 --> 00:02:04.910
+Je vais donc vous céder la parole, Gen.
+
+00:02:07.530 --> 00:02:08.240
+Sans plus tarder.
+
+00:02:09.823 --> 00:02:10.980
+GEN : Merci, Jason.
+
+00:02:12.350 --> 00:02:13.350
+Partage.
+
+00:02:14.390 --> 00:02:16.050
+J'espère que tout le monde
+peut voir mon écran.
+
+00:02:16.050 --> 00:02:17.000
+Jason, peux-tu juste confirmer ?
+
+00:02:18.528 --> 00:02:19.370
+JASON : Je peux voir votre écran.
+
+00:02:20.020 --> 00:02:20.670
+GEN : Excellent.
+
+00:02:21.810 --> 00:02:24.960
+La conférence d'aujourd'hui porte donc sur la création
+d'un thème accessible.
+
+00:02:24.960 --> 00:02:26.380
+pour des sites construits pour l'accessibilité.
+
+00:02:29.730 --> 00:02:33.680
+Donc l'accessibilité dans votre thème,
+ce que nous allons aborder aujourd'hui.
+
+00:02:33.680 --> 00:02:37.100
+Plus tôt dans le processus
+vous résolvez le problème de l'accessibilité,
+
+00:02:37.100 --> 00:02:39.930
+moins c'est cher.
+
+00:02:39.930 --> 00:02:43.190
+Alors que je construit des sites
+depuis plus d'une décennie,
+
+00:02:43.190 --> 00:02:47.210
+je sais que plus tôt nous résolvons un problème,
+moins cela coûte cher.
+
+00:02:47.210 --> 00:02:51.520
+Passer 20 minutes supplémentaires
+sur quelque chose plus tôt
+
+00:02:51.520 --> 00:02:56.860
+dans la phase de conception peut
+nous faire gagner des dizaines d'heures
+
+00:02:56.860 --> 00:02:58.490
+à la fin de la construction du site.
+
+00:02:58.490 --> 00:03:02.410
+J'essaie donc vraiment d'encourager
+les choses à se faire plus tôt.
+
+00:03:02.410 --> 00:03:06.690
+Et donc, lorsque c'est possible, si mon thème
+peut gérer l'accessibilité pour moi,
+
+00:03:06.690 --> 00:03:10.790
+c'est déjà résolu, et je n'ai pas
+à m'en soucier à la fin.
+
+00:03:10.790 --> 00:03:14.440
+Nous allons donc parler de ce que
+les thèmes peuvent faire pour l'accessibilité
+
+00:03:14.440 --> 00:03:16.050
+et ce qu'ils ne peuvent pas.
+
+00:03:16.050 --> 00:03:21.300
+Ce que couvre l'étiquette « Accessibility Ready »,
+ce qu'elle ne couvre pas.
+
+00:03:21.300 --> 00:03:25.750
+Nous allons faire cela tout en
+testant deux thèmes côte à côte
+
+00:03:25.750 --> 00:03:27.640
+pour l'accessibilité.
+
+00:03:27.640 --> 00:03:31.950
+Et puis je vais discuter plus en
+détail de certaines fonctionnalités
+
+00:03:31.950 --> 00:03:35.690
+dans le thème Kaya et ce que j'en
+ai fait au fil des ans.
+
+00:03:38.170 --> 00:03:42.760
+Un peu de terminologie rapide,
+WCAG veut dire Règles pour
+
+00:03:42.760 --> 00:03:45.230
+l'accessibilité des contenus Web.
+Elle sont maintenues
+
+00:03:45.230 --> 00:03:49.640
+par le World Wide Web
+Consortium ou W3C.
+
+00:03:49.640 --> 00:03:52.970
+J'utiliserai les WCAG plusieurs fois
+dans cette présentation.
+
+00:03:54.840 --> 00:03:56.620
+« Accessibility ready » 
+(construits pour l'accessibilité)
+
+00:03:56.620 --> 00:04:02.190
+Il s'agit d'une étiquette spécifique utilisée dans
+le répertoire de thèmes WordPress.
+
+00:04:02.190 --> 00:04:06.240
+Et cela signifie essentiellement que le
+thème respecte certaines directives.
+
+00:04:06.240 --> 00:04:09.570
+Et nous allons voir exactement celles
+qu'il respecte et celles qu'il ne respecte pas.
+
+00:04:10.660 --> 00:04:15.550
+Et puis A11Y, qui est
+l'abréviation d'accessibilité.
+
+00:04:15.550 --> 00:04:18.000
+Si je me souviens bien,
+c'est venu de Twitter
+
+00:04:18.000 --> 00:04:21.740
+où on essayait de
+tout regrouper en 150 caractères.
+
+00:04:21.740 --> 00:04:24.560
+Et donc beaucoup de mots
+ont été abrégés.
+
+00:04:24.560 --> 00:04:28.490
+On supprime 11 caractères
+entre A et Y.
+
+00:04:28.490 --> 00:04:32.410
+Et j'aime aussi ce terme parce qu'il est
+fréquemment prononcé allié (« ally »),
+
+00:04:32.410 --> 00:04:37.000
+ce qui signifie un ami
+ou un associé de.
+
+00:04:37.000 --> 00:04:41.670
+Et j'aime essayer d'être l'amie
+des personnes souffrant de divers handicaps.
+
+00:04:44.140 --> 00:04:47.550
+Des diapositives et des liens sont disponibles,
+et je mettrai ce lien
+
+00:04:47.550 --> 00:04:49.780
+sur les sept ou huit
+premières diapositives.
+
+00:04:53.120 --> 00:04:56.080
+Qu'est-ce que l'accessibilité des thèmes
+et ce qu'elle n'est pas.
+
+00:04:58.590 --> 00:05:01.860
+Votre thème est essentiellement
+vos fondations.
+
+00:05:01.860 --> 00:05:05.450
+Et vous pouvez soit commencer
+avec de bonnes bases,
+
+00:05:05.450 --> 00:05:08.720
+ou vous pouvez finir par
+vous battre et avoir
+
+00:05:08.720 --> 00:05:12.850
+tous ces différents obstacles
+à surmonter au fil du temps.
+
+00:05:12.850 --> 00:05:17.020
+Et je préférerais commencer
+avec une bonne base.
+
+00:05:18.170 --> 00:05:22.270
+Mais l'accessibilité du thème
+n'est pas réellement complète.
+
+00:05:23.480 --> 00:05:26.270
+Il ne peut absolument pas
+tout faire pour vous.
+
+00:05:26.270 --> 00:05:30.460
+Une grande partie de l'accessibilité réside
+dans la façon dont vous ajoutez votre contenu,
+
+00:05:30.460 --> 00:05:32.630
+et bien sûr dans les
+différentes extensions
+
+00:05:32.630 --> 00:05:35.120
+et les fonctionnalités supplémentaires
+que vous ajoutez à un site Web.
+
+00:05:39.910 --> 00:05:43.790
+Une chose importante à retenir
+lorsque l'on parle d'extensions,
+
+00:05:43.790 --> 00:05:47.720
+et les créateurs de pages et même
+Gutenberg lui-même, est que beaucoup
+
+00:05:47.720 --> 00:05:52.940
+d'entre eux ont des problèmes d'accessibilité
+et il est important de vérifier
+
+00:05:52.940 --> 00:05:59.310
+ce que vous voulez utiliser avant de l'utiliser
+réellement, et bien sûr de le tester.
+
+00:05:59.310 --> 00:06:01.950
+Et nous allons faire une tonne
+de tests pratiques là-dessus,
+
+00:06:01.950 --> 00:06:05.160
+donc j'espère que cela vous sera
+très utile pour démarrer
+
+00:06:05.160 --> 00:06:06.320
+pour tester vos propres trucs.
+
+00:06:08.650 --> 00:06:12.000
+Nous allons comparer
+deux thèmes côte à côte.
+
+00:06:12.000 --> 00:06:15.610
+Le premier est le
+thème Kaya, qui est le mien,
+
+00:06:15.610 --> 00:06:18.520
+et il a été conçu
+dans un souci d'accessibilité.
+
+00:06:18.520 --> 00:06:23.440
+Le deuxième est le thème Divi.
+
+00:06:23.440 --> 00:06:26.190
+Maintenant, je cherchais
+spécifiquement un thème
+
+00:06:26.190 --> 00:06:30.690
+qui, je le savais, a connu un certain nombre d'échecs,
+et donc je sais que Divi en a connu.
+
+00:06:30.690 --> 00:06:35.140
+Et ils prétendent également être le
+thème WordPress le plus populaire.
+
+00:06:36.190 --> 00:06:39.400
+Et comme nous le savons tous, ce
+n'est pas parce que quelque chose est populaire que
+
+00:06:39.400 --> 00:06:40.400
+c'est bien.
+
+00:06:41.920 --> 00:06:45.340
+Pour cela, nous utiliserons
+les données de test officielles
+
+00:06:45.340 --> 00:06:46.980
+du test unitaire de l'équipe
+De validation des thèmes.
+
+00:06:48.200 --> 00:06:51.740
+Donc, l'une des choses que j'aime
+dans la création de sites de test
+
+00:06:51.740 --> 00:06:57.080
+lorsque je compare différents thèmes, c'est
+que j'obtiens une bien meilleure comparaison
+
+00:06:57.080 --> 00:06:58.680
+Je compare des pommes avec des pommes.
+
+00:06:58.680 --> 00:07:02.430
+Si j'essaie de regarder
+certains de leurs exemples de démos,
+
+00:07:02.430 --> 00:07:07.170
+les choses sont tellement personnalisées et
+si différentes entre les démos,
+
+00:07:07.170 --> 00:07:10.400
+Je ne peux pas vraiment obtenir une
+bonne comparaison et voir
+
+00:07:10.400 --> 00:07:14.290
+ce qui est fait par le thème
+par rapport à ce qui est fait
+
+00:07:14.290 --> 00:07:17.520
+par le contenu et les
+choix qui ont été faits.
+
+00:07:20.680 --> 00:07:24.550
+Donc, l'étiquette Accessibility
+Ready ; c'est une étiquette
+
+00:07:24.550 --> 00:07:30.390
+dans le répertoire de thèmes WordPress,
+et cela signifie qu'il couvre certains contenus.
+
+00:07:32.970 --> 00:07:34.710
+Nous allons donc partir
+
+00:07:34.711 --> 00:07:38.120
+des informations réelles
+du répertoire WordPress.
+
+00:07:38.120 --> 00:07:40.700
+Et nous allons regarder
+l'étiquette demandée,
+
+00:07:40.700 --> 00:07:43.250
+et nous allons réellement
+passer en revue et expliquer
+
+00:07:43.250 --> 00:07:47.590
+quelle est cette étiquette obligatoire,
+ce qu'elle signifie pour votre thème,
+
+00:07:47.590 --> 00:07:49.450
+pourquoi certaines de ces
+choses existent.
+
+00:07:50.610 --> 00:07:52.740
+Le premier élément concerne donc
+la navigation au clavier.
+
+00:07:53.750 --> 00:07:58.780
+Quelqu'un qui n'utilise pas de souris
+peut-il naviguer sur votre site Web ?
+
+00:07:58.780 --> 00:08:01.290
+Eh bien, quand je regarde mon bureau,
+je n'ai même pas de souris.
+
+00:08:01.290 --> 00:08:02.470
+Je n'en utilise pas.
+
+00:08:02.470 --> 00:08:04.700
+En fait, cela me gêne
+la main d'utiliser une souris.
+
+00:08:04.700 --> 00:08:10.080
+Donc, en fait, je suis assise ici avec ce
+stylo sur une grande tablette.
+
+00:08:10.080 --> 00:08:15.080
+Je bénéficie donc déjà de certains avantages
+et j'utilise en fait un peu
+
+00:08:15.080 --> 00:08:18.660
+de navigation sur écran parfois.
+
+00:08:19.790 --> 00:08:22.340
+Une des premières choses que je
+vérifierai avant même de tester
+
+00:08:22.340 --> 00:08:26.470
+au clavier maintenant, je vais
+faire un test rapide sur LightHouse.
+
+00:08:26.470 --> 00:08:29.080
+Nous avons donc ici le
+site Web de démonstration de Kaya,
+
+00:08:29.080 --> 00:08:31.820
+et j'ai importé
+le contenu de la démo.
+
+00:08:31.820 --> 00:08:36.150
+J'ai configuré seulement
+quelques widgets.
+
+00:08:36.150 --> 00:08:38.550
+J'ai donc configuré
+quelques widgets de pied de page.
+
+00:08:38.550 --> 00:08:42.380
+Seuls quelques éléments sont
+configurés très, très peu.
+
+00:08:42.380 --> 00:08:45.710
+Et j'ai fait exactement la
+même chose sur l'installation de Divi.
+
+00:08:47.000 --> 00:08:51.890
+Encore une fois, j'ai configuré quelques
+widgets, mais sinon
+
+00:08:51.890 --> 00:08:53.670
+Je n'ai pas configuré les options.
+
+00:08:56.670 --> 00:09:01.170
+Nous pouvons donc voir ici que
+le Divi obtient 79.
+
+00:09:01.170 --> 00:09:05.950
+Lighthouse propose maintenant un
+ensemble de tests plus limité.
+
+00:09:05.950 --> 00:09:08.980
+que certains autres
+outils tels que Axe ou Wave.
+
+00:09:10.040 --> 00:09:15.520
+Donc le fait qu'ils obtiennent
+déjà un score de 79 veut dire que
+
+00:09:15.520 --> 00:09:16.910
+beaucoup de choses ne sont pas correctes.
+
+00:09:18.000 --> 00:09:21.130
+Nous pouvons donc voir ici
+que cela comprend un formulaire.
+
+00:09:21.130 --> 00:09:22.790
+C'est le formulaire de recherche.
+
+00:09:22.790 --> 00:09:25.040
+Et nous pouvons voir qu'il
+manque des libellés.
+
+00:09:26.430 --> 00:09:29.930
+Les liens n'ont pas de nom distinctif,
+ce qui n'est pas une bonne chose.
+
+00:09:31.290 --> 00:09:34.740
+La méta user-scalable a été
+configurée sur "non", ce qui signifie
+
+00:09:34.740 --> 00:09:39.990
+qu'il y a une limite au
+zoom sur ce site Web.
+
+00:09:39.990 --> 00:09:42.930
+C'est un problème pour
+les personnes malvoyantes.
+
+00:09:42.930 --> 00:09:46.370
+car certains d'entre elles utilisent
+beaucoup le zoom.
+
+00:09:46.370 --> 00:09:49.480
+Je connais des gens qui ont zooment
+littéralement à plus de 1 000 %.
+
+00:09:55.600 --> 00:10:01.640
+Les problèmes de contrastes ne sont généralement
+pas un problème majeur dans les thèmes,
+
+00:10:01.640 --> 00:10:06.360
+car de nombreux thèmes vous permettent de
+définir vos propres palettes de couleurs.
+
+00:10:06.360 --> 00:10:10.630
+Mais pour l'étiquette
+d'accessibilité, il faut que tous
+
+00:10:10.630 --> 00:10:17.020
+le contraste par
+défaut soient de 4,5 pour 1.
+
+00:10:20.290 --> 00:10:23.980
+Et bien sûr, il y a un
+problème avec les éléments d'en-tête
+
+00:10:23.980 --> 00:10:25.240
+qui sont présentés dans un ordre non séquentiel.
+
+00:10:25.240 --> 00:10:30.250
+Cela signifie que par défaut ce
+thème a fait un codage spécifique
+
+00:10:30.250 --> 00:10:36.560
+pour rendre généralement des éléments tels que
+la barre latérale désordonnés au niveau des titres.
+
+00:10:36.560 --> 00:10:40.520
+Ce n'est vraiment pas un bon début
+car cela nécessite généralement
+
+00:10:40.520 --> 00:10:42.500
+beaucoup de code pour écraser ça.
+
+00:10:47.530 --> 00:10:49.460
+Comme vous pouvez le voir, j'ai bien ajouté tout ça.
+
+00:10:49.460 --> 00:10:51.390
+Nous allons donc maintenant
+le transmettre à Axe.
+
+00:10:52.650 --> 00:10:58.920
+Et dans Axe, je vais simplement
+scanner toute ma page et il dit,
+
+00:10:58.920 --> 00:11:01.000
+aucun problème automatique.
+
+00:11:01.000 --> 00:11:04.550
+Donc, en gros, cela signifie que lors de
+leurs tests, il n'y a eu aucun problème.
+
+00:11:06.210 --> 00:11:08.930
+Ces tests ne sont
+pas exhaustifs,
+
+00:11:08.930 --> 00:11:10.310
+mais ils constituent une assez
+bonne base.
+
+00:11:11.410 --> 00:11:13.260
+Et nous ferons la même chose ici.
+
+00:11:13.260 --> 00:11:16.030
+Nous avons eu 30 problèmes automatiques.
+
+00:11:16.030 --> 00:11:20.460
+Et l’une des choses que j’aime à propos
+d’Axe, c’est qu’il catégorise les problèmes.
+
+00:11:20.460 --> 00:11:22.740
+Critique, grave,
+modéré et mineur.
+
+00:11:23.860 --> 00:11:25.770
+Eh bien, critique n'est pas génial.
+
+00:11:28.070 --> 00:11:31.200
+Les éléments de formulaire manquent
+encore de libellés, ici.
+
+00:11:31.200 --> 00:11:36.230
+Il s'agit d'une décision intentionnelle
+de Divi de cacher explicitement
+
+00:11:36.230 --> 00:11:38.820
+de tout le monde le libellé
+sur le champ de recherche.
+
+00:11:40.590 --> 00:11:43.010
+Le zoom et la mise à l'échelle
+ne doivent pas être désactivés.
+
+00:11:43.010 --> 00:11:46.980
+Encore une fois, ils ont intentionnellement
+désactivé la capacité
+
+00:11:46.980 --> 00:11:48.610
+de zoomer au-delà d'un certain seuil.
+
+00:11:50.910 --> 00:11:53.410
+Le contraste des couleurs,
+je ne m'en soucie pas trop.
+
+00:11:53.410 --> 00:11:54.820
+Les liens posent problème.
+
+00:11:56.860 --> 00:12:00.610
+La valeur d'identification n'est pas
+toujours un problème.
+
+00:12:00.610 --> 00:12:02.900
+C'est pourquoi c'est classé
+comme mineur dans Axe.
+
+00:12:06.680 --> 00:12:09.910
+Nous allons maintenant passer
+au test de navigation clavier.
+
+00:12:09.910 --> 00:12:15.610
+Placez votre curseur dans la barre d'URL,
+puis sur votre clavier, appuyez sur Tab.
+
+00:12:18.110 --> 00:12:20.540
+Et il ne s'est absolument rien passé.
+
+00:12:22.170 --> 00:12:24.090
+Ce n'est pas un bon début.
+
+00:12:24.090 --> 00:12:32.090
+J'appuie à plusieurs reprises sur Tab et
+absolument rien ne se passe.
+
+00:12:35.470 --> 00:12:41.700
+Donc, fondamentalement, quelqu'un utilisant un clavier
+ne peut pas naviguer sur ce site du tout
+
+00:12:41.700 --> 00:12:44.190
+parce que je ne vois rien.
+
+00:12:45.900 --> 00:12:46.900
+Donc ce n'est pas bon.
+
+00:12:48.770 --> 00:12:51.760
+Ici, j'obtiens immédiatement
+un lien pour passer au contenu.
+
+00:12:51.760 --> 00:12:52.450
+C'est génial.
+
+00:12:52.450 --> 00:12:55.530
+Cela signifie que si je veux
+ignorer la barre de menu
+
+00:12:55.530 --> 00:12:57.440
+et aller directement au
+contenu, je peux.
+
+00:13:00.140 --> 00:13:04.310
+Mais je vais passer par...
+Ici, nous avons un double contour
+
+00:13:04.310 --> 00:13:10.190
+sur l'état de focus, ce qui signifie
+que nous avons un arrière-plan gris foncé,
+
+00:13:10.190 --> 00:13:14.340
+et il a à la fois un
+contour bleu et blanc.
+
+00:13:14.340 --> 00:13:16.440
+Nous pouvons donc clairement voir
+ce contour blanc.
+
+00:13:20.080 --> 00:13:25.930
+La recherche est surlignée
+par une bordure bleue.
+
+00:13:25.930 --> 00:13:28.880
+Le bouton a un
+contour bleu et blanc.
+
+00:13:28.880 --> 00:13:34.040
+Au fur et à mesure que nous parcourons le menu,
+ces éléments deviennent clairement ciblés.
+
+00:13:35.160 --> 00:13:38.280
+Nous pouvons parcourir
+tous les menus.
+
+00:13:38.280 --> 00:13:42.500
+Maintenant, serait-il un peu plus
+idéal si nous pouvions utiliser les touches fléchées
+
+00:13:42.500 --> 00:13:47.280
+pour gérer certains de ces menus et sortir
+de certains de ces menus plus profonds ?
+
+00:13:47.280 --> 00:13:48.300
+Oui.
+
+00:13:48.300 --> 00:13:52.550
+Je recommande généralement d'utiliser
+l'extension Max Mega Menu,
+
+00:13:52.550 --> 00:13:56.890
+car cela permet
+d'améliorer les menus.
+
+00:13:59.260 --> 00:14:01.230
+Regardons donc
+l’élément suivant.
+
+00:14:03.840 --> 00:14:04.620
+Les contrôles.
+
+00:14:04.620 --> 00:14:07.250
+Donc, fondamentalement, cela signifie que
+les éléments qui sont un bouton
+
+00:14:07.250 --> 00:14:09.921
+et les éléments qui sont
+des entrées et des éléments
+
+00:14:09.922 --> 00:14:12.940
+qui sont des ancres doivent se comporter
+comme ils sont censés le faire.
+
+00:14:14.590 --> 00:14:18.220
+Cela signifie essentiellement que les divs et les
+spans ne sont pas utilisés pour faire des boutons.
+
+00:14:19.690 --> 00:14:23.270
+ils ne doivent pas être
+utilisés par le thème comme tels.
+
+00:14:23.270 --> 00:14:27.920
+La plupart des thèmes ne
+créent pas trop de problèmes.
+
+00:14:27.920 --> 00:14:32.130
+Le souci le plus important concerne
+généralement les boutons de menu.
+
+00:14:32.130 --> 00:14:35.817
+Comme nous l'avons vu,
+ce thème Divi a déjà
+
+00:14:35.818 --> 00:14:39.220
+créé beaucoup de problèmes.
+
+00:14:39.220 --> 00:14:42.420
+Il sera donc
+très difficile de tester
+
+00:14:42.420 --> 00:14:46.640
+qu'il y ait ou non des
+problèmes avec le clavier.
+
+00:14:50.960 --> 00:14:52.690
+Ensuite, nous avons les liens d'évitement.
+
+00:14:56.070 --> 00:14:58.850
+Et à qui profitent les liens d'évitement ?
+
+00:14:58.850 --> 00:15:01.920
+Le lien d'évitement est le tout premier
+lien que je vous ai montré ici.
+
+00:15:01.920 --> 00:15:04.420
+en haut, et il est écrit
+passer au contenu.
+
+00:15:04.420 --> 00:15:09.350
+Cela permet aux personnes utilisant un clavier
+d'ignorer toute la zone d'en-tête.
+
+00:15:09.350 --> 00:15:12.900
+et le menu principal et d'accéder directement
+au contenu principal.
+
+00:15:12.900 --> 00:15:16.260
+C'est vraiment pratique pour les
+personnes qui naviguent au clavier.
+
+00:15:18.520 --> 00:15:21.060
+Évidemment, le thème Divi
+n'avait pas ça.
+
+00:15:23.320 --> 00:15:27.460
+Formulaires : pour les règles sur les formulaire,
+il s'agit essentiellement de vérifier
+
+00:15:27.460 --> 00:15:30.650
+que les élément label
+sont bien visibles.
+
+00:15:30.650 --> 00:15:37.010
+Ici on peut voir que sur le
+thème Divi, il y a un élément label
+
+00:15:37.010 --> 00:15:40.150
+inclus dans le cœur de WordPress.
+
+00:15:40.150 --> 00:15:44.990
+Cependant, ils ont choisi de mettre un
+"display none", qui cache ce label
+
+00:15:44.990 --> 00:15:45.990
+à tout le monde.
+
+00:15:50.030 --> 00:15:53.790
+Ici, vous pouvez voir sur le thème Kaya,
+que le libellé est juste là.
+
+00:15:57.030 --> 00:15:59.930
+Titres : il faut utiliser
+une hiérarchie de titres correcte.
+
+00:16:01.170 --> 00:16:06.190
+Donc dans ce cas, nous allons jeter un
+oeil à ces rubriques ici
+
+00:16:06.190 --> 00:16:07.200
+sur le pied de page.
+
+00:16:07.200 --> 00:16:10.640
+Et ce que vous verrez c'est
+que ce titre est un H3,
+
+00:16:10.640 --> 00:16:14.170
+et il y a un en-tête fourni aux
+lecteurs d'écrans qui est un H2.
+
+00:16:14.170 --> 00:16:19.870
+Nous avons donc ici sur la page votre H1,
+puis nous avons le niveau du lecteur d'écran
+
+00:16:19.870 --> 00:16:21.150
+pour un pied de page.
+
+00:16:21.150 --> 00:16:22.840
+Ce que font beaucoup de gens avec
+des lecteurs d'écran, c'est
+
+00:16:22.840 --> 00:16:25.610
+qu'ils peuvent réellement naviguer
+sur le site Web en obtenant une liste
+
+00:16:25.610 --> 00:16:27.040
+de tous les titres.
+
+00:16:27.040 --> 00:16:31.280
+Donc mettre ce pied de page ici,
+en tant que titre pour les lecteurs d'écrans
+
+00:16:31.280 --> 00:16:34.590
+Le titre leur permet de
+passer immédiatement au pied de page.
+
+00:16:36.340 --> 00:16:40.780
+Et puis dans le pied de page, vous voulez
+que les éléments soient libellés comme un H3
+
+00:16:40.780 --> 00:16:41.780
+de manière appropriée.
+
+00:16:45.370 --> 00:16:51.550
+Ici sur Divi, vous pouvez y jeter un
+œil, et il est libellé.
+
+00:16:52.630 --> 00:16:56.020
+Nous avons ces H3,
+mais il n'y a pas de H2.
+
+00:16:57.910 --> 00:17:04.650
+Maintenant, ces titres sont parfois
+paramétrables, selon le type
+
+00:17:04.650 --> 00:17:05.650
+de titre dont il s'agit.
+
+00:17:08.440 --> 00:17:13.300
+Donc par exemple, ici, le menu de navigation
+court, cela serait en fait codé
+
+00:17:13.300 --> 00:17:16.793
+par le thème, donc ça
+passe directement à un H4,
+
+00:17:16.794 --> 00:17:18.290
+donc ce n'est pas bon.
+
+00:17:22.330 --> 00:17:24.400
+Nous avons donc vu les titres.
+
+00:17:25.690 --> 00:17:27.130
+Les rôles ARIA des régions.
+
+00:17:28.340 --> 00:17:32.430
+En gros, cela signifie utiliser les
+types d'éléments appropriés
+
+00:17:32.430 --> 00:17:34.210
+pour les éléments appropriés.
+
+00:17:34.210 --> 00:17:35.990
+Donc le rôle est égal au formulaire de recherche.
+
+00:17:37.290 --> 00:17:40.080
+Ce contenu est en fait
+ajouté par le cœur de WordPress.
+
+00:17:44.670 --> 00:17:52.550
+Et cela n’ajoute pas
+réellement de rôle.
+
+00:17:52.550 --> 00:17:54.770
+Mais encore une fois,
+cela fait partie du cœur de WordPress
+
+00:17:54.770 --> 00:17:57.390
+et ce n'est pas vraiment la
+responsabilité du thème.
+
+00:17:57.390 --> 00:18:00.450
+La plupart des thèmes n'ajoutent pas réellement
+leurs propres formulaires.
+
+00:18:02.860 --> 00:18:05.380
+Le menu de navigation
+doit avoir une balise Nav.
+
+00:18:07.040 --> 00:18:11.050
+Nous allons donc jeter un œil ici, nous avons
+une URL et elle inclut une balise Nav.
+
+00:18:11.050 --> 00:18:13.070
+Elle affiche les balises d'en-tête.
+
+00:18:14.120 --> 00:18:17.270
+Le corps général utilisera
+généralement une balise &lt;main&gt;,
+
+00:18:22.300 --> 00:18:26.400
+et s'il n'utilise pas de balise &lt;main&gt;,
+il doit utiliser un rôle égal à MAIN.
+
+00:18:26.400 --> 00:18:29.420
+Et ici, nous pouvons voir que Divi
+ne fait ni l'un ni l'autre.
+
+00:18:31.980 --> 00:18:34.590
+Donc ici, nous pouvons jeter un
+oeil et nous avons &lt;main&gt;.
+
+00:18:35.700 --> 00:18:40.720
+Voilà donc le contenu principal,
+nous avons l'en-tête,
+
+00:18:42.490 --> 00:18:46.640
+nous avons le pied de page,
+donc ceux-ci s'affichent bien.
+
+00:18:47.670 --> 00:18:51.850
+Et encore une fois, cela concerne spécifiquement
+les choses qui sont faites par le thème.
+
+00:18:51.850 --> 00:18:56.640
+Donc, si c'est l'un des blocs WordPress,
+ce n'est pas la faute du thème.
+
+00:19:01.000 --> 00:19:04.920
+Liens de contenu ; les liens dans
+le contenu doivent donc être soulignés.
+
+00:19:06.830 --> 00:19:09.280
+Cette page particulière
+n'a aucun lien.
+
+00:19:10.420 --> 00:19:14.250
+Ici vous pouvez voir sur la barre latérale
+que nous avons beaucoup de liens
+
+00:19:14.250 --> 00:19:16.240
+et ceux-ci sont tous soulignés.
+
+00:19:16.240 --> 00:19:20.100
+Cela nous dit essentiellement que
+les choses sont soulignées par défaut.
+
+00:19:20.100 --> 00:19:22.380
+Nous y sommes, nous voyons
+nos liens et notre contenu.
+
+00:19:26.760 --> 00:19:32.300
+Et la page d'exemple
+ne s'affiche pas ici.
+
+00:19:32.300 --> 00:19:33.300
+Et voilà.
+
+00:19:35.090 --> 00:19:38.060
+Nous pouvons donc voir ici que
+ceux-ci ne sont pas soulignés.
+
+00:19:39.340 --> 00:19:43.400
+C'est donc un échec
+automatique de ce critère.
+
+00:19:46.660 --> 00:19:51.980
+Texte de lien répétitif ; cela se
+fait généralement sur une page de blog.
+
+00:19:51.980 --> 00:19:55.370
+Parfois, sur les pages de blog,
+vous verrez le message "Lire la suite"
+
+00:19:55.370 --> 00:19:57.710
+ou "voir plus" ou "continuer la
+lecture"
+
+00:19:58.760 --> 00:20:04.960
+Cette page n'utilise aucun de
+ces éléments, elle ne s'applique donc pas vraiment.
+
+00:20:04.960 --> 00:20:08.650
+Mais si vous les utilisiez,
+vous auriez besoin
+
+00:20:08.650 --> 00:20:12.220
+de montrer que les liens étaient uniques.
+
+00:20:12.220 --> 00:20:13.680
+Nous avons donc ici Lire la suite.
+
+00:20:18.710 --> 00:20:22.680
+Et vous pouvez voir que dans "Lire la suite",
+nous avons du texte pour les lecteurs d'écrans,
+
+00:20:22.680 --> 00:20:25.680
+qui vous indique quel article
+vous allez afficher.
+
+00:20:26.870 --> 00:20:30.430
+Cela permet donc une
+différenciation des liens
+
+00:20:30.430 --> 00:20:32.340
+et répond au problème
+des liens répétitifs.
+
+00:20:34.360 --> 00:20:37.340
+Et ici vous pouvez même voir dans leur
+exemple avec le lien répétitif
+
+00:20:37.340 --> 00:20:38.940
+comment ils utilisent le texte du lecteur d'écran.
+
+00:20:41.260 --> 00:20:45.140
+Contraste ; Cela signifie essentiellement
+que les couleurs de thème par défaut doivent
+
+00:20:45.140 --> 00:20:46.930
+passer les contrastes minimum exigés.
+
+00:20:46.930 --> 00:20:50.860
+Comme nous l'avons vu avec le vérificateur
+automatique, ils ont réussi sans problème ici,
+
+00:20:50.860 --> 00:20:52.530
+et ils ont échoué pour Divi.
+
+00:20:56.380 --> 00:21:01.810
+Images ; Lorsque le thème insère des images,
+il doit permettre l'ajout de texte alternatif.
+
+00:21:03.660 --> 00:21:06.910
+Jetons donc un coup d'œil à une
+image qui est généralement insérée
+
+00:21:06.910 --> 00:21:13.380
+par le thème, et ce serait l'image
+du bandeau d'entête ou le logo du site.
+
+00:21:13.380 --> 00:21:17.170
+Nous avons une image, et nous pouvons voir
+qu'elle contient en fait un texte alternatif.
+
+00:21:17.170 --> 00:21:19.350
+Nous allons jeter un oeil à Divi.
+
+00:21:21.540 --> 00:21:26.230
+Et bien, il m'est arrivé de
+mettre un mauvais texte alternatif
+
+00:21:26.230 --> 00:21:30.080
+parce que j'avais initialement commencé
+ça avec Hello Elementor,
+
+00:21:30.080 --> 00:21:34.090
+et puis j'ai rapidement découvert
+que le thème Hello Elementor
+
+00:21:34.090 --> 00:21:39.130
+n'avait pas de widgets, pas de réglage, et
+n'était vraiment pas un bon thème pour les tests.
+
+00:21:42.190 --> 00:21:47.970
+C'est donc de ma faute si je n'ai pas
+corrigé le texte alternatif de l'image.
+
+00:21:53.830 --> 00:21:56.160
+Viennent ensuite les médias.
+
+00:21:56.160 --> 00:22:01.150
+Ainsi, les ressources multimédias gérées
+par le thème ne doivent pas démarrer automatiquement.
+
+00:22:02.340 --> 00:22:05.055
+En gros, c'est si votre
+thème inclut quelque chose de spécial
+
+00:22:05.056 --> 00:22:05.960
+comme un diaporama.
+
+00:22:07.360 --> 00:22:12.080
+Aucun de ces thèmes dans la
+configuration par défaut absolue
+
+00:22:12.080 --> 00:22:13.080
+n'inclut ça.
+
+00:22:17.100 --> 00:22:18.820
+Texte pour les lecteurs d'écrans.
+
+00:22:18.820 --> 00:22:20.807
+C'est donc formidable d'utiliser
+
+00:22:20.808 --> 00:22:24.780
+la classe de texte
+la classe officielle fournie par WordPress
+pour les textes de lecteurs d'écrans.
+
+00:22:24.780 --> 00:22:27.830
+Comme nous l'avons déjà vu,
+le thème Kaya l'inclut.
+
+00:22:27.830 --> 00:22:31.220
+Honnêtement, je ne sais pas si
+Divi l'inclut ou non.
+
+00:22:34.500 --> 00:22:40.920
+Wow, Divi ne marque même pas cela
+dans un paragraphe ou même dans un Div.
+
+00:22:42.420 --> 00:22:45.550
+Ceci n'a aucun contenu.
+
+00:22:45.550 --> 00:22:45.690
+D'accord.
+
+00:22:45.690 --> 00:22:49.900
+Eh bien, je vais juste en
+faire un paragraphe.
+
+00:22:54.130 --> 00:22:59.080
+Et puis à la fin, je vais ajouter
+du texte pour les lecteurs d'écrans
+
+00:22:59.080 --> 00:23:00.950
+et voir si c'est réellement
+Ce qui est fait.
+
+00:23:13.230 --> 00:23:15.690
+Encore une fois, je viens de modifier
+ce texte en dessous.
+
+00:23:15.690 --> 00:23:19.740
+"Bonjour tout le monde", et nous constatons
+que c'est le cas, en fait,
+
+00:23:19.740 --> 00:23:22.020
+ça cache le lecteur d'écran et
+prend en charge cette classe.
+
+00:23:22.020 --> 00:23:23.020
+C'est donc bien.
+
+00:23:25.000 --> 00:23:29.500
+Enfin, sous les exigences figurent
+les choses qui ne sont pas autorisées.
+
+00:23:29.500 --> 00:23:32.230
+Et c'est généralement des éléments à vérifier
+en faisant une recherche de code.
+
+00:23:32.230 --> 00:23:33.460
+dans le vrai code du thème.
+
+00:23:33.460 --> 00:23:37.390
+Il y a l'attribut d'index
+de tabulation positif,
+
+00:23:38.980 --> 00:23:43.810
+l'inclusion de l'attribut accesskey
+et la vérification du contenu
+
+00:23:43.810 --> 00:23:46.440
+pour voir les attributs target=_blank.
+
+00:23:46.440 --> 00:23:50.490
+En fait, je n'ai pas fait cela
+dans la vérification du code,
+
+00:23:50.490 --> 00:23:56.250
+mais une chose que je peux normalement
+vérifier, ce sont les icônes des réseaux sociaux.
+
+00:23:57.360 --> 00:24:01.410
+C'est l'endroit le plus courant
+où cela se produit dans un thème.
+
+00:24:02.440 --> 00:24:08.210
+Et ici, je peux voir que le
+lien n'utilise pas de target=_blank.
+
+00:24:08.210 --> 00:24:11.520
+Donc il ne génère
+rien de lui même.
+
+00:24:11.520 --> 00:24:14.410
+Donc, très probablement, ça marche bien.
+
+00:24:15.430 --> 00:24:18.520
+L'autre endroit à vérifier concerne
+les liens de l'auteur du thème,
+
+00:24:18.520 --> 00:24:21.390
+et ceux-là n'utilisent pas non plus
+de target=_blank.
+
+00:24:21.390 --> 00:24:22.390
+Donc c'est bien.
+
+00:24:24.540 --> 00:24:26.990
+Ici, je peux faire exactement les mêmes tests.
+
+00:24:28.570 --> 00:24:31.680
+Et encore une fois, nous pouvons voir qu'il
+n'y a pas de target blank.
+
+00:24:32.880 --> 00:24:33.880
+Nous sommes donc prêts.
+
+00:24:35.270 --> 00:24:38.300
+Cela est donc OK pour l'étiquette
+« Accessibility Ready ».
+
+00:24:40.100 --> 00:24:42.890
+Parlons maintenant des choses
+que cette étiquette ne couvre pas.
+
+00:24:45.110 --> 00:24:47.350
+Tout d'abord, cela
+ne couvre rien en dehors
+
+00:24:47.350 --> 00:24:49.680
+du répertoire WordPress officiel.
+
+00:24:49.680 --> 00:24:53.210
+Et il y a beaucoup de thèmes
+qui ne sont pas dans le répertoire
+
+00:24:53.210 --> 00:24:55.130
+pour de nombreuses raisons différentes.
+
+00:24:55.130 --> 00:24:59.860
+Certains d'entre eux sont des thèmes payants et
+les thèmes payants ne peuvent pas être dans le répertoire.
+
+00:24:59.860 --> 00:25:03.240
+Pour certains c'est juste que l'auteur
+du thème n'avait pas envie de passer
+
+00:25:03.240 --> 00:25:07.850
+par tous les efforts et toutes les démarches
+pour intégrer son thème au répertoire.
+
+00:25:07.850 --> 00:25:11.000
+Et d'autres fois, les auteurs
+du thème ne sont pas d'accord
+
+00:25:11.000 --> 00:25:15.450
+avec certaines des exigences
+spécifiques du répertoire.
+
+00:25:15.450 --> 00:25:19.211
+Par exemple, les codes courts (shortcodes)
+ne sont pas autorisés, dans aucun thème
+
+00:25:19.212 --> 00:25:20.510
+du répertoire.
+
+00:25:20.510 --> 00:25:23.530
+Ce n'est pas que les codes courts
+sont mauvais, c'est un choix
+
+00:25:23.530 --> 00:25:26.180
+de l'équipe chargée du répertoire a fait.
+
+00:25:28.080 --> 00:25:32.640
+Le processus de révision du thème
+peut facilement prendre plus d'un mois
+
+00:25:32.640 --> 00:25:35.340
+pour les thèmes essayant
+d'entrer dans le répertoire.
+
+00:25:35.340 --> 00:25:39.660
+Et il existe un très petit groupe de
+personnes réellement qualifiées.
+
+00:25:39.660 --> 00:25:43.170
+pour tester les thèmes voulant
+l'étiquette « Accessibility Ready ».
+
+00:25:43.170 --> 00:25:48.190
+Donc avoir cette étiquette sur un thème peut
+prendre beaucoup plus de temps,
+
+00:25:48.190 --> 00:25:52.630
+peut-être même six mois ou
+plus pour valider le thème.
+
+00:25:52.630 --> 00:25:55.810
+C'est pour cette raison que
+de nombreux thèmes n'ont pas choisis
+
+00:25:55.810 --> 00:25:58.650
+d'aller tenter d'obtenir l'étiquette
+« Accessibility Ready »,
+
+00:25:58.650 --> 00:26:02.150
+même s'ils sont très
+accessibles.
+
+00:26:03.260 --> 00:26:07.400
+Donc, juste parce que quelque chose n'a
+pas l'étiquette, ou n'est pas
+
+00:26:07.400 --> 00:26:11.210
+dans le répertoire ne devrait pas
+vous dissuader de son utilisation.
+
+00:26:18.970 --> 00:26:21.040
+Ici, nous allons parler
+de certaines choses
+
+00:26:21.040 --> 00:26:23.920
+que l'étiquette « Accessibility Ready »
+ne couvre pas,
+
+00:26:23.920 --> 00:26:27.660
+mais pourrait poser problème
+dans un thème.
+
+00:26:27.660 --> 00:26:29.500
+La première est l'utilisation de la couleur.
+
+00:26:30.910 --> 00:26:36.750
+Ce n'est pas très courant, mais j'ai
+vu certains thèmes qui incluent
+
+00:26:36.750 --> 00:26:44.300
+comme élément de thème,
+un tableau de prix avec oui et non.
+
+00:26:44.300 --> 00:26:48.590
+Donc dans ce tableau de prix, si
+vous deviez avoir un carré vert
+
+00:26:48.590 --> 00:26:52.440
+pour oui, et un carré rouge pour
+non, ce serait un échec
+
+00:26:52.440 --> 00:26:57.380
+si vous utilisiez une case verte
+pour oui et un X rouge pour non.
+
+00:26:57.380 --> 00:27:00.660
+Cela passerait parce que
+ce n'est pas seulement une question de couleur.
+
+00:27:02.420 --> 00:27:05.500
+Les titres de page ne sont pas
+vérifiés ici.
+
+00:27:05.500 --> 00:27:08.830
+Fondamentalement,
+les pages devraient avoir des titres utiles.
+
+00:27:08.830 --> 00:27:14.740
+Il s'agit généralement du nom
+de la page ici dans la barre de titre.
+
+00:27:14.740 --> 00:27:20.020
+Et comme vous pouvez le voir, ces deux
+thèmes incluent des titres de page.
+
+00:27:21.980 --> 00:27:25.290
+Langue de la page ; La langue de
+la page doit être incluse
+
+00:27:25.290 --> 00:27:31.090
+et c'est absolument un élément du thème
+qui vient ici dans la balise HTML,
+
+00:27:31.090 --> 00:27:32.110
+EN-US par exemple.
+
+00:27:34.840 --> 00:27:39.510
+Et encore ici, EN-US…
+Donc ceux-ci montrent que les deux
+
+00:27:39.510 --> 00:27:40.840
+d'entre eux ont la langue.
+
+00:27:42.370 --> 00:27:46.500
+Le focus ne doit pas changer : quand
+quelque chose reçoit l'attention,
+
+00:27:46.500 --> 00:27:49.550
+cela ne devrait pas créer
+de changement de contexte.
+
+00:27:49.550 --> 00:27:53.750
+Maintenant, j'ai vu cela sur
+quelques sites où
+
+00:27:53.750 --> 00:27:57.770
+quand je me concentre sur quelque chose
+à gauche, quelque chose au-dessus
+
+00:27:57.770 --> 00:28:00.320
+change sur la droite.
+
+00:28:00.320 --> 00:28:06.640
+Par exemple, un carrousel vertical
+d'options où on met en évidence
+
+00:28:06.640 --> 00:28:12.320
+que ce thème est réactif,
+ce thème a des choix de couleurs.
+
+00:28:12.320 --> 00:28:17.310
+Et puis sur le côté droit,
+ça change tout un tas de contenu.
+
+00:28:17.310 --> 00:28:22.330
+Eh bien, ce n'est pas bon car
+ce contenu peut ne pas être visible
+
+00:28:22.330 --> 00:28:25.370
+à l'utilisateur, en particulier à quelqu'un qui
+utilise une loupe d'écran.
+
+00:28:25.370 --> 00:28:28.650
+Ils n'ont aucune idée que tout un
+tas d'autres contenus sont en train de changer.
+
+00:28:28.650 --> 00:28:31.260
+simplement parce qu'ils ont changé
+l'élément qui avait le focus.
+
+00:28:34.590 --> 00:28:38.960
+Au niveau des champs, les choses ne devraient pas
+soudainement subir davantage de changements.
+
+00:28:41.520 --> 00:28:46.090
+Redimensionnement du texte ; Le redimensionnement du texte
+est très simple à vérifier.
+
+00:28:48.590 --> 00:28:52.130
+Donc, je vais le faire dans une
+fenêtre de navigateur séparée.
+
+00:28:52.130 --> 00:28:59.230
+simplement parce que c'est là que mon navigateur
+va ouvrir mes paramètres.
+
+00:28:59.230 --> 00:29:06.270
+Donc dans votre navigateur, vous allez dans
+la taille de la police et dans la taille de la police,
+
+00:29:06.270 --> 00:29:07.680
+il indique actuellement moyen.
+
+00:29:09.480 --> 00:29:13.900
+Et si je passe en très grand,
+le site Web devrait changer.
+
+00:29:13.900 --> 00:29:16.590
+Il devrait respecter mes tailles de police.
+
+00:29:16.590 --> 00:29:21.060
+Il existe de nombreux autres outils qui
+vous permettent de modifier la taille de la police,
+
+00:29:22.400 --> 00:29:25.150
+mais c'est l'un des moyens les
+plus simples de le tester rapidement.
+
+00:29:26.790 --> 00:29:29.880
+Nous voilà donc sur le site Divi
+et je vais faire la même chose.
+
+00:29:29.880 --> 00:29:34.830
+Je passe au très grand et
+absolument rien ne s'est passé.
+
+00:29:36.410 --> 00:29:40.550
+Et je suis revenu au format moyen
+et toujours rien ne s'est passé.
+
+00:29:40.550 --> 00:29:44.870
+Cela montre donc que cela ne respecte
+pas les préférences de police des gens.
+
+00:29:47.510 --> 00:29:48.330
+Le responsive.
+
+00:29:48.330 --> 00:29:49.720
+Le site Web doit être responsive.
+
+00:29:51.180 --> 00:29:53.720
+Malheureusement, à notre époque,
+nous devons encore le dire.
+
+00:29:55.480 --> 00:30:00.720
+Donc, tout ce que nous faisons pour vérifier cela est
+d'utiliser simplement les options ici.
+
+00:30:00.720 --> 00:30:02.390
+Je teste simplement sur un iPhone.
+
+00:30:02.390 --> 00:30:03.910
+Ça marche bien.
+
+00:30:05.720 --> 00:30:07.120
+Je vais le tester ici.
+
+00:30:07.120 --> 00:30:09.010
+Encore une fois, c'est bien.
+
+00:30:09.010 --> 00:30:10.010
+Les deux sont passés.
+
+00:30:12.440 --> 00:30:13.493
+Contraste des éléments non textuel ;
+
+00:30:13.494 --> 00:30:16.300
+Identifier clairement les
+composants de l'interface utilisateur.
+
+00:30:17.610 --> 00:30:20.200
+Voici un exemple de composant
+d'interface utilisateur.
+
+00:30:20.200 --> 00:30:22.510
+C'est la zone de recherche.
+
+00:30:22.510 --> 00:30:26.150
+Et sur ce thème,
+il a une bordure très claire
+
+00:30:26.150 --> 00:30:30.280
+cela peut être presque impossible pour les
+personnes souffrant de certains problèmes de vision
+
+00:30:30.280 --> 00:30:31.280
+même pour voir.
+
+00:30:32.540 --> 00:30:36.070
+Ici, sur Kaya,
+nous avons la même barre de recherche.
+
+00:30:36.070 --> 00:30:39.690
+Et il a une belle
+bordure sombre, qui est claire
+
+00:30:39.690 --> 00:30:42.150
+et répond aux exigences
+de contraste des WCAG.
+
+00:30:44.470 --> 00:30:48.430
+Espacement du texte ; L'espacement du texte
+peut être surchargé
+
+00:30:48.430 --> 00:30:50.150
+pour améliorer l'expérience de lecture.
+
+00:30:51.430 --> 00:30:56.190
+Celui-ci est un peu plus délicat à tester
+dans le navigateur, mais pas trop difficile.
+
+00:30:57.940 --> 00:31:05.940
+Je peux venir ici et mettre un espacement
+entre les lettres, par exemple "0.2em",
+
+00:31:06.620 --> 00:31:07.620
+et ça a bien fonctionné.
+
+00:31:09.330 --> 00:31:15.000
+Et je peux aussi mettre à jour
+l'interligne à "1.5", et cela a bien fonctionné.
+
+00:31:19.050 --> 00:31:20.700
+Je ferai la même chose ici.
+
+00:31:21.980 --> 00:31:25.790
+Je vais juste insérer l'espacement des lettres.
+
+00:31:28.160 --> 00:31:31.180
+Et l'interligne.
+
+00:31:31.180 --> 00:31:33.820
+Je sais que l'interligne est déjà de 1.5,
+
+00:31:33.820 --> 00:31:36.110
+donc je vais juste
+le changer en 1.7
+
+00:31:36.110 --> 00:31:39.060
+pour que vous puissiez réellement
+voir la différence visuelle.
+
+00:31:39.060 --> 00:31:40.480
+Ça a bien fonctionné pour les deux.
+
+00:31:44.220 --> 00:31:46.450
+Viennent ensuite les titres.
+
+00:31:46.450 --> 00:31:49.720
+Les titres et les étiquettes doivent
+décrire le sujet ou son objectif.
+
+00:31:49.720 --> 00:31:55.890
+Ce n'est pas une contrainte forte pour les thèmes,
+mais ça existe,
+
+00:31:55.890 --> 00:31:59.930
+surtout si le thème
+a inclus des widgets.
+
+00:31:59.930 --> 00:32:03.590
+Donc certains thèmes incluent effectivement
+des blocs Gutenberg,
+
+00:32:03.590 --> 00:32:08.500
+ils incluent des widgets, ces widgets
+devraient avoir un titre utile.
+
+00:32:08.500 --> 00:32:12.790
+Ainsi, par exemple,
+le thème Kaya inclut ce widget.
+
+00:32:12.790 --> 00:32:14.700
+Et il est écrit "Suivez-nous".
+
+00:32:14.700 --> 00:32:19.230
+Et puis ici dans les informations, si je les
+inspecte, il est indiqué "Retrouvez-nous
+
+00:32:19.230 --> 00:32:20.230
+sur Facebook".
+
+00:32:21.050 --> 00:32:24.350
+Donc "suivez-nous",
+"retrouvez-nous sur Facebook",
+
+00:32:24.350 --> 00:32:27.980
+cela indique clairement que
+nous parlons de médias sociaux.
+
+00:32:27.980 --> 00:32:30.610
+Et c'est un titre très couramment
+utilisé pour les réseaux sociaux.
+
+00:32:32.650 --> 00:32:35.350
+Utilisation cohérente des
+boutons et des icônes.
+
+00:32:35.350 --> 00:32:38.520
+Cela signifie essentiellement que si
+quelque chose fait la même chose
+
+00:32:38.520 --> 00:32:41.560
+qu'une autre chose, alors
+il devrait avoir un libellé similaire.
+
+00:32:41.560 --> 00:32:44.740
+Si deux choses font
+des choses radicalement différentes,
+
+00:32:44.740 --> 00:32:45.990
+elles devraient avoir des étiquettes différentes.
+
+00:32:47.640 --> 00:32:52.970
+Par exemple,
+si vous aviez plusieurs zones de menu.
+
+00:32:52.970 --> 00:32:54.870
+Nous avons donc ici une page de blog.
+
+00:32:55.890 --> 00:32:59.980
+Et en haut, nous avons une page de blog,
+et celles-ci sont systématiquement libellées
+
+00:32:59.980 --> 00:33:02.120
+parce qu'elles vont vers les
+mêmes endroits.
+
+00:33:07.110 --> 00:33:13.790
+Ainsi, WCAG 2.2 niveau AA
+sortira très bientôt.
+
+00:33:13.790 --> 00:33:16.920
+Sa sortie est prévue
+avant la fin de l'année 2023
+
+00:33:16.920 --> 00:33:19.460
+et c'est pratiquement finalisé.
+
+00:33:19.460 --> 00:33:24.950
+Ils peuvent faire quelques amendements mineurs
+à ce sujet, mais c'est quasiment définitif.
+
+00:33:26.230 --> 00:33:29.160
+L'un d'entre eux est que
+le focus n'est pas obscurci.
+
+00:33:30.550 --> 00:33:34.630
+Cela signifie que lorsque quelqu'un
+Met le focus sur quelque chose,
+
+00:33:34.630 --> 00:33:37.150
+que ce focus ne soit pas obscurci.
+
+00:33:37.150 --> 00:33:41.700
+Si un thème avait une
+icône flottante, par exemple,
+
+00:33:41.700 --> 00:33:45.720
+et cette icône flottante
+a complètement recouvert quelque chose,
+
+00:33:45.720 --> 00:33:49.940
+alors cela obscurcirait l'élément
+et ne répondrait pas à ces critères.
+
+00:33:49.940 --> 00:33:54.970
+L'élément peut être partiellement
+obscurci dans le niveau double A,
+
+00:33:54.970 --> 00:33:57.220
+il ne peut pas être obscurci en triple A.
+
+00:33:59.170 --> 00:34:03.780
+La taille minimale des éléments
+cliquables est désormais de 24 par 24.
+
+00:34:03.780 --> 00:34:05.200
+C'est une grande taille.
+
+00:34:06.510 --> 00:34:11.660
+L'une des choses est que si vous regardez
+un élément de paragraphe typique,
+
+00:34:13.320 --> 00:34:17.700
+Mon élément sera par défaut ..
+En fait, je vais
+
+00:34:17.700 --> 00:34:19.660
+saisir un élément plus petit.
+
+00:34:19.660 --> 00:34:20.660
+Nous y sommes.
+
+00:34:21.170 --> 00:34:23.700
+Voici donc mon élément.
+
+00:34:25.000 --> 00:34:26.520
+C'est un lien.
+
+00:34:28.510 --> 00:34:35.940
+Et nous pouvons voir que la hauteur de la ligne
+est 1,5 fois la taille de la police 16,
+
+00:34:35.940 --> 00:34:38.090
+soit 24 pixels.
+
+00:34:38.090 --> 00:34:40.350
+Cela signifie donc que la
+hauteur de mon élément
+
+00:34:40.350 --> 00:34:44.460
+atteint est automatiquement
+de 24 pixels.
+
+00:34:44.460 --> 00:34:48.230
+Et tant que j'ai plus
+d'un caractère,
+
+00:34:48.230 --> 00:34:51.600
+et les liens doivent contenir plus
+d'un caractère
+
+00:34:51.600 --> 00:34:55.540
+pour être des liens utiles, alors il
+va automatiquement y répondre.
+
+00:34:56.680 --> 00:35:03.390
+Si nous regardons ici le
+thème Divi, nous allons jeter un œil
+
+00:35:03.390 --> 00:35:07.720
+à la taille de police,
+qui est définie sur seulement 14 pixels,
+
+00:35:09.320 --> 00:35:12.810
+mais la hauteur de la ligne est
+un peu plus petite,
+
+00:35:12.810 --> 00:35:15.553
+et vous verrez que l'élément
+réellement restitué
+
+00:35:15.554 --> 00:35:16.870
+ne mesure que 19 pixels.
+
+00:35:16.870 --> 00:35:19.840
+Il ne répondra donc
+pas à ces nouveaux critères.
+
+00:35:22.690 --> 00:35:26.350
+Si le thème propose des champs
+ou surcharge les champs existants,
+
+00:35:26.350 --> 00:35:28.240
+alors il doit autoriser le copier-coller.
+
+00:35:28.240 --> 00:35:30.580
+Donc c'est en fait
+sur l'authentification,
+
+00:35:30.580 --> 00:35:36.250
+et certains thèmes remplaceront
+la page de connexion de WordPress,
+
+00:35:36.250 --> 00:35:42.180
+ou certains thèmes peuvent inclure
+quelque chose comme un système d'adhésion,
+
+00:35:42.180 --> 00:35:46.080
+auquel cas ces thèmes doivent
+permettre le copier-coller
+
+00:35:46.080 --> 00:35:48.030
+dans les champs de saisie.
+
+00:35:48.030 --> 00:35:52.430
+Pour que les gens n'aient pas à tenter
+de saisir des mots de passe longs et complexes
+
+00:35:52.430 --> 00:35:53.440
+parce que ce n'est pas amusant.
+
+00:35:59.950 --> 00:36:03.720
+Plus il y a de choses qui sont
+en dehors des exigences WCAG
+
+00:36:03.720 --> 00:36:07.320
+qui sont manquées, comme la vérification des
+erreurs dans la console JavaScript.
+
+00:36:09.510 --> 00:36:13.130
+Ici, nous allons simplement ouvrir la console et
+nous voyons s'il y a des erreurs,
+
+00:36:13.130 --> 00:36:14.780
+ce qui n'est pas le cas.
+
+00:36:14.780 --> 00:36:15.780
+Super.
+
+00:36:16.450 --> 00:36:18.210
+Nous en venons à Divi.
+
+00:36:18.210 --> 00:36:20.050
+Ceci est juste une notification.
+
+00:36:20.050 --> 00:36:21.250
+Ce n'est pas une erreur.
+
+00:36:21.250 --> 00:36:25.930
+Les erreurs sont affichées avec
+un symbole d'erreur et en rouge
+
+00:36:25.930 --> 00:36:27.190
+sur la console JavaScript.
+
+00:36:29.380 --> 00:36:32.770
+Maintenant, selon le
+navigateur que vous utilisez,
+
+00:36:32.770 --> 00:36:38.530
+vous rencontrerez peut-être
+des erreurs supplémentaires.
+
+00:36:38.530 --> 00:36:42.810
+Si votre navigateur bloque
+le chargement de certaines ressources,
+
+00:36:42.810 --> 00:36:45.205
+ceux-ci ne sont pas pris en compte
+dans le thème
+
+00:36:45.206 --> 00:36:47.240
+c'est un choix de votre navigateur.
+
+00:36:47.240 --> 00:36:50.640
+J'utilise le navigateur Brave donc
+je bloque beaucoup de choses.
+
+00:36:52.150 --> 00:36:54.100
+Le prochain point concerne les thèmes
+en essai gratuit.
+
+00:36:55.420 --> 00:36:59.660
+Je n'ai pas encore rencontré de client qui
+ne souhaite pas personnaliser quelque chose
+
+00:36:59.660 --> 00:37:01.970
+puis le personnaliser
+encore plus.
+
+00:37:01.970 --> 00:37:05.900
+Les thèmes d'essai constituent
+donc un excellent moyen de procéder
+à des personnalisations…
+
+00:37:07.360 --> 00:37:11.570
+Il est important que votre
+thème dispose d'une version d'essai.
+
+00:37:11.570 --> 00:37:16.300
+Par exemple, le thème Divi vous
+propose un essai de la version que vous avez
+
+00:37:16.300 --> 00:37:17.950
+pour y accéder, pour faire des modifications.
+
+00:37:18.960 --> 00:37:24.130
+Et le thème Kaya est configuré pour
+permettre très facilement des versions d'essai.
+
+00:37:24.130 --> 00:37:28.990
+Littéralement, vous mettez simplement un style.css
+là-dedans et vous êtes prêt à partir.
+
+00:37:30.170 --> 00:37:32.190
+Vous n'avez rien besoin
+d'inclure de spécial.
+
+00:37:32.190 --> 00:37:34.300
+pour que le CSS de la version d'essai
+commence à s'exécuter.
+
+00:37:37.970 --> 00:37:42.900
+Certains éléments supplémentaires garantissent
+que les liens d'évitement sautent réellement.
+
+00:37:42.900 --> 00:37:45.260
+J'ai donc choisi un autre site Web.
+
+00:37:46.360 --> 00:37:53.880
+Ici et ceci a un lien qui
+s'appelle Parlez-nous aujourd'hui,
+
+00:37:53.880 --> 00:37:58.270
+et ce lien utilise un défilement fluide
+pour descendre la page jusqu'à ce formulaire.
+
+00:37:59.410 --> 00:38:04.740
+Eh bien, je viens de cliquer sur un lien, donc
+logiquement, le focus aurait dû se porter sur
+
+00:38:04.740 --> 00:38:05.740
+à cette section.
+
+00:38:06.820 --> 00:38:10.630
+Cependant, si je remplis
+le formulaire en utilisant mon clavier
+
+00:38:10.630 --> 00:38:14.240
+et j'appuie sur Tab,
+je remonte la page
+
+00:38:14.240 --> 00:38:18.520
+parce que cela n'a pas déplacé
+le focus vers le bas de la page,
+
+00:38:18.520 --> 00:38:23.070
+ce qui est vraiment ennuyeux pour
+les personnes qui utilisent la navigation au clavier,
+
+00:38:23.070 --> 00:38:26.670
+ou qui aiment utiliser des claviers pour remplir
+des formulaires, ce que font beaucoup de gens.
+
+00:38:28.520 --> 00:38:31.200
+Vérification des couleurs inversées.
+
+00:38:31.200 --> 00:38:35.750
+J'ai eu quelques situations
+où j'ai pu travailler avec un site Web
+
+00:38:35.750 --> 00:38:39.780
+avec des inversions de couleurs, c'est à dire que
+soudainement les boutons sont passés de lisibles
+
+00:38:39.780 --> 00:38:42.170
+à complètement illisibles.
+
+00:38:42.170 --> 00:38:45.360
+Il y a eu une étrange
+CSS qui a été appliquée,
+
+00:38:45.360 --> 00:38:49.290
+et le site Web ne fonctionnait
+tout simplement pas en couleurs inversées.
+
+00:38:50.690 --> 00:38:55.530
+Maintenant, je ne sais pas vraiment
+si changer mon ordinateur
+
+00:38:55.530 --> 00:39:03.530
+pour voir les couleurs inversées permettra
+De les afficher réellement pour vous ou non.
+
+00:39:05.370 --> 00:39:13.370
+Dans les préférences système de mon ordinateur
+sous Accessibilité,
+
+00:39:14.190 --> 00:39:18.130
+il y a une section d'affichage,
+et elle me permet d'inverser les couleurs.
+
+00:39:18.130 --> 00:39:19.130
+J'utilise un Mac.
+
+00:39:20.210 --> 00:39:24.410
+Il existe également des possibilités
+d'inversion des couleurs pour les PC.
+
+00:39:24.410 --> 00:39:26.660
+Veuillez consulter Microsoft
+pour obtenir des instructions à ce sujet.
+
+00:39:28.040 --> 00:39:30.750
+Je vais inverser les
+couleurs sur mon ordinateur.
+
+00:39:33.700 --> 00:39:38.080
+Honnêtement, je ne sais pas si cela
+va s'afficher sur Zoom ou non.
+
+00:39:38.080 --> 00:39:43.470
+Si Joe ou Jason pouvaient me faire
+savoir si cela s'affiche
+
+00:39:43.470 --> 00:39:45.510
+ou pas, comme inverser.
+
+00:39:48.730 --> 00:39:50.430
+JASON : Ce n'est pas le cas.
+
+00:39:51.680 --> 00:39:53.050
+GEN : OK, je ne pensais pas
+que ça ferait un zoom excessif.
+
+00:39:56.390 --> 00:39:59.470
+Quoi qu'il en soit, vérifiez
+les paramètres de votre ordinateur pour inverser vos couleurs.
+
+00:39:59.470 --> 00:40:00.470
+et testez avec celles-ci.
+
+00:40:02.630 --> 00:40:05.780
+Assurez-vous également qu'aucune
+majuscule n'est saisie.
+
+00:40:07.350 --> 00:40:11.520
+Je ne vois donc rien de tout cela
+sur aucun de ces thèmes,
+
+00:40:11.520 --> 00:40:16.960
+avec le contenu
+spécifiquement lié au thème.
+
+00:40:16.960 --> 00:40:18.230
+Je l'ai vu se produire.
+
+00:40:18.230 --> 00:40:24.340
+J'ai vu parfois des thèmes qui contenaient
+en fait du contenu de démonstration,
+
+00:40:24.340 --> 00:40:30.870
+avait des widgets par défaut où
+le titre était en majuscules.
+
+00:40:30.870 --> 00:40:34.840
+Et ce n'était pas souhaitable car
+les majuscules ne devraient être utilisées
+
+00:40:34.840 --> 00:40:35.840
+que pour les acronymes.
+
+00:40:39.110 --> 00:40:41.230
+Le prochain est l'utilisation abusive d'Aria.
+
+00:40:42.540 --> 00:40:47.310
+Donc Aria peut être un peu
+déroutant et un peu complexe.
+
+00:40:47.310 --> 00:40:49.660
+Donc la meilleure chose à
+faire si vous ne savez pas
+
+00:40:49.660 --> 00:40:51.870
+s'il faut ou non utiliser Aria, alors ne l'utilisez pas.
+
+00:40:53.430 --> 00:40:56.880
+Pas d'Aria c'est mieux
+qu'un Aria mal fait
+
+00:40:56.880 --> 00:40:59.940
+car cela peut finir par créer un
+cauchemar pour les utilisateurs de lecteurs d'écran.
+
+00:41:01.040 --> 00:41:03.260
+Et la plupart du temps
+avec le contenu thématique,
+
+00:41:03.260 --> 00:41:06.500
+vous ne devriez pas
+utiliser Aria sauf
+
+00:41:06.500 --> 00:41:09.820
+si vous effectuez une
+personnalisation du menu de navigation,
+
+00:41:09.820 --> 00:41:11.650
+dans ce cas, assurez-vous
+de savoir ce que vous faites.
+
+00:41:14.950 --> 00:41:18.690
+Quelques éléments d'alerte rouge à
+surveiller dans les thèmes.
+
+00:41:18.690 --> 00:41:21.960
+Ne désactivez pas le clic droit
+ou les extensions du navigateur.
+
+00:41:23.150 --> 00:41:26.990
+Comme vous l'avez remarqué,
+j'ai beaucoup utilisé le clic droit,
+
+00:41:26.990 --> 00:41:30.660
+et beaucoup de gens
+utilisent le clic droit pour accéder
+
+00:41:30.660 --> 00:41:33.230
+à certains de leurs outils d'accessibilité.
+
+00:41:33.230 --> 00:41:36.530
+Par exemple, quelque chose comme la parole.
+
+00:41:36.530 --> 00:41:39.630
+Votre navigateur peut
+vous envoyer du texte.
+
+00:41:39.630 --> 00:41:43.210
+Cela peut être utilisé par un certain nombre
+de personnes dyslexiques.
+
+00:41:43.210 --> 00:41:46.610
+ou le syndrome d'Erlen,
+ou simplement avoir les yeux fatigués.
+
+00:41:47.700 --> 00:41:52.260
+Et ils peuvent simplement demander à l'ordinateur
+de lire des paragraphes de texte.
+
+00:41:52.260 --> 00:41:55.920
+pour qu'ils n'aient pas
+à les lire réellement.
+
+00:41:55.920 --> 00:41:58.690
+C'est également très utile
+pour les personnes qui essaient
+
+00:41:58.690 --> 00:42:00.600
+d'apprendre une deuxième langue.
+
+00:42:00.600 --> 00:42:05.930
+Ils peuvent demander à l'ordinateur de leur lire
+le texte afin qu'ils l'entendent
+
+00:42:05.930 --> 00:42:08.710
+ainsi que de le voir et cela aide
+à apprendre la prononciation.
+
+00:42:11.250 --> 00:42:14.370
+Laissez votre barre de défilement et
+les autres éléments du navigateur tranquilles.
+
+00:42:16.880 --> 00:42:21.370
+Donc le site qui
+fait ça le plus.
+
+00:42:23.850 --> 00:42:24.900
+Une de ces pages-là.
+
+00:42:24.900 --> 00:42:27.960
+Bien sûr, je ne me
+souviens pas de quelle page il s'agissait.
+
+00:42:37.730 --> 00:42:38.730
+La voici.
+
+00:42:39.140 --> 00:42:45.662
+Cette page sur la pile de correctifs
+a cette barre super étroite
+
+00:42:45.662 --> 00:42:47.040
+sur le côté droit.
+
+00:42:47.040 --> 00:42:50.630
+Donc premièrement,
+c'est extrêmement difficile à voir.
+
+00:42:50.630 --> 00:42:53.950
+Et deux, c'est impossible à saisir.
+
+00:42:53.950 --> 00:42:56.460
+Vous ne pouvez pas saisir cela avec une souris.
+
+00:42:56.460 --> 00:43:00.920
+Et comme vous l'avez probablement remarqué,
+je fais beaucoup d'essais pour l'attraper.
+
+00:43:04.200 --> 00:43:05.950
+Donc il se trouve que je déteste vraiment ça.
+
+00:43:07.030 --> 00:43:10.090
+Donc, en gros, laissez les
+éléments du navigateur tranquilles.
+
+00:43:10.090 --> 00:43:13.790
+Les gens y sont habitués,
+les gens les aiment, ils n'aiment pas ça
+
+00:43:13.790 --> 00:43:17.160
+quand quelqu'un se dirige vers leur bureau
+et réorganise tout
+
+00:43:17.160 --> 00:43:17.930
+devant eux.
+
+00:43:17.930 --> 00:43:21.320
+Et c'est essentiellement l'effet du
+changement de navigateur sur les gens.
+
+00:43:22.570 --> 00:43:24.610
+Évitez d'utiliser des préchargeurs.
+
+00:43:24.610 --> 00:43:28.550
+Il y a un tas de thèmes qui viennent
+avec ces écrans de démarrage
+
+00:43:28.550 --> 00:43:29.550
+avant qu'ils ne chargent.
+
+00:43:30.430 --> 00:43:34.340
+Ils sont vraiment ennuyeux et peuvent
+causer beaucoup de problèmes aux gens.
+
+00:43:34.340 --> 00:43:38.060
+avec des troubles vestibulaires ou
+des personnes qui ont juste un mal de tête.
+
+00:43:39.210 --> 00:43:41.230
+N'animez pas les choses.
+
+00:43:43.280 --> 00:43:46.960
+Ceci est un exemple de site Web
+qui anime quelque chose.
+
+00:43:46.960 --> 00:43:50.180
+Quand je passe la souris,
+le lien rebondit.
+
+00:43:51.880 --> 00:43:55.620
+Ce n'est pas bon pour
+les personnes qui ont des problèmes de mouvement
+
+00:43:55.620 --> 00:43:57.910
+et ce n'est tout simplement pas
+bon pour la lisibilité.
+
+00:44:01.470 --> 00:44:04.370
+En bas de l'écran,
+ça fait quelque chose d'encore pire.
+
+00:44:04.370 --> 00:44:08.370
+Cela secoue littéralement le lien
+de sorte que vous ne pouvez pas le lire facilement.
+
+00:44:14.270 --> 00:44:17.140
+Ne suivez pas la souris.
+
+00:44:17.140 --> 00:44:21.430
+J'ai vu plusieurs
+sites Web différents où, lorsque je fais glisser ma souris
+
+00:44:21.430 --> 00:44:26.260
+– et j'ai tendance à passer la souris partout –
+quand je fais glisser ma souris,
+
+00:44:26.260 --> 00:44:29.090
+il y a un effet
+d'étoiles qui me suivent.
+
+00:44:30.200 --> 00:44:33.450
+C'est incroyablement ennuyeux.
+
+00:44:33.450 --> 00:44:36.220
+S'il vous plaît, laissez mes
+éléments contextuels tranquilles.
+
+00:44:37.950 --> 00:44:39.350
+Évitez d'utiliser le défilement infini.
+
+00:44:40.470 --> 00:44:45.100
+Beaucoup de gens utilisent le pied de page
+pour accéder à des liens rapides ou à des éléments
+
+00:44:45.100 --> 00:44:46.230
+au sein d'un site Web.
+
+00:44:46.230 --> 00:44:49.390
+Lorsque vous avez un défilement infini,
+il n'y a pas de pied de page de site Web.
+
+00:44:49.390 --> 00:44:50.390
+Vous ne pouvez pas l'atteindre.
+
+00:44:51.350 --> 00:44:54.580
+Le défilement infini peut également être un
+problème pour de nombreuses personnes qui essaient
+
+00:44:54.580 --> 00:44:56.920
+d'utiliser les lecteurs d'écran
+et la navigation au clavier.
+
+00:44:58.810 --> 00:45:01.510
+Évitez le défilement fluide
+et l'hyper défilement.
+
+00:45:01.510 --> 00:45:07.300
+Comme je l'ai montré précédemment
+avec le focus immobile,
+
+00:45:07.300 --> 00:45:11.320
+lorsque vous utilisez le défilement fluide,
+vous gâchez généralement le focus.
+
+00:45:12.580 --> 00:45:15.460
+Je veux dire au moins neuf
+fois sur dix
+
+00:45:15.460 --> 00:45:19.120
+lorsque des implémenteurs JavaScript
+effectuent un défilement fluide,
+
+00:45:19.121 --> 00:45:20.950
+ils gâchent le focus.
+
+00:45:20.950 --> 00:45:22.560
+Évitez également d'utiliser l'hyper scroll.
+
+00:45:23.700 --> 00:45:28.150
+Par exemple, ici, je prends ma
+barre de défilement et je fais défiler vers le bas.
+
+00:45:30.250 --> 00:45:32.790
+C'est le comportement attendu.
+
+00:45:32.790 --> 00:45:36.090
+Quand j'arrive ici sur la
+page Divi, je prends ma barre de défilement
+
+00:45:36.090 --> 00:45:43.390
+et je fais défiler vers le bas et ça évolue
+à un rythme légèrement différent.
+
+00:45:44.530 --> 00:45:48.920
+Divi inclut un paramètre permettant
+de modifier totalement la vitesse d'une barre de défilement.
+
+00:45:50.030 --> 00:45:52.850
+Ça me rend fou, ainsi que
+beaucoup d'autres personnes.
+
+00:45:55.380 --> 00:45:57.510
+On me demande toujours
+ce qu'il en est des créateurs de thèmes ?
+
+00:45:59.000 --> 00:46:03.630
+En général, les réalisations des créateurs de thèmes ne sont
+pas testées pour l'accessibilité
+
+00:46:03.630 --> 00:46:09.350
+et ils sont poussés
+à avoir des fonctionnalités sophistiquées.
+
+00:46:09.350 --> 00:46:13.740
+Ces fonctionnalités
+créent presque toujours des barrières d'accessibilité.
+
+00:46:13.740 --> 00:46:19.160
+Beaucoup d'entre elles concernent les menus inutilisables,
+les problèmes avec les options de recherche.
+
+00:46:19.160 --> 00:46:22.490
+Certains d'entre eux créent
+des sections complètement inaccessibles.
+
+00:46:22.490 --> 00:46:25.140
+où vous ne pouvez même pas
+accéder au contenu.
+
+00:46:25.140 --> 00:46:28.380
+Ils créent fréquemment des liens de
+saut qui ne déplacent pas leur contexte.
+
+00:46:29.450 --> 00:46:32.920
+Ils se trompent souvent
+dans les ordres de direction
+
+00:46:32.920 --> 00:46:36.920
+et beaucoup d'entre eux
+injecteront en fait beaucoup de styles en ligne.
+
+00:46:38.010 --> 00:46:42.640
+Les styles en ligne ne sont vraiment pas vos
+amis, surtout si vous avez
+
+00:46:42.640 --> 00:46:44.680
+à maintenir ce
+site Web à l'avenir.
+
+00:46:45.890 --> 00:46:49.410
+Les styles en ligne sont l'un des
+plus gros casse-têtes pour essayer
+
+00:46:49.410 --> 00:46:51.780
+de donner un nouveau look à un site Web.
+
+00:46:54.006 --> 00:46:56.080
+JASON : Hé, Gen,
+je vais te mettre en pause juste là
+
+00:46:56.080 --> 00:46:59.530
+juste pour
+des raisons de temps.
+
+00:46:59.530 --> 00:47:04.280
+Il nous reste quatre… trois minutes,
+alors si vous pouviez juste conclure
+
+00:47:04.280 --> 00:47:07.090
+et nous pourrons ensuite terminer
+la séance à temps.
+
+00:47:08.137 --> 00:47:09.267
+GEN : Oui.
+
+00:47:09.280 --> 00:47:09.700
+JASON : Merci.
+
+00:47:11.010 --> 00:47:16.900
+GEN : Alors, rapidement à propos de mon thème,
+j'ai commencé à construire ceci
+
+00:47:16.900 --> 00:47:20.290
+pour un développement rapide de
+Photoshop vers WordPress.
+
+00:47:20.290 --> 00:47:22.510
+Et j'en avais marre de
+lutter avec d'autres thèmes
+
+00:47:22.510 --> 00:47:24.020
+donc j'ai juste développé
+ma propre solution.
+
+00:47:25.890 --> 00:47:28.896
+J'ai commencé à ajouter
+beaucoup d'accessibilité
+
+00:47:28.897 --> 00:47:31.000
+à Kaya en octobre 2021.
+
+00:47:31.000 --> 00:47:35.760
+J'ai fait un effort majeur, en encourageant
+les déclarations d'accessibilité
+
+00:47:35.760 --> 00:47:38.180
+en utilisant la taille des polices et le
+REM pour pouvoir facilement
+
+00:47:38.180 --> 00:47:42.320
+être mis à jour et contrôlé par
+l'utilisateur, en ajoutant des états de focus,
+
+00:47:42.320 --> 00:47:46.680
+supprimé les éléments Aria redondants et
+un certain nombre d'autres options.
+
+00:47:47.760 --> 00:47:51.630
+J'ai également ajouté du texte pour les lecteurs
+d'écrans, des liens soulignés dans le corps de texte,
+
+00:47:52.690 --> 00:47:55.840
+et les gens pourront obtenir
+les diapositives plus tard.
+
+00:47:57.300 --> 00:48:00.570
+La chose importante dont je veux
+parler rapidement, ce sont les classes.
+
+00:48:00.570 --> 00:48:02.873
+Lorsque vous utilisez des classes
+sur vos éléments,
+
+00:48:02.874 --> 00:48:04.880
+cela le rend très tourné vers l'avenir.
+
+00:48:04.880 --> 00:48:09.780
+Par exemple, ajouter du texte de lecteur d'écran,
+du texte blanc, du texte de grande taille,
+
+00:48:09.780 --> 00:48:13.870
+cela vous permet de mettre à jour ultérieurement
+ce grand texte à l'échelle mondiale
+
+00:48:13.870 --> 00:48:17.090
+en changeant simplement le CSS et
+sans avoir à entrer dans chacune
+
+00:48:17.090 --> 00:48:18.580
+des page et faire des mises à jour manuellement.
+
+00:48:20.840 --> 00:48:25.050
+Et aussi ajouter beaucoup de choses
+comme des marges et des remplissages
+
+00:48:25.050 --> 00:48:28.340
+et les avoir sous forme de classes CSS
+rapidement accessibles
+
+00:48:28.340 --> 00:48:30.434
+pour que vous puissiez faire
+des ajustements très simples
+
+00:48:30.435 --> 00:48:32.110
+lorsque vous créez des pages.
+
+00:48:33.750 --> 00:48:35.750
+Et j'allais faire une démo,
+mais je n'ai vraiment pas le temps pour ça.
+
+00:48:38.220 --> 00:48:39.590
+Très bien, Jason, j'ai terminé.
+
+00:48:41.060 --> 00:48:42.690
+JASON : OK,
+merci beaucoup, Gen.
+
+00:48:42.690 --> 00:48:43.980
+C'était vraiment super.
+
+00:48:45.110 --> 00:48:48.540
+Pour ceux d'entre vous qui étaient présents,
+je vois qu'un tas de questions sont arrivées.
+
+00:48:48.540 --> 00:48:52.010
+Je sais que nous n'aurons pas
+le temps de répondre à ces questions,
+
+00:48:52.010 --> 00:48:55.090
+mais Gen vous enverra les réponses.
+
+00:48:55.090 --> 00:48:57.720
+Vous les aurez donc
+et vous pourrez toujours la contacter.
+
+00:48:57.720 --> 00:48:59.750
+Les personnes qui
+posent ces questions.
+
+00:49:01.970 --> 00:49:02.310
+GEN : Très bien.
+
+00:49:02.310 --> 00:49:06.600
+JASON : OK, eh bien, merci à tous
+d'avoir assisté à la séance d'aujourd'hui
+
+00:49:06.600 --> 00:49:08.080
+avec Gen Herres.
+
+00:49:08.080 --> 00:49:10.700
+Je pense avoir bien compris.
+
+00:49:10.700 --> 00:49:13.410
+Et vous pouvez continuer la
+conversation dans le chat
+
+00:49:13.410 --> 00:49:21.410
+ou sur les réseaux sociaux en utilisant
+#WPA11YDAY et #WPAD2023.
+
+00:49:22.880 --> 00:49:25.410
+Nous apprécierions
+également que vous y alliez
+
+00:49:25.410 --> 00:49:32.780
+sur 2023.wpaccessibility.day/feedback
+pour laisser des commentaires anonymes
+
+00:49:32.780 --> 00:49:35.040
+pour nos intervenants sur
+leur présentation.
+
+00:49:35.040 --> 00:49:37.690
+Et pendant que vous y êtes,
+vous pouvez participer pour gagner un t-shirt.
+
+00:49:39.120 --> 00:49:42.027
+Et restez à l'écoute
+pour parler de la couleur.
+
+00:49:42.028 --> 00:49:43.670
+et des exigences de contraste
+
+00:49:43.670 --> 00:49:48.780
+dans WCAG 2, à 14h UTC.
+
+00:49:48.780 --> 00:49:50.690
+Et pendant que vous attendez,
+n'oubliez pas
+
+00:49:50.690 --> 00:49:54.850
+de visiter nos pages de sponsors
+pour récupérer des cadeaux virtuels et participer
+
+00:49:54.850 --> 00:49:57.010
+pour avoir une chance de gagner
+de superbes prix.
+
+00:49:58.030 --> 00:50:02.080
+Je vous verrai ici au
+début de l'heure après la pause.
+
+00:50:02.080 --> 00:50:02.580
+Merci à tous.
+
+00:50:05.759 --> 00:50:10.460
+AMBER : Merci aux
+sponsors de la Journée de l'accessibilité WordPress 2023.
+
+00:50:10.460 --> 00:50:13.310
+Sponsor Platine : Equalize Digital.
+
+00:50:13.310 --> 00:50:16.070
+Extension de vérification d'accessibilité
+par Equalize Digital
+
+00:50:16.070 --> 00:50:18.810
+est un outil automatisé
+d'analyse de l'accessibilité
+
+00:50:18.810 --> 00:50:22.020
+qui aide les sites Web WordPress
+à devenir et à rester accessibles.
+
+00:50:23.250 --> 00:50:26.120
+Sponsor Platine : Gravity Forms.
+
+00:50:26.120 --> 00:50:29.740
+Gravity Forms est l'outil de création de
+formulaires professionnel dont vous avez besoin.
+
+00:50:29.740 --> 00:50:34.460
+pour créer de beaux formulaires,
+puissants et accessibles.
+
+00:50:34.460 --> 00:50:41.460
+Sponsors Or : 20i., Deque,
+Empire Caption Solutions, Pressable,
+
+00:50:41.460 --> 00:50:42.560
+et WP Engine.
+
+00:50:44.110 --> 00:50:50.990
+Sponsors Argent : Code Geek, Drake
+Cooper, GoDaddy, Lone Rock Point,
+
+00:50:50.990 --> 00:50:52.240
+NerdPress.
+
+00:50:52.240 --> 00:50:59.710
+Overnight Website par Kinetic Iris,
+Raiola Networks, A11y Collective,
+
+00:50:59.710 --> 00:51:00.710
+et The Blogsmith.
+
+00:51:02.350 --> 00:51:07.750
+Sponsors Bronze : AccessiCart,
+GreenGeeks Web Hosting,
+
+00:51:07.750 --> 00:51:19.509
+Hall Analysis’ SEO Consulting,
+HDC, ITX, IvyCat, Metabox,
+
+00:51:19.510 --> 00:51:24.430
+PixelChefs, Simply Schedule
+Appointments, SiteGround,
+
+00:51:24.431 --> 00:51:29.660
+Termageddon, Underrepresented
+In Tech, Weglot et Yoast.

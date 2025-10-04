@@ -93,6 +93,9 @@ function wpcs_shortcode_people( $atts ) {
 		),
 		'fields'     => array( 'ID', 'display_name', 'user_email' ),
 	);
+	if ( isset( $_GET['reset_cache'] ) && current_user_can( 'manage_options' ) ) {
+		delete_transient( 'wpcs_attendees' );
+	}
 	// get all authorized users.
 	$output = ( str_contains( home_url(), 'staging.wpaccessibility.day' ) ) ? false : get_transient( 'wpcs_attendees' );
 	if ( $output ) {
@@ -115,6 +118,8 @@ function wpcs_shortcode_people( $atts ) {
 
 		if ( $city === $state ) {
 			$loc = $city;
+		} else if ( '' === $city ) {
+			$loc = $state;
 		} else {
 			$loc = ( '' === $state ) ? $city : $city . ', ' . $state;
 		}

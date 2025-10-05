@@ -118,7 +118,7 @@ function wpcs_shortcode_people( $atts ) {
 
 		if ( $city === $state ) {
 			$loc = $city;
-		} else if ( '' === $city ) {
+		} elseif ( '' === $city ) {
 			$loc = $state;
 		} else {
 			$loc = ( '' === $state ) ? $city : $city . ', ' . $state;

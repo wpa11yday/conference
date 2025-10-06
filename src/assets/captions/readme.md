@@ -137,7 +137,7 @@ No translations yet.
 
 ## 2024
 
-29 completed translations.
+30 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -178,6 +178,7 @@ No translations yet.
 	- Spanish; Estefani Pahola Suarez
 18. Inclusive Design Strategies for WordPress Professionals
 	- Spanish; Andy Amado
+	- Portuguese; Keithy Caren
 19. Improving and Enforcing Digital Accessibility Laws and Standards in Africa
 	- Spanish; Luz Zuniga
 	- Portuguese; Melissa Antunes

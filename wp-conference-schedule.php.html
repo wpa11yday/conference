@@ -1771,14 +1771,17 @@ function wpcs_get_languages( $lang = false ) {
  */
 function wpcs_get_video() {
 	$captions  = wpcs_get_captions();
+	$count     = 0;
 	$subtitles = '';
-	foreach ( $captions as $lang => $caption ) {
-		$label = wpcs_get_languages( $lang )[1];
-		if ( $caption ) {
-			$subtitles .= '&lt;track kind="captions" src="' . esc_url( $caption ) . '" srclang="' . esc_attr( $lang ) . '" label="' . $label . '">';
+	if ( ! empty( $captions ) ) {
+		foreach ( $captions as $lang => $caption ) {
+			$label = wpcs_get_languages( $lang )[1];
+			if ( $caption ) {
+				$subtitles .= '&lt;track kind="captions" src="' . esc_url( $caption ) . '" srclang="' . esc_attr( $lang ) . '" label="' . $label . '">';
+			}
 		}
+		$count = count( $captions );
 	}
-	$count = count( $captions );
 	if ( $count &lt;= 1 ) {
 		// translators: Link to translation interest form.
 		$translate = sprintf( __( 'This session is only available in English! Can you &lt;a href="%s">help translate it&lt;/a>?', 'wpa-conference' ), 'https://wpaccessibility.day/translate/' );

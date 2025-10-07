@@ -31,36 +31,37 @@ No translations yet.
 
 ## 2022
 
-No translations yet.
+1 completed translation.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
-1. Selling Accessibility to Skeptical Clients
-1. Lightning Talks: Round 1
-1. Form Accessibility and Beyond
-1. Proof: Accessible websites can be beautiful too
-1. Growing Accessibility in Our WordPress Community
-1. Think smart and adapt: meeting WCAG 2 without rebuilding from scratch
-1. Lightning Talks: Round 2
-1. Pssst, hey you! Not everyone likes videos!
-1. Developing Accessibility-First WordPress Themes
-1. Accessibility is a partnership that requires communication
-1. Lightning Talks: Round 3
-1. The Alt Scene: When and How to Write Alternative Text
-1. Overlays Underwhelm
-1. Beyond Colors and Captions: How to Provide More Inclusive Accessibility
-1. Digital Accessibility Testing: How to Get It Right
-1. Accessibility of common Gutenberg blocks
-1. Inclusive Coding and Design
-1. Accessibility Testing in the CI/CD process
-1. Designing a webpage for the Institute for the Blind and Visually impaired
-1. How we made Joomla 4 accessible
-1. Boost up conversions with accessible e-commerce
-1. Lightning Talks: Round 4
-1. Dialogs, Modals, and Popups
+2. Selling Accessibility to Skeptical Clients
+3. Lightning Talks: Round 1
+4. Form Accessibility and Beyond
+5. Proof: Accessible websites can be beautiful too
+6. Growing Accessibility in Our WordPress Community
+7. Think smart and adapt: meeting WCAG 2 without rebuilding from scratch
+8. Lightning Talks: Round 2
+9. Pssst, hey you! Not everyone likes videos!
+10. Developing Accessibility-First WordPress Themes
+11. Accessibility is a partnership that requires communication
+12. Lightning Talks: Round 3
+13. The Alt Scene: When and How to Write Alternative Text
+14. Overlays Underwhelm
+15. Beyond Colors and Captions: How to Provide More Inclusive Accessibility
+16. Digital Accessibility Testing: How to Get It Right
+17. Accessibility of common Gutenberg blocks
+18. Inclusive Coding and Design
+19. Accessibility Testing in the CI/CD process
+20. Designing a webpage for the Institute for the Blind and Visually impaired
+	- Spanish; Diana Córdoba Gómez
+21. How we made Joomla 4 accessible
+22. Boost up conversions with accessible e-commerce
+23. Lightning Talks: Round 4
+24. Dialogs, Modals, and Popups
 
 ## 2023
 
-43 completed translations.
+44 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -129,13 +130,14 @@ No translations yet.
 	- Spanish; Debora Ermel
 23. Building an Accessible Theme for Accessible First Sites
 	- Spanish; Debora Ermel
+	- French; Jb Audras
 24. Understanding Color and Contrast Requirements in WCAG 2
 	- Spanish; Diana Córdoba Gómez
 	- French; Jb Audras
 
 ## 2024
 
-29 completed translations.
+31 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -150,6 +152,7 @@ No translations yet.
 	- Portuguese (Brazilian); Paloma Marques
 6. Accessibility Challenges with Single Page Applications
 	- Spanish; Diana Córdoba Gómez
+	- German; Jennifer Wjertzoch
 	- Italian; Daniele Manca
 7. Accessible Firebrand: “Why can’t I use my brand color there, and if not there, then where?”
 8. Is Your Page Builder Actually Accessible?
@@ -176,6 +179,7 @@ No translations yet.
 	- Spanish; Estefani Pahola Suarez
 18. Inclusive Design Strategies for WordPress Professionals
 	- Spanish; Andy Amado
+	- Portuguese; Keithy Caren
 19. Improving and Enforcing Digital Accessibility Laws and Standards in Africa
 	- Spanish; Luz Zuniga
 	- Portuguese; Melissa Antunes

@@ -9,7 +9,7 @@
  * Plugin Name:       Conference Schedule
  * Plugin URI:        https://wpaccessibility.day
  * Description:       Generates people, sponsor, donor, and session post types & displays schedule information.
- * Version:           2.1.0
+ * Version:           2.1.1
  * Author:            WP Accessibility Day
  * Author URI:        https://wpaccessibility.day
  * License:           GPL-2.0+
@@ -29,7 +29,7 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'WPCS_DIR', plugin_dir_path( __FILE__ ) );
 
 // Version.
-define( 'WPCS_VERSION', '2.1.0' );
+define( 'WPCS_VERSION', '2.1.1' );
 
 // Plugin File URL.
 define( 'PLUGIN_FILE_URL', __FILE__ );
@@ -443,7 +443,10 @@ class WPCS_Conference_Schedule {
 
 		switch ( $current_filter ) {
 			case 'manage_wpcs_session_posts_columns':
-				$columns = array_slice( $columns, 0, 1, true ) + array( 'conference_session_time' => __( 'Time', 'wpa-conference' ) ) + array_slice( $columns, 1, null, true );
+				$columns                              = array_slice( $columns, 0, 1, true ) + array( 'conference_session_time' => __( 'Time', 'wpa-conference' ) ) + array_slice( $columns, 1, null, true );
+				$columns['conference_session_slides'] = __( 'Slides', 'wpad' );
+				$columns['conference_session_asl']    = __( 'ASL', 'wpad' );
+				$columns['conference_session_video']  = __( 'Video', 'wpad' );
 				break;
 			default:
 		}
@@ -469,6 +472,27 @@ class WPCS_Conference_Schedule {
 				$session_time = absint( get_post_meta( $post_id, '_wpcs_session_time', true ) );
 				$session_time = ( $session_time ) ? gmdate( 'H:i', $session_time ) : '&mdash;';
 				echo esc_html( $session_time );
+				break;
+
+			case 'conference_session_slides':
+				$slides = wpcs_get_slides( $post_id );
+				if ( ! empty( $slides ) ) {
+					echo '<span class="dashicons dashicons-yes" aria-hidden="true" aria-label="Yes"></span>';
+				}
+				break;
+
+			case 'conference_session_video':
+				$youtube = get_post_meta( $post_id, '_wpcs_youtube_id', true );
+				if ( $youtube ) {
+					echo '<span class="dashicons dashicons-yes" aria-hidden="true" aria-label="Yes"></span>';
+				}
+				break;
+
+			case 'conference_session_asl':
+				$asl = get_post_meta( $post_id, '_wpcs_asl_id', true );
+				if ( $asl ) {
+					echo '<span class="dashicons dashicons-yes" aria-hidden="true" aria-label="Yes"></span>';
+				}
 				break;
 
 			default:

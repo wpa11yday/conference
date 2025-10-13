@@ -34,6 +34,10 @@ Easily add a custom conference schedule or event schedule (in responsive table f
 
 == Changelog ==
 
+= 2.1.1 =
+
+* Add columns to sessions to check for slides and videos.
+
 = 2.1.0 =
 
 * Added Add to Calendar, incrementing for various changes.

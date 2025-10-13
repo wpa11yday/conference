@@ -444,9 +444,9 @@ class WPCS_Conference_Schedule {
 		switch ( $current_filter ) {
 			case 'manage_wpcs_session_posts_columns':
 				$columns                              = array_slice( $columns, 0, 1, true ) + array( 'conference_session_time' => __( 'Time', 'wpa-conference' ) ) + array_slice( $columns, 1, null, true );
-				$columns['conference_session_slides'] = __( 'Slides', 'wpad' );
-				$columns['conference_session_asl']    = __( 'ASL', 'wpad' );
-				$columns['conference_session_video']  = __( 'Video', 'wpad' );
+				$columns['conference_session_slides'] = __( 'Slides', 'wpa-conference' );
+				$columns['conference_session_asl']    = __( 'ASL', 'wpa-conference' );
+				$columns['conference_session_video']  = __( 'Video', 'wpa-conference' );
 				break;
 			default:
 		}

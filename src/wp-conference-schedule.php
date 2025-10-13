@@ -279,7 +279,7 @@ class WPCS_Conference_Schedule {
 		$session_time    = absint( get_post_meta( $post->ID, '_wpcs_session_time', true ) );
 		$start_date      = gmdate( 'Y-m-d', strtotime( get_option( 'wpad_start_time' ) ) );
 		$end_date        = gmdate( 'Y-m-d', strtotime( get_option( 'wpad_start_time' ) . ' + 24 hours' ) );
-		$default_date    = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'Y-m-d', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'Y-m-d', strtotime( get_option( 'wpad_start_time' ) ) );
+		$default_date    = gmdate( 'Y-m-d', strtotime( get_option( 'wpad_start_time' ) ) );
 		$default_hours   = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'G', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'G', strtotime( get_option( 'wpad_start_time' ) ) );
 		$default_minutes = ( get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) ? gmdate( 'i', get_user_meta( wp_get_current_user()->ID, '_last_entered', true ) ) : gmdate( 'i', strtotime( get_option( 'wpad_start_time' ) ) );
 
@@ -311,7 +311,7 @@ class WPCS_Conference_Schedule {
 				<option value="">Not assigned</option>
 				<?php
 				for ( $i = 0; $i <= 23; $i++ ) {
-					$setdate = ( $i >= 14 ) ? $start_date : $end_date;
+					$setdate = ( $i > 14 ) ? $start_date : $end_date;
 					?>
 				<option data-date="<?php echo esc_attr( $setdate ); ?>" value="<?php echo esc_attr( $i ); ?>" <?php selected( $i, $session_hours ); ?>>
 					<?php echo esc_html( $i ); ?>

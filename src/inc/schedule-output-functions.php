@@ -243,10 +243,15 @@ function wpcs_schedule( $atts, $content ) {
 		$text    = '';
 		$is_next = false;
 		if ( ( time() > $begin - HOUR_IN_SECONDS ) && ( time() < $end ) ) {
-			if ( ( $begin < time() && time() < $end ) && date( 'H' ) === $time && (int) date( 'i' ) < 50 || date( 'G' ) === (int) $time - 1 && (int) date( 'i' ) > 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
+			$minute = (int) date( 'i' ); // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
+			if ( (
+				// Current time is within the conference span.
+				$begin < time() && time() < $end ) &&
+				// Time of this session equals the current hour and has not ended or it's in the 10 minutes before the next session.
+				( date( 'H' ) === $time && $minute < 50 ) || ( date( 'G' ) === (int) $time - 1 && $minute > 50 ) ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
 				$is_current = true;
 			}
-			if ( (int) date( 'i' ) < 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
+			if ( $minute < 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
 				$text = __( 'Now speaking:', 'wpa-conference' ) . ' ';
 			} else {
 				$is_next = true;
@@ -262,7 +267,7 @@ function wpcs_schedule( $atts, $content ) {
 			$is_current = ( $is_current || ( $is_first && $is_next ) ) ? true : false;
 			$session    = wpad_draw_session( $schedule[ $time ], $is_current, $text, $session_id );
 			$output[]   = $session[0];
-			if ( true !== $current_talk_set ) {
+			if ( ! $current_talk_set && ! empty( $session[1] ) ) {
 				$current_talk     = $session[1];
 				$current_talk_set = true;
 			}
@@ -277,8 +282,9 @@ function wpcs_schedule( $atts, $content ) {
 			'id' => $opening_id,
 			'ts' => gmdate( 'Y-m-d\TH:i:s\Z', (int) $opening_time ),
 		);
-
-		$opening = wpad_draw_session( $opening_remarks, true, 'Up next: ', '' );
+		$text    = ( time() < $begin ) ? 'Up next: ' : false;
+		$current = ( time() < $begin ) ? true : false;
+		$opening = wpad_draw_session( $opening_remarks, $current, $text, '' );
 		array_unshift( $output, $opening[0] );
 	}
 
@@ -460,6 +466,7 @@ function wpad_draw_topics( $talk_id ) {
 function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 	$talk_ID         = $talk['id'];
 	$datatime        = $talk['ts'];
+	$in_past         = strtotime( $datatime ) < time() ? true : false;
 	$mins            = gmdate( 'i', strtotime( $talk['ts'] ) );
 	$time            = gmdate( 'H', strtotime( $talk['ts'] ) );
 	$track_name      = wpad_get_track_name( $talk_ID );
@@ -508,11 +515,11 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 		$hidden  = '';
 		$control = str_replace( '"false"', '"true"', $control );
 		$control = str_replace( '-plus', '-minus', $control );
-		if ( false !== $text ) {
+		if ( $text ) {
 			$current_talk = "<p class='current-talk'><strong>$text</strong> <a href='#$session_id'>$time:$mins UTC - $talk->post_title</a></p>";
 		}
 	}
-	$calendar = wpad_add_calendar_links( $talk_ID );
+	$calendar = ( $in_past ) ? '' : wpad_add_calendar_links( $talk_ID );
 	$output   = "
 	<div class='wp-block-group schedule $talk_type' id='$session_id'>
 		<div class='wp-block-group__inner-container'>

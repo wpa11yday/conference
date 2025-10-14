@@ -211,8 +211,9 @@ function wpcs_schedule( $atts, $content ) {
 	$posts    = wpcs_get_sessions();
 	$schedule = array();
 	foreach ( $posts as $post_ID ) {
-		$time              = gmdate( 'H', get_post_meta( $post_ID, '_wpcs_session_time', true ) );
-		$datatime          = gmdate( 'Y-m-d\TH:i:s\Z', get_post_meta( $post_ID, '_wpcs_session_time', true ) );
+		$session_time      = get_post_meta( $post_ID, '_wpcs_session_time', true );
+		$time              = gmdate( 'H', $session_time );
+		$datatime          = gmdate( 'Y-m-d\TH:i:s\Z', $session_time );
 		$schedule[ $time ] = array(
 			'id' => $post_ID,
 			'ts' => $datatime,

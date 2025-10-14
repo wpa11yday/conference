@@ -467,6 +467,9 @@ function wpad_draw_topics( $talk_id ) {
 function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 	$talk_ID         = $talk['id'];
 	$datatime        = $talk['ts'];
+	$begin           = strtotime( get_option( 'wpad_start_time' ) );
+	$end             = strtotime( get_option( 'wpad_end_time' ) );
+	$dayof           = ( $begin < time() && time() < $end ) ? true : false;
 	$in_past         = strtotime( $datatime ) < time() ? true : false;
 	$mins            = gmdate( 'i', strtotime( $talk['ts'] ) );
 	$time            = gmdate( 'H', strtotime( $talk['ts'] ) );
@@ -521,7 +524,7 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 		}
 	}
 	$calendar = ( $in_past ) ? '' : wpad_add_calendar_links( $talk_ID );
-	$class    = ( $in_past ) ? 'session-over' : '';
+	$class    = ( $in_past && $dayof ) ? 'session-over' : '';
 	$output   = "
 	<div class='wp-block-group schedule $talk_type $class' id='$session_id'>
 		<div class='wp-block-group__inner-container'>

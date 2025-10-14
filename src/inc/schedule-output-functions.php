@@ -248,13 +248,13 @@ function wpcs_schedule( $atts, $content ) {
 				// Current time is within the conference span.
 				$begin < time() && time() < $end ) &&
 				// Time of this session equals the current hour and has not ended or it's in the 10 minutes before the next session.
-				( date( 'H' ) === $time && $minute < 50 ) || ( date( 'G' ) === (int) $time - 1 && $minute > 50 ) ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
+				( date( 'H' ) === $time && $minute < 45 ) || ( (int) date( 'G' ) === (int) $time - 1 && $minute > 45 ) ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
 				$is_current = true;
 			}
-			if ( $minute < 50 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
+			if ( $minute < 45 ) { // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
 				$text = __( 'Now speaking:', 'wpa-conference' ) . ' ';
 			} else {
-				$is_next = true;
+				$is_next = ( $is_current ) ? true : false;
 				$text    = __( 'Up next:', 'wpa-conference' ) . ' ';
 			}
 		} elseif ( ! ( time() > $end ) ) {
@@ -521,8 +521,9 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 		}
 	}
 	$calendar = ( $in_past ) ? '' : wpad_add_calendar_links( $talk_ID );
+	$class    = ( $in_past ) ? 'session-over' : '';
 	$output   = "
-	<div class='wp-block-group schedule $talk_type' id='$session_id'>
+	<div class='wp-block-group schedule $talk_type $class' id='$session_id'>
 		<div class='wp-block-group__inner-container'>
 			" . str_replace( '[control]', '<div>' . $control . '</div>', $talk_heading ) . "
 			<div class='wp-block-columns inside $hidden'>

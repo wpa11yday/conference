@@ -516,7 +516,7 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 		$control = str_replace( '"false"', '"true"', $control );
 		$control = str_replace( '-plus', '-minus', $control );
 		if ( $text ) {
-			$current_talk = "<p class='current-talk wpad-callout'><strong>$text</strong> <a href='#$session_id'>$time:$mins UTC - $talk->post_title</a></p>";
+			$current_talk = "<p class='current-talk wpad-callout'><strong>$text</strong> <a class='button' href='#$session_id'>$time:$mins UTC - $talk->post_title</a></p>";
 		}
 	}
 	$calendar = ( $in_past ) ? '' : wpad_add_calendar_links( $talk_ID );

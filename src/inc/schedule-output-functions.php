@@ -282,6 +282,7 @@ function wpcs_schedule( $atts, $content ) {
 			'id' => $opening_id,
 			'ts' => gmdate( 'Y-m-d\TH:i:s\Z', (int) $opening_time ),
 		);
+
 		$text    = ( time() < $begin ) ? 'Up next: ' : false;
 		$current = ( time() < $begin ) ? true : false;
 		$opening = wpad_draw_session( $opening_remarks, $current, $text, '' );

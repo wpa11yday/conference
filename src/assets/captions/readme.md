@@ -61,7 +61,7 @@ No translations yet.
 
 ## 2023
 
-44 completed translations.
+45 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -121,6 +121,7 @@ No translations yet.
 	- Italian; Alessandra Vallera
 20. Accessibility Pitfalls of WordPress Menus
 	- Spanish; Diana Córdoba Gómez
+	- French; Jenny Dupuy
 21. A Practical Guide To Automated Accessibility
 	- Spanish; Luz Zuniga
 	- French; Emilie Sirotic

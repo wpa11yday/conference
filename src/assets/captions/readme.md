@@ -138,7 +138,7 @@ No translations yet.
 
 ## 2024
 
-32 completed translations.
+33 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -156,6 +156,7 @@ No translations yet.
 	- Spanish; Diana Córdoba Gómez
 	- German; Jennifer Wjertzoch
 	- Italian; Daniele Manca
+	- Norwegian; Lena Marie Gjerald
 7. Accessible Firebrand: “Why can’t I use my brand color there, and if not there, then where?”
 8. Is Your Page Builder Actually Accessible?
 	- Spanish; Andy Amado

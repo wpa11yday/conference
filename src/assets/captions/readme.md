@@ -62,7 +62,7 @@ No translations yet.
 
 ## 2023
 
-45 completed translations.
+46 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -116,6 +116,7 @@ No translations yet.
 	- Spanish; Lucy Fonseca
 	- French; Jb Audras
 17. Beyond the Visible: Crafting Inclusive WordPress Events for Those with Invisible Illnesses and Chronic Disabilities
+	- Spanish; Andy Amado
 18. Simple Ways to Make Your Emails Accessible
 19. Authoring Tool Accessibility Guidelines: Going Above and Beyond Web Content Accessibility Guidelines
 	- Spanish; Lucy Fonseca

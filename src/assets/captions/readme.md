@@ -162,6 +162,7 @@ No translations yet.
 7. Accessible Firebrand: “Why can’t I use my brand color there, and if not there, then where?”
 8. Is Your Page Builder Actually Accessible?
 	- Spanish; Andy Amado
+	- Portuguese; Keithy Caren
 9. Captchas and Other Gotchas: Make Sure Your Secure Website is Accessible
 10. CSS Tiny Tips: Collection of CSS Tips for Making Websites Easier to Read
 	- Spanish; Debora Ermel

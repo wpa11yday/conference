@@ -140,7 +140,7 @@ No translations yet.
 
 ## 2024
 
-33 completed translations.
+34 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -170,6 +170,7 @@ No translations yet.
 	- Spanish; Debora Ermel
 12. Developing Accessible Gutenberg Blocks
 	- Spanish; Debora Ermel
+	- Portuguese; Paloma Marques
 13. Navigating Neurodiversity: Creating Websites with Inclusivity in Mind
 	- Spanish; Diana Córdoba Gómez
 	- Portuguese; Paloma Marques

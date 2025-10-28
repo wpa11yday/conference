@@ -31,7 +31,7 @@ No translations yet.
 
 ## 2022
 
-1 completed translation.
+2 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 2. Selling Accessibility to Skeptical Clients
@@ -52,6 +52,7 @@ No translations yet.
 17. Accessibility of common Gutenberg blocks
 18. Inclusive Coding and Design
 19. Accessibility Testing in the CI/CD process
+	- Spanish; Luz Zuniga
 20. Designing a webpage for the Institute for the Blind and Visually impaired
 	- Spanish; Diana Córdoba Gómez
 21. How we made Joomla 4 accessible
@@ -61,7 +62,7 @@ No translations yet.
 
 ## 2023
 
-45 completed translations.
+46 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -115,6 +116,7 @@ No translations yet.
 	- Spanish; Lucy Fonseca
 	- French; Jb Audras
 17. Beyond the Visible: Crafting Inclusive WordPress Events for Those with Invisible Illnesses and Chronic Disabilities
+	- Spanish; Andy Amado
 18. Simple Ways to Make Your Emails Accessible
 19. Authoring Tool Accessibility Guidelines: Going Above and Beyond Web Content Accessibility Guidelines
 	- Spanish; Lucy Fonseca
@@ -138,7 +140,7 @@ No translations yet.
 
 ## 2024
 
-32 completed translations.
+34 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -156,9 +158,11 @@ No translations yet.
 	- Spanish; Diana Córdoba Gómez
 	- German; Jennifer Wjertzoch
 	- Italian; Daniele Manca
+	- Norwegian; Lena Marie Gjerald
 7. Accessible Firebrand: “Why can’t I use my brand color there, and if not there, then where?”
 8. Is Your Page Builder Actually Accessible?
 	- Spanish; Andy Amado
+	- Portuguese; Keithy Caren
 9. Captchas and Other Gotchas: Make Sure Your Secure Website is Accessible
 10. CSS Tiny Tips: Collection of CSS Tips for Making Websites Easier to Read
 	- Spanish; Debora Ermel
@@ -167,6 +171,7 @@ No translations yet.
 	- Spanish; Debora Ermel
 12. Developing Accessible Gutenberg Blocks
 	- Spanish; Debora Ermel
+	- Portuguese; Paloma Marques
 13. Navigating Neurodiversity: Creating Websites with Inclusivity in Mind
 	- Spanish; Diana Córdoba Gómez
 	- Portuguese; Paloma Marques

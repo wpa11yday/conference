@@ -31,7 +31,7 @@ No translations yet.
 
 ## 2022
 
-2 completed translations.
+4 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 2. Selling Accessibility to Skeptical Clients
@@ -60,6 +60,7 @@ No translations yet.
 22. Boost up conversions with accessible e-commerce
 23. Lightning Talks: Round 4
 24. Dialogs, Modals, and Popups
+	- Spanish; Deb Ermel
 
 ## 2023
 

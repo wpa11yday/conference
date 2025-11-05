@@ -50,6 +50,7 @@ No translations yet.
 15. Beyond Colors and Captions: How to Provide More Inclusive Accessibility
 16. Digital Accessibility Testing: How to Get It Right
 17. Accessibility of common Gutenberg blocks
+	- Spanish; Misael Rivero
 18. Inclusive Coding and Design
 19. Accessibility Testing in the CI/CD process
 	- Spanish; Luz Zuniga

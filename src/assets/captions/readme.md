@@ -64,10 +64,11 @@ No translations yet.
 
 ## 2023
 
-46 completed translations.
+47 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
+	- Spanish; Amalia Llarín
 	- French; Lair François-Xavier
 3. Accessibility Beyond Blindness
 	- Spanish; Diana Córdoba

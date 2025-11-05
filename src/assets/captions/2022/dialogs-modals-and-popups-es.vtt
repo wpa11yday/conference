@@ -1,0 +1,1959 @@
+WEBVTT
+
+00:00:00.063 --> 00:00:31.109
+[silencio]
+
+00:00:31.110 --> 00:00:33.410
+Devin Egger: Hola a todos
+y gracias por acompañarnos
+
+00:00:33.410 --> 00:00:37.920
+en el Día de la Accesibilidad
+de WordPress 2022.
+
+00:00:37.920 --> 00:00:40.760
+Mi nombre es Devin Egger,
+desarrollador de software sénior en HDC
+
+00:00:40.760 --> 00:00:44.640
+y escritor en Master WP, y seré su
+anfitrión para la última sesión de hoy.
+
+00:00:45.720 --> 00:00:48.180
+Amigos, el sol ya salió, los pájaros
+cantan y hemos llegado
+
+00:00:49.230 --> 00:00:52.710
+al final de 23 horas completas de aprendizaje
+y charlas sobre accesibilidad
+
+00:00:52.710 --> 00:00:53.710
+y WordPress.
+
+00:00:54.460 --> 00:00:57.590
+Espero que lo hayan disfrutado tanto
+como yo, un trabajo increíble
+
+00:00:57.590 --> 00:01:01.780
+de todos los ponentes, voluntarios
+y organizadores del evento de este año.
+
+00:01:01.780 --> 00:01:04.780
+Muchísimas gracias a todos
+los que hicieron esto posible.
+
+00:01:04.780 --> 00:01:07.100
+Solo como una nota rápida,
+surgió una pregunta
+
+00:01:07.100 --> 00:01:09.110
+en la sesión de preguntas y respuestas de la
+presentación anterior,
+
+00:01:09.110 --> 00:01:13.790
+preguntando cuándo estarán disponibles
+las grabaciones en YouTube.
+
+00:01:13.790 --> 00:01:16.450
+La respuesta a esa y otras preguntas
+similares
+
+00:01:16.450 --> 00:01:19.420
+pueden encontrarlas
+en la página de preguntas frecuentes
+
+00:01:19.420 --> 00:01:25.080
+del sitio web del Día de la Accesibilidad de WordPress
+en wpaccessibility.day/faq.
+
+00:01:28.000 --> 00:01:31.680
+Después de esta sesión, tendremos
+una sesión de preguntas y respuestas en vivo con Damon,
+
+00:01:31.680 --> 00:01:32.590
+nuestro ponente.
+
+00:01:32.590 --> 00:01:34.810
+Por favor, recuerden
+acompañarnos en Slido.
+
+00:01:34.810 --> 00:01:36.710
+Es la sección de chat
+justo al lado
+
+00:01:36.710 --> 00:01:38.960
+o debajo del video
+que estás viendo ahora.
+
+00:01:38.960 --> 00:01:41.380
+Pueden dejar sus preguntas
+en la sección de preguntas y respuestas
+
+00:01:41.380 --> 00:01:45.670
+o simplemente unirse a la conversación
+en la sección de ideas.
+
+00:01:45.670 --> 00:01:48.210
+Bien, llegamos a nuestra
+última presentación del día.
+
+00:01:48.210 --> 00:01:50.870
+Una que muchos hemos estado esperando.
+
+00:01:50.870 --> 00:01:55.790
+A continuación, Damon Cook presenta
+diálogos, modales y ventanas emergentes.
+
+00:01:55.790 --> 00:02:00.750
+Damon es un defensor de desarrolladores en mi
+proveedor de alojamiento favorito, WP Engine.
+
+00:02:00.750 --> 00:02:03.690
+Anteriormente, navegó por
+el terreno de agencias centradas en WordPress
+
+00:02:03.691 --> 00:02:04.900
+durante aproximadamente una década.
+
+00:02:04.900 --> 00:02:09.200
+Es un proveedor y
+descubridor de la frisson musical.
+
+00:02:09.200 --> 00:02:13.140
+Lo pueden encontrar en los canales de
+Slack de WordPress, WooCommerce
+
+00:02:13.140 --> 00:02:14.520
+y Twitter.
+
+00:02:14.520 --> 00:02:16.560
+Muy bien, sin más
+preámbulos, aquí está Damon.
+
+00:02:16.560 --> 00:02:17.170
+Llévatelo, Damon.
+
+00:02:20.574 --> 00:02:21.420
+Damon Cook: Hola a todos.
+
+00:02:21.420 --> 00:02:25.640
+Gracias por acompañarme hoy en
+WordPress Accessibility 2022.
+
+00:02:27.150 --> 00:02:31.170
+Soy Damon Cook,
+defensor de desarrolladores en WP Engine.
+
+00:02:31.170 --> 00:02:34.410
+Anteriormente, trabajé más de una
+década como desarrollador front-end
+
+00:02:34.410 --> 00:02:37.000
+en varias agencias centradas en WordPress.
+
+00:02:38.340 --> 00:02:45.020
+Hoy estoy aquí para hablar sobre modales,
+ventanas emergentes, diálogos, lightboxes
+
+00:02:45.020 --> 00:02:46.020
+y alertas.
+
+00:02:46.900 --> 00:02:49.520
+Estos son términos bastante comunes,
+a menudo usados
+
+00:02:49.520 --> 00:02:53.390
+para describir interfaces de sitios
+web similares con los que interactuamos
+
+00:02:53.390 --> 00:02:54.520
+diariamente.
+
+00:02:55.580 --> 00:02:59.950
+Algunos los aman, otros los odian
+y muchas veces son un mal necesario.
+
+00:03:01.850 --> 00:03:06.450
+Primero, quiero diferenciar
+algunos de los diálogos nativos más comunes
+
+00:03:06.450 --> 00:03:08.990
+que a menudo vemos
+de los diálogos no nativos.
+
+00:03:10.410 --> 00:03:14.290
+A continuación, veremos las diferencias
+entre modales, lightboxes
+
+00:03:14.290 --> 00:03:15.290
+y ventanas emergentes.
+
+00:03:16.880 --> 00:03:19.089
+Conociendo esas diferencias,
+
+00:03:19.090 --> 00:03:20.760
+entre estos términos de interfaz,
+
+00:03:20.760 --> 00:03:24.660
+luego podemos profundizar en algunas
+prácticas recomendadas para implementar diálogos
+
+00:03:24.660 --> 00:03:28.950
+y crear una ruta clara para que
+los usuarios accedan al contenido de nuestros sitios.
+
+00:03:31.170 --> 00:03:35.280
+En la segunda parte de la presentación
+entraremos más a fondo en el código,
+
+00:03:35.280 --> 00:03:40.560
+donde avanzamos paso a paso en la construcción
+de una experiencia de diálogo ideal.
+
+00:03:40.560 --> 00:03:43.490
+Primero, quiero comenzar con
+una pequeña historia personal.
+
+00:03:47.330 --> 00:03:49.470
+No sé ustedes,
+pero yo ya me siento viejo.
+
+00:03:51.170 --> 00:03:53.850
+En los últimos años,
+he estado experimentando
+
+00:03:53.851 --> 00:03:55.540
+un poco de dolor crónico de espalda.
+
+00:03:55.540 --> 00:03:59.050
+Es por años de estar sentado
+y sin actividad en general.
+
+00:03:59.050 --> 00:04:03.890
+Empecé a estirarme y a caminar para
+intentar combatir los dolores persistentes.
+
+00:04:04.930 --> 00:04:07.410
+Aprovecho mis caminatas para
+disfrutar del tiempo en la naturaleza
+
+00:04:07.410 --> 00:04:10.240
+y apreciar todas las
+cosas sencillas que pueda.
+
+00:04:10.240 --> 00:04:14.370
+Mi respiración, mi movimiento y mis
+sentidos están en primer plano
+
+00:04:14.370 --> 00:04:15.760
+en estas experiencias.
+
+00:04:17.210 --> 00:04:19.530
+La mayor parte del tiempo
+sigo el mismo camino.
+
+00:04:19.530 --> 00:04:22.970
+Es un sendero natural propiedad de la ciudad,
+que serpentea entre el río Hudson
+
+00:04:22.970 --> 00:04:25.650
+de un lado y un canal
+del otro lado.
+
+00:04:29.770 --> 00:04:34.200
+A lo largo de mis años de recorrer este
+camino, me he topado con varios obstáculos.
+
+00:04:34.200 --> 00:04:38.680
+A veces, después de una tormenta, hay un
+gran tronco de árbol cruzando el camino.
+
+00:04:39.810 --> 00:04:43.470
+Otras veces me han perseguido
+monstruosos gansos canadienses protegiendo
+
+00:04:43.470 --> 00:04:45.050
+a su familia.
+
+00:04:45.050 --> 00:04:48.860
+En muchos sentidos, estos
+obstáculos son similares a las ventanas emergentes.
+
+00:04:48.860 --> 00:04:51.640
+Pueden interrumpir el
+flujo del camino o disuadir
+
+00:04:51.640 --> 00:04:54.750
+toda la actividad por completo,
+como fue mi caso
+
+00:04:54.750 --> 00:04:55.840
+cuando los gansos estaban anidando.
+
+00:05:00.700 --> 00:05:02.500
+¿Por qué les cuento esto?
+
+00:05:02.500 --> 00:05:05.900
+Constantemente somos
+conscientes de nuestra mortalidad
+
+00:05:05.900 --> 00:05:09.180
+por distintas experiencias,
+algunas pequeñas y otras más drásticas.
+
+00:05:10.260 --> 00:05:13.170
+Quizás nuestra visión o audición
+se está degradando, o en mi caso,
+
+00:05:13.170 --> 00:05:14.920
+mi movilidad ha sido un desafío.
+
+00:05:15.970 --> 00:05:19.920
+La vejez es es algo
+que todos podemos identificarnos de alguna manera,
+
+00:05:19.920 --> 00:05:22.620
+y al final todos somos personas
+con habilidades temporales.
+
+00:05:23.900 --> 00:05:26.540
+¿Por qué no construir una web
+pensando en nuestro futuro?
+
+00:05:30.800 --> 00:05:34.580
+Ya sea que actualmente tenga
+problemas visuales o dificultades motoras severas,
+
+00:05:34.580 --> 00:05:38.410
+o limitaciones de movilidad, todos estamos
+en camino hacia alguna
+
+00:05:38.410 --> 00:05:42.740
+de estas experiencias, es
+imperativo construir para todos
+
+00:05:42.740 --> 00:05:44.700
+para acceder y utilizar nuestro
+contenido en la web.
+
+00:05:45.840 --> 00:05:49.530
+Veamos cómo crear
+mejores caminos con los diálogos.
+
+00:05:54.150 --> 00:05:57.980
+Primero, quiero aclarar
+los distintos patrones de interfaz de usuario
+
+00:05:57.980 --> 00:06:01.180
+y comparar sus
+similitudes y diferencias.
+
+00:06:02.660 --> 00:06:11.320
+A menudo palabras como: diálogo,
+alerta, lightbox, ventana emergente, mensaje
+
+00:06:11.320 --> 00:06:13.940
+y modal pueden entrelazarse.
+
+00:06:16.800 --> 00:06:22.060
+Empecemos con lo que llamo
+diálogos integrados o nativos.
+
+00:06:23.160 --> 00:06:26.780
+Estos diálogos nativos permiten la
+comunicación entre el usuario
+
+00:06:26.780 --> 00:06:30.260
+y el sistema, y
+suelen tener el estilo del navegador
+
+00:06:30.260 --> 00:06:32.720
+o del sistema operativo
+que los muestra.
+
+00:06:34.230 --> 00:06:37.750
+Estoy seguro de que todos hemos experimentado este
+tipo de diálogos en nuestros dispositivos.
+
+00:06:40.890 --> 00:06:44.680
+Estas interfaces son a menudo donde
+los desarrolladores comienzan su recorrido
+
+00:06:44.680 --> 00:06:50.570
+porque JavaScript permite un
+acceso rápido a cosas como window.alert,
+
+00:06:50.570 --> 00:06:57.190
+window.prompt, window.confirm e
+incluso window.print JavaScript métodos.
+
+00:06:58.240 --> 00:07:00.990
+Nuevamente, estos son excelentes
+para permitir que los usuarios
+
+00:07:00.990 --> 00:07:02.850
+interactúen directamente
+con el navegador.
+
+00:07:06.930 --> 00:07:12.080
+Los casos de uso más comunes para los diálogos nativos
+son los permisos de acceso al sistema
+
+00:07:12.080 --> 00:07:16.180
+como "¿Permitir que este sitio 
+use tu micrófono?"
+
+00:07:16.180 --> 00:07:21.160
+o acciones destructivas como,
+"¿Seguro que quieres cerrar Safari?
+
+00:07:21.160 --> 00:07:25.470
+tienes 782 pestañas abiertas,
+lo cual suele ser mi caso.
+
+00:07:27.180 --> 00:07:32.740
+Estos diálogos se pueden desglosar
+aún más por tipos de acción como, uno,
+
+00:07:32.740 --> 00:07:36.850
+dos y tres diálogos de acción,
+que se refieren a la cantidad
+
+00:07:36.850 --> 00:07:39.060
+de opciones de botones
+disponibles para cada mensaje.
+
+00:07:42.450 --> 00:07:47.470
+Los otros patrones de interfaz
+además de los diálogos nativos son los modales,
+
+00:07:47.470 --> 00:07:49.070
+ventanas emergentes y lightboxes.
+
+00:07:50.380 --> 00:07:54.500
+En su mayoría, estas son
+implementaciones no nativas,
+
+00:07:54.500 --> 00:07:57.470
+lo que da a los desarrolladores
+la opción de controlar
+
+00:07:57.470 --> 00:07:59.040
+y manipular su apariencia.
+
+00:08:00.420 --> 00:08:04.090
+Por lo tanto, es mucho más común
+encontrarlos en páginas web.
+
+00:08:05.720 --> 00:08:11.000
+Estos se diferencian porque
+todos se muestran como
+
+00:08:11.000 --> 00:08:14.790
+por lo general, con una superposición o
+fondo semitransparente detrás.
+
+00:08:16.610 --> 00:08:20.250
+El fondo superpuesto puede
+indicar que los elementos detrás
+
+00:08:20.250 --> 00:08:22.860
+no se puede acceder mientras
+el diálogo está abierto.
+
+00:08:23.970 --> 00:08:27.580
+Más adelante veremos los detalles
+de este comportamiento.
+
+00:08:27.580 --> 00:08:37.700
+Cuando hablamos de buenas prácticas,
+el primer tipo de interfaz no nativa
+
+00:08:37.700 --> 00:08:38.700
+son las ventanas emergentes.
+
+00:08:40.280 --> 00:08:44.590
+Las ventanas emergentes representan componentes
+que aparecen en la pantalla del usuario
+
+00:08:44.590 --> 00:08:47.030
+y normalmente muestran
+material de marketing.
+
+00:08:48.760 --> 00:08:53.640
+Normalmente aparecen al
+cargar la página y pueden ser sinónimos
+
+00:08:53.640 --> 00:08:55.020
+con páginas de destino.
+
+00:08:56.330 --> 00:09:00.910
+Un ejemplo común es el clásico
+"Suscríbete a nuestra lista de correo"
+
+00:09:00.910 --> 00:09:05.140
+formulario que anima a los usuarios a
+registrarse y recibir correos electrónicos.
+
+00:09:09.190 --> 00:09:13.750
+Lightboxes son el siguiente ejemplo
+de una interfaz no nativa
+
+00:09:13.750 --> 00:09:17.610
+que se asocia generalmente
+con imágenes y ventanas emergentes
+
+00:09:17.610 --> 00:09:21.000
+para ampliar una
+imagen en miniatura de la página.
+
+00:09:24.410 --> 00:09:28.580
+Por último, tenemos los modales,
+que normalmente se activan
+
+00:09:28.580 --> 00:09:30.240
+por una acción del usuario.
+
+00:09:31.350 --> 00:09:36.110
+Un ejemplo de esto es un
+modal de inicio de sesión, que muestra un formulario
+
+00:09:36.110 --> 00:09:39.520
+con una superposición de fondo y permitir que
+un usuario inicie sesión en su cuenta.
+
+00:09:43.710 --> 00:09:47.190
+Puede que te preguntes:
+¿Cuándo debo usar un diálogo?
+
+00:09:47.190 --> 00:09:50.230
+Es una gran pregunta,
+y vale la pena hacerlo siempre.
+
+00:09:50.230 --> 00:09:55.100
+A veces puede parecer
+fácil esconder contenido
+
+00:09:55.100 --> 00:09:58.570
+en un diálogo cuando el espacio
+en pantalla es un problema,
+
+00:09:58.570 --> 00:10:01.100
+especialmente en
+dispositivos móviles más pequeños.
+
+00:10:02.130 --> 00:10:06.320
+Sin embargo, introduce
+el cambio de contexto, que tiene su propio conjunto
+
+00:10:06.320 --> 00:10:08.590
+de factores que complican la situación.
+
+00:10:08.590 --> 00:10:12.010
+Al final del día, si algo
+va a estar oculto
+
+00:10:12.010 --> 00:10:14.340
+en un diálogo fuera de pantalla,
+hay que considerar
+
+00:10:14.340 --> 00:10:18.220
+si realmente es necesario y
+si el contenido oculto podría
+
+00:10:18.220 --> 00:10:22.300
+integrarse mejor dentro
+del flujo normal del documento.
+
+00:10:27.080 --> 00:10:28.750
+Buenas prácticas.
+
+00:10:28.750 --> 00:10:33.240
+Ahora, profundicemos en lo que hace que
+una experiencia de diálogo sea ideal para cualquier
+
+00:10:33.240 --> 00:10:35.330
+y todos los usuarios puedan
+acceder a nuestro contenido.
+
+00:10:38.680 --> 00:10:44.510
+Primero, ¿sabías que
+ya existe un elemento HTML de diálogo?
+
+00:10:44.510 --> 00:10:46.230
+Increíble, ¿no?
+
+00:10:46.230 --> 00:10:49.560
+Desafortunadamente,
+la implementación entre navegadores
+
+00:10:49.560 --> 00:10:54.940
+puede ser muy inconsistente y,
+y todavía depende bastante de JavaScript
+
+00:10:54.940 --> 00:10:55.940
+para funcionar correctamente.
+
+00:10:57.090 --> 00:11:01.720
+Por ejemplo, actualmente en
+Chrome, al hacer clic en el fondo
+
+00:11:01.720 --> 00:11:05.990
+de este elemento nativo
+no cierra el diálogo.
+
+00:11:07.500 --> 00:11:10.200
+Además, el estilo del
+elemento de diálogo se mantiene
+
+00:11:10.200 --> 00:11:12.910
+a criterio de cada navegador,
+lo cual nunca es lo ideal.
+
+00:11:16.230 --> 00:11:21.970
+Afortunadamente, tenemos
+el a11y-dialog de Kitty Giraudel,
+
+00:11:21.970 --> 00:11:26.340
+un paquete ligero de JavaScript,
+que es la herramienta recomendada
+
+00:11:26.340 --> 00:11:28.280
+para crear diálogos
+en la web hoy.
+
+00:11:30.180 --> 00:11:34.250
+El paquete de Kitty ha sido
+ampliamente probado y documentado,
+
+00:11:34.250 --> 00:11:36.990
+y está constantemente
+siendo revisado con pruebas adicionales
+
+00:11:36.990 --> 00:11:38.260
+y actualizaciones del paquete.
+
+00:11:39.860 --> 00:11:43.510
+Este paquete sigue
+el patrón modal de diálogo
+
+00:11:43.510 --> 00:11:48.000
+de la
+guía de prácticas de creación de ARIA y no impone
+
+00:11:48.000 --> 00:11:50.700
+estilo CSS,
+además de ser liviano.
+
+00:11:56.130 --> 00:11:58.640
+Nuevamente, aquí hay una descripción general de
+las mejores prácticas y profundizaremos
+
+00:11:58.640 --> 00:11:59.780
+una por una.
+
+00:12:01.890 --> 00:12:06.610
+Ser consciente de mantener
+el enfoque, usar marcado semántico,
+
+00:12:06.610 --> 00:12:11.230
+botones versus enlaces,
+y permitir interacción mediante teclado.
+
+00:12:11.230 --> 00:12:13.233
+Una cosa que me gusta tener
+en cuenta al construir estas
+
+00:12:13.233 --> 00:12:15.230
+interfaces personalizadas complejas es
+
+00:12:15.230 --> 00:12:18.480
+que, antes de usar
+roles ARIA, siempre considere
+
+00:12:18.480 --> 00:12:21.570
+si estás usando
+el marcado HTML correcto.
+
+00:12:23.310 --> 00:12:26.910
+ARIA puede actualizar el
+árbol de accesibilidad pero no hace nada
+
+00:12:26.910 --> 00:12:29.700
+para mostrar o alterar
+la funcionalidad de una página.
+
+00:12:31.400 --> 00:12:35.650
+En definitiva, HTML primero, con un poco
+de CSS y algo de JavaScript.
+
+00:12:35.650 --> 00:12:38.030
+Ese es el orden ideal
+de operación cuando se trata
+
+00:12:38.030 --> 00:12:41.410
+de crear una
+experiencia progresivamente mejorada.
+
+00:12:46.420 --> 00:12:49.650
+Aquí tengo una imagen
+de un sitio web.
+
+00:12:50.760 --> 00:12:56.270
+Es un sitio de reseñas musicales
+que contiene un diálogo
+
+00:12:56.270 --> 00:12:59.870
+a medida que el usuario visita el sitio.
+
+00:12:59.870 --> 00:13:04.370
+El diálogo, después de unos
+30 segundos, aparece en la pantalla
+
+00:13:05.480 --> 00:13:10.180
+y solicita al usuario que complete un
+formulario para suscribirse al boletín de noticias.
+
+00:13:13.480 --> 00:13:16.220
+Algunos puntos clave aquí.
+
+00:13:16.220 --> 00:13:20.940
+Cuando se abre el diálogo,
+es importante mantener el foco
+
+00:13:20.940 --> 00:13:22.960
+en dos cosas.
+
+00:13:22.960 --> 00:13:26.980
+Registrar de forma programática
+el último elemento que tenía el foco
+
+00:13:26.980 --> 00:13:28.960
+antes de abrir el diálogo.
+
+00:13:28.960 --> 00:13:34.060
+Puedes usar el document.activeElement
+de JavaScript para esto,
+
+00:13:34.060 --> 00:13:36.410
+que suele ser el elemento
+que disparó la acción
+
+00:13:37.990 --> 00:13:41.740
+e inmediatamente mover el enfoque
+al elemento más relevante
+
+00:13:41.740 --> 00:13:42.750
+dentro del diálogo.
+
+00:13:45.560 --> 00:13:49.160
+Queremos registrar el enfoque porque
+queremos restaurarlo
+
+00:13:49.160 --> 00:13:52.020
+al elemento que lo tenía
+antes de que se abriera el diálogo.
+
+00:13:53.400 --> 00:13:55.920
+Básicamente, queremos
+mantener el recorrido del usuario
+
+00:13:55.920 --> 00:13:59.120
+y no colocarlos en un lugar
+arbitrario como el principio o el final
+
+00:13:59.120 --> 00:14:00.120
+del documento.
+
+00:14:01.060 --> 00:14:05.440
+Sin embargo, una vez abierto el diálogo,
+queremos crear una trampa
+
+00:14:05.440 --> 00:14:07.320
+para tabular y enfocar.
+
+00:14:08.540 --> 00:14:11.960
+Si el usuario avanza con la tecla Tab,
+debería poder moverse
+
+00:14:11.960 --> 00:14:16.750
+a través de todos los elementos de tabulación
+y que el foco regrese al inicio al terminar la vuelta.
+
+00:14:18.110 --> 00:14:20.750
+Uno de esos elementos debería
+ser el botón de cerrar.
+
+00:14:23.190 --> 00:14:26.440
+En qué elemento centrarse cuando
+se abre el diálogo depende
+
+00:14:26.440 --> 00:14:29.400
+sobre el tipo y la cantidad de
+contenido dentro del diálogo.
+
+00:14:30.620 --> 00:14:35.100
+Una opción es enfocar
+el primer elemento del diálogo
+
+00:14:36.550 --> 00:14:40.540
+o centrarse en el botón de cerrar,
+lo que le da al usuario una salida rápida
+
+00:14:40.540 --> 00:14:45.150
+y abandonar la experiencia,
+en casos menos comunes se enfoca
+
+00:14:45.150 --> 00:14:46.620
+en el diálogo mismo.
+
+00:14:53.550 --> 00:14:58.525
+Aquí, he grabado un
+vídeo corto que demuestra
+
+00:14:58.526 --> 00:15:01.510
+otro sitio de reseñas musicales.
+
+00:15:01.510 --> 00:15:07.240
+En este video, estoy navegando con la
+tecla Tab... De hecho, hay un diálogo
+
+00:15:07.240 --> 00:15:13.470
+que se muestra encima de la página
+existente, y estoy navegando con tabulador
+
+00:15:13.470 --> 00:15:17.080
+para mostrar que
+el resto del documento
+
+00:15:17.080 --> 00:15:20.880
+en realidad no está debajo del
+diálogo, lo cual no es ideal.
+
+00:15:21.910 --> 00:15:26.130
+Esto nos permite continuar tabulando
+por la página en segundo plano
+
+00:15:27.450 --> 00:15:32.260
+y básicamente distrae
+de toda la experiencia del diálogo.
+
+00:15:34.840 --> 00:15:38.130
+Una vez abierto un diálogo,
+no solo es importante atrapar
+
+00:15:38.130 --> 00:15:40.880
+y mantener el foco,
+sino también asegurarse de que el resto
+
+00:15:40.880 --> 00:15:42.910
+del documento detrás quede inactivo.
+
+00:15:44.720 --> 00:15:48.730
+Esto se puede lograr
+asignando aria-modal="true"
+
+00:15:48.730 --> 00:15:50.380
+al elemento contenedor del diálogo.
+
+00:15:51.870 --> 00:15:55.970
+Esto indica a los lectores de pantalla
+que el contenido que está debajo del diálogo
+
+00:15:55.970 --> 00:15:58.030
+no forma parte del
+contenido del diálogo.
+
+00:15:59.770 --> 00:16:04.160
+Es importante recordar que ARIA
+solo actualiza el árbol de accesibilidad
+
+00:16:04.160 --> 00:16:08.110
+y que establecer aria-modal="true"
+no hace nada
+
+00:16:08.110 --> 00:16:11.010
+para modificar la
+apariencia visual o la funcionalidad de los elementos.
+
+00:16:12.210 --> 00:16:15.000
+En otras palabras,
+se requiere JavaScript y CSS.
+
+00:16:20.230 --> 00:16:24.140
+Nuevamente, este es el
+mismo sitio de reseñas musicales
+
+00:16:24.140 --> 00:16:29.300
+y con el mismo diálogo presentado
+en un video que capturé
+
+00:16:29.300 --> 00:16:32.850
+donde demuestro
+cómo se abre el diálogo
+
+00:16:32.850 --> 00:16:36.390
+cuando la página detrás
+sigue siendo desplazable,
+
+00:16:36.391 --> 00:16:38.750
+lo cual, por lo general, no es lo ideal.
+
+00:16:41.510 --> 00:16:44.190
+Además, tenga en cuenta que
+cuando un diálogo está abierto,
+
+00:16:44.190 --> 00:16:46.760
+la ventana seguirá
+procesando eventos de desplazamiento.
+
+00:16:48.300 --> 00:16:53.870
+Esto generalmente se puede solucionar
+agregando una clase al elemento HTML
+
+00:16:53.870 --> 00:16:59.110
+cuando el diálogo está abierto y se configura
+en CSS overflow-y: hidden.
+
+00:17:00.510 --> 00:17:04.660
+Esto no siempre es infalible, y
+las cosas pueden complicarse rápidamente
+
+00:17:04.660 --> 00:17:08.360
+cuando se apunta a diferentes
+dispositivos o se trabaja
+
+00:17:08.360 --> 00:17:11.280
+con múltiples elementos de posición
+con CSS en la página.
+
+00:17:12.700 --> 00:17:16.840
+Kitty ofreció algunas
+técnicas básicas de bloqueo de desplazamiento
+
+00:17:16.840 --> 00:17:20.120
+dentro del paquete a11y-dialog.
+
+00:17:21.930 --> 00:17:26.070
+También existe el paquete "body scroll lock"
+para una seguridad infalible
+
+00:17:26.070 --> 00:17:28.650
+y una solución JavaScript ligera.
+
+00:17:33.490 --> 00:17:36.560
+Ahora, profundicemos en
+el marcado de un diálogo.
+
+00:17:38.620 --> 00:17:40.700
+El marcado semántico es algo fantástico.
+
+00:17:41.850 --> 00:17:45.210
+Podemos comenzar a estructurar el
+marcado para un diálogo ubicando
+
+00:17:45.210 --> 00:17:50.800
+el contenido del diálogo fuera
+del contenido principal
+
+00:17:50.800 --> 00:17:51.800
+de la página.
+
+00:17:54.060 --> 00:17:59.030
+Lo más importante es que el diálogo y
+el contenido principal siguen coexistiendo
+
+00:17:59.030 --> 00:18:03.120
+en el documento, pero el
+diálogo logísticamente representa
+
+00:18:03.120 --> 00:18:06.200
+un documento completamente diferente al
+abrirlo, lo cual es importante
+
+00:18:06.200 --> 00:18:09.380
+recordarlo, ya que esto puede
+confundir las tecnologías del sistema
+
+00:18:09.380 --> 00:18:10.490
+que no hemos tenido en cuenta.
+
+00:18:15.260 --> 00:18:17.590
+A continuación,
+podemos agregar el atributo oculto
+
+00:18:17.590 --> 00:18:19.940
+a nuestro contenedor
+div del diálogo.
+
+00:18:21.070 --> 00:18:25.140
+Esto ocultará el div de
+la página y de los lectores de pantalla,
+
+00:18:25.140 --> 00:18:27.820
+y no tenemos que preocuparnos
+por ningún contenido parpadeante
+
+00:18:27.820 --> 00:18:31.830
+en la carga de la página hasta que estemos
+listos para mostrar el diálogo.
+
+00:18:35.360 --> 00:18:38.850
+Un breve aparte:
+botones versus enlaces.
+
+00:18:38.850 --> 00:18:39.950
+El debate eterno.
+
+00:18:41.460 --> 00:18:45.707
+Los botones son mejores para
+acciones en las que se puede hacer clic, como registrarse,
+
+00:18:45.708 --> 00:18:47.230
+descargar o abrir.
+
+00:18:48.340 --> 00:18:52.440
+Además, si quieres que un usuario
+active algo con JavaScript,
+
+00:18:52.440 --> 00:18:54.010
+por lo general, deberías usar un botón.
+
+00:18:55.580 --> 00:19:00.530
+Los enlaces son mejores para llevar a los usuarios
+a otra página o a un ancla
+
+00:19:00.530 --> 00:19:02.580
+dentro de la misma página.
+
+00:19:04.260 --> 00:19:08.180
+A menudo, los desarrolladores usan
+un enlace porque no saben
+
+00:19:08.180 --> 00:19:11.130
+cómo estilizar un botón para eliminar
+su apariencia de botón.
+
+00:19:12.500 --> 00:19:15.580
+Casi siempre, querrás usar un
+botón para abrir un diálogo
+
+00:19:15.580 --> 00:19:18.960
+y un botón separado dentro
+del marcado del diálogo para cerrar.
+
+00:19:23.710 --> 00:19:29.060
+Otro error común para los desarrolladores
+es incluir correctamente un ícono SVG
+
+00:19:29.060 --> 00:19:30.100
+en el marcado del botón.
+
+00:19:31.390 --> 00:19:34.860
+Recuerda, si el ícono es
+puramente decorativo, entonces ocúltalo
+
+00:19:34.860 --> 00:19:37.190
+de lectores de pantalla
+con aria-hidden="true".
+
+00:19:39.190 --> 00:19:43.900
+Establezca focus falso para IE y
+evite tabulaciones adicionales
+
+00:19:45.360 --> 00:19:49.680
+y aplica una clase de texto
+para lectores de pantalla
+
+00:19:49.680 --> 00:19:54.680
+en un &lt;span&gt; envolvente alrededor del
+texto, que se posicionará
+
+00:19:54.680 --> 00:19:56.590
+y moverá el texto fuera de la pantalla.
+
+00:19:56.590 --> 00:19:59.620
+Cuando se navegue con tabulación, seguirá siendo
+visible para los lectores de pantalla.
+
+00:20:01.040 --> 00:20:04.980
+Además, usa CSS para establecer
+"pointer-events: none" en el SVG
+
+00:20:04.980 --> 00:20:09.460
+si quieres evitar que el elemento
+interfiera con los eventos de clic,
+
+00:20:09.460 --> 00:20:10.770
+que suele ser el caso.
+
+00:20:14.130 --> 00:20:15.180
+Ahora volvamos a nuestro marcado.
+
+00:20:16.540 --> 00:20:19.480
+Ya que entendemos
+mejor el uso de los botones,
+
+00:20:19.480 --> 00:20:23.600
+volvamos al marcado,
+a nuestro diálogo y a los botones para agregar
+
+00:20:23.600 --> 00:20:25.370
+a nuestro código general.
+
+00:20:25.370 --> 00:20:29.200
+Agregaremos uno para activar la apertura
+y otro para el cierre
+
+00:20:29.200 --> 00:20:30.200
+del diálogo.
+
+00:20:33.820 --> 00:20:37.050
+Lo siguiente será
+incorporar la superposición,
+
+00:20:37.050 --> 00:20:38.990
+también conocida como fondo (backdrop).
+
+00:20:40.610 --> 00:20:44.720
+Esta será la capa semitransparente
+detrás del diálogo
+
+00:20:44.720 --> 00:20:48.500
+que ayuda a establecer visualmente la
+separación entre el documento principal
+
+00:20:48.500 --> 00:20:49.980
+y nuestro documento de diálogo.
+
+00:20:51.970 --> 00:20:55.890
+Además, tenga en cuenta que en el código
+también estamos introduciendo
+
+00:20:55.890 --> 00:21:00.040
+un elemento div adicional que envuelve
+el contenido real del diálogo
+
+00:21:01.280 --> 00:21:03.770
+y le asignamos el
+rol de documento.
+
+00:21:05.640 --> 00:21:09.600
+Asignar el rol documento ayuda
+a señalar a las tecnologías de asistencia
+
+00:21:09.600 --> 00:21:12.880
+que este es un
+contenido navegable al que se puede acceder
+
+00:21:12.880 --> 00:21:14.540
+en modo lectura.
+
+00:21:14.540 --> 00:21:19.506
+Este rol ARIA se usa en
+componentes complejos que cambian de contexto,
+
+00:21:19.506 --> 00:21:20.450
+como un diálogo.
+
+00:21:22.770 --> 00:21:25.430
+Por último, debemos asegurarnos
+de que los eventos de clic
+
+00:21:25.430 --> 00:21:29.490
+en el fondo cerrará el
+diálogo, pero también querremos
+
+00:21:29.490 --> 00:21:33.630
+asegurarnos de distinguir los
+límites entre el área real del diálogo
+
+00:21:33.630 --> 00:21:34.630
+y el fondo.
+
+00:21:36.110 --> 00:21:39.700
+El área de diálogo en sí
+no debería provocar el cierre
+
+00:21:39.700 --> 00:21:42.240
+solo el fondo
+y el botón de cerrar.
+
+00:21:46.090 --> 00:21:50.040
+A continuación, queremos agregar un
+ID único a nuestro diálogo
+
+00:21:50.040 --> 00:21:52.680
+elemento div principal.
+
+00:21:53.850 --> 00:21:57.330
+Esto ayudará a instanciarlo
+con JavaScript y permitirá
+
+00:21:57.330 --> 00:22:00.170
+tener varios diálogos
+
+00:22:00.170 --> 00:22:03.510
+en una página, cada una con
+un ID único, por supuesto.
+
+00:22:05.460 --> 00:22:09.710
+Además, agregaremos aria-hidden="true"
+para el estado inicial de nuestro diálogo
+
+00:22:09.710 --> 00:22:11.510
+para ocultarlo de las
+tecnologías de asistencia.
+
+00:22:12.760 --> 00:22:17.440
+Por último, agregaremos un elemento h1
+para el título de nuestro diálogo.
+
+00:22:17.440 --> 00:22:19.406
+Esto es importante
+para los lectores de pantalla
+
+00:22:19.407 --> 00:22:21.020
+ya que permite asociar un título
+
+00:22:21.020 --> 00:22:25.480
+con este diálogo, que se correlaciona
+con el ID que asignamos
+
+00:22:25.480 --> 00:22:30.220
+al div que envuelve el diálogo en
+el aria-labelledby atributo.
+
+00:22:34.800 --> 00:22:41.390
+Para finalizar la integración del
+paquete a11y-dialog, tenemos que
+
+00:22:41.390 --> 00:22:44.730
+agregar los atributos de datos del paquete
+para indicar
+
+00:22:44.730 --> 00:22:46.260
+qué elementos activan y cierran el diálogo.
+
+00:22:51.610 --> 00:22:54.527
+Aunque ya cubrimos las mejores prácticas
+
+00:22:54.528 --> 00:22:56.770
+sobre tabulación y orden de enfoque,
+
+00:22:56.770 --> 00:22:58.530
+una cosa que es
+importante considerar es
+
+00:22:58.530 --> 00:23:03.220
+si el contenido del diálogo es extenso,
+entonces probablemente querrás
+
+00:23:03.220 --> 00:23:05.520
+dar mayor prioridad
+al botón de cierre.
+
+00:23:06.900 --> 00:23:10.200
+Facilita que los usuarios puedan salir
+rápidamente del diálogo si lo desean.
+
+00:23:11.560 --> 00:23:13.700
+Además,
+asegúrese de usar un elemento de botón
+
+00:23:13.700 --> 00:23:18.430
+porque esto permite
+la navegación con el teclado usando la tecla Enter
+
+00:23:18.430 --> 00:23:22.200
+y la tecla Space para activar el
+cierre y la apertura del diálogo.
+
+00:23:23.513 --> 00:23:31.973
+Nuevamente, hay una captura de pantalla aquí
+del diálogo del sitio de reseñas musicales
+
+00:23:31.974 --> 00:23:36.434
+que está abierto y muestra el
+orden de tabulación que existe en este ejemplo.
+
+00:23:37.500 --> 00:23:44.200
+El primer campo o el primer
+elemento de enfoque es el campo de correo electrónico.
+
+00:23:45.380 --> 00:23:51.990
+El segundo es "Obtener música nueva
+el viernes" y el tercero es "No, gracias".
+
+00:23:51.990 --> 00:23:57.120
+Lo que también
+cierra el diálogo.
+
+00:23:58.360 --> 00:24:02.760
+Luego, hay algunos enlaces en
+la parte inferior con las políticas de usuario
+
+00:24:02.760 --> 00:24:07.760
+y políticas de privacidad
+que también son enfocables.
+
+00:24:07.760 --> 00:24:13.000
+Luego el último elemento, el séptimo
+elemento de enfoque, es el botón de cierre.
+
+00:24:14.900 --> 00:24:18.890
+Esta es una experiencia bastante ideal
+del orden de tabulación.
+
+00:24:24.250 --> 00:24:27.490
+Esto no sería una
+presentación completa sin hablar un poco
+
+00:24:27.490 --> 00:24:34.880
+sobre algunos componentes ya existentes en WordPress,
+algunos ejemplos de diálogos,
+
+00:24:34.880 --> 00:24:37.400
+y otros elementos de accesibilidad
+integrados en WordPress.
+
+00:24:38.770 --> 00:24:45.420
+Si construyes un bloque personalizado,
+el Gutenberg de WordPress
+
+00:24:45.420 --> 00:24:50.300
+paquete de componentes contiene
+un componente visualmente oculto
+
+00:24:50.300 --> 00:24:52.010
+y un componente modal.
+
+00:24:54.160 --> 00:25:00.290
+Siempre es mejor intentar
+aprovechar los paquetes existentes
+
+00:25:00.290 --> 00:25:01.290
+para mantener la coherencia.
+
+00:25:02.350 --> 00:25:07.790
+También proporcioné un enlace aquí
+para la clase de texto del lector de pantalla,
+
+00:25:07.790 --> 00:25:12.270
+que creo que WordPress también
+usa en varios casos,
+
+00:25:12.270 --> 00:25:17.140
+pero aún tienes que agregar
+el CSS en tu tema o plugin
+
+00:25:17.140 --> 00:25:18.780
+que todo funcione correctamente.
+
+00:25:23.900 --> 00:25:30.280
+Además, desde WordPress 5.8,
+
+00:25:30.280 --> 00:25:35.290
+el bloque de navegación
+utiliza un diálogo.
+
+00:25:36.640 --> 00:25:39.850
+En realidad, están usando un
+paquete llamado Micromodal,
+
+00:25:39.850 --> 00:25:41.340
+que es una dependencia de JavaScript
+
+00:25:41.340 --> 00:25:44.250
+que gestiona la
+funcionalidad del menú desplegable.
+
+00:25:45.510 --> 00:25:50.610
+Aquí tengo un video
+que demuestra el tema Frost
+
+00:25:50.610 --> 00:25:57.440
+cómo activar la apertura y
+el cierre de este menú móvil
+
+00:25:57.440 --> 00:26:02.250
+que utiliza el
+Micromodal como mencioné.
+
+00:26:02.250 --> 00:26:06.640
+Hay un enlace en la parte inferior con una
+descripción general del bloque de navegación.
+
+00:26:10.190 --> 00:26:14.050
+Espero que esta presentación
+te haya ayudado a considerar el momento adecuado
+
+00:26:14.050 --> 00:26:17.810
+para usar un diálogo y si
+y si realmente es la forma más efectiva
+
+00:26:17.810 --> 00:26:19.820
+de organizar el contenido de su sitio.
+
+00:26:21.500 --> 00:26:27.360
+No olvides contactarme en
+Twitter como @dcook (C-O-O-K)
+
+00:26:28.720 --> 00:26:34.480
+y comparte ejemplos de diálogos,
+ya sean buenos o malos,
+
+00:26:36.230 --> 00:26:37.460
+escríbeme.
+
+00:26:37.460 --> 00:26:38.480
+Gracias por invitarme hoy.
+
+00:26:39.850 --> 00:26:44.830
+Si tienen alguna pregunta en el
+chat, estaré encantado de responderla.
+
+00:26:46.739 --> 00:26:48.040
+Devin: Excelente.
+
+00:26:48.040 --> 00:26:49.170
+Gracias, Damon.
+
+00:26:49.170 --> 00:26:51.370
+Wow, información realmente útil.
+
+00:26:51.370 --> 00:26:53.200
+Gracias por compartir
+todo eso con nosotros.
+
+00:26:53.200 --> 00:26:55.490
+Son cosas muy valiosas
+que todos podemos aplicar.
+
+00:26:55.490 --> 00:27:00.350
+Personalmente, tengo que gestionar
+con cómo crear experiencias efectivas
+
+00:27:00.350 --> 00:27:02.850
+así casi todos los días.
+
+00:27:02.850 --> 00:27:05.780
+Si alguno de ustedes es como yo
+y empieza a revisar todo lo que mostró
+
+00:27:05.780 --> 00:27:09.190
+a Max y a mí: "Ay no,
+¿dejé algunos usuarios fuera
+
+00:27:09.190 --> 00:27:10.960
+en el último sitio web que creé?"
+
+00:27:12.880 --> 00:27:16.820
+Ese es el objetivo de estas
+presentaciones, de todo este evento
+
+00:27:16.820 --> 00:27:20.140
+la accesibilidad es un proceso,
+y todos estamos aprendiendo aquí
+
+00:27:20.140 --> 00:27:21.740
+sin importar nuestro nivel.
+
+00:27:22.990 --> 00:27:24.240
+De verdad, gracias.
+
+00:27:24.240 --> 00:27:25.970
+Tenemos algunas preguntas.
+
+00:27:25.970 --> 00:27:29.410
+La primera es de Joe Dolson:
+
+00:27:29.410 --> 00:27:32.830
+¿Conoces algún plugin de WordPress
+
+00:27:32.830 --> 00:27:36.380
+que cree un diálogo funcional?
+
+00:27:39.398 --> 00:27:42.630
+Damon: Desafortunadamente,
+no he investigado recientemente
+
+00:27:42.630 --> 00:27:46.400
+los plugins que proporcionan
+eso, así que no, no tengo una respuesta
+
+00:27:46.400 --> 00:27:49.630
+a eso, pero me encantaría
+seguirlo probablemente en Twitter
+
+00:27:49.630 --> 00:27:53.980
+porque me gustaría
+probar algunos plugins
+
+00:27:53.980 --> 00:27:56.520
+y ver cuáles
+lo hacen bien.
+
+00:27:57.743 --> 00:27:58.960
+Devin: Yo también.
+
+00:27:58.960 --> 00:28:02.960
+Y también me pregunto si hay
+bloques que lo hagan bien.
+
+00:28:04.750 --> 00:28:08.190
+Mira, hay otra
+pregunta de Curtis.
+
+00:28:08.190 --> 00:28:10.000
+Esta es buena.
+
+00:28:10.000 --> 00:28:17.490
+¿Hay pautas de WCAG específicas
+relacionadas con el comportamiento
+
+00:28:17.490 --> 00:28:20.010
+de modales y diálogos, o
+todo lo que hablaste
+
+00:28:20.010 --> 00:28:21.660
+aquí son solo buenas prácticas?
+
+00:28:24.554 --> 00:28:28.490
+Damon: Son buenas
+prácticas, pero también se relacionan
+
+00:28:28.490 --> 00:28:32.980
+con varias pautas clave de WCAG
+en torno a este tipo de widget de diálogo.
+
+00:28:36.124 --> 00:28:37.760
+Devin: Bien, genial.
+
+00:28:39.750 --> 00:28:40.530
+Veamos.
+
+00:28:40.530 --> 00:28:41.250
+Hay un par más.
+
+00:28:41.250 --> 00:28:46.890
+Amber comentó
+que Popup Maker hace un buen trabajo
+
+00:28:46.890 --> 00:28:48.990
+con diálogos.
+
+00:28:48.990 --> 00:28:50.350
+Damon: Oh, eso es bueno saberlo.
+
+00:28:51.430 --> 00:28:55.000
+Devin: Recibimos otra
+pregunta en el chat, de Darren
+
+00:28:55.000 --> 00:28:59.380
+dijo que en la
+charla sobre formularios accesibles de ayer, mencionaron
+
+00:28:59.380 --> 00:29:04.150
+que no deberías poner nada
+después del botón de enviar en un formulario,
+
+00:29:04.150 --> 00:29:07.060
+porque ese botón marca el final del formulario.
+
+00:29:07.060 --> 00:29:11.860
+¿Tienes algún comentario sobre eso
+en relación con los diálogos que mostraste?
+
+00:29:11.860 --> 00:29:15.130
+¿Los diálogos serían
+una excepción a eso?
+
+00:29:15.130 --> 00:29:17.210
+¿Qué opinas al respecto?
+
+00:29:17.210 --> 00:29:21.810
+Damon: No, Creo que
+sigue siendo válido como buena práctica
+
+00:29:21.810 --> 00:29:25.280
+incluso cuando el formulario
+existe en un diálogo.
+
+00:29:26.860 --> 00:29:28.280
+Yo creo que sí, definitivamente.
+
+00:29:28.280 --> 00:29:33.880
+El botón de enviar sería
+un buen punto final para la navegación por tabulación.
+
+00:29:35.410 --> 00:29:38.740
+Además,
+poder saltar hasta el cierre.
+
+00:29:38.740 --> 00:29:40.300
+Esa es una buena pregunta.
+
+00:29:40.300 --> 00:29:45.900
+Creo que probablemente se basará
+en el contexto y la preferencia
+
+00:29:45.900 --> 00:29:47.550
+en cierto modo.
+
+00:29:47.550 --> 00:29:50.910
+Especialmente si el formulario es muy
+largo, es posible que queramos llegar
+
+00:29:50.910 --> 00:29:53.580
+al botón cerrar rápido
+y dar la opción.
+
+00:29:55.480 --> 00:29:58.400
+Sí, ese botón de envío
+probablemente también sería clave.
+
+00:30:00.860 --> 00:30:02.280
+Devin: Estoy de acuerdo.
+
+00:30:02.280 --> 00:30:04.110
+Oh, están
+surgiendo más preguntas, genial.
+
+00:30:07.340 --> 00:30:09.470
+Pregunta de un usuario anónimo.
+
+00:30:09.470 --> 00:30:14.810
+Si un sitio tiene una ventana emergente de alerta
+que se utiliza durante una emergencia,
+
+00:30:14.810 --> 00:30:18.610
+cubre la página principal
+y tiene un botón para cerrar,
+
+00:30:18.610 --> 00:30:20.260
+¿alguna sugerencia sobre accesibilidad?
+
+00:30:23.098 --> 00:30:30.360
+Damon: Creo que existe
+un rol ARIA especial llamado alert-dialog,
+
+00:30:31.850 --> 00:30:38.080
+que también está contemplado
+en el paquete a11y-dialog.
+
+00:30:39.550 --> 00:30:43.370
+Creo que definitivamente hay
+algunas consideraciones adicionales
+
+00:30:43.370 --> 00:30:45.970
+en ese caso, porque querrás
+
+00:30:45.970 --> 00:30:51.690
+obtener información adicional
+sobre, si hay algún tiempo límite
+
+00:30:51.690 --> 00:30:58.550
+para realizar una acción, ya sea
+algo que... Si es un diálogo
+
+00:30:58.550 --> 00:31:00.930
+que aparecerá y luego
+desaparecerá después de cierto
+
+00:31:00.930 --> 00:31:05.780
+tiempo, mostrar esa información
+a los lectores de pantalla es clave
+
+00:31:05.780 --> 00:31:08.750
+para que todos sepan qué está
+pasando, si ese diálogo va
+
+00:31:08.750 --> 00:31:15.530
+ir y venir, y cuánto tiempo
+tienes que tomar en la acción.
+
+00:31:16.675 --> 00:31:22.940
+Devin: Si hay urgencia
+involucrada o si ese diálogo va
+
+00:31:22.940 --> 00:31:27.430
+afectar tu experiencia al
+regresar al sitio web, creo.
+
+00:31:28.840 --> 00:31:30.800
+Esa es una muy buena pregunta.
+
+00:31:30.800 --> 00:31:35.190
+Tenemos otra pregunta y
+voy a analizarla
+
+00:31:35.190 --> 00:31:36.790
+solo un poquito.
+
+00:31:36.790 --> 00:31:41.050
+¿Cuáles son algunos de los
+errores más grandes que cometen los desarrolladores con respecto
+
+00:31:41.050 --> 00:31:45.100
+a modales, diálogos y ventanas emergentes?
+
+00:31:45.100 --> 00:31:48.090
+Tengo un par
+en mente, pero ¿qué opinas
+
+00:31:48.090 --> 00:31:49.710
+de eso, Damon?
+
+00:31:50.174 --> 00:31:53.420
+Damon: Creo que los dos
+principales que mencioné
+
+00:31:53.420 --> 00:31:56.660
+si usar un botón
+o un enlace para activarlos.
+
+00:31:56.660 --> 00:32:00.870
+Creo que el botón suele
+ofrecer mucho más.
+
+00:32:02.240 --> 00:32:06.840
+Por lo general, es solo el caso de que un
+desarrollador no quiere eliminar los estilos
+
+00:32:06.840 --> 00:32:09.550
+del botón, lo cual es una lástima.
+
+00:32:09.550 --> 00:32:13.260
+Sí, normalmente un botón es la
+mejor opción en esos casos.
+
+00:32:13.260 --> 00:32:20.210
+Otra cosa que me viene a la mente es
+poner el foco dentro del modal
+
+00:32:20.210 --> 00:32:24.470
+muchas veces
+simplemente se saltan ese paso
+
+00:32:24.470 --> 00:32:27.950
+simplemente lo abren
+y dejan
+
+00:32:27.950 --> 00:32:31.220
+que pase lo que pase,
+pero eso es algo clave
+
+00:32:31.220 --> 00:32:32.710
+colocar el foco correctamente allí.
+
+00:32:33.752 --> 00:32:34.850
+Devin: Estoy totalmente de acuerdo.
+
+00:32:34.850 --> 00:32:37.619
+Otro error común que se me ocurre,
+
+00:32:37.620 --> 00:32:41.310
+especialmente con los
+modales de búsqueda.
+
+00:32:41.310 --> 00:32:44.400
+Si haces clic en la
+lupa de búsqueda y se abre
+
+00:32:44.400 --> 00:32:50.190
+un modal para la búsqueda, asegúrese
+de que el foco vaya a la búsqueda.
+
+00:32:50.526 --> 00:32:52.110
+Damon: Sí, definitivamente.
+
+00:32:53.905 --> 00:32:56.950
+Devin: Veamos, hay una
+buena pregunta de Amber aquí.
+
+00:32:56.950 --> 00:33:02.810
+¿Hay alguna consideración especial
+para los modales o ventanas emergentes en dispositivos móviles?
+
+00:33:02.810 --> 00:33:05.540
+O si una persona con baja visión
+está haciendo zoom
+
+00:33:05.540 --> 00:33:10.160
+a más del 200%
+en su computadora,
+
+00:33:10.160 --> 00:33:14.850
+¿Qué consideraciones
+deberíamos tener en cuenta?
+
+00:33:16.061 --> 00:33:17.160
+Damon: Sí,
+esa es una gran pregunta.
+
+00:33:18.296 --> 00:33:23.900
+Gran parte probablemente
+se aplique al estilo CSS
+
+00:33:23.900 --> 00:33:28.100
+y a tener en cuenta distintos
+tamaños de pantalla y tratar de hacer las cosas
+
+00:33:28.100 --> 00:33:34.360
+tan responsivas como sea posible, usando
+probablemente una tipografía fluida.
+
+00:33:37.990 --> 00:33:42.100
+Dicho esto,
+todo el tema del bloqueo de desplazamiento
+
+00:33:42.100 --> 00:33:48.020
+también entra en juego, en diferentes
+dispositivos no hay necesariamente
+
+00:33:48.020 --> 00:33:51.860
+un elemento de desplazamiento,
+sino un elemento táctil, así que
+
+00:33:51.860 --> 00:33:56.580
+aún la página de fondo pueda desplazarse
+suele ser algo que normalmente no quieres
+
+00:33:56.580 --> 00:34:00.300
+perder el contexto de
+dónde estás en la página
+
+00:34:00.300 --> 00:34:02.440
+en segundo plano versus
+donde te encuentras en la página
+
+00:34:02.440 --> 00:34:06.140
+en primer plano o el
+diálogo en primer plano.
+
+00:34:06.140 --> 00:34:11.350
+Mantener eso en todos los dispositivos,
+conservar ese contexto, es clave.
+
+00:34:13.468 --> 00:34:16.670
+Devin: ¿Te refieres a si estoy
+en mi teléfono o en un iPad
+
+00:34:16.670 --> 00:34:21.370
+y me he desplazado hasta la mitad de
+la página, y se abre un modal
+
+00:34:21.370 --> 00:34:23.780
+al cerrarlo
+no debería llevarme de vuelta
+
+00:34:23.780 --> 00:34:26.990
+al principio de la página o algo así,
+sino asegúrate de que vuelva de inmediato
+
+00:34:26.990 --> 00:34:29.140
+al mismo punto dónde estaba en la página?
+
+00:34:29.140 --> 00:34:29.760
+Damon: Sí, definitivamente.
+
+00:34:30.769 --> 00:34:32.380
+Devin: Muy buen punto.
+
+00:34:33.770 --> 00:34:34.460
+Veamos.
+
+00:34:34.460 --> 00:34:36.700
+Le daré solo un
+par de segundos más para ver
+
+00:34:36.700 --> 00:34:41.160
+si tenemos más
+preguntas, y si no,
+
+00:34:41.160 --> 00:34:44.500
+invitaremos a Amber
+para unas palabras de cierre.
+
+00:34:46.550 --> 00:34:49.750
+Solo para reintroducirlos,
+este es Damon Cook,
+
+00:34:49.750 --> 00:34:53.280
+promotor de desarrollo de WP Engine.
+
+00:34:53.280 --> 00:34:56.050
+Nuevamente, personalmente, mi
+proveedor de alojamiento favorito.
+
+00:34:56.050 --> 00:35:00.480
+Mi nombre es Devon Egger,
+desarrollador de software sénior en HDC
+
+00:35:00.480 --> 00:35:02.630
+y escritor en Master WP.
+
+00:35:02.630 --> 00:35:06.080
+Estás viendo la
+presentación final
+
+00:35:06.080 --> 00:35:10.100
+del Día de la Accesibilidad de WP 2022.
+
+00:35:11.710 --> 00:35:17.380
+Parece que ya no tenemos más preguntas.
+
+00:35:17.380 --> 00:35:21.030
+Supongo que Amber
+se unirá a nosotros en un momento.
+
+00:35:21.030 --> 00:35:21.970
+Ahí está.
+
+00:35:21.970 --> 00:35:23.990
+Amber Hinds: Hola.
+
+00:35:23.990 --> 00:35:25.720
+Esta fue una presentación fantástica.
+
+00:35:25.720 --> 00:35:29.050
+Muchas gracias, Damon,
+por tu excelente participación.
+
+00:35:29.050 --> 00:35:31.863
+He estado viendo cómo la cantidad de espectadores
+subía y subía sin parar.
+
+00:35:31.863 --> 00:35:33.310
+[risas]
+
+00:35:33.832 --> 00:35:38.210
+Un tema muy popular, muy importante,
+aunque a veces complicado de hacer bien.
+
+00:35:38.210 --> 00:35:39.120
+Damon: Sí, definitivamente.
+
+00:35:39.738 --> 00:35:40.351
+Amber: Sí.
+
+00:35:42.300 --> 00:35:45.930
+Creo que ahora sí,
+me despido de todos ustedes
+
+00:35:45.930 --> 00:35:50.820
+Me quedaré un momento
+para hacer un breve cierre.
+
+00:35:50.820 --> 00:35:51.670
+Gracias a ambos.
+
+00:35:52.417 --> 00:35:52.984
+Damon: Gracias, Amber.
+
+00:35:52.984 --> 00:35:53.590
+Devin: Gracias.
+
+00:35:53.590 --> 00:35:54.260
+Damon: Gracias, Devin.

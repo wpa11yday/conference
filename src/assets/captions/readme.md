@@ -31,7 +31,7 @@ No translations yet.
 
 ## 2022
 
-2 completed translations.
+4 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 2. Selling Accessibility to Skeptical Clients
@@ -50,6 +50,7 @@ No translations yet.
 15. Beyond Colors and Captions: How to Provide More Inclusive Accessibility
 16. Digital Accessibility Testing: How to Get It Right
 17. Accessibility of common Gutenberg blocks
+	- Spanish; Misael Rivero
 18. Inclusive Coding and Design
 19. Accessibility Testing in the CI/CD process
 	- Spanish; Luz Zuniga
@@ -59,13 +60,15 @@ No translations yet.
 22. Boost up conversions with accessible e-commerce
 23. Lightning Talks: Round 4
 24. Dialogs, Modals, and Popups
+	- Spanish; Deb Ermel
 
 ## 2023
 
-46 completed translations.
+47 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
+	- Spanish; Amalia Llarín
 	- French; Lair François-Xavier
 3. Accessibility Beyond Blindness
 	- Spanish; Diana Córdoba

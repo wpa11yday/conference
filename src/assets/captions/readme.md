@@ -31,7 +31,7 @@ No translations yet.
 
 ## 2022
 
-4 completed translations.
+5 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 2. Selling Accessibility to Skeptical Clients
@@ -49,6 +49,7 @@ No translations yet.
 14. Overlays Underwhelm
 15. Beyond Colors and Captions: How to Provide More Inclusive Accessibility
 16. Digital Accessibility Testing: How to Get It Right
+	- Spanish; Daynel Chavez
 17. Accessibility of common Gutenberg blocks
 	- Spanish; Misael Rivero
 18. Inclusive Coding and Design

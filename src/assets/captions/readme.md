@@ -31,12 +31,13 @@ No translations yet.
 
 ## 2022
 
-4 completed translations.
+6 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 2. Selling Accessibility to Skeptical Clients
 3. Lightning Talks: Round 1
 4. Form Accessibility and Beyond
+	- Spanish; Andy Amado
 5. Proof: Accessible websites can be beautiful too
 6. Growing Accessibility in Our WordPress Community
 7. Think smart and adapt: meeting WCAG 2 without rebuilding from scratch
@@ -49,6 +50,7 @@ No translations yet.
 14. Overlays Underwhelm
 15. Beyond Colors and Captions: How to Provide More Inclusive Accessibility
 16. Digital Accessibility Testing: How to Get It Right
+	- Spanish; Jordan Gilavert
 17. Accessibility of common Gutenberg blocks
 	- Spanish; Misael Rivero
 18. Inclusive Coding and Design
@@ -143,7 +145,7 @@ No translations yet.
 
 ## 2024
 
-34 completed translations.
+36 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -201,6 +203,7 @@ No translations yet.
 23. How to Design and Implement Accessible Cards
 	- Spanish; Luz Zuniga
 	- German; Sylvia Egger
+	- Norwegian; Lena Marie Gjerald
 	- Portuguese; Melissa Antunes
 24. Creating Inclusive Experience with WooCommerce
 25. Maintaining Your Site’s Accessibility Well After Launch

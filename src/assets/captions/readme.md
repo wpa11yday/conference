@@ -49,7 +49,7 @@ No translations yet.
 14. Overlays Underwhelm
 15. Beyond Colors and Captions: How to Provide More Inclusive Accessibility
 16. Digital Accessibility Testing: How to Get It Right
-	- Spanish; Daynel Chavez
+	- Spanish; Jordan Gilavert
 17. Accessibility of common Gutenberg blocks
 	- Spanish; Misael Rivero
 18. Inclusive Coding and Design

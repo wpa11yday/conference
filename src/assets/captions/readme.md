@@ -31,7 +31,7 @@ No translations yet.
 
 ## 2022
 
-7 completed translations.
+8 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 2. Selling Accessibility to Skeptical Clients
@@ -44,6 +44,7 @@ No translations yet.
 8. Lightning Talks: Round 2
 9. Pssst, hey you! Not everyone likes videos!
 10. Developing Accessibility-First WordPress Themes
+	- Spanish; Luz Zuniga
 11. Accessibility is a partnership that requires communication
 12. Lightning Talks: Round 3
 13. The Alt Scene: When and How to Write Alternative Text

@@ -148,7 +148,7 @@ No translations yet.
 
 ## 2024
 
-37 completed translations.
+38 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -192,6 +192,7 @@ No translations yet.
 	- Spanish; Sidney del Rocio
 17. Same Editor, Same Language: How Gutenberg’s Accessibility Enhances Creativity and Inclusion
 	- Spanish; Estefani Pahola Suarez
+	- Portuguese; Keithy Caren
 18. Inclusive Design Strategies for WordPress Professionals
 	- Spanish; Andy Amado
 	- Portuguese; Keithy Caren

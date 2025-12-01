@@ -31,7 +31,7 @@ No translations yet.
 
 ## 2022
 
-6 completed translations.
+9 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 2. Selling Accessibility to Skeptical Clients
@@ -44,11 +44,13 @@ No translations yet.
 8. Lightning Talks: Round 2
 9. Pssst, hey you! Not everyone likes videos!
 10. Developing Accessibility-First WordPress Themes
+	- Spanish; Luz Zuniga
 11. Accessibility is a partnership that requires communication
 12. Lightning Talks: Round 3
 13. The Alt Scene: When and How to Write Alternative Text
 14. Overlays Underwhelm
 15. Beyond Colors and Captions: How to Provide More Inclusive Accessibility
+	- Spanish; Andy Amado
 16. Digital Accessibility Testing: How to Get It Right
 	- Spanish; Jordan Gilavert
 17. Accessibility of common Gutenberg blocks
@@ -60,13 +62,14 @@ No translations yet.
 	- Spanish; Diana Córdoba Gómez
 21. How we made Joomla 4 accessible
 22. Boost up conversions with accessible e-commerce
+	- Spanish; Amalia Llarín
 23. Lightning Talks: Round 4
 24. Dialogs, Modals, and Popups
 	- Spanish; Deb Ermel
 
 ## 2023
 
-47 completed translations.
+48 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -136,6 +139,7 @@ No translations yet.
 	- Malay; Nicolas Y Z W
 22. How to Code for Keyboard Access in WordPress
 	- Spanish; Debora Ermel
+	- Italian; Alessandra Vallera
 23. Building an Accessible Theme for Accessible First Sites
 	- Spanish; Debora Ermel
 	- French; Jb Audras
@@ -145,7 +149,7 @@ No translations yet.
 
 ## 2024
 
-36 completed translations.
+38 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -189,6 +193,7 @@ No translations yet.
 	- Spanish; Sidney del Rocio
 17. Same Editor, Same Language: How Gutenberg’s Accessibility Enhances Creativity and Inclusion
 	- Spanish; Estefani Pahola Suarez
+	- Portuguese; Keithy Caren
 18. Inclusive Design Strategies for WordPress Professionals
 	- Spanish; Andy Amado
 	- Portuguese; Keithy Caren
@@ -196,6 +201,7 @@ No translations yet.
 	- Spanish; Luz Zuniga
 	- Portuguese; Melissa Antunes
 20. Beyond Automation: Why Manual Accessibility Testing is Important
+	- German; Jennifer Wjertzoch
 	- Portuguese; Melissa Antunes
 21. Creating a Developer Culture of Accessibility
 22. How to Juggle Different Teams at Different Places in Their Accessibility Journey

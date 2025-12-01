@@ -1744,6 +1744,7 @@ function wpcs_get_languages( $lang = false ) {
 	$labels = array(
 		// $langcode => [English version, Native version].
 		'bg' => array( 'Bulgarian', 'Български' ),
+		'de' => array( 'German', 'Deutsch' ),
 		'en' => array( 'English', 'English' ),
 		'es' => array( 'Spanish', 'Español' ),
 		'fr' => array( 'French', 'Français' ),

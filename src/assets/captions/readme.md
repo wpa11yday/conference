@@ -31,7 +31,7 @@ No translations yet.
 
 ## 2022
 
-9 completed translations.
+10 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 2. Selling Accessibility to Skeptical Clients

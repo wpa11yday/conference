@@ -46,6 +46,7 @@ No translations yet.
 10. Developing Accessibility-First WordPress Themes
 	- Spanish; Luz Zuniga
 11. Accessibility is a partnership that requires communication
+	- Spanish; Andy Amado
 12. Lightning Talks: Round 3
 13. The Alt Scene: When and How to Write Alternative Text
 14. Overlays Underwhelm

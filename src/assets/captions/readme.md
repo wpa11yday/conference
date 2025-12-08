@@ -151,7 +151,7 @@ No translations yet.
 
 ## 2024
 
-38 completed translations.
+39 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -164,6 +164,7 @@ No translations yet.
   	- Spanish; Andy Amado
 5. Practical Text Accessibility Tips for Content Creators
 	- Spanish; Diana Córdoba Gómez
+	- German; Jennifer Wjertzoch
 	- Portuguese (Brazilian); Paloma Marques
 6. Accessibility Challenges with Single Page Applications
 	- Spanish; Diana Córdoba Gómez

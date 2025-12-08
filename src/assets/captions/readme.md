@@ -31,10 +31,11 @@ No translations yet.
 
 ## 2022
 
-10 completed translations.
+11 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 2. Selling Accessibility to Skeptical Clients
+	- Spanish; Deb Ermel
 3. Lightning Talks: Round 1
 4. Form Accessibility and Beyond
 	- Spanish; Andy Amado

@@ -1820,6 +1820,7 @@ function wpcs_get_video() {
 		$sign_src = ' data-youtube-sign-src="' . esc_attr( $sign_src ) . '"';
 	}
 	$holder = $sign_src ? '&lt;div class="holder">&lt;p>&lt;em>Space for positioning sign language player&lt;/em>&lt;/p>&lt;/div>' : '';
+	$vts    = ( current_user_can( 'edit_posts' ) &amp;&amp; 'vts' === $_GET['editor'] ) ? '&lt;div id="able-vts">&lt;/div>' : '';
 
 	return '
 	&lt;div class="wp-block-group alignwide wpad-video-player">
@@ -1831,6 +1832,7 @@ function wpcs_get_video() {
 			' . $holder . '
 		&lt;/div>
 		&lt;div id="able-player-transcript-' . get_the_ID() . '">&lt;/div>
+		' . $vts . '
 		&lt;div class="please-translate">
 			&lt;p>
 				' . $translate . '

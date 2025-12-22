@@ -1794,6 +1794,7 @@ function wpcs_get_video() {
 		$sign_src = ' data-youtube-sign-src="' . esc_attr( $sign_src ) . '"';
 	}
 	$holder = $sign_src ? '<div class="holder"><p><em>Space for positioning sign language player</em></p></div>' : '';
+	$vts    = ( current_user_can( 'edit_posts' ) && 'vts' === $_GET['editor'] ) ? '<div id="able-vts"></div>' : '';
 
 	return '
 	<div class="wp-block-group alignwide wpad-video-player">
@@ -1805,6 +1806,7 @@ function wpcs_get_video() {
 			' . $holder . '
 		</div>
 		<div id="able-player-transcript-' . get_the_ID() . '"></div>
+		' . $vts . '
 		<div class="please-translate">
 			<p>
 				' . $translate . '

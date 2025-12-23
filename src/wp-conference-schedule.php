@@ -2274,7 +2274,7 @@ function wpad_add_calendar_links( $session_id ) {
  * @param string $post_type Post type.
  */
 function wpad_add_custom_quick_edit( $field_name, $post_type ) {
-	if ( $field_name === 'conference_session_video' ) {
+	if ( 'conference_session_video' === $field_name ) {
 		?>
 		<fieldset class="inline-edit-col-right">
 			<div class="inline-edit-col">
@@ -2284,7 +2284,7 @@ function wpad_add_custom_quick_edit( $field_name, $post_type ) {
 		</fieldset>
 		<?php
 	}
-	if ( $field_name === 'conference_session_asl' ) {
+	if ( 'conference_session_asl' === $field_name ) {
 		?>
 		<fieldset class="inline-edit-col-right">
 			<div class="inline-edit-col">

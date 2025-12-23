@@ -485,6 +485,7 @@ class WPCS_Conference_Schedule {
 				$youtube = get_post_meta( $post_id, '_wpcs_youtube_id', true );
 				if ( $youtube ) {
 					echo '<span class="dashicons dashicons-yes" aria-hidden="true" aria-label="Yes"></span>';
+					echo '<span class="hidden id">' . esc_html( $youtube ) . '</span>';
 				}
 				break;
 
@@ -492,6 +493,7 @@ class WPCS_Conference_Schedule {
 				$asl = get_post_meta( $post_id, '_wpcs_asl_id', true );
 				if ( $asl ) {
 					echo '<span class="dashicons dashicons-yes" aria-hidden="true" aria-label="Yes"></span>';
+					echo '<span class="hidden id">' . esc_html( $asl ) . '</span>';
 				}
 				break;
 
@@ -1794,7 +1796,7 @@ function wpcs_get_video() {
 		$sign_src = ' data-youtube-sign-src="' . esc_attr( $sign_src ) . '"';
 	}
 	$holder = $sign_src ? '<div class="holder"><p><em>Space for positioning sign language player</em></p></div>' : '';
-	$vts    = ( current_user_can( 'edit_posts' ) && 'vts' === $_GET['editor'] ) ? '<div id="able-vts"></div>' : '';
+	$vts    = ( current_user_can( 'edit_posts' ) && isset( $_GET['editor'] ) && 'vts' === $_GET['editor'] ) ? '<div id="able-vts"></div>' : '';
 
 	return '
 	<div class="wp-block-group alignwide wpad-video-player">
@@ -2264,3 +2266,64 @@ function wpad_add_calendar_links( $session_id ) {
 
 	return $output;
 }
+
+/**
+ * Add custom box to Quick Edit.
+ *
+ * @param string $field_name Field name.
+ * @param string $post_type Post type.
+ */
+function wpad_add_custom_quick_edit( $field_name, $post_type ) {
+	if ( 'conference_session_video' === $field_name ) {
+		?>
+		<fieldset class="inline-edit-col-right">
+			<div class="inline-edit-col">
+				<label id="edit_youtube_id"><span class="title"><?php esc_html_e( 'YouTube ID', 'wpa-conference' ); ?></span></label>
+				<input type="text" id="edit_youtube_id" name="wpad_youtube_id" value="">
+			</div>
+		</fieldset>
+		<?php
+	}
+	if ( 'conference_session_asl' === $field_name ) {
+		?>
+		<fieldset class="inline-edit-col-right">
+			<div class="inline-edit-col">
+				<label id="edit_asl_id"><span class="title"><?php esc_html_e( 'ASL ID', 'wpa-conference' ); ?></span></label>
+				<input type="text" id="edit_youtube_id" name="wpad_asl_id" value="">
+			</div>
+		</fieldset>
+		<?php
+	}
+}
+add_action( 'quick_edit_custom_box', 'wpad_add_custom_quick_edit', 10, 2 );
+
+/**
+ * Save custom quick edit fields.
+ *
+ * @param int $post_id ID for current post.
+ */
+function wpad_save_custom_quick_edit( $post_id ) {
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+
+	if ( isset( $_POST['wpad_youtube_id'] ) ) {
+		update_post_meta( $post_id, '_wpcs_youtube_id', sanitize_text_field( $_POST['wpad_youtube_id'] ) );
+	}
+	if ( isset( $_POST['wpad_asl_id'] ) ) {
+		update_post_meta( $post_id, '_wpcs_asl_id', sanitize_text_field( $_POST['wpad_asl_id'] ) );
+	}
+}
+add_action( 'save_post', 'wpad_save_custom_quick_edit' );
+
+/**
+ * Enqueue custom scripts for saving quick edit fields.
+ *
+ * @param string $hook Hook for current post context.
+ */
+function wpad_enqueue_quickedit_scripts( $hook ) {
+	if ( 'edit.php' === $hook && isset( $_GET['post_type'] ) && 'wpcs_session' === $_GET['post_type'] ) {
+		wp_enqueue_script( 'wpad-quick-edit', plugins_url( 'assets/js/admin-edit.js', __FILE__ ), false, null, true );
+	}
+}
+add_action( 'admin_enqueue_scripts', 'wpad_enqueue_quickedit_scripts' );

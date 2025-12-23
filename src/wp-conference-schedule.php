@@ -1796,7 +1796,7 @@ function wpcs_get_video() {
 		$sign_src = ' data-youtube-sign-src="' . esc_attr( $sign_src ) . '"';
 	}
 	$holder = $sign_src ? '<div class="holder"><p><em>Space for positioning sign language player</em></p></div>' : '';
-	$vts    = ( current_user_can( 'edit_posts' ) && 'vts' === $_GET['editor'] ) ? '<div id="able-vts"></div>' : '';
+	$vts    = ( current_user_can( 'edit_posts' ) && isset( $_GET['editor'] ) && 'vts' === $_GET['editor'] ) ? '<div id="able-vts"></div>' : '';
 
 	return '
 	<div class="wp-block-group alignwide wpad-video-player">
@@ -2323,7 +2323,7 @@ add_action( 'save_post', 'wpad_save_custom_quick_edit' );
  */
 function wpad_enqueue_quickedit_scripts( $hook ) {
 	if ( 'edit.php' === $hook && isset( $_GET['post_type'] ) && 'wpcs_session' === $_GET['post_type'] ) {
-		wp_enqueue_script( 'wpad-quick-edit', plugins_url( '/assets/js/admin_edit.js', __FILE__ ), false, null, true );
+		wp_enqueue_script( 'wpad-quick-edit', plugins_url( 'assets/js/admin-edit.js', __FILE__ ), false, null, true );
 	}
 }
 add_action( 'admin_enqueue_scripts', 'wpad_enqueue_quickedit_scripts' );

@@ -31,7 +31,7 @@ No translations yet.
 
 ## 2022
 
-12 completed translations.
+13 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 2. Selling Accessibility to Skeptical Clients
@@ -52,6 +52,7 @@ No translations yet.
 12. Lightning Talks: Round 3
 13. The Alt Scene: When and How to Write Alternative Text
 14. Overlays Underwhelm
+	- Spanish; Jordan Gilavert
 15. Beyond Colors and Captions: How to Provide More Inclusive Accessibility
 	- Spanish; Andy Amado
 16. Digital Accessibility Testing: How to Get It Right

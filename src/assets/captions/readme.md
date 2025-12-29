@@ -31,7 +31,7 @@ No translations yet.
 
 ## 2022
 
-13 completed translations.
+14 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 2. Selling Accessibility to Skeptical Clients
@@ -65,6 +65,7 @@ No translations yet.
 20. Designing a webpage for the Institute for the Blind and Visually impaired
 	- Spanish; Diana Córdoba Gómez
 21. How we made Joomla 4 accessible
+	- Spanish; Andy Amado
 22. Boost up conversions with accessible e-commerce
 	- Spanish; Amalia Llarín
 23. Lightning Talks: Round 4

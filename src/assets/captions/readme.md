@@ -31,7 +31,7 @@ No translations yet.
 
 ## 2022
 
-14 completed translations.
+15 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 2. Selling Accessibility to Skeptical Clients
@@ -40,6 +40,7 @@ No translations yet.
 4. Form Accessibility and Beyond
 	- Spanish; Andy Amado
 5. Proof: Accessible websites can be beautiful too
+	- Spanish; Luz Zuniga
 6. Growing Accessibility in Our WordPress Community
 7. Think smart and adapt: meeting WCAG 2 without rebuilding from scratch
 8. Lightning Talks: Round 2

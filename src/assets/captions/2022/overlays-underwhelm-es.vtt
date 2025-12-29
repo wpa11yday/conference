@@ -1,0 +1,3079 @@
+﻿WEBVTT
+
+00:00:32.266 --> 00:00:35.400
+<v Carrie Dils> Bienvenidos al
+Día de la Accesibilidad de WordPress.
+
+00:00:35.400 --> 00:00:38.820
+Mi nombre es Carrie Dils y soy
+desarrolladora freelance de WordPress
+
+00:00:38.820 --> 00:00:41.920
+e instructora,
+y les agradezco que me acompañen
+
+00:00:41.920 --> 00:00:47.460
+en esta sesión de Superposiciones
+Decepcionantes con Adrian Roselli.
+
+00:00:47.460 --> 00:00:50.570
+Adrian ha escrito artículos
+para revistas especializadas, sitios web,
+
+00:00:50.570 --> 00:00:54.750
+y participó como autor
+y editor en cinco libros.
+
+00:00:54.750 --> 00:00:58.800
+En 1998, cofundó una
+empresa de consultoría de desarrollo de software
+
+00:00:58.800 --> 00:01:00.910
+antes de dirigirla a
+principios de 2016.
+
+00:01:02.550 --> 00:01:06.580
+Fue miembro del
+Grupo de Trabajo de la Plataforma Web del W3C,
+
+00:01:07.920 --> 00:01:15.370
+Grupo de Trabajo ARIA del W3C
+y Grupo de Trabajo de Accesibilidad del W3C.
+
+00:01:15.370 --> 00:01:19.910
+Algunos quizás reconozcan a Adrian de
+sus días ayudando a administrar evolt.org,
+
+00:01:19.910 --> 00:01:22.650
+una de las primeras comunidades
+para desarrolladores web.
+
+00:01:22.650 --> 00:01:26.920
+Adrian ha estado desarrollando
+para la Web desde 1993.
+
+00:01:26.920 --> 00:01:27.900
+¡Eso es genial!
+
+00:01:27.900 --> 00:01:29.460
+Me alegra tenerte aquí, Adrian.
+
+00:01:29.460 --> 00:01:33.520
+Si alguien tiene preguntas, no
+dude en dejarlas en la pestaña de Preguntas y respuestas
+
+00:01:33.520 --> 00:01:39.730
+de Slido, y pueden usar la
+sección de ideas para chatear con otros asistentes.
+
+00:01:39.730 --> 00:01:40.330
+Bienvenido, Adrian.
+
+00:01:41.702 --> 00:01:43.450
+<v Adrian Roselli> Hola.
+
+00:01:43.450 --> 00:01:44.538
+Gracias por invitarme.
+
+00:01:46.350 --> 00:01:47.720
+Supongo que voy a comenzar.
+
+00:01:47.720 --> 00:01:49.620
+De acuerdo, genial.
+
+00:01:49.620 --> 00:01:54.010
+El título de esta charla
+es Superposiciones Decepcionantes.
+
+00:01:54.010 --> 00:01:57.820
+Tenía el título, pero antes
+tenía el contenido, así que estoy intentando
+
+00:01:57.820 --> 00:02:01.990
+introducir este subtema
+en la charla a lo largo de la misma.
+
+00:02:01.990 --> 00:02:05.860
+Gracias a la magia del audio unidireccional
+no oiré tus gruñidos
+
+00:02:05.860 --> 00:02:06.860
+de desaprobación.
+
+00:02:08.330 --> 00:02:09.330
+Esto es algo bueno.
+
+00:02:10.780 --> 00:02:13.800
+Incluyo esta diapositiva para
+darles una idea mínima de
+
+00:02:13.800 --> 00:02:16.780
+que tengo algo de experiencia,
+aunque ya han escuchado mucho de esto.
+
+00:02:16.780 --> 00:02:18.490
+Quiero que mis argumentos
+se basen en el mérito,
+
+00:02:18.490 --> 00:02:22.240
+pero entiendo que quieren conocer
+mis habilidades, como libros de negocios, sitios web,
+
+00:02:22.240 --> 00:02:23.390
+artículos, y demás.
+
+00:02:23.390 --> 00:02:25.630
+Por supuesto, pueden buscarme
+para confirmar todo esto.
+
+00:02:27.250 --> 00:02:30.530
+Ahora, entremos en materia.
+Deberíamos considerar
+
+00:02:30.530 --> 00:02:33.290
+qué huecos
+están llenando las superposiciones de accesibilidad.
+
+00:02:33.290 --> 00:02:37.000
+La web ya tiene muchas
+características de accesibilidad incorporadas.
+
+00:02:37.000 --> 00:02:39.810
+Hay más herramientas y
+funciones disponibles para los desarrolladores
+
+00:02:39.810 --> 00:02:41.450
+y usuarios de las que habían antes.
+
+00:02:42.850 --> 00:02:48.660
+Al fin y al cabo, como dijo Tim Berners-Lee:
+«El B4520 te lleva más rápido
+
+00:02:48.660 --> 00:02:51.450
+y evita esa horrible
+rotonda a las afueras de Swindon.»
+
+00:02:53.020 --> 00:02:54.650
+También puede que tenga esa cita incorrecta.
+
+00:02:56.760 --> 00:03:00.040
+Primero preguntémonos,
+¿qué es una superposición?
+
+00:03:00.040 --> 00:03:03.270
+Una superposición es una herramienta que
+proporciona cierto grado de accesibilidad
+
+00:03:03.270 --> 00:03:07.590
+o una característica de usabilidad que puede no
+estar integrada en el sitio subyacente.
+
+00:03:07.590 --> 00:03:10.460
+A veces replica
+las funciones nativas y a veces ofrece
+
+00:03:10.460 --> 00:03:12.270
+alguna otra posibilidad.
+
+00:03:12.270 --> 00:03:15.150
+A menudo realiza el trabajo en el
+navegador del usuario final, confiando en
+
+00:03:15.150 --> 00:03:17.480
+que el ordenador de cada usuario
+replique el mismo trabajo
+
+00:03:17.480 --> 00:03:19.870
+que el ordenador de cualquier otro usuario.
+
+00:03:19.870 --> 00:03:23.240
+También se les puede denominar
+widgets, barras de herramientas o complementos.
+
+00:03:24.570 --> 00:03:27.410
+Existían muchas herramientas
+anteriores a las funciones nativas
+
+00:03:27.410 --> 00:03:30.000
+o que fueron creadas para
+llenar vacíos tecnológicos,
+
+00:03:30.000 --> 00:03:32.070
+incluyendo tecnología de asistencia.
+
+00:03:32.070 --> 00:03:34.990
+Es posible que algunas técnicas y
+estándares no se hayan definido
+
+00:03:34.990 --> 00:03:38.590
+o incluso soportado cuando
+se crearon estas herramientas.
+
+00:03:38.590 --> 00:03:41.700
+El riesgo reside en que estas herramientas
+requerían que los usuarios las aprendieran de nuevo
+
+00:03:41.700 --> 00:03:45.710
+para cada sitio con características que
+no se transferirían entre sitios.
+
+00:03:48.680 --> 00:03:50.740
+Esto podría ser confuso, espero que no.
+
+00:03:52.050 --> 00:03:54.060
+BrowseAloud es un buen ejemplo.
+
+00:03:54.060 --> 00:03:56.090
+Convierte el texto
+de una página en voz.
+
+00:03:56.090 --> 00:04:01.708
+IA: Cambiar región, Producto,
+Para educación, Leer y escribir
+
+00:04:02.309 --> 00:04:10.940
+EquatIO, Speechstream, WriQ,
+Fluency Tutor, OrbitNote.
+
+00:04:10.940 --> 00:04:13.186
+Para el trabajo, Read&amp;Write.
+
+00:04:14.330 --> 00:04:18.200
+<v Adrian> Esto, como puedes
+ver u oír, no ofrece ningún contexto
+
+00:04:18.200 --> 00:04:20.350
+de lo que se está
+leyendo, visible o no.
+
+00:04:20.350 --> 00:04:23.580
+Nunca tuvo la intención de
+replicar lectores de pantalla.
+
+00:04:23.580 --> 00:04:26.930
+En cambio, es similar a una función que se
+puede encontrar integrada en los navegadores actuales,
+
+00:04:26.930 --> 00:04:29.550
+como el Lector Inmersivo de Edge.
+
+00:04:29.550 --> 00:04:32.130
+BrowserAloud requiere un
+script integrado de terceros,
+
+00:04:32.130 --> 00:04:35.920
+y en 2018 fue brevemente
+hackeado para minar criptomonedas.
+
+00:04:37.572 --> 00:04:40.246
+Algunos widgets intentaron
+replicar funciones ya existentes
+
+00:04:40.247 --> 00:04:42.110
+en navegadores
+y sistemas operativos.
+
+00:04:42.110 --> 00:04:45.660
+Estos parámetros abarcaban desde el tamaño del texto
+hasta el contraste y la luminosidad,
+
+00:04:45.660 --> 00:04:48.980
+al control de movimiento e incluso
+al zoom y la ampliación.
+
+00:04:50.370 --> 00:04:53.220
+Este widget de ajuste de tamaño de texto
+muestra cómo pueden fallar,
+
+00:04:53.220 --> 00:04:55.610
+ya no está disponible en el sitio.
+
+00:04:55.610 --> 00:04:57.820
+Suponiendo que pudieras encontrarlo
+detrás de un icono de engranaje,
+
+00:04:57.820 --> 00:05:01.060
+el control solo aparecía cuando
+estabas en la parte superior de la página.
+
+00:05:01.060 --> 00:05:04.310
+El widget solo cambió el tamaño
+del contenido del artículo, no de los titulares,
+
+00:05:04.310 --> 00:05:06.630
+de la navegación, ni nada más.
+
+00:05:06.630 --> 00:05:09.220
+Dado que el contenido de ese artículo
+estaba fuera del área visible,
+
+00:05:09.220 --> 00:05:13.050
+también hizo casi imposible
+comparar las opciones de tamaño.
+
+00:05:13.050 --> 00:05:15.680
+No conserva el tamaño
+mientras se navega por el sitio
+
+00:05:15.680 --> 00:05:19.460
+ni cuando regresa al sitio,
+o incluso para los estilos de impresión.
+
+00:05:19.460 --> 00:05:22.520
+Las implementaciones mejoradas han mostrado
+a los usuarios cómo cambiar su navegador
+
+00:05:22.520 --> 00:05:25.030
+o sistemas operativos en su lugar.
+
+00:05:25.030 --> 00:05:28.020
+Sin embargo, esta podría ser una
+función provisional útil para medir
+
+00:05:28.020 --> 00:05:32.080
+si los usuarios escalan el texto con regularidad
+y tal vez ajusten esos valores predeterminados
+
+00:05:32.080 --> 00:05:33.460
+en el sitio como resultado.
+
+00:05:35.820 --> 00:05:38.740
+Algunos widgets existen porque
+no hay un equivalente nativo
+
+00:05:38.740 --> 00:05:43.260
+o las necesidades no están bien
+representadas en lo que existe.
+
+00:05:43.260 --> 00:05:46.150
+El éxito de esos widgets depende
+de lo bien que funcionen.
+
+00:05:47.920 --> 00:05:49.760
+Hand Talk es otro complemento.
+
+00:05:49.760 --> 00:05:53.770
+Se cargará un avatar animado
+para indicar el contenido de una página.
+
+00:05:53.770 --> 00:05:56.880
+Al igual que el ejemplo de conversión de texto a voz
+anterior, presenta el contenido
+
+00:05:56.880 --> 00:05:59.050
+de la página en lenguaje de señas.
+
+00:05:59.050 --> 00:06:01.061
+Todavía no puede ofrecer
+el mismo contexto
+
+00:06:01.062 --> 00:06:02.660
+para qué contenido está asociado
+
+00:06:02.660 --> 00:06:06.690
+con qué otro contenido, por lo que el
+usuario puede necesitar leer también.
+
+00:06:07.740 --> 00:06:11.070
+No investigué cuántos
+idiomas de señas admite.
+
+00:06:11.070 --> 00:06:13.328
+Hay que reconocer que
+no está deletreando todo lo que encuentra
+
+00:06:13.329 --> 00:06:17.050
+con los dedos, pero dejo que sea
+la audiencia quien juzgue su valor.
+
+00:06:19.960 --> 00:06:21.614
+La lista actual de
+proveedores de superposición
+
+00:06:21.615 --> 00:06:23.140
+no necesariamente está
+llenando estos espacios.
+
+00:06:23.140 --> 00:06:26.870
+Sin embargo, se están aprovechando de
+una falta general de comprensión
+
+00:06:26.870 --> 00:06:30.060
+de personas y necesidades,
+centrándose en vender soluciones rápidas
+
+00:06:30.060 --> 00:06:31.960
+a empresas en su lugar.
+
+00:06:31.960 --> 00:06:37.250
+Estas empresas incluyen AccessiBe,
+AccessiWay, Adally, AudioEye,
+
+00:06:37.250 --> 00:06:43.450
+(información confidencial), FACIL'iti, MaxAccess,
+Poloda AI, Purple Lens (información confidencial),
+
+00:06:43.450 --> 00:06:44.860
+y UserWay.
+
+00:06:44.860 --> 00:06:47.520
+También hay proveedores que
+comercializan algunos de estos productos bajo su propia marca.
+
+00:06:49.310 --> 00:06:52.090
+Las superposiciones tienden a
+exagerar sus capacidades.
+
+00:06:52.090 --> 00:06:54.860
+En las revisiones técnicas,
+su rendimiento es sistemáticamente inferior.
+
+00:06:56.700 --> 00:06:59.470
+Las herramientas automatizadas
+de prueba de accesibilidad no son perfectas,
+
+00:06:59.470 --> 00:07:01.140
+pero podemos usarlas
+para hacernos una idea de
+
+00:07:01.140 --> 00:07:05.490
+si una superposición ha mejorado o no
+el cumplimiento de WCAG de la página.
+
+00:07:05.490 --> 00:07:08.560
+Utilicé un verificador automático para
+comparar el número de errores antes
+
+00:07:08.560 --> 00:07:11.120
+y después de que se activó una superposición.
+
+00:07:11.120 --> 00:07:14.600
+La página tenía más
+errores WCAG detectables después.
+
+00:07:14.600 --> 00:07:16.870
+Los ejemplos que siguen
+tienen aproximadamente un año de antigüedad.
+
+00:07:16.870 --> 00:07:19.520
+Opté por no volver a realizar la prueba
+porque no tengo interés
+
+00:07:19.520 --> 00:07:21.510
+en proporcionar pruebas gratuitas.
+
+00:07:21.510 --> 00:07:24.970
+Además, estos proveedores afirmaban
+cumplir con WCAG cuando realicé las pruebas.
+
+00:07:24.970 --> 00:07:28.470
+Si estaban mintiendo entonces, no hay
+razón para suponer que dejarían de hacerlo ahora.
+
+00:07:30.380 --> 00:07:34.410
+El complemento de navegador Axe de Deque
+se enorgullece de no tener falsos positivos.
+
+00:07:34.410 --> 00:07:38.120
+Como resultado, puede ser más indulgente
+que lo que sería un probador humano.
+
+00:07:38.120 --> 00:07:41.230
+Tras ejecutar una superposición en la
+página del proveedor, el número
+
+00:07:41.230 --> 00:07:45.750
+de errores detectables identificados
+por Axe se triplicaron, de 4 a 12.
+
+00:07:47.310 --> 00:07:51.410
+Es menos probable que el complemento del kit
+de herramientas ARC de TPGI sea indulgente.
+
+00:07:51.410 --> 00:07:55.050
+Al probar la misma página, el
+número de errores detectables se duplicó,
+
+00:07:55.050 --> 00:07:58.060
+saltando de 19 a 38 cuando
+se activó la superposición.
+
+00:07:59.360 --> 00:08:04.330
+ARC también pasó de
+164 advertencias a 193.
+
+00:08:04.330 --> 00:08:06.680
+Esto no representa
+violaciones claras de las WCAG,
+
+00:08:06.680 --> 00:08:08.900
+sino que justifican algún
+tipo de prueba manual.
+
+00:08:10.590 --> 00:08:13.870
+El complemento de navegador WAVE checker de WebAIM
+no devolvió ninguna infracción
+
+00:08:13.870 --> 00:08:15.820
+sin la superposición activa.
+
+00:08:15.820 --> 00:08:19.370
+Después de que se activó la superposición,
+apareció una única violación de contraste.
+
+00:08:20.500 --> 00:08:23.290
+He escrito sobre mis preocupaciones sobre
+AccessiBe porque estaba suplantando a WAVE,
+
+00:08:23.290 --> 00:08:26.630
+aunque no puedo adentrarme en
+ese código para confirmarlo.
+
+00:08:26.630 --> 00:08:31.580
+WAVE se utilizó para mostrar un mensaje: "La
+integración de AccessiBe de terceros
+
+00:08:31.580 --> 00:08:36.290
+con el contenido de esta página puede modificarse
+temporalmente cuando WAVE esté activado,
+
+00:08:36.290 --> 00:08:38.380
+lo que provoca interferencias
+con la detección de WAVE
+
+00:08:38.380 --> 00:08:42.110
+de precisión, identificando
+problemas de accesibilidad y cumplimiento.”
+
+00:08:45.420 --> 00:08:49.070
+Sabemos que las herramientas automatizadas
+de prueba de accesibilidad solo identifican
+
+00:08:49.070 --> 00:08:51.320
+alrededor del 30% de los problemas.
+
+00:08:51.320 --> 00:08:53.950
+Ese número cambia en función de
+la complejidad y otros factores.
+
+00:08:54.960 --> 00:08:57.130
+Ese porcentaje del 30%
+reconoce que gran parte
+
+00:08:57.130 --> 00:09:01.270
+de WCAG requiere
+juicio humano basado en el contexto.
+
+00:09:01.270 --> 00:09:04.920
+Los proveedores de superposición afirman que
+pueden abordar el otro 70%.
+
+00:09:04.920 --> 00:09:06.590
+Esa es una afirmación audaz.
+
+00:09:06.590 --> 00:09:08.150
+También es fácil de refutar.
+
+00:09:10.210 --> 00:09:12.900
+El botón para detener las animaciones
+en esta superposición falla
+
+00:09:12.900 --> 00:09:15.640
+al detener el video de fondo
+que se reproduce automáticamente.
+
+00:09:15.640 --> 00:09:19.290
+Para mayor confusión, el botón
+solo cambia su nombre accesible
+
+00:09:19.290 --> 00:09:21.500
+al pulsar,
+no utiliza aria-press
+
+00:09:21.500 --> 00:09:22.970
+para indicar que ha sido activado.
+
+00:09:24.000 --> 00:09:27.420
+Ese breve destello que viste fue simplemente
+del video de YouTube en bucle.
+
+00:09:30.470 --> 00:09:33.490
+Probé la
+función de navegación por teclado de un proveedor,
+
+00:09:33.490 --> 00:09:38.820
+dado que su navegación no direccionada
+infringe la regla 1.4.13 sobre el contenido al pasar el cursor
+
+00:09:38.820 --> 00:09:41.910
+y 2.4.7 enfoque visible.
+
+00:09:41.910 --> 00:09:45.880
+Incluso después de activar la función,
+los estilos de enfoque siguen faltando.
+
+00:09:45.880 --> 00:09:49.280
+Finalmente,
+aparece un nuevo cuadro con enlaces diferentes.
+
+00:09:49.280 --> 00:09:50.580
+Ya estaba tocando mucho.
+
+00:09:50.580 --> 00:09:54.170
+Pasé por alto el elemento que
+mostraba las instrucciones.
+
+00:09:54.170 --> 00:09:58.000
+Para recalcar este punto,
+me deja atrapado en una trampa de teclado,
+
+00:09:58.000 --> 00:09:59.000
+y es una ventana emergente de cookies.
+
+00:10:02.720 --> 00:10:05.450
+No son solo las supuestas
+soluciones las que no funcionan.
+
+00:10:05.450 --> 00:10:08.370
+Las herramientas mismas
+presentan barreras.
+
+00:10:08.370 --> 00:10:11.370
+El botón en el
+video de fondo es un ejemplo.
+
+00:10:11.370 --> 00:10:14.370
+En otros casos,
+los usuarios de lectores de pantalla han indicado que oyen sonidos
+
+00:10:14.370 --> 00:10:16.690
+de la superposición sin ninguna
+explicación de lo que significan.
+
+00:10:17.700 --> 00:10:20.100
+Las herramientas ni siquiera
+impiden que sus propios clientes
+
+00:10:20.100 --> 00:10:21.980
+cometan nuevas violaciones de WCAG.
+
+00:10:23.400 --> 00:10:25.159
+Aquí, la superposición es muy alta,
+
+00:10:25.160 --> 00:10:27.600
+por lo que esta imagen captura
+cuatro pantallas completas.
+
+00:10:27.600 --> 00:10:31.900
+Muestra cómo el contraste de los
+controles es tan bajo que resulta difícil
+
+00:10:31.900 --> 00:10:35.850
+determinar si uno está activo
+o en qué grado lo está.
+
+00:10:35.850 --> 00:10:38.890
+Parte del texto y
+los iconos son ilegibles.
+
+00:10:38.890 --> 00:10:42.320
+El selector de idioma, que
+comete el pecado de internacionalización
+
+00:10:42.320 --> 00:10:46.030
+de usar indicadores para elegir el idioma,
+no proporciona atributos alternativos
+
+00:10:46.030 --> 00:10:47.680
+para esas banderas.
+
+00:10:47.680 --> 00:10:51.360
+La superposición infringe al menos
+tres criterios de conformidad de las WCAG
+
+00:10:51.360 --> 00:10:53.140
+a partir de apenas unos
+segundos de análisis.
+
+00:10:54.720 --> 00:10:56.850
+Esto se debe en parte a
+las opciones de configuración
+
+00:10:56.850 --> 00:10:59.410
+para el cliente superpuesto,
+no les impide
+
+00:10:59.410 --> 00:11:02.890
+por claramente no superan
+las comprobaciones de contraste.
+
+00:11:02.890 --> 00:11:06.040
+Aquí, el texto blanco sobre
+fondo rosa y blanco tiene una relación de contraste
+
+00:11:06.040 --> 00:11:07.870
+de 1.2 a 1.
+
+00:11:07.870 --> 00:11:10.630
+El proveedor de superposición permitió
+a su cliente hacer esto.
+
+00:11:13.670 --> 00:11:17.410
+Aquí podemos ver que el
+anillo de enfoque predeterminado del navegador está activo,
+
+00:11:17.410 --> 00:11:19.390
+pero luego la
+alerta del navegador que le solicita al usuario
+
+00:11:19.390 --> 00:11:21.950
+activar la superposición aparece.
+
+00:11:21.950 --> 00:11:25.590
+Si el usuario lo rechaza,
+ese anillo de enfoque se elimina de alguna manera.
+
+00:11:26.800 --> 00:11:30.790
+La única pista de que el foco está cambiando
+se encuentra en la barra de estado del navegador,
+
+00:11:30.790 --> 00:11:33.310
+o cuando la página finalmente
+salta para desplazarse hacia abajo.
+
+00:11:37.010 --> 00:11:40.840
+Aquí, navego por un sitio web de un proveedor de
+superposición y, mientras se cargaba la nueva página,
+
+00:11:40.840 --> 00:11:43.490
+mostró como si
+fuera a aparecer un modelo,
+
+00:11:43.490 --> 00:11:45.700
+y luego
+comienza a reproducirse un audio oculto.
+
+00:11:47.207 --> 00:11:47.960
+<v Ronnie> Hola.
+
+00:11:47.960 --> 00:11:51.990
+Soy Ronnie de AccessiBe,
+la solución ADA totalmente automatizada número uno
+
+00:11:51.990 --> 00:11:54.060
+y solución de cumplimiento de WCAG.
+
+00:11:54.060 --> 00:11:58.150
+En este vídeo, aprenderemos cómo
+la tecnología de AccessiBe, impulsada por IA, toma
+
+00:11:58.150 --> 00:12:02.910
+cualquier sitio web accesible y conforme
+a WCAG 2.1, ADA.
+
+00:12:03.723 --> 00:12:07.770
+<v Adrian> Podrías ver
+que hice clic en el gris
+
+00:12:07.770 --> 00:12:11.270
+con la esperanza de que tal vez
+desapareciera un modelo de video oculto.
+
+00:12:11.270 --> 00:12:14.150
+Me desplacé por la página
+buscando los controles del reproductor.
+
+00:12:14.150 --> 00:12:16.640
+También presioné la
+tecla escape.
+
+00:12:16.640 --> 00:12:21.100
+La página en sí es un buen ejemplo
+de una infracción de control de audio 1.4.2
+
+00:12:21.100 --> 00:12:25.530
+y 1.2.1 violación de pregrabación solo de audio y
+solo de video.
+
+00:12:27.960 --> 00:12:31.070
+Aquí hay un botón superpuesto
+con el icono de un barco de papel
+
+00:12:31.070 --> 00:12:35.720
+o un sombrero y el texto visible,
+accesibilidad personalizada.
+
+00:12:35.720 --> 00:12:39.620
+Las herramientas de desarrollo del navegador
+indicaron que tiene el foco, pero gracias
+
+00:12:39.620 --> 00:12:44.260
+a un esquema, no importante,
+no hay estilo visible.
+
+00:12:44.260 --> 00:12:47.133
+Eso es un
+fallo visible de enfoque 2.4.7.
+
+00:12:50.200 --> 00:12:53.340
+La imagen del icono del barco tiene texto alternativo.
+
+00:12:53.340 --> 00:12:55.730
+El texto alternativo no
+describe la imagen,
+
+00:12:55.730 --> 00:12:59.280
+en cambio dice administrar
+la configuración de pantalla.
+
+00:12:59.280 --> 00:13:02.590
+Eso me
+parece un fallo de contenido no textual 1.1.1.
+
+00:13:03.780 --> 00:13:05.910
+Esto hace que el
+nombre completo y accesible del botón sea el siguiente:
+
+00:13:07.080 --> 00:13:09.820
+"Administrar la configuración de pantalla
+Accesibilidad personalizada",
+
+00:13:11.324 --> 00:13:13.029
+pero el botón tiene una etiqueta ARIA,
+
+00:13:13.029 --> 00:13:15.995
+que dice "FACIL'iti: adapt display"
+
+00:13:16.880 --> 00:13:20.880
+lo cual sobrescribe el texto que podemos
+ver, que es una etiqueta 2.5.3.
+
+00:13:20.880 --> 00:13:21.880
+y fallo de nombre.
+
+00:13:22.730 --> 00:13:24.980
+Eso supone tres
+fallos de WCAG en el botón
+
+00:13:24.980 --> 00:13:28.620
+que activa las
+funciones de accesibilidad del proveedor de superposición.
+
+00:13:31.180 --> 00:13:33.810
+Los siguientes ejemplos
+son de AccessiBe.
+
+00:13:33.810 --> 00:13:37.110
+La razón por la que AccessiBe tiene mayor
+presencia en mis tweets y publicaciones es
+
+00:13:37.110 --> 00:13:39.960
+porque parece ser la que más ruido hace
+al usar su financiación de capital riesgo
+
+00:13:39.960 --> 00:13:41.870
+para promocionar su producto.
+
+00:13:41.870 --> 00:13:44.090
+AccessiBe tardó un año
+en actualizar los términos
+
+00:13:44.090 --> 00:13:46.350
+en su sitio después de que señalé estos.
+
+00:13:46.350 --> 00:13:48.690
+No tengo ni idea de qué términos están
+escritos en sus contratos,
+
+00:13:49.910 --> 00:13:53.900
+ciertamente no ahora, y esos
+contratos pueden mantener este lenguaje.
+
+00:13:53.900 --> 00:13:56.390
+Otros proveedores han hecho
+promesas de cumplimiento similares,
+
+00:13:56.390 --> 00:13:59.510
+y pueden haber plasmado de manera similar
+esas promesas en sus términos.
+
+00:14:00.870 --> 00:14:05.570
+Desde la página de inicio de AccessiBe,
+"¿AccessiBe me protege de demandas?"
+
+00:14:05.570 --> 00:14:06.420
+Absolutamente.
+
+00:14:06.420 --> 00:14:09.130
+AccessiBe convierte
+sitios web inaccesibles en WICAG
+
+00:14:09.130 --> 00:14:13.470
+y sitios web compatibles con la ADA, pero no
+solo eso, AccessiBe te ofrece
+
+00:14:13.470 --> 00:14:15.880
+con un
+paquete de apoyo legal en caso de que lo necesites
+
+00:14:15.880 --> 00:14:19.550
+para demostrar el cumplimiento de su sitio web con la ADA
+y lo guía a través del proceso.
+
+00:14:20.860 --> 00:14:23.970
+Otra de la
+página principal: ¿AccessiBe cubre
+
+00:14:23.970 --> 00:14:26.200
+con todos los requisitos de accesibilidad?
+
+00:14:26.200 --> 00:14:28.880
+Sí, signo de exclamación.
+
+00:14:28.880 --> 00:14:32.860
+AccessiBe cubre las WCAG,
+Pautas de Accesibilidad al Contenido Web,
+
+00:14:32.860 --> 00:14:37.940
+versión 2.1 en los
+criterios de éxito de nivel AA y en ciertas áreas,
+
+00:14:37.940 --> 00:14:39.760
+incluso nivel AAA.
+
+00:14:39.760 --> 00:14:42.260
+Esto va más allá
+de lo que exige la legislación.
+
+00:14:44.770 --> 00:14:46.860
+Pero eso es diferente
+de la página de términos
+
+00:14:46.860 --> 00:14:51.340
+y condiciones de AccesiBe
+capturada de diciembre de 2020.
+
+00:14:51.340 --> 00:14:54.790
+En esta sección, AccessiBe
+define la palabra "estándar"
+
+00:14:54.790 --> 00:14:59.640
+para referirse específicamente a "
+criterios de éxito del nivel AA de WCAG 2.1".
+
+00:15:01.860 --> 00:15:05.360
+Según los
+términos de AccessiBe, "La funcionalidad
+
+00:15:05.360 --> 00:15:08.220
+de los sistemas AccessiBe requiere
+que el sitio web del licenciatario
+
+00:15:08.220 --> 00:15:13.050
+en los que están integrados los
+sitios web, sea basados ​​únicamente en archivos HTML
+
+00:15:13.050 --> 00:15:16.860
+y etiquetas, y que el
+código fuente se escriba de acuerdo con
+
+00:15:16.860 --> 00:15:21.460
+al estándar del
+Consorcio World Wide Web, W3C,
+
+00:15:21.460 --> 00:15:24.540
+sin errores
+ni advertencias de validación
+
+00:15:24.540 --> 00:15:26.980
+en las inspecciones de solución de problemas del W3C.
+
+00:15:28.090 --> 00:15:30.790
+Tenga en cuenta que el licenciatario
+cambia a dicho sitio web
+
+00:15:30.790 --> 00:15:33.850
+y puede afectar la funcionalidad
+del servicio.
+
+00:15:33.850 --> 00:15:38.000
+A modo de ejemplo, los sistemas AccessiBe
+no admiten otros componentes
+
+00:15:38.000 --> 00:15:41.120
+como Canvas, Flash y/o SVG."
+
+00:15:43.760 --> 00:15:46.680
+En esencia, AccessiBe afirma
+que sus sitios web de clientes
+
+00:15:46.680 --> 00:15:50.770
+ya deben cumplir con el
+estándar, lo cual hemos confirmado.
+
+00:15:50.770 --> 00:15:56.520
+Está definido como WCAG 2.1 AA sin errores
+ni advertencias del validador.
+
+00:15:58.220 --> 00:16:01.640
+De nuevo, esencialmente el sitio
+debe cumplir con las WCAG para ajustarse
+
+00:16:01.640 --> 00:16:05.380
+a los términos de AccessiBe para
+un producto que garantiza
+
+00:16:05.380 --> 00:16:06.910
+que el sitio cumpla con WCAG.
+
+00:16:07.920 --> 00:16:11.550
+AccessiBe procede entonces a
+excluir archivos PDF, Flash y SVG,
+
+00:16:11.550 --> 00:16:16.090
+e incluso cualquier dispositivo móvil que no
+ejecute Android 8 o iOS 10.
+
+00:16:18.960 --> 00:16:22.430
+Para recordarles que AccessiBe no es
+el único que hace estas afirmaciones,
+
+00:16:22.430 --> 00:16:24.310
+aquí está el sitio de UserWay.
+
+00:16:24.310 --> 00:16:28.450
+Dice que hará que su sitio
+cumpla con la ADA, lo cual no es cierto.
+
+00:16:28.450 --> 00:16:31.380
+Se jacta de la falta
+de demandas que lo mencionen.
+
+00:16:31.380 --> 00:16:35.010
+Afirma tener una sólida reputación
+en la comunidad de personas con discapacidad.
+
+00:16:35.010 --> 00:16:38.480
+Hace alarde de sus capacidades en materia de privacidad
+y afirma que es seguro
+
+00:16:38.480 --> 00:16:40.410
+al no realizar un seguimiento de las personas
+con discapacidades.
+
+00:16:42.670 --> 00:16:44.750
+No tengo una
+suscripción a Lexus Nexus
+
+00:16:44.750 --> 00:16:47.670
+para confirmar
+la afirmación de UserWay sobre las demandas,
+
+00:16:47.670 --> 00:16:50.070
+pero sé que Yieldstreet
+no pudo usar UserWay
+
+00:16:50.070 --> 00:16:51.820
+para que se desestime su demanda.
+
+00:16:52.880 --> 00:16:57.170
+Sin embargo, puedo decir que muchas demandas
+no nombran al proveedor de la superposición.
+
+00:16:57.170 --> 00:16:59.500
+Muchos de estos proveedores afirman
+que pueden proteger a sus clientes
+
+00:16:59.500 --> 00:17:00.820
+de demandas.
+
+00:17:00.820 --> 00:17:02.989
+El director ejecutivo de AccessiBe incluso ha escrito
+
+00:17:02.989 --> 00:17:06.570
+"Nunca, ni una sola vez, se había
+topado con una empresa
+
+00:17:06.570 --> 00:17:11.330
+que fue demandada debido a
+AccessiBe." Sin embargo, en 2020,
+
+00:17:11.330 --> 00:17:15.840
+Más de 250 empresas fueron demandadas
+después de invertir en superposiciones.
+
+00:17:15.840 --> 00:17:19.650
+El ritmo de las demandas aumentó a casi
+una por día a finales de año.
+
+00:17:21.610 --> 00:17:23.010
+Aquí hay solo cinco ejemplos.
+
+00:17:23.010 --> 00:17:25.840
+Al menos uno de los cuales
+mencionó al proveedor por su nombre.
+
+00:17:25.840 --> 00:17:29.040
+Cuatro de ellos mencionaron AccessiBe
+a pesar de las afirmaciones de su CEO.
+
+00:17:30.160 --> 00:17:34.230
+Son Kolesar contra
+ByIt, LLC, Thomas Klaus
+
+00:17:34.230 --> 00:17:37.550
+y Robert Jahoda contra
+Upright Technologies, Blair
+
+00:17:37.550 --> 00:17:43.030
+Douglas contra Masterbuilt Manufacturing,
+LLC, Murphy contra Eyebobs, LLC,
+
+00:17:44.370 --> 00:17:49.430
+Fischler y otros contra Dorai Homes,
+y LightHouse y otros contra ADP.
+
+00:17:50.850 --> 00:17:55.650
+El caso LightHouse-ADP va
+más allá y afirma explícitamente que
+
+00:17:56.880 --> 00:18:00.250
+"A efectos del presente
+acuerdo, soluciones superpuestas
+
+00:18:00.250 --> 00:18:04.030
+como las que actualmente proporcionan
+empresas como AudioEye
+
+00:18:04.030 --> 00:18:08.090
+y AccessiBe no serán suficientes
+para lograr la accesibilidad.
+
+00:18:11.810 --> 00:18:14.760
+El caso de Eyebobs concluyó con
+un acuerdo en el que Eyebobs tendría que
+
+00:18:14.760 --> 00:18:17.800
+crear un equipo de accesibilidad,
+realizar una auditoría,
+
+00:18:17.800 --> 00:18:21.930
+adoptar una declaración de política,
+implementar una estrategia de accesibilidad
+
+00:18:21.930 --> 00:18:24.420
+y proporcionar capacitación en accesibilidad.
+
+00:18:24.420 --> 00:18:26.310
+La superposición no
+protegió a Eyebobs.
+
+00:18:27.760 --> 00:18:32.560
+WIRED publicó un artículo titulado «Esta
+empresa recurrió a la IA para su sitio web
+
+00:18:32.560 --> 00:18:33.560
+y acabó en los tribunales».
+
+00:18:34.560 --> 00:18:36.870
+Voy a leer un poco
+del artículo ahora.
+
+00:18:38.230 --> 00:18:40.520
+"En un comunicado,
+el jefe de Marketing de AccessiBe,
+
+00:18:40.520 --> 00:18:44.620
+Gil Magen dijo que la empresa
+había analizado el sitio web de Eyebobs
+
+00:18:44.620 --> 00:18:47.610
+y se constató que cumplía con
+los estándares de accesibilidad.
+
+00:18:47.610 --> 00:18:50.550
+AccessiBe ofrece a sus clientes
+asistencia en litigios,
+
+00:18:50.550 --> 00:18:53.310
+pero Eyebobs se negó,
+según el comunicado.
+
+00:18:53.310 --> 00:18:56.440
+En su propio comunicado, Eyebobs
+afirmó que AccessiBe no respondió
+
+00:18:56.440 --> 00:18:58.390
+al solicitar reuniones
+con sus abogados.
+
+00:18:59.920 --> 00:19:03.600
+"Eyebobs ya no trabaja con
+AccessiBe ni lo hará en el futuro."
+
+00:19:03.600 --> 00:19:04.760
+decía el comunicado.
+
+00:19:08.150 --> 00:19:10.990
+A veces, una empresa depende de
+la superposición como su única opción
+
+00:19:10.990 --> 00:19:13.990
+para que sea accesible a
+los clientes, pero ¿qué sucede
+
+00:19:13.990 --> 00:19:15.980
+cuando no se carga el script?
+
+00:19:15.980 --> 00:19:17.630
+Malwarebytes los bloquea.
+
+00:19:17.630 --> 00:19:19.290
+Los bloqueadores de anuncios los bloquean.
+
+00:19:19.290 --> 00:19:22.700
+La protección de privacidad mejorada de Firefox
+los bloquea.
+
+00:19:22.700 --> 00:19:25.910
+¿Qué sucede si el script tiene un
+error o los fragmentos de red fallan?
+
+00:19:25.910 --> 00:19:27.670
+¿Está el sitio "protegido"?
+
+00:19:29.030 --> 00:19:30.030
+¿Se está ayudando a los usuarios?
+
+00:19:32.310 --> 00:19:34.610
+Esta captura de pantalla de
+las herramientas para desarrolladores del navegador muestra
+
+00:19:34.610 --> 00:19:37.160
+que el
+script de superposición no se ha cargado.
+
+00:19:37.160 --> 00:19:40.180
+Peor aún, ese enlace de accesibilidad
+en el pie de página es solo un div.
+
+00:19:40.180 --> 00:19:42.310
+con un índice de tabulación y un botón.
+
+00:19:42.310 --> 00:19:43.820
+No hace nada más al hacer clic,
+
+00:19:43.821 --> 00:19:45.650
+porque se supone que
+el script de superposición
+
+00:19:45.650 --> 00:19:47.040
+lo reemplace con un control real.
+
+00:19:49.520 --> 00:19:52.430
+En el foro de Malwarebytes,
+un usuario preguntó si el script
+
+00:19:52.430 --> 00:19:55.240
+de un proveedor de superposición
+era un rastreador o no.
+
+00:19:55.240 --> 00:19:58.680
+El personal de Malwarebytes
+reconoció que había sido bloqueado.
+
+00:19:58.680 --> 00:20:02.800
+Hasta que el usuario formuló la pregunta,
+Malwarebytes había bloqueado la superposición
+
+00:20:02.800 --> 00:20:05.560
+para todos sus clientes
+durante potencialmente años.
+
+00:20:11.290 --> 00:20:14.040
+Las afirmaciones de que no existe
+riesgo para la privacidad son, en el mejor de los casos, espurias.
+
+00:20:15.060 --> 00:20:18.920
+La Evaluación de Impacto de la Protección de Datos
+(EIPD) es un proceso
+
+00:20:18.920 --> 00:20:23.290
+para ayudar a identificar y minimizar los
+riesgos de protección de datos de un proyecto.
+
+00:20:23.290 --> 00:20:26.480
+Debe realizar una evaluación de impacto relativa a la protección de datos (EIPD) para el tratamiento
+de información que probablemente sea confidencial.
+
+00:20:26.480 --> 00:20:29.400
+para generar un alto
+riesgo para las personas.
+
+00:20:29.400 --> 00:20:31.460
+Los proveedores no proporcionan uno.
+
+00:20:31.460 --> 00:20:36.010
+Como resultado, cualquier
+cumplimiento declarado del RGPD está en entredicho.
+
+00:20:36.010 --> 00:20:38.950
+Recuerda que estos
+scripts de superposición deben analizar todo el contenido
+
+00:20:38.950 --> 00:20:41.440
+en la página, esencialmente
+leyendo lo que estás navegando.
+
+00:20:42.520 --> 00:20:44.660
+Algunos de ellos conservan tu
+configuración de un sitio a otro
+
+00:20:44.660 --> 00:20:45.810
+mediante la configuración de cookies de seguimiento.
+
+00:20:47.430 --> 00:20:49.780
+Aquí, en un tuit,
+Léonie Watson demuestra
+
+00:20:49.780 --> 00:20:52.380
+con qué ligereza los proveedores
+tratan este cumplimiento.
+
+00:20:53.710 --> 00:20:56.710
+El tweet, "Hola, AccessiBe.
+
+00:20:56.710 --> 00:20:59.140
+Te he pedido
+una copia por mensaje directo y por teléfono
+
+00:20:59.140 --> 00:21:00.726
+de su
+Evaluación de Impacto de Protección de Datos
+
+00:21:00.726 --> 00:21:02.580
+y no has respondido.
+
+00:21:02.580 --> 00:21:05.580
+Dado que preguntar discretamente no ha
+funcionado, ahora pregunto abiertamente
+
+00:21:05.580 --> 00:21:09.780
+para que compartas tu DPIA ya que
+afirmas cumplir con el RGPD.
+
+00:21:09.780 --> 00:21:10.780
+Gracias."
+
+00:21:11.710 --> 00:21:15.430
+Preguntó el 1 de abril de 2021
+y aún no ha recibido respuesta
+
+00:21:15.430 --> 00:21:16.740
+y ha pasado más de un año.
+
+00:21:17.850 --> 00:21:20.350
+No soy abogado,
+pero esto podría ser una violación del RGPD.
+
+00:21:23.040 --> 00:21:27.080
+El sitio DSW utiliza
+superposición de asistencia redactada.
+
+00:21:27.080 --> 00:21:29.520
+Aunque en lugar de un
+icono de accesibilidad en la esquina,
+
+00:21:29.520 --> 00:21:33.325
+utiliza el texto
+"Habilitar accesibilidad"
+
+00:21:33.325 --> 00:21:36.499
+en gris sobre gris
+ubicado en el encabezado.
+
+00:21:36.500 --> 00:21:39.560
+Si bloquea las cookies de terceros,
+recibirá la siguiente alerta del navegador
+
+00:21:39.560 --> 00:21:40.600
+cuando intentas activarlo.
+
+00:21:41.790 --> 00:21:45.390
+Una página incrustada en
+A40.redacted.com dice
+
+00:21:45.390 --> 00:21:48.780
+La configuración de privacidad de tu navegador
+está impidiendo que el modo de accesibilidad
+
+00:21:48.780 --> 00:21:50.510
+permanezca habilitado.
+
+00:21:50.510 --> 00:21:54.360
+Intenta habilitar las cookies de terceros para
+asegurarte de recibir actualizaciones accesibles
+
+00:21:54.360 --> 00:21:55.360
+del sitio web.
+
+00:21:56.440 --> 00:21:58.800
+Esto presenta una falsa
+disyuntiva entre seguridad
+
+00:21:58.800 --> 00:22:01.990
+y lo que puede ser una
+experiencia más accesible.
+
+00:22:01.990 --> 00:22:04.750
+En ningún momento el usuario tiene
+la oportunidad de comprender
+
+00:22:04.750 --> 00:22:07.290
+cómo se utilizarán
+esas cookies de terceros,
+
+00:22:07.290 --> 00:22:08.690
+qué información se compartirá.
+
+00:22:10.140 --> 00:22:13.660
+Básicamente, un usuario tiene que revelar
+una discapacidad o necesidad de acceso
+
+00:22:13.660 --> 00:22:16.650
+sin ninguna indicación de cómo
+persistirá esa información.
+
+00:22:17.730 --> 00:22:19.780
+También es un recordatorio de que
+estos productos no fabrican
+
+00:22:19.780 --> 00:22:27.170
+un sitio más accesible, en cambio,
+estos productos hacen que su ordenador intente
+
+00:22:27.170 --> 00:22:28.540
+que un sitio funcione menos mal.
+
+00:22:31.130 --> 00:22:34.155
+En agosto de 2022, la
+Comisión Federal de Comercio anunció
+
+00:22:34.155 --> 00:22:37.456
+un aviso previo de propuesta
+de reglamentación para una regla
+
+00:22:37.456 --> 00:22:39.990
+sobre vigilancia comercial
+y seguridad de datos.
+
+00:22:40.940 --> 00:22:43.960
+Dejé el comentario específicamente
+sobre los datos de salud no sujetos a HIPAA
+
+00:22:43.960 --> 00:22:46.780
+a los que tienen
+acceso las superposiciones, junto con mi preocupación
+
+00:22:46.780 --> 00:22:49.170
+que pueden venderlo
+a intermediarios de datos.
+
+00:22:49.170 --> 00:22:54.850
+Dado que el 99,98 % de los estadounidenses pueden ser
+identificados a partir de un conjunto de datos anonimizado
+
+00:22:54.850 --> 00:22:59.320
+con solo 15 puntos de datos,
+esto debería ser una preocupación genuina.
+
+00:22:59.320 --> 00:23:01.580
+Espero que la FTC lo trate como tal.
+
+00:23:04.610 --> 00:23:07.930
+Los proveedores de superposiciones prometen demasiado
+en su marketing, haciendo afirmaciones
+
+00:23:07.930 --> 00:23:11.060
+sobre su utilidad y popularidad,
+pero sin cumplir con las expectativas.
+
+00:23:12.330 --> 00:23:16.090
+Estos proveedores se basan en una combinación
+de miedo, incertidumbre y duda.
+
+00:23:16.090 --> 00:23:20.210
+Saben cuántos propietarios de sitios web
+no entienden las leyes de accesibilidad.
+
+00:23:20.210 --> 00:23:22.660
+Incluso cuando los usuarios se quejan de los
+problemas con estos productos,
+
+00:23:22.660 --> 00:23:25.220
+los vendedores utilizan
+técnicas de manipulación para silenciarlos.
+
+00:23:26.660 --> 00:23:29.780
+Este es un anuncio de
+uno de los proveedores de superposición.
+
+00:23:29.780 --> 00:23:32.320
+Es una caricatura de un hombre frente a
+la computadora exclamando alegremente:
+
+00:23:32.320 --> 00:23:34.290
+"¡Finalmente, mi sitio web está en línea!"
+
+00:23:34.290 --> 00:23:37.320
+Dos hombres de traje aparecen repentinamente
+junto a él sosteniendo documentos legales,
+
+00:23:37.320 --> 00:23:38.810
+diciendo: "No tan rápido.
+
+00:23:38.810 --> 00:23:40.800
+Buen sitio web,
+pero no es accesible.
+
+00:23:40.800 --> 00:23:42.480
+Ha sido demandado."
+
+00:23:42.480 --> 00:23:45.450
+El dueño del sitio web, ahora llorando
+con las manos en alto, dice:
+
+00:23:45.450 --> 00:23:47.550
+"Estoy arruinado ahora, ¿para qué molestarse?"
+
+00:23:47.550 --> 00:23:50.560
+Al fondo, se puede
+ver a los dos hombres alejándose con bolsas
+
+00:23:50.560 --> 00:23:51.560
+de dinero.
+
+00:23:52.230 --> 00:23:55.760
+Los proveedores de superposiciones utilizan el miedo a
+las demandas para vender su producto,
+
+00:23:55.760 --> 00:23:57.600
+no hay deseo de ayudar a los usuarios.
+
+00:23:57.600 --> 00:24:00.620
+La caricatura tiene cuidado de no mostrar
+a las personas discapacitadas como los villanos,
+
+00:24:00.620 --> 00:24:02.440
+pero la implicación es clara.
+
+00:24:02.440 --> 00:24:05.550
+Las leyes que protegen
+a las personas con discapacidad te costarán dinero.
+
+00:24:05.550 --> 00:24:06.960
+a menos que pagues por
+la ayuda del proveedor.
+
+00:24:09.690 --> 00:24:14.050
+Un proveedor citó que a una
+"mayoría silenciosa" de usuarios
+
+00:24:14.050 --> 00:24:16.160
+les agrada el producto de superposición
+y que, como resultado,
+
+00:24:16.160 --> 00:24:19.960
+las quejas que aparecen
+en línea son solo excepciones.
+
+00:24:19.960 --> 00:24:20.580
+Aquí hay un tuit de
+
+00:24:20.580 --> 00:24:21.790
+Chancey Fleet.
+
+00:24:21.790 --> 00:24:24.790
+"Los fundadores de AccessiBe están
+interpretando la complacencia
+
+00:24:24.790 --> 00:24:29.090
+de clientes no discapacitados y el
+cansancio extremo de los usuarios discapacitados
+
+00:24:29.090 --> 00:24:33.510
+para significar que a una "mayoría silenciosa",
+en sus propias palabras, le agrada
+
+00:24:33.510 --> 00:24:36.720
+y disfruta de AccessiBe.
+
+00:24:36.720 --> 00:24:37.810
+¡Pues no nos callemos!
+
+00:24:39.220 --> 00:24:42.730
+Eso fue en respuesta a un tuit
+de Marco Salsiccia que dice:
+
+00:24:42.730 --> 00:24:45.420
+"Prácticamente, además de citar
+a su mayoría silenciosa de usuarios ciegos
+
+00:24:45.420 --> 00:24:49.670
+quienes aprueban y prueban su
+producto, me encontré con muchísimos problemas
+
+00:24:49.670 --> 00:24:51.960
+solo revisando sus
+sitios de ejemplo.
+
+00:24:51.960 --> 00:24:53.940
+No quería hacerles
+una auditoría totalmente gratuita
+
+00:24:53.940 --> 00:24:55.370
+de cuánto estaban haciendo mal.
+
+00:24:57.840 --> 00:25:01.100
+Además, estos proveedores tienen un
+historial de manipulación de opiniones en sitios web de reseñas,
+
+00:25:01.100 --> 00:25:03.870
+redes sociales y
+la web en general.
+
+00:25:03.870 --> 00:25:07.910
+El objetivo es asegurar
+que solo aparezca su mensaje,
+
+00:25:07.910 --> 00:25:11.050
+y tienen el dinero, las habilidades de SEO
+y la falta de integridad para hacerlo.
+
+00:25:12.180 --> 00:25:14.400
+Tengo enlaces a
+spam de Twitter, artículos de Medium,
+
+00:25:14.400 --> 00:25:17.600
+artículos promocionales pagados y
+sitios web del sector, reseñas dudosas
+
+00:25:17.600 --> 00:25:20.640
+en otras plataformas, incluso
+entradas de Wikipedia que fueron marcadas
+
+00:25:20.640 --> 00:25:23.110
+por los moderadores como spam.
+
+00:25:23.110 --> 00:25:25.460
+La imagen muestra un
+titular de WP Tavern,
+
+00:25:25.460 --> 00:25:30.680
+cuando a un proveedor se le
+eliminaron todas las reseñas falsas de su complemento.
+
+00:25:33.160 --> 00:25:36.130
+Además de las quejas individuales,
+ha habido cobertura de prensa
+
+00:25:36.130 --> 00:25:37.660
+a estas empresas.
+
+00:25:37.660 --> 00:25:40.420
+Usuarios con cierto prestigio en la
+comunidad de personas con discapacidad se han pronunciado
+
+00:25:40.420 --> 00:25:43.000
+acerca de fallos de superposición en general.
+
+00:25:43.000 --> 00:25:45.978
+Algunos usuarios están tan frustrados
+que comparten consejos y herramientas
+
+00:25:45.978 --> 00:25:47.350
+para bloquear superposiciones.
+
+00:25:47.350 --> 00:25:49.740
+Dos proveedores incluso han
+amenazado a los usuarios con demandas.
+
+00:25:51.640 --> 00:25:54.710
+NBC News publicó un artículo con
+el titular "Personas ciegas,
+
+00:25:54.710 --> 00:25:58.910
+activistas critican a empresa que afirma
+hacer que los sitios web cumplan con la ADA"
+
+00:25:59.970 --> 00:26:02.450
+Vice también publicó un
+artículo titulado "Personas
+
+00:26:02.450 --> 00:26:05.980
+con discapacidad dicen que esta herramienta de IA
+está empeorando la web para ellas"
+
+00:26:07.380 --> 00:26:10.030
+El New York Times publicó
+uno durante el verano,
+
+00:26:10.030 --> 00:26:13.090
+"Para los usuarios ciegos de Internet,
+la solución puede ser peor que los defectos"
+
+00:26:14.720 --> 00:26:18.210
+El podcast Mosen At Large dedicó
+un episodio completo a la pregunta
+
+00:26:18.210 --> 00:26:20.090
+del valor de las superposiciones.
+
+00:26:20.090 --> 00:26:24.100
+En el episodio 105 se preguntó: "¿Puede la IA
+hacer que la web sea totalmente accesible
+
+00:26:24.100 --> 00:26:27.270
+en pocos años,
+o podría empeorar las cosas?"
+
+00:26:28.310 --> 00:26:31.250
+Una parte del siguiente episodio
+se dedicó a más frustraciones
+
+00:26:31.250 --> 00:26:32.360
+de los usuarios.
+
+00:26:32.360 --> 00:26:34.900
+Otros podcasts de la comunidad
+también han hablado de estas herramientas.
+
+00:26:36.510 --> 00:26:39.610
+Algunos usuarios están tan frustrados
+que han escrito herramientas
+
+00:26:39.610 --> 00:26:41.400
+para bloquear superposiciones.
+
+00:26:41.400 --> 00:26:45.110
+Accessibegone proporciona instrucciones
+sobre cómo bloquear las superposiciones
+
+00:26:45.110 --> 00:26:48.150
+usando bloqueadores de anuncios o
+editando su archivo host.
+
+00:26:48.150 --> 00:26:51.970
+AccessiByeBye es una extensión de navegador
+para deshabilitar las superposiciones en el navegador.
+
+00:26:54.630 --> 00:26:57.360
+Una superposición ha
+optado por contraatacar.
+
+00:26:57.360 --> 00:27:01.010
+En abril de 2021, los abogados de FACIL'iti
+comenzaron a enviar cartas
+
+00:27:01.010 --> 00:27:02.840
+exigiendo la eliminación de cualquier crítica.
+
+00:27:03.880 --> 00:27:08.120
+Esta carta va dirigida a, probablemente
+me equivoque con el nombre aquí,
+
+00:27:08.120 --> 00:27:11.640
+pronunciación incorrecta, esta
+carta a Koena muestra dos tweets
+
+00:27:11.640 --> 00:27:12.640
+acerca de FACIL'iti.
+
+00:27:15.330 --> 00:27:19.070
+Koena se negó a cumplir con
+la solicitud y escribió explicando el motivo.
+
+00:27:19.070 --> 00:27:21.260
+Otro usuario discapacitado
+cuyo nombre no voy a mencionar aquí,
+
+00:27:21.260 --> 00:27:24.210
+pero he compartido su difícil situación en
+Twitter, fue citado a comparecer
+
+00:27:24.210 --> 00:27:25.510
+en la corte.
+
+00:27:25.510 --> 00:27:31.100
+FACIL'iti había solicitado 5.000 euros
+en concepto de daños y perjuicios, 55.000 en concepto de multas,
+
+00:27:31.100 --> 00:27:33.280
+y además cesar
+los comentarios que puedan
+
+00:27:33.280 --> 00:27:35.854
+"desacreditar la solución FACIL'iti."
+
+00:27:37.150 --> 00:27:38.750
+No se me ocurre una
+mejor manera de demostrar
+
+00:27:38.750 --> 00:27:42.520
+que su producto ayuda
+a los usuarios discapacitados en lugar de demandar a las personas discapacitadas
+
+00:27:42.520 --> 00:27:43.520
+quienes dicen lo contrario.
+
+00:27:45.530 --> 00:27:48.760
+Esa historia tuvo cierta repercusión
+en la prensa francesa, en Numerama
+
+00:27:48.760 --> 00:27:52.440
+con el titular traducido
+automáticamente, ¿FACIL'iti, la solución
+
+00:27:52.440 --> 00:27:55.030
+de inclusión en línea
+que rechaza las críticas?
+
+00:27:57.240 --> 00:28:00.390
+Otro proveedor de superposiciones amenazó con
+una demanda por críticas válidas,
+
+00:28:00.390 --> 00:28:02.690
+específicamente AudioEye.
+
+00:28:02.690 --> 00:28:05.430
+Puedes leer la
+carta de cese y desistimiento que me envió AudioEye,
+
+00:28:05.430 --> 00:28:11.950
+junto con mi respuesta en mi sitio,
+que creo que enlazo al final.
+
+00:28:14.740 --> 00:28:18.250
+Los proveedores de superposiciones también afirman
+que a las organizaciones les aman,
+
+00:28:18.250 --> 00:28:20.770
+pero
+las organizaciones comunitarias e industriales han sido claras
+
+00:28:20.771 --> 00:28:21.610
+en que no es así.
+
+00:28:23.530 --> 00:28:26.790
+La Federación Nacional de Ciegos
+tras aceptar a uno como patrocinador
+
+00:28:26.790 --> 00:28:30.260
+para su evento anual llegó al extremo
+no solo de prescindir del patrocinador,
+
+00:28:30.260 --> 00:28:34.250
+sino luego emitir una declaración
+refutando su propia existencia.
+
+00:28:34.250 --> 00:28:35.670
+Esta parte de la
+declaración me llamó la atención:
+
+00:28:36.890 --> 00:28:39.150
+"En particular,
+es la opinión del consejo
+
+00:28:39.150 --> 00:28:43.200
+que AccessiBe
+despide perentoria y desdeñosamente
+
+00:28:43.200 --> 00:28:46.560
+las preocupaciones que tienen las personas ciegas
+sobre sus productos y su enfoque
+
+00:28:46.560 --> 00:28:48.040
+a la accesibilidad.
+
+00:28:48.040 --> 00:28:51.750
+Los ciegos no serán
+apaciguados, intimidados ni comprados.
+
+00:28:51.750 --> 00:28:54.251
+Por lo tanto, la junta revocó
+el patrocinio de AccessiBe
+
+00:28:54.252 --> 00:28:57.340
+de la convención
+El 22 de junio de 2021."
+
+00:29:00.980 --> 00:29:03.670
+La Conferencia de Tecnología Asistida de CSUN
+tuvo brevemente una superposición
+
+00:29:03.670 --> 00:29:07.090
+en su sitio y fue recibido con
+una ira tan rápida y sonora
+
+00:29:07.090 --> 00:29:09.240
+que se descartó inmediatamente.
+
+00:29:09.240 --> 00:29:10.882
+Es muy posible
+que ya se haya implementado
+
+00:29:10.882 --> 00:29:12.280
+sin que nadie lo supiera,
+
+00:29:12.280 --> 00:29:16.070
+y basándonos en este tuit que
+dice: "La superposición de accesibilidad
+
+00:29:16.070 --> 00:29:16.830
+se ha eliminado.
+
+00:29:16.830 --> 00:29:18.890
+Se implementó
+sin nuestra aprobación.
+
+00:29:18.890 --> 00:29:21.720
+La Conferencia no avala
+este producto y pedimos disculpas
+
+00:29:21.720 --> 00:29:24.310
+por la situación,
+que ahora ha sido corregida."
+
+00:29:26.910 --> 00:29:30.380
+El Comité Olímpico creó
+el sitio web WeThe15 en un esfuerzo
+
+00:29:30.380 --> 00:29:34.390
+para promocionar los Juegos Paralímpicos,
+pero al hacerlo, utilizó una superposición.
+
+00:29:34.390 --> 00:29:37.100
+Tras las respuestas de los usuarios
+de la comunidad de personas con discapacidad,
+
+00:29:37.100 --> 00:29:39.640
+la superposición se eliminó
+en un par de días.
+
+00:29:39.640 --> 00:29:42.690
+Esa misma superposición sigue estando
+en el sitio web principal de los Juegos Olímpicos,
+
+00:29:42.690 --> 00:29:45.200
+lo cual podría deberse a la
+intensa promoción del proveedor
+
+00:29:45.200 --> 00:29:46.430
+en sus materiales de marketing.
+
+00:29:47.610 --> 00:29:51.920
+Uno de los tuits de WeThe15 en
+respuesta decía: "Gracias por avisarnos
+
+00:29:51.920 --> 00:29:53.110
+sobre de estos problemas.
+
+00:29:53.110 --> 00:29:56.020
+Nosotros también estamos decepcionados por
+no haber estado a la altura en esta área.
+
+00:29:56.020 --> 00:29:57.682
+Hemos reunido
+a algunos nuevos expertos
+
+00:29:57.683 --> 00:29:58.980
+quienes nos están ayudando a solucionar esto.
+
+00:29:58.980 --> 00:30:00.830
+Sería genial contar con
+su apoyo en el futuro
+
+00:30:00.830 --> 00:30:03.250
+para que la próxima iteración
+sea un éxito total."
+
+00:30:06.260 --> 00:30:08.930
+Muchos proveedores de superposiciones afirmaron
+que los detractores son realmente
+
+00:30:08.930 --> 00:30:11.370
+competidores frustrados.
+
+00:30:11.370 --> 00:30:12.950
+La
+hoja informativa de superposición desmiente eso.
+
+00:30:13.970 --> 00:30:17.360
+Más de 750 personas
+lo han firmado hasta ahora.
+
+00:30:17.360 --> 00:30:19.770
+Podrías firmarlo después de esta charla.
+
+00:30:19.770 --> 00:30:22.310
+Representan
+a los colaboradores de la especificación web,
+
+00:30:22.310 --> 00:30:26.080
+expertos internos en accesibilidad
+de empresas de educación superior,
+
+00:30:26.080 --> 00:30:29.710
+abogados para personas con discapacidad,
+contribuyentes a la tecnología de asistencia,
+
+00:30:29.710 --> 00:30:31.090
+y usuarios finales con discapacidades.
+
+00:30:32.350 --> 00:30:35.340
+Les recomiendo visitar el
+sitio web overlayfactsheet.com
+
+00:30:35.340 --> 00:30:38.760
+y leer la información
+y los enlaces que identifican las fortalezas
+
+00:30:38.760 --> 00:30:42.070
+y debilidades de
+los widgets de superposición y la reparación automatizada.
+
+00:30:42.070 --> 00:30:45.270
+También aborda
+cuestiones técnicas y de privacidad.
+
+00:30:45.270 --> 00:30:47.830
+Además de las firmas,
+hay declaraciones de los usuarios.
+
+00:30:50.360 --> 00:30:52.140
+Existe una
+organización profesional
+
+00:30:52.140 --> 00:30:54.730
+para
+profesionales de la accesibilidad digital:
+
+00:30:54.730 --> 00:30:58.120
+Asociación Internacional de
+Profesionales de la Accesibilidad, IAAP,
+
+00:30:59.600 --> 00:31:04.340
+es una división de G3ict, la
+Iniciativa Global para la Información Inclusiva
+
+00:31:04.340 --> 00:31:06.640
+y Tecnologías de la Comunicación.
+
+00:31:06.640 --> 00:31:08.450
+Permite la membresía
+para proveedores de superposiciones.
+
+00:31:09.510 --> 00:31:12.211
+Los proveedores de superposición luego personalizan
+sus materiales de marketing
+
+00:31:12.211 --> 00:31:13.572
+con el logotipo de IAAP.
+
+00:31:14.670 --> 00:31:17.530
+Del mismo modo,
+el W3C permite que cualquiera configure
+
+00:31:17.530 --> 00:31:19.190
+un grupo comunitario no afiliado.
+
+00:31:20.340 --> 00:31:23.690
+Los proveedores de superposiciones utilizan estos
+como fachadas de credibilidad.
+
+00:31:25.400 --> 00:31:29.030
+Algunas organizaciones muestran
+el logotipo de IAAP en su pie de página.
+
+00:31:29.030 --> 00:31:32.180
+UserWay y Max Access
+lo hacen utilizando el peso
+
+00:31:32.180 --> 00:31:34.620
+de profesionales de la accesibilidad
+como un impulso de marketing.
+
+00:31:35.720 --> 00:31:41.740
+Otros podrían recibir
+consideración promocional como lo hizo AudioEye
+
+00:31:41.740 --> 00:31:47.260
+cuando la IAAP tuiteó una publicación de AudioEye,
+una publicación que, incidentalmente, podría decirse que fue copiada
+
+00:31:47.260 --> 00:31:48.860
+de documentos W3C.
+
+00:31:50.670 --> 00:31:53.810
+Finalmente hubo algunas
+consecuencias para IAAP.
+
+00:31:53.810 --> 00:32:01.610
+El 17 de enero, hace unos meses,
+la IAAP prometió una respuesta "proactiva".
+
+00:32:01.610 --> 00:32:05.550
+a ese tweet y membresía de superposición,
+a pesar de que planteé la preocupación
+
+00:32:05.550 --> 00:32:09.190
+en septiembre junto con
+otros, en septiembre de 2021.
+
+00:32:10.260 --> 00:32:12.770
+Se generó una encuesta entre
+miembros y no miembros.
+
+00:32:12.770 --> 00:32:15.270
+Los resultados de esa encuesta
+se publicaron el viernes,
+
+00:32:15.270 --> 00:32:17.950
+25 de febrero de este año.
+
+00:32:17.950 --> 00:32:24.280
+De las 609 respuestas, 591,
+el 97% no eran proveedores de superposición.
+
+00:32:24.280 --> 00:32:30.000
+El 81% de ellos, 478 respuestas, afirman que
+no compiten con los proveedores de superposición.
+
+00:32:31.160 --> 00:32:37.340
+549 respuestas o el 90% dicen haber
+visto afirmaciones falsas de proveedores de superposiciones,
+
+00:32:37.340 --> 00:32:42.430
+y 533 respuestas, o el 86%
+cree que la IAAP debería comentar
+
+00:32:42.430 --> 00:32:44.710
+sobre afirmaciones de marketing en general.
+
+00:32:44.710 --> 00:32:49.040
+Además, el 90% (549 encuestados)
+cree que la IAAP debería pronunciarse al respecto.
+
+00:32:49.040 --> 00:32:51.400
+sobre afirmaciones de marketing
+de superposiciones específicamente.
+
+00:32:54.430 --> 00:32:57.690
+En mayo, representantes de
+UserWay y AudiEye propusieron
+
+00:32:57.690 --> 00:33:02.490
+un grupo comunitario de superposiciones al
+W3C y obtuvieron la aprobación por votación
+
+00:33:02.490 --> 00:33:05.820
+y solicitaron la participación
+en 12 horas.
+
+00:33:05.820 --> 00:33:09.180
+Al día siguiente se eliminó la solicitud
+de participación y permaneció inactiva.
+
+00:33:10.340 --> 00:33:14.640
+Casi un mes después, cambió
+su nombre a Accessibility at the Edge,
+
+00:33:14.640 --> 00:33:18.020
+y utilizó una interpretación novedosa
+de la computación en el borde para justificar
+
+00:33:18.020 --> 00:33:20.550
+y ofuscar su propósito.
+
+00:33:20.550 --> 00:33:23.960
+Dos meses después, volvió a publicar
+su llamado a la participación,
+
+00:33:23.960 --> 00:33:27.220
+esta vez presentándolo como un
+grupo comunitario de accesibilidad
+
+00:33:27.220 --> 00:33:31.610
+que casualmente incluye
+superposiciones, y por lo tanto
+
+00:33:31.610 --> 00:33:34.100
+aprobada por el W3C con éxito.
+
+00:33:35.920 --> 00:33:38.995
+Este grupo comunitario
+obtuvo entonces un espacio para sesiones separadas
+
+00:33:38.996 --> 00:33:40.800
+en la Sesión Plenaria Técnica del W3C
+
+00:33:40.800 --> 00:33:45.130
+y sesión del Comité Asesor o
+TPAC en septiembre.
+
+00:33:45.130 --> 00:33:48.270
+Allí, el director de operaciones de UserWay
+aprovechó tres oportunidades
+
+00:33:48.270 --> 00:33:51.290
+para promocionar su propio
+producto en esta sesión.
+
+00:33:51.290 --> 00:33:54.140
+Esto a pesar de que todos
+los asistentes, excepto uno
+
+00:33:54.140 --> 00:33:56.348
+de los
+grupos comunitarios invitados,
+
+00:33:56.349 --> 00:34:00.410
+expresaron su total oposición
+a las superposiciones durante una hora.
+
+00:34:03.190 --> 00:34:06.200
+Como hemos visto,
+las superposiciones no pueden hacer que tu sitio
+
+00:34:06.200 --> 00:34:07.620
+o tu marca mejore de la noche a la mañana.
+
+00:34:08.750 --> 00:34:12.110
+Para concluir esta charla, quiero
+repasar algunos pasos que puedes emprender
+
+00:34:12.110 --> 00:34:13.150
+sin superposiciones.
+
+00:34:14.900 --> 00:34:15.900
+Planifica con anticipación.
+
+00:34:17.530 --> 00:34:18.530
+Necesito un vaso de agua.
+
+00:34:21.860 --> 00:34:22.860
+Disculpen.
+
+00:34:23.940 --> 00:34:24.850
+Planifica con anticipación.
+
+00:34:24.850 --> 00:34:28.180
+Contrata a un consultor que tenga
+alguna experiencia en el sector.
+
+00:34:28.180 --> 00:34:31.600
+Pueden ayudarte a elegir un proveedor
+que priorice la accesibilidad
+
+00:34:31.600 --> 00:34:33.490
+y escriba eso en sus contratos.
+
+00:34:33.490 --> 00:34:36.910
+También pueden dirigirte a
+tecnologías que han sido verificadas.
+
+00:34:36.910 --> 00:34:39.870
+Algunas plataformas
+ya tienen funciones de accesibilidad.
+
+00:34:39.870 --> 00:34:45.350
+La última vez que revisé, WordPress ofrecía 114
+temas gratuitos con accesibilidad integrada,
+
+00:34:45.350 --> 00:34:47.460
+con una base de
+cumplimiento ya establecida.
+
+00:34:48.960 --> 00:34:55.310
+Algunos recursos en línea gratuitos, cuando
+crees contenido, utiliza esos recursos.
+
+00:34:55.310 --> 00:34:58.000
+Puede que tengan todo lo que
+necesitas para empezar.
+
+00:34:58.000 --> 00:35:00.680
+Incluso existe una herramienta gratuita para
+generar una declaración de accesibilidad
+
+00:35:00.680 --> 00:35:03.590
+para tu sitio web proporcionado
+por la propia organización
+
+00:35:03.590 --> 00:35:05.200
+que establece estándares de accesibilidad.
+
+00:35:07.290 --> 00:35:09.270
+¿Qué sucede si ya tienes un sitio?
+
+00:35:09.270 --> 00:35:12.260
+Puedes usar uno de los muchos
+comprobadores de accesibilidad automatizados y gratuitos
+
+00:35:12.260 --> 00:35:14.720
+en el mercado, suponiendo que
+no estés interesado en entrar
+
+00:35:14.720 --> 00:35:16.740
+en las propias herramientas del navegador.
+
+00:35:16.740 --> 00:35:21.920
+Está ARC, Axe, Lighthouse,
+WAVE y webhint entre otros.
+
+00:35:21.920 --> 00:35:25.300
+Si bien no detectarán todos
+los problemas, tal vez solo alrededor del 30%,
+
+00:35:25.300 --> 00:35:27.640
+al menos te darán
+una idea de en qué posición te encuentras.
+
+00:35:28.970 --> 00:35:31.180
+Donde haya lagunas, documéntalas.
+
+00:35:31.180 --> 00:35:33.900
+Identifica el problema y elabora
+un plan y un cronograma
+
+00:35:33.900 --> 00:35:35.300
+para abordarlos.
+
+00:35:35.300 --> 00:35:39.380
+Publica eso en su sitio cuando
+generes una declaración de accesibilidad.
+
+00:35:39.380 --> 00:35:42.100
+Siempre que te encuentres dentro de los
+plazos que has proporcionado, puedes elegir
+
+00:35:42.100 --> 00:35:45.060
+cuál será tu presupuesto
+para abordarlos,
+
+00:35:45.060 --> 00:35:46.720
+incluso si son solo $1,000 por año.
+
+00:35:49.520 --> 00:35:51.920
+Si te ves afectado por
+las superposiciones como consumidor,
+
+00:35:51.920 --> 00:35:53.930
+entonces puedes tomar alguna medida.
+
+00:35:53.930 --> 00:35:57.010
+En Estados Unidos, la
+Comisión Federal de Comercio tiene normas que regulan la publicidad.
+
+00:35:57.010 --> 00:36:01.930
+No debe ser engañosa, debe incluir
+evidencia y no puede ser injusta.
+
+00:36:01.930 --> 00:36:04.830
+Overlayfalseclaims.com
+proporciona ejemplos documentados
+
+00:36:04.830 --> 00:36:10.070
+de reclamaciones falsas de proveedores de superposiciones, junto
+con recursos para quejas de consumidores
+
+00:36:10.070 --> 00:36:14.250
+para los EE. UU., federal y estatal,
+Canadá y Nueva Zelanda.
+
+00:36:14.250 --> 00:36:17.890
+Puede utilizar la información allí para
+presentar una queja por publicidad engañosa.
+
+00:36:17.890 --> 00:36:21.520
+También puede acceder ahí para enviar
+información para presentar quejas
+
+00:36:21.520 --> 00:36:22.520
+en otros países.
+
+00:36:24.540 --> 00:36:26.860
+Para finalizar la sesión,
+he publicado enlaces a
+
+00:36:26.860 --> 00:36:30.050
+parte del material al que hice referencia
+a lo largo del día, está disponible,
+
+00:36:30.050 --> 00:36:34.740
+escaneando el código QR,
+no, apuntando en la dirección equivocada,
+
+00:36:34.740 --> 00:36:37.430
+escaneando el código QR
+de allí o yendo
+
+00:36:37.430 --> 00:36:47.439
+a la URL rosel.li/WPa11yDay-22
+
+00:36:48.540 --> 00:36:50.608
+Lo voy a decir de nuevo
+porque fue descuidado.
+
+00:36:51.276 --> 00:36:59.570
+Es rosel.li/WPa11yDay-22
+
+00:37:02.380 --> 00:37:02.890
+Eso es todo.
+
+00:37:02.890 --> 00:37:03.290
+Gracias.
+
+00:37:03.290 --> 00:37:05.750
+No duden en hacerme preguntas.
+
+00:37:05.750 --> 00:37:07.310
+Creo que terminé
+un poco antes.
+
+00:37:08.440 --> 00:37:09.440
+Raro.
+
+00:37:10.395 --> 00:37:13.470
+<v Carrie> Hola,
+muchas gracias, Adrian.
+
+00:37:13.470 --> 00:37:15.310
+Eso es fascinante.
+
+00:37:15.310 --> 00:37:17.286
+La verdad es que me siento un
+poco mal al oír
+
+00:37:17.287 --> 00:37:18.710
+acerca de algunas de esas prácticas.
+
+00:37:18.710 --> 00:37:21.150
+Gracias por educarnos.
+
+00:37:21.150 --> 00:37:24.450
+Nos están
+llegando algunas buenas preguntas.
+
+00:37:24.450 --> 00:37:27.230
+Al principio, mencionaste que
+podría usarse el redimensionador de texto
+
+00:37:27.230 --> 00:37:31.220
+para recopilar datos sobre cuántos
+usuarios desean fuentes más grandes.
+
+00:37:31.220 --> 00:37:35.390
+¿Has visto alguna vez datos sobre el uso
+de estas funciones como el cambio de tamaño de texto,
+
+00:37:35.390 --> 00:37:38.050
+contraste o alternancia del modo oscuro?
+
+00:37:38.050 --> 00:37:41.730
+No encuentro nada y, al buscar,
+sospecho que se necesita codificación personalizada,
+
+00:37:41.730 --> 00:37:42.730
+no vale la pena el esfuerzo.
+
+00:37:45.030 --> 00:37:50.530
+<v Adrian> He tenido un par de
+clientes que han puesto widgets.
+
+00:37:50.530 --> 00:37:53.094
+Crearon su propio
+widget para redimensionar texto,
+
+00:37:53.095 --> 00:37:54.900
+que fue el ejemplo que cité.
+
+00:37:54.900 --> 00:37:58.090
+Hicieron un seguimiento de la
+frecuencia con la que la gente lo usaba.
+
+00:37:58.090 --> 00:38:01.770
+Tomaron esa información y rápidamente
+descubrieron que su texto era demasiado pequeño,
+
+00:38:01.770 --> 00:38:03.340
+y lo corrigieron.
+
+00:38:03.340 --> 00:38:06.410
+En cuanto a las herramientas o scripts
+preexistentes que hacen eso,
+
+00:38:06.410 --> 00:38:11.090
+supongo que
+prácticamente tendrás que crear una solución personalizada para tu sitio.
+
+00:38:11.090 --> 00:38:12.983
+Ese podría ser un
+plugin de WordPress realmente útil
+
+00:38:12.984 --> 00:38:15.950
+para que alguien lo cree,
+solo digo.
+
+00:38:15.950 --> 00:38:16.569
+<v Carrie> Así es.
+
+00:38:18.520 --> 00:38:20.390
+Otra pregunta
+para usted sobre IAAP.
+
+00:38:21.600 --> 00:38:24.030
+¿Hay alguna novedad
+sobre si continuarán
+
+00:38:24.030 --> 00:38:27.740
+permitiendo que las empresas de superposición
+miembros, exploten eso
+
+00:38:27.740 --> 00:38:28.740
+para credibilidad?
+
+00:38:31.209 --> 00:38:33.240
+<v Adrian> Lo que me gusta de
+esa pregunta es que hay
+
+00:38:33.240 --> 00:38:35.180
+varias maneras diferentes
+de responder a eso.
+
+00:38:35.180 --> 00:38:40.760
+Creo que la explicación más sencilla es
+que la IAAP contrató a Ken Nakata,
+
+00:38:40.760 --> 00:38:44.800
+y Ken Nakata, creo que,
+para mejorar la accesibilidad,
+
+00:38:44.800 --> 00:38:52.060
+para recopilar información y comenzar
+a elaborar un marco preliminar
+
+00:38:52.060 --> 00:38:58.410
+para conocer las mejores prácticas sobre cómo
+deben comportarse los miembros en el mercado.
+
+00:38:58.410 --> 00:39:01.920
+Los proveedores de superposición también estaban incluidos,
+al igual que yo,
+
+00:39:01.920 --> 00:39:05.160
+y algunas personas que han
+criticado las superposiciones.
+
+00:39:05.160 --> 00:39:08.630
+Ken hizo un gran trabajo manteniéndonos
+separados unos de otros.
+
+00:39:08.630 --> 00:39:13.210
+¡Gracias, Ken!,
+pero eso aún está en fases iniciales,
+
+00:39:13.210 --> 00:39:18.140
+y no soy miembro de la IAAP,
+ni planeo serlo.
+
+00:39:18.140 --> 00:39:22.000
+No tengo información
+interna sobre dónde se encuentra
+
+00:39:22.000 --> 00:39:25.070
+en su
+proceso final de edición o aprobación.
+
+00:39:25.964 --> 00:39:26.780
+<v Carrie> Tiene sentido.
+
+00:39:26.780 --> 00:39:29.160
+¿Crees que esa fue una
+respuesta suficiente por su parte?
+
+00:39:29.160 --> 00:39:30.580
+¿O te hubiera gustado
+ver más?
+
+00:39:31.993 --> 00:39:37.880
+<v Adrian> Siento que me hubiera
+gustado ver más.
+
+00:39:37.880 --> 00:39:43.440
+Me hubiera gustado una postura más firme
+antes de permitir la membresía.
+
+00:39:44.460 --> 00:39:46.290
+Esa es solo mi opinión personal.
+
+00:39:46.290 --> 00:39:48.840
+Mi firme convicción, que
+es una cláusula que yo incluí allí
+
+00:39:48.840 --> 00:39:50.490
+debido a
+proveedores de superposición litigiosos.
+
+00:39:51.830 --> 00:39:52.830
+<v Carrie> Gracias.
+
+00:39:53.970 --> 00:39:54.620
+Veamos.
+
+00:39:54.620 --> 00:39:58.200
+AccessiBe ofrece pruebas de sitio ADA gratuitas.
+
+00:39:58.200 --> 00:40:00.220
+Asumo que no podemos
+confiar en esta prueba.
+
+00:40:00.220 --> 00:40:02.530
+¿Qué deberíamos usar
+para probar nuestros sitios?
+
+00:40:02.530 --> 00:40:05.550
+<v Adrian> Enumeré un
+montón hacia el final.
+
+00:40:06.730 --> 00:40:14.900
+Axe, webhint, ARC,
+ARC de TPGi, WAVE de WebAim.
+
+00:40:14.900 --> 00:40:18.990
+Todas son buenas herramientas que
+tienen cierta historia,
+
+00:40:18.990 --> 00:40:21.640
+y las empresas que
+las crearon tienen profesionales
+
+00:40:21.641 --> 00:40:23.930
+que han estado
+en ese espacio durante mucho tiempo.
+
+00:40:25.090 --> 00:40:28.810
+El problema con
+el propio comprobador de AccessiBe,
+
+00:40:28.810 --> 00:40:31.340
+porque he realizado una
+comparación, es que
+
+00:40:31.340 --> 00:40:39.800
+si encuentra problemas, no
+lo asociaría directamente a las funciones
+
+00:40:39.800 --> 00:40:41.500
+de su propio producto.
+
+00:40:41.500 --> 00:40:43.710
+Plantearon cuestiones que
+en realidad no son cuestiones.
+
+00:40:43.710 --> 00:40:46.140
+He documentado parte
+de eso en mi sitio web,
+
+00:40:46.140 --> 00:40:49.380
+y creo que parte de ello está
+vinculado a ese código QR,
+
+00:40:49.380 --> 00:40:51.600
+que creo que
+ya no se muestra.
+
+00:40:51.600 --> 00:40:54.650
+Hay
+información adicional allí.
+
+00:40:54.650 --> 00:40:57.510
+Estoy listo para responder
+algunas preguntas más.
+
+00:40:57.510 --> 00:40:58.950
+No quiero que nos pasemos del tiempo previsto.
+
+00:41:00.158 --> 00:41:00.440
+<v Carrie> Sí.
+
+00:41:00.440 --> 00:41:03.270
+Tenemos unos minutos,
+si no te importa estar otro rato conmigo.
+
+00:41:03.270 --> 00:41:04.120
+<v Adrian> Sí, encantado de hacerlo.
+
+00:41:04.120 --> 00:41:05.245
+<v Carrie> -la gente
+todavía tiene preguntas.
+
+00:41:06.790 --> 00:41:11.740
+¿Puedes explicar por qué
+había censurados en tu charla?
+
+00:41:11.740 --> 00:41:12.971
+<v Adrian> Oh, sí.
+
+00:41:13.850 --> 00:41:19.077
+Específicamente, había dos
+proveedores... bueno, en realidad tres,
+
+00:41:19.077 --> 00:41:23.927
+así que tuve que eliminar censurado
+y censurado, porque estaban censurados,
+
+00:41:23.928 --> 00:41:28.040
+así que opté por no dejarlos
+allí porque están censurados.
+
+00:41:28.040 --> 00:41:32.870
+Luego, el tercer proveedor
+apareció en una de las capturas de pantalla,
+
+00:41:32.870 --> 00:41:38.270
+y censurado tuvo algunos problemas
+con eso, así que lo censuré.
+
+00:41:40.698 --> 00:41:43.220
+<v Carrie> Son
+muchos marcadores.
+
+00:41:43.220 --> 00:41:43.835
+<v Adrian> Sí.
+
+00:41:43.835 --> 00:41:46.190
+<v Carrie> [ríe]
+
+00:41:46.190 --> 00:41:48.510
+<v Adrian> Por si nadie
+se dio cuenta, había una diapositiva completa,
+
+00:41:48.510 --> 00:41:51.150
+ahí es donde me enviaron
+una carta de cese y desistimiento
+
+00:41:51.150 --> 00:41:55.760
+por un bufete de abogados muy bien pagado,
+así que sí, soy ese.
+
+00:41:55.760 --> 00:41:59.080
+<v Carrie> Tengo muchas ganas de
+ver esas diapositivas.
+
+00:42:02.970 --> 00:42:08.440
+Si alguien tuviera, no
+sé, un cliente... o supongo
+
+00:42:08.440 --> 00:42:11.680
+si tuvieras a alguien interesado
+en usar una superposición
+
+00:42:11.680 --> 00:42:15.570
+y un consultor intentaba
+convencer a un cliente de que
+
+00:42:15.570 --> 00:42:19.710
+es una pésima idea,
+si tienes algún tipo de charla.
+
+00:42:19.710 --> 00:42:24.820
+¿Cómo podría un consultor
+describir eso a un cliente?
+
+00:42:26.144 --> 00:42:28.370
+<v Adrian> Podría describir
+el riesgo [interferencia]
+
+00:42:28.370 --> 00:42:30.340
+<v Carrie> Que
+no deberían usar la superposición.
+
+00:42:32.762 --> 00:42:35.520
+<v Adrian> Esto depende mucho
+de la persona con la que esté hablando.
+
+00:42:36.640 --> 00:42:39.300
+Los proveedores de superposiciones tienen un
+mensaje de marketing bastante claro
+
+00:42:39.300 --> 00:42:45.280
+donde están utilizando
+miedo, incertidumbre y duda,
+
+00:42:45.280 --> 00:42:47.130
+y todo se trata de
+la amenaza de una demanda.
+
+00:42:49.090 --> 00:42:51.560
+Si identifico que la persona
+con la que estoy hablando, simplemente está intentando
+
+00:42:51.560 --> 00:42:55.150
+evitar demandas,
+les explico lo fácil que es
+
+00:42:55.150 --> 00:42:58.920
+establecer un proceso
+para evitar la demanda.
+
+00:42:58.920 --> 00:43:03.420
+Con "esquivar" me refiero a hacer algunas
+comprobaciones, hacer algunas correcciones,
+
+00:43:03.420 --> 00:43:06.870
+documentar lo que tienes que hacer
+y hacerlo en el plazo que sea,
+
+00:43:06.870 --> 00:43:08.990
+siempre y cuando lo documente.
+
+00:43:08.990 --> 00:43:12.570
+Es sorprendentemente fácil
+evitar ser demandado.
+
+00:43:13.780 --> 00:43:18.420
+Es mucho más difícil revisar
+y corregir cada detalle.
+
+00:43:18.420 --> 00:43:22.140
+Léonie Watson lo ha dicho
+en varias ocasiones, lo cual es muy cierto.
+
+00:43:22.140 --> 00:43:25.950
+"No se trata de," y lo estoy
+parafraseando horriblemente,
+
+00:43:25.950 --> 00:43:27.900
+"No se trata de acertar
+en todo hoy,
+
+00:43:27.900 --> 00:43:29.850
+se trata simplemente de hacerlo
+mejor cada día."
+
+00:43:29.850 --> 00:43:32.200
+Un poco mejor cada día.
+
+00:43:32.200 --> 00:43:34.970
+Si una empresa está comprometida
+con ello y no lo tiene en cuenta
+
+00:43:34.970 --> 00:43:38.580
+como riesgo legal,
+generalmente estarán bien.
+
+00:43:38.580 --> 00:43:42.380
+Creo que mi cuarta diapositiva desde el final,
+que mencioné la entrada del blog,
+
+00:43:42.380 --> 00:43:45.970
+son cuatro puntos
+y estarás bien.
+
+00:43:45.970 --> 00:43:48.660
+Ese es el tipo de
+conversación que tengo con
+
+00:43:48.660 --> 00:43:52.370
+algunos clientes potencialmente preocupados.
+
+00:43:52.370 --> 00:43:53.420
+<v Carrie> Gracias.
+
+00:43:55.440 --> 00:43:57.630
+Aquí va una, una
+pregunta excelente: "Soy bastante nuevo
+
+00:43:57.630 --> 00:44:00.010
+en el concepto de superposiciones.
+
+00:44:00.010 --> 00:44:02.810
+¿Por qué esto terminó convirtiéndose en una
+tecnología en auge en primer lugar?
+
+00:44:02.810 --> 00:44:04.130
+¿Y fue útil alguna vez?"
+
+00:44:06.539 --> 00:44:08.110
+<v Adrian> Para responder
+a la segunda parte,
+
+00:44:08.110 --> 00:44:10.850
+la evidencia sugiere que
+nunca fueron útiles.
+
+00:44:10.850 --> 00:44:13.880
+Incluso retrocediendo 10 años a
+Browsealoud y algunos otros,
+
+00:44:13.880 --> 00:44:15.430
+no fueron útiles.
+
+00:44:15.430 --> 00:44:20.250
+Son una tecnología en auge
+simplemente porque alguien les creó
+
+00:44:20.250 --> 00:44:23.325
+un caso práctico sobre:
+​​"Esta la cantidad de personas discapacitadas que hay
+
+00:44:23.326 --> 00:44:24.350
+en el mundo,
+
+00:44:24.350 --> 00:44:26.840
+aquí hay todo un mercado
+al que podríamos acceder
+
+00:44:26.840 --> 00:44:29.690
+simplemente vendiendo este
+producto de superposición.
+
+00:44:29.690 --> 00:44:33.780
+Lo presentaremos como
+mitigación de riesgos legales."
+
+00:44:33.780 --> 00:44:34.650
+Eso es todo.
+
+00:44:34.650 --> 00:44:39.530
+No tenían la experiencia,
+no comprendían todos los aspectos
+
+00:44:39.530 --> 00:44:42.319
+de ello,
+lo cual es evidente en las herramientas,
+
+00:44:42.320 --> 00:44:44.410
+y consiguieron financiación de capital riesgo.
+
+00:44:44.410 --> 00:44:47.430
+Como sabemos,
+muchas empresas que están respaldadas
+
+00:44:47.430 --> 00:44:52.010
+por fondos de capital riesgo no están
+necesariamente completamente desarrollados.
+
+00:44:52.010 --> 00:44:55.440
+En muchos casos, siguen construyendo
+el avión mientras caen
+
+00:44:55.440 --> 00:44:56.580
+del cielo.
+
+00:44:56.580 --> 00:44:59.100
+Creo que ese es más o menos el
+escenario que estamos viendo aquí.
+
+00:44:59.100 --> 00:45:04.800
+Cuando se tiene una cultura de startup,
+el modelo de "moverse rápido y romper cosas"
+
+00:45:04.800 --> 00:45:10.080
+no se aplica al tipo de rigor
+necesario para tratar
+
+00:45:10.080 --> 00:45:11.240
+con humanos.
+
+00:45:11.240 --> 00:45:13.629
+La accesibilidad no es realmente
+un problema tecnológico,
+
+00:45:13.630 --> 00:45:14.680
+es un problema humano.
+
+00:45:15.840 --> 00:45:16.630
+Ahí es donde lo tenemos.
+
+00:45:17.915 --> 00:45:18.640
+<v Carrie> Tiene sentido.
+
+00:45:18.640 --> 00:45:19.640
+Gracias.
+
+00:45:20.460 --> 00:45:23.470
+Procederemos a finalizar.
+
+00:45:23.470 --> 00:45:25.720
+Muchas gracias, Adrian,
+por compartir tus conocimientos
+
+00:45:25.720 --> 00:45:27.660
+y tus diapositivas.
+
+00:45:27.660 --> 00:45:29.350
+Realmente lo disfruté.
+
+00:45:29.350 --> 00:45:33.060
+Gracias a todos los que se conectaron
+para asistir a esta sesión
+
+00:45:33.060 --> 00:45:34.480
+con Adrian Roselli.
+
+00:45:34.480 --> 00:45:37.310
+Puedes continuar la
+conversación en el chat
+
+00:45:37.310 --> 00:45:46.660
+o en las redes sociales usando el
+hashtag WPA11Day y WPAD2022.
+
+00:45:48.379 --> 00:45:50.290
+También les agradeceríamos mucho
+si pudieran ir a
+
+00:45:50.290 --> 00:45:54.790
+wpaccessibility.day/feedback
+
+00:45:55.030 --> 00:45:59.200
+y proporcionar comentarios anónimos a
+nuestros ponentes sobre la presentación.
+
+00:45:59.200 --> 00:46:03.360
+También puedes participar para ganar una
+camiseta genial gratis mientras estés allí.
+
+00:46:03.360 --> 00:46:04.310
+Mantente atento.
+
+00:46:04.310 --> 00:46:07.590
+A continuación, tenemos "Más allá de
+Colores y Captions:
+
+00:46:07.590 --> 00:46:11.390
+Cómo proporcionar
+una accesibilidad más inclusiva", y eso es
+
+00:46:11.390 --> 00:46:14.700
+con Bela Gaytan a las 5:00 UTC.
+
+00:46:14.700 --> 00:46:17.720
+Mientras esperas, no olvides
+visitar las páginas de nuestros patrocinadores
+
+00:46:17.720 --> 00:46:21.870
+para obtener fantásticos obsequios virtuales y tener
+la oportunidad de ganar grandes premios.
+
+00:46:21.870 --> 00:46:23.890
+Nos vemos
+aquí mismo después de la pausa.
+
+00:46:23.890 --> 00:46:24.350
+Gracias a todos.
+
+00:46:25.049 --> 00:46:25.628
+<v Adrian> Adiós.

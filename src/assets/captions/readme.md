@@ -31,7 +31,7 @@ No translations yet.
 
 ## 2022
 
-12 completed translations.
+16 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 2. Selling Accessibility to Skeptical Clients
@@ -40,8 +40,10 @@ No translations yet.
 4. Form Accessibility and Beyond
 	- Spanish; Andy Amado
 5. Proof: Accessible websites can be beautiful too
+	- Spanish; Luz Zuniga
 6. Growing Accessibility in Our WordPress Community
 7. Think smart and adapt: meeting WCAG 2 without rebuilding from scratch
+	- Spanish; Amalia Llarín
 8. Lightning Talks: Round 2
 9. Pssst, hey you! Not everyone likes videos!
 	- Spanish; Andy Amado
@@ -52,6 +54,7 @@ No translations yet.
 12. Lightning Talks: Round 3
 13. The Alt Scene: When and How to Write Alternative Text
 14. Overlays Underwhelm
+	- Spanish; Jordan Gilavert
 15. Beyond Colors and Captions: How to Provide More Inclusive Accessibility
 	- Spanish; Andy Amado
 16. Digital Accessibility Testing: How to Get It Right
@@ -64,6 +67,7 @@ No translations yet.
 20. Designing a webpage for the Institute for the Blind and Visually impaired
 	- Spanish; Diana Córdoba Gómez
 21. How we made Joomla 4 accessible
+	- Spanish; Andy Amado
 22. Boost up conversions with accessible e-commerce
 	- Spanish; Amalia Llarín
 23. Lightning Talks: Round 4
@@ -152,7 +156,7 @@ No translations yet.
 
 ## 2024
 
-39 completed translations.
+42 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -166,6 +170,7 @@ No translations yet.
 5. Practical Text Accessibility Tips for Content Creators
 	- Spanish; Diana Córdoba Gómez
 	- German; Jennifer Wjertzoch
+	- Norwegian; Lena Marie Gjerald
 	- Portuguese (Brazilian); Paloma Marques
 6. Accessibility Challenges with Single Page Applications
 	- Spanish; Diana Córdoba Gómez
@@ -190,9 +195,11 @@ No translations yet.
 	- Portuguese; Paloma Marques
 14. Accessible Design: WCAG or Trendy? No, WCAG AND Trendy!
 	- Spanish; Diana Córdoba Gómez
+ 	- German; Jennifer Wjertzoch
 	- Portuguese (Brazilian); Paloma Marques
 15. How to Read a VPAT and ACR
 	- Spanish; Andy Amado
+	- Portuguese; Paloma Marques
 16. WPAD Organizers: Ask Me Anything!
 	- Spanish; Sidney del Rocio
 17. Same Editor, Same Language: How Gutenberg’s Accessibility Enhances Creativity and Inclusion

@@ -34,6 +34,18 @@ Easily add a custom conference schedule or event schedule (in responsive table f
 
 == Changelog ==
 
+= 2.2.0 =
+
+* Incorporate captions & translations into packaged assets.
+* Add translation management.
+* Add VTS.
+* Add settings to publish videos.
+* Add add to calendar functions.
+* Add quick edit management of YouTube links.
+* Add indicators about YouTube, ASL, and slide status to sessions list.
+* Simplify session input to auto handle date & only enter time.
+* Misc. design tweaks.
+
 = 2.1.1 =
 
 * Add columns to sessions to check for slides and videos.

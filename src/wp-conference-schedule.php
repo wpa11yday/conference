@@ -9,7 +9,7 @@
  * Plugin Name:       Conference Schedule
  * Plugin URI:        https://wpaccessibility.day
  * Description:       Generates people, sponsor, donor, and session post types & displays schedule information.
- * Version:           2.1.1
+ * Version:           2.2.0
  * Author:            WP Accessibility Day
  * Author URI:        https://wpaccessibility.day
  * License:           GPL-2.0+
@@ -29,7 +29,7 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'WPCS_DIR', plugin_dir_path( __FILE__ ) );
 
 // Version.
-define( 'WPCS_VERSION', '2.1.1' );
+define( 'WPCS_VERSION', '2.2.0' );
 
 // Plugin File URL.
 define( 'PLUGIN_FILE_URL', __FILE__ );

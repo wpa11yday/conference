@@ -29,12 +29,11 @@ function wpcs_settings_init() {
 	// add setting whether registration is open.
 	add_settings_field( 'wpcs_registration_open', 'Registration open', 'wpcs_registration_open_cb', 'wpa-conference', 'wpcs_section_settings' );
 
-	// register videos published setting
+	// register videos published setting.
 	register_setting( 'wpa-conference', 'wpcs_videos_published' );
 
 	// add setting whether videos are published.
 	add_settings_field( 'wpcs_videos_published', 'Videos published', 'wpcs_videos_published_cb', 'wpa-conference', 'wpcs_section_settings' );
-
 
 	// register event start time.
 	register_setting( 'wpa-conference', 'wpad_start_time' );

@@ -26,8 +26,15 @@ function wpcs_settings_init() {
 	// register registration URL setting for "wpcs" page.
 	register_setting( 'wpa-conference', 'wpcs_registration_open' );
 
-	// register registration URL field in the "wpcs_section_info" section, inside the "wpcs" page.
+	// add setting whether registration is open.
 	add_settings_field( 'wpcs_registration_open', 'Registration open', 'wpcs_registration_open_cb', 'wpa-conference', 'wpcs_section_settings' );
+
+	// register videos published setting
+	register_setting( 'wpa-conference', 'wpcs_videos_published' );
+
+	// add setting whether videos are published.
+	add_settings_field( 'wpcs_videos_published', 'Videos published', 'wpcs_videos_published_cb', 'wpa-conference', 'wpcs_section_settings' );
+
 
 	// register event start time.
 	register_setting( 'wpa-conference', 'wpad_start_time' );
@@ -87,6 +94,17 @@ function wpcs_field_registration_cb() {
 function wpcs_registration_open_cb() {
 	?>
 	<input type="checkbox" id="wpcs_registration_open" name="wpcs_registration_open" value="true" <?php checked( get_option( 'wpcs_registration_open', '' ), 'true', true ); ?> /> <label for="wpcs_registration_open">Registration is currently open</label>
+	<?php
+}
+
+/**
+ * Field registration open callback.
+ *
+ * @return void
+ */
+function wpcs_videos_published_cb() {
+	?>
+	<input type="checkbox" id="wpcs_videos_published" name="wpcs_videos_published" value="true" <?php checked( get_option( 'wpcs_videos_published', '' ), 'true', true ); ?> /> <label for="wpcs_videos_published">Videos are published</label>
 	<?php
 }
 

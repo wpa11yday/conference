@@ -1806,6 +1806,9 @@ function wpcs_get_video() {
 			$vts = '<div id="able-vts"></div>';
 		}
 	}
+    if ( ! $show_videos ) {
+        return '';
+    }
 
 	return '
 	<div class="wp-block-group alignwide wpad-video-player">

@@ -1824,6 +1824,15 @@ function wpcs_get_video() {
 	$holder = $sign_src ? '&lt;div class="holder">&lt;p>&lt;em>Space for positioning sign language player&lt;/em>&lt;/p>&lt;/div>' : '';
 	$vts    = ( current_user_can( 'edit_posts' ) &amp;&amp; isset( $_GET['editor'] ) &amp;&amp; 'vts' === $_GET['editor'] ) ? '&lt;div id="able-vts">&lt;/div>' : '';
 
+	if ( 'true' === get_option( 'wpcs_videos_published' ) ) {
+		$show_videos = true;
+	} else {
+		$show_videos = ( current_user_can( 'edit_posts' ) ) ? true : false;
+		if ( $show_videos ) {
+			$vts = '&lt;div id="able-vts">&lt;/div>';
+		}
+	}
+
 	return '
 	&lt;div class="wp-block-group alignwide wpad-video-player">
 		&lt;h2>Session Video&lt;/h2>

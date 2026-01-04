@@ -34,6 +34,10 @@ Easily add a custom conference schedule or event schedule (in responsive table f
 
 == Changelog ==
 
+= 2.2.1 =
+
+* Fix 2025 caption language keys.
+
 = 2.2.0 =
 
 * Incorporate captions & translations into packaged assets.

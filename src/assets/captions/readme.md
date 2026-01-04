@@ -225,3 +225,31 @@ No translations yet.
 24. Creating Inclusive Experience with WooCommerce
 25. Maintaining Your Site’s Accessibility Well After Launch
   	- Spanish; Luz Zuniga
+
+## 2025
+
+1. Opening Remarks
+2. Accessible Design Patterns for 2025
+3. Being a Colourblind Designer
+4. Typography, Readability and Digital Accessibility
+5. Reality Check: Building Accessibility that Works in the Global South
+6. Creating a Hyper-Accessible Website for Blind, Low Vision, and Sighted Users
+7. Audio Accessibility in WordPress
+8. Accessibility Lawsuits and WordPress: The Violations Every Business Needs to Know
+9. Why Accessibility Matters: From a Blind-Visually Impaired Perspective
+10. Continuous AI for Accessibility: Leveraging Tools for Faster, More Inclusive Development
+11. Make All WordPress Events Accessible
+12. Auditing WordPress Plugin Accessibility: A Practical Journey from Code to Compliance
+13. Demystifying Screen Readers: Your Guided Intro to Manual Accessibility Testing for WordPress Sites
+14. Technical Checklist: Testing WordPress Themes and Plugins for Accessibility
+15. Auslan Accessibility in WordPress, Themes, and Plugins for the Whole Deaf Australian Community
+16. The Future is Automated: But Will it be Accessible?
+17. Making Gutenberg Blocks Accessible: Practical Techniques with AI and DevTools
+18. Real Inclusion: How to Run Insightful and Respectful User Testing with Disabled People
+19. Accessibility isn't Extra Work. It's Risk Management.
+20. The Art of Accessibility: Making Documents Delightfully Inclusive
+21. Invisible Until it Hurts: Rethinking Brand Design Through the Lens of Accessibility
+22. A "Game"-Changing Approach to Accessibility Education
+23. Build the Website with AI. But is it Accessible?
+24. Advancing Accessibility Through Community and Open Source
+25. Build for Everyone or Build for No One

@@ -1,0 +1,3699 @@
+﻿WEBVTT
+
+00:00:00.780 --> 00:00:02.630
+>> ANNOUNCER: Thank you to our sponsors.
+
+00:00:03.480 --> 00:00:05.849
+Platinum Sponsor, Gravity Forms.
+
+00:00:06.389 --> 00:00:10.140
+Build accessible, powerful WordPress forms
+with Gravity Forms,
+
+00:00:10.529 --> 00:00:14.669
+flexible tools for creators,
+developers, and teams of all sizes.
+
+00:00:15.630 --> 00:00:17.640
+Platinum Sponsor, WP Engine.
+
+00:00:18.149 --> 00:00:22.288
+WP Engine provides the most relied
+upon and trusted WordPress products
+
+00:00:22.289 --> 00:00:25.949
+for businesses, brands,
+and agencies of all sizes.
+
+00:00:26.910 --> 00:00:28.767
+Platinum Sponsor, Woo.
+
+00:00:29.129 --> 00:00:32.188
+WooCommerce is
+the open source e-commerce platform built
+
+00:00:32.189 --> 00:00:33.189
+on WordPress,
+
+00:00:33.390 --> 00:00:37.829
+helping merchants worldwide sell,
+manage, and grow their businesses.
+
+00:00:39.000 --> 00:00:41.909
+Gold Sponsors: Ally: Web Accessibility,
+
+00:00:42.630 --> 00:00:43.679
+Equalize Digital,
+
+00:00:43.740 --> 00:00:45.329
+Websites for Everyone,
+
+00:00:46.079 --> 00:00:47.079
+GoDaddy,
+
+00:00:47.460 --> 00:00:50.070
+GreenGeeks Web Hosting, Yoast.
+
+00:00:51.420 --> 00:00:53.520
+Silver Sponsors: Aardvark,
+
+00:00:53.909 --> 00:00:55.350
+CodeGeek, Your Vision,
+
+00:00:55.380 --> 00:00:56.729
+Our Talent, One Theme,
+
+00:00:57.359 --> 00:01:00.750
+Kinetic Iris, Kinsta, Pressable,
+
+00:01:01.259 --> 00:01:02.259
+Second Melody.
+
+00:01:03.449 --> 00:01:06.480
+Bronze Sponsors: 9 Planets Hosting,
+
+00:01:07.049 --> 00:01:08.049
+Engage,
+
+00:01:08.310 --> 00:01:15.171
+Draw Attention,, NerdPress,
+Osom Studio, OzeWAI,
+
+00:01:15.450 --> 00:01:17.970
+Australian Web Accessibility Initiative,
+
+00:01:18.750 --> 00:01:19.750
+Progress Planner,
+
+00:01:20.219 --> 00:01:21.390
+QualityLogic,
+
+00:01:21.929 --> 00:01:22.929
+Sharp,
+
+00:01:23.219 --> 00:01:24.900
+Simply Schedule Appointments,
+
+00:01:25.350 --> 00:01:29.277
+SiteGround, StellarWP, Termageddon,
+
+00:01:29.717 --> 00:01:30.717
+WebYes.
+
+00:01:33.121 --> 00:01:36.021
+>> JEREMY RIVERA: Welcome
+to WordPress Accessibility Day 2025.
+
+00:01:36.090 --> 00:01:39.810
+My name is Jeremy Rivera and I'm
+a developer advocate from Deque Systems.
+
+00:01:40.830 --> 00:01:44.101
+Thank you for joining us
+for The Art of Accessibility:
+
+00:01:44.490 --> 00:01:48.524
+Making Documents Delightfully Inclusive
+with Samantha Merrett.
+
+00:01:49.591 --> 00:01:52.681
+Samantha Merrett is
+a senior accessibility specialist
+
+00:01:52.711 --> 00:01:56.461
+at the UK Ministry of Justice
+with a strong background
+
+00:01:56.521 --> 00:01:59.011
+in digital accessibility
+across the public sector.
+
+00:02:00.000 --> 00:02:04.650
+Certified in core competencies
+and the accessible documents specialist
+
+00:02:04.651 --> 00:02:07.980
+by the International Association
+of Accessibility Professionals,
+
+00:02:08.551 --> 00:02:12.450
+and a career spanning roles
+in various UK government departments,
+
+00:02:12.871 --> 00:02:17.011
+Samantha has led initiatives to improve
+the accessibility of digital content,
+
+00:02:17.371 --> 00:02:19.321
+services, and communications.
+
+00:02:20.340 --> 00:02:25.470
+Her work includes remediating
+complex documents and delivering training
+
+00:02:25.471 --> 00:02:28.560
+on creative inclusion documents
+and presentations.
+
+00:02:29.881 --> 00:02:33.420
+She is also a passionate advocate
+for embedding accessibility
+
+00:02:33.510 --> 00:02:34.530
+from the outset,
+
+00:02:34.921 --> 00:02:37.830
+and she has contributed
+to community events
+
+00:02:37.890 --> 00:02:41.250
+such as the UK Cross-Government
+Accessibility Quarterly
+
+00:02:41.820 --> 00:02:46.141
+and is a frequent speaker on topics
+ranging from hosting accessible events
+
+00:02:46.471 --> 00:02:48.481
+to inclusive content strategy.
+
+00:02:49.860 --> 00:02:53.310
+Please feel free to add
+your questions in the Zoom Q&A section
+
+00:02:53.520 --> 00:02:55.870
+and we'll answer them
+at the end of the session.
+
+00:02:55.981 --> 00:02:58.181
+Use the chat to connect
+with other attendees.
+
+00:03:00.351 --> 00:03:03.541
+>> SAMANTHA MERRETT: Thank you so much
+for choosing to join my session.
+
+00:03:03.541 --> 00:03:06.054
+This session is called
+The Art of Accessibility:
+
+00:03:06.104 --> 00:03:08.460
+Making Documents Delightfully Inclusive.
+
+00:03:08.990 --> 00:03:12.091
+My aim today is that you'll leave
+the session feeling like you know
+
+00:03:12.091 --> 00:03:14.371
+a little bit more
+about document accessibility
+
+00:03:14.700 --> 00:03:17.521
+and how you can make sure
+what you're creating is accessible
+
+00:03:17.521 --> 00:03:19.140
+for the majority of your users.
+
+00:03:22.352 --> 00:03:25.110
+The agenda for the session today,
+I always like to start
+
+00:03:25.111 --> 00:03:26.661
+off with a little bit about me.
+
+00:03:27.001 --> 00:03:30.421
+I always think it's nice when you join
+a session like this that you get to know
+
+00:03:30.421 --> 00:03:32.850
+a little bit about the presenter
+rather than diving straight
+
+00:03:32.850 --> 00:03:34.760
+into the content first of all.
+
+00:03:35.611 --> 00:03:38.310
+We're then going to talk about choosing
+the right document format,
+
+00:03:38.310 --> 00:03:39.389
+what that looks like,
+
+00:03:39.390 --> 00:03:42.181
+and why you might choose
+one format choice over another.
+
+00:03:43.531 --> 00:03:47.191
+I'll then take you through some top tips
+for creating wonderful Word documents
+
+00:03:47.191 --> 00:03:48.211
+that are accessible.
+
+00:03:49.141 --> 00:03:51.431
+We'll then move to look
+at polished presentations
+
+00:03:51.431 --> 00:03:55.230
+and consider how we can try
+to create accessible presentations,
+
+00:03:56.250 --> 00:03:59.490
+and then we'll finish with a look
+at Excel spreadsheets and spreadsheets
+
+00:03:59.490 --> 00:04:03.078
+in general, thinking about how we can make
+those excellent and accessible
+
+00:04:03.078 --> 00:04:04.496
+for our user base.
+
+00:04:05.940 --> 00:04:09.690
+I'll also include a disclaimer now
+that I do love dogs and I love an animal,
+
+00:04:09.931 --> 00:04:11.254
+so throughout the presentation,
+
+00:04:11.254 --> 00:04:13.470
+there are somewhat topical pictures
+of dogs
+
+00:04:13.471 --> 00:04:16.861
+which I will audio-describe
+so all of us can enjoy them together,
+
+00:04:17.100 --> 00:04:19.067
+but I wanted to forewarn you
+of that as we move
+
+00:04:19.067 --> 00:04:20.367
+through this presentation.
+
+00:04:23.600 --> 00:04:26.400
+As I said, I always think it's nice
+that you guys get to know me a little bit
+
+00:04:26.400 --> 00:04:28.850
+before I spend the next 40 minutes
+or so with you.
+
+00:04:29.721 --> 00:04:30.420
+Who am I?
+
+00:04:30.711 --> 00:04:32.361
+Well my name is Samantha Merrett.
+
+00:04:32.791 --> 00:04:36.509
+I'm a senior accessibility specialist
+and I work in the Ministry of Justice
+
+00:04:36.510 --> 00:04:37.510
+in the UK.
+
+00:04:37.850 --> 00:04:41.056
+I work
+in part of the Digital Accessibility Team.
+
+00:04:41.551 --> 00:04:45.719
+One of my main roles and responsibilities
+within that team is to build
+
+00:04:45.720 --> 00:04:48.091
+accessibility skills
+across the organization,
+
+00:04:48.661 --> 00:04:51.330
+so I do a lot of online
+and hands-on training to try
+
+00:04:51.331 --> 00:04:52.781
+and build up that capability.
+
+00:04:54.480 --> 00:04:55.801
+My pronouns are she/her.
+
+00:04:55.920 --> 00:04:57.552
+I'm a young woman in her 20s.
+
+00:04:57.810 --> 00:05:00.749
+I have blonde hair which is
+in a ponytail today and I'm wearing
+
+00:05:00.749 --> 00:05:01.800
+a pair of glasses.
+
+00:05:05.221 --> 00:05:07.681
+I always like to share a little bit more
+about myself to go
+
+00:05:07.681 --> 00:05:10.341
+just beyond the professional
+just so you can really get to know me
+
+00:05:10.341 --> 00:05:11.641
+and who I am as a person.
+
+00:05:12.660 --> 00:05:16.409
+I've got four different pictures
+on the slide that describe and attempt
+
+00:05:16.410 --> 00:05:17.580
+to sum me up really.
+
+00:05:18.740 --> 00:05:20.820
+Starting from the far left,
+we have my dog,
+
+00:05:20.820 --> 00:05:21.241
+Bella.
+
+00:05:21.630 --> 00:05:23.350
+My dog Bella is--
+
+00:05:23.980 --> 00:05:25.349
+she's the light of my life
+
+00:05:25.350 --> 00:05:27.500
+and she really does make me smile
+every day.
+
+00:05:27.870 --> 00:05:29.821
+She's a grey Staffordshire Bull Terrier.
+
+00:05:29.821 --> 00:05:34.050
+The picture is her lying on our sofa
+fast asleep and really sums up
+
+00:05:34.051 --> 00:05:36.151
+what she does on pretty much
+a daily basis.
+
+00:05:37.231 --> 00:05:40.469
+Moving across to the slide
+on the bottom of my slide,
+
+00:05:40.470 --> 00:05:43.619
+I've got
+pictures of different travel items.
+
+00:05:43.620 --> 00:05:46.561
+I've got a passport, a sun hat, a camera.
+
+00:05:47.011 --> 00:05:48.841
+This is representing my love for travel.
+
+00:05:48.841 --> 00:05:52.320
+I love to go all over the world
+and experience different people,
+
+00:05:52.321 --> 00:05:55.983
+different cultures and really immerse
+myself in other people's worlds.
+
+00:05:56.400 --> 00:05:58.950
+It's a big part of what I like to do away
+from work.
+
+00:06:00.381 --> 00:06:01.710
+In the top of my slide,
+
+00:06:01.951 --> 00:06:04.041
+I've got a picture
+of myself and my fiancĂ©,
+
+00:06:04.041 --> 00:06:05.041
+Liam.
+
+00:06:05.571 --> 00:06:07.739
+One of our happy places is Disneyland.
+
+00:06:07.740 --> 00:06:10.231
+We like to go there quite a bit,
+it's a really nice place for us
+
+00:06:10.231 --> 00:06:11.231
+to connect.
+
+00:06:11.430 --> 00:06:14.830
+Again, that picture is us standing
+in front of the Disneyland castle.
+
+00:06:15.630 --> 00:06:19.921
+Finally, I have a picture of a lady
+doing some yoga on a sunset or a sunrise.
+
+00:06:20.581 --> 00:06:22.920
+Again, yoga is a big part of my life.
+
+00:06:22.950 --> 00:06:26.219
+It really helps me disconnect
+from everything else and just focus
+
+00:06:26.220 --> 00:06:28.820
+on the mind and body
+for a very short period of time.
+
+00:06:29.371 --> 00:06:31.442
+That's a little bit
+about me, and hopefully,
+
+00:06:31.442 --> 00:06:35.042
+it gives you a flavor of who I am
+and where I'm coming to you from today.
+
+00:06:37.350 --> 00:06:40.170
+Let's not waste any more time
+because we don't have much time together,
+
+00:06:40.170 --> 00:06:42.570
+so let's focus on document accessibility.
+
+00:06:44.220 --> 00:06:46.081
+As I said in my agenda,
+we're going to start
+
+00:06:46.081 --> 00:06:48.330
+with choosing the right document format
+and we're going to think
+
+00:06:48.330 --> 00:06:50.430
+about how that's really, really important.
+
+00:06:51.271 --> 00:06:53.191
+A lot of people question
+when I do training
+
+00:06:53.191 --> 00:06:57.241
+on document accessibility why I put
+in about format choice at the start.
+
+00:06:58.633 --> 00:07:01.410
+For me, format actually
+has a really big impact
+
+00:07:01.441 --> 00:07:04.199
+on the final accessible output
+because you could create
+
+00:07:04.200 --> 00:07:08.130
+a fully accessible document
+and then you could export it or convert it
+
+00:07:08.401 --> 00:07:10.051
+to something that's inaccessible,
+
+00:07:10.711 --> 00:07:12.300
+and so it's really,
+really important that we think
+
+00:07:12.300 --> 00:07:15.650
+about that and that we're choosing
+the right format from the outset.
+
+00:07:18.060 --> 00:07:20.701
+What's the point in talking
+about creating these accessible documents
+
+00:07:20.701 --> 00:07:22.801
+if we don't actually define what they are?
+
+00:07:24.541 --> 00:07:27.091
+On this slide, we've got
+our first dog picture other
+
+00:07:27.096 --> 00:07:28.371
+than my beautiful Bella.
+
+00:07:29.100 --> 00:07:33.239
+The picture is of a pug sitting down
+with its head tilted to one side
+
+00:07:33.240 --> 00:07:36.460
+in front of a blackboard
+with lots of question marks all over it.
+
+00:07:37.590 --> 00:07:40.380
+I put that one in there
+because it looks like the pug's asking me
+
+00:07:40.380 --> 00:07:41.930
+for an answer to this question.
+
+00:07:44.030 --> 00:07:47.429
+If I was asked to define what is
+an accessible document I would say,
+
+00:07:47.430 --> 00:07:50.910
+"An accessible document allows
+as many people as possible to access
+
+00:07:50.911 --> 00:07:51.911
+that information."
+
+00:07:53.130 --> 00:07:56.041
+If you've ever tried to make
+a document accessible it might feel
+
+00:07:56.041 --> 00:07:58.620
+a little bit tedious,
+it might feel a little bit overwhelming,
+
+00:07:58.620 --> 00:08:00.570
+there might be quite a lot to consider,
+
+00:08:00.980 --> 00:08:03.770
+but I always tell those
+that I work with and I train
+
+00:08:03.960 --> 00:08:06.931
+that creating accessible documents
+is so important
+
+00:08:07.350 --> 00:08:10.200
+and it's really crucial
+that we think about it every step.
+
+00:08:10.530 --> 00:08:13.770
+At the end of the day, why are we creating
+something if we don't want it to be read
+
+00:08:13.770 --> 00:08:15.170
+and understood by everybody?
+
+00:08:18.081 --> 00:08:21.961
+You've probably joined the session today
+because you think document accessibility
+
+00:08:21.961 --> 00:08:25.262
+is important and I welcome you
+into that session with that mindset,
+
+00:08:25.951 --> 00:08:27.451
+but just in case you are wondering,
+
+00:08:27.451 --> 00:08:28.701
+"Why is it so important?"
+
+00:08:29.161 --> 00:08:32.549
+Well, it ensures that everyone has
+the same opportunity to access
+
+00:08:32.550 --> 00:08:33.691
+the same information.
+
+00:08:34.440 --> 00:08:35.881
+That one sits top of my list.
+
+00:08:35.881 --> 00:08:39.450
+It's the reason why I do what I do
+and the reason why I like to talk
+
+00:08:39.451 --> 00:08:40.901
+about it as much as possible.
+
+00:08:41.870 --> 00:08:44.318
+It is rumored as well
+to be part of the WCAG,
+
+00:08:44.319 --> 00:08:48.810
+the Web Content Accessibility Guidelines,
+in the 3.0 version that's currently
+
+00:08:48.811 --> 00:08:49.811
+in progress.
+
+00:08:50.281 --> 00:08:53.460
+If that does eventually become
+a major part of the guidelines then
+
+00:08:53.460 --> 00:08:57.360
+by learning about it now and making
+sure we're building in that progress now,
+
+00:08:57.361 --> 00:09:00.630
+hopefully we'll be in better state
+if and when that does appear
+
+00:09:00.631 --> 00:09:01.631
+in the guidelines.
+
+00:09:03.330 --> 00:09:04.330
+It's also the law.
+
+00:09:04.741 --> 00:09:06.781
+I work in a public sector organization.
+
+00:09:06.960 --> 00:09:10.231
+For us, it's really important
+that we are producing accessible documents
+
+00:09:10.231 --> 00:09:13.201
+in the UK, so for us we
+also have that to consider.
+
+00:09:13.710 --> 00:09:15.571
+However that always sits
+at the bottom of my list
+
+00:09:15.571 --> 00:09:18.971
+because that's not how I want
+to motivate people to do accessibility.
+
+00:09:19.200 --> 00:09:20.440
+I want them to do it because they care
+
+00:09:20.440 --> 00:09:22.295
+and because they know
+it's a good thing to do
+
+00:09:22.295 --> 00:09:25.848
+and it benefits a lot more people
+than just a small user group.
+
+00:09:26.044 --> 00:09:28.740
+For me, that's why we do
+document accessibility.
+
+00:09:31.891 --> 00:09:33.441
+Choosing the right format then.
+
+00:09:33.541 --> 00:09:34.619
+How do I do that?
+
+00:09:34.620 --> 00:09:36.190
+Because as I've said,
+it is really important
+
+00:09:36.190 --> 00:09:37.340
+that we think about it.
+
+00:09:38.155 --> 00:09:40.350
+There's lots of different choices
+when it comes to documents.
+
+00:09:40.350 --> 00:09:43.411
+You could create a spreadsheet,
+you could do a traditional document.
+
+00:09:43.411 --> 00:09:45.960
+It could be a presentation,
+it could be a PDF.
+
+00:09:47.700 --> 00:09:50.430
+When people ask me,
+I never know which one to choose.
+
+00:09:50.871 --> 00:09:51.872
+There's a lot out there.
+
+00:09:51.872 --> 00:09:55.591
+We always get asked for the same version
+but is there a better way of doing it?
+
+00:09:55.591 --> 00:09:57.300
+I always take it back to basics.
+
+00:09:57.451 --> 00:09:59.850
+Just ask
+yourself three different questions.
+
+00:10:00.751 --> 00:10:02.351
+Who's going to use the document?
+
+00:10:03.091 --> 00:10:04.541
+How are they going to use it?
+
+00:10:05.011 --> 00:10:07.011
+How are you going to share it with them?
+
+00:10:07.531 --> 00:10:10.620
+The answer to those three questions
+often helps you determine
+
+00:10:10.621 --> 00:10:12.601
+what document format type is best.
+
+00:10:13.411 --> 00:10:14.431
+For example,
+
+00:10:14.850 --> 00:10:16.150
+if people are going to use
+
+00:10:16.830 --> 00:10:21.330
+the document to calculate budgets
+or work out their financial spend
+
+00:10:21.331 --> 00:10:21.981
+for the month,
+
+00:10:22.041 --> 00:10:24.141
+a spreadsheet probably
+works well for that,
+
+00:10:24.301 --> 00:10:26.281
+especially if you're going
+to share it over an email
+
+00:10:26.281 --> 00:10:28.590
+and you're not necessarily going
+to publish it anywhere,
+
+00:10:28.590 --> 00:10:30.740
+it's more just
+for your document team files.
+
+00:10:32.330 --> 00:10:35.701
+Again, if you're going to present
+information to people in a meeting,
+
+00:10:35.701 --> 00:10:37.770
+it's a board meeting,
+maybe a presentation works,
+
+00:10:37.770 --> 00:10:40.070
+you want something
+on the screen that's visual.
+
+00:10:40.591 --> 00:10:43.860
+The answer to those questions
+will always vary but it's really important
+
+00:10:43.860 --> 00:10:46.500
+that you consider those answers carefully
+because that could help you think
+
+00:10:46.500 --> 00:10:48.050
+about what format type is best.
+
+00:10:51.210 --> 00:10:53.401
+Let's kick off with the first one
+which is PowerPoint
+
+00:10:53.401 --> 00:10:57.961
+or presentation format, whatever it is
+that you tend to use in your organization.
+
+00:10:58.821 --> 00:11:02.730
+I've got a picture of a dog on this slide
+with one eye very close to the camera
+
+00:11:02.731 --> 00:11:05.581
+and the words, "I have my eye on you,"
+written at the top.
+
+00:11:06.270 --> 00:11:08.370
+The reason the dog
+is looking quite intense is
+
+00:11:08.370 --> 00:11:12.091
+because I would say PowerPoint is
+one of the most misused format types.
+
+00:11:12.961 --> 00:11:16.980
+PowerPoint should primarily be used
+for visual presentations that tell
+
+00:11:16.981 --> 00:11:17.981
+a story.
+
+00:11:18.691 --> 00:11:23.670
+They should be used for presentations
+only and they are very much a visual tool,
+
+00:11:23.671 --> 00:11:25.560
+but the presenter is the main focus.
+
+00:11:26.041 --> 00:11:27.241
+They're there as a backup,
+
+00:11:27.241 --> 00:11:30.960
+as a resource after the session
+maybe to give extra information.
+
+00:11:32.125 --> 00:11:35.611
+What they shouldn't be used
+for is projects or reports.
+
+00:11:35.821 --> 00:11:40.290
+We do see this a lot within our space
+and the space that I work in.
+
+00:11:40.550 --> 00:11:44.070
+Often they are produced in PowerPoint
+but they're actually long reports
+
+00:11:44.071 --> 00:11:46.071
+that really would be better off in Word.
+
+00:11:46.740 --> 00:11:49.110
+Unless you're going to present
+that information then maybe
+
+00:11:49.110 --> 00:11:51.511
+a presentation format
+is not the best choice.
+
+00:11:54.111 --> 00:11:56.371
+On the other hand,
+if you're thinking about spreadsheets,
+
+00:11:56.371 --> 00:11:58.621
+and again, I'm using Excel
+as an example here,
+
+00:11:59.431 --> 00:12:04.651
+Excel should be used to store,
+analyze, report on large amounts of data.
+
+00:12:05.701 --> 00:12:10.261
+You might want to use it for budget sheets
+or balance books or attendance reports,
+
+00:12:10.861 --> 00:12:14.550
+but we don't tend to try and use Excel
+for writing lots of text.
+
+00:12:14.791 --> 00:12:17.429
+Project management spreadsheets
+are not ideal,
+
+00:12:17.430 --> 00:12:20.080
+and forms don't really work very well
+in Excel either.
+
+00:12:23.030 --> 00:12:24.390
+Then we come to documents,
+
+00:12:24.391 --> 00:12:27.030
+the big one, the one
+that covers a lot of stuff.
+
+00:12:27.961 --> 00:12:30.211
+In this case again,
+I'm using Word as an example,
+
+00:12:30.211 --> 00:12:32.430
+but you could think of any
+kind of software that you use,
+
+00:12:32.430 --> 00:12:34.321
+it would be the same type premise.
+
+00:12:35.850 --> 00:12:39.301
+What we tend to say in our organization
+is if it's made in Word,
+
+00:12:39.330 --> 00:12:40.531
+it can stay in Word.
+
+00:12:41.281 --> 00:12:44.459
+There are very few instances where
+converting that Word document
+
+00:12:44.460 --> 00:12:49.199
+into another file format is beneficial,
+so it's always better to keep it in Word
+
+00:12:49.200 --> 00:12:50.550
+if you've created it there.
+
+00:12:52.111 --> 00:12:54.131
+If you're in doubt
+about what document format
+
+00:12:54.131 --> 00:12:57.462
+to use then maybe opt for Word
+because 9 times out of 10,
+
+00:12:57.781 --> 00:12:59.881
+it's going to be the most suitable format.
+
+00:13:00.680 --> 00:13:01.680
+Why is it good?
+
+00:13:01.681 --> 00:13:03.210
+Why is a document the best thing?
+
+00:13:03.210 --> 00:13:05.260
+Well, documents tend to be more flexible.
+
+00:13:05.760 --> 00:13:08.910
+They work well if you do need
+to convert them to something like a PDF,
+
+00:13:08.910 --> 00:13:09.910
+for example,
+
+00:13:10.740 --> 00:13:13.349
+and they tend
+to be more compatible and useful
+
+00:13:13.350 --> 00:13:14.650
+with assistive technology.
+
+00:13:15.360 --> 00:13:18.209
+It's not to say you can't use
+any kind of assistive tech
+
+00:13:18.210 --> 00:13:20.960
+with the other file formats,
+because you absolutely can,
+
+00:13:21.421 --> 00:13:24.361
+but Word documents tend
+to be more intuitive and much easier
+
+00:13:24.361 --> 00:13:27.361
+to navigate because they are more simple
+in their design.
+
+00:13:30.220 --> 00:13:31.320
+Are there other options?
+
+00:13:31.320 --> 00:13:33.781
+Of course, there are depending
+on the context,
+
+00:13:33.811 --> 00:13:36.030
+what you're doing,
+and what you're working on.
+
+00:13:36.030 --> 00:13:37.531
+You might be sending an email.
+
+00:13:38.010 --> 00:13:40.261
+Just think, "Do I need
+to attach a document to this,
+
+00:13:40.261 --> 00:13:42.461
+or could I just put it
+in the email instead?"
+
+00:13:42.900 --> 00:13:46.410
+Of course, I totally acknowledge
+there are times when attaching a document
+
+00:13:46.410 --> 00:13:47.410
+is sensible,
+
+00:13:47.520 --> 00:13:48.820
+makes sense, and it works,
+
+00:13:49.110 --> 00:13:52.410
+but just consider whether it really
+is needed of what you're doing.
+
+00:13:52.981 --> 00:13:56.460
+Instead of publishing documents
+on websites could you just paste them
+
+00:13:56.461 --> 00:13:57.480
+onto a web page?
+
+00:13:58.260 --> 00:14:01.021
+Consider whether you really do need
+documents in that scenario
+
+00:14:01.021 --> 00:14:04.321
+or whether you could create more
+what we call HTML content instead.
+
+00:14:07.891 --> 00:14:09.180
+Then we come to PDFs.
+
+00:14:09.240 --> 00:14:12.511
+Now, this very much is
+a UK government stance on the subject
+
+00:14:12.900 --> 00:14:16.050
+and it might differ depending
+on where you work and what you do.
+
+00:14:16.291 --> 00:14:19.391
+If I get asked the question,
+"Should I create a PDF with that?"
+
+00:14:20.070 --> 00:14:22.752
+My answer
+pretty much most of the time is no.
+
+00:14:23.360 --> 00:14:25.050
+I've got another dog meme on this slide.
+
+00:14:25.050 --> 00:14:28.769
+I've got a puppy with his paw held
+up to the camera and the words read,
+
+00:14:28.770 --> 00:14:30.720
+"How about no," written across the top.
+
+00:14:31.981 --> 00:14:34.231
+That sums up pretty well
+how we advise teams
+
+00:14:34.641 --> 00:14:38.456
+to approach PDF accessibility
+and PDFs in general.
+
+00:14:39.030 --> 00:14:41.827
+We had a testimonial from
+one of our assistive technology users
+
+00:14:41.827 --> 00:14:46.050
+that we work with and they said,
+"I always open a PDF with trepidation
+
+00:14:46.380 --> 00:14:47.940
+because more than half the time,
+
+00:14:47.940 --> 00:14:50.070
+trying to read one
+with my assistive technology is
+
+00:14:50.070 --> 00:14:51.540
+a frustrating experience."
+
+00:14:52.500 --> 00:14:57.510
+I think
+that's quite common feeling among those
+
+00:14:57.511 --> 00:15:01.200
+who do use assistive technology,
+that PDFs often aren't checked
+
+00:15:01.201 --> 00:15:03.600
+for accessibility
+or aren't made accessible,
+
+00:15:03.871 --> 00:15:06.541
+which can create real problems for them
+when they're trying to access
+
+00:15:06.541 --> 00:15:07.541
+that information.
+
+00:15:10.051 --> 00:15:11.850
+Why are they so problematic?
+
+00:15:13.051 --> 00:15:15.299
+Again, I've got another dog on this slide.
+
+00:15:15.300 --> 00:15:17.371
+He doesn't look very happy.
+It's a bulldog.
+
+00:15:17.371 --> 00:15:19.920
+His chin's on the floor
+and the words read,
+
+00:15:19.921 --> 00:15:21.691
+"Oh, look another PDF file."
+
+00:15:22.801 --> 00:15:23.819
+Sums up how I feel.
+
+00:15:23.820 --> 00:15:26.551
+There was a time
+when within the UK government there was
+
+00:15:26.551 --> 00:15:28.169
+quite a churn of PDF files.
+
+00:15:28.170 --> 00:15:29.620
+It was the way we did things.
+
+00:15:30.540 --> 00:15:32.640
+They're not ideal
+because they're not really designed
+
+00:15:32.640 --> 00:15:33.364
+to be that flexible.
+
+00:15:33.365 --> 00:15:35.865
+That wasn't their intention
+when they were created.
+
+00:15:37.281 --> 00:15:39.571
+Often to read them,
+they can be quite long.
+
+00:15:39.600 --> 00:15:41.280
+There would be quite
+a lot of information in them,
+
+00:15:41.280 --> 00:15:43.763
+and they're just not very
+adaptable and flexible
+
+00:15:43.813 --> 00:15:45.030
+to meet user needs.
+
+00:15:46.320 --> 00:15:48.959
+Of course, on the contrast,
+if you're going to create
+
+00:15:48.960 --> 00:15:51.690
+something like a Word document,
+it includes all of that and more,
+
+00:15:51.690 --> 00:15:54.240
+which again, is one of the reasons
+why we tend to advise people
+
+00:15:54.240 --> 00:15:57.411
+just to keep it simple
+and keep to what you know.
+
+00:16:01.850 --> 00:16:05.731
+Now we know what format types there are
+and choices are out there.
+
+00:16:06.210 --> 00:16:10.111
+Let's consider wonderful Word documents
+or documents in general,
+
+00:16:10.141 --> 00:16:12.791
+and talk about some of the main things
+to think about.
+
+00:16:13.561 --> 00:16:14.741
+Just to flag before I start,
+
+00:16:14.741 --> 00:16:16.935
+a lot of the advice you
+will have already noticed
+
+00:16:16.935 --> 00:16:19.335
+I'm giving today is
+based on the Microsoft Suite,
+
+00:16:20.011 --> 00:16:23.021
+but the tips I'm providing
+you can be applied regardless
+
+00:16:23.071 --> 00:16:25.171
+of the type of software
+you might be using.
+
+00:16:25.530 --> 00:16:28.351
+Don't be put off if you think
+it's all about Microsoft.
+
+00:16:28.681 --> 00:16:30.570
+A lot of the things
+refer back to their tools
+
+00:16:30.570 --> 00:16:33.420
+because that's what we use
+in our organization,
+
+00:16:33.811 --> 00:16:35.505
+but that doesn't necessarily mean
+you can't apply
+
+00:16:35.505 --> 00:16:37.055
+the same methodology elsewhere.
+
+00:16:40.080 --> 00:16:42.121
+I'm going in thick
+and fast and I'm starting
+
+00:16:42.121 --> 00:16:43.590
+off with document headings.
+
+00:16:44.100 --> 00:16:46.590
+There is no way I could talk
+about accessible documents
+
+00:16:46.590 --> 00:16:48.330
+without addressing headings.
+
+00:16:48.780 --> 00:16:51.271
+Headings are the backbone of any document.
+
+00:16:51.801 --> 00:16:55.262
+A user should be able to scan a document
+using just the headings and get
+
+00:16:55.262 --> 00:16:57.812
+a really good overview
+of what you're talking about.
+
+00:16:58.863 --> 00:17:01.141
+Headings give that information structure.
+
+00:17:01.231 --> 00:17:06.030
+They split it into different sections
+and they really do help sighted and AT,
+
+00:17:06.091 --> 00:17:08.641
+assisted technology,
+users access that content.
+
+00:17:09.810 --> 00:17:12.260
+You've got to make sure
+your headings are descriptive
+
+00:17:12.260 --> 00:17:14.820
+and make sure they are
+understandable on their own.
+
+00:17:15.570 --> 00:17:20.490
+Let your heading text tell the story
+about the contents of that next paragraph
+
+00:17:20.521 --> 00:17:21.521
+or the page.
+
+00:17:23.210 --> 00:17:26.221
+As I've said, screen reader users
+might use headings to navigate
+
+00:17:26.221 --> 00:17:28.710
+the document. In fact,
+it's probably more than likely
+
+00:17:28.710 --> 00:17:29.710
+that they will,
+
+00:17:30.630 --> 00:17:33.241
+because this means they can select
+any part of the document that they want
+
+00:17:33.241 --> 00:17:35.291
+to read more about and go straight there.
+
+00:17:36.181 --> 00:17:38.040
+It's not just screen reader users
+that will use it.
+
+00:17:38.040 --> 00:17:41.550
+Voice recognition software users
+might also use voice commands,
+
+00:17:42.121 --> 00:17:44.850
+but at the end of the day,
+all readers will benefit
+
+00:17:44.851 --> 00:17:49.351
+from a really well-structured document
+that can be navigated quite easily.
+
+00:17:53.430 --> 00:17:55.880
+Things to think
+about when you're adding headings.
+
+00:17:56.101 --> 00:17:59.820
+Making it bold and making it size 28
+does not make it a heading.
+
+00:18:00.300 --> 00:18:04.319
+You must use the styles that any software,
+but in this case we're talking
+
+00:18:04.320 --> 00:18:07.261
+about Word, provides
+to make sure they are accessible.
+
+00:18:08.401 --> 00:18:12.089
+It's just a word of warning as well
+that the styled headings in Word
+
+00:18:12.090 --> 00:18:14.390
+are not necessarily accessible
+from the outset.
+
+00:18:14.671 --> 00:18:18.116
+They might often use a really thin font
+or a light blue font.
+
+00:18:18.425 --> 00:18:22.110
+Just make sure you modify them to suit
+your own needs and make sure
+
+00:18:22.111 --> 00:18:24.361
+they're accessible
+with your branding as well.
+
+00:18:25.050 --> 00:18:27.151
+The other thing to flag is
+the title style.
+
+00:18:27.620 --> 00:18:29.973
+We tend not to use
+the title style in Word.
+
+00:18:30.023 --> 00:18:32.373
+We tend to use "Heading 1"
+as our first heading.
+
+00:18:32.760 --> 00:18:34.950
+The title style
+doesn't really do much for us.
+
+00:18:34.950 --> 00:18:38.451
+If we want headings in a sequential order
+we should always start with one,
+
+00:18:38.451 --> 00:18:41.430
+and then we have only
+one of those per document most of the time
+
+00:18:41.430 --> 00:18:42.430
+and work from there.
+
+00:18:46.740 --> 00:18:49.560
+Moving on from headings,
+because I hope now I've convinced you
+
+00:18:49.560 --> 00:18:52.709
+that they are really, really important,
+we're going to talk
+
+00:18:52.710 --> 00:18:54.091
+about accessible tables.
+
+00:18:54.420 --> 00:18:56.420
+Again, this is really, really important.
+
+00:18:57.661 --> 00:18:59.791
+I love a table when used correctly.
+
+00:18:59.851 --> 00:19:01.440
+Tables are really great.
+
+00:19:01.441 --> 00:19:05.734
+They're a useful tool for organizing data,
+making comparisons
+
+00:19:05.735 --> 00:19:10.046
+between data sets
+and being able to see things at a glance
+
+00:19:10.086 --> 00:19:11.086
+and compare them.
+
+00:19:12.270 --> 00:19:15.209
+However, to make
+a table accessible you do need to ensure
+
+00:19:15.210 --> 00:19:17.640
+that you think about quite
+a few different things.
+
+00:19:17.640 --> 00:19:20.969
+Once you've used and embedded
+these you are on your way to creating
+
+00:19:20.970 --> 00:19:22.201
+a nice accessible table.
+
+00:19:24.540 --> 00:19:28.529
+One thing I would say
+before I start is please do not add tables
+
+00:19:28.530 --> 00:19:30.090
+as images into your document.
+
+00:19:30.720 --> 00:19:34.680
+Please don't screenshot a table
+and paste it into a document as an image.
+
+00:19:35.191 --> 00:19:38.191
+It renders that information
+completely inaccessible,
+
+00:19:38.581 --> 00:19:43.487
+and even if you were able to create
+some alternative text to describe
+
+00:19:43.981 --> 00:19:45.930
+what that image shows,
+I doubt it would cover
+
+00:19:45.930 --> 00:19:49.050
+the full breadth
+and depth of that information in detail.
+
+00:19:50.521 --> 00:19:54.509
+With that aside, if you're creating
+a table in your document make sure it has
+
+00:19:54.510 --> 00:19:55.710
+a header row.
+
+00:19:56.011 --> 00:20:00.749
+Don't let your rows break across pages,
+so don't let rows start on one page
+
+00:20:00.750 --> 00:20:02.150
+and then finish on the next.
+
+00:20:02.280 --> 00:20:04.410
+Make sure rows stay together on each page.
+
+00:20:06.001 --> 00:20:09.301
+I've said identify a header row,
+and most of the time that works,
+
+00:20:09.540 --> 00:20:13.090
+but you might want to add a column
+or you might want a row and a column.
+
+00:20:13.160 --> 00:20:16.740
+There's no, necessarily, right or wrong
+with that as long as it makes sense
+
+00:20:16.740 --> 00:20:18.840
+in the context in which you're working on.
+
+00:20:20.281 --> 00:20:22.921
+Please don't split or merge
+cells in your table.
+
+00:20:22.950 --> 00:20:24.400
+Keep things nice and regular.
+
+00:20:24.630 --> 00:20:27.230
+Keep the structure in a way
+that makes logical sense.
+
+00:20:28.620 --> 00:20:31.971
+Make sure you add a title for your table
+so people know what the table is about
+
+00:20:31.971 --> 00:20:33.771
+and what the information relates to,
+
+00:20:34.621 --> 00:20:38.221
+and also consider whether you need
+to add alternative text to your table,
+
+00:20:38.281 --> 00:20:40.710
+so text to describe what the table shows.
+
+00:20:41.820 --> 00:20:44.620
+This isn't always necessary
+but it's a really nice add-on
+
+00:20:45.000 --> 00:20:48.660
+if your table is a little bit complex
+or you think a user might just benefit
+
+00:20:48.660 --> 00:20:51.410
+from a little bit of extra information
+about that table.
+
+00:20:52.561 --> 00:20:55.140
+If you're not familiar with adding
+alternative text to table,
+
+00:20:55.140 --> 00:20:58.350
+it is under the properties
+tab in most software.
+
+00:20:58.753 --> 00:21:02.039
+Also just think of it like writing
+alternative text for an image.
+
+00:21:02.040 --> 00:21:04.477
+It follows a very similar pattern,
+but you're just writing it
+
+00:21:04.477 --> 00:21:05.641
+for a table instead.
+
+00:21:07.327 --> 00:21:11.040
+One final check you can do on tables
+is check that you can tab through them
+
+00:21:11.041 --> 00:21:12.041
+in a logical order.
+
+00:21:12.810 --> 00:21:15.210
+Just make sure you start
+from the top row and work your way down,
+
+00:21:15.210 --> 00:21:18.690
+and make sure it makes sense
+to you and then to your user.
+
+00:21:22.261 --> 00:21:24.870
+I have already mentioned
+the tables properties box,
+
+00:21:24.874 --> 00:21:29.701
+but if you were to right-click or choose
+that option for your table you can add
+
+00:21:29.701 --> 00:21:33.061
+your title or text and set
+your header row in that box as well.
+
+00:21:33.930 --> 00:21:36.030
+As we've said, never paste
+an image of a table in.
+
+00:21:36.030 --> 00:21:38.970
+It will prevent screen readers
+from accessing that information
+
+00:21:38.970 --> 00:21:40.802
+and it's really not best practice.
+
+00:21:43.560 --> 00:21:44.775
+Enough of the negative though,
+
+00:21:44.775 --> 00:21:47.430
+let's go back to another topic,
+which in this case is,
+
+00:21:47.431 --> 00:21:49.200
+are headers and footers accessible?
+
+00:21:50.251 --> 00:21:52.200
+Now, I have another dog meme for you.
+
+00:21:52.201 --> 00:21:54.751
+Come on. It's been a while
+since I've shown you one.
+
+00:21:55.111 --> 00:21:58.231
+It's time we've got a golden lab
+who looks like they're smiling
+
+00:21:58.530 --> 00:22:00.470
+at the camera
+with their tongue hanging out
+
+00:22:00.470 --> 00:22:02.350
+and the speech bubble reads, "No."
+
+00:22:03.011 --> 00:22:06.311
+The question he's answering is,
+are headers and footers accessible?
+
+00:22:06.870 --> 00:22:09.150
+Page headers and footers
+are not automatically read
+
+00:22:09.150 --> 00:22:11.550
+by screen readers under recent testing.
+
+00:22:12.301 --> 00:22:16.051
+If you want the information in that header
+or footer to be conveyed to the reader
+
+00:22:16.051 --> 00:22:17.611
+or the user,
+
+00:22:17.640 --> 00:22:20.890
+then you need to include it
+in the main body copy of your content.
+
+00:22:22.081 --> 00:22:25.529
+Page numbers are fine to use
+because that information
+
+00:22:25.530 --> 00:22:27.060
+is often shown elsewhere,
+
+00:22:28.170 --> 00:22:30.750
+but we often see people put
+version numbers or dates
+
+00:22:30.800 --> 00:22:32.050
+in the header and footer,
+
+00:22:32.104 --> 00:22:33.934
+and that does mean that
+other users might not be able
+
+00:22:33.934 --> 00:22:35.610
+to access or read that content.
+
+00:22:38.880 --> 00:22:39.900
+Adding spacing.
+
+00:22:39.960 --> 00:22:42.630
+Adding spacing in any document
+is interesting and can be done
+
+00:22:42.630 --> 00:22:43.710
+in various ways,
+
+00:22:44.550 --> 00:22:47.670
+but there are a few simple things
+to remember to make sure it remains
+
+00:22:47.670 --> 00:22:48.670
+accessible.
+
+00:22:49.261 --> 00:22:52.454
+Don't use the Enter key
+on your keyboard to add space
+
+00:22:52.504 --> 00:22:54.450
+or start content on a new page.
+
+00:22:55.140 --> 00:22:56.581
+Use page breaks instead.
+
+00:22:57.540 --> 00:23:01.020
+Use tabs instead of spaces
+if you really do need to separate text,
+
+00:23:01.380 --> 00:23:05.129
+and use the line spacing options
+to create space between subjects
+
+00:23:05.130 --> 00:23:06.330
+or objects on the page.
+
+00:23:07.663 --> 00:23:11.910
+If you're using Word, you can turn
+on your "Show/Hide" markers.
+
+00:23:12.362 --> 00:23:16.801
+The "Show/Hide" markers,
+the icon appears as a backwards P
+
+00:23:17.100 --> 00:23:18.750
+if you're looking at it visually.
+
+00:23:19.770 --> 00:23:23.310
+They show where the extra spaces are
+in your document which make it really easy
+
+00:23:23.310 --> 00:23:25.410
+to find and delete
+the ones you don't want.
+
+00:23:26.820 --> 00:23:28.970
+Also be mindful
+of the size of your margins.
+
+00:23:28.981 --> 00:23:31.674
+Again, changing margin sizes
+can cause problems.
+
+00:23:32.341 --> 00:23:35.910
+If you don't have to touch them
+then I'd steer people away
+
+00:23:35.911 --> 00:23:37.461
+from playing with your margins.
+
+00:23:38.790 --> 00:23:43.379
+One of the reasons why we use
+the Enter key to create space on a page is
+
+00:23:43.380 --> 00:23:44.830
+for screen reader experience.
+
+00:23:45.051 --> 00:23:47.777
+Often screen reader users might get
+to spaces on the page and just hear,
+
+00:23:47.777 --> 00:23:48.911
+"Enter, enter"--
+
+00:23:48.961 --> 00:23:50.920
+sorry, they'll hear,
+"Blank, blank, blank,"
+
+00:23:50.920 --> 00:23:52.950
+until they get to the next bit of content
+
+00:23:52.950 --> 00:23:54.841
+which isn't the best user experience.
+
+00:23:58.941 --> 00:24:00.180
+Images and alt text.
+
+00:24:00.961 --> 00:24:04.290
+I definitely couldn't talk
+about accessible documents without talking
+
+00:24:04.290 --> 00:24:06.420
+about alternative text, it's so important.
+
+00:24:07.680 --> 00:24:11.370
+Any images that you use
+in a document need alternative text.
+
+00:24:12.571 --> 00:24:16.081
+It's also commonly referred to as alt text
+and that is how I'm going to refer to it
+
+00:24:16.081 --> 00:24:17.081
+from now on.
+
+00:24:18.151 --> 00:24:20.821
+There are various ways you can add
+alternative text to images
+
+00:24:20.821 --> 00:24:23.121
+and most software programs
+make it pretty easy.
+
+00:24:24.900 --> 00:24:28.350
+Most of the time, if you right-click
+or you choose the properties of your image
+
+00:24:28.350 --> 00:24:29.650
+using the Properties menu,
+
+00:24:30.180 --> 00:24:33.181
+you'll be able to add
+alternative text to your image.
+
+00:24:35.040 --> 00:24:38.249
+What I would say is often get
+people who will allow
+
+00:24:38.250 --> 00:24:41.671
+the automation of your software
+to add alternative text itself.
+
+00:24:42.781 --> 00:24:44.251
+I would always double check this.
+
+00:24:44.251 --> 00:24:47.417
+Software, in my experience at the moment,
+is not necessarily great
+
+00:24:47.417 --> 00:24:48.417
+at getting it right.
+
+00:24:48.627 --> 00:24:54.239
+Alt text is very context-dependent
+and what you want to say is very,
+
+00:24:54.240 --> 00:24:58.710
+very personal to what you're editing
+rather than necessarily something generic.
+
+00:24:59.761 --> 00:25:02.431
+Just tell the user what they need
+to know and don't overload them
+
+00:25:02.431 --> 00:25:03.431
+with other content.
+
+00:25:06.240 --> 00:25:10.231
+I have an example of alt text here
+and I've given some different variations.
+
+00:25:11.700 --> 00:25:15.089
+Images can make you feel
+a particular way and that's something
+
+00:25:15.090 --> 00:25:19.110
+that should be available to everybody,
+even people that use screen readers.
+
+00:25:20.040 --> 00:25:22.351
+People often forget
+that with pictures because they think,
+
+00:25:22.351 --> 00:25:26.011
+"Oh, they're very visual
+so I can't describe them."
+
+00:25:26.250 --> 00:25:28.051
+You absolutely can and you should.
+
+00:25:28.861 --> 00:25:32.088
+The picture on this slide is
+a large great dame with a wild look,
+
+00:25:32.220 --> 00:25:34.670
+catching a treat mid-air
+with his mouth wide open.
+
+00:25:35.580 --> 00:25:38.461
+An example of bad alt text
+for this image would be something like,
+
+00:25:38.461 --> 00:25:40.472
+"Image 342.jpg."
+
+00:25:41.001 --> 00:25:42.021
+It's just the file name,
+
+00:25:42.021 --> 00:25:44.341
+doesn't say anything,
+it's really unhelpful.
+
+00:25:45.450 --> 00:25:48.660
+Something that's okay could be,
+"Dog with its mouth wide open."
+
+00:25:49.470 --> 00:25:50.551
+It's quite literal,
+
+00:25:50.641 --> 00:25:53.384
+that is exactly what the picture
+is of, but actually,
+
+00:25:53.385 --> 00:25:56.041
+to me there's more to this picture
+than meets the eye.
+
+00:25:57.530 --> 00:26:00.485
+In my description I said the dog
+had a wild look in its eye.
+
+00:26:00.991 --> 00:26:04.351
+I talked about the fact that his mouth
+was wide open with him catching
+
+00:26:04.351 --> 00:26:05.351
+a treat mid-air.
+
+00:26:06.120 --> 00:26:07.530
+The lips are flopping open.
+
+00:26:07.860 --> 00:26:10.350
+That tells me a lot more about that image.
+
+00:26:10.819 --> 00:26:11.819
+It's comical.
+
+00:26:11.820 --> 00:26:13.380
+I'm getting a nice feeling from that.
+
+00:26:13.380 --> 00:26:15.151
+I'm getting a good emotion from that.
+
+00:26:15.151 --> 00:26:17.130
+I feel like I want to smile
+at that description,
+
+00:26:17.130 --> 00:26:18.390
+it sounds quite funny,
+
+00:26:18.930 --> 00:26:21.181
+and that's what I want
+to get across to any user,
+
+00:26:21.181 --> 00:26:24.931
+no matter what tech they're using
+or how they're accessing that information.
+
+00:26:25.651 --> 00:26:28.751
+Always think about how you're writing
+alt text and what it says
+
+00:26:28.981 --> 00:26:31.470
+because you might be using
+that image for a particular reason
+
+00:26:31.470 --> 00:26:33.570
+and your alternative text should say that.
+
+00:26:36.510 --> 00:26:39.001
+Finally thinking
+about formatting link text.
+
+00:26:39.540 --> 00:26:41.940
+I've got a very grumpy
+looking dog on this slide,
+
+00:26:42.151 --> 00:26:43.321
+got wild hair,
+
+00:26:43.771 --> 00:26:46.200
+and this is how I feel
+when I review documents that have
+
+00:26:46.200 --> 00:26:47.580
+inaccessible link text.
+
+00:26:48.181 --> 00:26:50.789
+We often see, "Click here,
+read more information,"
+
+00:26:50.790 --> 00:26:53.401
+used in isolation
+with no surrounding context.
+
+00:26:54.211 --> 00:26:57.180
+Screen reader users often will bring up
+a list of links to navigate
+
+00:26:57.180 --> 00:27:00.780
+through the content and having
+link text like that is really unhelpful
+
+00:27:00.781 --> 00:27:03.631
+and doesn't tell the user
+where they're going to be taken.
+
+00:27:03.780 --> 00:27:07.890
+Make sure you don't use full URLs
+and just make your link text descriptive.
+
+00:27:10.440 --> 00:27:13.500
+Finally on Word documents,
+just don't forget that designing
+
+00:27:13.501 --> 00:27:15.810
+for neurodiversity is often overlooked.
+
+00:27:16.380 --> 00:27:18.721
+I've got a dog image
+on this slide of a black Labrador
+
+00:27:18.721 --> 00:27:21.221
+with big brown eyes
+looking lovingly at the camera,
+
+00:27:22.140 --> 00:27:24.211
+and the words read, "Don't forget me."
+
+00:27:24.870 --> 00:27:27.661
+That's trying to signify that although,
+we haven't covered everything
+
+00:27:27.661 --> 00:27:28.661
+in this section,
+
+00:27:28.800 --> 00:27:31.770
+things like using
+plain English, don't use bold,
+
+00:27:31.771 --> 00:27:36.509
+italics, or underline in big amounts,
+and making sure you're checking
+
+00:27:36.510 --> 00:27:39.050
+your color contrast, is
+all still really important
+
+00:27:39.310 --> 00:27:41.810
+even if we haven't mentioned
+it specifically today.
+
+00:27:44.671 --> 00:27:46.531
+Moving on as time is ticking,
+
+00:27:46.560 --> 00:27:48.910
+we're going to talk
+about polished presentations
+
+00:27:49.341 --> 00:27:52.470
+and what we can do
+in a presentation format to make sure
+
+00:27:52.471 --> 00:27:53.471
+they're accessible.
+
+00:27:56.661 --> 00:27:58.411
+Use the master slide.
+
+00:27:59.341 --> 00:28:02.866
+Slide master or the master
+slide create accessible layouts
+
+00:28:02.896 --> 00:28:05.310
+and ensure consistency
+across your presentation.
+
+00:28:06.931 --> 00:28:11.279
+If you're using Microsoft PowerPoint,
+you can view the slide master under
+
+00:28:11.280 --> 00:28:15.480
+the View tab but all software
+will have a version of a master layout.
+
+00:28:16.321 --> 00:28:18.510
+Make sure your master layout
+is accessible,
+
+00:28:18.511 --> 00:28:20.040
+so make sure the colors work.
+
+00:28:20.130 --> 00:28:24.660
+If you're using any logos or anything,
+they are also accessible but it's really,
+
+00:28:24.661 --> 00:28:28.170
+really important to make sure
+that you do use that within your slides.
+
+00:28:30.871 --> 00:28:34.801
+Sections are also a nice way
+in a presentation to give it structure.
+
+00:28:35.331 --> 00:28:37.381
+If you've got a particularly
+long presentation,
+
+00:28:37.381 --> 00:28:41.069
+adding sections can be a nice way
+to split the information
+
+00:28:41.070 --> 00:28:43.439
+into several different topic areas,
+and again,
+
+00:28:43.440 --> 00:28:46.725
+the user can then navigate to the bits
+that they maybe want to read more about
+
+00:28:46.725 --> 00:28:50.101
+or go back to and revisit sections
+they were unsure about.
+
+00:28:51.307 --> 00:28:55.980
+It's similar to how a table of contents
+might help to break up content.
+
+00:28:56.571 --> 00:28:59.910
+Again, it's really important to think
+about that when you're creating
+
+00:28:59.910 --> 00:29:01.710
+those sections in your presentation.
+
+00:29:04.590 --> 00:29:08.460
+Unique slide titles are
+a very, very important thing
+
+00:29:08.461 --> 00:29:10.021
+for accessible presentations.
+
+00:29:10.501 --> 00:29:14.520
+You must have unique descriptive titles
+on each slide even if they're not visible
+
+00:29:14.521 --> 00:29:17.071
+but that is not advisable best practice.
+
+00:29:17.100 --> 00:29:19.400
+Visible headings are always
+the best way to go.
+
+00:29:20.579 --> 00:29:22.829
+Screen reader users might rely
+on the slide titles
+
+00:29:22.829 --> 00:29:26.041
+to know which slide they're on
+and to know whether they've moved on
+
+00:29:26.041 --> 00:29:28.771
+or moved backwards a slide
+depending on their command.
+
+00:29:30.290 --> 00:29:32.178
+If you're skimming
+or using a screen reader,
+
+00:29:32.178 --> 00:29:35.188
+they can quickly scan through those titles
+as well and go to the slide
+
+00:29:35.188 --> 00:29:36.230
+that they want.
+
+00:29:36.780 --> 00:29:39.211
+If you've got multiple slides
+with the same information,
+
+00:29:39.211 --> 00:29:42.051
+consider adding
+a "One," a "Continued,"
+
+00:29:42.052 --> 00:29:45.810
+or some kind of note on in the slide title
+to make it clear that it is
+
+00:29:46.550 --> 00:29:49.300
+a different slide
+but contains very similar information.
+
+00:29:53.433 --> 00:29:54.957
+Some formatting tips for you.
+
+00:29:54.958 --> 00:29:57.104
+Now, these are very similar
+to the Word ones,
+
+00:29:57.104 --> 00:30:00.381
+so there isn't much difference here,
+but there is a few more things to think
+
+00:30:00.381 --> 00:30:02.731
+about when it comes
+to formatting presentations.
+
+00:30:03.111 --> 00:30:05.824
+Again, I've got a very grumpy,
+angry looking dog
+
+00:30:06.064 --> 00:30:07.604
+because these are some of the things
+
+00:30:07.604 --> 00:30:11.029
+that I think people forget
+about when it comes to presentations,
+
+00:30:11.030 --> 00:30:12.830
+but they are still really important.
+
+00:30:13.521 --> 00:30:15.981
+Using a readable font is very important.
+
+00:30:16.330 --> 00:30:18.140
+Be generous with your spacing still.
+
+00:30:18.171 --> 00:30:20.671
+Don't make slides
+that are packed with information.
+
+00:30:20.900 --> 00:30:23.200
+Make sure there's
+enough space between content.
+
+00:30:23.661 --> 00:30:24.920
+Don't use transitions,
+
+00:30:24.981 --> 00:30:27.950
+keep links short and descriptive,
+be mindful of your jargon,
+
+00:30:28.310 --> 00:30:31.160
+and as we've said, make sure
+your slide titles are unique.
+
+00:30:31.940 --> 00:30:34.250
+They're quite specific
+to PowerPoint in some ways,
+
+00:30:34.250 --> 00:30:36.471
+because if you're presenting
+this information,
+
+00:30:36.471 --> 00:30:37.771
+the text has got to be big
+
+00:30:37.861 --> 00:30:41.070
+and you've got to make sure
+that you're presenting information
+
+00:30:41.071 --> 00:30:43.911
+in a way that's quick,
+easy and easy to digest.
+
+00:30:44.770 --> 00:30:46.851
+Sometimes they're overlooked
+when creating PowerPoints
+
+00:30:46.851 --> 00:30:49.401
+because there's so many other things
+to think about.
+
+00:30:51.070 --> 00:30:54.051
+One final tip I would give
+if you are creating presentations,
+
+00:30:54.051 --> 00:30:55.801
+just think about your use of color.
+
+00:30:56.781 --> 00:30:59.210
+Don't use color on its own
+to specify anything.
+
+00:31:00.021 --> 00:31:02.566
+If you're giving a presentation,
+be mindful that people
+
+00:31:02.566 --> 00:31:05.516
+are going to be experiencing
+those slides in different ways.
+
+00:31:05.810 --> 00:31:09.649
+On this slide I have two circles;
+one is red and the other is red
+
+00:31:09.650 --> 00:31:10.650
+with the letter A.
+
+00:31:11.691 --> 00:31:14.330
+To avoid indicating with color alone,
+
+00:31:15.741 --> 00:31:16.940
+if you say something like,
+
+00:31:16.940 --> 00:31:17.916
+"Highlighted in red is--"
+
+00:31:17.917 --> 00:31:19.010
+not everyone's going to know
+
+00:31:19.010 --> 00:31:21.080
+what that is or where it is on the slide.
+
+00:31:21.830 --> 00:31:24.951
+Instead I would say, "Labelled
+with letter A and colored red."
+
+00:31:25.720 --> 00:31:29.621
+There may be some people in your audience
+who are not viewing the screen at all.
+
+00:31:29.621 --> 00:31:32.671
+Send the slides in advance,
+so having those short descriptions
+
+00:31:32.811 --> 00:31:35.361
+is also really, really helpful
+in the notes section.
+
+00:31:39.140 --> 00:31:41.151
+We move
+into our final section of the session
+
+00:31:41.151 --> 00:31:45.110
+which is on Excel spreadsheets
+or spreadsheets in general and thinking
+
+00:31:45.111 --> 00:31:47.661
+about how we can create
+excellent versions of those.
+
+00:31:50.291 --> 00:31:53.871
+The first thing to think
+about with spreadsheets is index sheets,
+
+00:31:53.877 --> 00:31:55.550
+and they are really important.
+
+00:31:57.351 --> 00:31:59.120
+If you have several sheets
+in your workbook,
+
+00:31:59.120 --> 00:32:01.731
+it's really helpful
+to provide an index sheet
+
+00:32:02.290 --> 00:32:03.290
+at the beginning.
+
+00:32:03.680 --> 00:32:05.890
+That should tell the user
+what the workbook is about
+
+00:32:05.890 --> 00:32:09.278
+and provide a contents list,
+which is hyperlinked to each sheet.
+
+00:32:09.830 --> 00:32:12.891
+It might be quite obvious
+why that's important and hopefully it is.
+
+00:32:12.891 --> 00:32:15.771
+It's so that users can access
+the information clearly,
+
+00:32:16.391 --> 00:32:19.791
+they know what that spreadsheet is about,
+and they can really delve into details
+
+00:32:19.791 --> 00:32:20.791
+straight away.
+
+00:32:22.968 --> 00:32:27.801
+Cell A1 is such an important cell
+but often is not thought about too much.
+
+00:32:28.760 --> 00:32:30.260
+It should never be left blank.
+
+00:32:30.831 --> 00:32:32.361
+There are different ways
+you can use it though
+
+00:32:32.361 --> 00:32:34.071
+and this is where it gets interesting.
+
+00:32:34.071 --> 00:32:35.321
+That's why on this slide,
+
+00:32:35.481 --> 00:32:39.831
+I have a beagle with a magnifying glass
+looking as if he's thinking,
+
+00:32:40.089 --> 00:32:41.089
+"How can I use it?"
+
+00:32:41.090 --> 00:32:43.880
+He's trying to answer that question.
+
+00:32:45.411 --> 00:32:49.941
+On the first sheet, Cell A1
+can be used to give a workbook summary.
+
+00:32:50.301 --> 00:32:54.291
+As described in the previous section,
+that's how that cell can be used.
+
+00:32:55.632 --> 00:32:59.930
+On any worksheet, Cell A1 can also be used
+for the title of the table that follows.
+
+00:33:00.440 --> 00:33:03.470
+It very much depends
+on how big your spreadsheet is
+
+00:33:03.711 --> 00:33:07.092
+and how you've set it up
+as to how you might use Cell A1.
+
+00:33:10.370 --> 00:33:12.471
+Name your sheets and name your tables.
+
+00:33:12.770 --> 00:33:16.370
+It's important that you name your file
+and name your worksheets in Excel.
+
+00:33:17.201 --> 00:33:21.356
+By default, worksheets
+are normally named sheet 1, sheet 2,
+
+00:33:21.676 --> 00:33:23.959
+but you should rename these
+and give them some more
+
+00:33:23.959 --> 00:33:25.010
+of a meaningful name.
+
+00:33:25.780 --> 00:33:26.780
+Why is that?
+
+00:33:26.781 --> 00:33:30.331
+Well, that just helps the user know
+what the information is inside them.
+
+00:33:30.651 --> 00:33:32.120
+As with any application,
+
+00:33:32.121 --> 00:33:34.730
+it's important that tables
+are properly created
+
+00:33:34.940 --> 00:33:37.370
+with correctly marked up header rows
+and columns,
+
+00:33:37.371 --> 00:33:40.371
+very much like we said
+about using them in a normal document.
+
+00:33:41.031 --> 00:33:43.880
+However, you can convert
+data into an accessible table
+
+00:33:43.881 --> 00:33:45.581
+which makes it easier to navigate.
+
+00:33:47.240 --> 00:33:49.341
+If you want to give
+your table a descriptive name,
+
+00:33:49.341 --> 00:33:52.341
+normally under the table tab there'll be
+a section that says,
+
+00:33:52.641 --> 00:33:53.641
+"Table Name."
+
+00:33:53.961 --> 00:33:55.811
+Make sure you add something in there.
+
+00:33:56.960 --> 00:33:59.990
+The more descriptive the better
+as with all of these things.
+
+00:34:05.111 --> 00:34:07.615
+No blanking, no merging.
+
+00:34:08.000 --> 00:34:09.679
+Do not merge or split cells.
+
+00:34:09.680 --> 00:34:10.790
+Very similar to what we,
+
+00:34:10.790 --> 00:34:13.551
+again, discussed in a Word document,
+for example.
+
+00:34:13.851 --> 00:34:16.641
+It creates an irregular pattern
+and can make the data quite hard
+
+00:34:16.641 --> 00:34:17.641
+to understand.
+
+00:34:18.742 --> 00:34:21.221
+Screen reader users
+might often count table cells
+
+00:34:21.222 --> 00:34:22.971
+to keep track of their location,
+
+00:34:22.979 --> 00:34:26.511
+so when you nest tables,
+you merge or split cells,
+
+00:34:26.831 --> 00:34:29.600
+it can be hard to keep count
+and that doesn't really provide
+
+00:34:29.600 --> 00:34:30.921
+much helpful information.
+
+00:34:32.091 --> 00:34:35.449
+It's recommended that any blank cells
+are replaced with something.
+
+00:34:35.450 --> 00:34:40.520
+We don't like to leave cells blank,
+so either an NA for not applicable,
+
+00:34:40.550 --> 00:34:41.991
+or a dash, or a hyphen.
+
+00:34:42.291 --> 00:34:46.101
+Again, that one's not necessarily the best
+because it can have multiple meanings,
+
+00:34:46.101 --> 00:34:47.951
+but maybe even putting zero in there,
+
+00:34:48.380 --> 00:34:50.960
+if it's a budget sheet,
+just so that you've covered something
+
+00:34:50.960 --> 00:34:53.560
+in there that doesn't affect
+the rest of the content.
+
+00:34:54.411 --> 00:34:59.331
+When you have data in a tabular format,
+if there are any empty rows or columns
+
+00:35:00.231 --> 00:35:03.081
+then the user may assume
+they've reached the end of that data,
+
+00:35:03.081 --> 00:35:06.530
+so try and delete anything
+that is empty, doesn't serve a purpose
+
+00:35:06.890 --> 00:35:08.601
+and is just there
+because you thought you might add
+
+00:35:08.601 --> 00:35:10.151
+more information but never did.
+
+00:35:10.941 --> 00:35:14.540
+It just makes things more confusing
+if we don't clean up our spreadsheet,
+
+00:35:14.540 --> 00:35:18.080
+I suppose, once we've finished editing it,
+so just make sure you think
+
+00:35:18.081 --> 00:35:20.581
+about that when you're finalizing
+your spreadsheet.
+
+00:35:22.850 --> 00:35:27.111
+That was just a whistle-stop tour
+of accessible spreadsheets,
+
+00:35:27.371 --> 00:35:29.671
+and I've ended with a dog
+with its nose really,
+
+00:35:29.671 --> 00:35:31.021
+really close to the camera,
+
+00:35:31.821 --> 00:35:33.650
+almost blurry because he's so close.
+
+00:35:34.161 --> 00:35:37.220
+I just think sometimes you've got to look
+a little bit deeper when you're looking
+
+00:35:37.220 --> 00:35:38.361
+at Excel spreadsheets.
+
+00:35:38.750 --> 00:35:43.459
+There's a lot to think about when it comes
+to accessibility and it can be hard to see
+
+00:35:43.460 --> 00:35:45.840
+where you've left a blank cell
+or you've got an empty row there
+
+00:35:45.840 --> 00:35:47.040
+that you didn't realize.
+
+00:35:47.252 --> 00:35:50.990
+Just have a double-check and make
+sure it is as clean as possible.
+
+00:35:53.757 --> 00:35:55.880
+In our final five minutes,
+I'm going to leave you
+
+00:35:55.880 --> 00:35:57.630
+with some final thoughts of my own.
+
+00:35:57.801 --> 00:36:01.160
+Hopefully, you got some good tips today,
+things maybe you didn't know
+
+00:36:01.160 --> 00:36:04.491
+or just to help for your refresher
+or a reminder if you're more proficient
+
+00:36:04.491 --> 00:36:05.491
+in this space.
+
+00:36:08.120 --> 00:36:09.670
+Some best practice to remember.
+
+00:36:09.740 --> 00:36:13.670
+To finish us off and to finalize this,
+I've got a white dog
+
+00:36:14.450 --> 00:36:17.120
+winking at the camera
+with its mouth open just,
+
+00:36:17.361 --> 00:36:19.411
+"Remember this best practice if you can."
+
+00:36:20.301 --> 00:36:23.480
+If your document is not for personal use,
+so just for yourself,
+
+00:36:23.930 --> 00:36:27.531
+it should be tested and verified
+to make sure it is accessible.
+
+00:36:28.251 --> 00:36:31.501
+You don't necessarily know
+where that document is going to end up.
+
+00:36:31.731 --> 00:36:34.161
+Actually, even if you're sharing it
+with two or three colleagues,
+
+00:36:34.161 --> 00:36:36.740
+you might not necessarily know
+any access needs
+
+00:36:36.741 --> 00:36:41.089
+or accessibility requirements they have,
+so producing accessible content sets
+
+00:36:41.090 --> 00:36:44.449
+a really nice precedent
+and gives you an opportunity to make sure
+
+00:36:44.450 --> 00:36:47.100
+that you're providing
+inclusive content for everybody.
+
+00:36:48.830 --> 00:36:52.040
+Remember that producing
+two versions of a document is not ideal.
+
+00:36:52.281 --> 00:36:54.620
+We often hear from people,
+"Oh, it's okay, I'll create
+
+00:36:54.620 --> 00:36:57.351
+my version and then I'll create
+an accessible version."
+
+00:36:58.220 --> 00:37:01.371
+Having one accessible version is the best.
+
+00:37:01.610 --> 00:37:04.810
+We don't like to create one
+for one person and one for the other.
+
+00:37:04.851 --> 00:37:08.091
+It's nice to be able to produce
+one document that meets all requirements
+
+00:37:08.091 --> 00:37:09.380
+or as many as possible.
+
+00:37:10.730 --> 00:37:13.071
+Remember to test
+at every stage of development.
+
+00:37:13.281 --> 00:37:15.951
+Just like you would if you were creating
+a digital product on the web,
+
+00:37:15.951 --> 00:37:16.951
+for example,
+
+00:37:17.150 --> 00:37:20.250
+make sure you're checking
+document accessibility at every turn.
+
+00:37:20.630 --> 00:37:24.131
+That will help to make sure
+that when you get to the end of editing
+
+00:37:24.132 --> 00:37:27.192
+or end of creating your document
+you've pretty much encountered
+
+00:37:27.192 --> 00:37:29.592
+everything and built everything in,
+and you don't have to think
+
+00:37:29.592 --> 00:37:32.991
+about running checks at that point
+and making substantial changes,
+
+00:37:33.020 --> 00:37:34.970
+which might disrupt what you'd planned.
+
+00:37:37.691 --> 00:37:41.120
+With all accessibility things,
+I think I've said this multiple times
+
+00:37:41.121 --> 00:37:42.121
+over the years,
+
+00:37:42.451 --> 00:37:44.900
+build in accessibility from the beginning.
+
+00:37:44.961 --> 00:37:48.649
+If you're using an accessible template,
+if you're using the right tools
+
+00:37:48.650 --> 00:37:52.011
+and the right software,
+you can create an accessible document
+
+00:37:52.310 --> 00:37:54.649
+in a relatively easy way,
+and it doesn't have
+
+00:37:54.650 --> 00:37:57.290
+to be this big chore
+that I think is often associated
+
+00:37:57.291 --> 00:37:59.041
+with creating accessible documents.
+
+00:37:59.957 --> 00:38:02.690
+Consider it from the beginning,
+and if you're not the document owner
+
+00:38:02.690 --> 00:38:03.690
+or the editor,
+
+00:38:03.830 --> 00:38:07.011
+try and plant that seed in others' minds
+when you're hearing about and creating
+
+00:38:07.011 --> 00:38:10.189
+content so that you can make
+sure that content is created
+
+00:38:10.190 --> 00:38:11.990
+in an accessible way from the start.
+
+00:38:13.810 --> 00:38:14.900
+I just want to end.
+
+00:38:15.350 --> 00:38:16.941
+I know we're going
+to go down to questions now,
+
+00:38:16.941 --> 00:38:19.041
+but thank you so much for your time today.
+
+00:38:19.341 --> 00:38:22.070
+I really appreciate you listening to me
+from wherever you are
+
+00:38:22.070 --> 00:38:25.170
+and whatever time of day it is,
+and I hope you found it useful.
+
+00:38:25.491 --> 00:38:26.571
+Thank you very much.
+
+00:38:30.310 --> 00:38:32.379
+Host: Thank you, Samantha.
+
+00:38:32.380 --> 00:38:34.777
+We're going to jump into Q&A.
+
+00:38:35.020 --> 00:38:39.639
+I think if you read the chat,
+a lot of them appreciated your dogs
+
+00:38:39.640 --> 00:38:44.083
+as well as you and all
+the information that you've given.
+
+00:38:44.950 --> 00:38:49.960
+We're going to answer Gerson's first,
+and his question is,
+
+00:38:50.350 --> 00:38:53.820
+is Adobe Acrobat really
+the only proper tool
+
+00:38:53.860 --> 00:38:56.753
+to make PDFs tagged and accessible?
+
+00:38:58.200 --> 00:38:59.419
+Samantha Meritt: Really good,
+great question.
+
+00:38:59.420 --> 00:39:03.639
+No, Adobe Acrobat is definitely
+not the only proper tool you can use.
+
+00:39:03.640 --> 00:39:05.439
+It's probably the most widely known
+
+00:39:05.440 --> 00:39:07.879
+and probably most widely used,
+or at least is in my sphere,
+
+00:39:07.880 --> 00:39:10.329
+which is why I talked
+about it in the presentation.
+
+00:39:10.330 --> 00:39:11.859
+But there are lots of alternatives.
+
+00:39:11.860 --> 00:39:12.939
+There's lots of companies out there
+
+00:39:12.940 --> 00:39:15.699
+that can offer
+paid-for versions as well.
+
+00:39:15.700 --> 00:39:17.919
+My piece of advice
+to you would just be careful.
+
+00:39:17.920 --> 00:39:21.609
+Some of them are advertised as
+remediation tools, fully automated.
+
+00:39:21.610 --> 00:39:24.129
+Of course, we know
+with all sorts of accessibility,
+
+00:39:24.130 --> 00:39:26.619
+one size doesn't fit all,
+so it's not going to deliver you
+
+00:39:26.620 --> 00:39:28.139
+an accessible solution.
+
+00:39:28.140 --> 00:39:31.269
+So maybe you'll always need
+to do a bit of manual work.
+
+00:39:31.270 --> 00:39:33.099
+There are also tools like PAC
+
+00:39:33.100 --> 00:39:35.049
+that is a free tool
+that I use quite a bit.
+
+00:39:35.050 --> 00:39:37.059
+It goes one step further than Acrobat
+
+00:39:37.060 --> 00:39:39.279
+and does full PDF/UA compliance,
+
+00:39:39.280 --> 00:39:42.969
+which I find really helpful
+when you're trying to fix PDFs.
+
+00:39:42.970 --> 00:39:45.359
+Again, just have a look and make sure
+you choose the right tool
+
+00:39:45.360 --> 00:39:47.739
+that works for you,
+but you don't have to use Acrobat
+
+00:39:47.740 --> 00:39:49.476
+if you don't want to.
+
+00:39:49.872 --> 00:39:50.619
+Host: It's good to know.
+
+00:39:50.620 --> 00:39:51.979
+I just learned that too.
+
+00:39:51.980 --> 00:39:54.290
+I thought Acrobat was the only one,
+so thank you.
+
+00:39:54.291 --> 00:39:56.349
+Thank you for sharing that.
+
+00:39:56.350 --> 00:39:59.160
+The next question we have is from,
+
+00:40:01.980 --> 00:40:03.759
+I'm not going to try
+to pronounce this.
+
+00:40:03.760 --> 00:40:10.240
+I use PAC 2024 for checking PDFs
+and the Acrobat built-in functions.
+
+00:40:10.600 --> 00:40:14.329
+Can you recommend
+other tools that we could use?
+
+00:40:14.980 --> 00:40:17.359
+Samantha: Kind of similar question,
+I guess, to the last one in a way.
+
+00:40:17.360 --> 00:40:20.349
+There's another free tool
+called PAVE, which you can use.
+
+00:40:20.350 --> 00:40:23.919
+That's mostly up for files
+that are less than five megabytes.
+
+00:40:23.920 --> 00:40:26.709
+It depends on the size
+of your file on that one.
+
+00:40:26.710 --> 00:40:28.359
+But there are also lots
+of paid-for tools.
+
+00:40:28.360 --> 00:40:29.819
+I don't use any of them myself,
+
+00:40:29.820 --> 00:40:31.929
+so I can't recommend
+one or the other.
+
+00:40:31.930 --> 00:40:36.153
+But there are lots of names
+like CommonLit PDF, Axes 4, Equidox.
+
+00:40:36.154 --> 00:40:38.679
+These are all examples
+of other tools in the market.
+
+00:40:38.680 --> 00:40:41.289
+As I say, I don't know
+much about any of them.
+
+00:40:41.290 --> 00:40:43.191
+I just know they exist.
+
+00:40:43.300 --> 00:40:45.219
+Host: All right. Thank you so much.
+
+00:40:45.220 --> 00:40:48.156
+Then we have a couple from Claire [?]
+
+00:40:48.310 --> 00:40:52.991
+If an image in a document
+is decorative, what should you do?
+
+00:40:53.870 --> 00:40:55.689
+Samantha: Yes, really good question.
+
+00:40:55.690 --> 00:40:57.249
+It can be tackled
+in a couple of ways.
+
+00:40:57.250 --> 00:40:59.469
+There is a mark decorative box.
+
+00:40:59.470 --> 00:41:01.939
+However, I always try and steer
+people away from using that
+
+00:41:01.940 --> 00:41:05.649
+because I think an image
+will always normally have a purpose.
+
+00:41:05.650 --> 00:41:07.869
+You will have put
+it in there for some reason.
+
+00:41:07.870 --> 00:41:09.609
+For example,
+if you talk about healthy eating
+
+00:41:09.610 --> 00:41:10.899
+and you've got a picture of an apple,
+
+00:41:10.900 --> 00:41:12.129
+you've put
+it in there because you think
+
+00:41:12.130 --> 00:41:14.409
+that's an example
+of something healthy to eat.
+
+00:41:14.410 --> 00:41:16.979
+I would probably describe
+that so people get an understanding
+
+00:41:16.980 --> 00:41:20.889
+about what you mean when you say
+healthy eating in your context.
+
+00:41:20.890 --> 00:41:24.189
+There's very few instances
+where images are purely decorative.
+
+00:41:24.190 --> 00:41:25.379
+If I'm using a logo,
+
+00:41:25.380 --> 00:41:28.089
+it's because I want to make sure that
+people know that document is owned
+
+00:41:28.090 --> 00:41:30.549
+by that organization, for example.
+
+00:41:30.550 --> 00:41:32.709
+Always consider
+how decorative it really is.
+
+00:41:32.710 --> 00:41:36.339
+If you really don't think
+it adds any extra value, one,
+
+00:41:36.340 --> 00:41:37.899
+maybe consider removing it.
+
+00:41:37.900 --> 00:41:40.539
+If you really do think it should
+be there, then maybe add some,
+
+00:41:40.540 --> 00:41:43.179
+you can tick the mark
+as decorative box, but we really,
+
+00:41:43.180 --> 00:41:47.109
+really use that in cases
+where there's really no added value
+
+00:41:47.110 --> 00:41:48.309
+to adding a description at all,
+
+00:41:48.310 --> 00:41:51.801
+which in most cases
+is quite rare, I believe.
+
+00:41:52.150 --> 00:41:55.179
+But that box is always
+there if you need to use it.
+
+00:41:55.180 --> 00:41:56.299
+Host: All right, thank you.
+
+00:41:56.300 --> 00:42:01.960
+Then the next question is,
+you said don't use underline
+
+00:42:01.980 --> 00:42:06.185
+in documents, but is this
+not best practice for links?
+
+00:42:06.670 --> 00:42:07.619
+Samantha: Absolutely.
+
+00:42:07.620 --> 00:42:09.089
+Apologies if that came
+over in the wrong way.
+
+00:42:09.090 --> 00:42:11.739
+That's not what I intended
+at all from that comment.
+
+00:42:11.740 --> 00:42:13.419
+Links should always be underlined.
+
+00:42:13.420 --> 00:42:15.619
+The reason why we don't
+underline anything else
+
+00:42:15.620 --> 00:42:16.939
+is for the reason that people
+
+00:42:16.940 --> 00:42:19.899
+can then hopefully
+identify links with ease.
+
+00:42:19.900 --> 00:42:22.819
+If we just keep underline
+limited to underlining links,
+
+00:42:22.820 --> 00:42:24.639
+then people can scan documents
+
+00:42:24.640 --> 00:42:27.369
+and find that information
+visually quite easily.
+
+00:42:27.370 --> 00:42:29.679
+If we start underlining other things,
+you might try and click
+
+00:42:29.680 --> 00:42:32.169
+on it because you assume
+it's probably a link and it's not,
+
+00:42:32.170 --> 00:42:33.669
+and it can just get
+a little bit confusing.
+
+00:42:33.670 --> 00:42:34.899
+So yes, absolutely.
+
+00:42:34.900 --> 00:42:38.059
+Keep your underline for links,
+but links only.
+
+00:42:38.060 --> 00:42:40.509
+Host: Thank you
+for the clarification.
+
+00:42:40.510 --> 00:42:42.880
+From Kwaku, we have,
+
+00:42:43.240 --> 00:42:46.599
+what's the single most common
+accessibility mistake you see
+
+00:42:46.600 --> 00:42:50.529
+in digital documents
+and how could someone quickly fix it?
+
+00:42:50.530 --> 00:42:54.642
+And what's one tip for a beginner
+that beginners often overlook
+
+00:42:54.643 --> 00:42:58.289
+that can make document
+instantly more accessible?
+
+00:42:58.290 --> 00:42:59.179
+Samantha: Yes, I love this question.
+
+00:42:59.180 --> 00:43:00.519
+There's quite a lot in there,
+but actually
+
+00:43:00.520 --> 00:43:03.279
+it's probably one answer
+that can answer all of it.
+
+00:43:03.280 --> 00:43:05.289
+I think for me,
+the most common mistake
+
+00:43:05.290 --> 00:43:07.739
+is headings or lack
+of heading structure.
+
+00:43:07.740 --> 00:43:09.819
+People are often,
+through no fault of their own,
+
+00:43:09.820 --> 00:43:11.529
+because they don't realize
+it's there,
+
+00:43:11.530 --> 00:43:13.509
+not make something
+a heading through formatting
+
+00:43:13.510 --> 00:43:16.659
+and just make it size 25,
+bold, and say, look,
+
+00:43:16.660 --> 00:43:18.299
+visually that looks like a heading.
+
+00:43:18.300 --> 00:43:20.409
+Yes, you're not wrong,
+it does, but actually
+
+00:43:20.410 --> 00:43:22.629
+from a formatting
+and accessibility perspective,
+
+00:43:22.630 --> 00:43:25.269
+that doesn't help
+the structure of the document,
+
+00:43:25.270 --> 00:43:29.350
+makes it really hard to navigate
+and gives it no kind of structure
+
+00:43:29.351 --> 00:43:31.839
+or easy to navigable
+table of contents either,
+
+00:43:31.840 --> 00:43:34.731
+which is really
+important for documents.
+
+00:43:34.732 --> 00:43:36.729
+The same goes
+for a presentation as well.
+
+00:43:36.730 --> 00:43:39.745
+Every slide should need
+a unique title.
+
+00:43:39.940 --> 00:43:41.799
+That's effectively
+a heading in a document.
+
+00:43:41.800 --> 00:43:42.789
+There's no difference really,
+
+00:43:42.790 --> 00:43:45.439
+it's just the way
+that the documents are set out.
+
+00:43:45.440 --> 00:43:47.409
+For me, the most common
+mistake is no headings,
+
+00:43:47.410 --> 00:43:50.239
+which then means that you
+don't have a good table of contents.
+
+00:43:50.240 --> 00:43:51.459
+You can't navigate easily.
+
+00:43:51.460 --> 00:43:53.379
+The knock-on effects
+of that are quite wide.
+
+00:43:53.380 --> 00:43:55.599
+If you just add headings,
+you've instantly made
+
+00:43:55.600 --> 00:43:59.179
+your document much easier
+to make your way through.
+
+00:43:59.180 --> 00:44:00.999
+So if you're a beginner in this space
+
+00:44:01.000 --> 00:44:02.619
+and you're a little bit overwhelmed,
+
+00:44:02.620 --> 00:44:04.232
+there was quite a lot
+in that presentation
+
+00:44:04.233 --> 00:44:05.699
+because I wanted to try and get
+
+00:44:05.700 --> 00:44:07.329
+across quite a bit
+in a short amount of time.
+
+00:44:07.330 --> 00:44:10.359
+But I think
+alternative text and adding
+
+00:44:10.360 --> 00:44:12.099
+in headings are really crucial,
+
+00:44:12.100 --> 00:44:14.259
+and if you do that throughout
+your document,
+
+00:44:14.260 --> 00:44:16.029
+as a beginner,
+you can make a big impact
+
+00:44:16.030 --> 00:44:19.839
+on the final accessible
+output in a way that other tips
+
+00:44:19.840 --> 00:44:22.776
+might not have as overarching effect.
+
+00:44:23.410 --> 00:44:24.849
+Host: Thank you so much.
+
+00:44:24.850 --> 00:44:26.668
+We have one from Taco.
+
+00:44:27.610 --> 00:44:30.670
+How accessible are the generated PDF
+
+00:44:30.760 --> 00:44:33.189
+versions of PowerPoint slide decks?
+
+00:44:33.190 --> 00:44:35.920
+Is Google Sheets better or worse?
+
+00:44:38.680 --> 00:44:40.719
+Samantha: They're not very accessible
+is the short answer
+
+00:44:40.720 --> 00:44:43.029
+to that, which helps
+to keep it simple.
+
+00:44:43.030 --> 00:44:45.519
+But yes, PowerPoint slides
+
+00:44:45.520 --> 00:44:49.179
+that are converted to PDF,
+the two document types
+
+00:44:49.180 --> 00:44:50.439
+were never meant to be compatible.
+
+00:44:50.440 --> 00:44:52.809
+PowerPoints are used
+for presentations.
+
+00:44:52.810 --> 00:44:55.000
+It's very unlikely that
+they are ever produced
+
+00:44:55.001 --> 00:44:58.239
+to be in PDF format because PDFs
+have a very different use case.
+
+00:44:58.240 --> 00:45:00.849
+It's not impossible
+to make them accessible,
+
+00:45:00.850 --> 00:45:03.039
+but it's not very easy at all,
+
+00:45:03.040 --> 00:45:05.112
+especially if you've got
+extra bits in there,
+
+00:45:05.113 --> 00:45:08.289
+like images and lots
+of other things in a PowerPoint deck,
+
+00:45:08.290 --> 00:45:09.369
+which you probably would have
+
+00:45:09.370 --> 00:45:11.739
+because that's how PowerPoints
+are normally designed.
+
+00:45:11.740 --> 00:45:15.159
+Making that accessible in PDF
+format can be quite tricky.
+
+00:45:15.160 --> 00:45:18.729
+Google Slides, Google,
+any kind of Google product,
+
+00:45:18.730 --> 00:45:20.949
+again, I don't think
+it's any particularly better.
+
+00:45:20.950 --> 00:45:22.799
+I think it's always
+going to be problematic
+
+00:45:22.800 --> 00:45:25.629
+converting a presentation into a PDF.
+
+00:45:25.630 --> 00:45:29.121
+The two are just not
+going to work very well.
+
+00:45:29.290 --> 00:45:30.669
+Host: Thank you. Thank you for that.
+
+00:45:30.670 --> 00:45:35.109
+Again, I'm learning something
+as I'm asking these questions.
+
+00:45:35.110 --> 00:45:39.129
+From Isabel, do you think
+that the accessibility checker
+
+00:45:39.130 --> 00:45:44.049
+of PowerPoint is helpful for making
+an accessible presentation?
+
+00:45:44.800 --> 00:45:45.579
+Samantha: Absolutely.
+
+00:45:45.580 --> 00:45:47.199
+I always, always, always,
+
+00:45:47.200 --> 00:45:49.359
+and in any kind of product
+where you've got
+
+00:45:49.360 --> 00:45:52.454
+an accessibility checker,
+please use it.
+
+00:45:52.750 --> 00:45:55.750
+We always say that don't rely on it.
+
+00:45:56.380 --> 00:45:58.629
+I always say to people,
+it's your starting point.
+
+00:45:58.630 --> 00:46:00.189
+When you've finished,
+you've got your document ready,
+
+00:46:00.190 --> 00:46:02.919
+you think it's good to go,
+run the checker on it,
+
+00:46:02.920 --> 00:46:04.639
+and then action anything
+that comes out of that.
+
+00:46:04.640 --> 00:46:07.359
+But then there's a few more manual
+checks that you also need to do.
+
+00:46:07.360 --> 00:46:09.221
+So it won't cover everything.
+
+00:46:09.222 --> 00:46:12.303
+For example, it doesn't check
+all types of color contrast.
+
+00:46:12.304 --> 00:46:14.709
+It will check if you've got
+bright red text
+
+00:46:14.710 --> 00:46:17.799
+in a white background or something
+that's kind of more obvious
+
+00:46:17.800 --> 00:46:19.569
+when it comes to color contrast.
+
+00:46:19.570 --> 00:46:21.039
+But if you're using two blues
+
+00:46:21.040 --> 00:46:24.039
+that are just slightly off contrast
+when it comes to the ratios,
+
+00:46:24.040 --> 00:46:25.749
+it wouldn't necessarily pick that up,
+
+00:46:25.750 --> 00:46:27.459
+so therefore you checking
+that manually
+
+00:46:27.460 --> 00:46:29.259
+is gonna give you the best result.
+
+00:46:29.260 --> 00:46:30.539
+Similarly, if you've got links
+
+00:46:30.540 --> 00:46:32.319
+in your presentation
+or your document,
+
+00:46:32.320 --> 00:46:34.099
+and you've just put them in as URLs,
+
+00:46:34.100 --> 00:46:36.459
+it's not going to pick up
+that's an accessibility issue,
+
+00:46:36.460 --> 00:46:39.039
+but that really
+is an accessibility problem
+
+00:46:39.040 --> 00:46:41.949
+that we would need
+to check through manually.
+
+00:46:41.950 --> 00:46:43.419
+The checkers are brilliant.
+
+00:46:43.420 --> 00:46:46.019
+If you're a beginner in this space,
+they often explain
+
+00:46:46.020 --> 00:46:49.139
+why it's a problem and how to fix it,
+which is brilliant.
+
+00:46:49.140 --> 00:46:52.419
+But don't rely on them alone
+because they don't cover everything
+
+00:46:52.420 --> 00:46:54.205
+and they will miss bits.
+
+00:46:54.206 --> 00:46:56.819
+So you will always be more
+powerful than the checker,
+
+00:46:56.820 --> 00:46:59.079
+which is what I like to tell people.
+
+00:46:59.080 --> 00:47:00.019
+Host: All right, thank you.
+
+00:47:00.020 --> 00:47:01.020
+Thank you.
+
+00:47:01.660 --> 00:47:04.629
+And we have one final
+question from Sally.
+
+00:47:04.630 --> 00:47:08.359
+Does compressing a PDF
+affect its accessibility?
+
+00:47:09.400 --> 00:47:10.599
+Samantha: This is a great question
+
+00:47:10.600 --> 00:47:12.410
+and unfortunately
+I can't say yes or no,
+
+00:47:12.411 --> 00:47:13.809
+or give a really point blank answer
+
+00:47:13.810 --> 00:47:16.629
+because it depends
+on how the compression is done
+
+00:47:16.630 --> 00:47:19.629
+and what elements are removed
+when it is compressed.
+
+00:47:19.630 --> 00:47:22.359
+Often compressing
+a PDF will flatten it.
+
+00:47:22.360 --> 00:47:24.399
+It will turn the text
+and structure into images,
+
+00:47:24.400 --> 00:47:27.789
+which can obviously remove tags,
+reading order or text,
+
+00:47:27.790 --> 00:47:29.319
+some of that interactive
+elements if you've got
+
+00:47:29.320 --> 00:47:31.479
+form fields and things
+like that in there.
+
+00:47:31.480 --> 00:47:33.219
+It can also remove embedded fonts,
+
+00:47:33.220 --> 00:47:36.039
+which can cause
+problems for accessibility.
+
+00:47:36.040 --> 00:47:40.749
+And some third party tools that
+compress them can remove metadata
+
+00:47:40.750 --> 00:47:42.339
+to try and reduce file size,
+
+00:47:42.340 --> 00:47:45.752
+which removes titles
+and authors, et cetera.
+
+00:47:46.780 --> 00:47:47.679
+My best advice,
+
+00:47:47.680 --> 00:47:50.539
+if you do need to compress
+a PDF file is do it and then use
+
+00:47:50.540 --> 00:47:52.809
+a tool like your
+Adobe Acrobat, your PAC,
+
+00:47:52.810 --> 00:47:55.629
+whatever it is you use
+to check accessibility,
+
+00:47:55.630 --> 00:47:58.219
+to check what it looks
+like after you've compressed it,
+
+00:47:58.220 --> 00:48:00.819
+and then you might need
+to add some of those bits back in
+
+00:48:00.820 --> 00:48:03.519
+because those things are fundamental
+for an accessible PDF.
+
+00:48:03.520 --> 00:48:06.559
+We can't ignore
+that they need to be in there.
+
+00:48:06.560 --> 00:48:10.859
+Don't let it affect
+the accessibility of your final file.
+
+00:48:10.860 --> 00:48:12.039
+Host: All right, thank you so much.
+
+00:48:12.040 --> 00:48:13.579
+I think we've answered
+all of the questions.
+
+00:48:13.580 --> 00:48:16.839
+Well, I think you've answered
+all of the questions rather.
+
+00:48:16.840 --> 00:48:17.739
+Thank you again.
+
+00:48:17.740 --> 00:48:19.329
+Thank you so much
+for the presentation.
+
+00:48:19.330 --> 00:48:23.860
+I think it was hyper-educational
+and we appreciate it.
+
+00:48:24.702 --> 00:48:25.379
+Samantha: Oh, thank you.
+
+00:48:25.380 --> 00:48:26.499
+No, it was really good,
+and thank you everyone
+
+00:48:26.500 --> 00:48:27.999
+for chiming in and engaging.
+
+00:48:28.000 --> 00:48:29.901
+It's been really great.
+
+00:48:31.930 --> 00:48:35.739
+Host: Okay, so for the chat,
+thank you for attending
+
+00:48:35.740 --> 00:48:37.719
+the session with Samantha Merritt.
+
+00:48:37.720 --> 00:48:41.799
+You could continue the conversation
+in the chat or on social media using
+
+00:48:41.800 --> 00:48:45.580
+the hashtag WPA11YDay
+
+00:48:45.620 --> 00:48:49.540
+and hashtag WPAD2025.
+
+00:48:50.110 --> 00:48:56.259
+We also appreciate it if you go
+to 2025.WPAccessibilityDay
+
+00:48:56.260 --> 00:48:59.229
+slash feedback to provide
+anonymous feedback
+
+00:48:59.230 --> 00:49:02.079
+for our speakers
+on their presentation.
+
+00:49:02.080 --> 00:49:05.199
+You could enter to win
+a t-shirt while you're there.
+
+00:49:05.200 --> 00:49:07.929
+Stay tuned
+for Invisible Until It Hurts,
+
+00:49:07.930 --> 00:49:09.849
+Rethinking Brand Design Through
+
+00:49:09.850 --> 00:49:13.899
+the Lens of Accessibility coming
+up next with Victoria Ota
+
+00:49:13.900 --> 00:49:16.020
+at 10AM UTC.
+
+00:49:17.020 --> 00:49:19.869
+While you're waiting, don't forget
+to visit our sponsors page
+
+00:49:19.870 --> 00:49:24.729
+to grab virtual swag and enter
+for a chance to win great prizes.
+
+00:49:24.730 --> 00:49:29.332
+See you in the next session,
+and thank you again, Samantha.

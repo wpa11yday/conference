@@ -1,0 +1,3663 @@
+﻿WEBVTT
+
+00:00:00.780 --> 00:00:02.630
+>> ANNOUNCER: Thank you to our sponsors.
+
+00:00:03.480 --> 00:00:05.849
+Platinum Sponsor: Gravity Forms.
+
+00:00:06.389 --> 00:00:10.140
+Build accessible, powerful WordPress forms
+with Gravity Forms,
+
+00:00:10.529 --> 00:00:14.669
+flexible tools for creators, developers,
+and teams of all sizes.
+
+00:00:15.630 --> 00:00:17.640
+Platinum Sponsor: WP Engine.
+
+00:00:18.149 --> 00:00:22.288
+WP Engine provides the most relied
+upon and trusted WordPress products
+
+00:00:22.289 --> 00:00:25.949
+for businesses, brands,
+and agencies of all sizes.
+
+00:00:26.910 --> 00:00:28.772
+Platinum Sponsor: Woo.
+
+00:00:29.129 --> 00:00:31.759
+WooCommerce is
+the open-source ecommerce platform
+
+00:00:31.785 --> 00:00:33.090
+built on WordPress,
+
+00:00:33.390 --> 00:00:37.829
+helping merchants worldwide sell,
+manage, and grow their businesses.
+
+00:00:39.000 --> 00:00:41.909
+Gold Sponsors: Ally Web Accessibility,
+
+00:00:42.630 --> 00:00:45.329
+Equalize Digital Websites for Everyone,
+
+00:00:46.079 --> 00:00:47.079
+GoDaddy,
+
+00:00:47.460 --> 00:00:50.070
+GreenGeeks Web Hosting, Yoast.
+
+00:00:51.420 --> 00:00:53.520
+Silver Sponsors: Aardvark,
+
+00:00:53.909 --> 00:00:55.350
+CodeGeek Your Vision.
+
+00:00:55.380 --> 00:00:56.729
+Our Talent. One Team,
+
+00:00:57.359 --> 00:01:00.750
+Kinetic Iris, Kinsta, Pressable,
+
+00:01:01.159 --> 00:01:02.189
+Second Melody.
+
+00:01:03.449 --> 00:01:06.480
+Bronze Sponsors: 9 Planets Hosting,
+
+00:01:07.049 --> 00:01:08.049
+Engage,
+
+00:01:08.310 --> 00:01:14.160
+Draw Attention, Multidots,
+NerdPress, Osom Studio,
+
+00:01:14.392 --> 00:01:17.970
+OZeWAI Australian
+Web Accessibility Initiative,
+
+00:01:18.750 --> 00:01:19.750
+Progress Planner,
+
+00:01:20.219 --> 00:01:21.390
+QualityLogic,
+
+00:01:21.929 --> 00:01:22.929
+Sharp,
+
+00:01:23.219 --> 00:01:24.900
+Simply Schedule Appointments,
+
+00:01:25.350 --> 00:01:26.350
+SiteGround,
+
+00:01:26.703 --> 00:01:27.703
+StellarWP,
+
+00:01:28.322 --> 00:01:29.322
+Termageddon,
+
+00:01:29.646 --> 00:01:30.646
+WebYes.
+
+00:01:32.551 --> 00:01:36.779
+>> MADLIN NTI: Welcome
+to WordPress Accessibility Day 2025.
+
+00:01:37.120 --> 00:01:38.790
+My name is Madlin Nti.
+
+00:01:38.970 --> 00:01:42.051
+I'm the acting secretary
+with Google Developer Groups,
+
+00:01:42.101 --> 00:01:43.101
+Accra.
+
+00:01:43.271 --> 00:01:47.251
+Thank you for joining us
+for Continuous AI for Accessibility:
+
+00:01:47.322 --> 00:01:49.294
+Leveraging Tools for Faster,
+
+00:01:49.345 --> 00:01:52.842
+More Inclusive Development
+with Helen Hou-Sandí.
+
+00:01:53.200 --> 00:01:56.320
+Helen is
+the Staff Software Engineering Manager
+
+00:01:56.381 --> 00:02:01.301
+for Accessibility Engineering at GitHub
+and one of five Lead Developers
+
+00:02:01.331 --> 00:02:03.941
+on the WordPress
+open source software project.
+
+00:02:04.540 --> 00:02:05.740
+As a technologist,
+
+00:02:05.980 --> 00:02:10.450
+she has built a career as a leader
+in open-source software and management,
+
+00:02:10.750 --> 00:02:13.120
+and cares deeply
+about building and sharing
+
+00:02:13.121 --> 00:02:15.730
+great and accessible user experiences.
+
+00:02:16.270 --> 00:02:19.390
+Having been a professional musician
+in a previous life,
+
+00:02:19.841 --> 00:02:23.110
+Helen believes in the value
+of the intersection of technique
+
+00:02:23.111 --> 00:02:27.011
+and artistry in all aspects of life,
+including software.
+
+00:02:27.701 --> 00:02:31.391
+Please feel free to add your questions
+in the Zoom Q&A section.
+
+00:02:31.653 --> 00:02:33.910
+We will answer them
+at the end of the session.
+
+00:02:34.361 --> 00:02:37.180
+Use the chat to connect
+with other attendees.
+
+00:02:39.671 --> 00:02:40.780
+>> HELEN HOU-SANDÍ: Hello, everyone.
+
+00:02:40.780 --> 00:02:42.270
+My name is Helen Hou-Sandí.
+
+00:02:42.296 --> 00:02:46.180
+I'm here today to talk about something
+that's been a lot of my most recent work,
+
+00:02:46.180 --> 00:02:48.401
+Continuous AI for Accessibility.
+
+00:02:49.331 --> 00:02:53.379
+The reason for that is that these days I'm
+the staff software engineering manager
+
+00:02:53.380 --> 00:02:56.739
+for accessibility at GitHub,
+though many of you may know me
+
+00:02:56.740 --> 00:02:59.090
+as one of the lead developers
+of WordPress core.
+
+00:02:59.711 --> 00:03:03.161
+I'm really excited to bring
+those two parts of my life together today.
+
+00:03:03.430 --> 00:03:06.230
+While yes, of course,
+I'm talking about the place I work,
+
+00:03:06.341 --> 00:03:08.308
+I genuinely believe
+that these are concepts
+
+00:03:08.308 --> 00:03:10.158
+and tools that can be helpful to you.
+
+00:03:13.061 --> 00:03:16.001
+What do I mean by Continuous AI
+for Accessibility?
+
+00:03:16.811 --> 00:03:18.501
+Our formal definition is:
+
+00:03:18.701 --> 00:03:21.790
+Continuous AI for Accessibility
+is an ongoing approach
+
+00:03:21.791 --> 00:03:24.431
+to building accessible software
+by integrating tools,
+
+00:03:24.551 --> 00:03:28.000
+AI, and best practices
+into the development process.
+
+00:03:28.480 --> 00:03:29.680
+It's a broad concept,
+
+00:03:30.011 --> 00:03:31.030
+not a single tool,
+
+00:03:31.391 --> 00:03:34.191
+meant to inspire conversation
+and continuous improvement.
+
+00:03:34.960 --> 00:03:38.651
+Now, if you're an AI skeptic
+or completely reject it,
+
+00:03:38.770 --> 00:03:39.500
+that's okay.
+
+00:03:39.500 --> 00:03:41.400
+There's still content in here for you.
+
+00:03:41.650 --> 00:03:45.370
+I personally have never been
+a fancy new tools type of person.
+
+00:03:45.700 --> 00:03:49.179
+For instance,
+I still maybe infamously prefer not to use
+
+00:03:49.180 --> 00:03:50.530
+CSS preprocessors,
+
+00:03:50.980 --> 00:03:54.131
+but I also believe in adapting
+to the present and that leveraging AI
+
+00:03:54.131 --> 00:03:56.680
+to reduce toil in a time
+where we're being asked to do more
+
+00:03:56.680 --> 00:03:58.570
+with less is a worthy topic.
+
+00:04:01.601 --> 00:04:06.100
+The points that I really want to emphasize
+today are that this is not a one-off tool.
+
+00:04:06.251 --> 00:04:09.280
+It's a part of your methodology
+for continuous improvement,
+
+00:04:10.181 --> 00:04:12.941
+that it's about integrating
+automation, AI,
+
+00:04:13.061 --> 00:04:14.649
+and then most importantly,
+
+00:04:14.650 --> 00:04:17.451
+human review into development workflows.
+
+00:04:17.981 --> 00:04:21.190
+This is also about encouraging
+developer experimentation,
+
+00:04:21.251 --> 00:04:24.791
+adoption, and contribution
+through open source tools.
+
+00:04:28.030 --> 00:04:30.851
+Why does Continuous AI
+for Accessibility matter?
+
+00:04:31.180 --> 00:04:33.760
+Why am I here today
+talking at you about this topic?
+
+00:04:33.970 --> 00:04:37.220
+Why has it been a focal point
+for my team for the last few months?
+
+00:04:37.391 --> 00:04:40.120
+The short story is
+that we believe it will help you,
+
+00:04:40.510 --> 00:04:42.040
+not just you,
+
+00:04:42.070 --> 00:04:43.241
+but everybody,
+
+00:04:43.510 --> 00:04:45.660
+as you make more
+of the web more accessible,
+
+00:04:45.761 --> 00:04:49.391
+and AI tools themselves as they learn
+from things like code review,
+
+00:04:49.601 --> 00:04:52.540
+and having a stronger body
+of accessible work examples.
+
+00:04:55.150 --> 00:04:58.870
+First, let's start with our users,
+the people that a group of folks
+
+00:04:58.931 --> 00:05:02.381
+attending an accessibility event
+almost certainly care about the most.
+
+00:05:03.190 --> 00:05:07.871
+We know that accessibility issues
+impact real users with disabilities.
+
+00:05:08.380 --> 00:05:12.400
+We also know that complex
+or inconsistent interfaces cause confusion
+
+00:05:12.401 --> 00:05:13.401
+and errors,
+
+00:05:13.870 --> 00:05:18.700
+and perhaps the thing that I think
+about the most which is
+
+00:05:18.701 --> 00:05:21.880
+that inclusive design enhances
+experience, satisfaction,
+
+00:05:21.911 --> 00:05:22.911
+and reach.
+
+00:05:23.051 --> 00:05:27.281
+We talk about users with disabilities,
+but we also talk about the framework of:
+
+00:05:27.550 --> 00:05:28.990
+What is a disability?
+
+00:05:29.021 --> 00:05:30.021
+Is it permanent?
+
+00:05:30.040 --> 00:05:31.811
+Is it temporary?
+Is it situational?
+
+00:05:32.260 --> 00:05:35.860
+That's what we mean when we think
+about the inclusivity of what we build,
+
+00:05:36.161 --> 00:05:37.990
+and that ability to take
+
+00:05:38.500 --> 00:05:43.599
+what we've built, make it more accessible,
+not just for one small group of users
+
+00:05:43.600 --> 00:05:46.211
+who never changes,
+but for everybody at any moment.
+
+00:05:48.670 --> 00:05:52.420
+We also have to think about our customers,
+who are often also our users,
+
+00:05:52.840 --> 00:05:56.411
+but in the sense that our customers
+also have accessibility requirements
+
+00:05:56.441 --> 00:06:00.731
+to meet. For us at GitHub,
+as a vendor to many entities,
+
+00:06:00.941 --> 00:06:02.830
+we are held to many regulations.
+
+00:06:03.431 --> 00:06:04.431
+For many of you,
+
+00:06:04.570 --> 00:06:07.930
+you are working at places
+that maybe we are a vendor to,
+
+00:06:08.500 --> 00:06:10.571
+and you have to hold us
+to those regulations,
+
+00:06:10.571 --> 00:06:14.231
+or your own customers and clients
+have you on board to help them meet
+
+00:06:14.291 --> 00:06:15.310
+these requirements.
+
+00:06:16.000 --> 00:06:17.900
+Some of those challenges that I'm sure
+
+00:06:18.641 --> 00:06:20.890
+the majority of you are looking at today
+
+00:06:21.611 --> 00:06:24.250
+is that the shortage
+of accessibility experts
+
+00:06:24.338 --> 00:06:25.600
+makes scaling difficult.
+
+00:06:26.141 --> 00:06:29.411
+There are so many compliance pressures
+and legal risk.
+
+00:06:30.071 --> 00:06:32.739
+The one that I think
+many of us are really,
+
+00:06:32.740 --> 00:06:35.799
+really thinking about right now,
+especially in the US,
+
+00:06:35.800 --> 00:06:42.207
+is getting to WCAG 2.1 AA,
+I believe, by April of 2026.
+
+00:06:42.581 --> 00:06:44.331
+This is Title II enforcement coming
+
+00:06:44.860 --> 00:06:47.030
+for larger entities, and then, in 2027,
+
+00:06:47.110 --> 00:06:48.220
+for the rest.
+
+00:06:49.021 --> 00:06:51.459
+There are also just rising
+public expectations
+
+00:06:51.460 --> 00:06:52.760
+for digital accessibility.
+
+00:06:53.651 --> 00:06:56.101
+This applies to everything digital,
+realistically.
+
+00:06:56.380 --> 00:06:57.971
+Our users have
+
+00:06:58.541 --> 00:07:01.031
+a different and honestly higher
+set of expectations
+
+00:07:01.031 --> 00:07:04.901
+for what the web looks like today,
+for what interactivity means,
+
+00:07:05.171 --> 00:07:07.661
+and then of course,
+what that means for making it accessible,
+
+00:07:07.661 --> 00:07:11.289
+for making it usable
+for generations of users
+
+00:07:11.290 --> 00:07:13.390
+who have completely different backgrounds.
+
+00:07:15.728 --> 00:07:19.061
+Back in May,
+on Global Accessibility Awareness Day,
+
+00:07:19.360 --> 00:07:22.110
+we at GitHub made a pledge
+to the open source community.
+
+00:07:22.450 --> 00:07:23.450
+We wrote that,
+
+00:07:23.741 --> 00:07:26.890
+"At GitHub, our mission is
+to accelerate human progress
+
+00:07:26.980 --> 00:07:28.580
+through developer collaboration.
+
+00:07:28.841 --> 00:07:32.649
+We believe people with disabilities
+should benefit from and be able
+
+00:07:32.650 --> 00:07:35.020
+to contribute
+to the creation of that progress."
+
+00:07:35.651 --> 00:07:37.951
+You can see
+our accessibility mission statement
+
+00:07:37.951 --> 00:07:41.341
+and more about our program
+at accessibility.github.com.
+
+00:07:42.581 --> 00:07:45.441
+This Global Accessibility
+Awareness Day pledge
+
+00:07:45.491 --> 00:07:47.410
+emphasizes inclusive design,
+
+00:07:47.680 --> 00:07:50.410
+accessible development,
+and community awareness throughout
+
+00:07:50.410 --> 00:07:51.710
+the open source community.
+
+00:07:52.300 --> 00:07:56.290
+That's why we've been doing the work
+to open-source a continuous AI
+
+00:07:56.291 --> 00:07:57.491
+for accessibility tool,
+
+00:07:57.971 --> 00:08:00.131
+something that is community-driven,
+transparent,
+
+00:08:00.131 --> 00:08:01.781
+and collaborative to benefit all.
+
+00:08:05.171 --> 00:08:06.171
+Now,
+
+00:08:06.191 --> 00:08:09.760
+I'm an engineering manager
+as a part of a large company
+
+00:08:09.761 --> 00:08:11.891
+with a robust accessibility program.
+
+00:08:12.220 --> 00:08:15.070
+What exactly is engineering
+doing here today?
+
+00:08:15.521 --> 00:08:17.621
+Well, we're building solutions.
+
+00:08:17.951 --> 00:08:20.500
+In this case, we've taken
+that pledge to heart,
+
+00:08:20.801 --> 00:08:24.641
+and we've built an accessibility scanner
+leveraging continuous AI concepts
+
+00:08:24.670 --> 00:08:26.531
+to help multiply your efforts.
+
+00:08:26.920 --> 00:08:29.261
+We call the flow of the tool find,
+
+00:08:29.380 --> 00:08:33.909
+file, fix, leveraging already
+available tools to find
+
+00:08:33.910 --> 00:08:35.560
+issues through scanning pages,
+
+00:08:36.221 --> 00:08:39.220
+file GitHub issues
+with well-crafted content,
+
+00:08:39.250 --> 00:08:43.330
+representing any issues found,
+and being able to fix those issues
+
+00:08:43.541 --> 00:08:44.951
+using Copilot coding agent.
+
+00:08:45.491 --> 00:08:48.310
+This is available to you today
+as a public beta.
+
+00:08:48.632 --> 00:08:51.132
+I will share a short link
+and a QR code at the end.
+
+00:08:52.150 --> 00:08:55.269
+We start with the automated
+accessibility scanning component,
+
+00:08:55.270 --> 00:08:56.270
+the find component.
+
+00:08:56.770 --> 00:09:00.280
+Right now, we use GitHub Actions
+along with axe-core for quick,
+
+00:09:00.281 --> 00:09:01.300
+reliable checks.
+
+00:09:01.630 --> 00:09:04.150
+In our experience,
+axe violations represent
+
+00:09:04.151 --> 00:09:06.821
+a fairly significant number of issues
+that are detected
+
+00:09:06.821 --> 00:09:09.970
+in other audit methodologies,
+and they're easy for users
+
+00:09:09.971 --> 00:09:11.050
+to discover as well,
+
+00:09:11.580 --> 00:09:14.230
+both well-intentioned users
+who want you to get better
+
+00:09:14.290 --> 00:09:18.611
+and your occasional user
+who's operating in bad faith,
+
+00:09:18.640 --> 00:09:19.690
+looking for problems.
+
+00:09:20.230 --> 00:09:23.100
+As I mentioned, this is a public beta,
+so we are starting
+
+00:09:23.101 --> 00:09:26.951
+with a well-known standard for scanning,
+and we do plan to add more over time.
+
+00:09:27.280 --> 00:09:31.090
+From there,
+we get to the file part, which is,
+
+00:09:31.091 --> 00:09:35.351
+in our case, leveraging GitHub issues
+and writing well-crafted content,
+
+00:09:35.470 --> 00:09:41.080
+content that's been specifically
+tuned for AI to produce
+
+00:09:41.830 --> 00:09:43.130
+the best possible results.
+
+00:09:43.915 --> 00:09:46.980
+Now, something about that
+is that I often talk
+
+00:09:46.980 --> 00:09:50.490
+about how this agentic world we live in,
+
+00:09:51.031 --> 00:09:53.460
+these AI agents who do the work,
+
+00:09:53.700 --> 00:09:56.371
+not just your chat interfaces
+or code suggestions,
+
+00:09:56.701 --> 00:09:59.751
+but you assign it to something,
+and it goes and does the work.
+
+00:10:00.121 --> 00:10:04.219
+In this world, I think of the agents
+as very similar to newer developers.
+
+00:10:04.800 --> 00:10:07.291
+They're really eager,
+they're really motivated,
+
+00:10:07.621 --> 00:10:09.451
+but they have low context.
+
+00:10:09.510 --> 00:10:13.320
+They tend to go for additive solutions
+because they don't know what's going on.
+
+00:10:13.320 --> 00:10:17.187
+It's really your job as that expert,
+as that person with that knowledge,
+
+00:10:17.551 --> 00:10:18.851
+to bring them up with you,
+
+00:10:19.381 --> 00:10:22.261
+to pass that knowledge to the future.
+
+00:10:22.951 --> 00:10:25.741
+That also comes into play
+with something like AI.
+
+00:10:26.011 --> 00:10:29.761
+You have to be able to give it the context
+that it needs without digging around.
+
+00:10:29.761 --> 00:10:31.711
+It doesn't necessarily know where to look.
+
+00:10:31.711 --> 00:10:34.260
+It's going to try,
+it's going to find things,
+
+00:10:34.440 --> 00:10:36.481
+but the more that you can point it
+to the right place,
+
+00:10:36.481 --> 00:10:38.181
+the better off you're going to be.
+
+00:10:38.221 --> 00:10:40.861
+This is how we think
+about the content of these issues.
+
+00:10:40.861 --> 00:10:41.911
+How could somebody,
+
+00:10:42.090 --> 00:10:48.091
+anybody, a human or a machine,
+be able to pick this up and get moving?
+
+00:10:48.230 --> 00:10:49.230
+That's what we want.
+
+00:10:49.231 --> 00:10:50.790
+We want to unlock everybody,
+
+00:10:50.791 --> 00:10:51.791
+humans
+
+00:10:52.201 --> 00:10:53.201
+like yourself,
+
+00:10:53.221 --> 00:10:57.751
+but also newer humans to the space,
+all of you leveraging these tools.
+
+00:10:58.721 --> 00:11:02.171
+We open these issues with that content
+that allows you to get started,
+
+00:11:02.551 --> 00:11:06.301
+and then we have AI-powered suggestions,
+the fix component.
+
+00:11:06.710 --> 00:11:09.599
+This is where something like,
+in our case, Copilot coding
+
+00:11:09.600 --> 00:11:13.471
+agent, will recommend improvements
+to developers for review.
+
+00:11:13.981 --> 00:11:14.981
+Now,
+
+00:11:15.060 --> 00:11:18.750
+we are not saying you should assign
+an issue to Copilot
+
+00:11:19.020 --> 00:11:21.450
+and just immediately merge it.
+
+00:11:21.571 --> 00:11:24.021
+No. The point is that a human
+remains in the loop.
+
+00:11:24.181 --> 00:11:25.951
+This is the beauty of that Copilot name.
+
+00:11:25.951 --> 00:11:27.030
+It is there to help you.
+
+00:11:27.030 --> 00:11:28.580
+It is there to get you started.
+
+00:11:28.981 --> 00:11:33.021
+If you think about how much faster
+it is sometimes for you to review a fix,
+
+00:11:33.201 --> 00:11:35.521
+as opposed to having
+to spin up an environment,
+
+00:11:36.080 --> 00:11:38.012
+write the code yourself,
+push it yourself,
+
+00:11:38.012 --> 00:11:39.062
+et cetera, et cetera,
+
+00:11:39.143 --> 00:11:44.541
+now you can do it through
+a pull request-powered workflow.
+
+00:11:45.060 --> 00:11:46.800
+If you are away from your desk,
+
+00:11:47.371 --> 00:11:50.610
+if you that day
+are just meetings back to back,
+
+00:11:50.611 --> 00:11:54.781
+back to back, back to back,
+which is honestly often my life,
+
+00:11:55.221 --> 00:11:59.790
+you'll find yourself able to review
+more things because you can just stay
+
+00:11:59.791 --> 00:12:02.281
+in the web interface,
+do some code reviews,
+
+00:12:02.551 --> 00:12:05.191
+maybe leave a couple of suggestions
+on the web interface,
+
+00:12:05.191 --> 00:12:07.291
+I'll show you how that works with Copilot,
+
+00:12:08.161 --> 00:12:09.930
+and keep yourself moving,
+
+00:12:09.991 --> 00:12:14.190
+multiply your attention, multiply
+your efforts through leveraging the tools.
+
+00:12:14.640 --> 00:12:16.050
+You always remain in the loop.
+
+00:12:16.050 --> 00:12:19.501
+It's up to you to review the code,
+to make sure that it works,
+
+00:12:19.530 --> 00:12:21.151
+to do final testing yourselves.
+
+00:12:22.171 --> 00:12:25.081
+You will always require
+subject matter experts,
+
+00:12:25.501 --> 00:12:26.501
+like many of you,
+
+00:12:27.030 --> 00:12:31.140
+to review and resolve very complex
+or nuanced accessibility issues.
+
+00:12:31.501 --> 00:12:32.551
+The machine is great,
+
+00:12:32.970 --> 00:12:34.720
+but it's never going to replace us.
+
+00:12:36.391 --> 00:12:37.560
+Through this process,
+
+00:12:37.920 --> 00:12:40.501
+we leverage this concept
+of continuous feedback.
+
+00:12:41.131 --> 00:12:42.840
+We have early detection.
+
+00:12:42.841 --> 00:12:44.370
+We have ongoing improvement.
+
+00:12:44.881 --> 00:12:45.881
+We have reviews.
+
+00:12:46.230 --> 00:12:49.411
+This allows developers to shift left,
+as I was talking about,
+
+00:12:49.982 --> 00:12:52.982
+to take those efforts
+and move them more into the conceptual,
+
+00:12:53.010 --> 00:12:56.069
+and for your subject matter experts
+to amplify their impact
+
+00:12:56.091 --> 00:12:58.541
+through being freed up from the tedium
+
+00:12:58.601 --> 00:13:01.889
+and able to focus their expertise
+into the areas
+
+00:13:01.890 --> 00:13:02.890
+that you truly need.
+
+00:13:04.034 --> 00:13:07.484
+The things that we benefit from here are:
+This speeds up your testing.
+
+00:13:08.460 --> 00:13:11.131
+A lot of your routine issues
+can be handled automatically
+
+00:13:11.131 --> 00:13:12.131
+through automation.
+
+00:13:12.151 --> 00:13:14.451
+That's a thing
+that a lot of the modern world
+
+00:13:14.481 --> 00:13:16.307
+is based on is,
+
+00:13:16.447 --> 00:13:17.789
+how can automation,
+
+00:13:17.790 --> 00:13:18.790
+how can the machine,
+
+00:13:19.530 --> 00:13:22.980
+whether we're talking about industry
+or we're talking about computers,
+
+00:13:22.981 --> 00:13:25.110
+how can these things free you up?
+
+00:13:25.560 --> 00:13:29.060
+How can these handle the routine things,
+the repetitive things for you?
+
+00:13:29.370 --> 00:13:32.820
+This reduces your compliance risk
+through early and continuous checks.
+
+00:13:32.940 --> 00:13:35.521
+You don't wait for an audit,
+which represents an issue
+
+00:13:35.521 --> 00:13:37.291
+that's already out there for users,
+
+00:13:37.701 --> 00:13:41.701
+but instead, you're catching them early,
+and you're able to address them earlier.
+
+00:13:41.750 --> 00:13:43.950
+Again, like I was saying,
+it frees up your experts
+
+00:13:43.950 --> 00:13:46.200
+for the hardest
+and most meaningful problems.
+
+00:13:46.531 --> 00:13:49.381
+I think something
+I'm seeing a lot of right now
+
+00:13:49.611 --> 00:13:53.430
+is accessibility beyond web pages.
+
+00:13:54.100 --> 00:13:58.049
+Many of us are concerned
+with the accessibility of our PDFs,
+
+00:13:58.050 --> 00:14:01.350
+our videos,
+of other content that is also available
+
+00:14:01.351 --> 00:14:04.980
+through our web interfaces,
+and some of these need humans
+
+00:14:05.179 --> 00:14:06.180
+to take care of them.
+
+00:14:06.180 --> 00:14:07.621
+They need that human effort.
+
+00:14:08.071 --> 00:14:11.281
+We can't suddenly create more humans.
+
+00:14:11.310 --> 00:14:12.571
+We can't suddenly hire.
+
+00:14:12.630 --> 00:14:13.630
+Let's be real.
+
+00:14:13.831 --> 00:14:15.281
+Now is not the time for that.
+
+00:14:16.050 --> 00:14:17.759
+How can we leverage these tools?
+
+00:14:17.760 --> 00:14:19.860
+Because we still have
+to get the work done.
+
+00:14:22.081 --> 00:14:24.330
+We have to focus
+on what we're able to control.
+
+00:14:24.330 --> 00:14:27.270
+Right now, that's leveraging
+these sorts of tools in order to make
+
+00:14:27.270 --> 00:14:28.520
+ourselves more effective.
+
+00:14:30.571 --> 00:14:33.421
+Now, I'm going to switch
+over to doing a demo.
+
+00:14:34.141 --> 00:14:35.441
+You may notice a small cut
+
+00:14:36.141 --> 00:14:38.677
+as I get reset with what I'm sharing,
+
+00:14:38.751 --> 00:14:40.980
+so that I can actually show you
+what I'm talking about.
+
+00:14:40.980 --> 00:14:43.170
+I'm not just here to talk about concepts.
+
+00:14:43.591 --> 00:14:46.321
+I'm here to show you what
+is actually available to you today,
+
+00:14:46.321 --> 00:14:49.021
+because I really want you
+to get started with using it.
+
+00:14:54.000 --> 00:14:56.161
+Fair warning, I use light mode.
+
+00:14:56.881 --> 00:14:59.820
+We've just switched
+from pretty dark slides
+
+00:14:59.821 --> 00:15:02.580
+over to a light mode interface for GitHub.
+
+00:15:03.231 --> 00:15:04.919
+This is my own accessibility.
+
+00:15:04.920 --> 00:15:06.241
+I use reduced motion.
+
+00:15:06.780 --> 00:15:10.439
+I also tend to keep things where I need
+to read at length in light mode.
+
+00:15:10.440 --> 00:15:13.800
+I have difficulty reading
+at length in dark mode.
+
+00:15:14.550 --> 00:15:16.150
+I apologize for the color shift,
+
+00:15:17.370 --> 00:15:19.926
+but that's what we're going with,
+so I can actually see
+
+00:15:19.926 --> 00:15:21.276
+what I'm presenting to you.
+
+00:15:22.410 --> 00:15:25.358
+What I've got in front of me
+it actually currently says private,
+
+00:15:25.358 --> 00:15:27.158
+because I'm pre-recording this talk,
+
+00:15:27.270 --> 00:15:31.469
+but in about 24 hours
+from when I'm recording this,
+
+00:15:31.470 --> 00:15:33.511
+this should be public,
+and then you'll be able
+
+00:15:33.511 --> 00:15:35.851
+to see it by the time
+you're seeing this talk.
+
+00:15:35.944 --> 00:15:38.489
+This is what we've open-sourced for you.
+
+00:15:39.471 --> 00:15:46.065
+It is at
+github.com/github/accessibility-scanner.
+
+00:15:46.485 --> 00:15:48.265
+At GitHub,
+
+00:15:48.446 --> 00:15:50.820
+we are dealing with repositories all day,
+
+00:15:51.440 --> 00:15:55.810
+so we talk
+about github/accessibility-scanner.
+
+00:15:56.130 --> 00:15:59.521
+Again, I'll give you a short URL
+after I give this demo.
+
+00:16:01.070 --> 00:16:06.061
+What we find in here are
+an Action, a GitHub Action.
+
+00:16:06.690 --> 00:16:10.040
+This, hopefully, is a familiar concept
+to many of you at this point.
+
+00:16:10.591 --> 00:16:15.090
+If it's not, what GitHub Actions are,
+they leverage the infrastructure
+
+00:16:15.091 --> 00:16:17.991
+and the things that we have
+available to you through GitHub
+
+00:16:18.211 --> 00:16:21.690
+to run automations for you,
+to run them on our machines
+
+00:16:21.691 --> 00:16:22.691
+in the cloud,
+
+00:16:22.971 --> 00:16:26.671
+so that you have a consistent environment,
+so you're not having to do it locally.
+
+00:16:26.671 --> 00:16:28.081
+It allows you to schedule things.
+
+00:16:28.081 --> 00:16:30.699
+It allows you to run things on demand.
+
+00:16:30.771 --> 00:16:32.761
+That way, again, it frees you up.
+
+00:16:33.000 --> 00:16:34.141
+It's running in the background.
+
+00:16:34.141 --> 00:16:36.360
+It's not taking up your time,
+your resources.
+
+00:16:36.750 --> 00:16:39.571
+You just let it run,
+and it does things for you.
+
+00:16:39.661 --> 00:16:42.660
+That's what GitHub Actions
+very, very briefly is.
+
+00:16:43.221 --> 00:16:45.221
+That's what we're leveraging here today.
+
+00:16:45.601 --> 00:16:49.020
+Again, I know it's a tricky topic
+because I work at GitHub,
+
+00:16:49.501 --> 00:16:54.000
+and with it being
+such a common and popular tool,
+
+00:16:54.481 --> 00:16:56.431
+it's unavoidable that we talk about it.
+
+00:16:56.490 --> 00:17:01.411
+I'm not here to talk at you about it
+in my capacity as a GitHub person,
+
+00:17:01.710 --> 00:17:04.660
+but rather, these are the tools
+that we have in front of us.
+
+00:17:05.161 --> 00:17:06.161
+Previously,
+
+00:17:06.450 --> 00:17:12.001
+I'd worked on the plugin deploy
+actions through 10up when I was there.
+
+00:17:12.751 --> 00:17:15.031
+Again, that was leveraging Actions
+just because we know
+
+00:17:15.031 --> 00:17:16.781
+this is where developers are today.
+
+00:17:17.520 --> 00:17:21.060
+It's not about evangelizing
+for one specific tool,
+
+00:17:21.061 --> 00:17:23.261
+but rather meeting you
+where you already are.
+
+00:17:24.061 --> 00:17:25.661
+This is what's available to you.
+
+00:17:26.191 --> 00:17:29.641
+You'll be able to see there's
+plenty of documentation,
+
+00:17:30.271 --> 00:17:32.371
+we're writing more documentation as we go,
+
+00:17:34.290 --> 00:17:36.660
+how to get this set up
+for yourself over time,
+
+00:17:37.771 --> 00:17:40.410
+licensing, all the support documents,
+and everything.
+
+00:17:41.490 --> 00:17:43.471
+I'm going to show you
+how this actually works.
+
+00:17:43.471 --> 00:17:45.780
+It's not just
+about showing you the repository.
+
+00:17:47.880 --> 00:17:49.260
+Here's a repository
+
+00:17:50.190 --> 00:17:52.051
+that represents a website.
+
+00:17:52.110 --> 00:17:54.061
+I've actually deployed it to GitHub Pages.
+
+00:17:54.061 --> 00:17:55.320
+I guess you could look at it.
+
+00:17:55.320 --> 00:17:58.171
+It's from a library called ️AstroWind.
+
+00:17:58.261 --> 00:17:59.610
+It's not WordPress. I'm so sorry.
+
+00:17:59.610 --> 00:18:02.070
+It's because I wanted
+to publish it to Pages.
+
+00:18:03.720 --> 00:18:07.171
+On this site, this is just their setup.
+
+00:18:07.200 --> 00:18:10.260
+I have not changed anything
+about it besides configuration
+
+00:18:10.261 --> 00:18:13.471
+to make it work, and that's represented
+in this repository.
+
+00:18:13.950 --> 00:18:17.994
+What happens is,
+for me, in the same repository--
+
+00:18:18.154 --> 00:18:21.782
+Again, the concept with Actions
+is that you could actually technically run
+
+00:18:21.782 --> 00:18:24.271
+the scanner
+from a completely different repository
+
+00:18:25.140 --> 00:18:27.330
+so that you're not exposing
+that run to others.
+
+00:18:27.330 --> 00:18:28.920
+In this case, I don't mind.
+
+00:18:28.921 --> 00:18:31.944
+I don't mind you all knowing
+that I'm running this scanner.
+
+00:18:32.184 --> 00:18:34.920
+What I've got is a GitHub workflow file.
+
+00:18:35.241 --> 00:18:38.475
+I've named it accessibility-scan.yml.
+
+00:18:39.030 --> 00:18:41.310
+It doesn't matter.
+You can name it whatever you like.
+
+00:18:41.310 --> 00:18:42.310
+Of course,
+
+00:18:42.600 --> 00:18:45.481
+you'd probably want to name it something
+that you're going to remember
+
+00:18:45.481 --> 00:18:46.561
+and recognize.
+
+00:18:47.401 --> 00:18:50.311
+This goes
+into a toplevel .github directory,
+
+00:18:50.550 --> 00:18:52.411
+and then a workflows subdirectory
+
+00:18:53.251 --> 00:18:55.261
+in that toplevel .github directory.
+
+00:18:55.560 --> 00:18:58.260
+This is a standard
+that allows GitHub to know
+
+00:18:58.261 --> 00:19:00.261
+where all of your Actions workflows live
+
+00:19:00.590 --> 00:19:03.740
+so that it's able to detect them
+and make them available to you.
+
+00:19:04.493 --> 00:19:06.750
+What we do is we give it a name.
+
+00:19:06.840 --> 00:19:08.310
+Again, this
+is whatever you want to call it.
+
+00:19:08.310 --> 00:19:11.210
+I've called it Accessibility Scanner
+for my own legibility.
+
+00:19:11.750 --> 00:19:13.410
+There's an on directive,
+
+00:19:13.651 --> 00:19:17.191
+I'll explain this in a moment,
+and then the jobs.
+
+00:19:17.401 --> 00:19:19.251
+The job is the accessibility scanner.
+
+00:19:19.290 --> 00:19:23.885
+It uses the scanner
+repo github/accessibility-scanner@v2.
+
+00:19:23.936 --> 00:19:27.635
+You always want to define
+a version that you're working against
+
+00:19:27.636 --> 00:19:30.031
+because if there are
+breaking changes,
+
+00:19:30.140 --> 00:19:31.141
+this isn't WordPress.
+
+00:19:31.141 --> 00:19:33.540
+It's not backwards compatible forever.
+
+00:19:34.051 --> 00:19:35.581
+With breaking changes,
+you want to make sure
+
+00:19:35.581 --> 00:19:38.820
+that you're not surprised by that,
+by not pitting yourself
+
+00:19:38.821 --> 00:19:40.050
+to a specific version.
+
+00:19:41.780 --> 00:19:44.250
+From here, you provide it a set of URLs.
+
+00:19:44.550 --> 00:19:50.220
+We are working on the ability to feed
+in a sitemap as well as exploring
+
+00:19:50.221 --> 00:19:52.371
+the idea of what it means
+to have a crawler.
+
+00:19:52.531 --> 00:19:55.410
+Of course, this is going
+to be imperfect, so preferably,
+
+00:19:55.470 --> 00:19:58.881
+you are able to provide it
+with a comprehensive list of URLs.
+
+00:19:59.610 --> 00:20:02.160
+You tell it what repository
+to open issues in,
+
+00:20:04.170 --> 00:20:07.470
+which can be a repository different
+from the one you're scanning it out of,
+
+00:20:07.470 --> 00:20:08.470
+like I said.
+
+00:20:08.490 --> 00:20:10.140
+Let's say you have a public site,
+
+00:20:10.919 --> 00:20:13.569
+maybe you're running the scanner
+from the public repo,
+
+00:20:13.590 --> 00:20:17.581
+but you actually want to open the issues
+in a private repo for your own tracking.
+
+00:20:17.581 --> 00:20:21.000
+For us at GitHub, we actually open
+all of the scanning issues
+
+00:20:21.241 --> 00:20:22.861
+in one central repository,
+
+00:20:23.490 --> 00:20:27.564
+and they're connected to tracking issues
+for different feature teams at GitHub.
+
+00:20:28.140 --> 00:20:30.031
+You also have to give it a token.
+
+00:20:30.091 --> 00:20:33.300
+That's what gives it the ability
+to actually write the issues
+
+00:20:33.301 --> 00:20:35.901
+and that sort of thing,
+and then there's a cache key.
+
+00:20:36.090 --> 00:20:37.122
+The reason for the cache key--
+
+00:20:37.122 --> 00:20:39.271
+This can be whatever you want to call it.
+
+00:20:39.331 --> 00:20:42.780
+I named it for the name of my repo.
+
+00:20:43.071 --> 00:20:45.565
+The reason you need this is
+so that it doesn't always implement
+
+00:20:45.565 --> 00:20:46.565
+duplicates for you.
+
+00:20:46.685 --> 00:20:49.335
+On each run, it needs to know
+what happened previously
+
+00:20:49.350 --> 00:20:51.781
+so it doesn't duplicate
+already known violations.
+
+00:20:52.501 --> 00:20:53.881
+Now, going back to on,
+
+00:20:54.920 --> 00:21:00.088
+which I said I would go back to,
+right now it says on: workflow_dispatch.
+
+00:21:00.271 --> 00:21:03.249
+This is our directive basically
+for running it on demand
+
+00:21:03.315 --> 00:21:04.755
+in the Actions UI.
+
+00:21:05.100 --> 00:21:07.150
+You'll be able to navigate to the Action,
+
+00:21:07.441 --> 00:21:11.071
+there will be a dropdown for run workflow,
+where you've set a couple of options,
+
+00:21:11.071 --> 00:21:13.221
+and then you can run
+the workflow on demand.
+
+00:21:14.011 --> 00:21:18.149
+This is a really great way to get started,
+because you want to be in control.
+
+00:21:18.150 --> 00:21:20.100
+You want to see
+what those initial results are.
+
+00:21:20.100 --> 00:21:23.039
+Once you get past that point,
+what you're probably going
+
+00:21:23.040 --> 00:21:26.040
+to want to do is set this to on: schedule.
+
+00:21:26.731 --> 00:21:27.780
+Then, in that schedule,
+
+00:21:27.780 --> 00:21:31.230
+you use cron job notation
+to define a time,
+
+00:21:32.029 --> 00:21:34.411
+a recurring schedule
+for running this Action.
+
+00:21:35.301 --> 00:21:36.480
+Again, at GitHub,
+
+00:21:37.231 --> 00:21:40.920
+we are using many components
+of this already today
+
+00:21:40.921 --> 00:21:41.921
+internally,
+
+00:21:41.970 --> 00:21:45.476
+and we run this once daily
+on production URLs.
+
+00:21:45.931 --> 00:21:47.101
+That's what you can do as well.
+
+00:21:47.101 --> 00:21:50.070
+It's not just on-demand;
+run the scanner, which,
+
+00:21:50.071 --> 00:21:52.681
+again, for early stages,
+is often something you want to do.
+
+00:21:52.681 --> 00:21:54.570
+You want to be in control
+of that and monitoring
+
+00:21:54.570 --> 00:21:55.570
+the results,
+
+00:21:55.801 --> 00:21:59.250
+but once you're in a more stable place,
+you can switch it to a schedule,
+
+00:21:59.250 --> 00:22:01.350
+run it once per day, once per hour.
+
+00:22:01.561 --> 00:22:06.420
+I will say it's probably not the most fun
+to run it every single time you push
+
+00:22:06.421 --> 00:22:11.250
+because it's running on a bunch of URLs,
+but you can set it up that way.
+
+00:22:11.251 --> 00:22:14.879
+You can set it up to run
+on any number of events available to you
+
+00:22:14.880 --> 00:22:15.880
+at GitHub.
+
+00:22:17.610 --> 00:22:18.760
+I've run this workflow.
+
+00:22:19.060 --> 00:22:22.864
+I'm not going to do this live
+because it takes a few minutes
+
+00:22:22.865 --> 00:22:23.706
+to do this scan,
+
+00:22:23.706 --> 00:22:28.225
+and then it takes probably a solid
+10 to 20 minutes per pull request,
+
+00:22:28.279 --> 00:22:29.629
+either running in parallel,
+
+00:22:30.171 --> 00:22:31.471
+that Copilot opens.
+
+00:22:32.280 --> 00:22:34.330
+Oh, and one thing to call out is actually
+
+00:22:35.871 --> 00:22:36.771
+in this Action,
+
+00:22:36.771 --> 00:22:39.181
+you can also explicitly
+tell it not to assign
+
+00:22:39.182 --> 00:22:44.430
+Copilot to issues in case you just want
+to log the issues and you're not yet ready
+
+00:22:44.700 --> 00:22:48.331
+to have Copilot kick off
+a bunch of pull requests.
+
+00:22:50.331 --> 00:22:54.521
+My run of this scan on two URLs,
+I just ran it on two URLs,
+
+00:22:54.714 --> 00:22:56.700
+brought me four issues.
+
+00:22:57.931 --> 00:23:01.411
+They're pretty typical problems
+that we see,
+
+00:23:02.221 --> 00:23:04.710
+color contrast ratios and landmarks.
+
+00:23:05.401 --> 00:23:07.920
+I will say I do think
+that this AstroWind template
+
+00:23:08.130 --> 00:23:09.210
+seems pretty great.
+
+00:23:09.930 --> 00:23:13.680
+Overall, I see many more problems
+on any number of other libraries
+
+00:23:14.181 --> 00:23:15.181
+by default,
+
+00:23:15.420 --> 00:23:16.790
+but this is what I'm getting.
+
+00:23:16.790 --> 00:23:17.790
+To be honest,
+
+00:23:17.910 --> 00:23:20.611
+what we really see is
+just two thematic pieces.
+
+00:23:20.910 --> 00:23:22.290
+It's the same thing,
+
+00:23:23.220 --> 00:23:26.130
+two items repeated
+on those two URLs that I scanned.
+
+00:23:27.060 --> 00:23:28.060
+In any case,
+
+00:23:28.201 --> 00:23:31.951
+the fixes for them may be different,
+so we have to flag each individual one.
+
+00:23:32.160 --> 00:23:35.761
+We're also exploring the concept of,
+"Could Copilot help group these
+
+00:23:36.480 --> 00:23:39.451
+in a way that makes them addressable
+as one unit?"
+
+00:23:41.191 --> 00:23:44.070
+What you can see is
+that we have these issues.
+
+00:23:45.301 --> 00:23:46.471
+If I click into one,
+
+00:23:48.000 --> 00:23:49.000
+like this one,
+
+00:23:49.890 --> 00:23:52.470
+we see that it's actually assigned it
+to Copilot.
+
+00:23:52.621 --> 00:23:53.791
+I've got some labels.
+
+00:23:54.470 --> 00:23:57.900
+Again, we've got to think
+about we've got to add
+
+00:23:57.901 --> 00:23:59.970
+configurability of these labels for you
+
+00:24:01.080 --> 00:24:03.780
+so that we're not just making decisions
+on your behalf,
+
+00:24:03.990 --> 00:24:05.881
+but making it a little more configurable.
+
+00:24:05.881 --> 00:24:08.331
+These are some defaults
+that we've defined for now
+
+00:24:08.550 --> 00:24:10.320
+so that you're able to sort things,
+
+00:24:10.950 --> 00:24:13.530
+get to know them better, and manage them.
+
+00:24:15.301 --> 00:24:16.800
+When it assigns Copilot,
+
+00:24:18.810 --> 00:24:22.441
+what Copilot does as an assignee
+is it's going to kick off a pull request
+
+00:24:22.531 --> 00:24:24.001
+and a working session
+
+00:24:24.511 --> 00:24:26.211
+to push code to that pull request.
+
+00:24:26.760 --> 00:24:27.931
+First, let me show you.
+
+00:24:29.281 --> 00:24:33.449
+A big component of our work
+has been what content exactly goes
+
+00:24:33.450 --> 00:24:34.800
+into the issue description,
+
+00:24:35.251 --> 00:24:38.640
+because when you assign
+somebody, anybody, Copilot,
+
+00:24:38.971 --> 00:24:40.020
+a new developer,
+
+00:24:40.171 --> 00:24:43.969
+yourself, what happens when you visit
+this issue and you're trying to figure out
+
+00:24:43.969 --> 00:24:44.969
+what you need to do?
+
+00:24:44.970 --> 00:24:45.970
+What's the problem?
+
+00:24:47.370 --> 00:24:49.021
+Here we've got the what.
+
+00:24:49.366 --> 00:24:51.781
+An accessibility scan flagged an element.
+
+00:24:52.560 --> 00:24:54.810
+It gives, I'm not going
+to read that out loud,
+
+00:24:55.261 --> 00:24:57.841
+but the element
+that's a paragraph that has
+
+00:24:59.340 --> 00:25:01.201
+a large number of classes on it.
+
+00:25:01.461 --> 00:25:04.041
+That's the reality
+of CSS today, I suppose.
+
+00:25:04.101 --> 00:25:10.786
+It says data animated true, et cetera,
+on the URL helen.github.io/test-website
+
+00:25:10.911 --> 00:25:14.520
+because elements must meet
+minimum color contrast ratio thresholds.
+
+00:25:14.661 --> 00:25:20.579
+Learn more about why this was flagged
+by visiting dequeuniversity.com/rules/axe,
+
+00:25:20.730 --> 00:25:22.703
+the specific rule from Deque University.
+
+00:25:22.703 --> 00:25:26.071
+Again, this is because Deque
+is behind axe and axe-core,
+
+00:25:26.071 --> 00:25:29.160
+so it makes sense
+to reference their materials.
+
+00:25:30.181 --> 00:25:31.181
+To fix this,
+
+00:25:31.291 --> 00:25:34.200
+ensure the contrast between foreground
+and background colors
+
+00:25:34.200 --> 00:25:37.591
+meets WCAG 2 AA minimum
+contrast ratio thresholds.
+
+00:25:38.100 --> 00:25:41.730
+Specifically, fix any
+of the following: Element has
+
+00:25:41.731 --> 00:25:44.461
+insufficient color contrast of 1.83
+
+00:25:44.611 --> 00:25:49.181
+(foreground color: #bfbfbf,
+background color: #fff,
+
+00:25:49.371 --> 00:25:53.370
+font size: 15.0 points (20 pixels),
+font weight: normal.
+
+00:25:53.630 --> 00:25:57.070
+Expected contrast ratio of 4.5:1.
+
+00:25:57.721 --> 00:26:01.050
+Then it actually gives me
+a checklist of acceptance criteria
+
+00:26:01.861 --> 00:26:04.710
+that says, "The specific axe violation
+reported in this issue
+
+00:26:04.710 --> 00:26:06.120
+is no longer reproducible.
+
+00:26:06.601 --> 00:26:11.520
+The fix must meet WCAG 2.1 guidelines
+or the accessibility standards specified
+
+00:26:11.521 --> 00:26:13.661
+by the repository or organization."
+
+00:26:13.921 --> 00:26:15.931
+I'll also mention some more about that.
+
+00:26:16.800 --> 00:26:19.830
+"A test should be added
+to ensure the specific axe violation
+
+00:26:19.833 --> 00:26:20.833
+does not regress.
+
+00:26:21.151 --> 00:26:24.749
+This PR must not introduce
+any new accessibility issues
+
+00:26:24.750 --> 00:26:25.750
+or regressions."
+
+00:26:27.001 --> 00:26:29.101
+What Copilot
+does is it gives you a little reaction
+
+00:26:29.101 --> 00:26:31.251
+with eyes to let you know
+that it's seen it,
+
+00:26:31.381 --> 00:26:33.691
+and then it's going to open
+
+00:26:34.560 --> 00:26:35.730
+a pull request for you.
+
+00:26:37.051 --> 00:26:38.460
+Let's find that one.
+
+00:26:39.390 --> 00:26:42.600
+That's this pull request
+that Copilot has opened.
+
+00:26:43.710 --> 00:26:48.149
+Copilot writes nice,
+long issue descriptions,
+
+00:26:48.150 --> 00:26:50.100
+but what's really interesting in here
+
+00:26:50.180 --> 00:26:52.480
+is that because this uses
+Playwright underneath
+
+00:26:52.480 --> 00:26:55.831
+a pretty standard testing library,
+headless browsing,
+
+00:26:56.101 --> 00:27:01.619
+it's actually able to take
+screenshots for you and post them
+
+00:27:01.620 --> 00:27:02.620
+to the issue,
+
+00:27:02.790 --> 00:27:05.491
+which has been a really fascinating thing.
+
+00:27:06.000 --> 00:27:08.400
+Something my team
+has worked on is ensuring
+
+00:27:08.971 --> 00:27:12.571
+that we're at least testing to make
+sure that it's including all text
+
+00:27:13.081 --> 00:27:14.231
+with these screenshots.
+
+00:27:14.327 --> 00:27:17.790
+That's something
+that Copilot's also able to do,
+
+00:27:18.121 --> 00:27:22.411
+is show you
+what it looks like with the change
+
+00:27:22.681 --> 00:27:23.931
+if you're visually based.
+
+00:27:24.811 --> 00:27:28.319
+It gives you a problem description
+as it understands it.
+
+00:27:28.320 --> 00:27:32.279
+Again, this helps you as the human
+in the loop contextualize
+
+00:27:32.280 --> 00:27:33.380
+what it decided to do.
+
+00:27:33.871 --> 00:27:35.521
+It explains its solution to you.
+
+00:27:35.550 --> 00:27:36.781
+It explains the impact.
+
+00:27:37.171 --> 00:27:41.430
+What's really interesting here
+is that Copilot was able to say,
+
+00:27:41.431 --> 00:27:44.280
+"This fix improves accessibility
+for all elements using
+
+00:27:44.281 --> 00:27:48.090
+the text-muted class throughout
+the site, 30 plus usages, including:
+
+00:27:48.091 --> 00:27:51.089
+hero component subtitles,
+feature descriptions,
+
+00:27:51.090 --> 00:27:54.990
+blog post excerpts,
+testimonial text, et cetera."
+
+00:27:55.290 --> 00:27:56.851
+It's really interesting.
+
+00:27:57.091 --> 00:27:58.710
+It's able to take a look
+through the framework
+
+00:27:58.710 --> 00:28:02.670
+and make not just file
+name-based decisions
+
+00:28:02.671 --> 00:28:06.570
+about what's going on, but it's able
+to interpret what's happening there.
+
+00:28:07.191 --> 00:28:09.433
+It describes its testing to you.
+
+00:28:09.434 --> 00:28:11.520
+It says, "The build was successful.
+
+00:28:11.521 --> 00:28:13.980
+ESLint checks passed,
+prettier formatting passed."
+
+00:28:14.610 --> 00:28:19.709
+This is a part of why it takes not
+a small amount of time for Copilot
+
+00:28:19.710 --> 00:28:20.791
+to finish these PRs.
+
+00:28:21.421 --> 00:28:27.091
+I believe this one took probably
+about 15 minutes to complete.
+
+00:28:27.651 --> 00:28:30.151
+That's because it's actually running
+build and test
+
+00:28:30.690 --> 00:28:32.700
+within the container for you.
+
+00:28:33.571 --> 00:28:35.671
+If you think about yourself
+as a developer,
+
+00:28:35.701 --> 00:28:39.390
+how long does it take for you to get
+your development environment up and going,
+
+00:28:39.390 --> 00:28:40.560
+make sure that it's not broken?
+
+00:28:40.560 --> 00:28:42.030
+I'm famous
+
+00:28:42.600 --> 00:28:44.600
+for breaking my development environment.
+
+00:28:45.301 --> 00:28:47.311
+Making sure that you find the code.
+
+00:28:48.301 --> 00:28:52.739
+Running the tests locally as opposed
+to pushing it out to a pull request
+
+00:28:52.740 --> 00:28:54.210
+and seeing how the checks go.
+
+00:28:54.451 --> 00:28:56.051
+I know we're all guilty of that.
+
+00:28:56.880 --> 00:28:57.980
+If you think about it,
+
+00:28:58.081 --> 00:29:01.921
+the ability for the machine to get
+that done in about 10 to 15 minutes
+
+00:29:02.221 --> 00:29:04.861
+is so much faster
+than we're able to do as humans.
+
+00:29:05.190 --> 00:29:06.190
+Even at our peak,
+
+00:29:06.720 --> 00:29:10.230
+ideal environment, everything set up,
+it just takes so long.
+
+00:29:11.251 --> 00:29:13.619
+We're not multi-threaded
+in that same sense.
+
+00:29:13.620 --> 00:29:16.520
+It's really hard for us
+to hop focus between pull requests.
+
+00:29:16.710 --> 00:29:18.360
+Rather, we're going to sit there,
+
+00:29:18.871 --> 00:29:23.370
+if you've seen that xkcd comic
+that says, "Oh,
+
+00:29:23.441 --> 00:29:24.510
+my code's compiling.
+
+00:29:24.511 --> 00:29:27.064
+That's why I'm playing around
+in the office right now."
+
+00:29:27.064 --> 00:29:29.164
+That's a little more how we are as humans.
+
+00:29:29.461 --> 00:29:31.710
+That's why delegating
+these tasks to the machine,
+
+00:29:31.710 --> 00:29:32.910
+to at least get started,
+
+00:29:33.540 --> 00:29:34.560
+can really help us.
+
+00:29:35.581 --> 00:29:36.750
+If I go take a look
+
+00:29:37.560 --> 00:29:38.910
+at the code that it's made,
+
+00:29:38.971 --> 00:29:42.600
+I go to the files changed tab,
+it shows me it's made just two
+
+00:29:42.601 --> 00:29:43.680
+targeted changes
+
+00:29:44.600 --> 00:29:47.730
+to these color text-muted.
+
+00:29:48.080 --> 00:29:49.180
+They're not variables.
+
+00:29:49.231 --> 00:29:50.431
+Whatever they're called.
+
+00:29:50.941 --> 00:29:54.241
+It's made changes to these
+so that they actually meet requirements,
+
+00:29:54.450 --> 00:29:56.191
+and it's a very targeted change.
+
+00:29:56.881 --> 00:30:01.020
+This is something
+that has been improving over time.
+
+00:30:01.021 --> 00:30:04.830
+I've seen this improve by huge amounts
+over the last couple of months
+
+00:30:05.161 --> 00:30:08.329
+in Copilot itself,
+which is that in the past,
+
+00:30:08.330 --> 00:30:12.140
+it would have a habit of doing things
+in what I would call an additive way.
+
+00:30:12.771 --> 00:30:15.071
+Again, this is very similar
+to a new developer.
+
+00:30:15.530 --> 00:30:17.601
+They're not always going
+to take a look at,
+
+00:30:17.601 --> 00:30:18.601
+"What is the system?
+
+00:30:18.860 --> 00:30:20.910
+How do I find the fix within the system?"
+
+00:30:21.081 --> 00:30:24.890
+They're going to go, "Okay, you told me
+to fix the subtitle over here.
+
+00:30:25.371 --> 00:30:27.771
+Now I'm going to add
+a new class to the subtitle,
+
+00:30:27.861 --> 00:30:32.240
+or I'm going to use
+that as a selector in my CSS,
+
+00:30:32.241 --> 00:30:34.891
+and I'm going to add an override
+to change the color."
+
+00:30:35.271 --> 00:30:38.120
+Instead, here, Copilot,
+the same way we would want
+
+00:30:38.121 --> 00:30:39.201
+to see a human do,
+
+00:30:39.470 --> 00:30:43.941
+is able to take a look through the system
+and find that system-level fix
+
+00:30:43.971 --> 00:30:44.971
+and apply it.
+
+00:30:45.861 --> 00:30:47.030
+Then we can take a look.
+
+00:30:47.030 --> 00:30:48.470
+We can say,
+"Well, I don't like that color,"
+
+00:30:48.470 --> 00:30:49.470
+or whatever.
+
+00:30:50.450 --> 00:30:53.600
+To show you what I mean by that,
+what does it mean to give feedback
+
+00:30:53.600 --> 00:30:54.600
+to the machine?
+
+00:30:54.741 --> 00:30:55.760
+How am I going to deal with this?
+
+00:30:55.760 --> 00:30:59.410
+What if I hated this pull request
+and I didn't want to merge it right now?
+
+00:31:00.981 --> 00:31:03.140
+I've got this other color contrast issue.
+
+00:31:03.351 --> 00:31:04.619
+This was the one from the about page.
+
+00:31:04.619 --> 00:31:08.181
+It says, "Improve tagline readability
+in dark mode."
+
+00:31:08.481 --> 00:31:12.861
+This one does not have the same root cause
+as the other color contrast issue.
+
+00:31:13.360 --> 00:31:15.660
+Even though I said
+at the beginning that we had
+
+00:31:15.941 --> 00:31:18.841
+two of the same issue,
+this is why they're separate issues.
+
+00:31:18.845 --> 00:31:22.011
+This is why they open as separate issues,
+because they're not actually
+
+00:31:22.011 --> 00:31:23.120
+the same root cause.
+
+00:31:24.134 --> 00:31:25.224
+Copilot's gone through--
+
+00:31:25.224 --> 00:31:28.075
+Again, it's gone through,
+and it's identified the problem.
+
+00:31:28.220 --> 00:31:29.480
+What's the violation?
+
+00:31:29.481 --> 00:31:33.200
+There's a foreground color
+of a blue-200 variant
+
+00:31:33.411 --> 00:31:36.161
+for the color variables
+and a background color of white.
+
+00:31:36.590 --> 00:31:43.272
+That color contrast ratio is 2.14,
+which is not even close to 4.5.
+
+00:31:44.140 --> 00:31:45.950
+Then it tells me what its solution is.
+
+00:31:45.950 --> 00:31:47.271
+It's since edited it.
+
+00:31:48.070 --> 00:31:49.100
+I'll show you why.
+
+00:31:50.781 --> 00:31:57.380
+Initially, it had chosen a blue-50
+and had updated the screenshot.
+
+00:31:57.431 --> 00:32:00.355
+When I looked at the screenshot,
+I said, "Wow, that subtitle
+
+00:32:00.355 --> 00:32:05.211
+is really standing out so much more
+than I wanted to," especially because,
+
+00:32:06.050 --> 00:32:09.800
+actually, there's both a light mode
+and a dark mode screenshot.
+
+00:32:10.760 --> 00:32:13.410
+The tool was smart enough to realize
+that there's both
+
+00:32:13.416 --> 00:32:15.080
+and provide screenshots of both.
+
+00:32:15.620 --> 00:32:17.931
+When I compared the two, for me, visually,
+
+00:32:18.531 --> 00:32:21.920
+the light screenshot made it clear
+that the subtitle was subtext,
+
+00:32:22.280 --> 00:32:25.371
+but with the dark mode, despite
+the font size difference,
+
+00:32:25.842 --> 00:32:28.100
+the brightness of the text
+was overwhelming.
+
+00:32:28.221 --> 00:32:31.489
+It made that information
+a little too important on the page
+
+00:32:31.490 --> 00:32:32.490
+for what it was.
+
+00:32:33.290 --> 00:32:34.970
+It made the fix.
+
+00:32:36.101 --> 00:32:38.929
+I can @mention Copilot.
+
+00:32:38.930 --> 00:32:40.045
+That's what's really cool.
+
+00:32:40.045 --> 00:32:43.551
+I said, "@copilot is there another color
+in between those values
+
+00:32:43.551 --> 00:32:44.801
+that can be used instead?
+
+00:32:44.931 --> 00:32:48.440
+This makes the tagline text stand out
+a bit too much and makes the information
+
+00:32:48.440 --> 00:32:49.990
+hierarchy a little less clear."
+
+00:32:51.410 --> 00:32:52.490
+Seven minutes later,
+
+00:32:52.930 --> 00:32:56.786
+Copilot comes back to me and it says,
+"Changed to dark: text-blue-100,
+
+00:32:56.861 --> 00:33:00.049
+which provides
+better visual hierarchy while maintaining
+
+00:33:00.050 --> 00:33:04.430
+excellent accessibility
+(16.38:1 contrast ratio).
+
+00:33:04.790 --> 00:33:09.201
+This is less prominent than blue-50,
+but still far exceeds WCAG requirements."
+
+00:33:09.820 --> 00:33:11.280
+It actually attaches,
+
+00:33:11.630 --> 00:33:14.900
+again, the dark mode screenshots for me.
+
+00:33:16.101 --> 00:33:17.570
+This is really cool as well.
+
+00:33:18.290 --> 00:33:21.890
+There's not just now you have
+to go edit what the AI created,
+
+00:33:21.891 --> 00:33:22.891
+which,
+
+00:33:22.970 --> 00:33:24.051
+I'll be honest, sometimes I do.
+
+00:33:24.051 --> 00:33:25.051
+I find that faster.
+
+00:33:26.300 --> 00:33:30.079
+In a case like this where maybe I've had
+to hop in to remediate a site
+
+00:33:30.080 --> 00:33:32.181
+that I know very little about,
+that I know very little
+
+00:33:32.181 --> 00:33:34.611
+about the framework,
+I don't really know what's going on,
+
+00:33:34.611 --> 00:33:37.161
+I don't know what values
+a previous developer chose,
+
+00:33:37.429 --> 00:33:40.340
+Copilot is able to help me navigate that,
+make decisions,
+
+00:33:40.340 --> 00:33:41.340
+interpret them,
+
+00:33:41.391 --> 00:33:45.620
+and I'm able to give it human
+phrased feedback,
+
+00:33:46.041 --> 00:33:50.000
+saying, "Hey, man,
+is there some other color
+
+00:33:50.001 --> 00:33:51.551
+that you might be able to use?"
+
+00:33:51.950 --> 00:33:54.050
+It's able to make
+that investigation for me
+
+00:33:54.120 --> 00:33:57.468
+without me having to get in there,
+research, et cetera,
+
+00:33:57.469 --> 00:34:00.020
+which I think
+would have taken me longer
+
+00:34:00.021 --> 00:34:02.751
+than seven minutes
+in an unfamiliar code base.
+
+00:34:03.951 --> 00:34:06.200
+I hope that you can see
+the promise of this,
+
+00:34:06.201 --> 00:34:07.951
+of this accessibility scanner tool.
+
+00:34:08.601 --> 00:34:11.451
+Like I said, the assigning it
+to Copilot part is optional.
+
+00:34:11.541 --> 00:34:14.270
+You can imagine if you have
+some large site,
+
+00:34:14.271 --> 00:34:16.760
+you're providing many, many URLs,
+and suddenly you've got
+
+00:34:16.760 --> 00:34:18.141
+hundreds of violations,
+
+00:34:18.380 --> 00:34:22.549
+you don't want to suddenly kick off
+Copilot on hundreds of issues,
+
+00:34:22.550 --> 00:34:26.000
+opening hundreds of pull requests
+that you're not ready to review yet.
+
+00:34:26.476 --> 00:34:27.476
+That's optional,
+
+00:34:27.801 --> 00:34:30.530
+but I hope that you can see
+this power of leveraging tools
+
+00:34:30.530 --> 00:34:32.130
+that you're probably already in.
+
+00:34:32.781 --> 00:34:36.080
+Even if you cut out the Copilot part,
+running the scans,
+
+00:34:36.081 --> 00:34:37.190
+this is using Playwright,
+
+00:34:37.190 --> 00:34:40.700
+this is using axe-core,
+this is not using AI at all,
+
+00:34:40.760 --> 00:34:42.410
+this is leveraging GitHub Actions
+
+00:34:43.071 --> 00:34:44.661
+to open those issues for you.
+
+00:34:46.281 --> 00:34:49.969
+Then, when we open those issues
+for each of those violations
+
+00:34:49.970 --> 00:34:51.410
+with clear information--
+
+00:34:52.280 --> 00:34:54.021
+Again, this could be for a human.
+
+00:34:54.561 --> 00:34:56.362
+This could be
+for a newer developer you have
+
+00:34:56.362 --> 00:34:58.112
+on staff who's getting up to speed.
+
+00:34:58.121 --> 00:35:00.860
+This could be for somebody
+who's been on staff for a while
+
+00:35:00.860 --> 00:35:04.260
+and hasn't yet touched accessibility
+and wants to learn and is eager.
+
+00:35:04.671 --> 00:35:06.121
+We want to be able to provide
+
+00:35:06.441 --> 00:35:09.051
+the tools you need
+for whoever it is who's going to fix
+
+00:35:09.051 --> 00:35:10.051
+the issues,
+
+00:35:10.101 --> 00:35:11.510
+but then, optionally,
+
+00:35:11.690 --> 00:35:15.619
+and this is a continuous AI component,
+be able to leverage things
+
+00:35:15.620 --> 00:35:19.731
+like the coding agent to suggest
+fixes for you to get you going faster.
+
+00:35:20.841 --> 00:35:22.491
+I'm going to switch
+back to my presentation now.
+
+00:35:22.491 --> 00:35:25.141
+Again, this is going
+to switch back into a darker mode
+
+00:35:25.220 --> 00:35:27.081
+and finish out this presentation.
+
+00:35:28.370 --> 00:35:29.931
+I hope you enjoyed that demo,
+
+00:35:31.281 --> 00:35:32.840
+that it gave you some ideas,
+
+00:35:34.041 --> 00:35:36.980
+some things to think about,
+and that you maybe are willing
+
+00:35:36.981 --> 00:35:39.561
+to give it a shot on one of your projects.
+
+00:35:43.221 --> 00:35:44.751
+Again, I keep hammering this.
+
+00:35:44.870 --> 00:35:47.670
+I know it's a fear,
+and it's a completely reasonable one.
+
+00:35:47.990 --> 00:35:51.499
+This really and truly, it's not
+about replacing you as a person,
+
+00:35:51.500 --> 00:35:55.880
+as an expert. It's about unlocking
+your energy by reducing that toil
+
+00:35:56.120 --> 00:35:59.020
+and giving you a higher starting point
+for better leverage.
+
+00:35:59.301 --> 00:36:01.310
+I think that,
+
+00:36:01.971 --> 00:36:05.660
+again, we're thinking about agents,
+from that Copilot,
+
+00:36:05.661 --> 00:36:07.701
+the AI side, this agentic world.
+
+00:36:09.041 --> 00:36:12.741
+What does that mean for these developers
+who you want to bring up with you?
+
+00:36:12.830 --> 00:36:15.291
+What does it mean to build experience
+
+00:36:15.950 --> 00:36:17.961
+for the next generation of developers?
+
+00:36:18.411 --> 00:36:21.961
+If you practice getting better at that,
+it actually is a virtuous cycle.
+
+00:36:22.030 --> 00:36:24.630
+You're also able to influence
+the AI in a better way.
+
+00:36:24.890 --> 00:36:27.740
+We're able to think
+about our problems in a clearer sense.
+
+00:36:28.581 --> 00:36:32.390
+We talk about what it means
+for mastery to be able to teach it.
+
+00:36:32.630 --> 00:36:36.440
+To be able to describe
+something clearly is its own skill set
+
+00:36:36.441 --> 00:36:39.771
+and one that I think becomes
+all the more important,
+
+00:36:40.250 --> 00:36:41.870
+even if AI wasn't in the mix.
+
+00:36:42.141 --> 00:36:45.391
+It is really important for us
+to be better and better all the time
+
+00:36:45.391 --> 00:36:48.080
+at how we describe things
+to the people around us.
+
+00:36:49.070 --> 00:36:52.881
+In a lot of ways, the machine
+is reflecting our imperfections back at us
+
+00:36:53.151 --> 00:36:55.301
+in a way that is
+a little bit uncomfortable.
+
+00:36:55.610 --> 00:36:57.531
+I think it's important
+to be able to reflect on that,
+
+00:36:57.531 --> 00:36:59.081
+even if the tool isn't for you.
+
+00:37:01.200 --> 00:37:02.520
+This is a WordPress event.
+
+00:37:02.990 --> 00:37:06.860
+Another member of our working
+team, Carie Fisher,
+
+00:37:07.100 --> 00:37:08.700
+she comes from the Drupal world.
+
+00:37:09.111 --> 00:37:12.501
+Carie and I have actually spoken together
+at a WordCamp before,
+
+00:37:12.640 --> 00:37:14.780
+years and years
+before either of us ever worked
+
+00:37:14.780 --> 00:37:15.780
+at GitHub together.
+
+00:37:16.591 --> 00:37:19.395
+We are definitely thinking
+about next steps to make this tooling
+
+00:37:19.395 --> 00:37:24.260
+even more effective for CMSs specifically,
+especially the extensible kind.
+
+00:37:25.101 --> 00:37:28.431
+What does it mean when issues
+are coming from authored content
+
+00:37:28.611 --> 00:37:30.741
+or they're third-party, like a plugin?
+
+00:37:31.191 --> 00:37:33.830
+These are really great questions
+without perfect answers,
+
+00:37:33.830 --> 00:37:36.470
+but we do have some recommendations now,
+and we're going to continue
+
+00:37:36.470 --> 00:37:37.620
+to tune them over time.
+
+00:37:38.607 --> 00:37:39.921
+For instance, while yes,
+
+00:37:39.980 --> 00:37:44.450
+you also want to monitor the end result,
+with authored content
+
+00:37:44.630 --> 00:37:48.501
+and all of those problems involved,
+the AI-powered fixing components,
+
+00:37:49.100 --> 00:37:50.330
+the scanning component
+
+00:37:51.021 --> 00:37:56.030
+with the auto-fix suggestions
+
+00:37:56.600 --> 00:37:59.600
+should probably be constrained
+to a test site with example content
+
+00:37:59.600 --> 00:38:01.700
+that you know is not the source of issues.
+
+00:38:02.541 --> 00:38:03.681
+With plugins,
+
+00:38:03.771 --> 00:38:06.470
+this remains tricky,
+and it is tricky today,
+
+00:38:06.801 --> 00:38:09.501
+because it's code you're not necessarily
+in control of.
+
+00:38:10.610 --> 00:38:14.510
+Once again, it's like teaching
+a new developer not to hack core.
+
+00:38:15.201 --> 00:38:19.250
+You have to give it explicit instructions,
+not to touch files in certain areas;
+
+00:38:20.301 --> 00:38:22.701
+instead, "Hey, maybe you want
+to look for a hook
+
+00:38:22.850 --> 00:38:25.880
+or a different method of overriding
+within the code you do control
+
+00:38:25.880 --> 00:38:26.901
+to fix any issues."
+
+00:38:27.830 --> 00:38:28.830
+How do you give that
+
+00:38:29.391 --> 00:38:31.341
+kind of instruction to your developers?
+
+00:38:31.431 --> 00:38:33.321
+They have onboarding documents.
+
+00:38:33.461 --> 00:38:36.512
+You might have handbooks.
+You might have any number of things.
+
+00:38:36.680 --> 00:38:39.200
+For a tool like Copilot,
+this actually comes
+
+00:38:39.201 --> 00:38:41.210
+in the form of custom instructions.
+
+00:38:41.500 --> 00:38:45.128
+This is where you can add to the prompt,
+
+00:38:46.051 --> 00:38:47.541
+telling the AI what to do.
+
+00:38:49.190 --> 00:38:51.680
+I mentioned this previously,
+you might tell,
+
+00:38:52.280 --> 00:38:55.371
+"How do you customize what the AI
+knows about your code base?
+
+00:38:57.441 --> 00:39:01.281
+If we keep going back to this parallel
+of it's like a newer developer,
+
+00:39:01.361 --> 00:39:04.111
+how do you onboard newer developers
+into your code base,
+
+00:39:04.121 --> 00:39:06.049
+especially when it's a large one?
+
+00:39:06.251 --> 00:39:07.851
+If I think about WordPress core,
+
+00:39:08.211 --> 00:39:09.831
+getting people up to speed
+on WordPress core,
+
+00:39:09.831 --> 00:39:10.831
+it's so much work.
+
+00:39:11.780 --> 00:39:16.070
+We really have to challenge ourselves
+as the human experts to think about,
+
+00:39:16.071 --> 00:39:18.200
+"How are we documenting what we've done?"
+
+00:39:19.340 --> 00:39:22.100
+Maybe right now, AI is
+a part of our motivation,
+
+00:39:22.280 --> 00:39:23.720
+but it should be for everybody.
+
+00:39:23.720 --> 00:39:25.070
+Anybody who ever comes in,
+
+00:39:25.310 --> 00:39:27.110
+joins us, wants to take part,
+
+00:39:27.290 --> 00:39:30.950
+needs to be able to access
+that information in a known place.
+
+00:39:31.121 --> 00:39:34.340
+For Copilot,
+that is custom-instructions.md.
+
+00:39:34.368 --> 00:39:35.690
+It's a Markdown file.
+
+00:39:36.261 --> 00:39:37.711
+You can give it instructions.
+
+00:39:37.971 --> 00:39:41.451
+Let's say that your
+WordPress repository layout
+
+00:39:41.480 --> 00:39:43.190
+includes all of WP content.
+
+00:39:43.761 --> 00:39:45.261
+This has become pretty common.
+
+00:39:45.981 --> 00:39:46.981
+You can say,
+
+00:39:47.331 --> 00:39:50.361
+"Never touch anything in plugins.
+
+00:39:51.320 --> 00:39:54.861
+You can only modify files
+within this theme's directory.
+
+00:39:55.250 --> 00:39:59.449
+If you are unable to make a fix
+without modifying something
+
+00:39:59.450 --> 00:40:00.750
+outside of that directory,
+
+00:40:00.950 --> 00:40:03.710
+please write that down, make it clear."
+
+00:40:05.111 --> 00:40:06.320
+Then, for us, again,
+
+00:40:06.351 --> 00:40:09.321
+as the humans in the loop,
+we're then able to interpret that.
+
+00:40:09.321 --> 00:40:12.379
+We're able to look at it and go,
+"Okay, I see the type of fix
+
+00:40:12.380 --> 00:40:14.599
+that's made in my theme,
+but now I understand
+
+00:40:14.600 --> 00:40:16.500
+this actually is related to a plugin."
+
+00:40:17.771 --> 00:40:20.541
+What if you can't make
+that fix in the plugin?
+
+00:40:20.690 --> 00:40:24.760
+Maybe you keep that override,
+but also, maybe you go
+
+00:40:24.761 --> 00:40:26.861
+back to that project
+and you contribute it back.
+
+00:40:26.861 --> 00:40:28.510
+That's the beauty
+of the open source world.
+
+00:40:28.510 --> 00:40:29.920
+It's not about labor.
+
+00:40:29.921 --> 00:40:32.821
+I think the labor framing
+is really dangerous for open source.
+
+00:40:32.821 --> 00:40:33.822
+It's not about labor.
+
+00:40:33.822 --> 00:40:36.401
+It's about caring for a thing
+that's for all of us.
+
+00:40:36.581 --> 00:40:39.850
+I think in the accessibility space,
+that's all the more important.
+
+00:40:40.740 --> 00:40:41.830
+We do have
+
+00:40:42.340 --> 00:40:43.841
+our values, our morals,
+
+00:40:44.500 --> 00:40:47.504
+but sometimes we really have
+to come back to,
+
+00:40:47.651 --> 00:40:49.451
+"What can I do to benefit everybody?
+
+00:40:50.320 --> 00:40:53.050
+What is it that is caring
+for the greater good?"
+
+00:40:53.890 --> 00:40:57.669
+If you're able to contribute
+back to a plugin that needs a fix,
+
+00:40:57.719 --> 00:40:58.719
+that's great.
+
+00:40:58.831 --> 00:41:01.899
+If, in the end, the practical outcome
+is that you need
+
+00:41:01.900 --> 00:41:05.531
+to override it in order to deliver
+that fix to your actual users,
+
+00:41:05.560 --> 00:41:06.810
+I think that's also okay.
+
+00:41:07.690 --> 00:41:09.461
+That's why we're the people in the loop.
+
+00:41:09.461 --> 00:41:12.610
+It's up to us to make
+those value judgments and what we're going
+
+00:41:12.610 --> 00:41:13.610
+to do with it.
+
+00:41:14.050 --> 00:41:17.141
+This is a really exciting space
+to me, one that I'm really excited
+
+00:41:17.141 --> 00:41:20.351
+to explore next, which is:
+What do you do
+
+00:41:20.951 --> 00:41:23.710
+in the world of CMSs
+that have lots of extensions?
+
+00:41:27.311 --> 00:41:29.531
+Like I said, we have this repository.
+
+00:41:30.040 --> 00:41:33.290
+By the time you're watching this talk,
+it should be public to you.
+
+00:41:33.371 --> 00:41:35.801
+There is a QR code up on the screen.
+
+00:41:36.634 --> 00:41:39.701
+If you like QR codes, this
+is probably more effective
+
+00:41:39.731 --> 00:41:41.920
+in a live presentation environment,
+
+00:41:42.571 --> 00:41:49.771
+or the short link is gh.io/a11y-scanner.
+
+00:41:50.771 --> 00:41:51.771
+Your Ally scanner.
+
+00:41:52.630 --> 00:41:55.389
+That's how you can get
+to the repository really quickly.
+
+00:41:55.390 --> 00:41:56.590
+Start learning about it.
+
+00:41:57.491 --> 00:41:59.770
+Start using it,
+because it's a GitHub Action.
+
+00:42:00.190 --> 00:42:02.381
+I do want to call out a few things.
+
+00:42:03.641 --> 00:42:05.080
+This is evolving rapidly.
+
+00:42:05.081 --> 00:42:07.371
+It's a public beta.
+That's what we're going to call it.
+
+00:42:07.371 --> 00:42:08.620
+Updates may be frequent.
+
+00:42:08.651 --> 00:42:10.601
+We are tagging it in a way
+where breaking changes
+
+00:42:10.601 --> 00:42:12.101
+are going to be a new version.
+
+00:42:12.644 --> 00:42:14.139
+Things are subject to change.
+
+00:42:14.140 --> 00:42:16.030
+Not all of your requests
+are going to be implemented.
+
+00:42:16.030 --> 00:42:17.980
+We have our own needs, our own roadmap.
+
+00:42:18.840 --> 00:42:22.140
+A lot of customer feedback
+and usage data is still being collected.
+
+00:42:22.331 --> 00:42:25.840
+I don't mean usage data
+as in spying on you.
+
+00:42:26.410 --> 00:42:30.559
+We have a group of beta testers
+who are customers
+
+00:42:30.619 --> 00:42:32.049
+who we're in close touch with.
+
+00:42:32.049 --> 00:42:33.249
+This is how we're understanding
+
+00:42:33.249 --> 00:42:34.330
+how they're using it.
+
+00:42:35.051 --> 00:42:37.664
+Axe-core itself is just axe-core.
+
+00:42:38.114 --> 00:42:43.282
+Our internal data for our own process
+is that it finds about 25%
+
+00:42:43.462 --> 00:42:45.251
+of our audit-flagged issues.
+
+00:42:45.812 --> 00:42:47.262
+That is a significant number.
+
+00:42:47.440 --> 00:42:49.811
+It's worth getting ahead of those,
+but you do still have to do
+
+00:42:49.811 --> 00:42:50.631
+manual testing.
+
+00:42:50.631 --> 00:42:53.101
+You still need to be that person
+who understands what it means,
+
+00:42:53.101 --> 00:42:58.330
+not just to check boxes,
+but to actually have a great experience.
+
+00:42:59.201 --> 00:43:01.000
+Again, code suggestions,
+please be in the loop.
+
+00:43:01.000 --> 00:43:03.131
+Do not just blindly merge stuff in.
+
+00:43:04.230 --> 00:43:06.830
+I really want to encourage you
+to check out this repo
+
+00:43:07.679 --> 00:43:08.680
+to really think of it.
+
+00:43:08.680 --> 00:43:09.850
+Yes, it is open-source.
+
+00:43:10.384 --> 00:43:13.991
+We're probably not going to have
+the most robust process for it,
+
+00:43:14.801 --> 00:43:15.850
+but it is open-source.
+
+00:43:15.850 --> 00:43:17.450
+It's there for you to check out,
+
+00:43:17.620 --> 00:43:20.649
+to look at our code, to dig in,
+to contribute,
+
+00:43:20.650 --> 00:43:23.356
+to modify it, to fork it,
+to do whatever you want with it.
+
+00:43:23.356 --> 00:43:24.731
+It really is.
+
+00:43:25.120 --> 00:43:26.470
+We want to be transparent with you.
+
+00:43:26.470 --> 00:43:27.770
+We really want to do that.
+
+00:43:30.611 --> 00:43:32.161
+Thank you for joining me today.
+
+00:43:32.231 --> 00:43:34.877
+I also want to take this moment to thank
+
+00:43:34.897 --> 00:43:37.017
+some team members
+who've been working incredibly hard
+
+00:43:37.017 --> 00:43:39.489
+on this over the last few months,
+honestly,
+
+00:43:39.490 --> 00:43:40.490
+years,
+
+00:43:40.631 --> 00:43:42.041
+from keeping us organized,
+
+00:43:42.070 --> 00:43:44.261
+to talking to our own customers
+who've been using
+
+00:43:44.261 --> 00:43:47.200
+this as a private beta,
+to testing and adjusting
+
+00:43:47.201 --> 00:43:49.901
+the issue content to get
+better results from Copilot,
+
+00:43:50.441 --> 00:43:51.789
+to writing the Action
+
+00:43:51.790 --> 00:43:53.890
+and actually sub-actions
+inside themselves,
+
+00:43:54.220 --> 00:43:56.540
+to testing and leveraging
+those Actions internally
+
+00:43:56.540 --> 00:43:59.990
+for our own use to enhance axe scanning
+that we've actually been doing
+
+00:44:00.280 --> 00:44:01.280
+for a good while.
+
+00:44:01.590 --> 00:44:04.790
+I've left it to this very end,
+but I think that's the part
+
+00:44:04.810 --> 00:44:08.260
+that I'm the most excited about,
+which is that we're taking
+
+00:44:08.261 --> 00:44:11.980
+this work we've already done at GitHub,
+running axe scanning on a schedule,
+
+00:44:12.190 --> 00:44:13.540
+opening violations,
+
+00:44:13.541 --> 00:44:17.041
+leveraging the tools that we have
+available to us to scale those fixes.
+
+00:44:18.481 --> 00:44:21.131
+We're adapting it in a way
+that can be shared with the public.
+
+00:44:21.131 --> 00:44:23.631
+We're really taking
+the open source ethos to heart,
+
+00:44:23.950 --> 00:44:26.980
+and the fact that we're building
+on open technologies ourselves
+
+00:44:26.980 --> 00:44:28.980
+and sharing it back out with all of you.
+
+00:44:29.492 --> 00:44:32.230
+Thank you to Carie Fisher,
+Kendall Gassner,
+
+00:44:32.231 --> 00:44:35.521
+Clay Miller, and Abdul Ahmad
+from our GitHub accessibility program
+
+00:44:35.531 --> 00:44:39.031
+and engineering for their most recent work
+to bring this to the public.
+
+00:44:39.701 --> 00:44:42.001
+Also, thank you all again
+for joining me today.
+
+00:44:42.221 --> 00:44:45.171
+We're so excited to have
+this opportunity to share with you.
+
+00:44:45.370 --> 00:44:48.520
+I hope you'll give it a shot
+and give us lots of feedback.
+
+00:44:48.676 --> 00:44:50.470
+I genuinely want to hear it.
+
+00:44:51.151 --> 00:44:54.470
+I'll join you now live for a Q&A,
+and I'll catch you online.
+
+00:44:57.580 --> 00:45:02.261
+Madlin Nti: Thank you so much,
+Helen, for that presentation.
+
+00:45:02.600 --> 00:45:08.810
+Do remember that you can put
+in your Q&A in the Q&A section.
+
+00:45:09.260 --> 00:45:11.243
+Let's get right into it.
+
+00:45:12.650 --> 00:45:16.160
+Helen, this is from
+an anonymous attendee,
+
+00:45:16.340 --> 00:45:19.639
+and they're asking,
+do you have any recommendations
+
+00:45:19.640 --> 00:45:23.359
+for tools and plug-ins to help
+prevent accessibility
+
+00:45:23.360 --> 00:45:25.922
+issues made by content editors?
+
+00:45:25.940 --> 00:45:30.383
+Is there a way to prevent
+inaccessible and/or large PDFs,
+
+00:45:30.620 --> 00:45:32.659
+wrong heading levels, etc.
+
+00:45:32.660 --> 00:45:35.553
+What do you have to say about that?
+
+00:45:36.700 --> 00:45:37.859
+Helen Hou-Sandi: I went ahead
+
+00:45:37.860 --> 00:45:40.159
+and I answered
+these by typing as well,
+
+00:45:40.160 --> 00:45:42.859
+just because I know
+we're short on time.
+
+00:45:42.860 --> 00:45:44.959
+I actually don't have specific
+recommendations
+
+00:45:44.960 --> 00:45:47.059
+for you in the WordPress space.
+
+00:45:47.060 --> 00:45:49.879
+I'm not personally
+using any at this time.
+
+00:45:49.880 --> 00:45:52.579
+I think because we've got
+a lot of great attendees
+
+00:45:52.580 --> 00:45:54.469
+and speakers,
+I think this is a great group
+
+00:45:54.470 --> 00:45:57.802
+to poll and see
+who's using what out there.
+
+00:45:57.860 --> 00:46:00.439
+It's definitely something
+I need to start looking at,
+
+00:46:00.440 --> 00:46:05.569
+because we're actually working
+with customers internally at GitHub,
+
+00:46:05.570 --> 00:46:07.069
+and some of them
+have these questions.
+
+00:46:07.070 --> 00:46:08.739
+Actually, we've been asked
+about Drupal already,
+
+00:46:08.740 --> 00:46:10.609
+not quite yet WordPress.
+
+00:46:10.610 --> 00:46:12.079
+I think we need to do it as well,
+
+00:46:12.080 --> 00:46:15.649
+because we actually use
+WordPress for the GitHub blog.
+
+00:46:15.650 --> 00:46:18.709
+I have seen some really cool
+tools out in the open source space.
+
+00:46:18.710 --> 00:46:19.939
+That makes me really happy.
+
+00:46:19.940 --> 00:46:24.859
+For instance, Code for America
+has a Ruby-backed PDF processor.
+
+00:46:25.520 --> 00:46:27.889
+I think these are all just
+really great things.
+
+00:46:27.890 --> 00:46:30.439
+Happy to talk
+more about it over time.
+
+00:46:30.440 --> 00:46:32.749
+I've finally joined
+the Slack as well.
+
+00:46:32.750 --> 00:46:34.651
+Happy to take it there.
+
+00:46:34.850 --> 00:46:36.649
+Madlin: Sure thing. Thank you.
+
+00:46:36.650 --> 00:46:38.719
+Emilio Dominguez is asking,
+
+00:46:38.720 --> 00:46:42.199
+what data does GitHub
+use to train the models?
+
+00:46:42.200 --> 00:46:47.198
+How can we know they are accurately
+fixing or addressing issues?
+
+00:46:48.500 --> 00:46:49.909
+Helen: GitHub does not actually train
+
+00:46:49.910 --> 00:46:52.309
+the models directly
+ourselves in that sense.
+
+00:46:52.310 --> 00:46:54.659
+What we do is we are the home
+
+00:46:54.660 --> 00:46:57.739
+where we leverage
+other models as they exist.
+
+00:46:57.740 --> 00:47:01.628
+We do a lot of work
+to bring in the latest models,
+
+00:47:02.960 --> 00:47:04.639
+like the day that they're announced.
+
+00:47:04.640 --> 00:47:05.979
+We partner up.
+
+00:47:05.980 --> 00:47:10.899
+We've got like Cloud 4.5 as a beta,
+the day that they share it.
+
+00:47:10.940 --> 00:47:14.119
+We're not really training
+the models themselves,
+
+00:47:14.120 --> 00:47:16.459
+but rather what we're doing
+is we're providing the models
+
+00:47:16.460 --> 00:47:20.348
+with more context based
+on what we know as GitHub.
+
+00:47:20.540 --> 00:47:25.320
+We'll feed
+it your repository privately.
+
+00:47:25.430 --> 00:47:26.809
+It doesn't go into the open space,
+
+00:47:26.810 --> 00:47:29.689
+or rather here's the context
+of the repository,
+
+00:47:29.690 --> 00:47:32.959
+possibly here's the context
+of your enterprise.
+
+00:47:32.960 --> 00:47:36.229
+By definition, AI output
+is what we call indeterminate.
+
+00:47:36.230 --> 00:47:37.609
+It's going to be a little
+bit different,
+
+00:47:37.610 --> 00:47:41.179
+or it can be a little
+bit different each time.
+
+00:47:41.180 --> 00:47:45.080
+What you can do,
+a lot of the responsibility lies
+
+00:47:45.110 --> 00:47:47.799
+with you as well, leveraging
+those things
+
+00:47:47.800 --> 00:47:50.509
+like custom instructions,
+leveraging tools.
+
+00:47:50.510 --> 00:47:52.339
+If you haven't looked
+at MCP servers yet,
+
+00:47:52.340 --> 00:47:54.571
+that's a really cool thing.
+
+00:47:54.680 --> 00:47:56.449
+We've created an MCP server
+
+00:47:56.450 --> 00:47:59.959
+for our own design system
+so that we can attach
+
+00:47:59.960 --> 00:48:02.389
+that when we're using
+Copilot internally,
+
+00:48:02.390 --> 00:48:03.829
+and that way Copilot knows
+
+00:48:03.830 --> 00:48:07.162
+how to use our own
+design system correctly.
+
+00:48:07.610 --> 00:48:10.609
+There are some things
+that we are able to do internally
+
+00:48:10.610 --> 00:48:15.779
+to actually impact, not the model,
+but our own implementation,
+
+00:48:15.780 --> 00:48:18.730
+how we're using it broadly for users.
+
+00:48:18.860 --> 00:48:20.149
+For instance, with the agent,
+
+00:48:20.150 --> 00:48:22.849
+when I showed
+that it posted screenshots,
+
+00:48:22.850 --> 00:48:24.859
+and I mentioned that my team
+had worked on this,
+
+00:48:24.860 --> 00:48:28.369
+that's what an engineer,
+Kendall, on my team did.
+
+00:48:28.370 --> 00:48:32.240
+She learned about
+how it tests itself.
+
+00:48:32.990 --> 00:48:34.961
+The AI tests itself using AI.
+
+00:48:34.962 --> 00:48:39.319
+It's a little bit Ouroboros
+snake eating its own
+
+00:48:39.320 --> 00:48:42.319
+tail going on here,
+but that's what it does.
+
+00:48:42.320 --> 00:48:44.749
+It runs and it tests against itself,
+
+00:48:44.750 --> 00:48:47.869
+and what she did was she explicitly
+added a test to make sure
+
+00:48:47.870 --> 00:48:52.129
+that it's adding meaningful alt
+text anytime it posts a screenshot.
+
+00:48:52.130 --> 00:48:55.099
+Those are the things
+that we're able to do internally.
+
+00:48:55.100 --> 00:48:56.869
+Madlin: Thank you so much, Helen,
+
+00:48:56.870 --> 00:49:00.079
+for such an insightful presentation.
+
+00:49:00.080 --> 00:49:01.549
+We're grateful to have you here.
+
+00:49:01.550 --> 00:49:03.230
+Thank you so much.
+
+00:49:04.540 --> 00:49:05.479
+Helen: Thank you for having me.
+
+00:49:05.480 --> 00:49:07.489
+I'm sorry we're short on time
+for Q&A, but like I said,
+
+00:49:07.490 --> 00:49:08.989
+I'm actually in Slack now.
+
+00:49:08.990 --> 00:49:10.359
+I'm happy to answer
+more things there,
+
+00:49:10.360 --> 00:49:14.149
+and I've answered everything
+that I could that I saw in chat.
+
+00:49:14.150 --> 00:49:15.799
+Thank you for letting me share.
+
+00:49:15.800 --> 00:49:18.369
+Looking forward to any feedback
+you all might have.
+
+00:49:18.370 --> 00:49:19.639
+Madlin: Great. Thank you.
+
+00:49:19.640 --> 00:49:22.639
+Thank you for attending
+this session with Helen.
+
+00:49:22.640 --> 00:49:27.372
+You can continue the conversation
+in the chat or social media using
+
+00:49:27.373 --> 00:49:30.460
+#WPA11YDay
+
+00:49:30.500 --> 00:49:33.819
+and #WPAD2025.
+
+00:49:33.820 --> 00:49:36.579
+We also appreciate
+it if you could go to
+
+00:49:36.580 --> 00:49:42.259
+2025.wpaccessibility.day/feedback
+
+00:49:42.260 --> 00:49:44.299
+to provide anonymous feedback
+
+00:49:44.300 --> 00:49:46.789
+for our speakers
+on their presentation.
+
+00:49:46.790 --> 00:49:50.269
+You can enter to win
+a T-shirt while you're there.
+
+00:49:50.270 --> 00:49:53.960
+Stay tuned for Joe A. Simpson Jr.
+
+00:49:56.420 --> 00:49:59.209
+on his presentation
+on Make All WordPress
+
+00:49:59.210 --> 00:50:04.640
+Events Accessible at 12:00
+AM UTC time.
+
+00:50:04.910 --> 00:50:08.389
+While you're waiting, don't forget
+to visit our sponsors' pages
+
+00:50:08.390 --> 00:50:13.039
+to grab virtual swag and enter
+for a chance to win great prizes.
+
+00:50:13.040 --> 00:50:15.437
+See you here after the break.

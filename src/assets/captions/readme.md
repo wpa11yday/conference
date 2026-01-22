@@ -31,9 +31,10 @@ No translations yet.
 
 ## 2022
 
-17 completed translations.
+18 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
+	- Spanish; Andy Amado
 2. Selling Accessibility to Skeptical Clients
 	- Spanish; Deb Ermel
 3. Lightning Talks: Round 1
@@ -157,7 +158,7 @@ No translations yet.
 
 ## 2024
 
-43 completed translations.
+45 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -193,6 +194,7 @@ No translations yet.
 	- Portuguese; Paloma Marques
 13. Navigating Neurodiversity: Creating Websites with Inclusivity in Mind
 	- Spanish; Diana Córdoba Gómez
+	- German; Jennifer Wjertzoch
 	- Portuguese; Paloma Marques
 14. Accessible Design: WCAG or Trendy? No, WCAG AND Trendy!
 	- Spanish; Diana Córdoba Gómez
@@ -225,6 +227,7 @@ No translations yet.
 	- Norwegian; Lena Marie Gjerald
 	- Portuguese; Melissa Antunes
 24. Creating Inclusive Experience with WooCommerce
+	- Spanish; Sidney del Rocio
 25. Maintaining Your Site’s Accessibility Well After Launch
   	- Spanish; Luz Zuniga
 

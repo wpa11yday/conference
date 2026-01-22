@@ -157,7 +157,7 @@ No translations yet.
 
 ## 2024
 
-43 completed translations.
+44 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -193,6 +193,7 @@ No translations yet.
 	- Portuguese; Paloma Marques
 13. Navigating Neurodiversity: Creating Websites with Inclusivity in Mind
 	- Spanish; Diana Córdoba Gómez
+	- German; Jennifer Wjertzoch
 	- Portuguese; Paloma Marques
 14. Accessible Design: WCAG or Trendy? No, WCAG AND Trendy!
 	- Spanish; Diana Córdoba Gómez

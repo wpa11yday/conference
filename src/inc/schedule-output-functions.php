@@ -99,6 +99,13 @@ function wpcs_shortcode_people( $atts ) {
 	// get all authorized users.
 	$output = ( str_contains( home_url(), 'staging.wpaccessibility.day' ) ) ? false : get_transient( 'wpcs_attendees' );
 	if ( $output ) {
+		if ( current_user_can( 'manage_options' ) && isset( $_GET['archive_attendees'] ) ) {
+			$args = array(
+				'ID'           => get_the_ID(),
+				'post_content' => $output,
+			);
+			wp_update_post( $args );
+		}
 		return $output;
 	} else {
 		$output = '';

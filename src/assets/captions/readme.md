@@ -78,7 +78,7 @@ No translations yet.
 
 ## 2023
 
-48 completed translations.
+49 completed translations.
 
 1. Opening Remarks
 2. Keynote: A Conversation with Jennison Asuncion
@@ -116,6 +116,7 @@ No translations yet.
 	- French; Louis Chance
 	- Italian; Alice Orru
 13. Plot a course!: Creating Accessible SVG Charts in WordPress
+	- Spanish; Diana Córdoba Gómez
 	- French; Jb Audras
 14. Creating an Animation Pause Button in WordPress
 	- Spanish; Kim Ortiz
@@ -232,6 +233,8 @@ No translations yet.
   	- Spanish; Luz Zuniga
 
 ## 2025
+
+0 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025

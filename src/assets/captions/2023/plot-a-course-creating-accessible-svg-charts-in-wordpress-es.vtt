@@ -1,0 +1,2913 @@
+WEBVTT
+
+00:00:01.351 --> 00:00:05.130
+AMBER HINDS:
+Día de la Accesibilidad de WordPress 2023:
+
+00:00:05.131 --> 00:00:06.390
+Trazando el rumbo:
+
+00:00:06.390 --> 00:00:11.560
+Gráficos SVG accesibles en WordPress
+con la oradora, Joni Halabi,
+
+00:00:11.560 --> 00:00:15.040
+Desarrolladora web senior
+Universidad de Georgetown.
+
+00:00:15.040 --> 00:00:18.840
+Esta presentación se
+grabó el 28 de septiembre de 2023.
+
+00:00:20.051 --> 00:00:22.390
+JULIE JOHNSON: Mi
+nombre es Julie Johnson.
+
+00:00:22.390 --> 00:00:24.910
+Soy
+especialista en accesibilidad del aprendizaje digital.
+
+00:00:24.910 --> 00:00:28.890
+Y nuevamente, bienvenidos al
+Día de la Accesibilidad de WordPress 2023.
+
+00:00:28.890 --> 00:00:33.530
+Gracias por acompañarnos en
+la presentación de Joni Halabi,
+
+00:00:33.530 --> 00:00:37.350
+Creación de gráficos SVG accesibles
+en WordPress.
+
+00:00:37.350 --> 00:00:42.420
+Joni es una desarrolladora web middle end
+en la Universidad de Georgetown.
+
+00:00:42.420 --> 00:00:46.680
+a quien le gusta escribir código, hacer commits
+con frecuencia y crear sus propios títulos.
+
+00:00:46.680 --> 00:00:50.480
+Ha pasado los últimos 20
+años desarrollando soluciones
+
+00:00:50.480 --> 00:00:53.400
+para una amplia variedad de
+industrias y organizaciones.
+
+00:00:53.400 --> 00:00:56.550
+Actualmente se especializa
+en desarrollar temas CMS
+
+00:00:56.550 --> 00:00:59.080
+y
+personalizaciones del editor de WordPress.
+
+00:00:59.080 --> 00:01:03.010
+Joni también ha dado
+clases de codificación de educación continua y ha dado
+
+00:01:03.010 --> 00:01:05.400
+varias
+conferencias técnicas.
+
+00:01:05.400 --> 00:01:08.700
+Cuando Joni no está escribiendo código,
+está escribiendo artículos técnicos.
+
+00:01:08.700 --> 00:01:13.340
+y trabajos creativos centrados en
+la vida como madre soltera por elección.
+
+00:01:13.340 --> 00:01:16.760
+Le gusta correr,
+practicar yoga, leer,
+
+00:01:16.760 --> 00:01:20.280
+y ver música en vivo cerca de
+su casa en Washington, DC
+
+00:01:22.350 --> 00:01:26.360
+No duden en agregar sus
+preguntas a la sesión de preguntas y respuestas de Zoom.
+
+00:01:26.360 --> 00:01:28.440
+y las responderemos
+al final de la sesión.
+
+00:01:28.440 --> 00:01:34.400
+Pueden utilizar el chat para
+conectarse con otros asistentes.
+
+00:01:36.040 --> 00:01:36.860
+Adelante, vamos, Joni.
+
+00:01:38.300 --> 00:01:39.370
+JONI HALABI: Muchas gracias.
+
+00:01:39.370 --> 00:01:40.670
+Hola, solo voy
+a compartir mi pantalla.
+
+00:01:45.300 --> 00:01:47.110
+Muy bien, aquí vamos.
+
+00:01:47.110 --> 00:01:48.780
+Entonces, hola a todos.
+
+00:01:48.780 --> 00:01:53.440
+Bienvenido a Trazando el rumbo: creación
+de gráficos SVG accesibles en WordPress.
+
+00:01:54.500 --> 00:01:57.850
+Mi nombre es Joni Halabi
+y, como vieron en la introducción,
+
+00:01:57.850 --> 00:02:00.890
+Soy
+desarrollador web sénior en Georgetown.
+
+00:02:00.890 --> 00:02:04.900
+Pueden encontrarme en la mayoría de
+las redes sociales en Joni Halabi.
+
+00:02:04.900 --> 00:02:09.040
+Y pase lo que pase con
+las redes sociales, siempre pueden encontrarme.
+
+00:02:09.040 --> 00:02:11.810
+en la web en jhalabi.com.
+
+00:02:13.980 --> 00:02:18.570
+Soy mamá de una niña de cinco años
+y a ella le gusta decir basta.
+
+00:02:18.570 --> 00:02:21.350
+Tenemos mucho de qué hablar
+y tenemos 40 minutos.
+
+00:02:21.350 --> 00:02:23.870
+para hacerlo,
+así que vayamos al grano.
+
+00:02:26.350 --> 00:02:31.450
+Así que en el viaje de hoy, voy
+a contarles una historia a todos.
+
+00:02:31.450 --> 00:02:32.700
+para empezar.
+
+00:02:32.700 --> 00:02:38.360
+Resulta que el departamento de admisiones universitarias nos
+busca y nos dice: queremos una visualización,
+
+00:02:38.360 --> 00:02:42.500
+un cuadro en nuestro sitio web que
+nos muestre cuántos estudiantes
+
+00:02:42.500 --> 00:02:45.930
+de cada estado de Estados Unidos
+regresan
+
+00:02:45.930 --> 00:02:46.930
+al campus este otoño.
+
+00:02:48.380 --> 00:02:55.260
+Y las admisiones universitarias tienen una
+hoja de cálculo de datos increíblemente grande.
+
+00:02:56.540 --> 00:02:58.800
+Entonces, ¿qué hacemos con esto?
+
+00:02:58.800 --> 00:03:03.680
+Nuestra misión es hacer
+esta visualización
+
+00:03:03.680 --> 00:03:05.030
+en nuestro sitio web de WordPress.
+
+00:03:05.030 --> 00:03:09.710
+Entonces vamos a escribir un
+bloque Gutenberg personalizado tanto para interpretar
+
+00:03:09.710 --> 00:03:12.050
+Como para crear un gráfico
+a partir de estos datos.
+
+00:03:14.890 --> 00:03:16.750
+Así que tracemos un rumbo.
+
+00:03:16.750 --> 00:03:19.930
+Entonces, esta presentación se dividirá
+En tres partes.
+
+00:03:21.120 --> 00:03:24.120
+Paso uno, vamos a
+crear ese bloque de Gutenberg
+
+00:03:24.120 --> 00:03:29.230
+para que podamos leer los
+datos de la hoja de cálculo directamente desde nuestras Hojas de cálculo de Google.
+
+00:03:29.230 --> 00:03:32.130
+Paso dos, vamos a
+procesar esos datos de una manera
+
+00:03:32.130 --> 00:03:35.720
+que podamos usarlo para
+crear una visualización.
+
+00:03:35.720 --> 00:03:38.440
+Y el tercer paso es
+hacer este gráfico.
+
+00:03:38.440 --> 00:03:41.070
+Así que vamos a hacerlo
+accesible y adaptable
+
+00:03:41.070 --> 00:03:42.070
+A diferentes dispositivos.
+
+00:03:44.210 --> 00:03:45.920
+Entonces, el primer paso
+es crear este bloque.
+
+00:03:47.570 --> 00:03:50.100
+Así que realmente tenemos dos opciones.
+
+00:03:50.100 --> 00:03:54.880
+Podríamos ingresar manualmente todos
+esos datos desde nuestra Hoja de cálculo de Google
+
+00:03:54.880 --> 00:03:58.830
+o podríamos
+importarlo automáticamente desde Google.
+
+00:04:01.250 --> 00:04:03.520
+Sé qué elección haría yo.
+
+00:04:05.060 --> 00:04:07.780
+Esa importación automática
+suena mucho mejor.
+
+00:04:09.110 --> 00:04:13.180
+Si conectamos automáticamente
+WordPress a Google Sheets,
+
+00:04:13.180 --> 00:04:16.910
+Nuestros datos se actualizarán automáticamente
+cada vez que haya admisiones.
+
+00:04:16.910 --> 00:04:18.780
+y actualizará esa hoja de cálculo.
+
+00:04:20.650 --> 00:04:23.300
+Sin embargo,
+hay un par de desventajas.
+
+00:04:23.300 --> 00:04:28.930
+Entonces necesitaremos adquirir
+una API key de Google.
+
+00:04:28.930 --> 00:04:32.940
+Y también significa que nuestro sitio web
+ahora tiene una dependencia externa,
+
+00:04:32.940 --> 00:04:35.610
+lo cual sé que puede ser un factor
+decisivo para algunos sitios.
+
+00:04:35.610 --> 00:04:37.940
+Entonces es algo a
+tener en cuenta.
+
+00:04:37.940 --> 00:04:41.060
+Si desean mantener su
+sitio muy contenido,
+
+00:04:41.060 --> 00:04:43.510
+puede que esta no sea una gran
+opción, pero si están bien
+
+00:04:43.510 --> 00:04:47.110
+con dependencias externas, pero si
+están de acuerdo con las dependencias externas,
+
+00:04:47.110 --> 00:04:48.810
+tener esa dependencia
+de un producto de Google.
+
+00:04:50.540 --> 00:04:56.890
+Esta es una solución automática realmente buena
+, así que profundicemos.
+
+00:04:56.890 --> 00:05:02.050
+Entonces, nuestra configuración de bloque de Gutenberg
+será un bloque dinámico,
+
+00:05:02.050 --> 00:05:09.310
+lo que significa que el contenido y
+el márgen se representarán
+
+00:05:09.310 --> 00:05:13.260
+sobre la marcha, al cargar la página,
+por el backend del sitio web.
+
+00:05:13.260 --> 00:05:15.910
+Y esto es porque
+tenemos datos dinámicos.
+
+00:05:15.910 --> 00:05:18.240
+Estos datos podrían cambiar,
+provienen de una hoja
+
+00:05:18.240 --> 00:05:20.950
+que podría
+editarse en cualquier momento.
+
+00:05:20.950 --> 00:05:22.480
+Entonces vamos a
+crear un bloque dinámico.
+
+00:05:23.680 --> 00:05:29.640
+Vamos a utilizar un
+bloque .json y vamos a...
+
+00:05:29.640 --> 00:05:32.340
+tener algunos atributos
+que vamos a definir
+
+00:05:32.340 --> 00:05:34.000
+en este bloque dinámico.
+
+00:05:34.000 --> 00:05:38.670
+Entonces vamos a definir la
+URL de nuestras hojas, qué columna
+
+00:05:38.670 --> 00:05:45.200
+para crear un gráfico y un título
+para nuestro gráfico y también un título,
+
+00:05:45.200 --> 00:05:48.330
+solo para darle a este gráfico un poco
+más de contexto y vamos a ir
+
+00:05:48.330 --> 00:05:51.610
+en cada uno de ellos a medida que
+avanza esta presentación.
+
+00:05:54.350 --> 00:05:57.440
+Así que no voy a profundizar demasiado
+
+00:05:57.440 --> 00:06:03.670
+en la creación de bloques dinámicos
+solo para realmente 
+
+00:06:03.670 --> 00:06:08.530
+concentrarme en la
+creación del gráfico, pero aquí hay un fragmento
+
+00:06:08.530 --> 00:06:13.370
+de cómo se creará el bloque
+en el código.
+
+00:06:13.370 --> 00:06:16.220
+Así que tenemos nuestro index.javascript.
+
+00:06:16.220 --> 00:06:18.540
+JavaScript será
+el controlador de nuestro bloque.
+
+00:06:18.540 --> 00:06:22.400
+Vamos a registrar
+nuestro bloque desde block.json.
+
+00:06:24.260 --> 00:06:30.520
+Nuestro block.json es realmente el gran
+impulsor de la definición del bloque.
+
+00:06:30.520 --> 00:06:34.100
+Defino el nombre de mi
+gráfico, el nombre de mi bloque,
+
+00:06:34.100 --> 00:06:35.520
+al que llamo gráfico.
+
+00:06:36.630 --> 00:06:40.620
+Muy creativo el título,
+y luego esos cuatro atributos
+
+00:06:40.620 --> 00:06:41.760
+que mencioné antes.
+
+00:06:41.760 --> 00:06:47.900
+Entonces los datos, que serán
+la URL de nuestra hoja, la columna
+
+00:06:47.900 --> 00:06:50.810
+a partir de la
+De la que vamos a crear el gráfico, el título de nuestro gráfico
+
+00:06:50.810 --> 00:06:51.630
+y el título de nuestro gráfico.
+
+00:06:51.630 --> 00:06:54.770
+Y todos estos serán
+cadenas.
+
+00:06:59.860 --> 00:07:04.580
+Nuestra interfaz de edición utilizará
+principalmente el control de texto
+
+00:07:04.580 --> 00:07:07.450
+porque estamos tratando con texto,
+estamos tratando con cadenas.
+
+00:07:07.450 --> 00:07:09.510
+Entonces solo tendré
+controles de texto,
+
+00:07:09.510 --> 00:07:13.370
+que es la forma elegante de Gutenberg
+de decir: quiero un campo de entrada.
+
+00:07:13.370 --> 00:07:16.080
+Entonces vamos a tener
+un control de texto separado
+
+00:07:16.080 --> 00:07:18.730
+para nuestra
+URL de Google Sheets, nuestra columna,
+
+00:07:18.731 --> 00:07:21.040
+y luego tampoco tenía espacio
+
+00:07:21.040 --> 00:07:25.330
+para que quepa en la diapositiva,
+pero también el título en el subtítulo.
+
+00:07:26.490 --> 00:07:30.000
+Y nuestra interfaz de edición se verá
+así.
+
+00:07:31.510 --> 00:07:39.290
+Entonces, lo que elegí hacer es tener
+todos estos controles de texto
+
+00:07:39.290 --> 00:07:45.680
+en el panel del inspector, a un
+lado, dejando la interfaz de usuario del editor
+
+00:07:45.680 --> 00:07:50.650
+como inicio para un marcador de posición
+donde irá el gráfico.
+
+00:07:50.650 --> 00:07:56.770
+Pueden escribir el título
+aquí abajo, debajo del bloque.
+
+00:07:59.030 --> 00:08:03.720
+Y el editor de contenido puede simplemente agregar
+este bloque al sitio de WordPress
+
+00:08:03.720 --> 00:08:05.200
+y listo.
+
+00:08:08.560 --> 00:08:13.370
+Fue una descripción general súper rápida de
+los bloques dinámicos y me disculpo.
+
+00:08:13.370 --> 00:08:18.750
+porque realmente quiero pasar al
+paso dos, que es procesar todos
+
+00:08:18.750 --> 00:08:21.130
+los datos de nuestras Hojas de cálculo de Google.
+
+00:08:23.020 --> 00:08:25.830
+Entonces, la estrategia que
+vamos a utilizar
+
+00:08:25.830 --> 00:08:31.660
+porque acabamos de crear un
+bloque dinámico y vamos a...
+
+00:08:31.660 --> 00:08:38.310
+representar el bloque dinámico en
+el front-end usando el lado del servidor,
+
+00:08:38.310 --> 00:08:40.069
+queremos hacer todo
+nuestro procesamiento de datos
+
+00:08:40.070 --> 00:08:41.270
+también en el lado del servidor.
+
+00:08:41.270 --> 00:08:43.690
+Entonces vamos a
+procesar todo esto en PHP
+
+00:08:43.690 --> 00:08:47.080
+porque ese es el lenguaje back-end
+en el que se ejecuta WordPress.
+
+00:08:47.080 --> 00:08:53.560
+Y vamos a utilizar una
+clase muy interesante en WordPress llamada wp_http.
+
+00:08:53.560 --> 00:08:59.350
+Y vamos a usar esa
+clase para leer los datos directamente
+
+00:08:59.350 --> 00:09:00.350
+de Hojas de cálculo de Google.
+
+00:09:04.480 --> 00:09:07.970
+Entonces, en PHP, obtendremos
+algunos datos de los atributos del bloque.
+
+00:09:07.970 --> 00:09:13.060
+El primer dato que vamos
+a necesitar es esa API key.
+
+00:09:13.060 --> 00:09:19.290
+Entonces pueden ingresar a
+su cuenta de Google,
+
+00:09:19.290 --> 00:09:22.390
+y su cuenta de Google
+les permitirá entrar como en una especie
+
+00:09:22.390 --> 00:09:26.920
+de modo desarrollador, y
+les permitirá crear una API key.
+
+00:09:28.340 --> 00:09:30.820
+Necesitarán almacenar
+esa API key en algún lugar.
+
+00:09:30.820 --> 00:09:33.330
+Tienen algunas opciones para hacerlo.
+
+00:09:34.410 --> 00:09:40.010
+Personalmente me gusta tener una
+configuración personalizada que también defino
+
+00:09:40.010 --> 00:09:43.560
+en WordPress, donde un
+editor de contenido, por ejemplo, puede ir
+
+00:09:43.560 --> 00:09:46.170
+y almacenar esa API key, y luego
+se guarda en su sitio.
+
+00:09:48.530 --> 00:09:52.820
+También pueden agregarlo
+directamente a su código,
+
+00:09:52.820 --> 00:09:55.100
+eso no es exactamente súper seguro.
+
+00:09:55.100 --> 00:09:59.490
+También pueden agregar eso
+A un GitHub secret,
+
+00:09:59.490 --> 00:10:01.480
+que es un poco más seguro.
+
+00:10:01.480 --> 00:10:08.430
+Esa opción depende de ustedes, pero para
+poder usar la clase wp_http
+
+00:10:08.430 --> 00:10:13.630
+para leer información de Google,
+necesitará esa API key.
+
+00:10:13.630 --> 00:10:16.320
+Y luego los otros datos que
+voy a necesitar para poder
+
+00:10:16.320 --> 00:10:20.900
+leer esta hoja de Google
+primero hay que buscar la URL de la hoja de Google,
+
+00:10:20.900 --> 00:10:24.120
+y luego también esa columna
+a partir de la cual queremos crear el gráfico.
+
+00:10:26.610 --> 00:10:31.150
+Entonces lo que voy a hacer
+es extraer el ID de la hoja
+
+00:10:31.150 --> 00:10:37.090
+de la URL de Google Sheets
+y de todas estas URL de hojas,
+
+00:10:37.090 --> 00:10:40.920
+sí miran la URL
+cuando están en Hojas de cálculo de Google,
+
+00:10:40.920 --> 00:10:43.790
+todos tienen el mismo formato.
+
+00:10:43.790 --> 00:10:48.162
+Que suele ser
+docs.google.com/spreadsheets/...
+
+00:10:48.163 --> 00:10:51.260
+y luego un montón
+de caracteres.
+
+00:10:52.280 --> 00:10:55.960
+Ese grupo de caracteres
+es la identificación de la hoja.
+
+00:10:55.960 --> 00:10:59.080
+Entonces queremos extraer eso para
+poder obtener esa información.
+
+00:10:59.080 --> 00:11:00.080
+a través de la API.
+
+00:11:03.370 --> 00:11:07.060
+La siguiente información que
+vamos a necesitar es el rango
+
+00:11:07.060 --> 00:11:10.610
+de datos de la hoja de cálculo a
+partir de la cual queremos crear el gráfico.
+
+00:11:10.610 --> 00:11:12.070
+Y aquí es donde entra la columna.
+
+00:11:13.460 --> 00:11:20.980
+Entonces, supongo que
+En estas hojas, la primera fila
+
+00:11:20.980 --> 00:11:25.030
+de la hoja es básicamente
+como una fila de encabezado de título
+
+00:11:25.030 --> 00:11:29.460
+de donde la hoja de Google
+que puse en la pantalla
+
+00:11:29.460 --> 00:11:35.500
+antes de que esa fila de título tuviera
+nombre, estados, especialidad,
+
+00:11:36.830 --> 00:11:40.760
+Olvidé qué otras columnas hay,
+pero esa primera fila no es realmente parte
+
+00:11:40.760 --> 00:11:45.800
+de nuestros datos que
+definen más las columnas.
+
+00:11:45.800 --> 00:11:50.940
+Entonces lo que quiero hacer es establecer
+mi rango desde la segunda fila
+
+00:11:50.940 --> 00:11:56.400
+a algo que sea lo suficientemente grande como para
+capturar todos los datos de las hojas.
+
+00:11:56.400 --> 00:11:58.220
+En este ejemplo,
+elegí mil.
+
+00:11:59.750 --> 00:12:03.270
+Quizás quieran echar un vistazo
+a su hoja para ver qué número
+
+00:12:03.270 --> 00:12:04.396
+podría ser lo mejor para ustedes,
+
+00:12:04.397 --> 00:12:07.110
+pero preferirán que ese
+último número sea realmente grande.
+
+00:12:11.560 --> 00:12:17.680
+Y todo esto nos prepara para hacer
+esa llamada a Google para obtener nuestros datos.
+
+00:12:18.730 --> 00:12:22.180
+Entonces, el fragmento de código
+que tengo en la pantalla
+
+00:12:22.180 --> 00:12:27.370
+al principio crea una nueva
+instancia de esa clase wp_http.
+
+00:12:29.590 --> 00:12:35.230
+Configurarará la URL que usaremos
+para llamar a la API de Google.
+
+00:12:35.230 --> 00:12:39.000
+Para que la API de Google siempre comience
+con hojas.googleapis.com.
+
+00:12:40.340 --> 00:12:45.010
+Y luego agregaremos nuestra
+ID de hoja que extrajimos antes.
+
+00:12:46.140 --> 00:12:52.480
+Después, el rango de datos de
+la columna que estamos leyendo
+
+00:12:52.480 --> 00:12:54.860
+Y finalmente, nuestra API key.
+
+00:12:54.860 --> 00:12:57.220
+Y esa API key es
+como la cerradura que 
+
+00:12:57.220 --> 00:12:59.000
+desbloquea todos los
+datos de Google.
+
+00:13:02.200 --> 00:13:10.200
+Entonces vamos a obtener nuestros
+datos sin procesar llamando a la función get
+
+00:13:13.180 --> 00:13:15.380
+de la clase wp_http.
+
+00:13:15.380 --> 00:13:21.800
+Y luego vamos a
+decodificar todos estos datos sin procesar,
+
+00:13:21.800 --> 00:13:23.830
+por lo que viene como una cadena JSON.
+
+00:13:23.830 --> 00:13:29.570
+Vamos a decodificar todos
+estos datos y obtendremos una matriz
+
+00:13:29.570 --> 00:13:32.360
+que se parece a esto.
+
+00:13:32.360 --> 00:13:36.170
+Se trata de una matriz asociativa.
+
+00:13:36.170 --> 00:13:43.220
+la matriz nos dirá primero
+nuestro rango, que es la hoja
+
+00:13:43.220 --> 00:13:47.140
+De donde
+extrajimos todos estos datos.
+
+00:13:47.140 --> 00:13:52.860
+Entonces extraje datos de
+una hoja llamada datos de clase
+
+00:13:52.860 --> 00:13:57.800
+desde la columna C, fila dos hasta la 101.
+
+00:13:57.800 --> 00:14:03.190
+Y luego, a continuación,
+me muestra todos mis valores.
+
+00:14:03.190 --> 00:14:06.330
+Entonces todos mis valores son
+los diferentes estados
+
+00:14:06.330 --> 00:14:08.000
+de dónde vienen
+Y los estudiantes.
+
+00:14:08.000 --> 00:14:13.930
+Entonces mi primer alumno viene de
+California, el segundo viene
+
+00:14:13.930 --> 00:14:17.510
+de Dakota del Sur, el siguiente
+es Carolina del Norte, y así sucesivamente.
+
+00:14:20.980 --> 00:14:25.880
+Tenemos nuestros datos de nuestras
+hojas de Google, pero aún no hemos terminado.
+
+00:14:25.880 --> 00:14:30.630
+Lo que realmente necesitamos para crear nuestra
+visualización es contar el número
+
+00:14:30.630 --> 00:14:33.590
+de estudiantes de cada estado.
+
+00:14:33.590 --> 00:14:35.890
+No me refiero a cada especialidad,
+me refiero a cada estado.
+
+00:14:35.890 --> 00:14:43.000
+Entonces vamos a necesitar otra
+función PHP para contar todo
+
+00:14:43.000 --> 00:14:47.170
+de los valores únicos en los datos
+que acabamos de extraer de Google.
+
+00:14:47.170 --> 00:14:51.100
+Entonces vamos a tener un
+bucle for y vamos
+
+00:14:51.100 --> 00:14:54.360
+a crear un bucle for que
+recorrerá todos los valores
+
+00:14:54.360 --> 00:14:57.000
+en nuestros datos sin procesar.
+
+00:14:57.000 --> 00:15:02.450
+Y vamos a decir, OK,
+bueno, si nos encontramos con un estado
+
+00:15:02.450 --> 00:15:05.830
+con el que ya nos hemos topado
+, entonces simplemente vamos
+
+00:15:05.830 --> 00:15:07.700
+a crear un contador para ese
+estado y simplemente vamos
+
+00:15:07.700 --> 00:15:09.930
+a seguir añadiendo uno,
+añadiendo uno, añadiendo uno.
+
+00:15:09.930 --> 00:15:14.910
+Entonces, si pasamos por este ciclo y
+decimos: "OK, mi primer estudiante es...
+
+00:15:14.910 --> 00:15:19.030
+de California, ya
+tengo a alguien de California,
+
+00:15:19.030 --> 00:15:22.140
+así que agregaré uno a ese cubo.
+
+00:15:22.140 --> 00:15:24.640
+Si aún no tengo a alguien
+de California,
+
+00:15:24.640 --> 00:15:26.560
+si no me he topado con
+alguien de California,
+
+00:15:26.560 --> 00:15:29.270
+Voy a crear un nuevo
+cubo de California y diré: Está bien,
+
+00:15:29.270 --> 00:15:32.370
+Tengo una persona de California
+y luego tengo una persona
+
+00:15:32.370 --> 00:15:34.820
+de Carolina del Norte, y luego,
+oh, mira, tengo otra persona
+
+00:15:34.820 --> 00:15:37.080
+de California, así que ya tengo dos.
+
+00:15:37.080 --> 00:15:44.880
+Entonces, eventualmente, este bucle for
+contará a todos los estudiantes.
+
+00:15:44.880 --> 00:15:46.690
+de todos estos estados.
+
+00:15:46.690 --> 00:15:52.550
+Y terminaré con una
+matriz mucho más bonita que,
+
+00:15:52.550 --> 00:15:56.060
+nuevamente, es una
+matriz asociativa, pero ahora dice, OK,
+
+00:15:56.060 --> 00:15:59.570
+Tengo seis estudiantes de California
+y seis de Carolina del Norte
+
+00:15:59.570 --> 00:16:02.310
+y dos de Maryland
+y así sucesivamente.
+
+00:16:04.160 --> 00:16:07.110
+Esto es algo
+con lo que podemos trabajar para crear un gráfico.
+
+00:16:08.590 --> 00:16:13.910
+Hubo mucho trabajo, pero
+ahora podemos crear nuestro gráfico.
+
+00:16:13.910 --> 00:16:15.810
+porque ahora tenemos datos
+con los que podemos trabajar.
+
+00:16:18.560 --> 00:16:24.210
+Volviendo a nuestros
+requisitos de gráficos, queremos
+
+00:16:24.210 --> 00:16:28.170
+que este gráfico sea accesible
+para que el mayor número
+
+00:16:28.170 --> 00:16:31.920
+de personas pueden acceder a estos
+datos y comprenderlos.
+
+00:16:31.920 --> 00:16:39.480
+Queremos que sea responsivr para
+que la gente pueda ver estos datos
+
+00:16:39.480 --> 00:16:43.030
+y encontrar estos datos en
+cualquier dispositivo en el que se encuentren.
+
+00:16:43.030 --> 00:16:46.870
+Si alguien está en una
+computadora portátil, una tableta, un teléfono.
+
+00:16:48.270 --> 00:16:52.790
+Y este ejemplo en particular es
+bastante simple, así que queremos
+
+00:16:52.790 --> 00:16:54.820
+mantener nuestra visualización
+bastante simple.
+
+00:16:54.820 --> 00:16:58.040
+Por lo que hoy vamos a
+crear un gráfico de barras horizontales.
+
+00:17:00.320 --> 00:17:02.830
+Algo parecido a
+lo que tengo en la pantalla.
+
+00:17:02.830 --> 00:17:09.210
+Entonces, en el lado izquierdo, tengo
+la lista de todos los estados,
+
+00:17:09.210 --> 00:17:17.140
+y de izquierda a derecha,
+tengo barras que mostrarán visualmente
+
+00:17:18.440 --> 00:17:21.230
+¿Cuántos estudiantes
+son de cada estado?
+
+00:17:21.230 --> 00:17:23.480
+Entonces, ¿cuántos estudiantes
+son de California?
+
+00:17:23.480 --> 00:17:26.410
+Hay bastantes de
+California y Carolina del Norte,
+
+00:17:26.410 --> 00:17:28.760
+tal vez no tantos de Wisconsin.
+
+00:17:28.760 --> 00:17:34.890
+En la parte inferior de este gráfico,
+tengo mi eje X que muestra un sentido
+
+00:17:34.890 --> 00:17:36.470
+de escala, es decir, de cero a seis.
+
+00:17:37.560 --> 00:17:40.300
+Porque lo máximo que tengo
+de cualquier estado es 6.
+
+00:17:40.300 --> 00:17:42.990
+Obviamente esta es una universidad muy
+pequeña.
+
+00:17:42.990 --> 00:17:48.010
+Y finalmente, en la parte inferior,
+tenemos un título que dice todo.
+
+00:17:48.010 --> 00:17:52.180
+que nuestros estudiantes vienen de
+todas partes de Estados Unidos.
+
+00:17:52.180 --> 00:17:55.800
+Y este otoño, la mayoría de nuestros
+estudiantes provienen de 1
+
+00:17:55.800 --> 00:17:57.340
+de 4 estados diferentes.
+
+00:17:57.340 --> 00:18:01.110
+Así que veamos
+cómo hacer esto.
+
+00:18:03.810 --> 00:18:06.490
+Entonces hay algunas opciones.
+
+00:18:06.490 --> 00:18:12.980
+Hay muchas bibliotecas que
+se pueden usar para crear SVG.
+
+00:18:14.360 --> 00:18:17.240
+D3 es uno de ellos,
+es realmente genial.
+
+00:18:17.240 --> 00:18:20.880
+Pero en esta charla realmente quiero
+hablar sobre cómo crear un gráfico.
+
+00:18:20.880 --> 00:18:23.140
+desde cero usando SVG.
+
+00:18:23.140 --> 00:18:27.910
+Entonces la primera pregunta
+es, ¿qué diablos es SVG?
+
+00:18:30.490 --> 00:18:34.040
+SVG significa
+gráfico vectorial escalable.
+
+00:18:34.040 --> 00:18:41.030
+Y está basado en XML, que es
+un lenguaje de marcado bastante similar
+
+00:18:41.030 --> 00:18:46.050
+en estructura a HTML para personas
+que estén familiarizadas con este.
+
+00:18:46.050 --> 00:18:52.460
+Y es específicamente un estándar
+que les ayuda a crear imágenes
+
+00:18:52.460 --> 00:18:55.480
+para cualquier cosa que
+sea bidimensional.
+
+00:18:55.480 --> 00:18:59.700
+Entonces, SVG, a diferencia de otros
+formatos de imagen, es todo código.
+
+00:18:59.700 --> 00:19:04.100
+Si abren un archivo SVG en
+un editor de texto, verán el código
+
+00:19:04.100 --> 00:19:05.620
+que puedan leer.
+
+00:19:05.620 --> 00:19:10.380
+Por el contrario, si abren un JPEG
+en un editor de texto, 
+
+00:19:10.380 --> 00:19:14.980
+verán muchos caracteres que
+quizás ni siquiera sean reconocibles,
+
+00:19:14.980 --> 00:19:20.210
+y será
+un desastre de aspecto gigantesco.
+
+00:19:20.210 --> 00:19:25.870
+Entonces SVG es todo código que un humano
+puede leer si conoce el lenguaje.
+
+00:19:25.870 --> 00:19:28.210
+y vamos a profundizar
+un poco en ese lenguaje aquí.
+
+00:19:29.660 --> 00:19:34.490
+No hay pérdida de imagen porque
+el código escala muy bien.
+
+00:19:35.580 --> 00:19:38.480
+En un SVG pueden decir:
+Quiero crear un rectángulo.
+
+00:19:38.480 --> 00:19:42.310
+Y estas son las
+proporciones generales de mi rectángulo.
+
+00:19:42.310 --> 00:19:46.160
+Quiero que sea el doble de
+ancho que de alto.
+
+00:19:46.160 --> 00:19:52.080
+Y pueden        escalarlo muy fácilmente
+en una pantalla pequeña o grande.
+
+00:19:52.080 --> 00:19:54.310
+Por lo tanto, no se pierde ninguna imagen
+que se produciría si se intentara
+
+00:19:54.310 --> 00:19:56.770
+hacer zoom en un
+JPEG, por ejemplo.
+
+00:19:58.300 --> 00:20:04.310
+Además, como un SVG es todo código,
+tiende a tener un tamaño de archivo más pequeño.
+
+00:20:04.310 --> 00:20:07.740
+que algo como un
+JPEG, un PNG o un GIF.
+
+00:20:07.740 --> 00:20:10.000
+Y ese código es semántico.
+
+00:20:10.000 --> 00:20:15.470
+Pueden crear un SVG semántico
+usando las etiquetas correctas,
+
+00:20:15.470 --> 00:20:17.230
+tal como se haría en HTML.
+
+00:20:17.230 --> 00:20:20.730
+Y también pueden agregar
+atributos y roles de Aria a estas etiquetas
+
+00:20:20.730 --> 00:20:24.350
+para que su código sea legible para
+la audiencia más amplia posible.
+
+00:20:26.730 --> 00:20:34.730
+Así que profundicemos más y
+escribamos parte de este código SVG.
+
+00:20:35.090 --> 00:20:39.620
+Como descripción general, SVG,
+comienza con la etiqueta SVG,
+
+00:20:40.930 --> 00:20:47.460
+y comienzarán con esta
+URL XML y S-standard.
+
+00:20:47.460 --> 00:20:50.110
+Pero los puntos que
+quiero señalar
+
+00:20:50.110 --> 00:20:54.830
+en esta etiqueta SVG están el Aria etiquetado
+por y el ancho y el alto.
+
+00:20:54.830 --> 00:20:57.559
+Entonces, el ancho y la
+altura son muy importantes.
+
+00:20:57.560 --> 00:20:58.840
+para la representación del navegador.
+
+00:20:58.840 --> 00:21:02.100
+Entonces le dicen al navegador
+exactamente qué tan grande,
+
+00:21:02.100 --> 00:21:06.300
+¿Cuánto espacio
+debe ocupar este SVG?
+
+00:21:06.300 --> 00:21:10.680
+Y si están familiarizados
+con la etiqueta de imagen en HTML,
+
+00:21:10.680 --> 00:21:13.740
+Esto es muy similar a configurar
+un ancho y una altura allí.
+
+00:21:13.740 --> 00:21:18.780
+porque es una experiencia mucho más agradable
+si el navegador ya conoce
+
+00:21:18.780 --> 00:21:21.060
+qué tan grande será
+esta imagen en particular.
+
+00:21:22.960 --> 00:21:30.570
+Ahora, el Aria etiquetado por
+atributo aquí apunta
+
+00:21:30.570 --> 00:21:36.150
+a lo que tengo en este
+ejemplo particular de mi título.
+
+00:21:36.150 --> 00:21:41.530
+Entonces, en mi etiqueta SVG,
+digo que este SVG está etiquetado
+
+00:21:41.530 --> 00:21:46.140
+por los elementos dentro de mi SVG
+que tiene el ID de mi gráfico,
+
+00:21:47.240 --> 00:21:49.150
+que resulta
+ser mi etiqueta de título.
+
+00:21:49.150 --> 00:21:53.470
+Entonces, este SVG, cuando lo lee
+un lector de pantalla,
+
+00:21:53.470 --> 00:21:56.790
+dirá, OK,
+la etiqueta para este SVG es el título.
+
+00:21:56.790 --> 00:22:01.270
+Así que voy a leer en voz alta
+lo que esté dentro de mi etiqueta de título.
+
+00:22:01.270 --> 00:22:07.810
+como etiqueta, como descriptor
+para esta imagen SVG en particular.
+
+00:22:07.810 --> 00:22:12.230
+Ese es realmente el
+primer paso para asegurarse
+
+00:22:12.230 --> 00:22:17.300
+que un usuario de lector de pantalla podrá
+comprender el contexto
+
+00:22:17.300 --> 00:22:18.320
+de lo que hay en este gráfico.
+
+00:22:19.610 --> 00:22:22.040
+Entonces una de las claves de este
+título es que realmente quieren
+
+00:22:22.040 --> 00:22:27.500
+configurar ese contexto para el
+tipo de visualización que tienen.
+
+00:22:27.500 --> 00:22:31.590
+Entonces, en este caso, digo que
+tengo un gráfico de barras horizontales.
+
+00:22:31.590 --> 00:22:34.100
+Así, estoy describiendo lo que
+habrá en la pantalla.
+
+00:22:34.100 --> 00:22:36.480
+Y esto muestra
+el número de usuarios
+
+00:22:36.480 --> 00:22:39.360
+que asisten a nuestra
+universidad desde cada estado de EE. UU.
+
+00:22:39.360 --> 00:22:43.100
+Por lo tanto, también se está creando la
+expectativa de lo que sucederá.
+
+00:22:43.100 --> 00:22:45.450
+en este gráfico.
+
+00:22:45.450 --> 00:22:51.190
+Después de ese título, pueden poner
+todas las formas que van
+
+00:22:51.190 --> 00:22:54.110
+para crear este gráfico.
+
+00:22:57.070 --> 00:23:01.970
+pero, antes de entrar en las formas,
+necesitamos establecer la altura del SVG.
+
+00:23:01.970 --> 00:23:05.830
+Entonces, en mi pantalla anterior,
+vieron que tenía alturas,
+
+00:23:05.830 --> 00:23:08.900
+pero realmente no especificé un
+número porque necesito calcular
+
+00:23:08.900 --> 00:23:11.860
+qué tan alto va a ser este gráfico.
+
+00:23:13.430 --> 00:23:14.800
+Lo divertido de los gráficos,
+
+00:23:14.800 --> 00:23:18.680
+especialmente cuando
+estás creando un gráfico
+
+00:23:18.680 --> 00:23:21.700
+A partir de datos dinámicos,
+es que realmente no saben
+
+00:23:21.700 --> 00:23:24.550
+¿Cuántas barras habrá
+en ese gráfico?
+
+00:23:24.550 --> 00:23:26.600
+hasta que realmente miren
+los datos y vean
+
+00:23:26.600 --> 00:23:28.120
+cuántos valores únicos tienen.
+
+00:23:29.220 --> 00:23:32.630
+Entonces necesitamos hacer ese cálculo.
+
+00:23:32.630 --> 00:23:38.730
+Ahora que sabemos que tenemos
+10 o 12 estados diferentes
+
+00:23:38.730 --> 00:23:40.280
+que necesitamos trazar.
+
+00:23:40.280 --> 00:23:42.630
+Necesitamos hacer ese cálculo.
+
+00:23:42.630 --> 00:23:46.960
+Entonces necesitamos decir que
+la altura de nuestro gráfico tiene que ser el número
+
+00:23:46.960 --> 00:23:49.760
+de valores únicos en nuestros gráficos.
+
+00:23:49.760 --> 00:23:54.340
+Y vamos a
+multiplicar eso por la altura,
+
+00:23:54.340 --> 00:23:59.280
+como qué altura física queremos
+que tenga cada barra horizontal.
+
+00:23:59.280 --> 00:24:06.060
+Además, ¿cuánto espacio queremos entre
+cada barra en nuestros gráficos?
+
+00:24:06.060 --> 00:24:13.750
+Y si hacemos esa multiplicación y
+le damos un poco más de espacio,
+
+00:24:14.880 --> 00:24:19.080
+entonces mi primera línea de código está
+haciendo esa multiplicación.
+
+00:24:19.080 --> 00:24:21.730
+La segunda línea de código dice:
+quiero tomar esa altura del gráfico.
+
+00:24:21.730 --> 00:24:26.590
+Entonces la suma de todas las
+alturas de las barras más todas
+
+00:24:26.590 --> 00:24:27.840
+Las de los espacios intermedios.
+
+00:24:27.840 --> 00:24:30.310
+Y voy a agregar
+otros 40 píxeles a eso.
+
+00:24:30.310 --> 00:24:34.060
+para tener un poco más
+de espacio para algo como el eje X
+
+00:24:34.060 --> 00:24:35.690
+y el título.
+
+00:24:37.200 --> 00:24:40.280
+Esa altura del gráfico más mi
+pequeño extra va a...
+
+00:24:40.280 --> 00:24:41.620
+definir la altura de mi SVG.
+
+00:24:44.070 --> 00:24:50.130
+Entonces mi declaración SVG con mi
+altura se verá así.
+
+00:24:50.130 --> 00:24:55.640
+Tendré mi etiqueta SVG, mi
+atributo etiquetado Aria yendo a mi gráfico,
+
+00:24:55.640 --> 00:24:56.170
+mi ancho.
+
+00:24:56.170 --> 00:25:02.040
+Quiero que este gráfico ocupe
+el 100% de su contenedor.
+
+00:25:02.040 --> 00:25:06.350
+Y luego la altura será
+igual a la altura del SVG
+
+00:25:06.350 --> 00:25:07.720
+que acabo de calcular.
+
+00:25:10.080 --> 00:25:14.090
+A continuación queremos
+crear esos ejes X e Y,
+
+00:25:14.090 --> 00:25:18.030
+para darle un
+poco de forma a nuestro gráfico.
+
+00:25:20.410 --> 00:25:26.990
+Recordatorio de geometría, el eje X
+cruza, de izquierda a derecha,
+
+00:25:26.990 --> 00:25:29.420
+el eje Y sube y baja.
+
+00:25:29.420 --> 00:25:34.530
+Y el eje X en particular,
+en este gráfico en particular, va...
+
+00:25:34.530 --> 00:25:38.020
+a estar alineado con la
+parte inferior de nuestro gráfico.
+
+00:25:38.020 --> 00:25:43.370
+Y busqué en Google "axis",
+escrito como "axes",
+
+00:25:43.370 --> 00:25:45.590
+es el plural de eje singular.
+
+00:25:45.590 --> 00:25:51.240
+Así que encontré ese
+fragmento muy divertido de gramática inglesa.
+
+00:25:53.100 --> 00:26:01.100
+De todos modos, la forma en que un
+SVG define las coordenadas
+
+00:26:01.330 --> 00:26:07.770
+de los elementos dentro de
+él, es la de la parte superior izquierda
+
+00:26:08.810 --> 00:26:16.810
+de nuestra imagen SVG es el
+píxel de ancho cero en su eje X
+
+00:26:18.160 --> 00:26:23.020
+y un píxel de ancho cero
+en el eje Y.
+
+00:26:23.020 --> 00:26:31.020
+Entonces comienzas en la parte superior izquierda en
+cero, cero y hasta el final
+
+00:26:32.280 --> 00:26:37.890
+a su derecha está lo que
+llamo X máximo aquí.
+
+00:26:39.690 --> 00:26:44.750
+Max X es el ancho de nuestro SVG,
+max Y es la altura de nuestro SVG.
+
+00:26:44.750 --> 00:26:49.230
+Esto será relevante cuando
+comencemos a dibujar estas formas SVG.
+
+00:26:56.550 --> 00:27:01.420
+Para crear el eje X
+y el eje Y en un gráfico,
+
+00:27:01.420 --> 00:27:05.240
+son básicamente solo líneas.
+
+00:27:05.240 --> 00:27:10.310
+El marcado SVG tiene un elemento de línea.
+
+00:27:10.310 --> 00:27:12.750
+Entonces solo dice,
+quiero crear una línea y quiero
+
+00:27:12.750 --> 00:27:16.840
+para comenzar esta línea en
+esta coordenada XY.
+
+00:27:16.840 --> 00:27:21.210
+Y quiero terminar esta línea
+en esta otra coordenada XY.
+
+00:27:21.210 --> 00:27:25.040
+Y todo lo que tienen que hacer para
+crear una línea, yendo de nuevo,
+
+00:27:25.040 --> 00:27:31.250
+A clase de geometría de canalización,
+es establecer nuestros dos puntos.
+
+00:27:31.250 --> 00:27:35.860
+Y este elemento de línea simplemente dibujará
+una línea entre los dos puntos.
+
+00:27:35.860 --> 00:27:36.860
+que definimos.
+
+00:27:39.950 --> 00:27:45.090
+Entonces el primer punto se define
+con los atributos X1 e Y1.
+
+00:27:45.090 --> 00:27:46.220
+Así que ese es nuestro primer punto.
+
+00:27:46.220 --> 00:27:51.270
+Entonces queremos decir, bueno,
+quiero que el eje Y comience con el 20%
+
+00:27:51.270 --> 00:27:52.270
+del camino de entrada.
+
+00:27:53.490 --> 00:28:01.490
+Y quiero que mi eje Y comience arriba
+y llegue hasta abajo.
+
+00:28:01.880 --> 00:28:06.650
+Entonces mi primer punto será
+el 20% del camino de entrada,
+
+00:28:06.650 --> 00:28:11.450
+y cero para mis valores y.
+
+00:28:11.450 --> 00:28:13.520
+Comenzará
+desde arriba.
+
+00:28:13.520 --> 00:28:17.910
+Y luego mi segundo punto será
+, nuevamente, el 20% del camino
+
+00:28:17.910 --> 00:28:23.030
+desde el lado izquierdo del SVG,
+y llegará hasta el final
+
+00:28:23.030 --> 00:28:24.720
+hasta el final de nuestro gráfico.
+
+00:28:24.720 --> 00:28:28.620
+Entonces tengo eso como una variable
+de altura del gráfico aquí.
+
+00:28:28.620 --> 00:28:32.380
+Entonces, la altura del gráfico realmente será
+esa multiplicación que hicimos.
+
+00:28:32.380 --> 00:28:33.780
+en esa diapositiva anterior.
+
+00:28:33.780 --> 00:28:41.780
+Entonces, la altura del gráfico es el número de barras
+multiplicado por el ancho de las barras más el espacio entre ellas.
+
+00:28:44.220 --> 00:28:50.340
+El trazo simplemente me dice de qué
+color quiero que sea este eje.
+
+00:28:50.340 --> 00:28:55.590
+Entonces elijo el negro,
+que se define en hexadecimal como 000,
+
+00:28:55.590 --> 00:29:00.080
+y quiero que mi eje tenga
+un ancho de dos píxeles.
+
+00:29:00.080 --> 00:29:02.630
+Ese es el ancho de mi trazo.
+
+00:29:02.630 --> 00:29:05.150
+Le doy a esta línea
+un rol de presentación
+
+00:29:05.150 --> 00:29:13.150
+porque realmente no quiero que el
+lector de pantalla llame a ambos
+
+00:29:13.170 --> 00:29:16.140
+de mis ejes.
+
+00:29:16.140 --> 00:29:20.160
+No necesariamente quiero que el
+lector de pantalla diga que hay una línea aquí
+
+00:29:20.160 --> 00:29:22.970
+ese es mi eje Y, hay
+una línea aquí que es mi eje X
+
+00:29:22.970 --> 00:29:25.980
+porque es demasiada
+información para alguien.
+
+00:29:25.980 --> 00:29:28.000
+Eso es simplemente mucha información.
+
+00:29:28.000 --> 00:29:30.730
+Es mucha información innecesaria
+y no es exactamente pertinente
+
+00:29:30.730 --> 00:29:32.390
+a los datos de nuestro gráfico.
+
+00:29:33.530 --> 00:29:37.850
+Entonces, un rol de presentación permitirá
+que el lector de pantalla simplemente diga:
+
+00:29:37.850 --> 00:29:39.070
+OK, esta es la presentación.
+
+00:29:39.070 --> 00:29:44.750
+Estos no son datos reales,
+no tengo que leerlos.
+
+00:29:44.750 --> 00:29:49.130
+Mi eje X está dibujado de
+una manera muy similar.
+
+00:29:49.130 --> 00:29:52.140
+También tiene ese rol de
+presentación y va
+
+00:29:52.140 --> 00:29:55.620
+a ir directamente pata el fondo.
+
+00:29:55.620 --> 00:30:00.790
+Entonces mi primer punto será
+, nuevamente, el 20% del camino,
+
+00:30:00.790 --> 00:30:04.220
+y llegará
+hasta el fondo.
+
+00:30:04.220 --> 00:30:07.040
+Entonces ambos valores de y serán
+las alturas del gráfico.
+
+00:30:07.040 --> 00:30:08.370
+Asegúrate de que se quede en la parte inferior.
+
+00:30:08.370 --> 00:30:13.420
+Entonces esta línea va a
+recorrer el 20% del camino hasta el 100%
+
+00:30:13.420 --> 00:30:18.830
+del camino hacia abajo o
+a través de mi gráfico SVG.
+
+00:30:18.830 --> 00:30:23.860
+Y nuevamente, quiero que sea
+una línea negra de dos píxeles de ancho.
+
+00:30:23.860 --> 00:30:25.070
+porque es mi línea de eje.
+
+00:30:25.070 --> 00:30:26.200
+Quiero que sea bastante neutral.
+
+00:30:28.830 --> 00:30:32.790
+Y luego también quiero tener
+mi escala a lo largo del eje X.
+
+00:30:32.790 --> 00:30:39.900
+Entonces mi escala será
+desde cero hasta el número máximo
+
+00:30:39.900 --> 00:30:43.510
+de personas que son de
+un estado en particular.
+
+00:30:43.510 --> 00:30:44.670
+En este ejemplo, son seis.
+
+00:30:45.850 --> 00:30:49.860
+Entonces quiero representar esto en mi
+SVG y voy a usar esto
+
+00:30:49.860 --> 00:30:52.490
+con otro elemento llamado texto.
+
+00:30:52.490 --> 00:30:56.730
+Lo bueno de los SVG es que pueden 
+poner texto en ellos y es genial.
+
+00:30:56.730 --> 00:31:01.600
+También le estoy dando a este
+elemento de texto un rol de presentación
+
+00:31:01.600 --> 00:31:06.390
+porque no necesariamente
+quiero que un lector de pantalla
+
+00:31:06.390 --> 00:31:10.740
+lea este
+fragmento de texto en particular porque 
+
+00:31:10.740 --> 00:31:13.070
+De repente, alguien se
+va a encontrar con esto.
+
+00:31:13.070 --> 00:31:16.230
+y el lector de pantalla va
+a decir cero o va
+
+00:31:16.230 --> 00:31:17.780
+a decir seis.
+
+00:31:17.780 --> 00:31:22.540
+Y no hay mucho
+contexto y tampoco es el punto
+
+00:31:22.540 --> 00:31:26.310
+del gráfico.
+
+00:31:26.310 --> 00:31:29.300
+El gráfico tiene otra información
+en las barras a la que vamos
+
+00:31:29.300 --> 00:31:30.170
+a llegar en un momento.
+
+00:31:30.170 --> 00:31:38.170
+Entonces voy a tener mi texto
+en este rol de presentación
+
+00:31:39.100 --> 00:31:43.640
+solo para que el lector de pantalla pueda
+presentárselo a alguien visual,
+
+00:31:43.640 --> 00:31:49.690
+pero van a obtener esa
+información a través de las rejas
+
+00:31:49.690 --> 00:31:51.250
+que veremos en un segundo.
+
+00:31:51.250 --> 00:31:56.360
+Entonces, voy a establecer mi escala
+desde cero hasta mi valor X,
+
+00:31:56.360 --> 00:31:58.270
+en este caso son seis.
+
+00:31:58.270 --> 00:32:01.480
+Y así es como
+se ve todo junto.
+
+00:32:01.480 --> 00:32:08.050
+Entonces, lo que quiero hacer es agrupar todos
+estos con el elemento SVG G,
+
+00:32:08.050 --> 00:32:12.350
+ G es solo una abreviatura 
+de grupo 
+
+00:32:12.350 --> 00:32:19.200
+Y voy a poner todas
+estas líneas y mi escala de texto
+
+00:32:19.200 --> 00:32:20.510
+en este grupo en particular.
+
+00:32:23.180 --> 00:32:24.920
+Ahora estamos en la parte divertida.
+
+00:32:24.920 --> 00:32:27.600
+Ahora, esta es la parte donde
+creamos las barras reales.
+
+00:32:27.600 --> 00:32:31.390
+que tienen los datos reales
+que interesan a todos.
+
+00:32:33.570 --> 00:32:37.190
+Entonces, lo primero que queremos
+hacer es usar este elemento G
+
+00:32:37.190 --> 00:32:40.870
+para crear un segundo grupo que
+albergará todas estas barras.
+
+00:32:40.870 --> 00:32:43.790
+Y este grupo es el
+grupo importante que tiene todos nuestros datos.
+
+00:32:43.790 --> 00:32:45.790
+Así que este tendrá
+una etiqueta de Aria.
+
+00:32:47.740 --> 00:32:52.280
+Por brevedad, solo puse
+aquí una etiqueta Aria de datos del gráfico.
+
+00:32:52.280 --> 00:32:57.340
+Recomiendo encarecidamente que sean lo más detallado
+posible con las etiquetas de Aria,
+
+00:32:57.340 --> 00:32:59.355
+especialmente si tienen
+mucha información,
+
+00:32:59.356 --> 00:33:02.120
+sí hay muchas cosas sucediendo
+en su visualización particular.
+
+00:33:04.740 --> 00:33:08.970
+Hay mucha
+gente que debate si
+
+00:33:08.970 --> 00:33:11.490
+esas etiquetas cortas de Aria
+son realmente buenas.
+
+00:33:11.490 --> 00:33:14.530
+Argumentaré que si
+tienen algo que decir
+
+00:33:14.530 --> 00:33:17.996
+y si hay
+información muy particular
+
+00:33:17.997 --> 00:33:20.360
+o información muy importante
+
+00:33:20.360 --> 00:33:22.310
+que quieren transmitir,
+hagan esa etiqueta de Aria
+
+00:33:22.310 --> 00:33:23.520
+Tantas veces como lo necesiten.
+
+00:33:23.520 --> 00:33:25.820
+No es necesario exagerar.
+
+00:33:25.820 --> 00:33:28.780
+Más no necesariamente es mejor,
+pero si tienen mucha información,
+
+00:33:28.780 --> 00:33:34.140
+a veces más puede ser mejor.
+
+00:33:34.140 --> 00:33:38.990
+Entonces, para crear las barras reales,
+recorreremos esa matriz
+
+00:33:38.990 --> 00:33:41.140
+de datos que procesamos anteriormente.
+
+00:33:41.140 --> 00:33:44.240
+Y, de hecho, vamos a
+crear un subgrupo para cada barra.
+
+00:33:44.240 --> 00:33:48.670
+que contendrá la
+barra en sí, una etiqueta de texto,
+
+00:33:48.670 --> 00:33:52.730
+y una descripción de Aria que
+describirá exactamente lo que está pasando
+
+00:33:52.730 --> 00:33:56.610
+con estas barras y lo que
+significa cada barra en este gráfico.
+
+00:33:58.680 --> 00:34:04.410
+Entonces, el subgrupo de cada
+elemento de la barra tendrá un rol
+
+00:34:04.410 --> 00:34:07.440
+de elemento de lista, porque esto es
+básicamente una lista de información.
+
+00:34:07.440 --> 00:34:10.710
+Vamos a tener un
+sello Aria que va a
+
+00:34:10.710 --> 00:34:16.180
+hacer que se generen automáticamente, en
+mi caso, dice que hay un número
+
+00:34:16.180 --> 00:34:18.220
+de artículos y árboles bajo etiqueta.
+
+00:34:18.220 --> 00:34:20.390
+Así es como sonará esto
+en la vida real
+
+00:34:20.390 --> 00:34:26.420
+En este cuadro hay
+seis entradas bajo California.
+
+00:34:26.420 --> 00:34:29.760
+Hay cuatro entradas
+en Maryland.
+
+00:34:31.100 --> 00:34:32.910
+Esta etiqueta de Aria es muy genérica.
+
+00:34:32.910 --> 00:34:36.080
+Si están en una posición en la que saben
+que pueden ser más específicos
+
+00:34:36.080 --> 00:34:40.130
+con esta etiqueta de Aria,
+les recomiendo encarecidamente que lo hagan
+
+00:34:40.130 --> 00:34:43.790
+y decir que hay seis
+estudiantes de California.
+
+00:34:43.790 --> 00:34:45.940
+Hay cuatro
+estudiantes de Maryland.
+
+00:34:47.530 --> 00:34:52.760
+Y el último atributo que tengo en
+este grupo es una etiqueta de índice cero.
+
+00:34:52.760 --> 00:34:57.840
+El índice de esta etiqueta es muy importante
+porque permite al usuario del teclado
+
+00:34:57.840 --> 00:35:04.840
+poder acceder
+al SVG y centrarse en cada uno
+
+00:35:04.840 --> 00:35:07.430
+de estos elementos de barra
+dentro del SVG.
+
+00:35:07.430 --> 00:35:11.990
+Entonces, como un SVG es código,
+al igual que el código HTML,
+
+00:35:11.990 --> 00:35:14.090
+pueden usar la tecla Tab para ir a un enlace.
+
+00:35:14.090 --> 00:35:22.090
+Puede navegar con un teclado
+a cualquier tipo de elemento enfocable,
+
+00:35:23.240 --> 00:35:28.660
+y esta etiqueta de índice de
+cero permitirá a este grupo
+
+00:35:28.660 --> 00:35:30.670
+para convertirse en un elemento enfocable.
+
+00:35:32.350 --> 00:35:34.400
+Entonces, dentro de este grupo, vamos
+a tener nuestros elementos de barra.
+
+00:35:34.400 --> 00:35:35.430
+y nuestros elementos de etiqueta.
+
+00:35:37.160 --> 00:35:42.180
+Entonces la barra será un
+rectángulo, SVG convenientemente,
+
+00:35:42.180 --> 00:35:45.810
+tiene una etiqueta para rectángulos.
+
+00:35:45.810 --> 00:35:48.810
+Se abrevia como rect, RECT.
+
+00:35:48.810 --> 00:35:53.130
+A ese rectángulo
+le vamos a dar un rol de presentación
+
+00:35:53.130 --> 00:35:58.430
+porque el grupo
+en el que está el rectángulo es el que contiene toda
+
+00:35:58.430 --> 00:36:01.380
+esa información para
+esta barra en particular.
+
+00:36:01.380 --> 00:36:09.380
+Entonces, debido a que estamos agrupando el
+resumen de lo que representa esta barra
+
+00:36:10.250 --> 00:36:16.980
+en nuestro grupo, podemos dejar que
+el rectángulo tome más
+
+00:36:16.980 --> 00:36:20.060
+de un rol de presentación.
+
+00:36:22.680 --> 00:36:26.520
+Hay cuatro atributos que
+necesitan para crear un rectángulo.
+
+00:36:26.520 --> 00:36:31.910
+Entonces, el primer atributo es el valor X
+, donde va el rectángulo.
+
+00:36:31.910 --> 00:36:32.310
+para empezar.
+
+00:36:32.310 --> 00:36:37.730
+Entonces esa será la
+esquina superior izquierda de su rectángulo,
+
+00:36:37.730 --> 00:36:45.090
+entonces las coordenadas X e Y
+de ese punto superior izquierdo.
+
+00:36:45.090 --> 00:36:49.870
+La X solo será el
+desplazamiento, como qué tan lejos en el SVG
+
+00:36:49.870 --> 00:36:55.330
+en su conjunto,
+quiero que este rectángulo comience.
+
+00:36:55.330 --> 00:37:00.670
+Entonces, si recuerdan mi eje,
+tengo mi eje al 20% del camino
+
+00:37:00.670 --> 00:37:01.740
+desde el borde de mi SVG.
+
+00:37:01.740 --> 00:37:06.720
+Entonces, tal vez este rectángulo podría comenzar
+en un 22 % para dar un poco
+
+00:37:06.720 --> 00:37:08.830
+de espacio entre el
+rectángulo y la barra.
+
+00:37:08.830 --> 00:37:09.900
+Depende de su estética.
+
+00:37:10.980 --> 00:37:14.310
+Mi valor Y va a depender
+porque va a depender de
+
+00:37:14.310 --> 00:37:16.570
+donde se encuentra esta barra en el SVG.
+
+00:37:16.570 --> 00:37:20.390
+Entonces, el valor Y será
+otro cálculo del número.
+
+00:37:20.390 --> 00:37:25.890
+de barras que he renderizado hasta
+ahora, multiplicado por la altura
+
+00:37:25.890 --> 00:37:28.190
+de cada barra más el
+espacio entre cada barra.
+
+00:37:31.480 --> 00:37:36.200
+Y luego los dos últimos
+atributos para crear un rectángulo
+
+00:37:36.200 --> 00:37:39.130
+en SVG son los
+valores de ancho y alto.
+
+00:37:39.130 --> 00:37:41.960
+Entonces queremos saber qué tan ancho
+será este rectángulo.
+
+00:37:41.960 --> 00:37:43.950
+y qué tan alto
+será este rectángulo.
+
+00:37:43.950 --> 00:37:46.770
+Y el SVG comenzará a
+dibujar este rectángulo comenzando
+
+00:37:46.770 --> 00:37:49.120
+desde ese punto superior izquierdo.
+
+00:37:49.120 --> 00:37:53.060
+Lo dibujará por su
+ancho y hacia abajo por su altura.
+
+00:37:53.060 --> 00:37:56.690
+Entonces, el ancho será el
+ancho de esta barra en particular.
+
+00:37:56.690 --> 00:38:01.090
+y eso se calcula
+en base a los datos.
+
+00:38:01.090 --> 00:38:09.090
+Entonces, el mayor número
+de... piezas de datos
+
+00:38:09.760 --> 00:38:16.010
+que tienen el mayor valor,
+esos datos van a ocupar el 100%
+
+00:38:16.010 --> 00:38:19.580
+del ancho de mi SVG.
+
+00:38:19.580 --> 00:38:23.920
+California tuvo la mayor cantidad, por lo que
+tenía seis personas, por lo que va...
+
+00:38:23.920 --> 00:38:26.080
+a ocupar todo el
+ancho de mi SVG.
+
+00:38:26.080 --> 00:38:30.400
+Tal vez otro estado que tenía sólo
+tres personas, ocupe el 50%.
+
+00:38:31.800 --> 00:38:36.390
+Entonces eso se calculará automáticamente
+en función de los datos.
+
+00:38:36.390 --> 00:38:40.150
+Y la altura es una
+altura fija, porque queremos que cada barra,
+
+00:38:40.150 --> 00:38:41.550
+en un gráfico de barras horizontales.
+
+00:38:41.550 --> 00:38:44.960
+el ancho varía, pero queremos que la
+altura de cada barra permanezca igual.
+
+00:38:44.960 --> 00:38:47.610
+Entonces, la altura de la barra es
+la que queramos establecer.
+
+00:38:47.610 --> 00:38:49.490
+Y finalmente, tengo mi relleno.
+
+00:38:49.490 --> 00:38:52.950
+El relleno es el atributo del
+color que quiero que tenga mi rectángulo,
+
+00:38:52.950 --> 00:38:54.990
+y en este caso elegí el morado.
+
+00:38:54.990 --> 00:38:57.240
+Entonces ese es el valor X de 00F.
+
+00:39:00.210 --> 00:39:05.040
+Entonces, nuevamente, hagamos un círculo alrededor
+del ancho de la barra, el ancho
+
+00:39:05.040 --> 00:39:07.680
+de cada barra será
+un porcentaje.
+
+00:39:07.680 --> 00:39:12.710
+Será cuántos estudiantes
+vendrán del estado,
+
+00:39:12.710 --> 00:39:16.180
+y se calculará
+como un porcentaje del valor dividido
+
+00:39:16.180 --> 00:39:19.370
+por mi valor X multiplicado por 100
+para convertirlo en un porcentaje.
+
+00:39:21.670 --> 00:39:23.480
+Y luego la etiqueta de mi barra.
+
+00:39:24.600 --> 00:39:28.600
+En el SVG de ejemplo que mostré,
+la etiqueta de la barra estaba completamente
+
+00:39:28.600 --> 00:39:30.330
+en el lado izquierdo del SVG.
+
+00:39:30.330 --> 00:39:33.270
+Entonces, nuevamente, voy a
+utilizar esos elementos de texto.
+
+00:39:33.270 --> 00:39:35.270
+Voy a darle
+un rol de presentación.
+
+00:39:35.270 --> 00:39:40.810
+porque el grupo
+en el que vive este elemento de texto tiene la etiqueta Aria
+
+00:39:40.810 --> 00:39:43.620
+que describe lo que está
+pasando con la barra
+
+00:39:43.620 --> 00:39:45.140
+y esta etiqueta en particular.
+
+00:39:46.530 --> 00:39:52.470
+Mis coordenadas X e Y establecen
+dónde se encuentra esta etiqueta.
+
+00:39:52.470 --> 00:39:57.360
+Así como la barra tenía
+un valor Y del número
+
+00:39:57.360 --> 00:40:01.290
+de barras hasta ahora multiplicado por
+la altura de la barra más el espacio,
+
+00:40:01.290 --> 00:40:04.260
+esta etiqueta de texto tiene
+el mismo valor Y.
+
+00:40:04.260 --> 00:40:08.530
+Quiero que el texto sea de barra negra.
+
+00:40:08.530 --> 00:40:09.870
+Así que ese es mi relleno de texto.
+
+00:40:09.870 --> 00:40:12.740
+También puedo establecer un
+tamaño de fuente para un elemento de texto.
+
+00:40:12.740 --> 00:40:15.060
+Voy a establecer un
+tamaño de fuente de 16 píxeles.
+
+00:40:15.060 --> 00:40:17.580
+El tamaño de fuente en un SVG
+siempre se establece en píxeles.
+
+00:40:18.630 --> 00:40:22.490
+Y luego, dentro de este elemento de texto,
+simplemente pondré mi etiqueta.
+
+00:40:22.490 --> 00:40:27.280
+Nuevamente, calculado
+o tomado de la matriz
+
+00:40:27.280 --> 00:40:28.410
+que procesé anteriormente.
+
+00:40:30.860 --> 00:40:36.170
+Entonces, tengo mi grupo de 
+contenedores todos juntos que va
+
+00:40:36.170 --> 00:40:42.020
+tener ese rol de lista
+porque tenemos una lista de elementos
+
+00:40:42.020 --> 00:40:42.950
+que vamos
+a atravesar.
+
+00:40:42.950 --> 00:40:48.940
+Entonces eso dirá semánticamente,
+OK, tengo una lista de estados
+
+00:40:48.940 --> 00:40:53.420
+que me muestra
+de dónde son todos mis estudiantes.
+
+00:40:53.420 --> 00:40:58.970
+Y luego cada barra individual será
+su propio subgrupo dentro
+
+00:40:58.970 --> 00:41:02.110
+de este grupo de listas de contenedores.
+
+00:41:02.110 --> 00:41:05.980
+Y cada uno de estos subgrupos
+tiene una función de elemento de lista.
+
+00:41:05.980 --> 00:41:09.720
+Cada uno de estos subgrupos también tiene una
+etiqueta Aria que describe todo.
+
+00:41:09.720 --> 00:41:13.410
+Y estos grupos contendrán
+ambos elementos rectangulares.
+
+00:41:13.410 --> 00:41:16.330
+que dibujará mi barra
+y mi elemento de texto
+
+00:41:16.330 --> 00:41:18.880
+que le dará a mi
+barra una etiqueta visual.
+
+00:41:21.470 --> 00:41:25.570
+Y finalmente, la última
+parte de este SVG que surgirá...
+
+00:41:25.570 --> 00:41:28.680
+de unir todo es ese
+elemento de título que vamos
+
+00:41:28.680 --> 00:41:33.400
+a colocarlo completamente en
+la parte inferior del SVG.
+
+00:41:33.400 --> 00:41:37.790
+Que es en realidad 
+lo que elegí hacer.
+
+00:41:37.790 --> 00:41:41.670
+Tienen un par de opciones
+en lo que respecta al título.
+
+00:41:41.670 --> 00:41:48.400
+Pueden usar los elementos de texto que
+vienen con SVG para poner el título
+
+00:41:48.400 --> 00:41:53.730
+como elemento en la parte inferior y diuújarlo
+en la parte inferior de su SVG.
+
+00:41:54.890 --> 00:41:59.650
+Lo que pensé que sería más semántico
+es envolver todos los gráficos
+
+00:41:59.650 --> 00:42:03.400
+en una etiqueta de figura HTML.
+
+00:42:03.400 --> 00:42:08.620
+Entonces la figura dirá, OK, tengo
+este elemento de imagen que es mi SVG,
+
+00:42:08.620 --> 00:42:10.650
+es el SVG que acabo de dibujar.
+
+00:42:10.650 --> 00:42:18.310
+Y luego, mi etiqueta de título, puedo
+usar mis elementos HTML de etiqueta de título
+
+00:42:18.310 --> 00:42:20.220
+para escribir este título.
+
+00:42:20.220 --> 00:42:25.730
+Y eso también vinculará semánticamente
+mi SVG a este título en particular.
+
+00:42:25.730 --> 00:42:31.130
+Y ese título puede darle a mi SVG
+incluso más contexto del que tenía.
+
+00:42:31.130 --> 00:42:33.090
+Entonces tenemos el título
+dando un contexto.
+
+00:42:33.090 --> 00:42:35.550
+Tenemos este gran título
+que da contexto.
+
+00:42:35.550 --> 00:42:37.810
+Y luego tenemos toda
+la información dentro
+
+00:42:37.810 --> 00:42:42.140
+del código SVG que proporciona el
+contexto de cada dato individual.
+
+00:42:44.410 --> 00:42:50.910
+Y luego, en el front-end,
+tenemos este gráfico de barras que tiene todas
+
+00:42:50.910 --> 00:42:54.760
+nuestras barras, tiene todas nuestras
+etiquetas y tiene nuestro título
+
+00:42:54.760 --> 00:42:55.960
+en la parte inferior.
+
+00:42:55.960 --> 00:42:59.550
+Y realmente no tengo tiempo
+para dar una demostración interactiva,
+
+00:42:59.550 --> 00:43:04.360
+pero un usuario de teclado, o
+un lector de pantalla puede ir y navegar
+
+00:43:04.360 --> 00:43:10.920
+a través de cada elemento de este
+gráfico de barras para obtener la información
+
+00:43:10.920 --> 00:43:13.470
+de cada estado individual
+en este caso.
+
+00:43:13.470 --> 00:43:18.640
+Solo algunos
+consejos rápidos más sobre accesibilidad.
+
+00:43:20.560 --> 00:43:22.850
+Como con todo lo demás en un
+sitio web, presten atención
+
+00:43:22.850 --> 00:43:23.800
+al contraste de color.
+
+00:43:23.800 --> 00:43:25.930
+El contraste de color es muy
+importante, especialmente
+
+00:43:28.350 --> 00:43:31.210
+si tienen un
+gráfico de barras más complejo que tiene dos barras al lado
+
+00:43:31.210 --> 00:43:34.910
+entre sí, deben asegurarse
+de que esas dos barras también contrasten.
+
+00:43:34.910 --> 00:43:36.870
+entre sí para que cualquiera
+pueda notar la diferencia
+
+00:43:38.630 --> 00:43:42.240
+entre una barra verde y una
+barra roja versus una barra verde
+
+00:43:42.240 --> 00:43:45.290
+y una barra amarilla o
+una barra verde y una barra azul.
+
+00:43:45.290 --> 00:43:48.030
+Definitivamente hay colores
+que se mezclan
+
+00:43:48.030 --> 00:43:50.140
+entre sí más que otros.
+
+00:43:50.140 --> 00:43:52.849
+Recomiendo encarecidamente
+limitar las animaciones.
+
+00:43:52.850 --> 00:43:57.090
+porque puede ser muy molesto
+para mucha gente.
+
+00:43:58.610 --> 00:44:02.050
+Incluyéndome a mí, encuentro que
+las animaciones distraen muchísimo.
+
+00:44:02.050 --> 00:44:09.470
+Pueden agregar los valores de las barras dentro
+del SVG como texto a cada barra.
+
+00:44:09.470 --> 00:44:11.840
+Eso fue demasiado para
+esta presentación en particular.
+
+00:44:12.970 --> 00:44:18.530
+Otro buen truco que he visto
+es incluir una alternativa de tabla HTML
+
+00:44:18.530 --> 00:44:23.510
+al gráfico de barras y, eso,
+solo para dar otra presentación
+
+00:44:23.510 --> 00:44:26.540
+de estos datos como una
+tabla de datos real.
+
+00:44:28.130 --> 00:44:30.806
+Como dije antes,
+escribir etiquetas significativas,
+
+00:44:30.807 --> 00:44:32.230
+escribiendo etiquetas detalladas.
+
+00:44:33.810 --> 00:44:40.650
+Toda la información y el contexto
+que tienen me parecen muy valiosos.
+
+00:44:40.650 --> 00:44:43.870
+porque una imagen tiene muchas
+inferencias, un gráfico tiene muchas
+
+00:44:43.870 --> 00:44:48.080
+Inferencias si
+no se pueden ver físicamente los gráficos,
+
+00:44:48.080 --> 00:44:53.690
+es útil escribir
+esas inferencias como una etiqueta.
+
+00:44:55.000 --> 00:44:57.670
+Así que escribir
+etiquetas de Aria me parece más un arte.
+
+00:44:57.670 --> 00:45:02.910
+Entonces creo que es
+algo que disfruto hacer.
+
+00:45:02.910 --> 00:45:05.560
+Y también prueben, prueben, prueben.
+
+00:45:05.560 --> 00:45:07.250
+Encuentren tantos dispositivos como puedan.
+
+00:45:07.250 --> 00:45:10.420
+Encuentren tantos agentes,
+como agentes de usuario, como puedan.
+
+00:45:10.420 --> 00:45:12.970
+Encuentren tantos
+lectores de pantalla como puedan.
+
+00:45:12.970 --> 00:45:14.790
+Y encuentren tantas personas como puedan.
+
+00:45:14.790 --> 00:45:16.970
+Cuanta más gente,
+más perspectivas.
+
+00:45:16.970 --> 00:45:22.220
+que tienen mirando sus gráficos,
+mirando sus visualizaciones,
+
+00:45:22.220 --> 00:45:24.960
+obtienen muchas
+perspectivas diferentes de la gente
+
+00:45:24.960 --> 00:45:27.520
+y de esa manera aprenden sobre
+diferentes casos de uso.
+
+00:45:28.800 --> 00:45:32.720
+No reduzcan sus pruebas.
+
+00:45:35.340 --> 00:45:36.080
+Y eso es todo.
+
+00:45:36.080 --> 00:45:37.080
+Lo logramos.
+
+00:45:37.820 --> 00:45:40.190
+Esta, nuevamente, es mi
+hija de cinco años cuando tenía cuatro.
+
+00:45:40.190 --> 00:45:43.480
+gracias a todos.
+
+00:45:43.480 --> 00:45:45.120
+Esto fue bastante.
+
+00:45:45.120 --> 00:45:50.530
+Pueden ver esto en acción,
+escribí un complemento llamado BeesonBock.
+
+00:45:51.700 --> 00:45:54.580
+Todos estos enlaces estarán
+disponibles en mis diapositivas.
+
+00:45:54.580 --> 00:45:59.530
+Mis diapositivas están disponibles públicamente,
+tengo un montón de material de referencia.
+
+00:45:59.530 --> 00:46:02.160
+Y finalmente, sé que me
+falta mucho tiempo,
+
+00:46:02.160 --> 00:46:03.250
+pero manténgase en contacto.
+
+00:46:03.250 --> 00:46:11.250
+Estas diapositivas están disponibles en
+talks.jhalabi.com./svg-in-wordpress.
+
+00:46:11.830 --> 00:46:16.600
+Y nuevamente, pueden encontrarme en
+la mayoría de las redes sociales en Joni Halabi.
+
+00:46:16.600 --> 00:46:18.110
+Muchas gracias a todos.
+
+00:46:18.110 --> 00:46:22.420
+JULIE: Está bien, espera,
+tenemos algo en el chat.
+
+00:46:22.420 --> 00:46:24.580
+Me estaba asegurando... Gracias.
+
+00:46:24.580 --> 00:46:27.390
+Y luego tuvimos un
+par de preguntas.
+
+00:46:28.710 --> 00:46:31.420
+¿Tenemos tiempo para preguntas
+sólo por curiosidad?
+
+00:46:35.600 --> 00:46:37.290
+No lo sé, vale.
+
+00:46:37.290 --> 00:46:38.320
+Hagamos una pregunta.
+
+00:46:38.320 --> 00:46:40.400
+JONI: Lo siento, interrumpí.
+
+00:46:40.400 --> 00:46:40.640
+Lo sé.
+
+00:46:40.640 --> 00:46:41.330
+JULIE: Oh, no, está bien.
+
+00:46:41.330 --> 00:46:43.940
+Solo quiero asegurarme de que
+una de estas sea respondida.
+
+00:46:43.940 --> 00:46:45.890
+Tres minutos, está bien,
+tenemos tres minutos.
+
+00:46:45.890 --> 00:46:48.810
+si quiero hacer que las barras
+crezcan en dirección vertical,
+
+00:46:48.810 --> 00:46:54.360
+¿Solo necesito invertir en el ancho
+y alto o hay más pasos?
+
+00:46:55.800 --> 00:46:57.580
+JONI: Eso es la mayor parte
+, en realidad.
+
+00:46:57.580 --> 00:47:00.070
+Escribí una inversión
+para hacer un gráfico vertical.
+
+00:47:00.070 --> 00:47:01.870
+Y creo que es una buena pregunta.
+
+00:47:01.870 --> 00:47:04.050
+Entonces, para los bares
+en sí, sí, lo haces.
+
+00:47:04.050 --> 00:47:07.380
+Básicamente, solo inviertes tus
+valores X e Y y estás más que listo.
+
+00:47:07.380 --> 00:47:08.860
+del camino hasta allí.
+
+00:47:08.860 --> 00:47:13.860
+La mayor parte del trabajo viene
+con dibujar los ejes.
+
+00:47:13.860 --> 00:47:18.250
+tienes que prestar
+atención y mover la balanza.
+
+00:47:18.250 --> 00:47:22.578
+Entonces, en el gráfico de barras horizontales,
+obviamente tengo la escala
+
+00:47:22.579 --> 00:47:24.020
+en el eje X.
+
+00:47:24.020 --> 00:47:27.970
+Cuando le das la vuelta a todo, quieres
+esa escala en el eje Y.
+
+00:47:27.970 --> 00:47:30.050
+Entonces tienes que hacer un poco de
+inversión y un poco de matemáticas,
+
+00:47:30.050 --> 00:47:32.610
+pero es relativamente sencillo
+cambiar entre los dos.
+
+00:47:32.610 --> 00:47:36.570
+JULIE: ¿Será un problema si
+el tamaño de fuente solo se establece en píxeles?
+
+00:47:36.570 --> 00:47:38.550
+¿y SVG en lugar de usar EM?
+
+00:47:38.550 --> 00:47:40.270
+JONI: Probablemente.
+
+00:47:41.340 --> 00:47:46.700
+No voy a mentir, definitivamente
+prefiero EM o REM a los píxeles.
+
+00:47:47.770 --> 00:47:49.640
+A veces depende
+del navegador.
+
+00:47:49.640 --> 00:47:52.000
+A veces el tamaño de fuente
+se vuelve un poco extraño.
+
+00:47:53.150 --> 00:47:57.130
+Especialmente si estás haciendo zoom, como
+si estuvieras usando el zoom del navegador,
+
+00:47:58.480 --> 00:48:05.880
+probablemente podrías hacer
+algo en JavaScript.
+
+00:48:05.880 --> 00:48:07.050
+Realmente no he
+jugado con eso.
+
+00:48:07.050 --> 00:48:08.730
+Esa es una pregunta muy
+interesante.
+
+00:48:08.730 --> 00:48:13.410
+Probablemente puedan hacer algo en
+JavaScript para cambiar el tamaño de las fuentes.
+
+00:48:14.730 --> 00:48:18.150
+Si pueden leer el nivel de zoom
+también, porque al igual que
+
+00:48:18.150 --> 00:48:22.970
+al igual que un elemento HTML, pueden 
+usar JavaScript para apuntar a un elemento
+
+00:48:22.970 --> 00:48:28.410
+dentro del SVG porque básicamente solo estás
+apuntando a selectores.
+
+00:48:32.360 --> 00:48:33.410
+JULIE: Está bien.
+
+00:48:33.410 --> 00:48:34.340
+Uno más rápido.
+
+00:48:34.340 --> 00:48:35.070
+Debo habérmelo perdido.
+
+00:48:35.070 --> 00:48:39.090
+¿Dónde está el gráfico accediendo a los
+datos, estado, número de estudiantes?
+
+00:48:39.090 --> 00:48:42.116
+JONI: Oh,
+esa hoja de cálculo en particular
+
+00:48:42.117 --> 00:48:45.150
+era solo una hoja de cálculo aleatoria
+en Google Sheets.
+
+00:48:45.150 --> 00:48:47.310
+Este ejemplo fue
+de Hojas de cálculo de Google.
+
+00:48:47.310 --> 00:48:51.500
+Tiene que ser una
+Hoja de cálculo de Google de acceso público.
+
+00:48:51.500 --> 00:48:54.850
+Pero siempre que tenga una
+hoja de Google de acceso público,
+
+00:48:54.850 --> 00:48:55.920
+pueden  hacer algo como esto.
+
+00:48:57.190 --> 00:49:01.221
+Probablemente también podrías
+trabajar con WordPress
+
+00:49:01.222 --> 00:49:06.800
+y abra la biblioteca multimedia
+para importar CSV.
+
+00:49:06.800 --> 00:49:11.040
+Y tendrías que ajustar el
+algoritmo para leer desde el CSV
+
+00:49:11.040 --> 00:49:12.590
+y WordPress si
+quieres ir por ese camino.
+
+00:49:14.170 --> 00:49:16.540
+Pero sí, estaba usando Google Sheets
+para este ejemplo en particular.
+
+00:49:17.740 --> 00:49:21.660
+JULIE: Muy bien, gracias
+por asistir a esta sesión con Joni.
+
+00:49:21.660 --> 00:49:24.850
+Pueden continuar la conversación
+en el chat de las redes sociales.
+
+00:49:24.850 --> 00:49:29.920
+con #WPA11day y #WPAD2023.
+
+00:49:29.920 --> 00:49:37.210
+También les agradeceríamos que visitaran
+2023.waccessibility.com/feedback
+
+00:49:37.210 --> 00:49:40.410
+para proporcionar comentarios anónimos
+a nuestros oradores,
+
+00:49:40.410 --> 00:49:43.440
+entonces podrán participar para ganar una
+camiseta mientras estén allí.
+
+00:49:43.440 --> 00:49:47.900
+La otra cosa que quieres saber
+es cuándo cierras esta sesión,
+
+00:49:47.900 --> 00:49:53.250
+El
+administrador del día de accesibilidad de WordPress quiere compartir eso
+
+00:49:53.250 --> 00:49:55.560
+debido a dificultades técnicas,
+este seminario web de Zoom...
+
+00:49:55.560 --> 00:50:00.020
+enviaron un nuevo enlace al seminario web
+ea su correo electrónico, será de Zoom.
+
+00:50:01.080 --> 00:50:04.760
+Entonces no es de WordPress,
+es de Zoom, con una nueva URL,
+
+00:50:04.760 --> 00:50:08.220
+entonces querrán unirse
+a ese para la próxima sesión,
+
+00:50:08.220 --> 00:50:15.910
+que es sobre animación, algo con
+animación de WordPress, lo sé.
+
+00:50:15.910 --> 00:50:20.650
+Así que abandonen este seminario web y únanse
+al nuevo para el próximo seminario web.
+
+00:50:20.650 --> 00:50:24.650
+Muchas gracias a todos
+y por favor dejen sus.
+
+00:50:24.650 --> 00:50:32.650
+comentarios anónimos @2023WebEXor
+@WPACAccessBelief/ comentarios,
+
+00:50:36.250 --> 00:50:41.320
+y luego estén atentos a la próxima
+sesión que comienza en 10 minutos.
+
+00:50:41.320 --> 00:50:44.310
+Y no olviden
+visitar las páginas de nuestros patrocinadores.
+
+00:50:44.310 --> 00:50:44.980
+Gracias a todos.
+
+00:50:46.380 --> 00:50:50.990
+AMBER: Gracias a
+los patrocinadores del Día de la Accesibilidad de WordPress 2023.
+
+00:50:50.990 --> 00:50:53.810
+Patrocinador platino:
+Equalize Digital.
+
+00:50:53.810 --> 00:50:56.600
+Complemento de verificación de accesibilidad
+de Equalize Digital
+
+00:50:56.600 --> 00:50:59.350
+es una
+herramienta de escaneo de accesibilidad automatizada
+
+00:50:59.350 --> 00:51:02.560
+que ayuda a que los sitios web de WordPress
+sean y permanezcan accesibles.
+
+00:51:03.790 --> 00:51:06.650
+Patrocinador Platino – Gravity forms.
+
+00:51:06.650 --> 00:51:10.270
+Gravity Forms es el
+generador de formularios profesional que necesitas
+
+00:51:10.270 --> 00:51:14.990
+para crear
+formilarios hermosos, poderosos y accesibles.
+
+00:51:14.990 --> 00:51:22.000
+Patrocinadores Gold: 20i, Deque,
+Empire Caption Solutions, Pressable,
+
+00:51:22.000 --> 00:51:23.090
+y WP Engine.
+
+00:51:24.650 --> 00:51:31.510
+Patrocinadores de plata: Code Geek, Drake
+Cooper, GoDaddy, LoneRock Point,
+
+00:51:31.510 --> 00:51:36.740
+NerdPress, sitio web de la noche a la mañana de
+Kinetic Iris, Raiola Networks,
+
+00:51:38.010 --> 00:51:41.020
+Colectivo A11Y y The Blogsmith.
+
+00:51:42.900 --> 00:51:48.300
+Patrocinadores de bronce: ExcessaCart,
+alojamiento web GreenGeeks,
+
+00:51:48.300 --> 00:51:59.600
+Consultoría SEO de análisis Hall,
+HDC, ITX, Ivy Cat, Medabots,
+
+00:52:00.050 --> 00:52:03.160
+Chefs de píxeles,
+simplemente programen citas,
+
+00:52:03.160 --> 00:52:06.600
+SiteGround, Termagedón,
+
+00:52:06.600 --> 00:52:10.180
+Subrepresentado en
+Tech, Weglot y Yoast.

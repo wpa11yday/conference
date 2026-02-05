@@ -159,7 +159,7 @@ No translations yet.
 
 ## 2024
 
-45 completed translations.
+46 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -192,6 +192,7 @@ No translations yet.
 	- Spanish; Debora Ermel
 12. Developing Accessible Gutenberg Blocks
 	- Spanish; Debora Ermel
+	- German; Jennifer Wjertzoch
 	- Portuguese; Paloma Marques
 13. Navigating Neurodiversity: Creating Websites with Inclusivity in Mind
 	- Spanish; Diana Córdoba Gómez
@@ -234,12 +235,13 @@ No translations yet.
 
 ## 2025
 
-0 completed translations.
+1 completed translation.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
 3. Being a Colourblind Designer
 4. Typography, Readability and Digital Accessibility
+  	- Spanish; Andy Amado
 5. Reality Check: Building Accessibility that Works in the Global South
 6. Creating a Hyper-Accessible Website for Blind, Low Vision, and Sighted Users
 7. Audio Accessibility in WordPress

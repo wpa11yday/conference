@@ -1981,7 +1981,7 @@ function wpcsp_partners_list() {
  * @return string
  */
 function wpcsp_donors_shortcode( $atts = array(), $content = '' ) {
-	$args = shortcode_atts(
+	$args  = shortcode_atts(
 		array(
 			'term' => '',
 		),
@@ -1991,7 +1991,7 @@ function wpcsp_donors_shortcode( $atts = array(), $content = '' ) {
 	$query = array();
 	if ( ! empty( $args['term'] ) ) {
 		$query = array(
-			'tax_query'      => array(
+			'tax_query' => array(
 				array(
 					'taxonomy' => 'wpcsp_donor_campaign',
 					'field'    => 'slug',
@@ -2018,8 +2018,8 @@ function wpcsp_donors_list( $args = array() ) {
 		'orderby'        => 'date',
 		'order'          => 'DESC',
 	);
-	$args = array_merge( $defaults, $args );
 
+	$args         = array_merge( $defaults, $args );
 	$donors_query = new WP_Query( $args );
 
 	if ( $donors_query->have_posts() ) {

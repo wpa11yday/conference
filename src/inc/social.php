@@ -89,9 +89,9 @@ function wpcsp_create_links( $post_ID ) {
  * @return full HTML block.
  */
 function wpcsp_social_block( $post_ID, $heading = '', $level = 'h2', $button = '' ) {
-	$links = wpcsp_create_links( $post_ID );
-	$level = ( in_array( $level, array( 'h2', 'h3', 'h4', 'h5', 'h6' ), true ) ) ? $level : 'h2';
-	$text  = ( $heading ) ? $heading : __( 'Share This Post', 'wpa-conference' );
+	$links  = wpcsp_create_links( $post_ID );
+	$level  = ( in_array( $level, array( 'h2', 'h3', 'h4', 'h5', 'h6' ), true ) ) ? $level : 'h2';
+	$text   = ( $heading ) ? $heading : __( 'Share This Post', 'wpa-conference' );
 	$button = ( $button ) ? '<button class="button has-popup" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="wpad-share-post-' . absint( $post_ID ) . '">' . esc_html( $button ) . '</button>' : '';
 	if ( $button ) {
 		$html = '<div class="wpad-share-post">' . $button . $links . '</div>';
@@ -110,8 +110,8 @@ function wpcsp_social_block( $post_ID, $heading = '', $level = 'h2', $button = '
 /**
  * Shortcode handler for social blocks. All attributes are optional.
  *
- * @param $atts Shortcode attributes. [ 'post_id' => int, 'heading' => heading text, 'level' => h2, h3, etc. ]
- * @param $content
+ * @param array  $atts Shortcode attributes. [ 'post_id' => int, 'heading' => heading text, 'level' => h2, h3, etc. ].
+ * @param string $content Enclosed content. Unused attribute.
  *
  * @return string
  */

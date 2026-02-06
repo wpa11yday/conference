@@ -166,6 +166,37 @@ function wpcsp_register_conference_taxonomies() {
 		)
 	);
 
+	// Labels for sponsor levels.
+	$donorcampaignlabels = array(
+		'name'          => __( 'Donor Campaigns', 'wpa-conference' ),
+		'singular_name' => __( 'Donor Campaign', 'wpa-conference' ),
+		'search_items'  => __( 'Search Donor Campaigns', 'wpa-conference' ),
+		'popular_items' => __( 'Popular Donor Campaigns', 'wpa-conference' ),
+		'all_items'     => __( 'All Donor Campaigns', 'wpa-conference' ),
+		'edit_item'     => __( 'Edit Donor Campaign', 'wpa-conference' ),
+		'update_item'   => __( 'Update Donor Campaign', 'wpa-conference' ),
+		'add_new_item'  => __( 'Add Donor Campaign', 'wpa-conference' ),
+		'new_item_name' => __( 'New Donor Campaign', 'wpa-conference' ),
+		'not_found'     => __( 'No donor campaigns found.', 'wpa-conference' ),
+		'back_to_items' => __( 'Back to donor campaigns', 'wpa-conference' ),
+	);
+
+	// Register donor campaign taxonomy.
+	register_taxonomy(
+		'wpcsp_donor_campaign',
+		'wpcsp_donor',
+		array(
+			'labels'       => $donorcampaignlabels,
+			'rewrite'      => array( 'slug' => 'campaign' ),
+			'query_var'    => 'donor_campaign',
+			'hierarchical' => false,
+			'public'       => false,
+			'show_ui'      => true,
+			'show_in_rest' => false,
+			'rest_base'    => 'donor_campaign',
+		)
+	);
+
 	// Labels for session languages.
 	$lang_labels = array(
 		'name'          => __( 'Languages', 'wpa-conference' ),

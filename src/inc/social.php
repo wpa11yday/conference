@@ -75,27 +75,59 @@ function wpcsp_create_links( $post_ID ) {
 		}
 	}
 
-	return '<ul class="wpcsp-links">' . $html . '</ul>';
+	return '<ul class="wpcsp-links" id="wpad-share-post-' . absint( $post_ID ) . '">' . $html . '</ul>';
 }
 
 /**
  * Fetch HTML for links and wrap in a container. Add heading and ARIA landmark role.
  *
  * @param integer $post_ID of current post.
+ * @param string  $heading Heading text.
+ * @param string  $level Heading level.
+ * @param string  $button Disclosure trigger text. Empty to disable disclosure.
  *
  * @return full HTML block.
  */
-function wpcsp_social_block( $post_ID ) {
+function wpcsp_social_block( $post_ID, $heading = '', $level = 'h2', $button = '' ) {
 	$links = wpcsp_create_links( $post_ID );
-	$html  = "
+	$level = ( in_array( $level, array( 'h2', 'h3', 'h4', 'h5', 'h6' ), true ) ) ? $level : 'h2';
+	$text  = ( $heading ) ? $heading : __( 'Share This Post', 'wpa-conference' );
+	$button = ( $button ) ? '<button class="button has-popup" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="wpad-share-post-' . absint( $post_ID ) . '">' . esc_html( $button ) . '</button>' : '';
+	if ( $button ) {
+		$html = '<div class="wpad-share-post">' . $button . $links . '</div>';
+	} else {
+		$html = "
 			<nav aria-labelledby='wpa-conference'>
-				<h2 id='wpa-conference'>" . __( 'Share This Post', 'wpa-conference' ) . "</h2>
+				<$level id='wpa-conference'>" . esc_html( $text ) . "</$level>
 				<div class='wpcsp-social-share'>
 					$links
 				</div>
 			</nav>";
-
+	}
 	return $html;
+}
+
+/**
+ * Shortcode handler for social blocks. All attributes are optional.
+ *
+ * @param $atts Shortcode attributes. [ 'post_id' => int, 'heading' => heading text, 'level' => h2, h3, etc. ]
+ * @param $content
+ *
+ * @return string
+ */
+function wpcs_social_links( $atts = array(), $content = '' ) {
+	$args = shortcode_atts(
+		array(
+			'post_id' => get_the_ID(),
+			'heading' => '',
+			'level'   => 'h2',
+			'button'  => 'Share',
+		),
+		$atts,
+		'social'
+	);
+
+	return wpcsp_social_block( $args['post_id'], $args['heading'], $args['level'], $args['button'] );
 }
 
 /**

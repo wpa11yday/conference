@@ -2001,25 +2001,50 @@ function wpcsp_partners_list() {
 /**
  * Register the donors shortcode
  *
+ * @param array  $atts Shortcode attributes.
+ * @param string $content Wrapped content.
+ *
  * @return string
  */
-function wpcsp_donors_shortcode() {
+function wpcsp_donors_shortcode( $atts = array(), $content = '' ) {
+	$args = shortcode_atts(
+		array(
+			'term' => '',
+		),
+		$atts,
+		'donors'
+	);
+	$query = array();
+	if ( ! empty( $args['term'] ) ) {
+		$query = array(
+			'tax_query'      => array(
+				array(
+					'taxonomy' => 'wpcsp_donor_campaign',
+					'field'    => 'slug',
+					'terms'    => $args['term'],
+				),
+			),
+		);
+	}
 	ob_start();
-	wpcsp_donors_list();
+	wpcsp_donors_list( $query );
 	return ob_get_clean();
 }
 
 /**
  * Function to retrieve and display the list of donors
+ *
+ * @param array $args Array of query arguments to override defaults.
  */
-function wpcsp_donors_list() {
-	$args = array(
+function wpcsp_donors_list( $args = array() ) {
+	$defaults = array(
 		'post_type'      => 'wpcsp_donor',
 		'post_status'    => 'publish',
 		'posts_per_page' => -1,
 		'orderby'        => 'date',
 		'order'          => 'DESC',
 	);
+	$args = array_merge( $defaults, $args );
 
 	$donors_query = new WP_Query( $args );
 

@@ -159,7 +159,7 @@ No translations yet.
 
 ## 2024
 
-46 completed translations.
+47 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -185,6 +185,7 @@ No translations yet.
 	- Spanish; Andy Amado
 	- Portuguese; Keithy Caren
 9. Captchas and Other Gotchas: Make Sure Your Secure Website is Accessible
+	- German; Jennifer Wjertzoch
 10. CSS Tiny Tips: Collection of CSS Tips for Making Websites Easier to Read
 	- Spanish; Debora Ermel
 	- Portuguese (Brazilian); Paloma Marques

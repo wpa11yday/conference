@@ -236,7 +236,7 @@ No translations yet.
 
 ## 2025
 
-3 completed translations.
+4 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -244,6 +244,7 @@ No translations yet.
 4. Typography, Readability and Digital Accessibility
   	- Spanish; Andy Amado
 5. Reality Check: Building Accessibility that Works in the Global South
+  	- Spanish; Debora Ermel
 6. Creating a Hyper-Accessible Website for Blind, Low Vision, and Sighted Users
 7. Audio Accessibility in WordPress
 8. Accessibility Lawsuits and WordPress: The Violations Every Business Needs to Know

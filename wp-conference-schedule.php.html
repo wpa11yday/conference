@@ -2247,7 +2247,7 @@ function wpad_google_cal( $session_id ) {
 		'sprop'   => 'website:' . $url,
 		'text'    => urlencode( "$list: $title" ),
 		'sprop'   => 'name:' . urlencode( get_bloginfo( 'name' ) . ' ' . $year ),
-		'details' => urlencode( stripcslashes( trim( $excerpt ) ) ),
+		'details' => urlencode( wp_unslash( trim( $excerpt ) ) ),
 		'sf'      => 'true',
 		'output'  => 'xml',
 	);
@@ -2280,7 +2280,7 @@ function wpad_outlook_cal( $session_id ) {
 		'startdt' => $start,
 		'enddt'   => $end,
 		'subject' => urlencode( "$list: $title" ),
-		'body'    => urlencode( stripcslashes( trim( $excerpt ) ) ),
+		'body'    => urlencode( wp_unslash( trim( $excerpt ) ) ),
 	);
 
 	return add_query_arg( $args, $source );

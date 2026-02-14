@@ -1,0 +1,3319 @@
+WEBVTT
+
+00:00:00.630 --> 00:00:03.497
+Moderator: WordPress
+Barrierefreiheitstag 2024
+
+00:00:04.097 --> 00:00:05.817
+Captchas und andere Fallstricke:
+
+00:00:06.077 --> 00:00:08.617
+So stellen Sie sicher, dass Ihre sichere Website
+barrierefrei ist
+
+00:00:09.057 --> 00:00:10.919
+mit der Referentin AmyJune Hineline,
+
+00:00:11.189 --> 00:00:14.369
+Certification Community Architect
+bei der Linux Foundation.
+
+00:00:15.000 --> 00:00:18.274
+Diese Präsentation
+wurde im Oktober 2024 aufgezeichnet.
+
+00:00:21.599 --> 00:00:22.999
+Simon Miner: Hallo zusammen.
+
+00:00:23.940 --> 00:00:29.585
+Ich möchte Sie willkommen heißen
+zum WordPress Barrierefreiheitstag 2024.
+
+00:00:30.090 --> 00:00:32.728
+Mein Name ist Simon Miner,
+und ich bin der Gründer
+
+00:00:32.729 --> 00:00:34.770
+und CEO von Pedal Point Solutions.
+
+00:00:35.579 --> 00:00:38.280
+Wenn ich so zur Seite schaue,
+ist das nicht unhöflich.
+
+00:00:38.640 --> 00:00:43.229
+Es ist nur so, dass ich eine Sehschwäche habe
+und hier drüben einen großen Monitor mit Text.
+
+00:00:43.920 --> 00:00:46.289
+Ich möchte Ihnen allen dafür danken, 
+dass Sie dabei sind
+
+00:00:47.189 --> 00:00:50.749
+bei dieser Session namens Captchas 
+und andere Fallstricke:
+
+00:00:51.035 --> 00:00:53.172
+So stellen Sie sicher, dass Ihre sichere Website 
+barrierefrei ist
+
+00:00:53.362 --> 00:00:54.462
+mit AmyJune Hineline.
+
+00:00:55.482 --> 00:00:56.482
+AmyJune
+
+00:00:56.862 --> 00:01:01.019
+ist Certified Community Architect
+bei der Linux Foundation.
+
+00:01:01.666 --> 00:01:03.359
+Sie ist verantwortlich für die Unterstützung
+
+00:01:04.140 --> 00:01:09.300
+der Arbeit des Zertifizierungsteams
+beim Erstellen und Pflegen von Prüfungen
+
+00:01:09.329 --> 00:01:13.500
+sowie der dazugehörigen Dokumentation
+für Prüfungsprodukte
+
+00:01:13.770 --> 00:01:17.699
+im Zertifizierungsportfolio
+der Linux Foundation.
+
+00:01:18.510 --> 00:01:22.379
+Ihre fortlaufende Erfahrung
+als Hospizpflegerin bringt sie nah an
+
+00:01:22.620 --> 00:01:24.750
+die Herausforderungen vieler Endnutzer.
+
+00:01:25.439 --> 00:01:28.349
+In ihren fortlaufenden Bemühungen,
+etwas zu bewirken,
+
+00:01:28.679 --> 00:01:30.239
+hilft sie bei der Organisation
+
+00:01:30.839 --> 00:01:33.119
+der A11y Talks,
+
+00:01:33.570 --> 00:01:35.249
+einem Online-Treffen,
+
+00:01:35.939 --> 00:01:37.049
+das sich für
+
+00:01:37.799 --> 00:01:43.530
+alles rund um Barrierefreiheit einsetzt,
+einem der Kernbestandteile beim Aufbau
+
+00:01:43.890 --> 00:01:44.890
+eines inklusiven Webs.
+
+00:01:45.779 --> 00:01:48.869
+AmyJune hilft außerdem Communities dabei,
+
+00:01:49.469 --> 00:01:55.170
+zu entdecken, wie sie sich einbringen
+und dazugehören können,
+
+00:01:55.632 --> 00:01:56.969
+auf mehr Arten als nur durch Code,
+
+00:01:56.970 --> 00:02:01.530
+weshalb ihre bemerkenswerte Fähigkeit,
+mit den Ellenbogen auf dem Tisch zu essen,
+
+00:02:03.090 --> 00:02:07.799
+die Welt in Staunen versetzt hat.
+
+00:02:03.090 --> 00:02:07.799
+Bitte stellen Sie Ihre Fragen gern
+im Zoom-Q&amp;A-Bereich,
+
+00:02:08.249 --> 00:02:10.849
+und wir werden sie
+am Ende der Präsentation beantworten.
+
+00:02:11.570 --> 00:02:15.059
+Nutzen Sie außerdem den Chat, um sich
+mit anderen Teilnehmenden zu vernetzen.
+
+00:02:16.100 --> 00:02:18.732
+Damit möchte ich an AmyJune übergeben.
+
+00:02:19.109 --> 00:02:20.549
+Vielen Dank.
+AmyJune Hineline: Vielen Dank,
+
+00:02:20.549 --> 00:02:22.680
+Simon. Das ist eine wirklich nette Einführung.
+
+00:02:23.579 --> 00:02:26.789
+Ich werde meinen Bildschirm teilen,
+denn deshalb sind alle hier.
+
+00:02:28.869 --> 00:02:30.773
+Simon hat eine wirklich gute Einführung gemacht.
+
+00:02:30.779 --> 00:02:33.529
+Ich muss in meinen ersten paar Folien
+kaum noch etwas sagen.
+
+00:02:33.899 --> 00:02:37.122
+Ich möchte aber noch ein paar organisatorische Dinge
+ansprechen.
+
+00:02:37.142 --> 00:02:39.784
+Ich weiß, dass es hier Untertitel gibt,
+aber ich zeige Ihnen einen kleinen Trick
+
+00:02:39.784 --> 00:02:40.784
+mit Google Slides.
+
+00:02:40.984 --> 00:02:43.584
+Sie sind nicht das Beste,
+womit man auf der Welt arbeiten kann,
+
+00:02:43.619 --> 00:02:46.620
+aber es gibt da eine wirklich praktische Sache,
+wenn Untertitel nicht aktiviert sind, wenn Sie
+
+00:02:46.620 --> 00:02:47.920
+zum Beispiel auf einer Live-Konferenz sind.
+
+00:02:48.220 --> 00:02:50.770
+Wenn Sie in der Ecke
+meines Bildschirms sehen, ich bewege den Mauszeiger,
+
+00:02:51.060 --> 00:02:53.310
+und ich fahre über diese drei Punkte.
+
+00:02:53.609 --> 00:02:55.619
+Ich kann hier Untertitel aktivieren.
+
+00:02:55.820 --> 00:02:57.070
+Sie müssen angemeldet sein,
+
+00:02:57.210 --> 00:03:01.050
+aber ich stelle die Textgröße auf groß
+und die Textposition nach oben,
+
+00:03:01.349 --> 00:03:04.799
+und dann schalte ich sie ein,
+und automatisch gibt es Untertitel
+
+00:03:04.800 --> 00:03:05.490
+oben.
+
+00:03:05.491 --> 00:03:08.010
+Ich werde sie wieder ausschalten,
+weil es sonst stören würde,
+
+00:03:08.010 --> 00:03:10.650
+aber ich teile das immer gern,
+weil das etwas ist, das Sie haben können
+
+00:03:10.650 --> 00:03:11.650
+in Google Slides
+
+00:03:11.910 --> 00:03:15.810
+für den absoluten Mindestbedarf an Untertiteln.
+
+00:03:17.100 --> 00:03:21.371
+Außerdem sind Bilder in meinem Foliensatz,
+und einige der Bilder
+
+00:03:21.421 --> 00:03:22.890
+sind zur Dekoration,
+
+00:03:22.939 --> 00:03:25.828
+aber wenn sie Kontext hinzufügen
+oder irgendwie lustig sind,
+
+00:03:25.829 --> 00:03:29.009
+werde ich sie für Menschen beschreiben,
+die sie visuell nicht sehen können.
+
+00:03:30.689 --> 00:03:31.950
+Ich denke, das ist soweit alles.
+
+00:03:32.100 --> 00:03:33.100
+Dann, wenn Sie möchten,
+
+00:03:33.619 --> 00:03:34.769
+auf der Website,
+
+00:03:34.829 --> 00:03:39.237
+und hier ist ein Link zum Foliensatz,
+falls Sie mitverfolgen möchten.
+
+00:03:39.267 --> 00:03:45.769
+Es ist ein bit.ly-Link wpa11y-2024.
+
+00:03:45.898 --> 00:03:47.699
+Simon hat mich großartig vorgestellt.
+
+00:03:47.699 --> 00:03:49.658
+Mein Name ist AmyJune, niemals Amy,
+
+00:03:49.708 --> 00:03:52.870
+niemals June,
+immer AmyJune in Camel-Case-Schreibweise.
+
+00:03:53.131 --> 00:03:57.480
+Für diejenigen, die mich visuell nicht sehen können:
+Ich bin eine weiße Frau mit dunkelblondem Haar
+
+00:03:57.480 --> 00:04:00.298
+und trage eine Brille
+und ein wirklich tolles Pilz-Shirt,
+
+00:04:00.299 --> 00:04:02.219
+das ich bekommen habe, als ich 14 Jahre alt war.
+
+00:04:02.429 --> 00:04:05.260
+Es ist eines meiner Lieblingsshirts,
+in denen ich gern präsentiere.
+
+00:04:06.029 --> 00:04:09.239
+Das ist ein Bild von Spotty McSpots A lot.
+
+00:04:09.330 --> 00:04:11.039
+Wir nennen ihn kurz Spot.
+
+00:04:11.790 --> 00:04:15.179
+Wenn es Tippfehler im Foliensatz gibt,
+können wir davon ausgehen, dass er
+
+00:04:15.180 --> 00:04:18.149
+über die Tastatur gelaufen ist und
+ein bisschen für mich gestaltet hat,
+
+00:04:18.179 --> 00:04:21.959
+und er ist
+ein wirklich liebenswerter weiß-grauer Tabby-Kater.
+
+00:04:22.070 --> 00:04:28.079
+Auf diesem Bild schnuppert er
+an einem Strauß pinker und gelber Blumen.
+
+00:04:29.190 --> 00:04:30.239
+Die heutige Agenda,
+
+00:04:30.589 --> 00:04:33.839
+ich gebe zu, sie wird für manche Leute
+ein wenig redundant sein.
+
+00:04:34.285 --> 00:04:36.649
+Einige der grundlegenden
+Barrierefreiheitsinhalte,
+
+00:04:37.069 --> 00:04:39.269
+über die ich zu Beginn
+jedes Abschnitts spreche,
+
+00:04:39.739 --> 00:04:40.859
+wurden möglicherweise bereits behandelt
+
+00:04:40.859 --> 00:04:43.710
+in einigen der anderen
+Präsentationen heute.
+
+00:04:44.069 --> 00:04:46.569
+Da dies vielleicht
+einer der einzigen Vorträge ist, zu denen Sie gehen,
+
+00:04:46.609 --> 00:04:49.529
+oder vielleicht ist es der erste Vortrag, den Sie besucht haben,
+und da es
+
+00:04:49.529 --> 00:04:53.820
+eine Aufzeichnung sein wird, die für sich allein steht,
+habe ich trotzdem das Bedürfnis, die Grundlagen zu teilen.
+
+00:04:53.821 --> 00:04:55.949
+Ich finde, das ist absolut angemessen.
+
+00:04:55.950 --> 00:04:56.825
+Wir werden über
+
+00:04:56.845 --> 00:04:59.194
+einige dieser
+Barrierefreiheitsrichtlinien sprechen.
+
+00:04:59.255 --> 00:05:02.999
+Ich werde
+während der Präsentation einige WCAG-Richtlinien
+
+00:05:02.999 --> 00:05:05.149
+im Zusammenhang mit Sicherheit
+einfließen lassen.
+
+00:05:05.399 --> 00:05:07.560
+Und dann sprechen wir auch
+über Alternativen und darüber, wie wir
+
+00:05:07.560 --> 00:05:09.120
+unsere Websites barrierefreier machen können.
+
+00:05:11.300 --> 00:05:14.728
+Bevor wir heute anfangen,
+ich weiß, dass dieses spezielle Logo
+
+00:05:14.729 --> 00:05:17.460
+aus der Drupal-Community stammt,
+aber das ist genauso wichtig
+
+00:05:17.460 --> 00:05:18.810
+in der WordPress-Community.
+
+00:05:21.539 --> 00:05:24.092
+Angesichts einer prominenten
+Hosting-Plattform
+
+00:05:24.122 --> 00:05:27.000
+in unseren Communities
+und ihrer Entscheidung,
+
+00:05:29.149 --> 00:05:30.749
+Webpräsenzen von Hassgruppen zu hosten,
+
+00:05:30.779 --> 00:05:32.909
+möchte ich mir einen Moment nehmen,
+um daran zu erinnern,
+
+00:05:33.179 --> 00:05:37.408
+sicherzustellen, dass die Richtlinie
+zur zulässigen Nutzung Ihrer Hosting-
+
+00:05:37.409 --> 00:05:42.509
+Plattform es verbietet,
+organisierte Gruppen zu hosten,
+
+00:05:42.929 --> 00:05:47.280
+die als Hassgruppen eingestuft sind,
+wenn ausreichende Belege dafür vorliegen.
+
+00:05:47.429 --> 00:05:48.429
+Das war ganz schön viel auf einmal.
+
+00:05:48.630 --> 00:05:51.120
+Wenn Sie mehr darüber erfahren möchten,
+warum ich diese Folie aufgenommen habe,
+
+00:05:51.120 --> 00:05:57.149
+können Sie zu nohostforhate.org gehen,
+denn Hass in jeglicher Form
+
+00:05:57.449 --> 00:05:58.820
+ist so inakzeptabel.
+
+00:05:59.876 --> 00:06:01.559
+Kommen wir zur Präsentation.
+
+00:06:02.516 --> 00:06:08.189
+Zuerst sprechen wir ein wenig über WCAG,
+die Web Content Accessibility Guidelines.
+
+00:06:08.390 --> 00:06:09.390
+Das ist ein Ziel.
+
+00:06:09.391 --> 00:06:14.009
+Sie definiert einen einheitlichen Standard
+für die Barrierefreiheit von Webinhalten
+
+00:06:14.010 --> 00:06:16.020
+und unseren digitalen Anwendungen
+und ähnlichen Dingen.
+
+00:06:16.020 --> 00:06:18.450
+Sie richtet sich in erster Linie
+an Web-Content-Entwickler,
+
+00:06:18.720 --> 00:06:23.959
+an Menschen, die unsere Werkzeuge erstellen,
+an diejenigen, die
+
+00:06:23.960 --> 00:06:26.809
+unsere Evaluierungswerkzeuge entwickeln,
+und eigentlich an alle,
+
+00:06:26.810 --> 00:06:30.060
+die einen Standard
+für jede Form von Web-Barrierefreiheit benötigen.
+
+00:06:30.960 --> 00:06:34.439
+Ich möchte die Menschen daran erinnern,
+dass Barrierefreiheit, Inklusion
+
+00:06:34.680 --> 00:06:38.369
+und Nutzererlebnis
+sehr unterschiedliche Dinge sind.
+
+00:06:38.689 --> 00:06:41.189
+Sie ergänzen sich, aber sie sind unterschiedlich.
+
+00:06:42.470 --> 00:06:44.009
+Was macht Inhalte barrierefrei?
+
+00:06:44.010 --> 00:06:48.178
+Es gibt vier übergeordnete Parameter,
+und wir werden uns jeden davon heute ansehen.
+
+00:06:48.179 --> 00:06:53.160
+Dazu gehört auch,
+wie wir sicher auf unsere Website zugreifen.
+
+00:06:53.640 --> 00:06:56.700
+Wir möchten sicherstellen,
+dass wir visuelle Bedürfnisse berücksichtigen,
+
+00:06:57.180 --> 00:07:02.706
+also müssen wir dafür sorgen,
+dass unsere Inhalte leicht zu „sehen“ sind.
+
+00:07:03.479 --> 00:07:06.239
+Die CDC berichtet,
+dass allein in den Vereinigten Staaten
+
+00:07:06.240 --> 00:07:09.328
+über 12 Millionen Menschen
+mit Sehverlust leben
+
+00:07:09.329 --> 00:07:13.409
+oder irgendeiner Form von Sehbehinderung,
+und eine Million sind vollständig blind.
+
+00:07:13.740 --> 00:07:14.990
+Wir müssen außerdem bedenken,
+
+00:07:15.389 --> 00:07:19.769
+dass ich ohne meine Brille zwar ein wenig sehen kann,
+aber wenn ich draußen bin und warte
+
+00:07:19.770 --> 00:07:23.609
+auf den Bus und dabei mein Handy benutze,
+hindert mich die Spiegelung daran,
+
+00:07:23.610 --> 00:07:28.016
+etwas zu erkennen, oder wenn
+mein Handybildschirm gesprungen ist.
+
+00:07:28.309 --> 00:07:31.769
+Das ist ein Bild einer Frau,
+über deren Auge ein Regenbogen verläuft.
+
+00:07:32.880 --> 00:07:35.940
+Wir wollen sicherstellen,
+dass wir motorische Bedürfnisse berücksichtigen,
+
+00:07:36.000 --> 00:07:40.199
+also stellen wir sicher, dass unsere Assets
+und Produkte leicht zu bedienen sind.
+
+00:07:40.470 --> 00:07:45.360
+Das sind Menschen, die mit einer Lähmung
+durch Parkinson leben oder einer Querschnittslähmung durch ALS
+
+00:07:45.479 --> 00:07:46.479
+oder einen Unfall.
+
+00:07:46.830 --> 00:07:48.650
+Es könnte auch jemand wie ich sein,
+
+00:07:48.860 --> 00:07:53.699
+die babysittet und ein Baby im Bus hält
+und nur einen Arm zum Scrollen frei hat.
+
+00:07:54.150 --> 00:07:57.220
+Hier sehen wir eine Frau in einem gestreiften Shirt,
+die in ein Notizbuch schreibt,
+
+00:07:57.270 --> 00:07:58.920
+und sie hat einen Prothesenarm.
+
+00:08:00.180 --> 00:08:03.780
+Wir wollen sicherstellen, dass es leicht zu hören ist,
+also berücksichtigen wir auditive Bedürfnisse.
+
+00:08:04.170 --> 00:08:06.930
+Das betrifft Menschen,
+die sich in lauten Umgebungen befinden
+
+00:08:07.440 --> 00:08:11.720
+oder in ruhigen Umgebungen
+und für dieses Audio auf Untertitel angewiesen sind,
+
+00:08:11.930 --> 00:08:14.881
+hilft aber auch unseren tauben
+und schwerhörigen Freundinnen und Freunden.
+
+00:08:15.149 --> 00:08:17.159
+Da ist ein Bild eines Schildes.
+
+00:08:18.060 --> 00:08:19.169
+Dieser letzte Parameter
+
+00:08:20.840 --> 00:08:24.682
+besteht darin sicherzustellen,
+dass wir kognitive Bedürfnisse berücksichtigen
+
+00:08:24.882 --> 00:08:28.319
+und unsere Websites
+leicht verständlich gestalten.
+
+00:08:28.560 --> 00:08:32.849
+Das können Menschen sein, die abgelenkt sind
+oder Schwierigkeiten haben, sich zu konzentrieren.
+
+00:08:33.659 --> 00:08:37.139
+Das Bild zeigt eine Mutter
+und ein kleines Kind mit Down-Syndrom,
+
+00:08:37.710 --> 00:08:39.539
+die sich ein Rezept auf einem Handy ansehen.
+
+00:08:41.520 --> 00:08:43.649
+Diese übergeordneten Parameter haben tatsächlich
+
+00:08:44.969 --> 00:08:46.528
+ein Akronym, das zu ihnen gehört.
+
+00:08:46.529 --> 00:08:50.038
+Es ist POUR. Das steht für wahrnehmbar,
+bedienbar, verständlich
+
+00:08:50.039 --> 00:08:51.039
+und robust.
+
+00:08:51.419 --> 00:08:55.069
+Wahrnehmbar bedeutet, dass Sie
+Ihre Nutzeroberfläche mit Ihren Sinnen nutzen können.
+
+00:08:55.889 --> 00:09:00.839
+Bedienbar bedeutet, dass Sie
+Schaltflächen erfolgreich
+
+00:09:02.789 --> 00:09:03.789
+nutzen können,
+
+00:09:04.229 --> 00:09:07.739
+interaktive Elemente,
+Bedienelemente und die Navigation.
+
+00:09:08.130 --> 00:09:09.238
+Verständlich.
+
+00:09:09.239 --> 00:09:13.379
+Das bedeutet, dass unsere Nutzer
+den Inhalt unserer Seite verstehen und sich merken können,
+
+00:09:13.380 --> 00:09:15.990
+wie man die Oberfläche
+von Seite zu Seite benutzt.
+
+00:09:16.199 --> 00:09:17.658
+Erinnern Sie sich daran, wie Websites eine Zeit lang
+
+00:09:17.658 --> 00:09:20.160
+auf jeder Seite andere Layouts hatten?
+
+00:09:20.369 --> 00:09:23.819
+Das macht es für Menschen schwieriger,
+zu verstehen, wie man Ihre Website benutzt.
+
+00:09:23.969 --> 00:09:27.480
+Und dann ist das Letzte: Stellen Sie sicher,
+dass Sie eine robuste Website haben.
+
+00:09:27.809 --> 00:09:32.730
+Das bezieht sich darauf, dass Menschen
+unsere Website und Inhalte unterschiedlich nutzen,
+
+00:09:33.150 --> 00:09:34.679
+zum Beispiel mit assistiver Technologie.
+
+00:09:35.261 --> 00:09:39.419
+Das kann sein, wie sie auf
+Online-Dokumente wie PDFs zugreifen,
+
+00:09:40.650 --> 00:09:43.380
+unsere Websites, unsere Multimedia-Inhalte,
+alles Mögliche.
+
+00:09:45.180 --> 00:09:47.969
+Dann gibt es vier Arten von Behinderungen.
+
+00:09:47.970 --> 00:09:49.079
+Wahrscheinlich gibt es mehr.
+
+00:09:49.650 --> 00:09:51.500
+Die meisten Menschen sprechen über drei davon.
+
+00:09:52.199 --> 00:09:56.280
+Denken Sie daran: Wenn wir älter werden,
+werden wir mit der Zeit stärker eingeschränkt.
+
+00:09:56.790 --> 00:10:00.784
+Menschen erleben Dinge,
+wie dass ihre Augen nachlassen
+
+00:10:00.834 --> 00:10:02.489
+oder ihr Gehör schlechter wird.
+
+00:10:03.690 --> 00:10:07.879
+Es gibt vorübergehende Behinderungen,
+zum Beispiel wenn wir zum Zahnarzt gehen
+
+00:10:07.880 --> 00:10:10.429
+und nicht sprechen können oder wir
+
+00:10:11.440 --> 00:10:12.469
+eine Operation haben.
+
+00:10:12.590 --> 00:10:16.908
+Es gibt situationsbedingte Einschränkungen,
+bei denen sowohl die betroffene Person
+
+00:10:16.909 --> 00:10:18.919
+als auch das Publikum den Kontext kennt,
+
+00:10:19.490 --> 00:10:23.299
+zum Beispiel wenn man die Maus nicht findet
+oder denkt, man habe lange keine Maus gehabt
+
+00:10:23.300 --> 00:10:25.989
+oder ihre Batterien seien leer.
+
+00:10:26.516 --> 00:10:28.129
+Dann haben wir dauerhafte Behinderungen.
+
+00:10:28.129 --> 00:10:30.710
+Das sind Behinderungen, mit denen Menschen
+die ganze Zeit leben,
+
+00:10:30.710 --> 00:10:32.450
+den ganzen Tag, jede Stunde.
+
+00:10:32.869 --> 00:10:35.669
+Das neue, auf das ich gestoßen bin
+und über das ich gern spreche,
+
+00:10:36.320 --> 00:10:39.770
+ich habe vor ein paar Jahren davon erfahren,
+sind episodische Behinderungen.
+
+00:10:40.099 --> 00:10:46.469
+Das sind vielleicht Dinge
+wie Krebs, HIV, Diabetes.
+
+00:10:46.679 --> 00:10:50.388
+Es sind lebenslange Erkrankungen,
+bei denen manche Menschen bessere Tage haben
+
+00:10:50.510 --> 00:10:51.510
+als andere.
+
+00:10:52.489 --> 00:10:56.290
+Das bedeutet, wir haben Phasen
+schwankender guter Gesundheit
+
+00:10:56.621 --> 00:11:00.530
+und schlechter Gesundheit, und unsere Bedürfnisse sind
+nicht konstant.
+
+00:11:01.099 --> 00:11:02.810
+Depression kann episodisch sein.
+
+00:11:03.170 --> 00:11:05.658
+Und natürlich
+ist nicht jede Behinderung sichtbar.
+
+00:11:05.659 --> 00:11:09.259
+Wir hören von unsichtbaren Behinderungen.
+
+00:11:09.260 --> 00:11:10.789
+Das können Kopfschmerzen sein.
+
+00:11:11.329 --> 00:11:14.690
+Jemand hat Migräne, Schwindel,
+Hirnverletzungen gepostet,
+
+00:11:15.350 --> 00:11:18.559
+und Hör- und Sehverlust
+ist ebenfalls nicht immer sichtbar.
+
+00:11:18.919 --> 00:11:22.880
+Es geht wirklich um gleichen Zugang,
+denn das ist ein Menschenrecht und kein
+
+00:11:22.880 --> 00:11:23.961
+Sonderprivileg.
+
+00:11:24.076 --> 00:11:26.299
+Ich möchte das Wort „Sonderbedürfnisse“ nicht mehr hören.
+
+00:11:26.299 --> 00:11:27.949
+Ich möchte nur noch „Menschenrechte“ hören.
+
+00:11:30.079 --> 00:11:34.039
+Ich wurde als Einzelfall bezeichnet,
+als ich bei Red Hat arbeitete,
+
+00:11:34.040 --> 00:11:36.560
+weil ich um Untertitel bat
+und um einen Bildschirm mit ausreichend Platz.
+
+00:11:36.890 --> 00:11:41.209
+Das hat mich wirklich geärgert, und ich fand
+dieses Zitat von Eric Meyers, das sagt,
+
+00:11:41.479 --> 00:11:45.768
+wenn Sie etwas einen Einzelfall nennen,
+definieren Sie damit eigentlich nur
+
+00:11:45.769 --> 00:11:48.140
+die Grenzen dessen, was Ihnen wichtig ist.
+
+00:11:51.130 --> 00:11:54.979
+Jeder Mensch ist einzigartig und hat
+grundlegende Menschenrechte, und Inklusion
+
+00:11:54.980 --> 00:11:55.980
+ist wichtig.
+
+00:11:56.450 --> 00:11:58.640
+Jetzt gehen wir zu Dingen über,
+die Sie vielleicht nicht wissen
+
+00:11:58.640 --> 00:12:00.440
+oder die Sie heute vielleicht nicht gehört haben.
+
+00:12:00.669 --> 00:12:01.819
+User Agents.
+
+00:12:01.889 --> 00:12:04.732
+Wir sprechen darüber insbesondere,
+weil viele Menschen
+
+00:12:04.732 --> 00:12:05.983
+auf Dinge nicht zugreifen können
+
+00:12:05.984 --> 00:12:08.508
+mit ihren User Agents,
+wenn ihre Website gesperrt
+
+00:12:08.508 --> 00:12:09.508
+und sicher ist.
+
+00:12:09.980 --> 00:12:12.108
+User Agents sind assistive Technologie.
+
+00:12:12.109 --> 00:12:15.139
+Das sind alle Geräte
+oder Ausrüstungen, die Menschen helfen,
+
+00:12:15.890 --> 00:12:18.260
+einige der Herausforderungen zu umgehen, 
+die sie haben
+
+00:12:18.289 --> 00:12:23.210
+beim Lernen oder Kommunizieren
+und wirklich beim Funktionieren
+
+00:12:23.269 --> 00:12:24.269
+im Web.
+
+00:12:25.220 --> 00:12:26.220
+Screenreader.
+
+00:12:26.659 --> 00:12:28.209
+Die meisten von uns wissen, was das ist.
+
+00:12:28.219 --> 00:12:30.710
+Sie werden genutzt, um
+sich den Inhalt einer Webseite anzuhören.
+
+00:12:31.009 --> 00:12:33.199
+Sie wandeln Text in Sprache um.
+
+00:12:33.530 --> 00:12:36.709
+Wir sollten im Hinterkopf behalten, dass Screenreader
+auch zusammen mit visuellen Elementen
+
+00:12:36.709 --> 00:12:41.659
+auf der Webseite für Menschen
+mit kognitiven Herausforderungen genutzt werden können.
+
+00:12:41.780 --> 00:12:46.339
+Hier sehen wir ein Bild eines Mannes mit Brille,
+und man kann seinen Stock
+
+00:12:46.340 --> 00:12:48.500
+neben ihm sehen, und er benutzt einen Computer.
+
+00:12:50.712 --> 00:12:57.859
+Bildschirmvergrößerungsgeräte,
+das erklärt sich fast von selbst.
+
+00:12:58.100 --> 00:13:01.600
+Sie drücken Command plus plus auf einem Mac,
+und der Bildschirm wird für Sie vergrößert.
+
+00:13:01.748 --> 00:13:05.568
+Eine dieser Regeln ist: Auf einer Website
+sollten Sie auf 200 % vergrößern können
+
+00:13:05.569 --> 00:13:08.060
+und keinen
+Inhalt auf dem Bildschirm verlieren.
+
+00:13:08.589 --> 00:13:11.239
+Sie sollten weiterhin in der Lage sein,
+mit dem Element zu interagieren.
+
+00:13:12.379 --> 00:13:14.899
+Das ist für Menschen,
+die eine teilweise Sehbeeinträchtigung haben.
+
+00:13:16.700 --> 00:13:18.080
+Wie gesagt, im Grunde ist es
+
+00:13:19.490 --> 00:13:20.719
+zum Vergrößern der Inhalte.
+
+00:13:21.079 --> 00:13:26.090
+Bildschirmvergrößerer haben manchmal auch
+eine Text-zu-Sprache-Funktionalität.
+
+00:13:27.310 --> 00:13:28.120
+Es gibt noch ein paar mehr.
+
+00:13:28.170 --> 00:13:30.949
+Es gibt Eye-Tracking,
+das Ihre Augenbewegungen überwacht
+
+00:13:31.490 --> 00:13:33.618
+und Blinzeln, um Mausklicks auszulösen.
+
+00:13:33.619 --> 00:13:38.570
+Es gibt Beschleuniger, die helfen,
+die Notwendigkeit zu tippen oder zu klicken zu reduzieren.
+
+00:13:39.081 --> 00:13:40.309
+Tastaturanpassung.
+
+00:13:40.310 --> 00:13:41.929
+Manchmal nennt man das Sticky Keys.
+
+00:13:41.929 --> 00:13:44.479
+Manchmal nennt man das Tastenkombinationen.
+
+00:13:44.480 --> 00:13:46.789
+Sie ermöglichen das Tippen mit einer Hand.
+
+00:13:47.372 --> 00:13:50.422
+Vielleicht haben Sie ein gebrochenes Schlüsselbein
+und können nur eine Hand benutzen.
+
+00:13:50.716 --> 00:13:52.729
+Pop-up- und Animationsblocker.
+
+00:13:52.729 --> 00:13:54.901
+Wir alle lieben diese,
+weil diese Dinge nervig sind.
+
+00:13:54.901 --> 00:13:59.305
+Das sind Browser-Plug-ins, die
+automatische Pop-ups stoppen
+
+00:13:59.485 --> 00:14:01.605
+und die Weiterleitung, die passiert.
+
+00:14:01.655 --> 00:14:04.374
+Stellen Sie sich vor, Sie sind ein Screenreader
+und lesen den Inhalt
+
+00:14:04.375 --> 00:14:07.272
+der Seite, und plötzlich
+landen Sie in einem Pop-up
+
+00:14:07.322 --> 00:14:10.222
+über eine Werbung, die Sie nicht interessiert,
+und Sie kommen nicht mehr heraus.
+
+00:14:10.699 --> 00:14:13.550
+Wir haben diese Animationsblocker,
+die es ermöglichen,
+
+00:14:15.380 --> 00:14:19.248
+das Stoppen der Weiterleitung
+oder die Möglichkeit, Animationen zu stoppen,
+
+00:14:19.249 --> 00:14:20.839
+zu pausieren und auszublenden.
+
+00:14:21.320 --> 00:14:23.089
+Wir haben aktualisierbare Braillezeilen.
+
+00:14:23.089 --> 00:14:25.459
+Davon gibt es ein Bild auf der Folie.
+
+00:14:25.760 --> 00:14:31.548
+Das sind mechanische Terminals,
+die eine Zeile von Braillezeichen anzeigen,
+
+00:14:31.549 --> 00:14:33.770
+dynamisch durch das Heben und Senken von Punkten.
+
+00:14:34.810 --> 00:14:36.470
+Dann gibt es alle Arten
+von Lesehilfen,
+
+00:14:36.470 --> 00:14:40.248
+die die Schriftgröße anpassen können,
+die Text nach Wörtern scannen können,
+
+00:14:40.249 --> 00:14:41.509
+Wörterbuchhinweise nutzen,
+
+00:14:42.889 --> 00:14:45.049
+weniger relevante Teile ausblenden können.
+
+00:14:45.055 --> 00:14:48.440
+Zum Beispiel, wenn es ein Mega-Menü gibt
+oder ein Sticky-Menü, das immer wieder herunterkommt,
+
+00:14:48.979 --> 00:14:50.718
+und dann gibt es Seitenkarten.
+
+00:14:50.719 --> 00:14:53.899
+Die sind praktisch für Menschen,
+die sich schwer konzentrieren können.
+
+00:14:53.900 --> 00:14:56.149
+Das ist ein kleines Quadrat
+an der Seite des Bildschirms
+
+00:14:56.149 --> 00:14:57.149
+mit einem Indikator,
+
+00:14:57.950 --> 00:15:01.160
+der den Bereich der Webseite hervorhebt,
+der gerade betrachtet wird.
+
+00:15:03.320 --> 00:15:05.150
+Wenn es um sichere Websites geht
+
+00:15:05.689 --> 00:15:07.369
+und ich habe wirklich Schwierigkeiten
+mit diesem Wort,
+
+00:15:07.369 --> 00:15:08.619
+also muss ich es langsam sagen.
+
+00:15:09.019 --> 00:15:13.998
+Authentifizierung ist im Grunde
+unsere erste Verteidigungslinie,
+
+00:15:13.999 --> 00:15:16.549
+wenn es um die Sicherheit
+unserer Ressourcen geht.
+
+00:15:16.850 --> 00:15:21.529
+Wenn bei der Authentifizierung
+Eingaben von Nutzenden erforderlich sind,
+
+00:15:21.739 --> 00:15:24.378
+sollten Best Practices
+immer vorsehen,
+
+00:15:24.379 --> 00:15:26.209
+Ihren Nutzenden Optionen
+und Wahlmöglichkeiten zu geben.
+
+00:15:26.690 --> 00:15:29.570
+Sie werden das heute oft hören,
+während ich spreche,
+
+00:15:29.750 --> 00:15:34.789
+dass Sie Ihren Nutzern Optionen
+und Wahlmöglichkeiten geben, weil nicht alle von uns
+
+00:15:34.790 --> 00:15:35.990
+auf die gleiche Weise auf das Web zugreifen.
+
+00:15:37.850 --> 00:15:40.969
+Hier ist eine dieser Einstreuungen
+von WCAG, von denen ich gesprochen habe.
+
+00:15:44.120 --> 00:15:45.469
+Das sind echte Anliegen.
+
+00:15:45.499 --> 00:15:48.708
+Sie sind für manche Menschen so besorgniserregend,
+dass es dafür Richtlinien gibt.
+
+00:15:48.709 --> 00:15:51.499
+Ich halte alle Themen der Barrierefreiheit
+für wichtig,
+
+00:15:51.679 --> 00:15:54.860
+aber es gibt eine Gruppe von Menschen,
+die die kritischsten Punkte identifiziert
+
+00:15:54.860 --> 00:15:55.860
+und daraus einen Leitfaden erstellt hat.
+
+00:15:56.560 --> 00:15:59.780
+Es gibt eine spezielle Richtlinie
+zur barrierefreien Authentifizierung.
+
+00:16:00.290 --> 00:16:01.370
+Sie sollten sicherstellen,
+
+00:16:02.240 --> 00:16:07.520
+dass es eine barrierefreie,
+einfach nutzbare und sichere Methode gibt,
+
+00:16:07.700 --> 00:16:14.720
+um auf Inhalte zuzugreifen
+und Aufgaben zu erledigen.
+
+00:16:15.039 --> 00:16:16.219
+Wem hilft das?
+
+00:16:16.730 --> 00:16:20.449
+Es hilft Menschen, die kognitive Dinge
+
+00:16:20.450 --> 00:16:22.520
+im Zusammenhang mit Gedächtnis haben.
+
+00:16:22.580 --> 00:16:23.840
+Das kann Demenz sein.
+
+00:16:24.050 --> 00:16:25.119
+Das kann ADHS sein.
+
+00:16:25.120 --> 00:16:31.008
+Es könnten dissoziative Amnesien sein,
+es könnte ein Kopfschmerz sein,
+
+00:16:31.009 --> 00:16:33.528
+der so schlimm ist, dass Sie sich nicht erinnern können,
+was gerade passiert ist.
+
+00:16:33.528 --> 00:16:35.930
+Es hilft auch Menschen mit Dyslexie,
+
+00:16:36.580 --> 00:16:40.478
+bei denen einige Wörter
+und Buchstaben vertauscht werden.
+
+00:16:40.880 --> 00:16:42.859
+Dyskalkulie, bei der wir Zahlen
+
+00:16:43.639 --> 00:16:45.319
+verdrehen und durcheinanderbringen.
+
+00:16:45.770 --> 00:16:49.430
+Auch Menschen mit Einschränkungen
+in der Wahrnehmungsverarbeitung
+
+00:16:49.670 --> 00:16:55.250
+sollten Ihre Website nutzen
+und sich authentifizieren können,
+
+00:16:55.399 --> 00:16:58.460
+unabhängig von ihrem
+kognitiven Leistungsniveau.
+
+00:16:58.759 --> 00:17:00.230
+Wieder: Es geht um Inklusion.
+
+00:17:01.810 --> 00:17:05.295
+Viele Dinge im Bereich Sicherheit
+drehen sich um geschützte Inhalte.
+
+00:17:06.109 --> 00:17:11.359
+Geschützte Inhalte erfordern,
+dass ein Nutzer ein Formular ausfüllt,
+
+00:17:11.510 --> 00:17:14.839
+eine Art Aufgabe erledigt,
+ein Abonnement kauft.
+
+00:17:14.959 --> 00:17:17.544
+Ich wollte fast „Rezept“ sagen,
+weil ich Krankenpflegerin bin,
+
+00:17:17.650 --> 00:17:18.740
+Abonnement.
+
+00:17:19.310 --> 00:17:20.390
+Was sind geschützte Inhalte?
+
+00:17:20.690 --> 00:17:24.050
+Das sind Online-Materialien
+wie Whitepaper, Artikel,
+
+00:17:24.140 --> 00:17:29.239
+Videos, die von unseren Konsumenten verlangen,
+ein Formular auszufüllen,
+
+00:17:29.329 --> 00:17:30.830
+bevor sie darauf zugreifen können.
+
+00:17:31.630 --> 00:17:32.630
+Whitepaper
+
+00:17:34.279 --> 00:17:35.690
+können aus dem medizinischen Bereich stammen.
+
+00:17:35.690 --> 00:17:40.339
+Sie können von Marketing-Leuten stammen, die
+Whitepaper erstellen, um ihr Publikum zu informieren
+
+00:17:40.340 --> 00:17:47.180
+über ein bestimmtes Thema oder um
+eine bestimmte Methodik zu erklären und zu bewerben.
+
+00:17:47.809 --> 00:17:48.950
+Wir haben E-Books.
+
+00:17:49.490 --> 00:17:52.340
+Nicht jeder gibt
+seine elektronischen Bücher kostenlos heraus.
+
+00:17:52.819 --> 00:17:56.720
+Webinare und Lernkurse
+liegen meist hinter einer Bezahlschranke.
+
+00:17:57.080 --> 00:18:01.370
+Produktdemos fragen nach einer E-Mail,
+damit sie Sie verfolgen und Ihnen Produkte verkaufen können.
+
+00:18:02.748 --> 00:18:05.240
+Anmeldung für kuratierte E-Mails.
+
+00:18:07.300 --> 00:18:10.028
+Abonnements, [lacht]
+
+00:18:10.399 --> 00:18:11.540
+RSS-Feeds.
+
+00:18:12.800 --> 00:18:15.824
+Dazu können auch Foren gehören
+für exklusive Communities
+
+00:18:15.825 --> 00:18:19.760
+wie in Discourse oder Discord,
+Teilnahmeformulare für Wettbewerbe.
+
+00:18:20.179 --> 00:18:24.558
+Sowie Zugang zu Umfragen und Formularen,
+die eine Anmeldung erfordern,
+
+00:18:24.559 --> 00:18:26.270
+um an einer Aktion oder Verlosung teilzunehmen.
+
+00:18:28.515 --> 00:18:31.370
+Ich möchte über einige
+der gängigsten Sicherheitsmaßnahmen sprechen,
+
+00:18:31.370 --> 00:18:33.500
+die wir für unsere digitalen Assets nutzen.
+
+00:18:33.920 --> 00:18:36.468
+Die erste sind CAPTCHAs.
+
+00:18:37.459 --> 00:18:38.719
+Was ist ein CAPTCHA?
+
+00:18:38.780 --> 00:18:39.919
+Es ist ein Akronym
+
+00:18:40.640 --> 00:18:45.192
+und steht für Completely
+Automated Public Turing Test
+
+00:18:45.260 --> 00:18:47.989
+to Tell Computers and Humans Apart.
+
+00:18:48.619 --> 00:18:49.619
+Sind Sie ein Bot?
+
+00:18:50.150 --> 00:18:53.929
+Wir haben sie so einfach gesehen
+wie in diesem Bild.
+
+00:18:54.009 --> 00:18:55.192
+So einfach ist das eigentlich nicht.
+
+00:18:55.192 --> 00:18:57.385
+Das ist ein schlechtes Wort dafür.
+
+00:18:57.416 --> 00:18:59.097
+Geradlinig.
+
+00:18:59.136 --> 00:19:03.259
+Wir mussten auf Buchstaben hören,
+vielleicht ein Mathe-Rätsel lösen.
+
+00:19:03.650 --> 00:19:04.850
+Oft in letzter Zeit,
+
+00:19:04.879 --> 00:19:07.632
+und das ist das Beste,
+was Sie tun können, sehen wir
+
+00:19:07.652 --> 00:19:10.279
+ein Kontrollkästchen mit der Frage,
+ob man ein Mensch oder ein Bot ist.
+
+00:19:12.080 --> 00:19:14.209
+Ich möchte ein wenig
+über das Bild hier oben sprechen.
+
+00:19:14.209 --> 00:19:14.871
+Es ist ein CAPTCHA.
+
+00:19:14.969 --> 00:19:17.149
+Wir sehen viele dieser CAPTCHAs,
+bei denen Sie
+
+00:19:17.150 --> 00:19:21.468
+alle Brücken auswählen müssen
+oder alle Boote,
+
+00:19:21.469 --> 00:19:22.700
+alle Ampeln.
+
+00:19:22.729 --> 00:19:25.429
+Erstens: Wenn Sie keinen
+visuellen Zugriff auf das Bild haben,
+
+00:19:25.430 --> 00:19:26.430
+können Sie das nicht.
+
+00:19:27.740 --> 00:19:29.040
+Ich werde später mehr darüber sprechen.
+
+00:19:29.119 --> 00:19:30.119
+Warum?
+
+00:19:32.000 --> 00:19:33.400
+Was Sie dagegen tun sollten,
+
+00:19:33.740 --> 00:19:35.359
+warum diese CAPTCHAs existieren.
+
+00:19:36.159 --> 00:19:41.169
+Dieses hier ist speziell
+ein kulturell spezifisches CAPTCHA.
+
+00:19:42.080 --> 00:19:46.849
+Wenn möglich, möchten wir vermeiden, dass Nutzer
+Objekte identifizieren, die spezifisch
+
+00:19:46.850 --> 00:19:51.050
+für eine Kultur oder einen Kontext sind oder
+regionale Unterschiede im Aussehen haben.
+
+00:19:51.590 --> 00:19:52.939
+Britische Nutzer
+
+00:19:54.620 --> 00:19:56.510
+werden „crosswalks“ nicht identifizieren,
+
+00:19:57.109 --> 00:19:59.450
+weil „crosswalk“ ein amerikanischer Begriff ist.
+
+00:19:59.720 --> 00:20:00.830
+In diesem CAPTCHA.
+
+00:20:00.843 --> 00:20:04.670
+Es sind viele Puzzle-Geräte,
+und die Nutzer sollen ein „yoko“ finden,
+
+00:20:04.760 --> 00:20:07.639
+und ich hatte keine Ahnung, was das ist,
+also könnte ich nicht
+
+00:20:07.639 --> 00:20:08.639
+fertig werden
+
+00:20:09.530 --> 00:20:10.669
+mit diesem Puzzle.
+
+00:20:11.769 --> 00:20:13.456
+Hier ist ein weiteres CAPTCHA.
+
+00:20:13.929 --> 00:20:17.359
+Es richtet sich an die Person,
+die dies sieht.
+
+00:20:17.599 --> 00:20:21.680
+Es ist ein visuelles CAPTCHA
+und bezieht auch Mobilität ein.
+
+00:20:22.310 --> 00:20:23.310
+Es lautet:
+
+00:20:26.450 --> 00:20:28.910
+Wenn Sie genau
+zwei nach oben zeigende Pfeile sehen,
+
+00:20:29.329 --> 00:20:30.329
+tippen Sie auf „Fertig“.
+
+00:20:31.129 --> 00:20:35.210
+Erstens: Sie müssen sehen können,
+welche Pfeile nach oben zeigen.
+
+00:20:35.780 --> 00:20:39.440
+Zweitens: Sie müssen in der Lage sein,
+diese Taste rechtzeitig zu drücken.
+
+00:20:42.769 --> 00:20:45.859
+Nicht jeder kann
+den Bildschirm sehen und Bilder identifizieren.
+
+00:20:45.979 --> 00:20:48.859
+Wir sprechen über Standard-Barrierefreiheit bei Bildern,
+weil das
+
+00:20:48.860 --> 00:20:55.219
+eine der Grundlagen eines barrierefreien Webs ist:
+Textalternativen zu Bildern.
+
+00:20:57.530 --> 00:20:59.989
+Wenn wir
+Alternativtexte bereitstellen, untergräbt das
+
+00:20:59.990 --> 00:21:04.068
+den Zweck, Maschinen auszusortieren,
+denn sie können diese nun auswerten.
+
+00:21:04.069 --> 00:21:05.840
+Sie können den Alternativtext lesen.
+
+00:21:06.680 --> 00:21:10.309
+Manchmal sehen wir einfache Fragen
+wie vier plus zwei.
+
+00:21:12.260 --> 00:21:16.010
+Auch das kann für Menschen
+mit Problemen in der kognitiven Verarbeitung schwierig sein.
+
+00:21:16.609 --> 00:21:18.799
+Dieses CAPTCHA ist Algebra.
+
+00:21:19.429 --> 00:21:21.980
+Ich weiß vielleicht, was das ist,
+weil ich Mathematik studiert habe,
+
+00:21:22.189 --> 00:21:26.450
+aber wer nutzt so etwas
+im Alltag?
+
+00:21:26.689 --> 00:21:28.749
+Wer weiß überhaupt noch, was ein Vorzeichen ist?
+
+00:21:29.390 --> 00:21:33.889
+Diese komplizierten CAPTCHAs
+erlauben nicht allen freien Zugang.
+
+00:21:34.369 --> 00:21:37.639
+Wir wollen sicherstellen, dass wir
+Alternativen zu CAPTCHA anbieten,
+
+00:21:38.029 --> 00:21:41.028
+die barrierefrei sind
+für Ihr gesamtes Publikum,
+
+00:21:41.029 --> 00:21:46.069
+einschließlich Menschen mit Seh-, Hör-
+und neurokognitiven Behinderungen.
+
+00:21:46.280 --> 00:21:48.740
+Wir sprechen gleich über Alternativen.
+
+00:21:49.999 --> 00:21:50.999
+Timer.
+
+00:21:51.349 --> 00:21:53.060
+Timer und zeitbasierte
+
+00:21:54.140 --> 00:21:56.689
+Passwörter
+sind sehr gängige Sicherheitsmaßnahmen,
+
+00:21:57.620 --> 00:22:02.449
+aber Menschen mit Behinderungen
+benötigen möglicherweise mehr Zeit, um
+
+00:22:02.480 --> 00:22:06.890
+einige dieser Aktivitäten abzuschließen,
+und zeitbegrenzte Sitzungen können Probleme verursachen.
+
+00:22:07.700 --> 00:22:12.349
+Jemand mit einer Lesebehinderung
+wie Dyslexie wird wahrscheinlich länger brauchen,
+
+00:22:12.350 --> 00:22:16.519
+um die Anweisungen zu lesen und zu verstehen,
+was in einem Formular passiert.
+
+00:22:17.269 --> 00:22:21.049
+Jemand, der taub ist,
+fühlt sich möglicherweise mit Gebärdensprache wohler
+
+00:22:21.050 --> 00:22:23.900
+als mit geschriebenen Worten,
+also kann es auch länger dauern,
+
+00:22:23.900 --> 00:22:25.669
+die Informationen zu verarbeiten.
+
+00:22:29.099 --> 00:22:31.580
+Das gilt auch für Menschen, deren
+
+00:22:31.990 --> 00:22:35.063
+eingestellte Sprache auf Ihrer Seite
+nicht ihre Muttersprache ist.
+
+00:22:35.064 --> 00:22:40.668
+Wenn dies eine englische Präsentation ist,
+könnte jemand, für den Englisch eine Zweitsprache ist,
+
+00:22:40.669 --> 00:22:43.190
+ebenfalls länger brauchen,
+um die Informationen zu verarbeiten.
+
+00:22:43.969 --> 00:22:46.759
+Jemand, der auf einen Teil
+dieser assistiven Technologie angewiesen ist.
+
+00:22:46.760 --> 00:22:49.279
+Wir haben über Screenreader gesprochen,
+weil sie blind sind oder eine
+
+00:22:49.279 --> 00:22:50.279
+Sehbeeinträchtigung haben,
+
+00:22:50.840 --> 00:22:52.819
+oder vielleicht haben sie eine Lernbehinderung.
+
+00:22:52.819 --> 00:22:57.710
+Es kann länger dauern, bis sie
+alle Elemente auf dem Bildschirm finden,
+
+00:22:58.460 --> 00:23:02.119
+weil sie möglicherweise durch einen Rotor navigieren müssen
+oder sich erst
+
+00:23:02.120 --> 00:23:03.120
+im Seitenlayout orientieren müssen.
+
+00:23:03.259 --> 00:23:06.259
+Es gibt eine grobe Richtlinie,
+
+00:23:06.500 --> 00:23:09.230
+sofern das Zeitlimit
+nicht länger als 20 Stunden ist,
+
+00:23:09.289 --> 00:23:13.129
+sollten alle zeitgesteuerten Sitzungen
+abschaltbar sein,
+
+00:23:13.399 --> 00:23:14.399
+anpassbar
+
+00:23:14.450 --> 00:23:18.200
+oder verlängerbar, es sei denn, es ist wesentlich
+für die Aktivität.
+
+00:23:18.500 --> 00:23:19.500
+Nun,
+
+00:23:20.539 --> 00:23:22.160
+ich nutze diese Beispiele eher locker.
+
+00:23:22.760 --> 00:23:27.469
+So etwas wie eine Auktion oder das Bezahlen
+von Rechnungen online oder Konzerttickets.
+
+00:23:27.859 --> 00:23:31.209
+Lassen Sie mich Ihnen etwas über Konzerttickets erzählen,
+weil ich gern auf Konzerte gehe.
+
+00:23:31.370 --> 00:23:33.819
+Ich bin oben und wähle mich ein
+
+00:23:33.820 --> 00:23:35.490
+und stelle mich an und komme
+in die Warteschlange,
+
+00:23:35.490 --> 00:23:37.840
+und endlich kann ich
+mein Konzertticket kaufen,
+
+00:23:38.130 --> 00:23:39.800
+und ich muss
+meine Kreditkartennummer eingeben,
+
+00:23:39.800 --> 00:23:42.439
+und was passiert,
+meine Kreditkarte ist unten.
+
+00:23:42.440 --> 00:23:44.720
+Ich muss nach unten rennen,
+über die Katze stolpern,
+
+00:23:46.159 --> 00:23:48.709
+meine Kinder wegen irgendwas anmeckern,
+meine Handtasche finden,
+
+00:23:48.799 --> 00:23:49.909
+mein Portemonnaie herausholen.
+
+00:23:49.999 --> 00:23:52.413
+Meine Kreditkarte ist nicht drin,
+weil ich gestern getankt habe,
+
+00:23:52.413 --> 00:23:54.844
+also muss ich meinen Rock finden,
+in dem meine Kreditkarte steckt.
+
+00:23:54.844 --> 00:23:57.484
+Bis ich nach oben komme,
+ist der Timer abgelaufen,
+
+00:23:57.514 --> 00:24:00.979
+und ich muss diese ganze Warteschlange
+für das Konzert wieder durchlaufen.
+
+00:24:01.609 --> 00:24:05.600
+Und ja, ich weiß, dass das
+ein sehr individuelles Problem nur für mich ist,
+
+00:24:05.870 --> 00:24:10.099
+aber ermöglichen Sie,
+dass der Timer ausgeschaltet werden kann,
+
+00:24:10.279 --> 00:24:12.019
+angepasst oder verlängert werden kann.
+
+00:24:14.090 --> 00:24:18.110
+Wir haben zeitbasierte Einmalpasswörter.
+
+00:24:18.380 --> 00:24:21.329
+Manchmal sehen wir sie abgekürzt
+als TOTPs.
+
+00:24:26.540 --> 00:24:30.709
+Das kann problematisch sein
+für Menschen mit Seh-
+
+00:24:31.429 --> 00:24:33.920
+oder kognitiven oder motorischen Einschränkungen.
+
+00:24:34.429 --> 00:24:35.629
+Es kann schwierig sein,
+
+00:24:36.349 --> 00:24:41.658
+oder vielleicht sogar extrem schwierig für manche,
+mit kognitiven Verarbeitungsproblemen einen
+
+00:24:41.659 --> 00:24:47.539
+Code von einem Bildschirm
+auf einen anderen zu übertragen
+
+00:24:47.570 --> 00:24:50.420
+in dem vorgegebenen Zeitfenster.
+
+00:24:50.989 --> 00:24:57.018
+Manchmal sind die Authenticator-Apps
+und Messaging-Apps nicht kompatibel
+
+00:24:57.019 --> 00:24:58.160
+mit Screenreadern.
+
+00:24:58.659 --> 00:24:59.659
+Wieder gilt:
+
+00:25:00.589 --> 00:25:04.279
+Sie sollten das Timing abschalten können,
+das Timing anpassen,
+
+00:25:04.310 --> 00:25:05.310
+das Timing verlängern können.
+
+00:25:05.870 --> 00:25:09.260
+Hier ist ein Bild einer Authenticator-App
+mit den Zahlen, und Sie sehen
+
+00:25:09.260 --> 00:25:10.260
+den Timer--
+
+00:25:11.491 --> 00:25:16.580
+Sie können ihn nicht in Bewegung sehen,
+aber er wird kleiner.
+
+00:25:16.640 --> 00:25:18.259
+Das erzeugt auch viel Angst,
+
+00:25:18.259 --> 00:25:21.738
+bei manchen Menschen. Allein
+die Präsenz eines Timers kann es schwerer machen,
+
+00:25:21.739 --> 00:25:25.458
+sich zu erinnern oder sich zurechtzufinden,
+wenn man sich
+
+00:25:25.459 --> 00:25:27.109
+von einem Bildschirm zum anderen bewegt.
+
+00:25:28.699 --> 00:25:32.059
+Es gibt eine Richtlinie
+in WCAG zum Thema „genügend Zeit“.
+
+00:25:32.629 --> 00:25:36.649
+Wir wollen unseren Nutzern
+genügend Zeit geben, um ihre Aufgaben zu beenden.
+
+00:25:37.009 --> 00:25:38.009
+Bravo.
+
+00:25:38.299 --> 00:25:41.659
+Nicht jeder kann ein Formular
+im Eiltempo ausfüllen oder seine Kreditkarte eingeben
+
+00:25:42.160 --> 00:25:43.789
+oder sie schnell finden.
+
+00:25:45.769 --> 00:25:47.570
+Wieder: Das Timing
+
+00:25:48.837 --> 00:25:51.559
+muss anpassbar sein,
+oder es gibt gar kein Timing.
+
+00:25:51.950 --> 00:25:55.699
+Stellen Sie sicher, dass Unterbrechungen
+vom Nutzer verschoben oder unterdrückt werden können.
+
+00:25:55.700 --> 00:25:56.700
+Das kann schwieriger sein
+
+00:25:56.839 --> 00:25:59.139
+mit assistiver Technologie.
+
+00:26:00.020 --> 00:26:03.470
+Wenn eine authentifizierte Sitzung abläuft,
+
+00:26:04.069 --> 00:26:07.159
+ermöglichen Sie dem Nutzer, fortzufahren
+mit dem, was er gerade tut,
+
+00:26:07.160 --> 00:26:09.350
+ohne Datenverlust.
+
+00:26:09.590 --> 00:26:10.819
+Ist das nicht das Schlimmste,
+
+00:26:10.820 --> 00:26:14.659
+wenn Ihnen die Zeit ausgeht, Sie die Seite aktualisieren,
+und dieses ganze Formular, das Sie ausgefüllt haben,
+
+00:26:14.660 --> 00:26:15.830
+ist wieder leer?
+
+00:26:17.727 --> 00:26:22.130
+Stellen Sie sicher, dass Nutzer gewarnt werden,
+dass die Dauer ihrer Aktivität,
+
+00:26:22.400 --> 00:26:23.900
+zu Datenverlust führen könnte.
+
+00:26:23.990 --> 00:26:27.469
+Wieder: anpassen, verlängern,
+stoppen und pausieren.
+
+00:26:27.769 --> 00:26:29.720
+Geben Sie Ihren Nutzern diese Wahlmöglichkeiten.
+
+00:26:31.249 --> 00:26:35.179
+Welche anderen Verifizierungsmethoden gibt es,
+um sicherzustellen, dass wir sagen, wer wir sind?
+
+00:26:35.750 --> 00:26:37.459
+Identitätsverifizierung.
+
+00:26:38.929 --> 00:26:39.949
+Biometrie.
+
+00:26:40.039 --> 00:26:46.969
+Dies ist ein technischer Begriff, der sich
+auf körperliche oder verhaltensbezogene
+
+00:26:47.000 --> 00:26:48.259
+Merkmale eines Menschen oder Lebewesens bezieht.
+
+00:26:48.889 --> 00:26:50.510
+Wir haben Spracherkennung.
+
+00:26:52.174 --> 00:26:56.449
+All diese Dinge bringen einige Probleme mit sich,
+wenn man sie
+
+00:26:56.450 --> 00:26:57.620
+als Sicherheitsmaßnahmen nutzt.
+
+00:26:58.029 --> 00:26:59.090
+Spracherkennung.
+
+00:26:59.299 --> 00:27:00.949
+Jemand könnte Halsschmerzen haben.
+
+00:27:01.249 --> 00:27:04.199
+Vielleicht waren Sie gestern Abend auf einem Konzert
+und haben sehr laut mitgesungen.
+
+00:27:05.140 --> 00:27:08.060
+Vielleicht sind Sie auf einer Konferenz
+und es ist Lärm im Hintergrund
+
+00:27:08.060 --> 00:27:09.140
+oder Sie sitzen im Zug.
+
+00:27:10.129 --> 00:27:11.360
+Gesichtserkennung.
+
+00:27:12.139 --> 00:27:15.920
+Sie erfordert weder Sehen, Hören
+noch erhebliche motorische Fähigkeiten.
+
+00:27:16.219 --> 00:27:20.719
+Das macht sie für viele Nutzer ideal,
+aber es gibt etliche Situationen,
+
+00:27:20.989 --> 00:27:24.500
+die diese biometrische
+Gesichtserkennung beeinflussen.
+
+00:27:25.910 --> 00:27:31.608
+Als wir während COVID Masken trugen,
+hat mich das beim Zoll beeinflusst,
+
+00:27:31.609 --> 00:27:33.059
+als ich mit Maske durch musste.
+
+00:27:33.820 --> 00:27:36.590
+Es gibt Hijabs,
+es gibt Burkas und andere Gesichtsbedeckungen,
+
+00:27:36.860 --> 00:27:38.119
+Bärte, die Menschen
+
+00:27:38.649 --> 00:27:40.415
+während COVID wachsen ließen.
+
+00:27:41.659 --> 00:27:45.830
+Gewichtsschwankungen können ebenfalls
+Gesichtszüge beeinflussen.
+
+00:27:46.443 --> 00:27:47.959
+Es gibt Fingerabdruck-Scanning.
+
+00:27:48.709 --> 00:27:52.339
+Vielleicht haben Sie Schnee geschaufelt,
+was hoffentlich niemand tun muss,
+
+00:27:52.340 --> 00:27:56.810
+aber manche Menschen leben an solchen Orten,
+und Ihre Hände sind rissig oder voller Blasen.
+
+00:27:57.049 --> 00:28:01.518
+Oder vielleicht haben Sie im Garten gearbeitet,
+und Ihre Fingerabdrücke sind
+
+00:28:01.519 --> 00:28:02.519
+mit Erde gefüllt.
+
+00:28:02.840 --> 00:28:04.190
+Das füllt diese Rillen.
+
+00:28:05.089 --> 00:28:08.810
+Es gibt immer die Möglichkeit,
+dass jemand keine Hände hat,
+
+00:28:09.019 --> 00:28:10.910
+oder welche hatte und jetzt nicht mehr.
+
+00:28:11.180 --> 00:28:14.118
+Oder vielleicht kann jemand
+eine davon vorübergehend nicht benutzen,
+
+00:28:14.119 --> 00:28:17.300
+weil er etwas hält
+oder ein gebrochenes Schlüsselbein hat.
+
+00:28:19.279 --> 00:28:22.490
+Die letzte Biometrie, über die ich
+sprechen werde, ist Augenerkennung.
+
+00:28:22.939 --> 00:28:24.320
+Augenerkennung ist großartig.
+
+00:28:24.559 --> 00:28:26.060
+Sie kann Zwillinge auseinanderhalten,
+
+00:28:26.869 --> 00:28:31.369
+weil sie die Iris zum Abgleich nutzt,
+aber was ist, wenn wir
+
+00:28:31.370 --> 00:28:37.610
+uns beim ersten Mal auf eine Weise anmelden,
+und wir melden uns jahrelang nicht an.
+
+00:28:38.029 --> 00:28:41.540
+Wir bekommen Katarakte
+oder vielleicht verlieren wir ein Auge.
+
+00:28:42.260 --> 00:28:45.060
+In diesem Bild ist eine Frau
+mit einer Gesichtsbedeckung zu sehen.
+
+00:28:46.869 --> 00:28:50.867
+Wir haben Multi-Faktor-Authentifizierung, MFAs.
+
+00:28:51.529 --> 00:28:53.809
+Oft entscheide ich mich,
+
+00:28:53.810 --> 00:28:57.440
+ich weiß nicht, was alle anderen machen,
+aber ich entscheide mich für SMS,
+
+00:28:57.499 --> 00:28:58.609
+Textnachrichten.
+
+00:28:58.969 --> 00:29:00.949
+Das sind per SMS gesendete Codes.
+
+00:29:01.490 --> 00:29:04.819
+Sie sind vielleicht etwas weniger sicher
+als Authenticator-Apps,
+
+00:29:05.150 --> 00:29:09.109
+aber sie sind auch eine gängige Lösung
+aufgrund ihrer einfachen Nutzung
+
+00:29:09.710 --> 00:29:10.969
+und breiten Verfügbarkeit.
+
+00:29:10.970 --> 00:29:13.468
+Die meisten Menschen haben heutzutage
+Textnachrichten.
+
+00:29:13.668 --> 00:29:17.389
+Der Trade-off kann es wert sein
+für Menschen, die Schwierigkeiten haben,
+
+00:29:17.390 --> 00:29:18.709
+Codes schnell zu tippen.
+
+00:29:19.879 --> 00:29:22.249
+Screenreader
+und Text-zu-Sprache-Funktionen
+
+00:29:22.250 --> 00:29:25.970
+funktionieren zudem eher nahtlos
+mit einer nativen App wie Textnachrichten.
+
+00:29:27.679 --> 00:29:30.709
+Ich habe nichts wirklich vorbereitet,
+um darüber zu sprechen, was ich gelesen habe
+
+00:29:30.709 --> 00:29:33.469
+zu Apples neuestem
+Sicherheits-Release,
+
+00:29:33.529 --> 00:29:35.151
+aber es gibt irgendeine Art von Sicherheitslücke,
+
+00:29:35.151 --> 00:29:38.990
+die sie behoben haben, weil Screenreader
+Passwörter laut vorgelesen haben.
+
+00:29:39.080 --> 00:29:40.930
+Das ist auch etwas, worüber man nachdenken sollte,
+
+00:29:41.510 --> 00:29:44.900
+wenn Sie
+diese Authentifizierungsmethoden nutzen.
+
+00:29:46.462 --> 00:29:47.989
+Wie gesagt, ich habe dazu nichts vorbereitet.
+
+00:29:47.989 --> 00:29:50.060
+Ich habe nur die Release Notes gelesen.
+
+00:29:51.199 --> 00:29:52.548
+Wir haben E-Mail-basiert.
+
+00:29:52.549 --> 00:29:55.758
+Hier wird Ihr Sicherheitscode
+per E-Mail gesendet.
+
+00:29:55.759 --> 00:29:58.190
+Manchmal ist das wirklich praktisch,
+weil Ihre E-Mail direkt
+
+00:29:58.190 --> 00:29:58.842
+auf Ihrem Computer ist.
+
+00:29:58.910 --> 00:30:03.470
+Sie können kopieren und einfügen
+aus Ihrer E-Mail in die Website.
+
+00:30:03.860 --> 00:30:06.301
+Manchmal haben Sie
+eine Messaging-App auf Ihrem Handy,
+
+00:30:06.301 --> 00:30:09.251
+und Sie können das Gleiche tun,
+und so das Kopieren und Einfügen ermöglichen.
+
+00:30:12.249 --> 00:30:13.539
+Angeschlossene Tokens,
+
+00:30:13.704 --> 00:30:18.456
+diese erfordern einen Stecker oder einen Dongle,
+den Sie in Ihr Gerät einstecken.
+
+00:30:18.894 --> 00:30:22.810
+Es kann einen zweiten Schritt erfordern,
+zum Beispiel eine Taste drücken oder
+
+00:30:22.810 --> 00:30:26.348
+eine biometrische Abfrage,
+aber sie erfordern nicht,
+
+00:30:26.349 --> 00:30:28.210
+dass Nutzer einen Code eingeben,
+
+00:30:28.510 --> 00:30:32.559
+was diesen Multi-Faktor-
+Authentifizierungsprozess
+
+00:30:32.799 --> 00:30:37.900
+etwas barrierefreier macht
+für Nutzer mit motorischen,
+
+00:30:38.529 --> 00:30:40.900
+visuellen und kognitiven Behinderungen.
+
+00:30:41.879 --> 00:30:44.259
+Oh, und es gibt Single Sign-on.
+
+00:30:44.260 --> 00:30:46.819
+Viele Stellen wechseln dazu.
+
+00:30:46.820 --> 00:30:50.949
+Sie sehen dann „Geben Sie Ihr Google ein“,
+
+00:30:51.580 --> 00:30:52.580
+Ihr Gmail.
+
+00:30:52.737 --> 00:30:59.618
+SSO reduziert die Reibung deutlich,
+da pro Sitzung nur eine Anmeldung erforderlich ist,
+
+00:30:59.808 --> 00:31:03.355
+hat jedoch weiterhin einige
+der Probleme beim ersten Anmelden,
+
+00:31:03.386 --> 00:31:05.949
+die die meisten MFA-Verfahren haben.
+
+00:31:07.689 --> 00:31:11.079
+Sprechen wir über das Scannen von
+Ausweisen und Zertifikaten.
+
+00:31:11.679 --> 00:31:17.260
+Das können Banking-Apps sein, wenn man
+Schecks per Handy einzahlt.
+
+00:31:17.710 --> 00:31:19.839
+Das können Impfnachweise sein.
+
+00:31:20.289 --> 00:31:25.360
+Das könnten zertifikatsbasierte
+Signaturen sein,
+
+00:31:25.569 --> 00:31:29.140
+PDFs erfordern manchmal einen gültigen Ausweis.
+
+00:31:29.680 --> 00:31:33.400
+Das könnte für die I-9-Verifizierung
+der Beschäftigungsberechtigung sein.
+
+00:31:33.610 --> 00:31:38.049
+Manchmal müssen mehrere Ausweisdokumente
+eingereicht werden, um die Identität nachzuweisen.
+
+00:31:39.100 --> 00:31:43.210
+Manche Menschen,
+die mit einer Lähmung oder einem Zittern leben,
+
+00:31:43.899 --> 00:31:48.399
+können das Dokument
+oder den User Agent nicht ruhig genug halten,
+
+00:31:48.400 --> 00:31:51.340
+damit der Computer oder die App scannen kann.
+
+00:31:51.790 --> 00:31:54.339
+Waren Sie schon einmal in der Situation,
+dass Sie Ihren Scheck hinlegen,
+
+00:31:54.339 --> 00:31:57.010
+Sie versuchen, einen Scheck einzuzahlen,
+und er liegt auf einer dunklen Oberfläche,
+
+00:31:57.010 --> 00:31:59.050
+und es heißt: „Bewegen Sie sich näher heran“,
+aber Sie zittern,
+
+00:31:59.050 --> 00:32:02.150
+und Sie bekommen es nicht ganz hin,
+und Sie bekommen es nicht zum Scannen.
+
+00:32:03.519 --> 00:32:07.458
+Eine Person mit Sehbeeinträchtigung
+kann den Scanner möglicherweise nicht ausrichten
+
+00:32:07.648 --> 00:32:10.870
+und die Dokumente scharf stellen.
+
+00:32:11.199 --> 00:32:14.170
+Hier ist ein Bild eines Reisepasses zu sehen.
+
+00:32:22.180 --> 00:32:24.490
+Was können wir gegen versteckte Passwörter tun?
+
+00:32:26.709 --> 00:32:28.719
+Wir können Formularfelder beschriften.
+
+00:32:29.170 --> 00:32:33.280
+Wir können außerdem zulassen,
+dass Kopieren und Einfügen in diesen Tools funktioniert.
+
+00:32:34.269 --> 00:32:37.329
+Wir können Tools erlauben, Anmeldedaten auszufüllen.
+
+00:32:37.779 --> 00:32:40.030
+Ich werde dieses Bild beschreiben,
+weil ich wirklich denke, dass dies
+
+00:32:40.030 --> 00:32:45.849
+die beste Art ist, wie Sie Ihren Nutzern
+bei diesen versteckten Passwörtern helfen können: Das ist
+
+00:32:45.850 --> 00:32:49.310
+ein Bild von jemandem, der versucht, sich
+bei einem Gmail-Konto anzumelden,
+
+00:32:49.680 --> 00:32:51.691
+und dort steht „Geben Sie Ihr Passwort ein“,
+
+00:32:51.741 --> 00:32:55.000
+und es gibt ein Kontrollkästchen, das Ihnen erlaubt,
+das Passwort anzuzeigen,
+
+00:32:55.001 --> 00:32:57.651
+damit Sie sehen können, ob Sie
+Ihr Passwort korrekt eingegeben haben.
+
+00:32:57.789 --> 00:33:00.950
+Das betrifft Sie besonders,
+wenn Sie Ihr Passwort
+
+00:33:00.951 --> 00:33:02.058
+zwei- oder dreimal eingegeben haben,
+
+00:33:02.059 --> 00:33:03.939
+und dann heißt es, Sie hätten nur noch
+einen Versuch,
+
+00:33:03.939 --> 00:33:05.689
+und dann werden Sie für immer ausgesperrt.
+
+00:33:05.950 --> 00:33:09.728
+Diese Möglichkeit, das Passwort anzuzeigen,
+hilft Menschen zu erkennen,
+
+00:33:09.729 --> 00:33:11.079
+welche Fehler sie gemacht haben.
+
+00:33:11.230 --> 00:33:13.900
+Ich weiß, dass ich schneller tippe
+mit einer Hand als mit der anderen,
+
+00:33:13.900 --> 00:33:17.588
+also bekomme ich manchmal einen Großbuchstaben,
+wo keiner sein sollte,
+
+00:33:17.589 --> 00:33:21.249
+oder mein A und mein M
+sind bei meinem Namen vertauscht.
+
+00:33:23.799 --> 00:33:24.799
+Proctoring.
+
+00:33:25.029 --> 00:33:27.939
+Ich arbeite bei der Linux Foundation
+und helfe beim Aufbau von Prüfungen,
+
+00:33:27.940 --> 00:33:30.510
+und daher ist Proctoring etwas,
+worüber ich vorher nie wirklich nachgedacht habe,
+
+00:33:30.510 --> 00:33:32.661
+aber in letzter Zeit viel darüber nachdenke.
+
+00:33:33.669 --> 00:33:35.163
+Proctoring kann für Prüfungen sein,
+
+00:33:35.169 --> 00:33:40.450
+es kann dazu dienen sicherzustellen,
+dass Menschen eine Aufgabe ausführen, die festgelegt ist.
+
+00:33:40.810 --> 00:33:42.460
+Es beinhaltet die Überwachung
+
+00:33:44.500 --> 00:33:45.500
+von Teilnehmenden,
+
+00:33:45.549 --> 00:33:49.420
+von Prüfungsteilnehmenden, damit sie ihre Aufgabe erledigen
+und dabei beobachtet werden können.
+
+00:33:49.809 --> 00:33:50.809
+Idealerweise
+
+00:33:50.889 --> 00:33:57.100
+ist das ein Prozess, der
+von einer neutralen Drittpartei überwacht wird.
+
+00:33:57.849 --> 00:34:00.280
+Manchmal wird es über eine Webcam durchgeführt
+
+00:34:01.089 --> 00:34:03.279
+in den meisten Online-Proctoring-Situationen.
+
+00:34:04.539 --> 00:34:09.488
+Authentifizierungsfehler können passieren,
+und es werden Datenschutzbedenken eingeführt,
+
+00:34:09.489 --> 00:34:10.959
+wenn Prüfungsteilnehmende verifiziert werden.
+
+00:34:11.050 --> 00:34:13.659
+Haben Sie schon einmal versucht, eine Prüfung zu machen,
+und Sie halten Ihren Ausweis hoch,
+
+00:34:13.659 --> 00:34:16.569
+und dann kommt eine Stimme,
+die sagt, das geht nicht,
+
+00:34:16.570 --> 00:34:18.570
+oder da ist etwas in Ihrem Hintergrund?
+
+00:34:18.940 --> 00:34:23.409
+Unterstützt Ihre Proctoring-Lösung
+assistive Technologie und integriert sie?
+
+00:34:25.330 --> 00:34:29.289
+Können Sie beobachtet werden und
+Ihre Screenreader verwenden,
+
+00:34:29.320 --> 00:34:32.650
+Ihre alternativen Tastaturen,
+oder Ihre grafischen Organizer?
+
+00:34:34.542 --> 00:34:38.650
+Studierende sollten in der Lage sein,
+ein gewisses Maß an Navigationskontrolle zu behalten,
+
+00:34:38.679 --> 00:34:41.618
+einschließlich der Möglichkeit,
+Dinge ohne Maus auszuwählen.
+
+00:34:41.619 --> 00:34:42.909
+Nicht jeder nutzt eine Maus.
+
+00:34:42.909 --> 00:34:49.630
+Sie sollten in der Lage sein,
+Tastenkombinationen oder Tab-Navigation zu nutzen.
+
+00:34:50.469 --> 00:34:53.229
+Wir sollten in der Lage sein,
+Sprach-zu-Text-Software zu nutzen.
+
+00:34:53.230 --> 00:34:55.719
+Manchmal ist das nicht gewünscht,
+weil man befürchtet, dass andere zuhören
+
+00:34:55.719 --> 00:34:57.309
+oder dass betrogen wird
+
+00:34:57.309 --> 00:35:01.958
+und Prüfungsfragen aufgeschrieben werden,
+doch Aufsichtspersonen können sicherstellen,
+
+00:35:01.959 --> 00:35:04.780
+dass die Software angemessen genutzt wird,
+indem sie die Prüfungsumgebung überwachen.
+
+00:35:05.130 --> 00:35:06.130
+Hörgeräte,
+
+00:35:06.777 --> 00:35:08.647
+man soll keine Dinge
+in den Ohren tragen,
+
+00:35:08.647 --> 00:35:10.367
+also müssen manche Menschen so machen,
+
+00:35:10.367 --> 00:35:12.667
+und sie müssen beweisen,
+dass es ein Hörgerät ist.
+
+00:35:13.440 --> 00:35:17.740
+Proctoren können Hörgeräte
+als echte Hilfsmittel zur Barrierefreiheit verifizieren
+
+00:35:17.760 --> 00:35:20.500
+und nicht zum Zugriff auf
+
+00:35:21.149 --> 00:35:24.099
+nicht autorisierte Informationen,
+sei es nach außen oder nach innen.
+
+00:35:25.169 --> 00:35:26.799
+Assistive Tastaturen und Mäuse,
+
+00:35:27.010 --> 00:35:33.639
+Proctoren sollten wissen können,
+dass diese Geräte ausschließlich
+
+00:35:33.640 --> 00:35:35.919
+für Barrierefreiheitszwecke genutzt werden
+und nicht zum Schummeln,
+
+00:35:35.919 --> 00:35:39.309
+und das Gleiche gilt für Textvergrößerer.
+
+00:35:39.549 --> 00:35:42.819
+Hier ist ein Bild von jemandem
+mit langen Haaren.
+
+00:35:42.820 --> 00:35:46.509
+Man kann ein Cochlea-Implantat sehen,
+und die Person liest auf ihrem Handy.
+
+00:35:50.709 --> 00:35:54.880
+Ein paar Punkte zur Bedienbarkeit nach CAG.
+
+00:35:55.120 --> 00:35:57.759
+Wir wollen sicherstellen,
+dass unsere Komponenten der Benutzeroberfläche
+
+00:35:57.759 --> 00:36:00.310
+und die Navigation bedienbar sein müssen.
+
+00:36:00.359 --> 00:36:02.169
+Das bedeutet, Sie können sie benutzen.
+
+00:36:02.169 --> 00:36:03.769
+Wir sprechen über Zielgröße.
+
+00:36:03.810 --> 00:36:09.142
+Kann jemand auf einem Handy mit
+großen Fingern das Fenster schließen
+
+00:36:09.143 --> 00:36:13.180
+oder jemand mit einer Lähmung
+das Ziel mit der Maus treffen?
+
+00:36:13.749 --> 00:36:14.749
+Fokusreihenfolge,
+
+00:36:14.950 --> 00:36:19.209
+Wir möchten sicherstellen,
+dass die Person genügend Zeit hat,
+
+00:36:19.240 --> 00:36:20.410
+um per Tab durch die ganze Seite
+zum Schließen-Button zu gelangen.
+
+00:36:20.410 --> 00:36:22.860
+Das hängt mit dem nächsten Abschnitt zusammen,
+über den ich spreche.
+
+00:36:23.530 --> 00:36:24.639
+Sichtbarer Fokus,
+
+00:36:25.809 --> 00:36:30.098
+können unsere Nutzer assistive Geräte nutzen
+und wissen, wo sie sind,
+
+00:36:30.099 --> 00:36:31.959
+durch einen visuellen Marker auf einem Bildschirm?
+
+00:36:32.369 --> 00:36:36.919
+Kann ein Tastaturnutzer
+einen Dialog oder ein Pop-up erreichen?
+
+00:36:37.229 --> 00:36:38.979
+Und gibt es eine Tastaturfalle?
+
+00:36:38.980 --> 00:36:43.569
+Wenn Menschen mit ihrer Tastatur
+in ein Element gelangen,
+
+00:36:43.599 --> 00:36:44.409
+können sie wieder heraus?
+
+00:36:44.410 --> 00:36:46.210
+Wenn nicht, nennt man das eine Tastaturfalle.
+
+00:36:47.679 --> 00:36:49.694
+Ich glaube, diese Folie ist
+ein wenig durcheinandergeraten,
+
+00:36:49.694 --> 00:36:51.784
+weil mein nächster Abschnitt
+sich mit Pop-ups beschäftigt,
+
+00:36:52.044 --> 00:36:53.469
+deshalb habe ich hier
+eine kurze Beschreibung
+
+00:36:53.469 --> 00:36:56.320
+davon, was ein barrierefreier
+modularer Dialog ist.
+
+00:36:56.590 --> 00:36:57.590
+Das ist einer,
+
+00:36:57.820 --> 00:37:01.299
+der korrekt verwaltet wird
+und bei dem die richtigen Informationen
+
+00:37:01.300 --> 00:37:02.350
+dem Screenreader zugänglich gemacht werden.
+
+00:37:02.470 --> 00:37:03.550
+Das können wir tun.
+
+00:37:03.730 --> 00:37:05.199
+Es ist ziemlich geradlinig.
+
+00:37:05.320 --> 00:37:08.500
+Wir nutzen natives HTML5,
+und dann nutzen wir ARIA,
+
+00:37:08.550 --> 00:37:11.110
+um die notwendigen
+semantischen Informationen bereitzustellen.
+
+00:37:11.410 --> 00:37:12.579
+Sie können CSS nutzen,
+
+00:37:13.090 --> 00:37:19.028
+um das Erscheinungsbild zu gestalten,
+und Sie können JavaScript nutzen, um
+
+00:37:19.029 --> 00:37:20.500
+das Verhalten zu erzeugen.
+
+00:37:22.239 --> 00:37:24.489
+Das führt zu Alerts,
+
+00:37:24.549 --> 00:37:28.090
+Modals und anderen pop-up-artigen
+nervigen Dingen.
+
+00:37:29.935 --> 00:37:32.819
+JavaScript-Pop-up-Fenster
+sollten nur verwendet werden,
+
+00:37:32.979 --> 00:37:37.210
+wenn es einen erheblichen Vorteil
+für die Funktionalität bringt.
+
+00:37:38.260 --> 00:37:41.410
+Denn denken Sie darüber nach:
+Was, wenn jemand JavaScript deaktiviert hat?
+
+00:37:41.949 --> 00:37:43.059
+Viele Menschen tun das.
+
+00:37:45.490 --> 00:37:50.229
+Wenn Sie ein Pop-up haben,
+das ein neues Fenster oder einen neuen Tab öffnet,
+
+00:37:50.230 --> 00:37:52.840
+entweder über das target-Attribut
+oder über ein Skript,
+
+00:37:53.260 --> 00:37:58.389
+fügen Sie einen Hinweis hinzu,
+dass der Link ein neues Fenster oder einen neuen Tab öffnet.
+
+00:37:59.230 --> 00:38:02.259
+Denken Sie an Menschen,
+die Screenreader nutzen
+
+00:38:03.129 --> 00:38:05.258
+oder auch in visuellen Browsern.
+
+00:38:05.259 --> 00:38:08.229
+Sie sind verwirrt, wenn sie merken,
+dass sie in einem neuen Fenster sind,
+
+00:38:08.859 --> 00:38:11.659
+und sie versuchen, die Zurück-Schaltfläche zu drücken,
+und es funktioniert nicht.
+
+00:38:11.860 --> 00:38:15.760
+Am besten ist es, Nutzende darüber zu informieren,
+dass sich ein neues Fenster oder ein neuer Tab geöffnet hat.
+
+00:38:16.449 --> 00:38:21.459
+Sie sollten vermeiden, Scrollleisten
+und Größenänderungen zu deaktivieren, da Menschen
+
+00:38:21.460 --> 00:38:27.759
+mit Sehbeeinträchtigungen Fenster vergrößern müssen,
+um größeren Text lesen zu können.
+
+00:38:28.270 --> 00:38:31.300
+Stellen Sie Alternativen ohne Skript bereit.
+
+00:38:32.229 --> 00:38:36.489
+Dieses Bild ist ein Bild eines Pop-ups,
+bei dem ein Postbote
+
+00:38:36.490 --> 00:38:41.259
+auf die Möglichkeit zeigt,
+sich für eine E-Mail-Liste anzumelden.
+
+00:38:44.680 --> 00:38:46.750
+Warnhinweise und Statusmeldungen.
+
+00:38:47.139 --> 00:38:53.409
+Wir wollen eine Möglichkeit bieten,
+nicht wesentliche Warnhinweise auszuschalten.
+
+00:38:57.489 --> 00:38:58.688
+Wenn es nicht wichtig ist,
+
+00:38:58.689 --> 00:39:02.259
+wollen wir das schnell schließen können,
+entweder mit der Escape-Taste
+
+00:39:02.290 --> 00:39:05.500
+oder indem der Fokus
+auf unseren Hauptinhalt gesetzt wird.
+
+00:39:06.040 --> 00:39:09.340
+Wir wollen sicherstellen,
+dass Farbe und versteckte Icons
+
+00:39:10.719 --> 00:39:14.469
+nicht genutzt werden
+als einziges Mittel, um
+
+00:39:14.500 --> 00:39:15.940
+wichtige Informationen zu vermitteln,
+
+00:39:16.809 --> 00:39:21.220
+weil, denken Sie daran, manche Menschen
+werden Farben nicht unterscheiden können.
+
+00:39:21.864 --> 00:39:28.569
+Das hier ist eine Warnmeldung in Drupal,
+wenn Sie einen Node fertiggestellt haben.
+
+00:39:28.870 --> 00:39:35.379
+Sie sehen einen hellgrünen Hintergrund
+mit hellbläulichem Text.
+
+00:39:35.590 --> 00:39:37.660
+Nicht das barrierefreieste auf der Welt.
+
+00:39:38.890 --> 00:39:39.720
+Das hilft nicht--
+
+00:39:39.800 --> 00:39:44.919
+das hilft nicht nur
+unseren sehbehinderten Menschen,
+
+00:39:45.099 --> 00:39:48.910
+sondern es hilft auch Menschen,
+die zum Beispiel eine Spiegelung auf ihrem Bildschirm haben.
+
+00:39:50.410 --> 00:39:54.399
+Überraschung: Es gibt eine WCAG
+zu Statusmeldungen.
+
+00:39:55.120 --> 00:39:58.720
+Stellen Sie sicher, dass Nutzer
+über wichtige Änderungen in Inhalten informiert sind.
+
+00:39:59.080 --> 00:40:01.149
+Das tun Sie, erinnern Sie sich,
+wir haben darüber gesprochen,
+
+00:40:01.149 --> 00:40:03.820
+auf eine Weise, die
+den Arbeitsablauf nicht unterbricht.
+
+00:40:03.970 --> 00:40:07.170
+Genau das macht solche Dinge störend,
+wenn sie uns unterbrechen.
+
+00:40:08.350 --> 00:40:11.979
+Stellen Sie sicher, dass Sie geeignete Rollen
+und Eigenschaften zuweisen
+
+00:40:12.429 --> 00:40:13.749
+zu Statusmeldungen.
+
+00:40:14.320 --> 00:40:17.409
+Der neue Inhalt wird
+vom Screenreader so gesprochen,
+
+00:40:17.769 --> 00:40:22.058
+dass blinden und sehschwachen Nutzern geholfen wird,
+weil die meisten sehenden Nutzer
+
+00:40:22.059 --> 00:40:25.899
+Text auch peripher beobachten können,
+wenn er in unsere Ansicht eingefügt wird.
+
+00:40:27.699 --> 00:40:31.300
+Welche Statusmeldungen
+könnten auftreten?
+
+00:40:31.719 --> 00:40:34.389
+Eine Meldung anzeigen
+über die Anzahl der Suchergebnisse,
+
+00:40:34.389 --> 00:40:35.389
+die zurückgegeben wurden.
+
+00:40:35.510 --> 00:40:40.689
+Vielleicht den Nutzer informieren,
+dass die Anwendung beschäftigt ist,
+
+00:40:40.690 --> 00:40:42.609
+und wir später zurückkommen müssen.
+
+00:40:43.509 --> 00:40:48.190
+Informationen über den Fortschritt
+oder den Abschluss eines Prozesses anzeigen.
+
+00:40:48.669 --> 00:40:49.719
+Dieses drehende Rad.
+
+00:40:50.069 --> 00:40:54.548
+Ganz einfach bedeutet diese Richtlinie,
+dass die Statusmeldung
+
+00:40:54.549 --> 00:40:56.410
+klar gekennzeichnet sein sollte
+
+00:40:58.000 --> 00:40:59.019
+als solche
+
+00:40:59.829 --> 00:41:02.679
+im Code der Website,
+im Code
+
+00:41:03.039 --> 00:41:06.219
+damit assistive Technologie,
+wie Screenreader,
+
+00:41:06.220 --> 00:41:10.150
+sie erkennen und entscheiden kann,
+wie sie sie dem Nutzer vermittelt.
+
+00:41:10.719 --> 00:41:15.610
+Menschen, die Screenreader als Hauptnutzer verwenden,
+haben dafür Einstellungen
+
+00:41:15.670 --> 00:41:18.620
+oder sind daran gewöhnt, wie man
+diese Rotoren nutzt und sie umgeht.
+
+00:41:21.130 --> 00:41:24.729
+Es gibt eine weitere WCAG-Richtlinie
+zu Eingaben.
+
+00:41:29.700 --> 00:41:31.508
+Hier geht es um Fehleridentifikation.
+
+00:41:31.509 --> 00:41:32.649
+Wenn Sie ein Formular haben,
+
+00:41:32.649 --> 00:41:37.718
+stellen Sie sicher, dass Menschen
+mit kognitiven Sprach-
+
+00:41:37.719 --> 00:41:40.299
+und Lernbehinderungen oder Menschen,
+
+00:41:40.300 --> 00:41:43.629
+die Schwierigkeiten haben zu verstehen,
+was die Icons
+
+00:41:43.630 --> 00:41:45.549
+und andere visuelle Hinweise bedeuten,
+also stellen Sie sicher, dass es
+
+00:41:45.549 --> 00:41:48.549
+ein paar Wege gibt, wie sie wissen,
+dass dort Fehler sind.
+
+00:41:48.910 --> 00:41:51.189
+Wir sagen gern, wir machen Inline-Fehler.
+
+00:41:51.699 --> 00:41:54.399
+Stellen Sie sicher, dass Sie
+Beschriftungen und Anweisungen bereitstellen,
+
+00:41:55.480 --> 00:41:58.270
+wenn der Inhalt Nutzereingaben erfordert.
+
+00:41:58.569 --> 00:42:01.059
+Stellen Sie sicher, dass die Person weiß,
+dass dort etwas
+
+00:42:01.059 --> 00:42:02.290
+in dieses Feld eingetragen werden muss.
+
+00:42:04.150 --> 00:42:09.759
+Stellen Sie klare und unmissverständliche Beschriftungen
+und Anweisungen bereit.
+
+00:42:10.600 --> 00:42:13.241
+Das hilft allen,
+und besonders denen
+
+00:42:13.291 --> 00:42:14.641
+mit Lernbehinderungen.
+
+00:42:15.130 --> 00:42:16.178
+Fehlervorschläge.
+
+00:42:16.179 --> 00:42:21.158
+Das ist, wenn Ihr Eingabefehler
+vielleicht automatisch erfasst
+
+00:42:21.159 --> 00:42:22.159
+und erkannt wird.
+
+00:42:22.720 --> 00:42:24.970
+Dann werden Vorschläge
+dem Nutzer bereitgestellt
+
+00:42:26.380 --> 00:42:31.809
+mit der Ausnahme, wenn es
+die Sicherheit oder den Zweck des Inhalts gefährdet.
+
+00:42:32.499 --> 00:42:35.448
+Informationen darüber bereitzustellen,
+wie Eingabefehler korrigiert werden,
+
+00:42:35.449 --> 00:42:37.379
+hilft Menschen mit Lernbehinderungen,
+
+00:42:37.379 --> 00:42:39.399
+diese Formulare und Eingaben auszufüllen.
+
+00:42:39.579 --> 00:42:43.029
+Die meisten davon sind Passwörter
+oder Sozialversicherungsnummern.
+
+00:42:45.459 --> 00:42:49.180
+Stellen Sie sicher, dass sie verstehen,
+
+00:42:50.109 --> 00:42:52.570
+welche Art von Eingabe erwartet wird
+und wie sie zu korrigieren ist.
+
+00:42:53.139 --> 00:42:56.892
+Menschen mit motorischen Einschränkungen können
+die Anzahl der Male reduzieren,
+
+00:42:56.892 --> 00:42:58.450
+die sie einen Eingabewert ändern müssen.
+
+00:43:00.099 --> 00:43:01.359
+Was haben wir heute gelernt?
+
+00:43:01.359 --> 00:43:03.809
+Oh, ich bin fast bei der Zeit,
+das ist perfektes Timing.
+
+00:43:05.259 --> 00:43:06.609
+Was haben wir heute gelernt?
+
+00:43:06.789 --> 00:43:10.600
+Wir möchten unseren Nutzenden ermöglichen,
+Details zu kopieren und einzufügen
+
+00:43:10.629 --> 00:43:13.209
+in unsere Benutzername- und Passwortfelder.
+
+00:43:13.780 --> 00:43:18.430
+Wir wollen unseren Nutzern erlauben,
+externe Referenzen für ihre Angaben zu nutzen,
+
+00:43:18.460 --> 00:43:24.099
+entweder als Gedächtnishilfen
+oder um Transkriptionsfehler zu vermeiden.
+
+00:43:24.520 --> 00:43:28.359
+Wir wollen, dass Menschen Daten eingeben können
+aus Dokumenten auf ihrem Computer
+
+00:43:28.360 --> 00:43:29.800
+oder aus Passwortmanagern.
+
+00:43:31.380 --> 00:43:33.309
+Das führt zurück zum Kopieren und Einfügen.
+
+00:43:33.489 --> 00:43:36.969
+Denken Sie daran: Wenn wir den Bildschirm wechseln,
+verlieren Menschen manchmal
+
+00:43:37.689 --> 00:43:40.480
+oder vertauschen diese Zahlen.
+
+00:43:41.470 --> 00:43:43.570
+Geben Sie den Nutzern eine Methode,
+sich zu authentifizieren,
+
+00:43:43.573 --> 00:43:46.030
+die kein Passwort beinhaltet.
+
+00:43:47.769 --> 00:43:50.799
+In Fällen, in denen Nutzer
+ihr Passwort nicht erinnern können,
+
+00:43:51.009 --> 00:43:55.839
+bieten Sie eine Option an, einen Magic Link
+an ihre E-Mail zu senden, den sie anklicken können,
+
+00:43:55.840 --> 00:43:58.810
+um sich auf diese Weise anzumelden.
+
+00:43:59.485 --> 00:44:03.219
+Und programmieren Sie Ihre Eingabefelder
+mit dem passenden Typ.
+
+00:44:04.210 --> 00:44:08.440
+Passwortfelder sollten
+einen Typ haben, der „Password“ sagt.
+
+00:44:08.922 --> 00:44:11.770
+Ein Zahlenfeld sollte
+einen Typ haben, der „Number“ sagt.
+
+00:44:12.190 --> 00:44:16.599
+Die Bereitstellung des korrekten Eingabetypen
+ermöglicht es Menschen,
+
+00:44:17.229 --> 00:44:18.669
+in Betriebssystemen,
+
+00:44:19.510 --> 00:44:21.850
+aber auch Menschen, die assistive Technologie nutzen,
+
+00:44:22.689 --> 00:44:27.789
+zu wissen, was von ihnen erwartet wird,
+und welche Methode korrekt ist.
+
+00:44:30.130 --> 00:44:33.668
+Ermöglichen Sie das Vorbefüllen von Feldern,
+wenn die Daten verfügbar sind,
+
+00:44:33.669 --> 00:44:35.469
+zum Beispiel wenn sie im Browser gespeichert sind.
+
+00:44:35.819 --> 00:44:37.459
+Wie oft geht man hinein und denkt sich,
+
+00:44:37.459 --> 00:44:40.659
+„Ach, ich nutze einfach das Autofill“,
+und dann wird Autofill nicht erlaubt,
+
+00:44:40.667 --> 00:44:43.810
+sodass man sich sein Passwort merken muss?
+
+00:44:45.580 --> 00:44:50.018
+Wenn Sie Multi-Faktor-Authentifizierung verwenden,
+stellen Sie sicher, dass Ihre Nutzer
+
+00:44:50.019 --> 00:44:53.080
+vorab über die Anforderungen
+und das Zeitfenster informiert werden.
+
+00:44:53.559 --> 00:44:57.699
+Stellen Sie wirklich sicher, dass
+genügend Zeit bereitgestellt wird, damit sie
+
+00:44:58.540 --> 00:45:03.070
+ihre Informationen verifizieren können,
+ohne einen neuen Code zu benötigen.
+
+00:45:03.630 --> 00:45:05.799
+Wenn wir diese kurzen Zeitfenster haben,
+
+00:45:06.699 --> 00:45:08.589
+bieten Sie eine barrierefreie Alternative an.
+
+00:45:09.199 --> 00:45:11.633
+Erlauben Sie den Nutzern, auf Anforderungen zuzugreifen
+
+00:45:11.813 --> 00:45:18.186
+für Multi-Faktor-Authentifizierung,
+indem diese verschiedenen Apps verfügbar sind.
+
+00:45:18.357 --> 00:45:20.436
+Und dann noch zwei letzte Dinge zu CAPTCHAs.
+
+00:45:21.406 --> 00:45:24.016
+Nutzer mit Sehbeeinträchtigungen
+können diese Bild-CAPTCHAs möglicherweise nicht nutzen.
+
+00:45:24.067 --> 00:45:25.193
+solche Bild-CAPTCHAs.
+
+00:45:25.719 --> 00:45:27.679
+Da ist ein Bild eines CAPTCHA,
+und Sie können sehen,
+
+00:45:27.679 --> 00:45:30.319
+dass es alternative Möglichkeiten gibt,
+dieses CAPTCHA zu nutzen.
+
+00:45:30.520 --> 00:45:33.370
+Es gibt die Option,
+die Buchstaben so einzugeben, wie Sie sie sehen,
+
+00:45:33.610 --> 00:45:37.418
+es gibt die Option,
+die Buchstaben zu ändern, falls Sie es noch einmal versuchen,
+
+00:45:37.419 --> 00:45:39.160
+mit einer anderen Buchstabenkombination.
+
+00:45:39.160 --> 00:45:46.329
+Es gibt die Möglichkeit, es sich anzuhören,
+sodass Sie die Buchstaben gesprochen hören können.
+
+00:45:46.719 --> 00:45:51.509
+Denken Sie außerdem daran,
+keine kulturspezifischen CAPTCHAs zu verwenden.
+
+00:45:52.300 --> 00:45:53.300
+Wieder:
+
+00:45:53.469 --> 00:45:57.219
+Die zentrale Botschaft dieser Präsentation
+ist: Geben Sie Ihren Nutzern immer
+
+00:45:57.489 --> 00:45:58.810
+Alternativen.
+
+00:45:59.649 --> 00:46:01.749
+Damit scrolle ich zum letzten Bildschirm.
+
+00:46:02.200 --> 00:46:04.809
+Sie finden mich auf LinkedIn
+als Volkswagen Chick.
+
+00:46:05.739 --> 00:46:09.879
+Das ist wahrscheinlich der einfachste Weg
+und der beste Weg, um
+
+00:46:09.880 --> 00:46:11.410
+Gespräche zu führen und solche Dinge.
+
+00:46:11.410 --> 00:46:12.610
+Ich möchte mich bei allen bedanken,
+
+00:46:12.689 --> 00:46:13.689
+die gekommen sind.
+
+00:46:13.690 --> 00:46:16.329
+Ich weiß, es ist im Chat viel passiert,
+
+00:46:16.329 --> 00:46:21.069
+aber ich habe nichts davon gesehen, außer
+als jemand Migräne eingetragen hat.
+
+00:46:21.090 --> 00:46:22.459
+[Gelächter]
+
+00:46:23.890 --> 00:46:27.730
+Simon: Vielen Dank, AmyJune.
+Das war wirklich hilfreich und informativ.
+
+00:46:28.059 --> 00:46:29.109
+Wir haben
+
+00:46:30.099 --> 00:46:31.719
+ein paar ziemlich gute Fragen hier
+
+00:46:33.489 --> 00:46:37.180
+im Q&amp;A, also gehe ich diese durch.
+
+00:46:40.179 --> 00:46:46.390
+David fragt, sind Honeypot-Felder
+in Online-Formularen barrierefrei,
+
+00:46:46.539 --> 00:46:52.449
+wenn sie so gestaltet sind, dass sie
+das Absenden von Formularen blockieren,
+
+00:46:52.450 --> 00:46:53.679
+durch missbräuchliche Bots?
+
+00:46:54.039 --> 00:46:56.799
+Wenn ja, welche barrierefreien Alternativen
+
+00:46:57.910 --> 00:46:59.770
+gibt es, um bösartige Bots zu stoppen?
+
+00:46:59.949 --> 00:47:04.872
+Es könnte hilfreich sein, zu definieren,
+was ein Honeypot ist, bei diesem [Durcheinanderreden]
+
+00:47:04.922 --> 00:47:07.272
+AmyJune: Ich weiß nicht genau,
+was ein Honeypot ist,
+
+00:47:07.302 --> 00:47:09.392
+weil ich nicht daran arbeite.
+Simon: Sicher.
+
+00:47:09.392 --> 00:47:11.902
+AmyJune: Legen Sie los.
+Simon: Legen Sie los.
+
+00:47:12.579 --> 00:47:13.990
+AmyJune: Ich wollte nur sagen,
+dass ich weiß, dass Honeypot
+
+00:47:13.990 --> 00:47:18.669
+eine der produktiveren Methoden ist,
+
+00:47:20.349 --> 00:47:22.300
+um Spam zu verhindern,
+
+00:47:23.080 --> 00:47:26.409
+anstatt unserer CAPTCHAs
+und reCAPTCHAs und so weiter.
+
+00:47:26.410 --> 00:47:28.040
+Aber das ist eine
+der erfolgreicheren Methoden,
+
+00:47:28.040 --> 00:47:29.040
+um unseren Spam zu begrenzen.
+
+00:47:29.710 --> 00:47:33.249
+Mit Honeypot blockiert es
+dieses bösartige Zeug,
+
+00:47:33.250 --> 00:47:37.329
+also liegt es wirklich am Nutzer,
+langsamer zu werden
+
+00:47:38.139 --> 00:47:39.139
+bei seiner Eingabe,
+
+00:47:39.489 --> 00:47:41.739
+seine Eingabe zu begrenzen,
+bei seiner Eingabe sorgfältig zu sein,
+
+00:47:42.579 --> 00:47:44.620
+weil wir alle schon auf einer Website waren
+
+00:47:44.620 --> 00:47:47.670
+und einfach so schnell eingegeben haben,
+dass sie denken, wir seien ein Bot.
+
+00:47:48.129 --> 00:47:51.229
+Das ist eine Lerngelegenheit für uns,
+ein bisschen langsamer zu werden.
+
+00:47:54.219 --> 00:47:55.449
+Simon: Okay, großartig.
+
+00:47:57.460 --> 00:48:04.569
+Nicole fragt, ist reCAPTCHA v3,
+bei dem man keine Rätsel lösen muss,
+
+00:48:05.889 --> 00:48:07.239
+einfacher für die Barrierefreiheit?
+
+00:48:08.110 --> 00:48:12.579
+AmyJune: Ja, aber ich empfehle einfach
+die Schaltfläche, die fragt, ob wir Bots sind.
+
+00:48:16.524 --> 00:48:20.604
+Diejenige, die einfach sagt,
+die einfachen Kontrollkästchen, ob Sie ein Bot sind.
+
+00:48:23.809 --> 00:48:24.809
+Simon: Das ist gut.
+
+00:48:26.169 --> 00:48:30.430
+Jemand fragt, haben Sie
+Leseempfehlungen oder Ressourcen
+
+00:48:30.750 --> 00:48:32.570
+für barrierefreie Cybersicherheit?
+
+00:48:33.452 --> 00:48:40.420
+AmyJune: Oh ja,
+und ich werde dazu einen Link teilen.
+
+00:48:40.480 --> 00:48:42.279
+Ich habe das nicht parat.
+
+00:48:42.280 --> 00:48:44.950
+Ich bin neulich auf etwas gestoßen,
+als ich Recherche gemacht habe
+
+00:48:44.950 --> 00:48:46.792
+für die Linux Foundation zur Cybersicherheit.
+
+00:48:46.792 --> 00:48:48.602
+Da gibt es einen ganzen Abschnitt
+zur Barrierefreiheit,
+
+00:48:48.602 --> 00:48:51.969
+aber ich habe das gerade nicht
+auf der Zunge.
+
+00:48:53.110 --> 00:48:55.179
+Es gibt einige wirklich großartige Artikel.
+
+00:48:56.380 --> 00:48:58.580
+Es gibt eine Ressource
+auf LinkedIn, wenn Sie folgen.
+
+00:48:59.050 --> 00:49:03.429
+Es ist eine Arbeitsgruppe für Barrierefreiheit,
+und ich vergesse gerade den Namen,
+
+00:49:03.430 --> 00:49:06.030
+und ich weiß, das ist auch
+nicht so gut.
+
+00:49:06.310 --> 00:49:07.509
+Wenn Sie vielen davon folgen,
+
+00:49:07.509 --> 00:49:08.959
+gibt es viele Artikel und Whitepaper
+
+00:49:08.959 --> 00:49:12.268
+auf LinkedIn über Cybersicherheit
+und Barrierefreiheit.
+
+00:49:12.269 --> 00:49:14.289
+Das ist ein brandneues Feld, das sich öffnet,
+
+00:49:14.800 --> 00:49:17.890
+da immer mehr von uns
+Cybersicherheitsexperten werden.
+
+00:49:18.070 --> 00:49:23.455
+Immer mehr von uns wechseln in die Cybersicherheit
+und haben einen Barrierefreiheits-Hintergrund.
+
+00:49:23.635 --> 00:49:26.185
+Es gibt da draußen sehr viele wirklich gute Informationen.
+
+00:49:27.594 --> 00:49:28.744
+Simon: Großartig.
+Vielen Dank.
+
+00:49:29.325 --> 00:49:32.024
+Es gibt noch ein paar Fragen,
+aber wir sind am Ende der Zeit.
+
+00:49:33.750 --> 00:49:34.900
+Ich möchte nur abschließen.
+
+00:49:35.649 --> 00:49:37.630
+Nochmals vielen Dank, AmyJune,
+
+00:49:38.469 --> 00:49:39.909
+für diese großartige Präsentation,
+
+00:49:41.349 --> 00:49:42.605
+und danke an alle,
+
+00:49:42.655 --> 00:49:45.789
+dass Sie Teil dieser Session waren.
+
+00:49:48.189 --> 00:49:52.419
+Sie können dieses Gespräch
+im Chat oder in den sozialen Medien fortsetzen,
+
+00:49:53.020 --> 00:50:01.018
+unter Verwendung der Hashtags
+#WPA11YDay und #WPAD2024.
+
+00:50:01.660 --> 00:50:06.639
+Wir würden uns außerdem freuen,
+wenn Sie
+
+00:50:06.640 --> 00:50:13.423
+die URL
+2024.wpaccessibility.day/feedback
+
+00:50:13.813 --> 00:50:15.369
+besuchen, um anonymes Feedback
+
+00:50:15.789 --> 00:50:17.789
+zu den Präsentationen unserer Vortragenden zu geben.
+
+00:50:18.430 --> 00:50:20.880
+Dort können Sie auch an einer Verlosung
+eines T-Shirts teilnehmen.
+
+00:50:21.640 --> 00:50:24.579
+Ich lade Sie ein, für unsere nächste Session dranzubleiben,
+
+00:50:24.759 --> 00:50:26.509
+CSS Tiny Tips:
+
+00:50:26.599 --> 00:50:31.419
+Sammlungen von CSS-Tipps,
+um Websites leichter lesbar zu machen.
+
+00:50:31.713 --> 00:50:38.241
+Jen Harries wird damit beginnen
+um 12:00 AM UTC.
+
+00:50:38.501 --> 00:50:43.629
+Während Sie warten, vergessen Sie nicht,
+die Seiten unserer Sponsoren zu besuchen,
+
+00:50:43.630 --> 00:50:47.859
+um virtuelles Werbematerial zu erhalten und
+die Chance zu nutzen, einige tolle Preise zu gewinnen.
+
+00:50:48.619 --> 00:50:51.460
+Vielen Dank an alle,
+und wir sehen uns genau hier wieder
+
+00:50:51.490 --> 00:50:52.490
+nach der Pause.
+
+00:50:54.970 --> 00:50:58.839
+Moderator: Vielen Dank an die Sponsoren des WordPress
+Barrierefreiheitstags 2024.
+
+00:50:59.310 --> 00:51:00.890
+Platin-Sponsor, 20i.
+
+00:51:01.449 --> 00:51:04.389
+Erstellen, deployen
+und verwalten Sie all Ihre Projekte ganz einfach
+
+00:51:04.390 --> 00:51:06.670
+mit 20i-verwaltetem WordPress-Hosting.
+
+00:51:07.120 --> 00:51:08.858
+Eine Benutzeroberfläche für all Ihre Server,
+
+00:51:08.859 --> 00:51:12.518
+Apps, Sites, Datenbanken, Sicherheit, DNS
+
+00:51:12.519 --> 00:51:13.519
+und E-Mail.
+
+00:51:13.749 --> 00:51:14.980
+Perfekt für Agenturen,
+
+00:51:15.040 --> 00:51:18.100
+E-Commerce, Entwickler,
+Multisite-Hosting
+
+00:51:18.129 --> 00:51:19.449
+und stark frequentierte Sites.
+
+00:51:20.259 --> 00:51:22.210
+Platin-Sponsor, Equalize Digital.
+
+00:51:22.779 --> 00:51:26.286
+Da sie ausschließlich Barrierefreiheit machen,
+ist jeder Beitrag in ihrem Blog
+
+00:51:26.287 --> 00:51:27.820
+eine Barrierefreiheitsressource.
+
+00:51:28.239 --> 00:51:32.169
+Sie finden Webinar-Aufzeichnungen,
+Artikel und zusätzliche Ressourcen
+
+00:51:32.499 --> 00:51:35.632
+unter equalizedigital.com/resources.
+
+00:51:36.580 --> 00:51:38.679
+Platin-Sponsor, WP Engine.
+
+00:51:39.129 --> 00:51:43.179
+WP Engine bietet die am meisten genutzten
+und vertrauenswürdigsten WordPress-Produkte
+
+00:51:43.180 --> 00:51:46.840
+für Unternehmen, Marken
+und Agenturen jeder Größe.
+
+00:51:47.890 --> 00:51:49.299
+Vielen Dank an unsere Gold-Sponsoren,
+
+00:51:49.629 --> 00:51:53.859
+GoDaddy, Grackle Docs,
+Gravity Forms, GreenGeeks,
+
+00:51:54.167 --> 00:51:56.038
+TPGI und Yoast.
+
+00:51:56.799 --> 00:52:00.526
+Vielen Dank an unsere Silber-Sponsoren,
+CodeGeek, Drake Cooper,
+
+00:52:00.636 --> 00:52:03.129
+Elementor, Overnight Website,
+
+00:52:03.430 --> 00:52:07.419
+Pressable, Second Melody
+und Accessibility Collective.

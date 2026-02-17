@@ -236,7 +236,7 @@ No translations yet.
 
 ## 2025
 
-5 completed translations.
+6 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -248,6 +248,7 @@ No translations yet.
 6. Creating a Hyper-Accessible Website for Blind, Low Vision, and Sighted Users
   	- Spanish; Jordan Gilavert
 7. Audio Accessibility in WordPress
+  	- Spanish; Luz Zuniga
 8. Accessibility Lawsuits and WordPress: The Violations Every Business Needs to Know
 9. Why Accessibility Matters: From a Blind-Visually Impaired Perspective
   	- Spanish; Andy Amado

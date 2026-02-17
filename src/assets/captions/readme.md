@@ -236,10 +236,11 @@ No translations yet.
 
 ## 2025
 
-6 completed translations.
+7 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
+  	- Spanish; Diana Córdoba Gómez
 3. Being a Colourblind Designer
 4. Typography, Readability and Digital Accessibility
   	- Spanish; Andy Amado

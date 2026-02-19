@@ -1,0 +1,3428 @@
+WEBVTT
+
+00:00:00.600 --> 00:00:03.387
+<v Annonceur>
+Journée de l’accessibilité WordPress 2024,
+
+00:00:03.686 --> 00:00:05.160
+Défis d’accessibilité
+
+00:00:05.160 --> 00:00:07.043
+avec les applications web monopages,
+
+00:00:07.252 --> 00:00:10.740
+avec l’oratrice Natalie MacLees,
+co-fondatrice de NSquared.
+
+00:00:11.189 --> 00:00:14.443
+Cette présentation
+a été enregistrée en octobre 2024.
+
+00:00:15.800 --> 00:00:19.619
+<v Marina Weis-Haggerty> Bienvenue
+à la Journée de l’accessibilité WordPress 2024.
+
+00:00:19.620 --> 00:00:21.270
+Bonjour, si vous venez de nous rejoindre.
+
+00:00:21.449 --> 00:00:24.448
+Je m’appelle Marina
+et je suis développeuse UX/UI
+
+00:00:24.449 --> 00:00:26.788
+pour l’agence de logiciels NuRelm.
+
+00:00:26.789 --> 00:00:28.950
+Je serai l’animatrice de cette session.
+
+00:00:29.399 --> 00:00:32.608
+Merci de nous rejoindre
+pour les Défis d’accessibilité
+
+00:00:32.609 --> 00:00:36.240
+avec les applications web monopages,
+avec Natalie MacLees.
+
+00:00:36.750 --> 00:00:38.421
+Natalie est la directrice des opérations (COO)
+
+00:00:39.030 --> 00:00:42.719
+et co-fondatrice de AAArdvark,
+avec trois « A ».
+
+00:00:43.079 --> 00:00:46.288
+Elle est une professionnelle expérimentée
+de l’accessibilité web,
+
+00:00:46.289 --> 00:00:50.728
+avec plus de 25 ans d’expérience combinée
+en développement web front-end
+
+00:00:50.729 --> 00:00:52.289
+et en accessibilité,
+
+00:00:52.530 --> 00:00:55.530
+notamment en tant que développeuse
+UI senior chez Sony.
+
+00:00:56.100 --> 00:01:00.329
+Natalie est une fervente défenseuse
+de l’accessibilité et s’est donné pour
+
+00:01:00.330 --> 00:01:03.570
+mission de former les développeurs et
+les designers à intégrer
+
+00:01:03.810 --> 00:01:08.099
+les bonnes pratiques d’accessibilité dans
+leur travail, afin de construire un internet
+
+00:01:08.100 --> 00:01:09.100
+accessible à tous.
+
+00:01:09.449 --> 00:01:11.958
+Natalie adore parler d’accessibilité web
+et a été une conférencière invitée
+
+00:01:11.959 --> 00:01:15.899
+lors de nombreuses conférences sur le
+développement web, des rencontres (meetups)
+
+00:01:16.200 --> 00:01:19.949
+autour du développement et de la conception web,
+ainsi que dans des podcasts consacrés à WordPress.
+
+00:01:20.369 --> 00:01:22.829
+Avec son nouvel
+outil d’accessibilité web,
+
+00:01:22.830 --> 00:01:26.459
+AAArdvark, Natalie est fière de proposer
+une suite d’outils innovants
+
+00:01:26.460 --> 00:01:29.670
+qui facilite et accélère l’atteinte de
+la conformité WCAG
+
+00:01:29.720 --> 00:01:32.099
+tout en maintenant un haut niveau
+de qualité dans le travail.
+
+00:01:33.179 --> 00:01:37.374
+Je vous invite à poser
+librement vos questions
+
+00:01:37.740 --> 00:01:40.438
+dans la section Q&amp;R de Zoom
+et nous y répondrons
+
+00:01:40.439 --> 00:01:41.739
+à la fin de la session.
+
+00:01:41.909 --> 00:01:44.399
+Utilisez le chat pour échanger
+avec les autres participants.
+
+00:01:45.090 --> 00:01:46.469
+C’est tout pour les infos pratiques.
+
+00:01:46.560 --> 00:01:47.850
+À toi, Natalie.
+
+00:01:49.452 --> 00:01:50.882
+<v Natalie Maclees> Super.
+Merci beaucoup
+
+00:01:50.882 --> 00:01:53.382
+pour cette présentation,
+et merci de m’avoir invitée.
+
+00:01:53.790 --> 00:01:57.508
+J’ai fait partie de l’équipe
+d’organisation lors de la toute
+
+00:01:57.509 --> 00:02:00.426
+première édition de cet événement
+en 2020, donc c’est vraiment
+
+00:02:01.020 --> 00:02:04.015
+un plaisir d’être de retour cette
+fois en tant qu’intervenante.
+
+00:02:05.309 --> 00:02:08.039
+Laissez-moi juste partager mon écran…
+
+00:02:12.540 --> 00:02:13.590
+Voilà.
+
+00:02:16.230 --> 00:02:20.305
+Aujourd’hui, nous allons parler
+des applications monopage (ou SPA).
+
+00:02:20.306 --> 00:02:24.479
+Alors, commençons par nous mettre
+tous sur la même longueur d’onde.
+
+00:02:25.230 --> 00:02:26.910
+Qu’est-ce qu’une SPA ?
+
+00:02:27.240 --> 00:02:28.349
+Je sais que c’est très décevant.
+
+00:02:28.350 --> 00:02:33.029
+Mais malheureusement, on ne parle pas
+ici du merveilleux endroit où l’on va
+
+00:02:33.030 --> 00:02:35.280
+pour se faire masser et profiter du sauna.
+
+00:02:35.520 --> 00:02:36.520
+Nous parlons, bien sûr,
+
+00:02:36.599 --> 00:02:39.510
+des applications monopages,
+ou SPA (Single-Page Applications).
+
+00:02:40.080 --> 00:02:45.539
+J’ai affiché à l’écran la définition
+tirée de la documentation MDN
+
+00:02:45.599 --> 00:02:47.369
+mais pour résumer rapidement :
+
+00:02:48.150 --> 00:02:53.909
+une application monopage est une application
+dans laquelle une seule page HTML est chargée
+
+00:02:53.939 --> 00:02:55.259
+dans la fenêtre du navigateur,
+
+00:02:56.280 --> 00:02:58.500
+et toutes les mises à jour ou modifications qui suivent
+
+00:02:59.009 --> 00:03:02.849
+se font de manière asynchrone
+via JavaScript.
+
+00:03:03.150 --> 00:03:05.823
+Ces mises à jour peuvent se produire
+uniquement côté navigateur,
+
+00:03:05.883 --> 00:03:07.859
+ou bien le navigateur peut envoyer des requêtes
+
+00:03:07.860 --> 00:03:10.919
+au serveur pour récupérer des informations
+supplémentaires à charger
+
+00:03:10.979 --> 00:03:11.979
+et afficher.
+
+00:03:13.110 --> 00:03:20.039
+Il existe trois principaux
+frameworks JavaScript,
+
+00:03:20.040 --> 00:03:23.219
+couramment utilisés pour développer
+des applications monopages.
+
+00:03:23.519 --> 00:03:25.829
+Ce sont React, Angular et Vue.
+
+00:03:26.219 --> 00:03:27.658
+Ce ne sont pas les seuls.
+
+00:03:27.659 --> 00:03:30.689
+Il en existe des dizaines,
+voire des centaines d’autres,
+
+00:03:31.259 --> 00:03:32.759
+si vous n’aimez pas ces trois-là.
+
+00:03:33.318 --> 00:03:34.410
+Mais, je pense que la plupart
+
+00:03:34.469 --> 00:03:37.500
+d’entre eux, en 2024, sont construits
+sur l’un de ces trois frameworks.
+
+00:03:37.949 --> 00:03:41.670
+Petite précision, en toute transparence :
+je n’ai jamais utilisé Angular moi-même.
+
+00:03:42.060 --> 00:03:46.756
+Il n’y aura que quelques
+extraits de code
+
+00:03:46.786 --> 00:03:50.648
+dans ma présentation aujourd’hui,
+
+00:03:50.715 --> 00:03:52.245
+et aucun d’entre eux ne sera en Angular,
+
+00:03:52.245 --> 00:03:55.048
+car je ne le maîtrise pas.
+
+00:03:55.439 --> 00:03:59.999
+J’en ai juste quelques-uns en React et en Vue,
+mais les concepts généraux dont je vais parler
+
+00:04:00.000 --> 00:04:04.679
+s’appliquent quel que soit le
+framework que vous utilisez.
+
+00:04:08.209 --> 00:04:10.529
+Rien que par le titre de ma présentation,
+oups, pardon,
+
+00:04:10.739 --> 00:04:14.790
+on comprend qu’il y a des défis
+d’accessibilité avec les SPA.
+
+00:04:15.539 --> 00:04:18.289
+Mais sachant cela, pourquoi
+voudrions-nous en construire une ?
+
+00:04:19.170 --> 00:04:23.369
+Une SPA est une excellente solution si vous devez
+créer une application web
+
+00:04:23.399 --> 00:04:27.808
+qui ressemble davantage à une application native,
+que ce soit pour un ordinateur de bureau,
+
+00:04:27.809 --> 00:04:30.809
+ou pour un ordinateur portable ou
+encore pour un appareil mobile.
+
+00:04:31.320 --> 00:04:35.100
+Si vous souhaitez une application
+avec des performances très fluides et rapides,
+
+00:04:35.519 --> 00:04:39.990
+qui donne l’impression d’utiliser une application native,
+une SPA est une excellente option pour cela.
+
+00:04:41.069 --> 00:04:42.149
+Dans certains cas,
+
+00:04:42.539 --> 00:04:44.848
+vous pouvez même tirer
+parti du cache local
+
+00:04:44.849 --> 00:04:47.850
+ou du stockage local pour que
+votre application fonctionne hors ligne.
+
+00:04:48.299 --> 00:04:51.389
+Vous pouvez créer une grande
+bibliothèque de composants réutilisables,
+
+00:04:51.539 --> 00:04:55.260
+ce qui facilite et accélère la création
+de nouvelles vues, pages et écrans.
+
+00:04:55.799 --> 00:04:58.259
+Cependant, je recommande de les
+utiliser uniquement
+
+00:04:58.260 --> 00:05:02.579
+pour des applications,
+et non pour des sites comme des blogs
+
+00:05:02.580 --> 00:05:04.139
+ou des sites d’information.
+
+00:05:07.290 --> 00:05:10.798
+J’ai identifié quatre grandes catégories
+de défis d’accessibilité
+
+00:05:10.799 --> 00:05:11.799
+liés aux SPA.
+
+00:05:11.910 --> 00:05:16.078
+D’après mon expérience personnelle,
+si vous allez dans une communauté
+
+00:05:16.079 --> 00:05:19.380
+de professionnels de l’accessibilité,
+
+00:05:19.649 --> 00:05:21.030
+et que vous évoquez une SPA,
+vous entendrez beaucoup de grognements.
+
+00:05:21.030 --> 00:05:22.030
+[rires]
+
+00:05:22.560 --> 00:05:26.339
+Les spécialistes de l’accessibilité se montrent souvent
+méfiants dès qu’on mentionne qu’un site est
+
+00:05:26.340 --> 00:05:29.729
+une application monopage (SPA),
+et cette méfiance est tout à fait justifiée.
+
+00:05:29.819 --> 00:05:33.358
+En effet, les SPA sont fréquemment à
+l’origine de nombreux obstacles
+
+00:05:33.359 --> 00:05:35.189
+en matière d’accessibilité sur le web.
+
+00:05:35.850 --> 00:05:40.079
+Cela dit, je tiens à souligner
+que ces problèmes ne viennent
+
+00:05:40.080 --> 00:05:41.440
+pas de JavaScript en soi,
+
+00:05:41.460 --> 00:05:44.909
+ni d’un framework
+en particulier.
+
+00:05:45.329 --> 00:05:47.970
+Il est tout à fait possible de créer une
+application accessible, quel que soit l’outil utilisé.
+
+00:05:48.359 --> 00:05:50.539
+Le problème, c’est que
+l’accessibilité n’est pas prise en
+
+00:05:50.608 --> 00:05:52.650
+compte par défaut dans aucun
+
+00:05:52.860 --> 00:05:57.059
+des frameworks SPA que j’ai
+pu voir jusqu’à présent.
+
+00:05:57.740 --> 00:06:00.479
+Il faut toujours faire un
+petit effort supplémentaire
+
+00:06:00.480 --> 00:06:01.480
+pour rendre ces applications accessibles.
+
+00:06:02.400 --> 00:06:03.280
+Je vais d’abord passer rapidement en revue
+
+00:06:03.281 --> 00:06:07.238
+les quatre grandes catégories de défis
+liés à l’accessibilité,
+
+00:06:07.461 --> 00:06:10.499
+puis nous les examinerons chacune
+plus en détail.
+
+00:06:12.482 --> 00:06:15.299
+Commençons par les changements de « page ».
+
+00:06:15.540 --> 00:06:19.200
+Je mets « page » entre guillemets
+parce que, bien sûr,
+
+00:06:19.230 --> 00:06:23.099
+dans une application monopage, on ne fait
+jamais réellement de changement de page
+
+00:06:23.699 --> 00:06:24.869
+Ce à quoi je fais référence,
+
+00:06:24.870 --> 00:06:28.195
+c’est l’équivalent de cela :
+lorsqu’un utilisateur clique
+
+00:06:28.199 --> 00:06:31.500
+sur un lien et qu’un tout
+nouveau document HTML est chargé.
+
+00:06:32.129 --> 00:06:36.030
+Le problème que l’on rencontre avec les
+SPA, c’est la gestion du focus.
+
+00:06:36.569 --> 00:06:39.570
+Où se retrouve le focus après
+ce « changement de page » ?
+
+00:06:39.899 --> 00:06:42.689
+On risque aussi de casser les boutons
+Précédent et Suivant du navigateur
+
+00:06:42.960 --> 00:06:44.580
+Ils pourraient ne plus fonctionner comme prévu.
+
+00:06:45.180 --> 00:06:48.750
+Et bien sûr, l’élément <title> situé
+dans le <head> du document
+
+00:06:48.840 --> 00:06:50.129
+ne se charge qu’une seule fois.
+
+00:06:50.579 --> 00:06:53.939
+Nous verrons plus tard comment
+résoudre chacun de ces problèmes.
+
+00:06:55.560 --> 00:06:59.760
+La prochaine grande catégorie concerne la gestion du focus.
+Dans un site web
+
+00:07:00.270 --> 00:07:03.930
+ou une application web plus traditionnelle,
+tant que vous êtes attentif à l’ordre
+
+00:07:03.989 --> 00:07:06.839
+dans lequel vous placez les
+éléments dans votre code,
+
+00:07:07.470 --> 00:07:11.189
+la gestion du focus se fait
+généralement de manière assez naturelle.
+
+00:07:11.549 --> 00:07:13.800
+Il y a simplement quelques
+exceptions pour lesquelles
+
+00:07:13.800 --> 00:07:16.350
+il faut apporter un peu plus
+d’attention à la gestion du focus.
+
+00:07:17.039 --> 00:07:18.900
+Dans une application monopage (SPA),
+
+00:07:19.230 --> 00:07:21.869
+il faut beaucoup réfléchir
+à la gestion du focus.
+
+00:07:22.439 --> 00:07:25.288
+Les utilisateurs apprécieront vraiment
+que vous preniez le temps de
+
+00:07:25.289 --> 00:07:31.380
+réfléchir soigneusement à l’endroit où se trouve
+le focus à tout moment dans l’application.
+
+00:07:33.300 --> 00:07:35.519
+Le troisième grand défi concerne
+les modifications de contenu.
+
+00:07:36.210 --> 00:07:40.349
+Par là, j’entends simplement les mises à jour
+partielles de la page, où une petite partie du contenu
+
+00:07:40.379 --> 00:07:42.179
+est chargée ou modifiée sans recharger toute la page.
+
+00:07:42.629 --> 00:07:45.899
+Dans ce cas, nous devons déterminer
+comment informer les utilisateurs
+
+00:07:45.900 --> 00:07:47.070
+de la présence de ce nouveau contenu.
+
+00:07:47.159 --> 00:07:49.770
+Quand devons-nous déplacer le focus,
+et quand ne devons-nous pas le faire ?
+
+00:07:50.142 --> 00:07:51.269
+Nous en parlerons plus en détail.
+
+00:07:52.382 --> 00:07:55.522
+Ensuite, il y a le problème
+bien connu des SPA :
+
+00:07:55.602 --> 00:07:57.870
+la présence de nombreux composants personnalisés.
+
+00:07:58.859 --> 00:08:03.539
+J’ai une théorie en deux parties
+sur la raison pour laquelle les SPA
+
+00:08:03.569 --> 00:08:05.399
+comportent autant de composants personnalisés.
+
+00:08:05.850 --> 00:08:10.469
+La première raison, c’est que tous
+les tutoriels que j’ai vus pour apprendre
+
+00:08:10.470 --> 00:08:12.390
+à utiliser des frameworks comme React ou Vue
+
+00:08:12.929 --> 00:08:15.569
+montrent souvent de très mauvaises pratiques de code.
+
+00:08:17.429 --> 00:08:21.689
+Je pense que, en même temps qu’on apprend
+le framework, on apprend aussi cette idée
+
+00:08:21.900 --> 00:08:25.140
+selon laquelle : « Pas de problème, ajoute simplement
+un gestionnaire de clic (click handler)
+
+00:08:25.169 --> 00:08:27.088
+sur une balise <div>, ce n’est pas grave. »
+
+00:08:27.089 --> 00:08:28.650
+Mais bien sûr, cela peut poser problème.
+
+00:08:28.650 --> 00:08:30.510
+Nous en parlerons un peu plus tard.
+
+00:08:30.510 --> 00:08:33.179
+L’autre partie de ma théorie, la deuxième
+raison pour laquelle je pense que les SPA
+
+00:08:33.210 --> 00:08:37.590
+contiennent autant de composants personnalisés,
+c’est que lorsqu’un développeur fait l’effort
+
+00:08:37.620 --> 00:08:41.340
+de créer une application monopage,
+il veut qu’elle ait une identité propre.
+
+00:08:41.429 --> 00:08:44.580
+Il ne veut pas qu’elle ressemble
+à n’importe quel autre site web ;
+
+00:08:44.789 --> 00:08:46.649
+c’est pourquoi il préfère ne pas afficher
+
+00:08:47.310 --> 00:08:51.869
+les cases à cocher ou les boutons radio
+par défaut du navigateur dans l’interface.
+
+00:08:53.310 --> 00:08:56.459
+Nous allons examiner certains problèmes
+liés aux composants personnalisés, ainsi que des façons
+
+00:08:56.460 --> 00:08:58.910
+de les rendre plus accessibles et
+plus efficaces pour tout le monde.
+
+00:08:59.964 --> 00:09:02.604
+Très bien.
+Commençons par le premier défi,
+
+00:09:02.944 --> 00:09:05.009
+à savoir la gestion des changements de page.
+
+00:09:06.110 --> 00:09:10.380
+Puisque nous ne chargeons pas réellement
+un nouveau document HTML
+
+00:09:10.410 --> 00:09:11.729
+dans la fenêtre du navigateur,
+
+00:09:12.119 --> 00:09:16.409
+nous devons implémenter nous-mêmes toutes
+les fonctions habituelles que le navigateur
+
+00:09:16.410 --> 00:09:18.150
+exécute normalement.
+
+00:09:18.420 --> 00:09:21.201
+Le navigateur ne peut pas le faire
+à notre place, car, justement,
+
+00:09:21.201 --> 00:09:22.710
+aucun nouveau document n’est chargé.
+
+00:09:23.220 --> 00:09:26.470
+Nous allons donc passer en revue les différentes
+tâches à effectuer et comment les gérer.
+
+00:09:26.849 --> 00:09:30.180
+Il s’agit d’ajouter
+ou de remplacer
+
+00:09:30.749 --> 00:09:33.960
+une entrée dans l’historique
+du navigateur.
+
+00:09:34.740 --> 00:09:37.019
+Bien sûr, vous pouvez utiliser
+du JavaScript Vanilla
+
+00:09:37.020 --> 00:09:40.412
+et l’API de l’historique pour faire
+cela, et même implémenter
+
+00:09:40.485 --> 00:09:42.089
+votre propre système de routage.
+
+00:09:42.719 --> 00:09:45.720
+Vous pouvez également utiliser une bibliothèque
+qui ajoute des fonctionnalités de routage.
+
+00:09:45.990 --> 00:09:48.180
+Si votre application contient plus
+que quelques pages,
+
+00:09:48.180 --> 00:09:50.280
+je vous recommande vivement
+d’en utiliser une.
+
+00:09:50.840 --> 00:09:53.960
+Les trois frameworks les plus
+populaires actuellement
+
+00:09:54.250 --> 00:09:58.589
+disposent tous d’un package de routage
+que vous pouvez installer, et qui s’intègre
+
+00:09:58.620 --> 00:10:01.649
+très bien avec le framework principal.
+
+00:10:03.780 --> 00:10:07.669
+J’ai aussi remarqué qu’il existe
+certains frameworks SPA
+
+00:10:07.759 --> 00:10:10.580
+qui intègrent directement le
+routage dans leur cœur,
+
+00:10:10.820 --> 00:10:14.809
+sans nécessiter l’installation
+d’un package séparé.
+
+00:10:15.259 --> 00:10:17.409
+C’est donc une autre option
+possible à considérer.
+
+00:10:17.720 --> 00:10:23.898
+Je voudrais également aborder d’emblée
+un petit point amusant à propos de l’anglais :
+
+00:10:23.899 --> 00:10:27.830
+il existe deux prononciations possibles
+pour les mots « route » et « router ».
+
+00:10:28.790 --> 00:10:30.079
+ou « route » ou « routeur ».
+
+00:10:30.470 --> 00:10:33.260
+J’essaierai de m’en tenir à
+une seule, « route » ou « router »
+
+00:10:33.320 --> 00:10:37.038
+même si, en réalité, je les utilise de
+manière interchangeable sans aucune
+
+00:10:37.039 --> 00:10:38.685
+raison particulière.
+[rires]
+
+00:10:39.020 --> 00:10:40.189
+C’est exactement le même mot,
+
+00:10:40.850 --> 00:10:42.800
+simplement avec deux prononciations différentes.
+
+00:10:43.209 --> 00:10:44.448
+Très bien.
+
+00:10:44.449 --> 00:10:46.610
+Nous avons donc réglé la question de l’API d’historique.
+
+00:10:46.760 --> 00:10:50.628
+La prochaine chose que le navigateur
+gère automatiquement lorsqu’on charge
+
+00:10:50.629 --> 00:10:52.160
+un nouveau document HTML,
+
+00:10:52.700 --> 00:10:54.620
+c’est la mise à jour du titre du document.
+
+00:10:55.910 --> 00:11:01.159
+Nous pouvons utiliser « document.title »
+en JavaScript pour attribuer une nouvelle
+
+00:11:01.160 --> 00:11:02.390
+chaîne de caractères au titre de la page.
+
+00:11:03.530 --> 00:11:06.830
+Cependant, cela présente un petit inconvénient :
+ce changement de titre n’est pas annoncé.
+
+00:11:06.890 --> 00:11:08.790
+Mais nous en parlerons plus en détail dans un instant.
+
+00:11:09.890 --> 00:11:11.058
+Comme je l’ai mentionné plus tôt,
+
+00:11:11.059 --> 00:11:13.819
+je n’ai pas d’expérience directe
+avec Angular,
+
+00:11:13.820 --> 00:11:18.198
+mais je sais qu’il existe dans Angular
+un service intégré appelé « Title Service »
+
+00:11:18.199 --> 00:11:21.830
+pour gérer uniquement la mise
+à jour du titre du document.
+
+00:11:22.340 --> 00:11:26.419
+Ce service est dans le package « platform-browser »,
+qui fait partie du cœur du framework.
+
+00:11:27.770 --> 00:11:32.300
+Pour Vue et React, vous avez en
+réalité plusieurs options.
+
+00:11:34.059 --> 00:11:36.619
+L’une d’elles consiste simplement
+à mettre à jour « document.title »
+
+00:11:36.679 --> 00:11:40.699
+lorsque votre composant est
+monté sur la page.
+
+00:11:41.295 --> 00:11:44.899
+Vous pourriez simplement créer une méthode
+qui s’exécute lors du hook de montage
+
+00:11:45.440 --> 00:11:48.140
+et qui met à jour « document.title »
+dans votre composant.
+
+00:11:49.040 --> 00:11:51.799
+Cependant, sauf si votre
+application est très simple,
+
+00:11:51.859 --> 00:11:55.279
+je ne le recommanderais pas.
+En effet, cela ferait que 
+
+00:11:55.279 --> 00:11:58.998
+le code qui gère le titre du
+document serait dispersé
+
+00:11:58.999 --> 00:12:01.789
+dans tous vos composants,
+ce qui deviendrait rapidement
+
+00:12:01.789 --> 00:12:03.530
+un véritable cauchemar à maintenir.
+
+00:12:04.640 --> 00:12:09.260
+Ce que je recommande plutôt,
+c’est que, avec « React Router »,
+
+00:12:10.429 --> 00:12:14.320
+vous utilisiez la propriété « render »
+du composant « Route ».
+
+00:12:14.719 --> 00:12:17.759
+J’ai juste un petit exemple de code
+sur l’écran qui montre
+
+00:12:17.772 --> 00:12:20.209
+la propriété « render »
+du composant « Route ».
+
+00:12:20.539 --> 00:12:25.249
+Nous passons un composant de page,
+qui possède un attribut « title ».
+
+00:12:25.900 --> 00:12:31.459
+Quand ce composant de page est monté,
+ce titre devient le titre du document.
+
+00:12:33.619 --> 00:12:36.740
+Dans Vue, les choses sont gérées
+un peu différemment.
+
+00:12:37.359 --> 00:12:42.220
+Nous avons ici un extrait de code montrant
+la configuration d’une route dans Vue,
+
+00:12:42.400 --> 00:12:44.570
+qui n’est qu’un objet JavaScript.
+
+00:12:44.570 --> 00:12:48.770
+C’est très simple, et il
+existe une propriété optionnelle
+
+00:12:48.799 --> 00:12:50.529
+appelée « meta », et on peut
+stocker ce que l’on veut
+
+00:12:50.529 --> 00:12:51.609
+dans cette méta-propriété.
+
+00:12:51.609 --> 00:12:53.719
+Ici, nous ajoutons un titre
+
+00:12:54.649 --> 00:12:55.649
+à cette meta et nous lui
+
+00:12:56.090 --> 00:12:58.219
+attribuons la valeur « about us ».
+
+00:12:58.999 --> 00:13:00.890
+La façon dont nous utilisons cette propriété
+
+00:13:01.879 --> 00:13:03.590
+consiste à définir une méthode qui
+
+00:13:04.339 --> 00:13:10.490
+s’exécuterait sur « beforeEach » dans le routeur.
+Cette méthode récupèrerait la valeur de « meta »
+
+00:13:11.329 --> 00:13:13.460
+et l’assignerait au titre du document (document.title).
+
+00:13:15.819 --> 00:13:17.178
+C’est très simple à mettre en place.
+
+00:13:17.179 --> 00:13:19.182
+Il suffit de définir les titres
+de vos pages en même temps
+
+00:13:19.182 --> 00:13:23.480
+que vous définissez vos routes dans Vue,
+et ils seront ensuite mis à jour automatiquement.
+
+00:13:23.869 --> 00:13:27.019
+Vous pourriez aussi utiliser « afterEach »,
+ou encore un « watcher »
+
+00:13:27.050 --> 00:13:28.050
+sur le routeur. Toutes ces approches
+
+00:13:28.219 --> 00:13:30.269
+permettraient d’obtenir le même résultat.
+
+00:13:32.329 --> 00:13:37.578
+À présent, notre titre de document est bien mis à jour,
+mais il n’a pas été annoncé à l’utilisateur,
+
+00:13:37.579 --> 00:13:42.469
+comme c’est le cas lorsqu’on charge un
+nouveau document HTML dans le navigateur.
+
+00:13:43.399 --> 00:13:47.390
+Nous allons donc examiner quelques façons
+d’annoncer ce changement à l’utilisateur.
+
+00:13:48.739 --> 00:13:52.579
+Si vous souhaitez approfondir
+ce sujet,
+
+00:13:52.639 --> 00:13:55.130
+la gestion des changements de page dans
+les applications monopages (Single Page Apps),
+
+00:13:55.459 --> 00:14:00.079
+je vous recommande vivement un article
+de Marcy Sutton pour GatsbyJS.
+
+00:14:00.380 --> 00:14:02.120
+Elle y a évalué,
+
+00:14:02.179 --> 00:14:03.739
+avec de vrais utilisateurs,
+
+00:14:04.339 --> 00:14:08.270
+une douzaine d’approches différentes
+pour gérer les changements de page
+
+00:14:08.290 --> 00:14:09.469
+dans les applications monopages,
+
+00:14:09.980 --> 00:14:13.970
+et a publié des détails très intéressants
+sur tous les résultats de ces tests.
+
+00:14:14.420 --> 00:14:17.630
+Je vais passer en revue seulement
+quelques approches différentes aujourd’hui,
+
+00:14:18.410 --> 00:14:21.920
+mais si vous voulez vraiment approfondir le sujet,
+je vous recommande vivement cet article.
+
+00:14:24.045 --> 00:14:29.448
+Très bien. Notre première option est d’utiliser
+une région « aria-live » fixe quelque part
+
+00:14:29.449 --> 00:14:31.610
+sur la page,
+à un endroit qui n’est pas remplacé
+
+00:14:31.639 --> 00:14:32.990
+lorsqu’une nouvelle page est chargée.
+
+00:14:33.979 --> 00:14:37.519
+Nous utiliserions cette région pour y charger
+simplement le nouveau titre de la page,
+
+00:14:37.520 --> 00:14:40.170
+afin qu’il soit annoncé lorsque
+nous chargeons une nouvelle page.
+
+00:14:40.730 --> 00:14:44.809
+Cela semble être une très bonne solution,
+mais lors des tests,
+
+00:14:44.989 --> 00:14:47.059
+cela ne fonctionnait pas si bien que ça.
+
+00:14:47.089 --> 00:14:51.230
+C’était plutôt peu fiable et
+quelque peu déroutant pour les utilisateurs.
+
+00:14:51.920 --> 00:14:55.639
+C’était aussi un peu confus lorsque
+les utilisateurs tombaient plus tard
+
+00:14:55.640 --> 00:14:58.280
+sur ce contenu
+en naviguant dans le DOM,
+
+00:14:58.610 --> 00:15:02.508
+car on ne voit normalement pas le titre du document
+apparaître sous forme de texte
+
+00:15:02.509 --> 00:15:04.309
+quelque part dans le corps d’un document.
+
+00:15:05.509 --> 00:15:09.769
+J’ai ensuite vu une suggestion consistant
+à simplement réinitialiser cette chaîne à « null »
+
+00:15:09.770 --> 00:15:13.700
+après un délai de 500
+ou 1 000 millisecondes,
+
+00:15:13.970 --> 00:15:17.389
+mais, bien sûr, cela introduit encore
+plus d’instabilité dans
+
+00:15:17.390 --> 00:15:20.337
+quelque chose qui n’était déjà
+pas très fiable au départ.
+
+00:15:21.259 --> 00:15:23.329
+Je ne recommanderais pas d’essayer
+cette approche,
+
+00:15:23.329 --> 00:15:26.659
+même si, à première vue,
+elle semble idéale.
+
+00:15:29.480 --> 00:15:32.270
+La prochaine approche consisterait à mettre
+le focus sur le « wrapper » (conteneur principal).
+
+00:15:33.379 --> 00:15:35.960
+J’ai deux exemples dans
+mon extrait de code ici.
+
+00:15:35.989 --> 00:15:36.989
+Le premier consisterait à ajouter
+
+00:15:37.489 --> 00:15:41.568
+un « tabindex » de -1 à l’élément body,
+et le second à ajouter ce
+
+00:15:41.569 --> 00:15:46.369
+« tabindex = "-1" » à l’élément
+conteneur de votre application.
+
+00:15:47.209 --> 00:15:51.290
+Lorsque la page change, on déplace
+le focus vers l’un de ces éléments.
+
+00:15:52.219 --> 00:15:56.328
+C’est probablement ce qui se rapproche
+le plus du comportement par défaut du navigateur
+
+00:15:56.329 --> 00:15:59.959
+quand un nouveau document HTML est chargé :
+le focus est réinitialisé.
+
+00:16:00.500 --> 00:16:03.798
+Mais cela ne résout pas le
+problème du nouveau titre
+
+00:16:03.799 --> 00:16:04.999
+qui n’est pas annoncé.
+
+00:16:05.479 --> 00:16:07.219
+Continuons à explorer d’autres solutions.
+
+00:16:09.530 --> 00:16:12.950
+La suivante consisterait simplement à
+placer le focus sur le premier élément
+
+00:16:13.340 --> 00:16:16.309
+focalisable de la page
+après avoir chargé une nouvelle page.
+
+00:16:18.740 --> 00:16:23.810
+Cela pourrait être, par exemple, votre
+lien d’évitement (skip link) situé en haut du document.
+
+00:16:25.279 --> 00:16:28.219
+Mais là encore, cela n’annonce
+pas le titre de la page.
+
+00:16:29.029 --> 00:16:32.990
+Cela peut aussi prêter un peu à confusion
+du genre : « Pourquoi suis-je sur ce lien
+
+00:16:33.290 --> 00:16:34.459
+particulier après avoir changé de page ? »
+
+00:16:34.459 --> 00:16:35.989
+Ce comportement peut être assez inattendu.
+
+00:16:36.409 --> 00:16:37.409
+Cependant,
+
+00:16:37.430 --> 00:16:40.939
+il existe un cas où
+cette approche est idéale,
+
+00:16:41.299 --> 00:16:45.409
+c’est lorsque vous guidez l’utilisateur
+à travers le remplissage d’un formulaire multi-page.
+
+00:16:45.860 --> 00:16:47.270
+L’utilisateur remplit la page 1,
+
+00:16:47.380 --> 00:16:49.939
+clique sur le bouton « Suivant »,
+passe à la page 2,
+
+00:16:49.940 --> 00:16:52.909
+et si le focus se place directement
+sur le premier champ de formulaire
+
+00:16:52.910 --> 00:16:53.910
+de la nouvelle page,
+
+00:16:54.199 --> 00:16:56.780
+il peut continuer à remplir
+le formulaire de manière fluide.
+
+00:16:57.139 --> 00:16:59.570
+C’est une expérience simple et agréable.
+
+00:17:01.029 --> 00:17:04.351
+Cela nous amène à la dernière approche,
+qui est ma préférée
+
+00:17:04.352 --> 00:17:06.941
+et celle que nous avons mise
+en œuvre dans notre application, qui
+
+00:17:07.031 --> 00:17:08.926
+consiste à placer le focus sur le titre H1
+
+00:17:09.116 --> 00:17:12.019
+du nouveau document
+chargé dans la page.
+
+00:17:12.759 --> 00:17:17.112
+Ici, il faut attribuer un
+« tabindex = "-1" » à ce H1,
+
+00:17:17.989 --> 00:17:20.030
+puis déplacer le focus dessus.
+
+00:17:20.329 --> 00:17:23.873
+Ainsi, le nouveau titre de la page est annoncé,
+car le focus se trouve sur ce H1.
+
+00:17:24.763 --> 00:17:27.769
+Le focus se retrouve
+près du début du document,
+
+00:17:27.770 --> 00:17:31.729
+ce qui en fait une expérience tout
+à fait cohérente pour l’utilisateur,
+
+00:17:31.730 --> 00:17:34.729
+il comprend facilement
+où se trouve le focus
+
+00:17:34.969 --> 00:17:37.269
+et comment naviguer ensuite
+dans le reste du document.
+
+00:17:38.600 --> 00:17:43.129
+Nous avons pu créer un composant
+réutilisable pour cet en-tête de page,
+
+00:17:43.460 --> 00:17:47.868
+et écrire une directive dans Vue
+qui déplace automatiquement le focus
+
+00:17:47.869 --> 00:17:52.638
+dessus à chaque changement de page.
+De cette manière, nous avons un code réutilisable,
+
+00:17:52.639 --> 00:17:53.990
+simple à maintenir, et centralisé en un seul endroit.
+
+00:17:56.366 --> 00:17:57.366
+Très bien.
+
+00:17:57.499 --> 00:17:58.638
+Notre deuxième défi,
+
+00:17:58.639 --> 00:18:00.889
+que nous avons déjà
+commencé à aborder un peu,
+
+00:18:00.889 --> 00:18:03.740
+car il recoupe ces
+changements de page,
+
+00:18:04.010 --> 00:18:05.300
+est la gestion du focus (focus management).
+
+00:18:05.899 --> 00:18:08.516
+Nous avons déjà parlé de la façon
+de gérer le focus
+
+00:18:08.516 --> 00:18:09.686
+lors des changements de page.
+
+00:18:10.156 --> 00:18:12.615
+Je voulais simplement revoir
+rapidement d’autres situations
+
+00:18:12.616 --> 00:18:16.217
+où je vois souvent la gestion
+du focus mal appliquée,
+
+00:18:16.247 --> 00:18:20.210
+afin que nous les mettions en œuvre
+correctement dans nos SPA.
+
+00:18:21.320 --> 00:18:23.020
+La première situation concerne les modales,
+
+00:18:23.479 --> 00:18:26.129
+et il faut s’assurer que
+nous les gérons correctement.
+
+00:18:27.910 --> 00:18:31.729
+Je vais cliquer sur un bouton,
+j’ai un petit curseur affiché
+
+00:18:31.730 --> 00:18:32.809
+pour montrer que je clique dessus.
+
+00:18:32.809 --> 00:18:34.969
+Je sais bien que ce n’est pas ainsi
+que tout le monde clique sur un bouton,
+
+00:18:34.969 --> 00:18:36.169
+mais j’avais besoin d’un repère visuel.
+
+00:18:37.189 --> 00:18:38.929
+Ce clic va ouvrir une modale.
+
+00:18:39.919 --> 00:18:44.090
+La première chose que je veux qu’il se passe,
+c’est que le focus soit déplacé vers la modale
+
+00:18:44.149 --> 00:18:45.319
+dès qu’elle s’ouvre.
+
+00:18:45.979 --> 00:18:48.320
+Il existe plusieurs façons
+de le faire.
+
+00:18:48.320 --> 00:18:51.961
+On peut déplacer le focus vers
+le premier élément focalisable
+
+00:18:52.011 --> 00:18:53.051
+à l’intérieur de la modale —
+
+00:18:53.571 --> 00:18:56.171
+ce sera probablement le
+bouton de fermeture.
+
+00:18:56.959 --> 00:19:00.170
+On peut aussi ajouter un
+« tabindex = "-1" »
+
+00:19:00.229 --> 00:19:03.799
+sur le titre (heading) de la modale,
+puis déplacer le focus sur ce titre.
+
+00:19:04.549 --> 00:19:08.539
+Ou encore, déplacer le focus directement
+sur le conteneur de la modale.
+
+00:19:09.829 --> 00:19:13.429
+Chacune de ces approches fonctionne,
+et vous pouvez les tester vous-même
+
+00:19:13.430 --> 00:19:16.549
+pour voir celle qui
+vous convient le mieux
+
+00:19:16.550 --> 00:19:20.060
+celle qui donne les meilleurs résultats
+selon votre public d’utilisateurs.
+
+00:19:20.870 --> 00:19:22.939
+À ce stade, le focus se trouve bien à l’intérieur de la modale.
+
+00:19:23.269 --> 00:19:25.999
+Pendant que la modale est ouverte,
+il faut s’assurer que
+
+00:19:26.000 --> 00:19:28.370
+le focus reste piégé à l’intérieur de celle-ci.
+
+00:19:28.730 --> 00:19:31.110
+Je ne devrais pas pouvoir naviguer avec
+la touche « Tab » pour atteindre des liens
+
+00:19:31.169 --> 00:19:33.860
+ou des éléments situés derrière la modale sur la page.
+
+00:19:34.159 --> 00:19:37.130
+Si j’arrive au dernier élément de la modale
+et que j’appuie encore sur « Tab »,
+
+00:19:37.580 --> 00:19:39.919
+le focus doit revenir au
+premier élément de la modale.
+
+00:19:40.579 --> 00:19:43.029
+Nous devons nous assurer que le focus reste
+à l’intérieur de la modale.
+
+00:19:43.340 --> 00:19:45.529
+Autre point que beaucoup
+de gens oublient,
+
+00:19:46.129 --> 00:19:49.429
+en appuyant sur la touche « Échap » du clavier,
+la modale doit se fermer.
+
+00:19:50.060 --> 00:19:54.619
+Assurez-vous donc que cette touche fonctionne
+pour la fermeture, et qu’il y a également un
+
+00:19:54.620 --> 00:19:57.260
+ou plusieurs boutons dans la modale
+qui permettent de la fermer explicitement.
+
+00:19:58.010 --> 00:19:59.660
+Je vais maintenant fermer la modale.
+
+00:20:00.349 --> 00:20:05.120
+À ce moment-là, le focus doit revenir
+sur l’élément qui a ouvert la modale,
+
+00:20:05.150 --> 00:20:09.109
+afin que l’utilisateur puisse reprendre
+exactement là où il s’était arrêté et continuer.
+
+00:20:12.010 --> 00:20:14.470
+Passons maintenant au sujet suivant,
+
+00:20:15.249 --> 00:20:16.929
+la gestion des erreurs de formulaire.
+
+00:20:18.610 --> 00:20:21.709
+Sur mon écran, j’ai un formulaire
+de connexion très simple,
+
+00:20:21.739 --> 00:20:23.092
+avec seulement un champ adresse e-mail,
+
+00:20:23.109 --> 00:20:25.090
+un champ mot de passe, et un bouton « Connexion ».
+
+00:20:25.989 --> 00:20:29.529
+Imaginons qu’une erreur se produise, l’utilisateur
+a oublié de renseigner son adresse e-mail.
+
+00:20:30.369 --> 00:20:32.558
+Un message d’erreur s’affiche
+alors juste en dessous
+
+00:20:32.559 --> 00:20:35.422
+du champ e-mail, indiquant :
+« Votre adresse e-mail est
+
+00:20:35.469 --> 00:20:37.000
+requise pour vous connecter ».
+
+00:20:39.069 --> 00:20:41.119
+Dans ce cas, après que l’utilisateur
+a cliqué sur « Connexion »,
+
+00:20:41.119 --> 00:20:44.786
+le focus est renvoyé
+sur le champ e-mail,
+
+00:20:45.225 --> 00:20:46.898
+autrement dit, sur le premier champ
+
+00:20:46.899 --> 00:20:47.919
+contenant une erreur.
+
+00:20:48.759 --> 00:20:52.328
+Assurez-vous que votre message d’erreur
+donne des instructions claires
+
+00:20:52.329 --> 00:20:53.329
+sur la manière de corriger le problème détecté.
+
+00:20:53.949 --> 00:20:57.759
+Je vis actuellement un cauchemar
+avec un fournisseur auquel j’essaie
+
+00:20:57.760 --> 00:20:58.570
+d’envoyer un formulaire, et chaque fois
+
+00:20:58.709 --> 00:21:01.809
+que je clique sur le bouton « Envoyer »,
+je reçois un message qui dit
+
+00:21:01.809 --> 00:21:02.959
+« Une erreur s’est produite ».
+
+00:21:03.089 --> 00:21:06.790
+Il ne précise pas quel champ est concerné,
+ni ce qui ne va pas, ni ce qui se passe.
+
+00:21:06.970 --> 00:21:08.019
+Ne faites pas ça aux gens.
+
+00:21:08.019 --> 00:21:10.419
+C’est terrible. C’est une expérience horrible.
+
+00:21:10.840 --> 00:21:12.370
+Dites aux gens comment résoudre les problèmes.
+
+00:21:14.739 --> 00:21:18.130
+Ensuite, nous voulons nous assurer
+que nous associons correctement
+
+00:21:18.220 --> 00:21:22.810
+ce message d’erreur au champ
+afin qu’il soit lu aux utilisateurs
+
+00:21:23.200 --> 00:21:24.200
+comme prévu.
+
+00:21:24.849 --> 00:21:25.868
+Voici mon balisage.
+
+00:21:25.869 --> 00:21:26.869
+J’ai une étiquette,
+
+00:21:26.920 --> 00:21:27.969
+j’ai un champ de saisie,
+
+00:21:28.089 --> 00:21:31.060
+puis j’ai un paragraphe
+contenant mon message d’erreur.
+
+00:21:31.629 --> 00:21:35.859
+Vous pouvez voir que mon paragraphe
+comporte un identifiant d’erreur d’e-mail,
+
+00:21:36.370 --> 00:21:40.328
+puis dans le champ de saisie lui-même,
+j’ai un attribut ARIA « describedby »
+
+00:21:40.329 --> 00:21:46.150
+qui fait référence à cet identifiant,
+ce qui relie de manière programmatique
+
+00:21:47.108 --> 00:21:55.059
+mon champ de saisie et ce message d’erreur
+afin que, lorsque ce champ de saisie reçoit le focus,
+
+00:21:57.558 --> 00:22:01.719
+un lecteur d’écran lise le libellé
+et le message d’erreur,
+
+00:22:02.379 --> 00:22:03.519
+sauf s’il s’agit de VoiceOver,
+
+00:22:03.520 --> 00:22:05.445
+auquel cas il vous obligera d’effectuer
+une action supplémentaire
+
+00:22:05.445 --> 00:22:08.495
+pour obtenir le message, mais il
+vous indiquera que le message est présent.
+
+00:22:11.879 --> 00:22:14.410
+Le troisième grand défi concerne les modifications de contenu.
+
+00:22:14.529 --> 00:22:16.240
+Il s’agit ici de mettre à jour
+
+00:22:16.780 --> 00:22:19.029
+une partie du contenu de la page.
+
+00:22:19.240 --> 00:22:20.440
+Comment gérer cela ?
+
+00:22:21.759 --> 00:22:26.110
+Nous devons trouver un moyen de notifier les
+utilisateurs qu’il y a du nouveau contenu sur la page.
+
+00:22:26.979 --> 00:22:31.719
+La manière dont nous allons procéder dépendra
+de la raison pour laquelle nous ajoutons
+
+00:22:31.749 --> 00:22:33.639
+ce nouveau contenu à la page.
+
+00:22:36.270 --> 00:22:39.771
+Tout d’abord, si nous confirmons une
+action effectuée par l’utilisateur,
+
+00:22:40.360 --> 00:22:43.960
+nous confirmons qu’il a déplacé un
+élément vers un nouvel emplacement.
+
+00:22:44.313 --> 00:22:47.140
+Nous confirmons qu’il a
+supprimé un élément,
+
+00:22:48.070 --> 00:22:51.520
+ou s’il s’agit d’une application de
+commerce électronique, nous confirmons
+
+00:22:51.520 --> 00:22:52.540
+qu’il a ajouté un élément au panier.
+
+00:22:52.900 --> 00:22:56.679
+Nous voulons simplement lui fournir une confirmation
+que cette interaction a été effectuée
+
+00:22:56.679 --> 00:22:57.679
+avec succès.
+
+00:22:58.449 --> 00:23:01.718
+Dans ce cas, la meilleure solution
+consiste généralement à utiliser
+
+00:23:01.719 --> 00:23:06.038
+une zone dynamique ARIA définie sur « assertive »
+afin de s’assurer que cela soit annoncé
+
+00:23:06.039 --> 00:23:08.499
+et que l’utilisateur reçoive
+ce message de confirmation.
+
+00:23:10.570 --> 00:23:13.179
+Nous ne voulons pas déplacer le focus dans ce cas.
+
+00:23:13.449 --> 00:23:15.950
+Nous ne voulons pas interrompre l’utilisateur,
+car vous pouvez imaginer
+
+00:23:15.950 --> 00:23:17.024
+que si vous étiez sur une page
+
+00:23:17.111 --> 00:23:19.138
+avec un tas de produits
+et que vous vouliez en mettre
+
+00:23:19.138 --> 00:23:20.438
+quatre dans votre panier,
+
+00:23:20.530 --> 00:23:22.509
+et qu’à chaque fois que vous en
+ajoutiez un à votre panier,
+
+00:23:22.509 --> 00:23:23.679
+le focus est déplacé vers le panier,
+
+00:23:23.679 --> 00:23:26.049
+cela deviendrait rapidement
+très agaçant.
+
+00:23:26.560 --> 00:23:28.689
+Ne déplacez pas le focus dans cette situation.
+
+00:23:31.539 --> 00:23:36.069
+Le sujet suivant correspond à une mise
+à jour attendue, ce qui signifie que
+
+00:23:36.070 --> 00:23:37.209
+l’utilisateur a demandé du nouveau contenu.
+
+00:23:37.959 --> 00:23:40.180
+Il est arrivé au bas d’une
+liste de résultats de recherche
+
+00:23:40.180 --> 00:23:43.300
+et a cliqué sur le bouton « Charger plus »
+pour charger quelques résultats supplémentaires,
+
+00:23:43.300 --> 00:23:44.300
+par exemple.
+
+00:23:45.009 --> 00:23:48.818
+Dans ce cas, comme l’utilisateur
+a exprimé le souhait d’obtenir
+
+00:23:48.819 --> 00:23:50.219
+ce contenu supplémentaire,
+
+00:23:50.289 --> 00:23:53.710
+nous voulons simplement déplacer le
+focus vers ce contenu mis à jour.
+
+00:23:54.249 --> 00:23:57.158
+Si nous chargeons 10 nouveaux résultats de recherche,
+nous déplacerons simplement le focus
+
+00:23:57.159 --> 00:23:59.259
+vers le premier de ces résultats.
+
+00:23:59.380 --> 00:24:02.769
+Encore une fois, dans la plupart
+des cas, ce sera la solution. 
+
+00:24:02.770 --> 00:24:05.319
+Vous devez bien sûr toujours effectuer
+des tests pour déterminer
+
+00:24:05.319 --> 00:24:08.289
+si c’est réellement la
+solution la plus adaptée
+
+00:24:08.290 --> 00:24:09.759
+à votre cas particulier.
+
+00:24:12.580 --> 00:24:16.539
+L’étape suivante consiste à savoir si nous partageons
+certaines informations avec l’utilisateur.
+
+00:24:17.220 --> 00:24:18.279
+Si nous avons,
+
+00:24:18.729 --> 00:24:19.729
+A,
+
+00:24:20.379 --> 00:24:23.948
+un processus qui s’exécute en
+arrière-plan et que nous voulons informer 
+
+00:24:23.949 --> 00:24:25.749
+l’utilisateur qu’il est terminé,
+
+00:24:26.290 --> 00:24:29.039
+ou si nous avons
+une application interactive
+
+00:24:29.040 --> 00:24:33.520
+et que nous voulons informer l’utilisateur
+qu’un de ses collègues s’est connecté,
+
+00:24:33.579 --> 00:24:34.652
+quelque chose comme ça,
+
+00:24:34.842 --> 00:24:36.578
+nous ne voulons pas interrompre l’utilisateur.
+
+00:24:36.578 --> 00:24:38.829
+Nous ne voulons pas interrompre ce
+qu’il est en train de faire.
+
+00:24:39.509 --> 00:24:42.310
+Dans ce cas, la plupart du temps,
+la bonne solution consiste à utiliser
+
+00:24:42.310 --> 00:24:44.380
+une zone dynamique ARIA réglée sur « polite »
+
+00:24:44.950 --> 00:24:47.469
+qui se contentera d’annoncer
+ce qui s’est passé, par exemple
+
+00:24:47.500 --> 00:24:49.420
+« Votre rapport est prêt à être téléchargé ».
+
+00:24:49.870 --> 00:24:51.339
+Ou « Cindy vient de se connecter.
+
+00:24:51.340 --> 00:24:52.569
+Elle est là pour la journée. »
+
+00:24:52.869 --> 00:24:53.869
+Quoi qu’il en soit,
+
+00:24:54.100 --> 00:24:56.950
+nous ne voulons pas détourner l’attention
+vers quelque chose de nouveau.
+
+00:24:57.010 --> 00:24:59.560
+Nous voulons simplement faire
+cette annonce à l’utilisateur.
+
+00:25:02.199 --> 00:25:05.980
+Enfin, la dernière situation, qui,
+espérons-le, ne se produit pas très souvent,
+
+00:25:06.340 --> 00:25:09.518
+est celle où nous avons des informations
+inattendues et critiques
+
+00:25:09.519 --> 00:25:10.519
+à communiquer à l’utilisateur.
+
+00:25:11.049 --> 00:25:12.400
+Quelque chose qui s’est mal passé.
+
+00:25:12.490 --> 00:25:13.509
+Quand il y a une erreur.
+
+00:25:13.660 --> 00:25:15.279
+Et que l’utilisateur doit agir.
+
+00:25:15.580 --> 00:25:18.751
+Nous avons besoin qu’il s’en
+occupe immédiatement
+
+00:25:19.301 --> 00:25:21.129
+et nous voulons l’interrompre,
+
+00:25:21.460 --> 00:25:23.860
+car ce qu’il est en train de
+faire ne fonctionne 
+
+00:25:24.089 --> 00:25:25.089
+peut-être pas.
+
+00:25:25.090 --> 00:25:27.790
+Cela ne signifie pas qu’il
+va perdre son travail.
+
+00:25:28.329 --> 00:25:33.009
+Quelque chose de grave va se produire
+s’il n’obtient pas ce nouveau contenu.
+
+00:25:33.909 --> 00:25:37.869
+Dans ce cas, nous voulons mettre
+l’accent sur ce nouveau contenu
+
+00:25:38.080 --> 00:25:41.110
+et interrompre l’utilisateur,
+car il doit absolument prêter
+
+00:25:41.140 --> 00:25:42.790
+attention à ce message.
+
+00:25:43.149 --> 00:25:46.099
+Cela devrait être assez rare qu’une
+situation comme celle-ci se produise,
+
+00:25:46.179 --> 00:25:50.349
+qu’une information inattendue apparaisse
+à l’écran et soit critique,
+
+00:25:50.350 --> 00:25:53.109
+nécessitant une attention immédiate,
+mais, bien sûr,
+
+00:25:53.139 --> 00:25:57.189
+si cela arrive, nous voulons nous assurer que
+les utilisateurs soient informés
+
+00:25:57.190 --> 00:25:59.440
+que ce contenu est
+apparu à l’écran.
+
+00:26:01.986 --> 00:26:07.630
+Très bien. Notre quatrième grand défi avec les applications
+monopage concerne les composants personnalisés.
+
+00:26:08.859 --> 00:26:10.239
+Si, comme moi,
+
+00:26:10.360 --> 00:26:12.710
+vous créez des sites web
+depuis très longtemps
+
+00:26:13.449 --> 00:26:17.168
+et que vous vous approchez
+à grands pas
+
+00:26:17.169 --> 00:26:20.139
+du 30e anniversaire
+de la création de votre
+
+00:26:20.189 --> 00:26:21.250
+premier site web,
+
+00:26:21.939 --> 00:26:25.509
+alors vous savez, comme moi, que les tendances
+en matière de développement web vont et viennent.
+
+00:26:26.349 --> 00:26:27.475
+Rien n’est permanent.
+
+00:26:27.512 --> 00:26:30.662
+Tout le monde change d’avis
+sur tout de temps en temps.
+
+00:26:31.600 --> 00:26:32.600
+Cependant,
+
+00:26:32.770 --> 00:26:36.519
+il y avait une tendance au début et au
+milieu des années 2000 qui, selon moi,
+
+00:26:36.520 --> 00:26:37.689
+mérite d’être remise au goût du jour.
+
+00:26:38.409 --> 00:26:39.969
+Elle s’appelait « POSH ».
+
+00:26:40.696 --> 00:26:44.200
+Si vous ne vous en souvenez pas ou si vous n’étiez
+pas là pour savoir ce que cela signifiait,
+
+00:26:44.770 --> 00:26:51.219
+cela signifiait simplement « Plain Old Semantic HTML »,
+aussi ennuyeux que cela puisse paraître.
+
+00:26:51.730 --> 00:26:56.409
+Cependant, c’est vraiment important pour
+créer des applications monopage accessibles.
+
+00:26:57.339 --> 00:26:58.390
+Pour rappel,
+
+00:26:58.989 --> 00:27:00.909
+les balises HTML ont une signification.
+
+00:27:01.480 --> 00:27:04.960
+Une balise H1 ne se contente pas de rendre
+le texte plus grand et en gras.
+
+00:27:05.050 --> 00:27:06.820
+Cela a une signification réelle.
+
+00:27:06.880 --> 00:27:09.849
+Cela signifie en fait qu’il s’agit
+d’un titre de niveau 1.
+
+00:27:11.319 --> 00:27:17.559
+Je vous invite à vous familiariser avec
+l’utilisation correcte des éléments HTML
+
+00:27:17.590 --> 00:27:18.759
+tels que les listes,
+
+00:27:19.029 --> 00:27:20.620
+qui peuvent être des listes non ordonnées,
+
+00:27:20.649 --> 00:27:22.779
+des listes ordonnées ou des listes de définitions,
+
+00:27:23.290 --> 00:27:27.819
+les boutons et les liens,  et à savoir quand
+utiliser un bouton et quand utiliser un lien.
+
+00:27:28.269 --> 00:27:33.279
+Apprenez à configurer correctement un tableau de données
+afin que celles-ci puissent être consultées et lues.
+
+00:27:33.790 --> 00:27:36.140
+Apprenez tout ce qu’il y a à savoir
+sur les différents types de champs
+
+00:27:36.150 --> 00:27:38.319
+dont vous disposez dans un formulaire.
+
+00:27:38.740 --> 00:27:42.490
+Apprenez à utiliser les titres et à
+créer des sections de contenu
+
+00:27:42.879 --> 00:27:44.629
+qui sont chapeautées par ce titre.
+
+00:27:45.490 --> 00:27:49.239
+Apprenez à utiliser les éléments figure et
+les légendes afin de pouvoir associer
+
+00:27:49.240 --> 00:27:51.910
+une légende visible à une image.
+
+00:27:52.389 --> 00:27:54.669
+Apprenez à configurer correctement la navigation.
+
+00:27:55.059 --> 00:27:57.879
+Apprenez à utiliser correctement les repères ARIA.
+
+00:27:58.390 --> 00:28:03.939
+Apprenez à utiliser les ensembles de champs et les légendes
+pour regrouper des champs de formulaire,
+
+00:28:04.420 --> 00:28:06.819
+puis à utiliser correctement
+les formulaires,
+
+00:28:06.820 --> 00:28:09.729
+qui comprennent des étiquettes, des balises de
+formulaire, des boutons radio, des cases à cocher
+
+00:28:09.730 --> 00:28:10.840
+et bien d’autres éléments.
+
+00:28:11.499 --> 00:28:13.068
+Cette liste n’est pas une liste exhaustive
+
+00:28:13.069 --> 00:28:15.308
+de tous les éléments HTML existants,
+
+00:28:15.309 --> 00:28:17.531
+et ceux-ci ne sont pas classés
+dans un ordre particulier.
+
+00:28:18.099 --> 00:28:20.919
+Nous allons maintenant nous pencher
+sur quelques-uns d’entre eux.
+
+00:28:22.966 --> 00:28:26.049
+Très bien.
+Commençons par les repères ARIA.
+
+00:28:26.709 --> 00:28:31.600
+L’utilisation de ces éléments dans votre application monopage
+facilite l’identification des sections de l’application.
+
+00:28:32.289 --> 00:28:35.499
+Au minimum, vous devriez
+probablement utiliser
+
+00:28:35.559 --> 00:28:38.440
+« main », « banner » et
+« contentinfo » dans votre application monopage.
+
+00:28:38.949 --> 00:28:42.010
+Si vous disposez d’une barre de
+navigation ou d’un menu,
+
+00:28:42.100 --> 00:28:43.780
+vous devriez probablement utiliser « nav ».
+
+00:28:43.840 --> 00:28:46.190
+Nous allons voir rapidement
+à quoi ils ressemblent.
+
+00:28:48.579 --> 00:28:50.710
+Voici le balisage d’un repère « banner ».
+
+00:28:51.099 --> 00:28:54.129
+Nous avons un élément « header »
+avec un rôle « banner ».
+
+00:28:54.789 --> 00:28:57.220
+Oui, vous n’avez besoin que de l’un ou de l’autre.
+
+00:28:57.429 --> 00:29:01.210
+Vous pouvez utiliser uniquement une balise d’en-tête,
+ou vous pouvez utiliser un autre type d’élément
+
+00:29:01.240 --> 00:29:02.410
+ayant le rôle de bannière,
+
+00:29:03.040 --> 00:29:05.768
+mais les utiliser ensemble
+ne pose aucun problème.
+
+00:29:05.769 --> 00:29:08.890
+C’est un peu redondant,
+mais cela garantit que si un utilisateur
+
+00:29:08.890 --> 00:29:12.550
+dispose d’une technologie plus ancienne
+qui ne prend en charge que l’un ou l’autre,
+
+00:29:12.580 --> 00:29:14.080
+cela fonctionnera quand même.
+
+00:29:16.500 --> 00:29:20.799
+Vient ensuite le repère « main »,
+qui est très facile à mémoriser
+
+00:29:20.800 --> 00:29:23.679
+car la balise et le rôle
+sont exactement les mêmes.
+
+00:29:24.249 --> 00:29:25.249
+Ils sont tous les deux « main ».
+
+00:29:25.689 --> 00:29:27.909
+Voilà comment on fait.
+« <main> », rôle égal à « main ».
+
+00:29:29.349 --> 00:29:31.239
+Un repère de navigation est similaire.
+
+00:29:31.240 --> 00:29:35.230
+Nous avons un élément HTML de navigation
+« <nav> » et un rôle de navigation.
+
+00:29:35.350 --> 00:29:38.380
+En général, cela contient une liste non
+ ordonnée de notre navigation
+
+00:29:39.730 --> 00:29:43.509
+et notre repère « contentinfo » sur le contenu,
+qui est un pied de page.
+
+00:29:43.738 --> 00:29:46.600
+Il s’agit d’une balise de pied de page avec
+un rôle d’informations sur le contenu,
+
+00:29:46.659 --> 00:29:48.908
+et il s’agit généralement
+d’informations répétitives
+
+00:29:48.909 --> 00:29:51.939
+qui se trouvent au bas de votre page :
+votre déclaration de copyright,
+
+00:29:52.360 --> 00:29:55.278
+vos conditions d’utilisation,
+votre déclaration d’accessibilité
+
+00:29:55.279 --> 00:29:57.739
+que vous avez pour votre application.
+[rires]
+
+00:30:00.540 --> 00:30:03.759
+Enveloppez vos éléments de formulaire dans une balise « form ».
+
+00:30:07.170 --> 00:30:10.239
+Rien ne vous empêche d’insérer
+un élément « <input> »
+
+00:30:10.330 --> 00:30:14.229
+directement dans une page HTML
+sans l’encapsuler dans
+
+00:30:14.230 --> 00:30:15.230
+une balise « <form> »,
+
+00:30:15.700 --> 00:30:19.459
+mais vous devez toujours vous assurer
+que si vous utilisez un élément de formulaire,
+
+00:30:19.459 --> 00:30:21.829
+celui-ci est encapsulé dans une balise « <form> ».
+
+00:30:22.459 --> 00:30:28.639
+Voici un exemple de code Vue
+avec l’élément « <form> » encapsulant
+
+00:30:28.640 --> 00:30:31.999
+notre « <input> » et notre « <button> ».
+
+00:30:33.829 --> 00:30:36.469
+La balise « <form> » est importante pour deux raisons.
+
+00:30:36.649 --> 00:30:41.209
+Premièrement, pour les utilisateurs de lecteurs d’écran,
+la présence de cette balise « <form> » déclenche
+
+00:30:41.210 --> 00:30:45.380
+le mode formulaire dans le lecteur d’écran,
+ce qui permet aux utilisateurs de remplir
+
+00:30:45.410 --> 00:30:47.660
+vos formulaires
+plus facilement et plus rapidement.
+
+00:30:47.740 --> 00:30:50.490
+Car vous voulez que votre application monopage
+soit facile et rapide à utiliser.
+
+00:30:51.230 --> 00:30:54.918
+La deuxième raison est que si vous avez
+des champs qui pourraient être idéaux
+
+00:30:54.919 --> 00:30:58.430
+pour la fonction de saisie automatique intégrée
+aux navigateurs, qui permet de remplir
+
+00:30:58.430 --> 00:31:03.110
+automatiquement votre nom, votre adresse e-mail
+ou votre numéro de téléphone,
+
+00:31:03.170 --> 00:31:06.229
+cela ne fonctionne que si les éléments de formulaire
+sont imbriqués dans un élément « <form> ».
+
+00:31:09.761 --> 00:31:10.461
+Très bien.
+
+00:31:10.751 --> 00:31:12.081
+Ensembles de champs et légendes.
+
+00:31:12.401 --> 00:31:14.299
+Veuillez utiliser des ensembles de champs et des légendes.
+
+00:31:14.360 --> 00:31:16.260
+Je constate que les gens les oublient tout le temps.
+
+00:31:16.550 --> 00:31:19.350
+Voyons ce qui se passe
+lorsque nous ne les utilisons pas.
+
+00:31:20.140 --> 00:31:22.009
+Voici du code HTML.
+
+00:31:22.070 --> 00:31:24.049
+J’ai une liste de cases à cocher.
+
+00:31:24.260 --> 00:31:26.860
+Imaginez simplement qu’il
+y en a plusieurs.
+
+00:31:26.900 --> 00:31:27.900
+Avant cela,
+
+00:31:28.160 --> 00:31:29.479
+j’ai une balise de paragraphe
+
+00:31:30.200 --> 00:31:33.529
+qui me donne les instructions concernant
+cet ensemble de cases à cocher :
+
+00:31:33.529 --> 00:31:35.240
+« Sélectionnez vos loisirs préférés ».
+
+00:31:35.509 --> 00:31:38.059
+Ensuite, j’ai une liste de loisirs,
+chacun avec une case à cocher.
+
+00:31:38.989 --> 00:31:41.810
+Visuellement, sur la page,
+cela peut sembler correct,
+
+00:31:42.229 --> 00:31:47.539
+mais il n’y a pas d’association programmatique
+entre les cases à cocher et la légende
+
+00:31:47.869 --> 00:31:50.870
+ou cette ligne d’instructions.
+
+00:31:52.120 --> 00:31:53.240
+Cela ne sera pas lié.
+
+00:31:53.299 --> 00:31:54.899
+Cela ne sera pas lu en mode formulaire.
+
+00:31:55.309 --> 00:31:57.409
+Voici ce que nous devrions faire à la place.
+
+00:31:59.480 --> 00:32:01.638
+Nous devrions envelopper
+l’ensemble de nos cases à cocher
+
+00:32:01.639 --> 00:32:04.189
+dans une balise « <fieldset> ».
+
+00:32:04.939 --> 00:32:08.750
+Ensuite, à l’intérieur de cette balise « <fieldset> »,
+le tout premier élément devrait être
+
+00:32:08.779 --> 00:32:12.139
+un élément « <legend> », qui nous donne
+la ligne d’instruction expliquant
+
+00:32:12.140 --> 00:32:14.270
+à quoi correspond cet ensemble de cases à cocher.
+
+00:32:15.019 --> 00:32:17.660
+Ici, j’ai un « <fieldset> »
+avec une légende à l’intérieur :
+
+00:32:17.912 --> 00:32:19.519
+« Sélectionnez vos loisirs préférés ».
+
+00:32:20.060 --> 00:32:24.650
+Cette légende est désormais liée par programmation
+à cette liste de cases à cocher.
+
+00:32:25.129 --> 00:32:30.018
+Si l’une de ces cases à cocher est sélectionnée,
+un lecteur d’écran lira l’étiquette
+
+00:32:30.019 --> 00:32:34.489
+de cette case à cocher ainsi que la légende
+afin que nous sachions à quoi nous répondons.
+
+00:32:34.789 --> 00:32:36.680
+À quoi correspond la lecture d’une réponse ?
+
+00:32:37.910 --> 00:32:39.610
+C’est l’un de nos loisirs préférés.
+
+00:32:41.539 --> 00:32:45.110
+Ensuite, utilisez un « <label> »
+pour tous vos champs de formulaire.
+
+00:32:45.649 --> 00:32:48.799
+S’il vous plaît, utilisez un « <label> »
+pour tous vos champs de formulaire.
+
+00:32:49.879 --> 00:32:51.440
+Voici un mauvais exemple.
+
+00:32:51.769 --> 00:32:53.990
+J’ai ici un formulaire court.
+
+00:32:54.380 --> 00:32:58.729
+J’ai un champ de type texte ave
+un espace réservé et aucun « <label> ».
+
+00:32:59.330 --> 00:33:01.490
+Les espaces réservés ne suffisent pas.
+
+00:33:02.209 --> 00:33:05.450
+Ils disparaissent dès
+que vous commencez à
+
+00:33:06.019 --> 00:33:07.019
+taper dans un champ
+
+00:33:07.579 --> 00:33:15.019
+De plus, pour les menus déroulants, on voit souvent
+que la première option par défaut est utilisée
+
+00:33:15.380 --> 00:33:17.718
+comme libellé, c’est-à-dire
+« Sélectionnez votre pays »,
+
+00:33:17.719 --> 00:33:20.720
+dans ce cas, rempli comme texte
+à l’intérieur de cette option,
+
+00:33:21.979 --> 00:33:25.441
+mais lorsque quelqu’un fait une sélection,
+il ne peut pas savoir ce qu’il a sélectionné.
+
+00:33:25.441 --> 00:33:28.338
+J’ai vécu cette expérience
+il y a environ un mois.
+
+00:33:28.339 --> 00:33:31.258
+Je remplissais un formulaire qui
+comportait une dizaine de champs
+
+00:33:31.259 --> 00:33:32.779
+utilisant uniquement des espaces réservés.
+
+00:33:33.860 --> 00:33:36.699
+J’avais presque terminé le formulaire
+lorsque j’ai été interrompue.
+
+00:33:36.699 --> 00:33:39.229
+J’ai dû aller ouvrir la porte,
+puis je me suis laissée distraire et j’ai fait autre chose.
+
+00:33:39.229 --> 00:33:40.249
+et j’ai fait autre chose.
+
+00:33:40.249 --> 00:33:43.010
+Je suis revenu pour terminer de
+remplir ce formulaire,
+
+00:33:43.850 --> 00:33:47.330
+mais il était complètement illisible.
+
+00:33:48.349 --> 00:33:50.540
+À quoi répondais-je lorsque j’ai
+rempli ces réponses ?
+
+00:33:50.540 --> 00:33:53.490
+Je n’en avais aucune idée. J’ai dû revenir
+en arrière dans le formulaire,
+
+00:33:53.762 --> 00:33:57.470
+supprimer toutes mes réponses,
+puis les recopier pour vérifier
+
+00:33:57.500 --> 00:34:00.850
+si je l’avais correctement rempli
+avant de l’envoyer.
+
+00:34:01.610 --> 00:34:06.019
+Veuillez simplement utiliser un élément « <label> »
+et vous assurer qu’il est toujours visible.
+
+00:34:07.220 --> 00:34:08.719
+Cela ressemble à ceci.
+
+00:34:08.959 --> 00:34:11.630
+Nous avons un champ de saisie de type texte précédé
+
+00:34:13.119 --> 00:34:14.119
+d’une étiquette
+
+00:34:14.570 --> 00:34:18.079
+qui contient une explication sur la fonction de ce champ.
+
+00:34:18.800 --> 00:34:22.128
+Nous avons également un élément « <select> »
+précédé d’une étiquette
+
+00:34:22.129 --> 00:34:23.629
+qui explique à quoi il sert.
+
+00:34:24.500 --> 00:34:29.059
+Nos étiquettes sont liées par programmation
+à nos champs de saisie ou à notre élément de sélection
+
+00:34:29.599 --> 00:34:33.349
+grâce à un attribut « for » sur le « <label> »
+qui fait référence à l’attribut « ID »
+
+00:34:33.409 --> 00:34:34.760
+sur le champ de saisie,
+
+00:34:35.059 --> 00:34:37.459
+de sorte que ceux-ci sont liés
+par programmation,
+
+00:34:37.820 --> 00:34:40.159
+ce qui nous offre plusieurs avantages.
+
+00:34:40.399 --> 00:34:45.138
+Bien sûr, un lecteur d’écran
+lira l’étiquette lorsque le champ
+
+00:34:45.139 --> 00:34:46.550
+de saisie ou l’élément « <select> » sera sélectionné.
+
+00:34:47.154 --> 00:34:51.260
+Ensuite, cliquer sur l’étiquette
+activera l’élément du formulaire,
+
+00:34:51.289 --> 00:34:54.530
+ce qui nous donnera une zone beaucoup plus grande
+pour cliquer sur des éléments tels que des cases à cocher
+
+00:34:54.530 --> 00:34:57.469
+ou des boutons radio, cela
+les rendra donc plus faciles à utiliser.
+
+00:35:00.800 --> 00:35:03.439
+Apprenez à utiliser correctement
+les boutons et les liens.
+
+00:35:04.010 --> 00:35:05.720
+Résumé très rapide.
+
+00:35:06.500 --> 00:35:09.740
+Si je clique dessus et que cela m’amène
+à un nouvel endroit,
+
+00:35:10.190 --> 00:35:11.190
+une nouvelle page,
+
+00:35:11.389 --> 00:35:15.170
+une nouvelle vue, un nouvel écran
+ou un nouvel emplacement
+
+00:35:15.199 --> 00:35:18.050
+sur ma page actuelle, alors il s’agit d’un lien.
+
+00:35:18.139 --> 00:35:19.339
+Il devrait s’agir d’une balise « <a> ».
+
+00:35:19.910 --> 00:35:22.580
+Si je clique dessus et que cela
+provoque une autre action,
+
+00:35:22.729 --> 00:35:23.829
+il devrait s’agir d’un bouton.
+
+00:35:23.959 --> 00:35:25.279
+Si cela ouvre une fenêtre modale,
+
+00:35:25.280 --> 00:35:26.389
+ou ferme une fenêtre modale,
+
+00:35:26.989 --> 00:35:28.039
+ouvre un accordéon,
+
+00:35:28.040 --> 00:35:30.109
+supprime un élément, ou soumet un formulaire,
+
+00:35:30.859 --> 00:35:32.059
+cela devrait être un bouton.
+
+00:35:35.510 --> 00:35:37.549
+Mettez à jour votre page actuelle.
+
+00:35:38.359 --> 00:35:40.909
+Si vous disposez d’une navigation
+sur l’écran de votre application,
+
+00:35:41.420 --> 00:35:44.749
+vous devriez utiliser l’attribut ARIA « current »
+
+00:35:45.499 --> 00:35:46.629
+défini sur « page »
+
+00:35:46.969 --> 00:35:49.579
+sur la page de la navigation
+qui représente
+
+00:35:49.580 --> 00:35:50.810
+la vue actuelle.
+
+00:35:52.279 --> 00:35:56.358
+Vous devrez utiliser du JavaScript
+pour supprimer cet attribut de l’ancienne page
+
+00:35:56.359 --> 00:36:00.949
+et le placer sur la nouvelle lorsque
+vous modifiez cette page dans votre application.
+
+00:36:02.300 --> 00:36:04.800
+Il existe des packages qui
+pourraient vous aider à gérer cela,
+
+00:36:04.910 --> 00:36:07.243
+mais vous pouvez également le faire
+en JavaScript standard.
+
+00:36:07.243 --> 00:36:12.439
+Il suffit d’ajouter « aria-current="page" »
+à l’élément actuel de votre navigation.
+
+00:36:15.289 --> 00:36:17.750
+Évitez les « <div> » et « <span> » interactifs.
+
+00:36:20.512 --> 00:36:23.178
+Les frameworks eux-mêmes ne
+vous empêcheront pas de faire
+
+00:36:23.179 --> 00:36:24.179
+ce genre de choses.
+
+00:36:24.740 --> 00:36:28.009
+J’ai ici un code React avec une balise
+« <div> » dotée d’un gestionnaire
+
+00:36:28.010 --> 00:36:29.959
+on-click qui exécute une méthode appelée « doThis ».
+
+00:36:30.440 --> 00:36:32.660
+J’ai un code Vue avec la même chose,
+
+00:36:33.290 --> 00:36:35.119
+un gestionnaire de clic qui exécute « doThis ».
+
+00:36:35.839 --> 00:36:37.969
+Voici pourquoi vous ne devriez pas faire cela.
+
+00:36:39.679 --> 00:36:41.929
+Problèmes d’interactivité sur les balises « <div> ».
+
+00:36:42.830 --> 00:36:45.199
+Tout d’abord, elles ne sont pas
+incluses dans l’ordre de focus.
+
+00:36:45.890 --> 00:36:49.339
+Si je ne peux pas utiliser de souris et que je navigue
+au clavier avec « Tab » dans votre application,
+
+00:36:49.789 --> 00:36:51.410
+je ne peux même pas accéder à cette balise « <div> ».
+
+00:36:51.649 --> 00:36:53.179
+Elle ne recevra même pas le focus.
+
+00:36:53.840 --> 00:36:57.920
+Deuxièmement, même si je parviens
+d’une manière ou d’une autre à obtenir le focus
+Deuxièmement, même si j’arrive
+à me concentrer là-dessus,
+
+00:36:57.979 --> 00:37:01.760
+sur cette balise, elle ne répondra pas si j’appuie
+sur la touche « Entrée » ou « Espace »
+
+00:37:01.819 --> 00:37:02.969
+comme le ferait un bouton.
+
+00:37:04.489 --> 00:37:08.269
+Troisièmement, celan n’annoncera pas
+à un lecteur d’écran qu’il s’agit d’un bouton.
+
+00:37:08.800 --> 00:37:10.590
+Un utilisateur de lecteur d’écran
+peut entendre le texte,
+
+00:37:10.590 --> 00:37:11.539
+mais il ne sait pas qu’il s’agit
+
+00:37:11.540 --> 00:37:14.290
+d’un élément interactif sur
+lequel il peut appuyer.
+
+00:37:15.620 --> 00:37:17.690
+Cela n’est pas prise en charge en mode contraste élevé.
+
+00:37:17.870 --> 00:37:20.770
+Les utilisateurs qui basculent
+leur navigateur en mode contraste élevé
+
+00:37:21.320 --> 00:37:23.070
+ne bénéficient pas de cette fonctionnalité.
+
+00:37:23.539 --> 00:37:24.890
+Alors, s’il s’agit d’un lien, il ne dispose pas de ce menu contextuel
+
+00:37:25.370 --> 00:37:28.069
+il ne dispose pas de ce menu contextuel
+
+00:37:28.779 --> 00:37:32.269
+pratique lorsque je clique dessus avec le bouton
+droit pour choisir parmi la liste d’options.
+
+00:37:32.899 --> 00:37:33.999
+Vous vous dites peut-être :
+
+00:37:34.219 --> 00:37:36.419
+«  D’accord, mais puis-je simplement
+corriger ces éléments ? »
+
+00:37:37.099 --> 00:37:38.099
+Oui c’est possible.
+
+00:37:38.210 --> 00:37:40.520
+Vous pourriez ajouter un index de tabulation à zéro.
+
+00:37:40.849 --> 00:37:45.080
+Vous pourriez également ajouter
+un gestionnaire de touche enfoncée
+
+00:37:45.139 --> 00:37:47.639
+et vérifier si c’est la barre d’espace
+ou la touche « Entrée » qui est enfoncée.
+
+00:37:47.690 --> 00:37:51.790
+Si c’est le cas, lancez la même méthode
+que celle que vous associez au gestionnaire de clic.
+
+00:37:52.189 --> 00:37:54.920
+Vous pourriez y ajouter un
+rôle ARIA « button »
+
+00:37:55.280 --> 00:37:56.569
+et ainsi de suite,
+
+00:37:57.169 --> 00:38:00.080
+ou vous pourriez simplement utiliser un bouton.
+
+00:38:01.070 --> 00:38:02.809
+Ou vous pourriez simplement remplacer un bouton.
+
+00:38:03.319 --> 00:38:07.580
+J’ai un bouton et un gestionnaire de clic
+pour « doThis » dans React et également dans Vue.
+
+00:38:08.030 --> 00:38:11.330
+Faites cela et vous obtiendrez
+gratuitement votre accessibilité.
+
+00:38:11.749 --> 00:38:16.340
+Vous n’avez rien à faire de plus pour
+que cela fonctionne pour tout le monde.
+
+00:38:19.159 --> 00:38:21.950
+Pour conclure, quelques derniers rappels.
+
+00:38:22.490 --> 00:38:25.549
+Avant de valider ce code,
+avant de fusionner cette PR
+
+00:38:25.550 --> 00:38:26.550
+dans l’élément « <main> »,
+
+00:38:26.569 --> 00:38:29.169
+voici quelques points
+à vérifier.
+
+00:38:29.360 --> 00:38:31.700
+Testez tout sans souris.
+
+00:38:32.690 --> 00:38:33.799
+Placez votre souris à l’autre bout
+
+00:38:33.799 --> 00:38:35.949
+de la pièce et essayez d’utiliser
+le code que vous venez d’écrire
+
+00:38:36.199 --> 00:38:37.699
+en utilisant uniquement votre clavier.
+
+00:38:37.850 --> 00:38:38.850
+Essayez de l’utiliser.
+
+00:38:38.990 --> 00:38:39.990
+Y parvenez-vous ?
+
+00:38:40.250 --> 00:38:43.800
+Si ce n’est pas le cas, vous devez corriger
+certaines choses avant de fusionner le code.
+
+00:38:44.270 --> 00:38:45.829
+Pendant que vous faites cela,
+
+00:38:46.610 --> 00:38:47.960
+le focus est-il visible ?
+
+00:38:48.319 --> 00:38:53.448
+Pouvez-vous déterminer quel élément a le focus à un
+moment donné lorsque vous utilisez la touche « Tab » ?
+
+00:38:53.449 --> 00:38:54.449
+pour parcourir l’écran ?
+
+00:38:54.769 --> 00:38:57.379
+Assurez-vous que le focus est toujours visible.
+
+00:38:59.360 --> 00:39:00.360
+Ensuite,
+
+00:39:00.949 --> 00:39:04.579
+veillez à inclure un texte
+alternatif pour tout contenu non textuel.
+
+00:39:05.029 --> 00:39:08.660
+À titre d’exemple sur cette diapositive,
+j’ai un bouton composé uniquement d’une
+
+00:39:08.750 --> 00:39:10.790
+icône totalement ambiguë.
+
+00:39:11.209 --> 00:39:13.159
+Personne ne sait à quoi sert ce bouton.
+
+00:39:14.599 --> 00:39:16.580
+Dans ce cas, vous pourriez même
+envisager d’ajouter du texte
+
+00:39:16.580 --> 00:39:20.000
+visible sur votre bouton, mais au
+minimum, veuillez inclure un texte
+
+00:39:20.029 --> 00:39:23.628
+alternatif sur ce bouton afin que
+les utilisateurs sachent à quoi
+
+00:39:23.629 --> 00:39:25.129
+il sert lorsqu’ils le rencontrent.
+
+00:39:25.129 --> 00:39:26.510
+Ils savent ainsi à quoi s’attendre.
+
+00:39:29.419 --> 00:39:31.369
+Ensuite, utilisez des liens de saut.
+
+00:39:31.670 --> 00:39:33.560
+Facilitez la navigation dans votre application.
+
+00:39:33.619 --> 00:39:36.140
+Facilitez l’accès aux différentes
+sections de contenu.
+
+00:39:36.140 --> 00:39:37.400
+Incluez des liens de saut.
+
+00:39:38.239 --> 00:39:41.359
+Enfin, testez, testez
+et testez encore.
+
+00:39:42.410 --> 00:39:43.789
+Ne vous contentez pas de tester vous-même.
+
+00:39:44.389 --> 00:39:45.648
+Demandez à d’autres personnes de tester.
+
+00:39:45.649 --> 00:39:47.210
+Demandez à de vrais utilisateurs de tester.
+
+00:39:47.809 --> 00:39:52.040
+Vous en apprendrez beaucoup plus sur
+votre application en observant les utilisateurs
+
+00:39:52.189 --> 00:39:55.370
+l’utiliser qu’en le testant
+vous-même de manière approfondie.
+
+00:39:55.989 --> 00:39:57.958
+Lorsque vous pensez avoir terminé les
+tests, ce n’est pas le cas.
+
+00:39:57.958 --> 00:39:59.078
+Testez-le encore un peu plus.
+
+00:40:00.178 --> 00:40:02.150
+C’est tout ce que j’avais à vous dire aujourd’hui.
+
+00:40:02.150 --> 00:40:03.750
+Merci beaucoup de m’avoir invitée.
+
+00:40:03.830 --> 00:40:06.380
+Je me ferai un plaisir de répondre
+à toutes vos questions.
+
+00:40:09.398 --> 00:40:10.398
+<v Marina> Incroyable.
+
+00:40:10.399 --> 00:40:12.018
+Merci beaucoup, Natalie.
+
+00:40:12.019 --> 00:40:13.820
+C’était vraiment instructif.
+
+00:40:15.319 --> 00:40:19.010
+Nous avons plusieurs questions
+à vous poser dans la section Q&amp;R.
+
+00:40:20.990 --> 00:40:22.069
+Première question,
+
+00:40:25.478 --> 00:40:26.659
+elle est anonyme.
+
+00:40:27.050 --> 00:40:30.198
+Le champ de l’adresse e-mail comportant
+une erreur devrait probablement être accompagné
+
+00:40:30.199 --> 00:40:33.380
+d’une icône en plus du texte d’erreur rouge ?
+
+00:40:35.420 --> 00:40:37.129
+<v Natalie> Oui, c’est vrai.
+
+00:40:37.130 --> 00:40:40.160
+Oui. Mon exemple n’était pas aussi
+bon qu’il aurait pu l’être.
+
+00:40:40.299 --> 00:40:42.339
+<v Marina> [rires]
+
+00:40:43.849 --> 00:40:44.849
+D’accord.
+
+00:40:44.949 --> 00:40:50.929
+Que diriez-vous de « aria-errormessage »
+à la place de « aria-describedby » ?
+
+00:40:53.740 --> 00:40:56.690
+<v Natalie> Oh, en fait, je ne connais pas
+« aria-errormessage ».
+
+00:40:56.835 --> 00:40:59.035
+C’est nouveau pour moi.
+Je vais me renseigner.
+
+00:41:01.566 --> 00:41:04.126
+<v Marina> ces participants sont vraiment utiles...
+<v Natalie> je sais.
+
+00:41:04.356 --> 00:41:05.983
+[rires]
+
+00:41:06.416 --> 00:41:08.418
+<v Natalie> C’est ce qui est génial
+avec l’accessibilité.
+
+00:41:08.418 --> 00:41:10.219
+Nous apprenons tous les uns des autres.
+
+00:41:10.469 --> 00:41:11.749
+<v Marina> oui, absolument.
+
+00:41:12.140 --> 00:41:14.630
+Je pense. Je comprends
+cette question.
+
+00:41:16.670 --> 00:41:17.989
+Pourriez-vous suggérer
+
+00:41:18.650 --> 00:41:22.999
+quel titre devrait être donné
+à l’application qui permet à un utilisateur
+
+00:41:23.030 --> 00:41:27.349
+d’ouvrir et d’ajouter plusieurs pages
+dans la mise en page en même temps ?
+
+00:41:30.634 --> 00:41:33.043
+Peut-être parlent-ils
+de « aria-page-current » ?
+
+00:41:35.209 --> 00:41:36.209
+<v Natalie> Oh,
+
+00:41:36.979 --> 00:41:39.289
+ils pourraient ajouter plusieurs
+pages en même temps,
+
+00:41:39.290 --> 00:41:42.140
+mais ils ne peuvent être que
+sur une seule page à la fois.
+
+00:41:42.349 --> 00:41:45.109
+Une seule page à la fois peut
+être chargée dans le navigateur.
+
+00:41:45.292 --> 00:41:48.408
+C’est ce que vous voudriez spécifier
+comme « aria-current »,
+
+00:41:48.409 --> 00:41:50.270
+à moins que je ne comprenne mal la question.
+
+00:41:52.220 --> 00:41:53.220
+<v Marina> d’accord.
+
+00:41:54.890 --> 00:41:55.890
+Passons à la suite.
+
+00:41:59.030 --> 00:42:00.030
+Vous avez mentionné un article
+
+00:42:00.819 --> 00:42:04.399
+au début de votre présentation.
+
+00:42:05.440 --> 00:42:13.710
+Plusieurs personnes nous ont demandé
+si vous pouviez nous en donner
+
+00:42:13.900 --> 00:42:14.929
+à nouveau le titre.
+
+00:42:15.829 --> 00:42:16.829
+<v Natalie> bien sûr.
+
+00:42:16.999 --> 00:42:18.501
+Je ne me souviens pas exactement du titre.
+
+00:42:18.501 --> 00:42:22.969
+Il est signé Marcy Sutton,
+il concerne GatsbyJS
+
+00:42:22.999 --> 00:42:26.298
+et traite des changements de page
+dans les applications monopages.
+
+00:42:26.299 --> 00:42:28.399
+Je vais voir si je peux
+le retrouver rapidement.
+
+00:42:28.429 --> 00:42:29.429
+Je peux également partager le lien
+
+00:42:30.340 --> 00:42:34.737
+sur les réseaux sociaux, dans le chat Slack
+ou ailleurs après mon intervention.
+
+00:42:35.546 --> 00:42:37.166
+<v Marina> fantastique.
+Merci.
+
+00:42:38.332 --> 00:42:39.332
+Très bien.
+
+00:42:41.948 --> 00:42:44.209
+Comment annoncez-vous les messages contextuels ?
+
+00:42:44.300 --> 00:42:47.539
+Je sais qu’ils peuvent être difficiles
+à voir pour certains utilisateurs,
+
+00:42:47.870 --> 00:42:49.263
+car ils peuvent apparaître dans un coin de l’écran.
+
+00:42:51.470 --> 00:42:55.430
+<v Natalie> les messages contextuels constituent
+un véritable défi en matière d’accessibilité,
+
+00:42:56.153 --> 00:43:00.005
+car ils disparaissent, et peut-être
+que vous n’avez pas...
+
+00:43:00.006 --> 00:43:01.986
+Cela m’arrive tout le temps,
+
+00:43:02.069 --> 00:43:04.047
+je me dis : « Attendez, qu’est-ce que ça disait ?
+
+00:43:04.107 --> 00:43:05.197
+[rires]
+
+00:43:05.422 --> 00:43:07.969
+Je n’ai pas eu le temps de regarder par là. »
+
+00:43:09.200 --> 00:43:12.139
+Ils constituent un véritable défi,
+et je ferais très attention
+
+00:43:12.140 --> 00:43:13.190
+lors de leur utilisation
+
+00:43:14.810 --> 00:43:18.560
+et je réfléchirais bien à la
+manière de les mettre en œuvre.
+
+00:43:19.820 --> 00:43:22.307
+Je pense que l’idéal serait
+
+00:43:22.367 --> 00:43:25.027
+qu’ils restent affichés jusqu’à ce
+que l’utilisateur les ferme,
+
+00:43:25.027 --> 00:43:28.220
+mais je sais que cela signifie parfois
+qu’ils s’accumulent et
+
+00:43:28.310 --> 00:43:30.080
+que cela peut devenir compliqué.
+
+00:43:30.919 --> 00:43:33.619
+C’est quelque chose qui va
+nécessiter de nombreux tests
+
+00:43:33.619 --> 00:43:35.479
+avec vos utilisateurs particuliers.
+
+00:43:36.320 --> 00:43:40.668
+Je pense que vous vous rendrez parfois
+compte qu’un message contextuel n’est tout
+
+00:43:40.669 --> 00:43:42.050
+simplement pas la bonne solution.
+
+00:43:42.169 --> 00:43:44.689
+C’est trop difficile
+à mettre en place.
+
+00:43:46.750 --> 00:43:47.887
+<v Marina> Intéressant.
+
+00:43:48.457 --> 00:43:50.389
+Très bien.
+J’ai reçu une question de David.
+
+00:43:50.702 --> 00:43:51.710
+C’est un vote positif.
+
+00:43:52.580 --> 00:43:56.929
+Avez-vous des suggestions pour
+créer des menus hors-écran
+
+00:43:56.960 --> 00:44:01.219
+accessibles ou des menus à plusieurs niveaux
+comme le menu mobile du site Web d’Apple ?
+
+00:44:03.001 --> 00:44:07.339
+<v Natalie> je ne connais pas
+le menu mobile d’Apple,
+
+00:44:07.369 --> 00:44:12.650
+mais je sais comment j’ai travaillé
+avec des menus hors-écran.
+
+00:44:12.860 --> 00:44:16.400
+Je pense qu’il parle de l’emplacement
+où vous avezle menu hamburger,
+
+00:44:17.084 --> 00:44:20.026
+généralement représenté par trois
+petites lignes, sur lequel on clique
+
+00:44:20.076 --> 00:44:21.739
+pour faire apparaître le menu.
+
+00:44:22.999 --> 00:44:26.989
+Une chose à vérifier est que si ce menu
+n’est pas actuellement visible,
+
+00:44:26.989 --> 00:44:28.940
+il ne peut pas recevoir le focus.
+
+00:44:29.450 --> 00:44:33.619
+Vous ne devriez pas pouvoir accéder à ce menu
+via « Tab » s’il n’est pas visible.
+
+00:44:34.029 --> 00:44:36.379
+C’est une chose à laquelle
+vous devez faire attention.
+
+00:44:37.390 --> 00:44:39.030
+Lorsque ces menus s’ouvrent,
+
+00:44:39.110 --> 00:44:42.650
+ils s’affichent parfois
+simplement sur le côté.
+
+00:44:43.429 --> 00:44:45.679
+D’autres fois, ils s’ouvrent et
+occupent complètement l’interface,
+
+00:44:45.679 --> 00:44:48.169
+ressemblant davantage à une
+fenêtre modale.
+
+00:44:48.679 --> 00:44:50.150
+S’ils ressemblent davantage à une fenêtre modale,
+
+00:44:50.209 --> 00:44:53.554
+toutes les règles relatives aux fenêtres modales
+s’appliquent et vous devez vous assurer de
+
+00:44:53.634 --> 00:44:55.639
+déplacer le focus et de le maintenir dans cette fenêtre.
+
+00:44:56.449 --> 00:44:58.190
+S’il ne s’agit pas d’une modale,
+
+00:44:58.519 --> 00:45:03.195
+votre bouton se trouve probablement
+déjà dans l’élément de navigation.
+
+00:45:03.196 --> 00:45:07.788
+Vous pouvez donc laisser le focus où il est
+et vous assurer qu’une fois le menu ouvert,
+
+00:45:07.789 --> 00:45:09.110
+vous pouvez le parcourir à l’aide de « Tab »,
+
+00:45:10.460 --> 00:45:13.640
+mais qu’une fois refermé,
+vous ne pouvez plus y accéder.
+
+00:45:13.640 --> 00:45:15.440
+Lorsqu’il se referme,
+vous devez ramener le focus
+
+00:45:15.440 --> 00:45:16.850
+sur ce menu hamburger
+
+00:45:17.750 --> 00:45:21.080
+et vous assurer qu’il n’est plus possible
+de naviguer au clavier dans le reste du menu.
+
+00:45:21.770 --> 00:45:24.138
+Je vois souvent cela mal fait.
+
+00:45:24.139 --> 00:45:26.861
+Il vous est permis de naviguer dans
+le menu alors qu’il n’est pas visible.
+
+00:45:26.861 --> 00:45:29.111
+[rires] <v Marina> d’accord. Oui.
+
+00:45:32.513 --> 00:45:35.323
+Maintenant, voici une autre question.
+
+00:45:35.354 --> 00:45:41.479
+Recommanderiez-vous de placer
+la navigation en bas de page
+
+00:45:41.839 --> 00:45:44.646
+dans un élément « <nav> » avec role="navigation",
+
+00:45:45.409 --> 00:45:49.248
+ou cela serait-il trompeur
+alors que la navigation principale
+
+00:45:49.249 --> 00:45:50.600
+se trouve également en haut de la page ?
+
+00:45:51.788 --> 00:45:52.788
+<v Natalie> Oh, oui.
+
+00:45:52.789 --> 00:45:55.998
+Avoir deux navigations sur une page,
+c’est tout à fait autorisé.
+
+00:45:55.999 --> 00:45:57.680
+Vous pouvez même en avoir quatre ou cinq.
+
+00:45:57.709 --> 00:45:59.419
+Vous pouvez en avoir autant que vous le souhaitez.
+
+00:45:59.419 --> 00:46:02.930
+Dans ce cas, vous devez leur
+donner des noms accessibles
+
+00:46:03.290 --> 00:46:05.630
+afin de pouvoir les distinguer
+les uns des autres.
+
+00:46:05.630 --> 00:46:10.579
+Vous pouvez en avoir un appelé « menu d’entête »
+et un autre appelé « menu de pied de page »,
+
+00:46:10.970 --> 00:46:16.549
+afin que, lorsque vous y accédez,
+vous puissiez savoir sur lequel vous vous trouvez.
+
+00:46:24.020 --> 00:46:25.370
+<v Marina> Rosita demande
+
+00:46:25.489 --> 00:46:29.389
+comment s’assurer que le focus
+reste dans la fenêtre modale ?
+
+00:46:31.369 --> 00:46:33.949
+<v Natalie> C’est probablement la
+partie la plus délicate des fenêtres modales.
+
+00:46:33.949 --> 00:46:35.959
+[rires]
+
+00:46:36.321 --> 00:46:43.130
+Je vais simplement vous présenter
+quelques approches très générales,
+
+00:46:43.159 --> 00:46:46.998
+puis vous pourrez faire des recherches
+en ligne pour déterminer
+
+00:46:46.999 --> 00:46:48.899
+celle qui vous convient le mieux.
+
+00:46:49.519 --> 00:46:54.319
+Une approche que j’ai vue consiste en fait
+à prendre tout le reste du document
+
+00:46:54.470 --> 00:47:01.579
+et à supprimer le « tabindex » afin
+qu’il ne puisse pas recevoir le focus,
+
+00:47:01.580 --> 00:47:04.429
+de sorte que vous n’ayez plus rien d’autre
+sur votre page qui puisse recevoir le focus,
+
+00:47:04.519 --> 00:47:09.470
+et vous êtes alors assuré par défaut
+que le focus restera dans votre modale.
+
+00:47:11.060 --> 00:47:15.739
+L’autre chose que vous pouvez faire est de
+gérer cela vous-même dans le code de la modale
+
+00:47:16.009 --> 00:47:19.069
+afin de détecter si le focus est
+sur le premier élément,
+
+00:47:19.100 --> 00:47:20.629
+et que quelqu’un appuie sur « Maj » + « Tab ».
+
+00:47:20.630 --> 00:47:22.729
+Vous allez alors capturer cela
+et déplacer le focus vers le bas du modal, et vice versa.
+
+00:47:22.729 --> 00:47:25.461
+le bas de la modale, et vice versa.
+
+00:47:25.462 --> 00:47:28.309
+Si le focus est sur le dernier élément
+et que quelqu’un appuie sur la touche « Tab »,
+
+00:47:28.310 --> 00:47:30.932
+vous allez capturer cela
+et ramener le focus au début
+
+00:47:30.932 --> 00:47:33.832
+afin que le focus ne sorte
+jamais de la fenêtre modale.
+
+00:47:34.249 --> 00:47:37.758
+Ce sont deux approches différentes.
+Je les ai vues mises en œuvre avec succès,
+
+00:47:37.759 --> 00:47:40.939
+et je suis sûre qu’il en existe d’autres
+que je ne connais même pas.
+
+00:47:42.320 --> 00:47:43.320
+<v Marina> Super.
+
+00:47:43.711 --> 00:47:45.811
+Bon, il nous reste environ deux minutes,
+
+00:47:45.919 --> 00:47:46.919
+donc nous pouvons peut-être en ajouter
+
+00:47:47.449 --> 00:47:49.280
+une autre,
+
+00:47:50.230 --> 00:47:51.230
+voire deux.
+
+00:47:52.009 --> 00:47:56.573
+Avez-vous des conseils pour les applications monopages
+intégrées dans des applications mobiles natives ?
+
+00:47:58.821 --> 00:48:00.949
+<v Natalie> Les mêmes règles s’appliquent.
+
+00:48:02.240 --> 00:48:06.590
+Je n’ai moi-même jamais développé
+d’application native,
+
+00:48:06.950 --> 00:48:10.999
+mais je pense que vous pourriez bénéficier
+d’un petit coup de pouce en matière d’accessibilité,
+
+00:48:11.179 --> 00:48:14.883
+notamment chez Apple qui a tendance
+à être très accessible,
+
+00:48:14.903 --> 00:48:18.619
+et chez Android qui n’est pas trop
+mal non plus sur beaucoup de points.
+
+00:48:19.010 --> 00:48:21.440
+Vous pourriez bénéficier d’un petit coup de
+pouce supplémentaire grâce à cette accessibilité,
+
+00:48:21.440 --> 00:48:23.240
+mais vous devrez bien sûr tester
+
+00:48:23.660 --> 00:48:24.660
+votre application.
+
+00:48:24.710 --> 00:48:27.950
+Si elle est disponible sans cet encapsulage,,
+vous devez la tester de cette manière,
+
+00:48:27.950 --> 00:48:30.319
+et vous devrez également effectuer
+des tests d’accessibilité
+
+00:48:30.319 --> 00:48:31.728
+sur l’application native,
+
+00:48:31.729 --> 00:48:33.920
+afin de vous assurer qu’il n’y
+a aucune différence
+
+00:48:33.920 --> 00:48:34.920
+entre les deux.
+
+00:48:36.260 --> 00:48:37.490
+<v Marina> d’accord, super.
+
+00:48:40.309 --> 00:48:43.580
+Est-ce une bonne pratique,
+lorsque vous avez un menu hamburger
+
+00:48:43.580 --> 00:48:46.830
+avec beaucoup de liens, que lorsque vous atteignez
+le dernier élément lien,
+
+00:48:46.999 --> 00:48:49.249
+le focus revienne sur le
+bouton de fermeture,
+
+00:48:49.429 --> 00:48:52.821
+même si le menu peut être fermé
+avec la touche « Échap » ?
+
+00:48:54.404 --> 00:48:57.469
+<v Natalie> S’il s’agit
+d’un menu dans une modale,
+
+00:48:57.469 --> 00:48:59.919
+je dirais que oui,
+c’est ce qu’il faut faire.
+
+00:49:01.189 --> 00:49:03.589
+S’il occupe tout l’écran,
+
+00:49:04.820 --> 00:49:06.050
+vous voudrez certainement,
+
+00:49:06.050 --> 00:49:08.810
+comme je l’ai dit, que le focus reste
+dans ce menu modal.
+
+00:49:09.290 --> 00:49:10.309
+Si ce n’est pas le cas,
+
+00:49:10.999 --> 00:49:15.169
+vous ne voulez pas y bloquer le focus,
+car si un utilisateur de souris peut accéder
+
+00:49:15.170 --> 00:49:17.480
+à d’autres éléments de la page
+pendant que ce menu est ouvert,
+
+00:49:17.480 --> 00:49:19.580
+un utilisateur de clavier devrait également pouvoir le faire.
+
+00:49:21.071 --> 00:49:23.080
+<v Marina> Très bien, fantastique.
+
+00:49:24.650 --> 00:49:28.150
+Eh bien, merci, Natalie,
+et merci à tous
+
+00:49:28.181 --> 00:49:30.333
+d’avoir participé à cette session.
+
+00:49:31.039 --> 00:49:32.039
+Vous avez fait un excellent travail.
+
+00:49:32.600 --> 00:49:37.579
+Vous pouvez poursuivre la conversation
+dans le chat ou sur les réseaux sociaux en utilisant
+
+00:49:37.580 --> 00:49:42.589
+le hashtag #WPA11YDay,
+et vous pouvez également utiliser
+
+00:49:42.590 --> 00:49:45.268
+le hashtag #WPAD2024.
+
+00:49:45.949 --> 00:49:53.049
+Nous vous serions également reconnaissants de bien
+vouloir vous rendre sur 2024.wpaccessibility.day/feedback
+
+00:49:53.629 --> 00:49:57.439
+pour fournir des commentaires anonymes
+à nos intervenants sur leur présentation.
+
+00:49:57.799 --> 00:50:00.249
+Vous pouvez participer à un tirage au sort
+pour gagner un t-shirt pendant que vous y êtes.
+
+00:50:01.070 --> 00:50:05.870
+Nous vous invitons maintenant à rester à
+l’écoute pour Accessible Firebrand.
+
+00:50:06.140 --> 00:50:08.269
+Pourquoi ne puis-je pas utiliser le thème de couleur de ma marque ?
+
+00:50:08.449 --> 00:50:09.949
+Si ce n’est pas là, alors où ?
+
+00:50:10.209 --> 00:50:15.999
+À suivre avec
+Mark Alvis et Deneb Pulsipher.
+
+00:50:16.060 --> 00:50:19.934
+Pendant que vous attendez, n’oubliez pas de
+visiter les pages de nos sponsors pour obtenir
+
+00:50:19.939 --> 00:50:23.179
+des cadeaux virtuels et participer
+à un tirage au sort pour gagner de superbes prix.
+
+00:50:24.061 --> 00:50:26.150
+Très bien, on se retrouve juste après la pause.
+
+00:50:29.599 --> 00:50:33.499
+<v Annonceur> Merci aux
+sponsors de la Journée de l’accessibilité WordPress 2024.
+
+00:50:33.939 --> 00:50:35.889
+Sponsor Platine 20i.
+
+00:50:35.939 --> 00:50:38.794
+Créez, déployez et gérez
+facilement tous vos projets
+
+00:50:38.845 --> 00:50:41.299
+grâce à l’hébergement WordPress géré par 20i.
+
+00:50:41.749 --> 00:50:43.518
+Une interface utilisateur unique pour tous vos serveurs,
+
+00:50:43.519 --> 00:50:47.178
+applications, sites, bases de données, sécurité, DNS
+
+00:50:47.179 --> 00:50:48.179
+et e-mails.
+
+00:50:48.389 --> 00:50:49.708
+Idéal pour les agences,
+
+00:50:49.709 --> 00:50:52.738
+le commerce électronique, les développeurs,
+l’hébergement multisite
+
+00:50:52.739 --> 00:50:54.089
+et les sites à fort trafic.
+
+00:50:54.869 --> 00:50:56.849
+Sponsor Platine Equalize Digital.
+
+00:50:57.389 --> 00:51:00.926
+Comme leur activité est entièrement consacrée
+à l’accessibilité, chaque article de leur blog
+
+00:51:00.927 --> 00:51:02.489
+est une ressource sur l’accessibilité.
+
+00:51:02.880 --> 00:51:06.810
+Vous trouverez des enregistrements de webinaires, des articles
+et des ressources supplémentaires
+
+00:51:07.139 --> 00:51:10.397
+sur equalizedigital.com/resources.
+
+00:51:11.190 --> 00:51:13.320
+Sponsor Platine WP Engine.
+
+00:51:13.770 --> 00:51:17.818
+WP Engine fournit les produits WordPress
+les plus fiables et les plus reconnus
+
+00:51:17.819 --> 00:51:21.479
+pour les entreprises, les marques et
+les agences de toutes tailles
+
+00:51:22.590 --> 00:51:26.159
+Merci à nos sponsors Gold GoDaddy,
+Grackle Docs,
+
+00:51:26.370 --> 00:51:29.819
+Gravity Forms, GreenGeeks, TPGI,
+
+00:51:29.879 --> 00:51:30.879
+et Yoast.
+
+00:51:31.440 --> 00:51:35.190
+Merci à nos sponsors Argent
+CodeGeek, Drake Cooper,
+
+00:51:35.490 --> 00:51:36.490
+Elementor,
+
+00:51:36.630 --> 00:51:40.110
+Overnight Website,
+Pressable, Second Melody,
+
+00:51:40.380 --> 00:51:42.060
+et Accessibility Collective.

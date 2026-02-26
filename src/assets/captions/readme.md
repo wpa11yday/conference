@@ -237,7 +237,7 @@ No translations yet.
 
 ## 2025
 
-8 completed translations.
+10 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -257,6 +257,8 @@ No translations yet.
   	- Spanish; Andy Amado
   	- French; Andy Amado
 10. Continuous AI for Accessibility: Leveraging Tools for Faster, More Inclusive Development
+  	- Spanish; Andy Amado
+  	- French; Andy Amado
 11. Make All WordPress Events Accessible
 12. Auditing WordPress Plugin Accessibility: A Practical Journey from Code to Compliance
 13. Demystifying Screen Readers: Your Guided Intro to Manual Accessibility Testing for WordPress Sites

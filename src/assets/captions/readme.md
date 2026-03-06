@@ -159,7 +159,7 @@ No translations yet.
 
 ## 2024
 
-49 completed translations.
+50 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -190,6 +190,7 @@ No translations yet.
 	- German; Jennifer Wjertzoch
 10. CSS Tiny Tips: Collection of CSS Tips for Making Websites Easier to Read
 	- Spanish; Debora Ermel
+	- French; Celine Rey-Greffier
 	- Portuguese (Brazilian); Paloma Marques
 11. Unlocking Digital Access: Insights from a Community-Driven Survey
 	- Spanish; Debora Ermel

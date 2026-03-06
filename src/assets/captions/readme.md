@@ -159,7 +159,7 @@ No translations yet.
 
 ## 2024
 
-48 completed translations.
+50 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -170,6 +170,7 @@ No translations yet.
 	- Portuguese; Melissa Antunes
 4. Agile Accessibility: Building Inclusivity into the Product Roadmap
   	- Spanish; Andy Amado
+  	- Portuguese; Keithy Caren
 5. Practical Text Accessibility Tips for Content Creators
 	- Spanish; Diana Córdoba Gómez
 	- German; Jennifer Wjertzoch
@@ -189,6 +190,7 @@ No translations yet.
 	- German; Jennifer Wjertzoch
 10. CSS Tiny Tips: Collection of CSS Tips for Making Websites Easier to Read
 	- Spanish; Debora Ermel
+	- French; Celine Rey-Greffier
 	- Portuguese (Brazilian); Paloma Marques
 11. Unlocking Digital Access: Insights from a Community-Driven Survey
 	- Spanish; Debora Ermel
@@ -237,12 +239,13 @@ No translations yet.
 
 ## 2025
 
-11 completed translations.
+16 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
   	- Spanish; Diana Córdoba Gómez
 3. Being a Colourblind Designer
+  	- Spanish; Amalia Llarín
 4. Typography, Readability and Digital Accessibility
   	- Spanish; Andy Amado
 5. Reality Check: Building Accessibility that Works in the Global South
@@ -262,10 +265,14 @@ No translations yet.
 11. Make All WordPress Events Accessible
 12. Auditing WordPress Plugin Accessibility: A Practical Journey from Code to Compliance
 13. Demystifying Screen Readers: Your Guided Intro to Manual Accessibility Testing for WordPress Sites
+  	- Spanish; Luz Zuniga
 14. Technical Checklist: Testing WordPress Themes and Plugins for Accessibility
+  	- Spanish; Diana Córdoba Gómez
 15. Auslan Accessibility in WordPress, Themes, and Plugins for the Whole Deaf Australian Community
   	- Spanish; Sidney del Rocio
 16. The Future is Automated: But Will it be Accessible?
+  	- Spanish; Andy Amado
+  	- French; Andy Amado
 17. Making Gutenberg Blocks Accessible: Practical Techniques with AI and DevTools
 18. Real Inclusion: How to Run Insightful and Respectful User Testing with Disabled People
 19. Accessibility isn't Extra Work. It's Risk Management.

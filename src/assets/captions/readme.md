@@ -237,7 +237,7 @@ No translations yet.
 
 ## 2025
 
-11 completed translations.
+13 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -266,6 +266,8 @@ No translations yet.
 15. Auslan Accessibility in WordPress, Themes, and Plugins for the Whole Deaf Australian Community
   	- Spanish; Sidney del Rocio
 16. The Future is Automated: But Will it be Accessible?
+  	- Spanish; Andy Amado
+  	- French; Andy Amado
 17. Making Gutenberg Blocks Accessible: Practical Techniques with AI and DevTools
 18. Real Inclusion: How to Run Insightful and Respectful User Testing with Disabled People
 19. Accessibility isn't Extra Work. It's Risk Management.

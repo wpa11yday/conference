@@ -276,6 +276,8 @@ No translations yet.
   	- French; Andy Amado
 17. Making Gutenberg Blocks Accessible: Practical Techniques with AI and DevTools
 18. Real Inclusion: How to Run Insightful and Respectful User Testing with Disabled People
+  	- Spanish; Andy Amado
+  	- French; Andy Amado
 19. Accessibility isn't Extra Work. It's Risk Management.
 20. The Art of Accessibility: Making Documents Delightfully Inclusive
 21. Invisible Until it Hurts: Rethinking Brand Design Through the Lens of Accessibility

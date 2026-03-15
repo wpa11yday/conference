@@ -159,7 +159,7 @@ No translations yet.
 
 ## 2024
 
-50 completed translations.
+51 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -167,6 +167,7 @@ No translations yet.
 3. How to Remediate Accessibility Issues in WordPress
 	- Spanish; Estefani Pahola Suarez
  	- Italian; Fabiana Lassandro
+ 	- Norwegian; Lena Marie Gjerald
 	- Portuguese; Melissa Antunes
 4. Agile Accessibility: Building Inclusivity into the Product Roadmap
   	- Spanish; Andy Amado
@@ -239,7 +240,7 @@ No translations yet.
 
 ## 2025
 
-16 completed translations.
+19 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -264,6 +265,7 @@ No translations yet.
   	- French; Andy Amado
 11. Make All WordPress Events Accessible
 12. Auditing WordPress Plugin Accessibility: A Practical Journey from Code to Compliance
+  	- Spanish; Jordan Gilavert
 13. Demystifying Screen Readers: Your Guided Intro to Manual Accessibility Testing for WordPress Sites
   	- Spanish; Luz Zuniga
 14. Technical Checklist: Testing WordPress Themes and Plugins for Accessibility
@@ -275,6 +277,8 @@ No translations yet.
   	- French; Andy Amado
 17. Making Gutenberg Blocks Accessible: Practical Techniques with AI and DevTools
 18. Real Inclusion: How to Run Insightful and Respectful User Testing with Disabled People
+  	- Spanish; Andy Amado
+  	- French; Andy Amado
 19. Accessibility isn't Extra Work. It's Risk Management.
 20. The Art of Accessibility: Making Documents Delightfully Inclusive
 21. Invisible Until it Hurts: Rethinking Brand Design Through the Lens of Accessibility

@@ -209,6 +209,7 @@ No translations yet.
 	- Portuguese (Brazilian); Paloma Marques
 15. How to Read a VPAT and ACR
 	- Spanish; Andy Amado
+	- German; Jennifer Wjertzoch
 	- Portuguese; Paloma Marques
 16. WPAD Organizers: Ask Me Anything!
 	- Spanish; Sidney del Rocio

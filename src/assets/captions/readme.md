@@ -241,7 +241,7 @@ No translations yet.
 
 ## 2025
 
-20 completed translations.
+22 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -285,6 +285,8 @@ No translations yet.
   	- Spanish; Diana Córdoba Gómez
 21. Invisible Until it Hurts: Rethinking Brand Design Through the Lens of Accessibility
 22. A "Game"-Changing Approach to Accessibility Education
+  	- Spanish; Andy Amado
+  	- French; Andy Amado
 23. Build the Website with AI. But is it Accessible?
 24. Advancing Accessibility Through Community and Open Source
 25. Build for Everyone or Build for No One

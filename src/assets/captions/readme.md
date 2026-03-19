@@ -159,7 +159,7 @@ No translations yet.
 
 ## 2024
 
-51 completed translations.
+52 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -241,7 +241,7 @@ No translations yet.
 
 ## 2025
 
-19 completed translations.
+20 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -282,6 +282,7 @@ No translations yet.
   	- French; Andy Amado
 19. Accessibility isn't Extra Work. It's Risk Management.
 20. The Art of Accessibility: Making Documents Delightfully Inclusive
+  	- Spanish; Diana Córdoba Gómez
 21. Invisible Until it Hurts: Rethinking Brand Design Through the Lens of Accessibility
 22. A "Game"-Changing Approach to Accessibility Education
 23. Build the Website with AI. But is it Accessible?

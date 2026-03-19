@@ -1,0 +1,746 @@
+WEBVTT
+
+00:00:07.920 --> 00:00:12.480
+For whom did I write this presentation? Of course,
+
+00:00:12.480 --> 00:00:19.920
+the frontend developers, the theme authors and also
+plugin authors. And of course for everybody who's interested in my message.
+
+00:00:19.920 --> 00:00:35.160
+Because this is a really technical presentation we will talk about languages. Some need to code is uh, is eh.
+
+00:00:35.160 --> 00:00:40.000
+Ok. What do I cover in this presentation. Of course,
+
+00:00:40.000 --> 00:00:47.480
+I will talk about the conformance levels A and AA.
+
+00:00:47.480 --> 00:00:52.160
+Because you have to fulfill them.
+
+00:00:52.160 --> 00:01:04.160
+I'll talk about techniques categories, categorized, sorry, as sufficient and of HTML and relevant WordPress functions.
+
+00:01:04.160 --> 00:01:23.160
+I will not talk about, oh, I have to rearrange my second screen.
+
+00:01:23.160 --> 00:01:41.880
+I will not talk about um, other topics, because I have not that time to get the contents in a basic presentation about that topic.
+
+00:01:41.880 --> 00:01:50.080
+I will not cover ARIA, not CSS or JavaScript, not Frames - no no, I have not that time.
+
+00:01:50.080 --> 00:01:55.040
+But for all the other topics you are right here.
+
+00:01:55.040 --> 00:02:05.560
+OK. Let's say some words about me again. About my, professional - yes, I am a computer scientist interested in media.
+
+00:02:05.560 --> 00:02:13.960
+for about, 20 years. But I am also an expert for accessibility in the court.
+
+00:02:13.960 --> 00:02:25.480
+I have impairments, I am body impaired, I am a wheelchair user. And of course, accessibility in every topic of my life
+
+00:02:25.480 --> 00:02:32.560
+was in my interest, is in my interest. And so, I got in touch with web accessibility
+
+00:02:32.560 --> 00:02:49.960
+in 1998, when I've did my first steps in HTML programming with great potential to create accessible content for everybody.
+
+00:02:49.960 --> 00:03:01.960
+but you have to know how to do it, and you also can do it really wrong.
+
+00:03:01.960 --> 00:03:10.960
+So, I got in touch with the first WCAG and sort, we said, at one point, we were in 1999 I think,
+
+00:03:10.960 --> 00:03:23.960
+I was a contributor for the next version of them. And, today, I am a consultant and developer for accessibility.
+
+00:03:23.960 --> 00:03:34.960
+Now. What will you get? A soft warm up, then a big Journey, dive deeply into some coding.
+
+00:03:34.960 --> 00:03:40.960
+And I will show you some of the benefits, how you can create them.
+
+00:03:40.960 --> 00:03:42.960
+OK. We'll start with the soft warmup.
+
+00:03:42.960 --> 00:03:52.080
+Well, the very first element of an HTML code is, of course, the HTML element.
+
+00:03:52.080 --> 00:04:05.080
+You know that. And, that's also the topic of my first rule of thumb. Define the page language.
+
+00:04:05.080 --> 00:04:20.080
+That is also in Success Criterion 3.1.1 of conformation level A, that you have to fulfill that if you want to call your theme accessible.
+
+00:04:20.080 --> 00:04:34.080
+It's a very helpful information for applications, not for the human, but for applications so they don't have to guess what is that human language.
+
+00:04:34.080 --> 00:04:48.080
+No. If you give them it with a tag or an element with an attribute with a value by lang, then you have the application for you, and
+
+00:04:48.080 --> 00:04:53.080
+they can speak in the correct language.
+
+00:04:53.080 --> 00:05:01.480
+Well. How to create one that do not have the correct language of the web page? The human language? And how to do it right?
+
+00:05:01.480 --> 00:05:11.080
+You tell the human language here in the HTML element with the `lang` attribute. `lang` is short for language.
+
+00:05:11.080 --> 00:05:25.080
+And you can see here an example how to specify that the human language of that page is in Portuguese - Brazilian Portuguese.
+
+00:05:25.080 --> 00:05:37.080
+But, you know, WordPress is a CMS for the whole world, we have many languages of course, so don't fix
+
+00:05:37.080 --> 00:05:45.080
+that language because you do not know what language the WordPress administrator will use.
+
+00:05:45.080 --> 00:06:00.080
+So, how to do it more dynamically? How's that, WordPress, by the very useful function called the `language_attributes()`.
+
+00:06:00.080 --> 00:06:14.080
+Put that into the HTML element and WordPress will do the rest for you. You can set it and forget it, OK?
+
+00:06:14.080 --> 00:06:24.080
+Also this language changes within the content, content of the web page. For example,
+
+00:06:24.080 --> 00:06:35.080
+we have an abbreviation in a foreign language, or you do quote a foreign person in the foreign language.
+
+00:06:35.080 --> 00:06:48.080
+It's very useful, for a screen reader, for example, to tell that page here comes another language, so change the speaker.
+
+00:06:48.080 --> 00:06:59.120
+Well, you can also use the `lang` attribute in any other element of HTML, for example, a `span` in an inline element.
+
+00:06:59.120 --> 00:07:10.120
+Or in another block element, like `blockquote`, and you can specify the language change there.
+
+00:07:10.120 --> 00:07:26.480
+You can't just also specify the language, you can also specify the reading direction - for example, in English you use left to right reading,
+
+00:07:26.480 --> 00:07:34.480
+and if you want to quote a text in Arabic, there is a change in reading direction.
+
+00:07:34.480 --> 00:07:54.480
+and you can do that with the `dir` attribute. `dir` is short for direction, and you can tell properly and for other machines here comes a change of reading direction.
+
+00:07:54.480 --> 00:08:14.480
+If you want to go deeper into that, then read the specifications in ISO 1766 and read that and you know how to write proper
+
+00:08:14.480 --> 00:08:32.480
+language standards, language specifications, like this example for British English, Japanese, and Farsi, which is spoken in Iran.
+
+00:08:32.480 --> 00:08:38.480
+Now, my second step here in the warmup is the page Title.
+
+00:08:38.480 --> 00:08:46.480
+I do not mean the title of the content, I mean the title of the whole web page.
+
+00:08:46.480 --> 00:08:58.480
+This is the criterion in the WCAG to help you identify the web page, and give you good orientation within the website.
+
+00:08:58.480 --> 00:09:15.480
+And not only within the website, the page title is also used by search engines to put the page title on the search engine's results page.
+
+00:09:15.480 --> 00:09:20.480
+So it's not only useful for disabled people, it's useful for everybody.
+
+00:09:20.480 --> 00:09:31.480
+What can you do wrong here? Well, I saw a page with no title in it at all; I saw a page with an empty title in it,
+
+00:09:31.480 --> 00:09:40.480
+I saw a webpage with default text which it repeated on every page in the title element.
+
+00:09:40.480 --> 00:09:49.480
+Sometimes I saw the file name, or at least there is no unique title for each page in a website.
+
+00:09:49.480 --> 00:10:09.480
+How to do it properly. Well, I do see a list of techniques you can find them in the documentation of the WCAG 2.1 techniques.
+
+00:10:09.480 --> 00:10:21.480
+Use the title element, ensure the title element describes the current page, ensure unique title text.
+
+00:10:21.480 --> 00:10:35.080
+But, you don't know what the title will be, because every editor, every contributor, can write the title.
+
+00:10:35.080 --> 00:10:46.480
+So, you have to do it dynamically. And WordPress again provides a useful function for that.
+
+00:10:46.480 --> 00:10:55.480
+You only need to add the theme support of the 'title-tag' in your theme's setup in `functions.php`
+
+00:10:55.480 --> 00:11:06.480
+And in `header.php`, you just call the function `wp_head()`, and what that will do that for you.
+
+00:11:06.480 --> 00:11:25.480
+Why is that possible? Because `wp_head()` calls the function which prints out the title element and this function calls another function which renders the document title.
+
+00:11:25.480 --> 00:11:38.880
+I recommend you to take a look in the WordPress core code to that function is quite short and it covers every page,
+
+00:11:38.880 --> 00:11:51.480
+of every site, for example, a single post, a search the site page, or an error page, [unintelligible].
+
+00:11:51.480 --> 00:12:04.960
+And you can either, you can change the page title, with filter hooks, as you can see here, the `pre_get_document_title` filter one.
+
+00:12:04.960 --> 00:12:11.960
+I take, I would recommend you take a look at that function, it's very useful.
+
+00:12:11.960 --> 00:12:19.960
+But you also can't forget that you just use `add_theme_support( 'title_tag' )` and `wp_head()`.
+
+00:12:19.960 --> 00:12:33.960
+OK. That was just a warm-up. For you, I hope you are into it and ready. But now, to try to begin, we will get deeper into that.
+
+00:12:33.960 --> 00:12:43.160
+First, think about that, maybe, before you started accessibility, maybe, you learned about coding
+
+00:12:43.160 --> 00:12:54.560
+that a web page is purely a visual mouse-controlled interface. If you have heard all the other presentation, you already know
+
+00:12:54.560 --> 00:13:15.560
+that is not true, because when you say it is "only" a purely visual interface that is not true, because there are other forms of presenting web page content.
+
+00:13:15.560 --> 00:13:30.960
+In reality, a web page is a sequence of content and interactive elements, controlled by different technologies for different ways of presentation. Yeah?
+
+00:13:32.960 --> 00:13:48.960
+No. Too learn requirement for that, a specific mindset is really helpful.
+
+00:13:48.960 --> 00:14:06.960
+Three things they have to know. The first is "Text is king." Because every browser, every device, can do with text
+
+00:14:06.960 --> 00:14:18.960
+Not every browser can do with images or with videos or with audio, or with an applet or with a Flash file.
+
+00:14:18.960 --> 00:14:32.960
+Every device can compute text. Can do something with text, so text is king. If you have any content, be sure that
+
+00:14:32.960 --> 00:14:39.960
+it is also available in a text word form. The rest is entourage.
+
+00:14:39.960 --> 00:14:52.960
+The second played in your mind set is "Always give structure" with HTML.
+
+00:14:52.960 --> 00:15:05.160
+Don't think about only the visual attention of your content. Separate content and the design of it.
+
+00:15:05.160 --> 00:15:12.960
+Mark up the content with HTML elements. And I will show you examples.
+
+00:15:12.960 --> 00:15:22.960
+And the last, third and last played in your mindset is "Keyboard first".
+
+00:15:22.960 --> 00:15:31.960
+If a webpage is not accessible with a keyboard, it is not accessible at all.
+
+00:15:31.960 --> 00:15:50.960
+OK? Mouse and loudspeaker and so are a distance. Keyboard is the first which has to work.
+
+00:15:50.960 --> 00:16:03.560
+Again - Text is king. Always give structure with HTML elements, and keyboard is first. OK?
+
+00:16:03.560 --> 00:16:18.160
+Now you are ready for the big journey. Let's take a look at these big topics: Structure,
+
+00:16:18.160 --> 00:16:28.160
+meaningful sequence of the content, and alternatives for non-text contents.
+
+00:16:28.160 --> 00:16:47.960
+When it comes to structure, we have to take closer looks to three types of content: continuous texts, like you read a paragraph, headings, headlines, lists, and so on -
+
+00:16:47.960 --> 00:17:02.960
+forms, and there are tables. If you read continuous text - I'm sorry, if you produce continuous texts
+
+00:17:02.960 --> 00:17:12.960
+in your theme, in the editor, or in your guidance page, ensure that the structure of the web page content
+
+00:17:12.960 --> 00:17:20.960
+and the associations between distinct pieces of content are available in HTML.
+
+00:17:20.960 --> 00:17:30.560
+If that sounds a bit abstract, but no going, I'll show you some examples.
+
+00:17:30.560 --> 00:17:42.960
+Visual formatting is not sufficient: again, separate content and design. Design, yes, it's OK, but first is content: Text is king.
+
+00:17:42.960 --> 00:18:00.960
+If you want to give structure, specify the structure automatically, and then you can design it with CSS.
+
+00:18:00.960 --> 00:18:08.160
+What can you do wrong? Well, just a typical HTML code with no structure:
+
+00:18:08.160 --> 00:18:21.960
+There's a div element, `div` is short for division, of course it has an attribute called `class` with value `header`,
+
+00:18:21.960 --> 00:18:35.960
+it must be the headline, we have tags, we have line breaks, and maybe some type of list? Yet how we can read that?
+
+00:18:35.960 --> 00:18:48.960
+But now, assistive technology can not read that, can not make sense about that.
+
+00:18:48.960 --> 00:18:57.960
+And if you go farther, you will see more examples. You will see now a table. In the left column,
+
+00:18:57.960 --> 00:19:15.960
+there are some type of elements, and in the middle column you see how you can do it wrong, and in the right column you see how you do it correct.
+
+00:19:15.960 --> 00:19:23.960
+If you want to specify a headline, yes, of course, is larger and bold font
+
+00:19:23.960 --> 00:19:32.960
+the text, and more and mostly separated by a blank line from the paragraph, yes.
+
+00:19:32.960 --> 00:19:49.960
+But, that does nothing an application can detect, so instead use heading element of HTML from H1 to H6, then you can design it with CSS.
+
+00:19:49.960 --> 00:20:00.960
+But then go through list items, and form field, and for special words, words like abbreviations, emphasis, and so on.
+
+00:20:00.960 --> 00:20:12.960
+The last line of the table tells you why. Because if you use another device, another than a visual output,
+
+00:20:12.960 --> 00:20:34.960
+you lost all structure information if you don't give any structure information. If you provide any structure information, then they will be preserved even in a non-visual output. OK?
+
+00:20:34.960 --> 00:20:39.960
+So, now for the next how-to we have an example for headings.
+
+00:20:39.960 --> 00:20:49.160
+We have a screenshot on the left, of an option page in the backend. The red dots are headings, headlines.
+
+00:20:49.160 --> 00:21:05.960
+And we can see them. If you mark them up, properly, as headings, another device, for example a screen reader, can detect them as headlines.
+
+00:21:05.960 --> 00:21:12.960
+And the blind user can jump from headline to headline, a quite benefit for him.
+
+00:21:12.960 --> 00:21:24.960
+And you can see here a visual presentation of a list of headlines, and I think them critical, right?
+
+00:21:24.960 --> 00:21:40.960
+How to: HTML. Well, how to continuous texts. Well, in determining which we have appropriate, education is when you know where to look it up.
+
+00:21:40.960 --> 00:21:56.960
+So, I recommend you look it up in the specification for HTML: how to use the elements, how to use which element for what, and do that properly.
+
+00:21:56.960 --> 00:22:13.960
+And I can say again and mind my pronunciation, use them, use these HTML elements, and use them and not other inventions
+
+00:22:13.960 --> 00:22:28.960
+because with a standard and maybe other inventions like division or span is not what is known by other devices.
+
+00:22:28.960 --> 00:22:33.960
+And now we come to forms. Forms can really challenge for users,
+
+00:22:33.960 --> 00:22:40.960
+with vision impairment, with mobility impairment, with cognitive or other disabilities, and
+
+00:22:40.960 --> 00:22:44.960
+with others who are using assistive technologies.
+
+00:22:44.960 --> 00:22:51.960
+Oh, forms can be really really a burden, but you can write accessible forms.
+
+00:22:51.960 --> 00:23:08.960
+What can you do wrong with forms? Well, in HTML, is an element called `label`, and the `label` element provides an association of the form control,
+
+00:23:08.960 --> 00:23:19.960
+maybe a checkbox, and its description. You can see how to do it wrong: do not provide any label element or
+
+00:23:19.960 --> 00:23:27.960
+provide a label element but not the association between the form control and its label, its description.
+
+00:23:27.960 --> 00:23:43.960
+With these two examples, of label elements not using properly, there is no association of the text and the form control
+
+00:23:43.960 --> 00:23:57.960
+the machine cannot distinct, cannot specify the association. And in fact there is, when there are
+
+00:23:57.960 --> 00:24:06.960
+words the user have to fill out, so called, required fields, you can see here an asterisk of form
+
+00:24:06.960 --> 00:24:17.960
+that there are form fields and one form is required to fill out and is marked with an asterisk,
+
+00:24:17.960 --> 00:24:25.960
+an explanation of the asterisk is found down where, at the bottom of the form, where that is not effective.
+
+00:24:25.960 --> 00:24:37.960
+And sometimes you see required fields marked by color only, of course you can see that, but can you hear that?
+
+00:24:37.960 --> 00:24:43.960
+Marking by color is OK, but that is not sufficient.
+
+00:24:43.960 --> 00:24:56.960
+So how to do it right. Use the label element and use other let element more structural element like `fieldset` and `legend`, like
+
+00:24:56.960 --> 00:25:10.160
+`optgroup` in a selection, like submit buttons, especially if you have selections, and indicate required form controls using labels or legends.
+
+00:25:10.160 --> 00:25:25.960
+That means, on the second example, first example is how to label properly if you use the `label` element,
+
+00:25:25.960 --> 00:25:40.960
+you use it's attribute called `for`, and in the form control, you use the attribute called `id` and you use both attributes the
+
+00:25:40.960 --> 00:25:53.960
+same way you, and now the machine or the software can create association between the description and the form control.
+
+00:25:53.960 --> 00:26:09.960
+So do can the screen reader and other assistive technology. Right? Let's move on to second example.
+
+00:26:09.960 --> 00:26:21.960
+How to indicate the required fields properly. Well, don't
+
+00:26:21.960 --> 00:26:36.960
+put an explanation at the end of the form, but indicate an identical description at every form element which is required to fill out.
+
+00:26:36.960 --> 00:26:41.960
+Or you can use it in a `legend` if you have a group of form elements.
+
+00:26:41.960 --> 00:26:55.960
+So, and, then you can indicate it with a color, in the second step of course. First is text is king, for form structure.
+
+00:26:55.960 --> 00:27:18.960
+Well, it is important when it comes to backend pages, pages for the backend, it is really helpful to provide a consistent presentation of forms.
+
+00:27:18.960 --> 00:27:31.960
+And for that, it's not, uh, for that WordPress does provide some functions inside
+
+00:27:31.960 --> 00:27:43.960
+that here see in slide, chapter three, `settings_fields()`, `do_settings_sections()`, `submit_button()`, look it up please
+
+00:27:43.960 --> 00:27:57.960
+to see the documentation, and you can prepare the form with these two functions `add_settings_field()` and `register_setting()`.
+
+00:27:57.960 --> 00:28:13.960
+You do not have to write the form element, WordPress will do that for you inside, with these three lines, and
+
+00:28:13.960 --> 00:28:21.960
+you will have, and users will have a consistent form.
+
+00:28:21.960 --> 00:28:32.960
+Now tables...oh...that's pretty important - if we come to widget on the widget page,
+
+00:28:32.960 --> 00:28:44.960
+You can create, you might prefer, instances of the widget, how to be sure that the ID is unique on that page.
+
+00:28:44.960 --> 00:28:54.960
+And for that, WordPress provides the two functions `get_field_id()` and `get_field_name()`.
+
+00:28:54.960 --> 00:29:08.160
+Use them, as you see in your code, instead of hard-coded where you use these functions,
+
+00:29:08.160 --> 00:29:30.960
+if your widget is a subclass of the WordPress widget WP_Widget you have access to these two functions.
+
+00:29:33.000 --> 00:29:36.960
+Okay, now I come to tables.
+
+00:29:36.960 --> 00:29:44.720
+Tables are good to present table informations. What can you do wrong?
+
+00:29:44.720 --> 00:29:58.720
+You are not using `table`, or the table element - you are using the `div` element, or you are using tables for visual only, called layout tables.
+
+00:29:58.720 --> 00:30:09.720
+And you do not create any distinction between columns, headers, and data cells for example.
+
+00:30:09.720 --> 00:30:24.240
+So how to tables. Provide the correct markup, provide a `summary` attribute, a `caption` element, and using ids and header.
+
+00:30:24.240 --> 00:30:33.720
+I saw an example how to write it, in your code, this is the summary attribute in a table element,
+
+00:30:33.720 --> 00:30:42.720
+and here in a complex table you can see an example how to use the attribute headers and ID
+
+00:30:42.720 --> 00:31:00.720
+so, for example, a screen reader can read out if the tables are the value 20, which column header the table cell belongs.
+
+00:31:00.720 --> 00:31:11.720
+Okay. Now, we will come to meaningful sequence. A very helpful technique.
+
+00:31:11.720 --> 00:31:23.720
+The meaningful order of content means that you have, the header, you have main content, you have sidebar, you have footers, you can change them but
+
+00:31:23.720 --> 00:31:30.720
+changing them will not change the meaning of the content, Okay?
+
+00:31:30.720 --> 00:31:41.800
+If that is the case, then you have a meaningful sequence. There might be other, may be, other meaningful orders, of course,
+
+00:31:41.800 --> 00:31:49.800
+only one is sufficient for your web page or your theme template.
+
+00:31:49.800 --> 00:32:03.080
+Yeah? And that is important because if you provide a meaningful sequence your web page is accessible not only in
+
+00:32:03.080 --> 00:32:09.800
+visual causes, it's also accessible in assistive devices.
+
+00:32:09.800 --> 00:32:15.640
+What can you do wrong? Well, you do not provide any content structure via HTML
+
+00:32:15.640 --> 00:32:29.720
+or you want to try it with CSS to at least provide meaningful sequence visually, but again there's a lack of structure, that's a big failure.
+
+00:32:29.720 --> 00:32:39.720
+How to do it. Use the HTML elements for structure, and test your content. Either turn off the CSS in your browser,
+
+00:32:39.720 --> 00:32:56.720
+or else use a text-only browser like Lynx, or a service like Textise, to have a look, to have an image of your text.
+
+00:32:56.720 --> 00:33:10.720
+Ok? And now, the next big step in our journey, the third and last big step, is about non-text content.
+
+00:33:10.720 --> 00:33:19.720
+We all love non-text content, like videos, like audios, like animations.
+
+00:33:19.720 --> 00:33:35.720
+But, text is king, right? So, what are we doing? We provide text alternatives for those types of content.
+
+00:33:35.720 --> 00:33:47.720
+For example, for audios and videos, there's a text transcript and I will show you an example in German
+
+00:33:47.720 --> 00:34:10.720
+of the Federal president. You can see here a video, in sign language, but then, the president starts to talk,
+
+00:34:10.720 --> 00:34:26.720
+and what he says is also available here, as text. Here as a PDF, and in an easy language.
+
+00:34:26.720 --> 00:34:38.720
+So, if you have a text alternative, well that's acceptable, right? OK. Back to our presentation.
+
+00:34:38.720 --> 00:34:49.720
+If you have video, use captions. And with the `track` element, you can combine video with captions files, like so.
+
+00:34:49.720 --> 00:35:03.720
+If you have `applet`s, use the `alt` attribute.If you have `object`s, use the body of the element to provide alternative of the text.
+
+00:35:06.720 --> 00:35:21.720
+And now, the big topic is of course, images. Well, my speakers before me told a lot about images and alternative text.
+
+00:35:21.720 --> 00:35:35.720
+I just repeat it here. Use `alt` attributes, use alt also in images in sitemaps, no, not sitemaps, in image maps.
+
+00:35:35.720 --> 00:35:50.720
+And if there images are decorative, don't use any `alt` text. I want to provide a helpful resource on the server of the w3.org.
+
+00:35:50.720 --> 00:36:06.720
+It's the so-called alt decision tree, a very funny and helpful graphic to tell you how you write an alternative text.
+
+00:36:06.720 --> 00:36:13.720
+I know, of course, you can do it in a quick way, that was described in a presentation ago.
+
+00:36:13.720 --> 00:36:23.720
+There a thought called a telephone test, explain during a phone call to other person an image in not more than 10 words.
+
+00:36:23.720 --> 00:36:33.720
+maybe 11 words, or in a short sentence. How would you do it? There, you get the idea of that image.
+
+00:36:33.720 --> 00:36:44.720
+Very quick and easy rule of thumb how to write correct and useful alternative text for images.
+
+00:36:44.720 --> 00:36:49.720
+Wah! That's a big journey.
+
+00:36:49.720 --> 00:37:00.720
+Let's take the last topic of my presentation and you think, well, I'm running out of time. Right?
+
+00:37:00.720 --> 00:37:05.720
+So, I will do it fast. Fasten your seatbelt, please.
+
+00:37:05.720 --> 00:37:19.720
+Well, keyboard support is really crucial, of course for accessibility, keyboard first. So test your web page with the keyboard and without the mouse.
+
+00:37:19.720 --> 00:37:28.720
+If you can access all form elements with the keyboard only, then you have an accessible web page.
+
+00:37:28.720 --> 00:37:38.720
+If you can reach every link with the keyboard only, you have an accessible web page.
+
+00:37:38.720 --> 00:37:48.720
+What can you do wrong? You do not use HTML properly, for example, here's a `span` with the `onclick` attribute.
+
+00:37:48.720 --> 00:37:58.720
+That is not a link for a machine, that's something what you invented, no. Or the `onchange` event on a selection field.
+
+00:37:58.720 --> 00:38:10.720
+There is not, there's the at least two orientations failure. How to do it properly.
+
+00:38:13.720 --> 00:38:20.720
+Well, avoid use of JavaScript for interactivity and use HTML.
+
+00:38:20.720 --> 00:38:27.720
+Bypass blocks, that equate to topic. Blocks, I do not mean the Gutenberg blocks.
+
+00:38:27.720 --> 00:38:38.000
+I mean blocks as sections of the content, of the web page. Repeated on multiple pages, like navigation
+
+00:38:38.000 --> 00:38:50.720
+link block or the main content block, or sidebars, and so on. So, provide links to that blocks.
+
+00:38:50.720 --> 00:39:06.720
+These links do not need to be visible, the so-called skip links. If you use, let me show you an example,
+
+00:39:06.720 --> 00:39:28.720
+Here you can see a page of my localhost, and I am using now the tab key. Once, and you can see here, the skip link.
+
+00:39:28.720 --> 00:39:44.720
+Very helpful for users with visual impairment, or use screen reader, and is read, is speaking out loud for screen reader users, of course.
+
+00:39:44.720 --> 00:39:58.720
+I use the class `skip-link` and `screen-reader-text`, and I recommend you to take a look in the file `style.css` of the Twenty-Twenty theme.
+
+00:39:58.720 --> 00:40:06.200
+and to re-use these statements in CSS for your themes.
+
+00:40:06.200 --> 00:40:10.200
+Soon, we will come to an end, I promise.
+
+00:40:10.200 --> 00:40:26.200
+Just links. As we have seen, in the presentations ago, provide useful links, because links can be read out out of context.
+
+00:40:26.200 --> 00:40:35.200
+Out of the web page context, for example, in a link list, of a screen reader, or another assistive technology.
+
+00:40:35.200 --> 00:40:42.200
+So be sure that a link text is understandable out of context.
+
+00:40:42.200 --> 00:40:51.200
+What can you do wrong? Well, using the `read more` links especially on archive pages of a blog.
+
+00:40:51.200 --> 00:41:01.200
+Then you hear, read more read more read more read more, and you do not know, OK, what's the topic of that link?
+
+00:41:01.200 --> 00:41:13.200
+Or you use different link for the same target, that's OK, but not optimal because the link of consistency and may cause disorientation.
+
+00:41:13.200 --> 00:41:24.280
+And now you open your windows in new tabs without notice, for me, I think, that is not forbidden but you can do it better.
+
+00:41:24.280 --> 00:41:38.200
+How to. Well, provide a link text, which describes the purpose of a link. And uses the same link text for the same target,
+
+00:41:38.200 --> 00:41:44.200
+and of course, use different link text for different targets or different web pages.
+
+00:41:44.200 --> 00:41:54.200
+You can extend the link text with the title attribute, but be aware that is not reliable because users can turn off speaking of the title attribute.
+
+00:41:54.200 --> 00:42:03.960
+Instead, extend the link text with visually hidden unique text. And here you can see an example of that
+
+00:42:03.960 --> 00:42:22.200
+I have found that in the theme Twenty Nineteen is a function `the_content()` and you can pass the link text for that,
+
+00:42:22.200 --> 00:42:37.600
+for the read more link and with that construction, you can offer a link that you print out only Continue Reading, but
+
+00:42:37.600 --> 00:42:46.200
+in the assistive technology, there is a longer description, a unique link. Again,
+
+00:42:46.200 --> 00:42:56.080
+then you see, if you put the title of `the_title()` into the link description, and you, so you can
+
+00:42:56.080 --> 00:43:05.680
+provide unique links hearing, but visually consistently.
+
+00:43:07.160 --> 00:43:19.680
+And how to open new tabs. It's very easy. just say in the link that it is opens in a new tab, in a new window,
+
+00:43:19.680 --> 00:43:32.200
+and you don't like the text, you can hide it visually at least it is speak out loud for screen reader users.
+
+00:43:32.200 --> 00:43:42.680
+Of course, use a list, a group of links, and use an element `nav` for navigation. A `nav` element is really useful, and
+
+00:43:42.680 --> 00:43:57.680
+education, here, if you know where to look it up. I provide you a link because in WordPress 5.5. there's great support for nav element using aria labels.
+
+00:43:57.680 --> 00:44:06.680
+Now I come to, I think, the last one. The last topic of the presentation. The focus order.
+
+00:44:06.680 --> 00:44:22.000
+Focus is when you tab through the content and you can reach the links, the form fields, every one,
+
+00:44:23.640 --> 00:44:33.680
+Provide a meaningful focus order, and let me provide a meaningful sequence, so you get a meaningful focus order.
+
+00:44:33.680 --> 00:44:43.680
+What can you do wrong? Use a `tabindex` attribute, oh, yes, there's a `tabindex` attribute that you can control the order of the focus
+
+00:44:43.680 --> 00:44:53.680
+while tabbing, or doing tabbing, but you do not know if what happen if the possible
+
+00:44:53.680 --> 00:45:03.680
+with other element without the `tabindex` attribute, and the other there is maybe you use the :hover pseudoclass
+
+00:45:03.680 --> 00:45:10.680
+for mouse overs, but do not provide the :focus class, too. So, how do you do it properly?
+
+00:45:10.680 --> 00:45:19.080
+Use both the :focus and the :hover class, pseudoclasses, and avoid the `tabindex` attribute.
+
+00:45:19.080 --> 00:45:30.760
+That's my preferred use no tabindex, just provide a meaningful sequence in the HTML code,
+
+00:45:30.760 --> 00:45:35.760
+then the focus order is meaningful too.
+
+00:45:35.760 --> 00:45:41.760
+OK, this is my really last. We can squeeze something in not about fooling, about resizing.
+
+00:45:41.760 --> 00:45:49.760
+The window, for example, or resizing the content, with the browser functions.
+
+00:45:49.760 --> 00:45:55.760
+Well, how can you do it wrong in HTML.
+
+00:45:55.760 --> 00:46:10.760
+You provide the `meta` element, but if you put `name` and I have seen that you do not allow any scaling or resizing.
+
+00:46:12.760 --> 00:46:20.760
+How to do it properly. A wise technique tells you don't put it in or if you have to,
+
+00:46:20.760 --> 00:46:27.760
+allow scaling and resizing, so you can see here in this example.
+
+00:46:30.760 --> 00:46:41.760
+Well, congratulations! Now we have come to an end. We have learned the mindset of an accessible developer.
+
+00:46:41.760 --> 00:46:50.760
+Text, structure, and keyboard first. And we have learned how to structure the template
+
+00:46:50.760 --> 00:46:57.760
+provide a meaningful sequence without CSS first, provide text alternatives, provide skip links,
+
+00:46:57.760 --> 00:47:02.120
+and provide tab-able and resize-able content.
+
+00:47:02.120 --> 00:47:12.760
+We have some tools which helps you in the world, some data like Nu HTML Checker, or W3.org.
+
+00:47:12.760 --> 00:47:22.760
+An accessibility checker online called WAVE, I love that tool, and a text only converter, Textise.
+
+00:47:22.760 --> 00:47:32.760
+You can find this presentation on Slideshare now, on that link, and now, the line is open for questions.
+
+00:47:34.760 --> 00:47:39.760
+[Megan] Thanks so much, Martin. Unfortunately, we don't have time for questions.
+
+00:47:39.760 --> 00:47:43.600
+But there are some on the site, and we'll make sure those get answered.
+
+00:47:43.600 --> 00:47:48.760
+We're actually going to be able to move into our closing remarks, but...

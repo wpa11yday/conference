@@ -1,0 +1,2810 @@
+WEBVTT
+
+00:00:31.920 --> 00:00:37.840
+hello everyone once again welcome to
+wordpress accessibility day 2020. my
+
+00:00:37.840 --> 00:00:42.000
+name is ahmed khabib and i'm working as
+a business development manager at
+
+00:00:42.000 --> 00:00:46.640
+williams also a regular contributor to
+the making wordpress documentation
+
+00:00:46.640 --> 00:00:51.600
+design polyglots accessibility hosting
+community learn wordpress and marketing
+
+00:00:51.600 --> 00:00:57.680
+team i will be your host for this
+session you're here 49 am utc top with
+
+00:00:57.680 --> 00:01:02.480
+mitchell evan please feel free to add
+your questions to the youtube chat feed
+
+00:01:02.480 --> 00:01:07.200
+and we'll answer those at the end
+so when selecting a content management
+
+00:01:07.200 --> 00:01:10.400
+system
+you're already asking can you produce an
+
+00:01:10.400 --> 00:01:14.960
+accessible website
+but a simple yes to that question is not
+
+00:01:14.960 --> 00:01:19.759
+always enough in this presentation you
+will learn how to ask more detailed
+
+00:01:19.759 --> 00:01:24.960
+questions to find out the reality behind
+accessibility claims desktop focuses on
+
+00:01:24.960 --> 00:01:29.759
+the following how to use accessibility
+standards for authoring tools to help
+
+00:01:29.759 --> 00:01:36.640
+answer the detailed question
+wcag 2.0 and 2.1 u.s and eu public
+
+00:01:36.640 --> 00:01:41.600
+procurement standards
+ath the importance of the prompts
+
+00:01:41.600 --> 00:01:46.560
+requirement
+how to read a vpat report skeptically
+
+00:01:46.560 --> 00:01:50.399
+what to look for in a trustworthy
+accessibility report
+
+00:01:50.399 --> 00:01:54.479
+80 ages unique extract conformance
+requirements
+
+00:01:54.479 --> 00:02:00.880
+why we should treat atag as required
+even when it's not explicitly listed in
+
+00:02:00.880 --> 00:02:04.240
+policy
+the speaker of the session mitchell evan
+
+00:02:04.240 --> 00:02:09.920
+has coached design and development teams
+for nine years harnessing his adhd
+
+00:02:09.920 --> 00:02:14.800
+creativity to achieve enterprise scale
+accessibility through the power of
+
+00:02:14.800 --> 00:02:21.040
+authoring tools ui frameworks and design
+systems most recently he led the vp80
+
+00:02:21.040 --> 00:02:25.840
+reporting practice at level access
+applying international accessibility
+
+00:02:25.840 --> 00:02:34.720
+standard wcag 2.1 section 508 and en 301
+549 to the web application native
+
+00:02:34.720 --> 00:02:38.400
+software authoring tools and two-way
+communications
+
+00:02:38.400 --> 00:02:43.120
+mitchell recently moved from san
+francisco to berlin to help build
+
+00:02:43.120 --> 00:02:48.160
+delightfully inclusive technology in the
+new era of european accessibility
+
+00:02:48.160 --> 00:02:53.440
+detectives which brings to the session
+if it's true it ain't bragging choosing
+
+00:02:53.440 --> 00:02:58.720
+a cms for accessibility mitchell welcome
+to wordpress accessibility day the floor
+
+00:02:58.720 --> 00:03:02.319
+is yours
+thank you very much ahmed for the
+
+00:03:02.319 --> 00:03:06.800
+introduction and can you see my first
+title slide okay
+
+00:03:06.800 --> 00:03:11.360
+we are just waiting for you slides to be
+sure
+
+00:03:12.319 --> 00:03:16.480
+no problem again
+we'll do that again
+
+00:03:17.200 --> 00:03:20.879
+how about now
+that's uh that worked we can see your
+
+00:03:20.879 --> 00:03:24.159
+slides
+okay you can see the full screen
+
+00:03:24.159 --> 00:03:29.760
+yes we do it fantastic all right well
+thank you ahmed and welcome folks
+
+00:03:29.760 --> 00:03:34.400
+if it's true it ain't bragging it's
+using a cms a content management system
+
+00:03:34.400 --> 00:03:39.360
+for accessibility
+as almond said my name is mitchell evan
+
+00:03:39.360 --> 00:03:44.400
+and i want to start by if anybody does
+not see the screen and wants the slides
+
+00:03:44.400 --> 00:03:49.090
+um
+[Music]
+
+00:03:55.680 --> 00:03:59.280
+and
+these slides are
+
+00:03:59.280 --> 00:04:02.080
+creative commons with some special
+requirements
+
+00:04:02.080 --> 00:04:06.879
+if you want to remix and reuse them
+so i'm going to start with
+
+00:04:06.879 --> 00:04:09.040
+a
+
+00:04:09.519 --> 00:04:14.720
+thought provoking question to warm up
+who chooses your content management
+
+00:04:14.720 --> 00:04:17.840
+system
+and this is a question that's going to
+
+00:04:17.840 --> 00:04:23.360
+be answered by different people in
+different roles in different ways
+
+00:04:23.360 --> 00:04:27.199
+ponder for a moment you might be very
+new to content management you might be a
+
+00:04:27.199 --> 00:04:31.600
+core contributor to wordpress but who
+chooses the content management system
+
+00:04:31.600 --> 00:04:35.919
+that you use
+it could be a lot of different people
+
+00:04:35.919 --> 00:04:39.919
+this session today is
+especially for
+
+00:04:39.919 --> 00:04:44.320
+the content management system decision
+makers
+
+00:04:44.320 --> 00:04:49.919
+but it's also for everybody decision
+makers it could also be known as buyers
+
+00:04:49.919 --> 00:04:54.160
+some people you know buy software for
+their company or
+
+00:04:54.160 --> 00:04:59.840
+agency uh but even if you don't spend
+money on it you're investing your time
+
+00:04:59.840 --> 00:05:04.160
+so you're a buyer either way you could
+be an i.t architect
+
+00:05:04.160 --> 00:05:07.600
+you could
+be a template designer
+
+00:05:07.600 --> 00:05:11.280
+and developer you could be a small
+business owner of course there's a huge
+
+00:05:11.280 --> 00:05:14.160
+number of
+uh people who invest their time and
+
+00:05:14.160 --> 00:05:18.479
+energy and money and money into
+content management systems as a small
+
+00:05:18.479 --> 00:05:22.479
+business owner
+anybody who chooses a template you may
+
+00:05:22.479 --> 00:05:26.160
+be given the content management system
+but you choose a template or install a
+
+00:05:26.160 --> 00:05:30.160
+plugin or cheat or activate a plugin
+you're really modifying the content
+
+00:05:30.160 --> 00:05:33.520
+management system so you're a decision
+maker as well
+
+00:05:33.520 --> 00:05:38.240
+for everybody else let's say you're just
+an author uh you're
+
+00:05:38.240 --> 00:05:43.199
+you are an influencer uh you may need to
+influence the next generation of content
+
+00:05:43.199 --> 00:05:47.520
+management systems if you find that the
+one you're using is not up to what you
+
+00:05:47.520 --> 00:05:51.199
+need
+for accessibility now probably most a
+
+00:05:51.199 --> 00:05:54.880
+lot of people on this caller are on
+wordpress which is quite good
+
+00:05:54.880 --> 00:05:59.440
+um you know so influence what it can do
+
+00:06:01.520 --> 00:06:04.639
+so that when you
+choose your next your current or next
+
+00:06:04.639 --> 00:06:07.520
+content management system it's really an
+investment
+
+00:06:07.520 --> 00:06:12.240
+in accessibility investment in
+accessibility
+
+00:06:12.240 --> 00:06:15.759
+uh
+how to choose your cms
+
+00:06:15.759 --> 00:06:20.880
+here it is in one slide
+choose choose wordpress 38 of the
+
+00:06:20.880 --> 00:06:24.479
+internet can't be wrong is that isn't
+that right we are all here for
+
+00:06:24.479 --> 00:06:27.919
+accessibility day
+uh that's just a joke here i'm going to
+
+00:06:27.919 --> 00:06:32.400
+go i'm going to go step by step a little
+bit more nuanced in that uh how to
+
+00:06:32.400 --> 00:06:36.720
+choose your content management system
+i'm going to say that maybe it's more
+
+00:06:36.720 --> 00:06:40.319
+like two steps
+step one
+
+00:06:40.319 --> 00:06:44.240
+ask what the content management system
+can do
+
+00:06:44.240 --> 00:06:48.400
+and then verify that that's true
+and so
+
+00:06:48.400 --> 00:06:51.599
+you know the rest of this is really
+going to be breaking down into those two
+
+00:06:51.599 --> 00:06:57.039
+themes
+ask and verify
+
+00:06:57.440 --> 00:07:01.599
+unfortunately there's more than three
+slides in this deck
+
+00:07:01.599 --> 00:07:04.720
+today
+i believe that choosing a content
+
+00:07:04.720 --> 00:07:09.360
+management system for accessibility is
+harder than it should be and i'll give a
+
+00:07:09.360 --> 00:07:13.759
+couple of uh
+perspectives on this
+
+00:07:13.759 --> 00:07:20.800
+um this is from the eu the european
+union we four authors project uh which
+
+00:07:20.800 --> 00:07:26.560
+concluded this year
+uh one of the conclusions is procurers
+
+00:07:26.560 --> 00:07:31.120
+that's buyers find it difficult to
+validate which company can be trusted
+
+00:07:31.120 --> 00:07:37.280
+when it comes to accessibility
+and that uh is borne out by the fact
+
+00:07:37.280 --> 00:07:42.240
+that even though
+just a week ago was the deadline for the
+
+00:07:42.240 --> 00:07:47.680
+entire eu public sector to have all of
+their websites accessible
+
+00:07:47.680 --> 00:07:51.680
+they really many really haven't met that
+or have met it partially
+
+00:07:51.680 --> 00:07:55.440
+with so much content built on content
+management
+
+00:07:55.440 --> 00:07:59.280
+you know certainly training and learning
+curves are part of that but we have to
+
+00:07:59.280 --> 00:08:02.960
+look to the content management systems
+themselves
+
+00:08:02.960 --> 00:08:06.879
+and these gaps really matter and i'm
+going to read this entire next large
+
+00:08:06.879 --> 00:08:09.599
+quote
+because i think it's just it really sums
+
+00:08:09.599 --> 00:08:15.039
+up the importance of getting this right
+and this is from kyle
+
+00:08:15.039 --> 00:08:18.160
+who
+runs digital accessibility for harvard
+
+00:08:18.160 --> 00:08:21.680
+university
+if making something accessible turns
+
+00:08:21.680 --> 00:08:26.720
+into a process where you have to be a
+secondary subject matter expert it's not
+
+00:08:26.720 --> 00:08:30.400
+going to happen
+these faculty are brilliant at what they
+
+00:08:30.400 --> 00:08:34.800
+do and we need to make it easy for them
+to share and disseminate information
+
+00:08:34.800 --> 00:08:38.640
+today some of the research being done is
+a matter of life and death issues
+
+00:08:38.640 --> 00:08:44.240
+critical to society i don't think uh
+i don't think i need to add any more to
+
+00:08:44.240 --> 00:08:48.560
+what kyle said um you know that really
+just shows uh
+
+00:08:48.560 --> 00:08:53.519
+and i i should mention that kyle himself
+is a user with a visual disability and
+
+00:08:53.519 --> 00:08:55.440
+so
+um
+
+00:08:55.440 --> 00:08:59.519
+you know this perspective i feel like is
+is just really we should really pay
+
+00:08:59.519 --> 00:09:05.800
+attention to a perspective like this and
+say what can we do to make this better
+
+00:09:08.160 --> 00:09:12.399
+because if it's not accessible we want
+to think of it as not functional by now
+
+00:09:12.399 --> 00:09:16.000
+if you've watched some of these
+presentations i think people have said
+
+00:09:16.000 --> 00:09:19.920
+different things in different ways um
+but uh
+
+00:09:19.920 --> 00:09:24.399
+you know i'll add my a way of looking at
+this is
+
+00:09:24.399 --> 00:09:28.640
+thinking of accessibility not as a
+feature or an add-on but it's just a
+
+00:09:28.640 --> 00:09:34.080
+measure of does it work and of course
+you want your content to work for people
+
+00:09:34.080 --> 00:09:38.480
+uh when it is accessible people with
+disabilities can use it and anybody can
+
+00:09:38.480 --> 00:09:42.000
+use it
+um we've seen images like this here's
+
+00:09:42.000 --> 00:09:49.120
+one more of a gently rising ramp
+on a beautiful hillside
+
+00:09:49.120 --> 00:09:51.839
+it's for everybody
+
+00:09:54.720 --> 00:09:59.920
+so those two steps step one asking what
+the content management system
+
+00:09:59.920 --> 00:10:02.800
+can do
+um we're gonna
+
+00:10:02.800 --> 00:10:09.040
+ask or look for you can ask google
+your favorite search engine
+
+00:10:09.040 --> 00:10:14.880
+ask for accessibility statements
+and good news i've highlighted a couple
+
+00:10:14.880 --> 00:10:18.399
+here wordpress has a very nicely
+formatted one
+
+00:10:18.399 --> 00:10:22.720
+drupal as well
+i want to give a good honorable mention
+
+00:10:22.720 --> 00:10:26.480
+to wix for those who have been following
+over the years
+
+00:10:26.480 --> 00:10:30.640
+i would say
+i myself used to if somebody asked me
+
+00:10:30.640 --> 00:10:34.480
+what's a terrible system for
+accessibility i would have pointed to
+
+00:10:34.480 --> 00:10:38.880
+wix
+they are really turning it around so
+
+00:10:38.880 --> 00:10:41.920
+give them kind of an honorable mention
+and their
+
+00:10:41.920 --> 00:10:45.120
+their own
+documentation on accessibility is now
+
+00:10:45.120 --> 00:10:49.040
+has has really become quite good i'll
+give them like a real turnaround success
+
+00:10:49.040 --> 00:10:52.399
+story now
+again we're not done with this
+
+00:10:52.399 --> 00:10:56.560
+presentation if this were the whole
+answer we could end it here um of course
+
+00:10:56.560 --> 00:11:00.240
+we need to scrutinize these things
+because nothing is 100
+
+00:11:00.240 --> 00:11:04.320
+percent complete we're going to talk
+about kind of what to look for
+
+00:11:04.320 --> 00:11:07.839
+you know what is so important to look
+for in these accessibility statements
+
+00:11:07.839 --> 00:11:13.279
+now these are general kind of pros sorts
+of statements um
+
+00:11:13.279 --> 00:11:16.720
+a statement of commitment they always
+start with this we are committed to
+
+00:11:16.720 --> 00:11:20.560
+accessibility and
+that's not worth much but it's it's a
+
+00:11:20.560 --> 00:11:25.600
+public statement self-commitment and so
+we can it it's
+
+00:11:25.600 --> 00:11:29.440
+the fact that it's there it's not
+worthless it means we should hold that
+
+00:11:29.440 --> 00:11:33.680
+whoever is says
+publicly i'm committed to accessibility
+
+00:11:33.680 --> 00:11:36.160
+it's out of the rest of us to hold them
+to that
+
+00:11:36.160 --> 00:11:38.640
+and what are some details that help us
+do that
+
+00:11:38.640 --> 00:11:40.800
+um
+in the case of content management
+
+00:11:40.800 --> 00:11:45.600
+systems it's really important to um
+
+00:11:45.680 --> 00:11:49.440
+to tell users how to configure it for
+accessibility you know in the case of
+
+00:11:49.440 --> 00:11:52.880
+wordpress you know accessibility ready
+themes that we've heard about
+
+00:11:52.880 --> 00:11:59.519
+accessibility ready themes
+drupal has core modules
+
+00:11:59.519 --> 00:12:04.240
+both have plug-ins and as we've heard
+plugins can break accessibility so
+
+00:12:04.240 --> 00:12:08.000
+really having that information about
+available you know kind of
+
+00:12:08.000 --> 00:12:13.279
+a go no go on accessibility with this
+type of stuff um the statements
+
+00:12:13.279 --> 00:12:16.800
+uh uh should
+say
+
+00:12:16.800 --> 00:12:21.279
+uh how they've assessed their own
+accessibility or better yet using a
+
+00:12:21.279 --> 00:12:25.600
+third-party audit an independent
+reviewer to say
+
+00:12:25.600 --> 00:12:29.760
+what is accessible
+there are going to be known issues there
+
+00:12:29.760 --> 00:12:32.880
+are known issues in all of these content
+management systems and they should
+
+00:12:32.880 --> 00:12:36.959
+disclose them so we know what to do
+about we know what works and what
+
+00:12:36.959 --> 00:12:42.720
+doesn't today uh hopefully some be able
+to either use workarounds or really
+
+00:12:42.720 --> 00:12:46.320
+choose whether to use that system
+um
+
+00:12:46.320 --> 00:12:51.200
+a remediation plan a roadmap for what to
+do about it is really important when
+
+00:12:51.200 --> 00:12:55.200
+you're when you're ready to invest your
+time and or and or money into a new
+
+00:12:55.200 --> 00:12:59.040
+system
+okay if it's if it's getting there
+
+00:12:59.040 --> 00:13:03.760
+is it being actively worked on and you
+know uh and i really say last but not
+
+00:13:03.760 --> 00:13:08.560
+least a feedback channel for
+improvements i mean even if a system is
+
+00:13:08.560 --> 00:13:13.920
+perfect today technology changes
+browsers assistive technology the world
+
+00:13:13.920 --> 00:13:17.600
+changes and
+you know it's not realistic for
+
+00:13:17.600 --> 00:13:23.200
+accessibility to be bug free at every
+moment we want that we want all software
+
+00:13:23.200 --> 00:13:25.760
+to be completely bug-free at every
+moment
+
+00:13:25.760 --> 00:13:30.560
+but users of course always find things
+not just for accessibility and so
+
+00:13:30.560 --> 00:13:35.519
+having a feedback channel
+is a real is also kind of a vote in
+
+00:13:35.519 --> 00:13:40.160
+favor of this organization producing
+this content management system
+
+00:13:40.160 --> 00:13:43.199
+is uh
+is actually committed to accessibility
+
+00:13:43.199 --> 00:13:46.160
+because if they are they will want
+to
+
+00:13:46.160 --> 00:13:49.639
+hear from users
+
+00:13:50.560 --> 00:13:54.320
+so we talked just now about
+accessibility statements uh there's
+
+00:13:54.320 --> 00:13:58.480
+another thing called a conformance
+report and this really gets into more
+
+00:13:58.480 --> 00:14:02.000
+detail
+um and for content management systems
+
+00:14:02.000 --> 00:14:06.079
+specifically you've heard from others
+and there's plentiful information on the
+
+00:14:06.079 --> 00:14:09.440
+internet just about
+um you know
+
+00:14:09.440 --> 00:14:14.240
+content accessibility just like is a
+website a website accessible
+
+00:14:14.240 --> 00:14:20.320
+content management systems have some
+uh additional important specific
+
+00:14:20.320 --> 00:14:24.320
+requirements
+um the first one it may be obvious but
+
+00:14:24.320 --> 00:14:29.760
+it's good to split it out aloud is it
+possible does the system allow the user
+
+00:14:29.760 --> 00:14:33.760
+to create accessible content is that
+even possible we've heard a lot about
+
+00:14:33.760 --> 00:14:36.880
+that
+um in these presentations
+
+00:14:36.880 --> 00:14:42.240
+i didn't catch hidden's presentation i
+was preparing for this one i regret
+
+00:14:42.240 --> 00:14:44.480
+doing that i'm going to come back and
+watch that
+
+00:14:44.480 --> 00:14:49.279
+later but uh hidea devries just
+presented on a tag the authoring tool
+
+00:14:49.279 --> 00:14:52.720
+accessibility guidelines and they're
+really going to cover
+
+00:14:52.720 --> 00:14:58.000
+these next two prompting prompt does the
+cms prompt and guide authors to do that
+
+00:14:58.000 --> 00:15:02.000
+to create accessible content not just
+possible but actually
+
+00:15:02.000 --> 00:15:05.600
+encourage and
+surface the features that do that
+
+00:15:05.600 --> 00:15:08.880
+and
+inclusive authoring i call it is a
+
+00:15:08.880 --> 00:15:12.639
+summary of
+the various features of the content
+
+00:15:12.639 --> 00:15:16.880
+creation process content creation
+functions themselves can a person with
+
+00:15:16.880 --> 00:15:21.519
+disabilities use those
+um so these are distinct we're going to
+
+00:15:21.519 --> 00:15:24.480
+think about remember these three as we
+go through because we're going to get
+
+00:15:24.480 --> 00:15:31.519
+into a lot more detail on these
+now the hard way to ask well what should
+
+00:15:31.519 --> 00:15:35.279
+be in these standards in these reports
+is to kind of look at all the
+
+00:15:35.279 --> 00:15:39.600
+regulations around the world
+figure out what they require
+
+00:15:39.600 --> 00:15:41.519
+they're going to vary a little bit
+they're going to be in different
+
+00:15:41.519 --> 00:15:45.440
+languages and
+figure out what the standards and how to
+
+00:15:45.440 --> 00:15:51.040
+report on them
+now this is very logical but it's
+
+00:15:51.040 --> 00:15:55.759
+this is harder this is more complicated
+than you have to do it and
+
+00:15:55.759 --> 00:15:59.759
+uh you're going to see some of that
+complexity but then in the next slide
+
+00:15:59.759 --> 00:16:02.079
+i'm going to show you how to simplify it
+down
+
+00:16:02.079 --> 00:16:07.360
+so
+this is a sketch with a cut with some
+
+00:16:07.360 --> 00:16:10.480
+shortcuts here some other
+simplifications but this is basically a
+
+00:16:10.480 --> 00:16:15.440
+picture of
+the world of accessibility standards and
+
+00:16:15.440 --> 00:16:19.839
+laws and policies and
+reporting as they reply to content
+
+00:16:19.839 --> 00:16:24.240
+management systems so let me kind of
+work from the inside out here
+
+00:16:24.240 --> 00:16:28.800
+so on the right we've got
+wicked 2.0
+
+00:16:28.800 --> 00:16:33.519
+still the by far the most common um
+standard around the world in terms of
+
+00:16:33.519 --> 00:16:38.240
+countries and regions that use it u.s
+and canada use it
+
+00:16:38.240 --> 00:16:43.759
+add to that 12 new criteria for wiki 2.1
+so
+
+00:16:43.759 --> 00:16:48.160
+um in case you're tuning in or you
+didn't want to really emphasize this
+
+00:16:48.160 --> 00:16:54.160
+wiki 2.1
+is exactly league 2.0 plus some more
+
+00:16:54.160 --> 00:16:58.480
+criteria and the conformance requirement
+so um
+
+00:16:58.480 --> 00:17:02.720
+if you meet wicked 2.1 you're meeting
+wicket 2.0 so that's the first
+
+00:17:02.720 --> 00:17:06.720
+simplification
+the next layer out is
+
+00:17:06.720 --> 00:17:11.679
+you'll see en
+301549 that is the
+
+00:17:11.679 --> 00:17:17.199
+european standard the uk after brexit is
+still using it
+
+00:17:17.199 --> 00:17:22.480
+and it has more than usually people
+think of it as just wicked 2.1
+
+00:17:22.480 --> 00:17:27.679
+but uh for certain types of products
+like authoring tool content management
+
+00:17:27.679 --> 00:17:31.039
+systems
+it has some specific requirements for
+
+00:17:31.039 --> 00:17:35.600
+those i call them the harmonized
+authoring tool criteria because you see
+
+00:17:35.600 --> 00:17:38.559
+the circle below
+us
+
+00:17:38.559 --> 00:17:43.520
+uses very much those same authoring tool
+criteria
+
+00:17:43.520 --> 00:17:47.919
+in section 508
+so and then finally a tag
+
+00:17:47.919 --> 00:17:53.200
+adds its own more detailed criteria and
+that's the the blue bullet on the left
+
+00:17:53.200 --> 00:17:56.160
+there
+if you don't see the screen
+
+00:17:56.160 --> 00:18:00.559
+i've described describe the structure of
+this and as i mentioned before the
+
+00:18:00.559 --> 00:18:03.360
+slides
+are available
+
+00:18:03.360 --> 00:18:09.039
+at any point this is a complicated graph
+i do have a text alternative for it
+
+00:18:09.039 --> 00:18:13.440
+so the point is that
+you could try to figure out all around
+
+00:18:13.440 --> 00:18:18.480
+the world what everybody's doing but it
+boils down to these standards a tag wiki
+
+00:18:18.480 --> 00:18:21.919
+2.1
+if you meet those two standards you're
+
+00:18:21.919 --> 00:18:25.440
+completely covering it for
+content management systems anywhere in
+
+00:18:25.440 --> 00:18:28.720
+the world the whole world can use it
+so
+
+00:18:28.720 --> 00:18:32.240
+i've done some analysis for you
+um
+
+00:18:32.240 --> 00:18:36.320
+you can if you want to do less if you
+want to do less good stuff for your
+
+00:18:36.320 --> 00:18:42.240
+users you can go and analyze re-analyze
+the world and try to cut corners but why
+
+00:18:42.240 --> 00:18:46.080
+not
+just keep it simple okay 2.1
+
+00:18:46.080 --> 00:18:49.440
+a tag 2.0
+now how to report on these some good
+
+00:18:49.440 --> 00:18:52.000
+news
+pretty obvious you can do an a tag
+
+00:18:52.000 --> 00:18:56.960
+report for a tag
+this one is still especially in europe
+
+00:18:56.960 --> 00:18:59.840
+and we're on europe time today
+um
+
+00:18:59.840 --> 00:19:04.480
+it's really not so widely known is
+there's uh a lot of people have heard of
+
+00:19:04.480 --> 00:19:10.640
+vpat the voluntary
+product accessibility template but still
+
+00:19:10.640 --> 00:19:14.400
+a lot of people you talk to will say oh
+that's a united states thing
+
+00:19:14.400 --> 00:19:19.679
+um
+since uh 2017 it's been international
+
+00:19:19.679 --> 00:19:24.640
+it's covered both u.s section 508 and en
+
+00:19:24.640 --> 00:19:29.679
+and now as of
+uh last year it covers all it covers all
+
+00:19:29.679 --> 00:19:33.120
+of the
+standards that are listed here
+
+00:19:33.120 --> 00:19:37.280
+so you don't need to go and invent a
+report format
+
+00:19:37.280 --> 00:19:42.080
+you can use this format
+uh to report not just for the u.s it
+
+00:19:42.080 --> 00:19:46.080
+continues to do that as it has always
+done but now it reports it's it's
+
+00:19:46.080 --> 00:19:50.720
+available for the eu um
+uh
+
+00:19:50.720 --> 00:19:53.520
+so we're gonna
+uh
+
+00:19:53.520 --> 00:19:59.360
+we're gonna look a little bit more at
+what to expect in these kinds of reports
+
+00:19:59.360 --> 00:20:02.880
+um
+i uh
+
+00:20:02.880 --> 00:20:08.640
+i believe it may be obvious but i i will
+remind folks we're covering a lot of
+
+00:20:08.640 --> 00:20:12.080
+material here we'll definitely allow
+time for questions at the end and please
+
+00:20:12.080 --> 00:20:17.520
+put those questions in the chat as we go
+and we'll allow time for those
+
+00:20:18.080 --> 00:20:21.840
+certainly within
+this time period um
+
+00:20:21.840 --> 00:20:25.120
+so one thing i want to highlight is you
+might have noticed that there were no
+
+00:20:25.120 --> 00:20:29.760
+countries listed on the a tag um so who
+needs a tag
+
+00:20:29.760 --> 00:20:32.159
+uh
+
+00:20:32.559 --> 00:20:38.080
+requirements one answer is nobody no law
+regulation directly requires
+
+00:20:38.080 --> 00:20:40.640
+uh
+the authoring tool accessibility
+
+00:20:40.640 --> 00:20:44.159
+guidelines that i know of if somebody
+knows differently please put it in the
+
+00:20:44.159 --> 00:20:47.840
+chat um
+and yet i say that everybody should use
+
+00:20:47.840 --> 00:20:51.360
+the authoring tool accessibility
+guidelines because
+
+00:20:51.360 --> 00:20:56.000
+they reduce your risk of an inaccessible
+website and it's the website that's
+
+00:20:56.000 --> 00:21:00.640
+produced that has the most scrutiny and
+the most users
+
+00:21:00.640 --> 00:21:07.039
+of anything um in this system and so
+why would you make it hard
+
+00:21:07.039 --> 00:21:12.159
+for authors to make things accessible
+and then resulting in more bugs on your
+
+00:21:12.159 --> 00:21:16.799
+websites so it's completely voluntary
+but i think a really good idea so we're
+
+00:21:16.799 --> 00:21:20.080
+going to talk some more about
+uh you know what are the differences and
+
+00:21:20.080 --> 00:21:23.919
+why that is
+um
+
+00:21:24.000 --> 00:21:27.600
+if you use these two reports remember
+those questions i asked before the
+
+00:21:27.600 --> 00:21:31.039
+questions down the left here that the
+key questions of
+
+00:21:31.039 --> 00:21:36.640
+is accessible content allowed possible
+is creation of accessible content
+
+00:21:36.640 --> 00:21:40.960
+prompted
+is the process of it inclusive is the
+
+00:21:40.960 --> 00:21:44.400
+authoring process inclusive and so this
+just shows
+
+00:21:44.400 --> 00:21:47.840
+what
+those those different
+
+00:21:47.840 --> 00:21:51.360
+standards and reports cover
+um
+
+00:21:51.360 --> 00:21:59.840
+the two the first two columns are vpat
+2.4 international they cover um
+
+00:21:59.840 --> 00:22:04.400
+they cover
+all three of those requirements um
+
+00:22:04.400 --> 00:22:10.720
+the vpat part sorry the wick part of
+vpat uh doesn't cover the prompts and
+
+00:22:10.720 --> 00:22:15.200
+then those harmonized authoring tool
+criteria pick up the prompts
+
+00:22:15.200 --> 00:22:21.360
+but i added a second check mark under a
+tag because they just have more detailed
+
+00:22:23.679 --> 00:22:28.320
+criteria
+my favorite being prominence
+
+00:22:28.320 --> 00:22:35.280
+of prompts so prompts just need to exist
+in as far as the eu and
+
+00:22:35.280 --> 00:22:39.200
+us
+harmonized accessibility uh
+
+00:22:39.200 --> 00:22:43.440
+harmonized authoring tool standards um a
+tag says they need to be prominent they
+
+00:22:43.440 --> 00:22:48.159
+need to be equally prominent to other
+things so thumbs up on that uh we want
+
+00:22:48.159 --> 00:22:52.240
+that we want to make it easy for authors
+to do the right thing
+
+00:22:52.240 --> 00:22:57.520
+i'm not going to drill into this right
+now uh but in a moment i'll show the
+
+00:22:57.520 --> 00:23:00.159
+um
+you know just one example you can see
+
+00:23:00.159 --> 00:23:05.280
+what good prompts would be like
+um okay so we've talked about so far
+
+00:23:05.280 --> 00:23:08.400
+about the
+um you know
+
+00:23:08.400 --> 00:23:13.039
+what let's say we're
+you i a business owner an i.t director
+
+00:23:13.039 --> 00:23:16.880
+is choosing a content management system
+we want to go out and look to see that
+
+00:23:16.880 --> 00:23:20.720
+the producers of those content
+management systems have just have
+
+00:23:20.720 --> 00:23:25.600
+have provided good instructions uh good
+information about
+
+00:23:25.600 --> 00:23:30.159
+um you know what works and what doesn't
+yet in their content management systems
+
+00:23:30.159 --> 00:23:35.039
+now let's verify that step two verify
+what the content management system can
+
+00:23:35.039 --> 00:23:38.640
+do
+um
+
+00:23:38.640 --> 00:23:42.720
+i like this as a starting point
+wordpress
+
+00:23:42.720 --> 00:23:47.200
+lists a bunch of
+vpat reports again that's the voluntary
+
+00:23:47.200 --> 00:23:51.039
+product accessibility template
+i'm going to go ahead and follow this
+
+00:23:51.039 --> 00:23:53.520
+link
+because we're going to take a look at
+
+00:23:53.520 --> 00:23:56.400
+one of these reports
+
+00:23:58.320 --> 00:24:02.240
+i think i'm going to need to change my
+screen sharing here i just realized okay
+
+00:24:02.240 --> 00:24:05.840
+bear with me while we
+
+00:24:10.320 --> 00:24:13.200
+change the sharing
+
+00:24:13.600 --> 00:24:16.080
+okay
+um
+
+00:24:16.080 --> 00:24:21.760
+i'm gonna check the chat really sec for
+for a quick moment and see
+
+00:24:21.919 --> 00:24:25.679
+actually can i have an audio of uh is
+the is the uh browser coming through
+
+00:24:25.679 --> 00:24:27.840
+here
+
+00:24:29.840 --> 00:24:32.799
+yes it is
+thank you thank you for confirming that
+
+00:24:32.799 --> 00:24:36.960
+okay so i just followed it's
+vpats.wordpress.com
+
+00:24:36.960 --> 00:24:41.200
+and um
+it lists a bunch of vpats what uh
+
+00:24:41.200 --> 00:24:44.880
+the uh the approach that wordpress has
+taken
+
+00:24:44.880 --> 00:24:51.279
+is to show vpats of of partners and
+content
+
+00:24:51.279 --> 00:24:54.880
+and so i'm just going to choose the
+first ones here so the first problem the
+
+00:24:54.880 --> 00:24:58.840
+first one problem and the first vpat is
+going to have a problem
+
+00:24:58.840 --> 00:25:03.919
+um and uh
+remember that vpat two point something i
+
+00:25:03.919 --> 00:25:07.360
+said um
+first thing we see here uh doesn't even
+
+00:25:07.360 --> 00:25:12.400
+have the number of the vpat um but this
+is not vpat
+
+00:25:12.400 --> 00:25:16.159
+version two this is vpat version one
+this was back when it was not
+
+00:25:16.159 --> 00:25:20.480
+international it doesn't really even
+reference web content accessibility
+
+00:25:20.480 --> 00:25:23.840
+guidelines so that's the first thing you
+want to look for now we're going to come
+
+00:25:23.840 --> 00:25:28.640
+back to
+specific vpats and some of the things
+
+00:25:28.640 --> 00:25:31.919
+that they should contain i'll start by
+summarizing them and we'll kind of
+
+00:25:31.919 --> 00:25:35.919
+switch back and forth between
+looking at the
+
+00:25:35.919 --> 00:25:40.240
+you know looking at actual documents and
+some of the
+
+00:25:40.840 --> 00:25:45.279
+um and you know some of the things that
+we're going to that we have to encourage
+
+00:25:45.279 --> 00:25:51.360
+you to look for when you're evaluating
+these um so the first thing i mentioned
+
+00:25:51.360 --> 00:25:55.840
+is is the is the vpat report even
+complete does it have the things that it
+
+00:25:55.840 --> 00:25:59.120
+should uh these days
+it should
+
+00:25:59.120 --> 00:26:04.480
+always be at least vpat version 2.0
+um
+
+00:26:04.480 --> 00:26:07.039
+because that's the minimum you need to
+even cover
+
+00:26:07.039 --> 00:26:10.559
+wik
+2.0 accurately um
+
+00:26:10.559 --> 00:26:15.760
+and if you're using wiki 2.1 like
+half a billion people in europe need to
+
+00:26:15.760 --> 00:26:21.600
+do um
+it needs to be vpat version 2.3 or
+
+00:26:21.600 --> 00:26:26.240
+higher so it's up to 2.4 now the
+differences are very slight um so if you
+
+00:26:26.240 --> 00:26:28.480
+find
+uh anything
+
+00:26:28.480 --> 00:26:34.320
+2.3 or higher you're all set for
+to cover with you know accurate
+
+00:26:34.320 --> 00:26:37.919
+well accurate that's a separate question
+it has the right pieces in it to answer
+
+00:26:37.919 --> 00:26:41.600
+these questions
+um it really must list the name and
+
+00:26:41.600 --> 00:26:44.880
+version of the product that was tested
+um
+
+00:26:44.880 --> 00:26:50.000
+you know
+obviously features and bugs and change
+
+00:26:50.000 --> 00:26:54.159
+so if you don't even know what was
+tested it it the reality is it may be a
+
+00:26:54.159 --> 00:27:00.159
+version old or more but if you know what
+it is then you can triangulate what
+
+00:27:00.159 --> 00:27:03.279
+might be different
+um and specifically for a content
+
+00:27:03.279 --> 00:27:07.120
+management system product
+you know it must it must actually
+
+00:27:07.120 --> 00:27:11.120
+include and report on the authoring tool
+criteria um i meant
+
+00:27:11.120 --> 00:27:12.960
+because
+um
+
+00:27:12.960 --> 00:27:16.880
+let's just say there's a varying range
+of quality of these uh reports and we're
+
+00:27:16.880 --> 00:27:20.960
+gonna look a little bit more about that
+um you know it doesn't have the just
+
+00:27:20.960 --> 00:27:23.919
+basic requirements that it needs to
+contain
+
+00:27:23.919 --> 00:27:29.760
+uh next question is the report credible
+um
+
+00:27:30.000 --> 00:27:34.880
+does it say what in what was tested like
+what was the scope of testing
+
+00:27:34.880 --> 00:27:38.399
+it's normal to
+test a sample of things in complex
+
+00:27:38.399 --> 00:27:41.679
+systems well what was the sample that
+was tested was that a reasonable sample
+
+00:27:41.679 --> 00:27:44.320
+you should cover
+you know
+
+00:27:44.320 --> 00:27:50.640
+at least uh you know a core core process
+of logging in
+
+00:27:50.640 --> 00:27:54.559
+uh choose choosing accessible ready
+templates and
+
+00:27:54.559 --> 00:27:58.880
+editing content like uh
+like a block editor you know if it
+
+00:27:58.880 --> 00:28:03.440
+doesn't if it was missing one of those
+core steps well it shouldn't right first
+
+00:28:03.440 --> 00:28:07.039
+of all and you want to know what it
+includes and didn't include in the
+
+00:28:07.039 --> 00:28:11.200
+in the sampling
+um and we'll look at
+
+00:28:11.200 --> 00:28:14.240
+look at these next ones a little more
+detail
+
+00:28:14.240 --> 00:28:19.600
+remarks explaining the ratings uh i'll
+give a visual of that in a moment
+
+00:28:19.600 --> 00:28:24.159
+um this third one the auditor is a
+reputable third party
+
+00:28:24.159 --> 00:28:30.159
+um that is
+uh not a minimum um that is a you know
+
+00:28:30.159 --> 00:28:34.240
+there are companies that test their own
+um and
+
+00:28:34.240 --> 00:28:39.360
+do a good job um
+but it you know if if it's
+
+00:28:39.360 --> 00:28:42.880
+if it's a third party that's named on
+the um
+
+00:28:42.880 --> 00:28:47.600
+on the vpat report uh you know that both
+shows independence and you can look into
+
+00:28:47.600 --> 00:28:52.159
+that company and say hey are they known
+for doing a good job on these things um
+
+00:28:52.159 --> 00:28:55.520
+i wouldn't say that's a must-have but
+that's a that's a bonus it's a plus in
+
+00:28:55.520 --> 00:28:59.200
+terms of credibility especially when
+you're in a hurry and who isn't in a
+
+00:28:59.200 --> 00:29:04.320
+hurry you know
+so um we're gonna
+
+00:29:04.320 --> 00:29:06.640
+um
+
+00:29:07.760 --> 00:29:12.159
+that first one that i mentioned what
+what was tested um in the case of
+
+00:29:12.159 --> 00:29:16.159
+content management systems not just the
+functionality of the content management
+
+00:29:16.159 --> 00:29:19.279
+system itself but
+what
+
+00:29:19.279 --> 00:29:23.360
+it was creating is important and let me
+say that
+
+00:29:23.360 --> 00:29:27.760
+if you just stick in hello world or
+lorem ipsum into a content management
+
+00:29:27.760 --> 00:29:31.360
+system you really haven't tested it you
+got to think about
+
+00:29:31.360 --> 00:29:35.200
+what are the different kinds of content
+elements that are pertinent for
+
+00:29:35.200 --> 00:29:39.120
+accessibility and i know that others
+in this
+
+00:29:39.120 --> 00:29:44.399
+wordpress accessibility day have uh you
+know covered this as well um you know so
+
+00:29:44.399 --> 00:29:47.919
+you know take take this as my
+perspective on what are some key kinds
+
+00:29:47.919 --> 00:29:51.520
+of content
+um images of course with alt text
+
+00:29:51.520 --> 00:29:57.919
+content structure such as headings lists
+and tables don't forget nesting them
+
+00:29:57.919 --> 00:30:02.240
+interactive elements like links buttons
+and forms don't forget error messages of
+
+00:30:02.240 --> 00:30:07.120
+forms if you use those
+more complex patterns there's many of
+
+00:30:07.120 --> 00:30:11.360
+those threaded discussions and menus are
+a couple of examples
+
+00:30:11.360 --> 00:30:16.559
+you might contain video well the pro the
+product the content management system
+
+00:30:16.559 --> 00:30:19.679
+probably supports
+video and it probably supports
+
+00:30:19.679 --> 00:30:24.960
+multilingual multilingual
+content
+
+00:30:25.120 --> 00:30:29.200
+one of the things you'll notice here is
+your website might not include every one
+
+00:30:29.200 --> 00:30:34.000
+of these and so this is where the detail
+of the reports can be really helpful
+
+00:30:34.000 --> 00:30:36.799
+because it might have a problem with
+video
+
+00:30:36.799 --> 00:30:40.159
+it you know this particular tool might
+really be really bad at video you might
+
+00:30:40.159 --> 00:30:45.600
+choose it anyway because you say i'm
+seldom if ever gonna use video or
+
+00:30:45.600 --> 00:30:49.520
+i don't need multilingual content i mean
+those would be shortcuts you never know
+
+00:30:49.520 --> 00:30:53.279
+you might get committed and in the
+future need those things but at least
+
+00:30:53.279 --> 00:30:58.640
+you can be a discerning customer
+um so i said that the next one was like
+
+00:30:58.640 --> 00:31:04.480
+do the ratings match the remarks so for
+this i'm going to bring up um i'm going
+
+00:31:04.480 --> 00:31:07.919
+to look at adobe uh because i worked on
+these
+
+00:31:07.919 --> 00:31:12.399
+i when i did the one i'm going to show
+you i actually wrote although they don't
+
+00:31:12.399 --> 00:31:17.760
+disclose that that's fine um this is
+this is
+
+00:31:17.760 --> 00:31:21.279
+public knowledge that i'm telling you i
+know that a lot of consulting companies
+
+00:31:21.279 --> 00:31:25.600
+are keep their clients secret and level
+access was no exception
+
+00:31:25.600 --> 00:31:30.240
+um
+but we were proud and to publicly talk
+
+00:31:30.240 --> 00:31:34.240
+about our partnership with adobe so new
+particular secrets here
+
+00:31:34.240 --> 00:31:38.080
+um
+what we're going to look at here jump to
+
+00:31:38.080 --> 00:31:43.679
+the wic section the web content
+accessibility guidelines part
+
+00:31:43.679 --> 00:31:48.720
+of the vpat report
+and just at for example the very first
+
+00:31:48.720 --> 00:31:52.799
+criterion
+1.1.1 non-text content that's talking
+
+00:31:52.799 --> 00:31:55.919
+about alternative text for
+images
+
+00:31:55.919 --> 00:31:59.200
+well i wrote this so of course i think
+it's great
+
+00:31:59.200 --> 00:32:03.840
+it talks about for example
+uh this one is for uh for installed
+
+00:32:03.840 --> 00:32:08.399
+software this was for frame maker
+actually um which is a content which is
+
+00:32:08.399 --> 00:32:12.159
+um whether it's a content management
+system or not it's an authoring tool and
+
+00:32:12.159 --> 00:32:17.840
+that's what they have in common um
+so a rating so ratings and remarks now
+
+00:32:17.840 --> 00:32:20.559
+we're talk that was the thing i
+mentioned what what about ratings and
+
+00:32:20.559 --> 00:32:24.000
+remarks
+the rating or conformance level here was
+
+00:32:24.000 --> 00:32:27.200
+partially supports
+now what does that mean it could be
+
+00:32:27.200 --> 00:32:31.840
+supports partially supports or does not
+supports that's the only three levels we
+
+00:32:31.840 --> 00:32:35.440
+would report at but if that's all you
+said a lot of different things are going
+
+00:32:35.440 --> 00:32:40.799
+to be partially supports that can range
+from one little bug through
+
+00:32:40.799 --> 00:32:46.399
+like 40 of all of the websites screwed
+up so you really need to look at
+
+00:32:46.399 --> 00:32:51.200
+the comment the remark for that
+um so the remark is here most product
+
+00:32:51.200 --> 00:32:54.240
+functions
+do not contain images which would
+
+00:32:54.240 --> 00:32:58.559
+require a text alternative but
+exceptions include so what it's saying
+
+00:32:58.559 --> 00:33:01.279
+is
+for the most part there aren't even any
+
+00:33:01.279 --> 00:33:05.840
+images in the product where this matters
+but there's a couple of specific ones
+
+00:33:05.840 --> 00:33:10.240
+now right away you can say well yeah
+that sounds like mo you know partially
+
+00:33:10.240 --> 00:33:14.640
+supports mostly works and you even have
+detail of like oh you can go and work
+
+00:33:14.640 --> 00:33:18.080
+around those problems or
+you know use jaws scripting if you had
+
+00:33:18.080 --> 00:33:22.399
+to or you know this is useful
+information and but really important so
+
+00:33:22.399 --> 00:33:27.600
+that just in terms of order
+the second one is maybe arguably first
+
+00:33:27.600 --> 00:33:33.279
+in priority which is the author content
+also is partially supports okay great oh
+
+00:33:33.279 --> 00:33:38.080
+so what can i not do with author content
+oh okay what does that mean partially
+
+00:33:38.080 --> 00:33:41.440
+supports
+means i can only partially put alt text
+
+00:33:41.440 --> 00:33:46.000
+on images okay what's going on um so in
+here the case was
+
+00:33:46.000 --> 00:33:48.720
+um
+well authors can provide text
+
+00:33:48.720 --> 00:33:53.200
+alternative for most images but
+some image buttons in certain navigation
+
+00:33:53.200 --> 00:33:56.399
+controls so again
+
+00:33:56.720 --> 00:34:00.640
+from a point of view of verify ver just
+making seeing if this is even a
+
+00:34:00.640 --> 00:34:04.720
+trustworthy document
+you want to see that there's this kind
+
+00:34:04.720 --> 00:34:08.720
+of detail here now it's going to be very
+different detail in different situations
+
+00:34:08.720 --> 00:34:12.720
+but like is there an explanation for why
+they gave that rating like if there is
+
+00:34:12.720 --> 00:34:16.879
+not if you look at this and you're like
+that doesn't tell me anything it kind of
+
+00:34:16.879 --> 00:34:20.560
+puts the whole report into question and
+then if it does tell you it makes the
+
+00:34:20.560 --> 00:34:25.200
+report much more credible
+and hopefully actually provides useful
+
+00:34:25.200 --> 00:34:28.480
+information that you can work with
+
+00:34:31.280 --> 00:34:36.240
+now there's
+you know 50 wiki 2.1 criteria and you're
+
+00:34:36.240 --> 00:34:40.639
+in a hurry and you want to compare two
+you you have a access you have a product
+
+00:34:40.639 --> 00:34:42.960
+in mind you want to use you're in a
+hurry
+
+00:34:42.960 --> 00:34:46.480
+where do you start now all of the
+criteria are important but i like to
+
+00:34:46.480 --> 00:34:51.040
+look at the heavy hitters uh what do i
+mean by heavy hitters a criteria that
+
+00:34:51.040 --> 00:34:55.679
+apply the most broadly so like basically
+every product
+
+00:34:55.679 --> 00:34:59.599
+is going to have
+these are going to apply to every page
+
+00:34:59.599 --> 00:35:04.079
+and screen of every
+authoring tool and the content that it
+
+00:35:04.079 --> 00:35:08.160
+produces so
+you know
+
+00:35:08.960 --> 00:35:12.720
+if you look at these this first list and
+this is like the non-text content
+
+00:35:12.720 --> 00:35:17.320
+graphics we just talked about
+info and relationships for
+
+00:35:17.320 --> 00:35:21.119
+[Music]
+structure of html i'm going to jump to
+
+00:35:21.119 --> 00:35:26.480
+the fourth one name role value for the
+structure of interactive elements
+
+00:35:26.480 --> 00:35:31.280
+to this middle one numerically resizing
+and reflowing text for low vision people
+
+00:35:31.280 --> 00:35:34.400
+with low vision especially to enlarge
+content
+
+00:35:34.400 --> 00:35:38.480
+and the keyboard criteria there's a list
+of those so
+
+00:35:38.480 --> 00:35:41.760
+this list right here is a lot less
+imposing than
+
+00:35:41.760 --> 00:35:46.160
+you know the whole list of 50. now again
+the whole list of 50 is our hard
+
+00:35:46.160 --> 00:35:49.520
+requirements
+but we're talking about you're opening
+
+00:35:49.520 --> 00:35:52.320
+up somebody's report and where do you
+start
+
+00:35:52.320 --> 00:35:57.119
+it actually can be a kind of a
+you can take a whole day trying to read
+
+00:35:57.119 --> 00:36:00.960
+from the top to the bottom and i would
+recommend start by jumping to these
+
+00:36:00.960 --> 00:36:04.320
+heavy hitters
+color criteria are interesting they're
+
+00:36:04.320 --> 00:36:08.800
+kind of special because for content
+they're super important like contrast
+
+00:36:08.800 --> 00:36:12.640
+and use of color
+but um i just find that for content
+
+00:36:12.640 --> 00:36:17.520
+management systems specifically they
+rarely fail to allow
+
+00:36:17.520 --> 00:36:22.160
+authors to set colors i mean that's what
+they do so the author is capable of
+
+00:36:22.160 --> 00:36:25.359
+choosing colors that will conform to
+contrast
+
+00:36:25.359 --> 00:36:29.359
+but they tend to be pretty bad at
+prompting authors to do that so that's
+
+00:36:29.359 --> 00:36:33.200
+kind of a special one
+something to watch out for i would
+
+00:36:33.200 --> 00:36:36.480
+encourage
+everybody here to
+
+00:36:36.480 --> 00:36:41.359
+be make noise and ask for
+uh better prompting on
+
+00:36:41.359 --> 00:36:46.720
+uh on color in authoring systems
+um now there's a few more that depend on
+
+00:36:46.720 --> 00:36:51.200
+your content pre-recorded video has uh
+some criteria
+
+00:36:51.200 --> 00:36:55.760
+multilingual text has a language of page
+and language of parts
+
+00:36:55.760 --> 00:36:58.720
+error messages if you have them have
+those and i think those are all quite
+
+00:36:58.720 --> 00:37:02.560
+important those are my next
+level of heavy hitters again i can't
+
+00:37:02.560 --> 00:37:07.040
+repeat enough they're all required the
+the purpose of this
+
+00:37:07.040 --> 00:37:12.800
+is to say i want to skim a report and
+see what it tells me that for that
+
+00:37:12.800 --> 00:37:17.760
+purpose this skim you know somewhere
+between 14 and 22 out of the 50 will
+
+00:37:17.760 --> 00:37:23.839
+give you a very good first first cut at
+reading a report
+
+00:37:25.040 --> 00:37:28.880
+and now what about those extra authoring
+tool criteria
+
+00:37:28.880 --> 00:37:31.839
+so i've already summarized them and
+we're not going to drill down into every
+
+00:37:31.839 --> 00:37:36.880
+one of them
+but just this is what to look for
+
+00:37:37.839 --> 00:37:43.839
+i call them harmonized harmonized means
+that different standards try to be
+
+00:37:43.839 --> 00:37:48.400
+pretty similar so the u.s section 508
+has a prompts requirement it's hard to
+
+00:37:48.400 --> 00:37:52.079
+harder to see that in the eu
+requirements it calls it guide the
+
+00:37:52.079 --> 00:37:56.320
+production of content of accessible
+content guide i'm sorry guide the
+
+00:37:56.320 --> 00:38:00.000
+production of accessible content
+um
+
+00:38:00.000 --> 00:38:05.119
+uh it also has a it breaks out the
+templates
+
+00:38:05.119 --> 00:38:08.400
+to say that they're identified as
+templates
+
+00:38:08.400 --> 00:38:14.000
+both of them also put a requirement on
+the product documentation which
+
+00:38:14.000 --> 00:38:19.520
+i will say is
+a shortcut that you might you might find
+
+00:38:19.520 --> 00:38:23.680
+uh unfortunately that
+might not just even get reported
+
+00:38:23.680 --> 00:38:26.079
+um
+uh but
+
+00:38:26.079 --> 00:38:29.200
+the product documentation needs to
+highlight what are the accessibility
+
+00:38:29.200 --> 00:38:34.880
+capabilities of the product
+um and i mentioned before um
+
+00:38:34.880 --> 00:38:39.359
+my favorite being the prominence
+requirement of a tag that that's a plus
+
+00:38:39.359 --> 00:38:42.800
+that's a
+the a tag guideline b has several more
+
+00:38:42.800 --> 00:38:49.680
+detailed criteria that are that mesh
+very well with the us and eu global
+
+00:38:49.680 --> 00:38:53.680
+standards for authoring tools and
+content management systems and it just
+
+00:38:53.680 --> 00:38:56.800
+adds more detail to some such as
+prominence
+
+00:38:56.800 --> 00:39:02.079
+um
+so uh you know whenever possible uh you
+
+00:39:02.079 --> 00:39:07.119
+know
+ask for and then scrutinize uh whether
+
+00:39:07.119 --> 00:39:11.520
+uh the the product is doing that uh we
+are nearing our time so we have to run
+
+00:39:11.520 --> 00:39:15.520
+through time for questions i should say
+i'm going to allow
+
+00:39:15.520 --> 00:39:20.240
+almost 10 minutes for questions so we're
+going to go a little faster here
+
+00:39:21.839 --> 00:39:25.200
+test it yourself
+hopefully you've got a report so you
+
+00:39:25.200 --> 00:39:29.119
+don't have to test everything you can
+spot check and just reality check um why
+
+00:39:29.119 --> 00:39:33.119
+do i say that um
+because it's easy to exaggerate even a
+
+00:39:33.119 --> 00:39:37.040
+well-written report
+i've seen this happen boy this was a
+
+00:39:37.040 --> 00:39:41.280
+great report they're so proud of their
+their accessibility but like it was an
+
+00:39:41.280 --> 00:39:45.200
+authoring tool it was really hard to use
+it was like oh i guess you can do that
+
+00:39:45.200 --> 00:39:48.960
+but wow that was hard so
+you know
+
+00:39:48.960 --> 00:39:54.000
+like any marketing claims you know
+go and test it but at least you know
+
+00:39:54.000 --> 00:39:57.200
+what the claim is you're not starting
+from a blank
+
+00:39:57.200 --> 00:40:01.119
+slate and again i just want to emphasize
+the importance of these prompts
+
+00:40:01.119 --> 00:40:05.119
+especially i mean especially if you have
+a bunch of content authors i mean
+
+00:40:05.119 --> 00:40:08.000
+there's no way you're going to create an
+accessible website without good
+
+00:40:08.000 --> 00:40:11.599
+prompting
+it just makes it too hard um so test
+
+00:40:11.599 --> 00:40:15.920
+those prompts yourself see if the
+and and others in this uh others in this
+
+00:40:15.920 --> 00:40:19.920
+series for what of wordpress
+accessibility day have have really shown
+
+00:40:19.920 --> 00:40:23.839
+you how to do that um here's an example
+of good prompts for those who are
+
+00:40:23.839 --> 00:40:27.040
+developing content management systems do
+take a look at
+
+00:40:27.040 --> 00:40:32.240
+microsoft's accessibility checker built
+into office it is prominent at its same
+
+00:40:32.240 --> 00:40:36.640
+level as the
+um as the spell checker now
+
+00:40:36.640 --> 00:40:40.560
+you can leave it on all the time it's
+great that's what all content management
+
+00:40:40.560 --> 00:40:44.720
+systems should do
+um so i'm gonna anticipate a couple of
+
+00:40:44.720 --> 00:40:49.440
+your questions okay so just tell me what
+are the best content management systems
+
+00:40:49.440 --> 00:40:52.960
+for accessibility what are they it's
+wordpress right
+
+00:40:52.960 --> 00:40:57.280
+uh i'm not going to answer that
+uh this is like
+
+00:40:57.280 --> 00:41:02.000
+in 2001 a space odyssey saying how
+please open the podbay doors now says
+
+00:41:02.000 --> 00:41:06.319
+i'm sorry dave i can't do that i'm sorry
+i can't tell you exactly what the best
+
+00:41:06.319 --> 00:41:10.000
+content management systems are uh not
+because i'm trying to kill you in outer
+
+00:41:10.000 --> 00:41:14.880
+space um because it because none of them
+is perfect and what's going to work best
+
+00:41:14.880 --> 00:41:20.640
+is going to vary by your needs uh so
+i've listed some links here download the
+
+00:41:20.640 --> 00:41:25.200
+slides i'll give you the link for that
+in a moment here
+
+00:41:25.200 --> 00:41:28.880
+and i'm just going to highlight one of
+these this one in the middle textbox
+
+00:41:28.880 --> 00:41:32.319
+digital
+some folks in the uk
+
+00:41:32.319 --> 00:41:38.240
+have this this helped you can filter it
+by content management systems and find
+
+00:41:38.240 --> 00:41:40.880
+their accessibility statements it's
+really cool
+
+00:41:40.880 --> 00:41:45.839
+come back to that um
+this is more for i was not going to go
+
+00:41:45.839 --> 00:41:50.640
+over this in any case in detail but if
+you are a buyer it's a great idea to
+
+00:41:50.640 --> 00:41:54.319
+have a procurement policy
+not just for content management systems
+
+00:41:54.319 --> 00:41:59.119
+but for any software websites that you
+hire or buy
+
+00:41:59.119 --> 00:42:03.119
+and some great resources plentiful
+resources on the internet to say how to
+
+00:42:03.119 --> 00:42:06.000
+set up your
+how to
+
+00:42:06.000 --> 00:42:10.000
+how to make sure that you
+invest in the right ways um
+
+00:42:10.000 --> 00:42:13.119
+and then
+uh on the vendor side those who create
+
+00:42:13.119 --> 00:42:16.880
+the content management systems um you
+know these statements that we talked
+
+00:42:16.880 --> 00:42:22.720
+about here's how to make them
+um and still you say
+
+00:42:22.720 --> 00:42:26.960
+ah this is so much mitchell but i need a
+content management system right now tell
+
+00:42:26.960 --> 00:42:30.640
+me the minimum
+well first i'll say
+
+00:42:30.640 --> 00:42:34.480
+you know don't skip it entirely because
+do you really need it so soon that
+
+00:42:34.480 --> 00:42:38.560
+you're willing to choose the wrong one i
+i yeah so there's the challenging
+
+00:42:38.560 --> 00:42:41.119
+question
+take a breath
+
+00:42:41.119 --> 00:42:45.359
+choose the right system and if you could
+only check one thing if i could only
+
+00:42:45.359 --> 00:42:48.640
+check one thing if i could do this i
+would say take a website that was
+
+00:42:48.640 --> 00:42:53.040
+produced by that and have a person
+really use a screen reader as well check
+
+00:42:53.040 --> 00:42:56.800
+it out and choose a website that's like
+what you want to make
+
+00:42:56.800 --> 00:43:01.839
+if if it can't do that yeah you you need
+to ask more questions
+
+00:43:01.839 --> 00:43:05.440
+um
+i'm going to end with these thoughts um
+
+00:43:05.440 --> 00:43:11.040
+like
+is a fully conformant cms possible i say
+
+00:43:11.040 --> 00:43:15.280
+yes that's possible and here's a
+thought-provoking question
+
+00:43:15.280 --> 00:43:21.040
+is how to do that
+um and i say
+
+00:43:21.040 --> 00:43:25.040
+together we can do that that's what this
+whole community is going to do together
+
+00:43:25.040 --> 00:43:29.760
+by being demanding customers
+by the dedication that the core
+
+00:43:29.760 --> 00:43:34.720
+wordpress team and other and other
+vendors are putting into this uh
+
+00:43:34.720 --> 00:43:38.720
+we just keep working at it keep asking
+these how questions how is the right
+
+00:43:38.720 --> 00:43:44.800
+question until we get this done
+so with that uh we are a couple minutes
+
+00:43:44.800 --> 00:43:49.119
+into the content into the questions we
+do have if i'm not mistaken
+
+00:43:49.119 --> 00:43:51.920
+six more minutes for questions we'll get
+some here and we'll make sure that they
+
+00:43:51.920 --> 00:43:56.000
+all get answered later
+thank you
+
+00:43:56.720 --> 00:44:01.680
+thank you so much mitchell that was uh
+insightful presentation
+
+00:44:01.680 --> 00:44:07.200
+we all learned a lot
+today i'm sure the community itself
+
+00:44:07.200 --> 00:44:11.200
+the organizers
+stakeholders out there people who want
+
+00:44:11.200 --> 00:44:16.800
+to learn about accessibility was able to
+take away a lot of great points out of
+
+00:44:16.800 --> 00:44:18.800
+this
+so
+
+00:44:18.800 --> 00:44:24.720
+we will begin the question and answer
+session we have five or six questions so
+
+00:44:24.720 --> 00:44:28.720
+the first one
+what are your recommendations to the
+
+00:44:28.720 --> 00:44:35.400
+community
+building wordpress to be more accessible
+
+00:44:39.200 --> 00:44:43.040
+i will i should have given you a couple
+of disclaimers up front one is that i am
+
+00:44:43.040 --> 00:44:46.720
+not a wordpress expert so
+i'm going to answer that in a more
+
+00:44:46.720 --> 00:44:50.720
+general
+general way
+
+00:44:51.520 --> 00:44:54.160
+and
+it's a little bit of a repeat of what i
+
+00:44:54.160 --> 00:44:58.160
+said which is you know i think that
+prompting for authors prompting for
+
+00:44:58.160 --> 00:45:02.800
+content creators
+um like if you do that well
+
+00:45:02.800 --> 00:45:06.640
+that's the first thing to do well
+um
+
+00:45:06.640 --> 00:45:08.960
+uh i
+i i would
+
+00:45:08.960 --> 00:45:11.359
+say
+that
+
+00:45:11.359 --> 00:45:15.520
+i'm tempted to it's a hard it's a it's a
+close second though to make the
+
+00:45:15.520 --> 00:45:20.079
+interface itself accessible and it's not
+just to meet the requirements
+
+00:45:20.079 --> 00:45:23.920
+but to make the actual authoring
+experience rock solid for people with
+
+00:45:23.920 --> 00:45:26.560
+disabilities
+there's two great things that happen
+
+00:45:26.560 --> 00:45:29.839
+when you do that
+one is
+
+00:45:29.839 --> 00:45:33.920
+you help solve the employment gap
+people with disabilities around the
+
+00:45:33.920 --> 00:45:36.640
+world
+are today
+
+00:45:36.640 --> 00:45:39.920
+you know statistics are shockingly
+consistent that are like employed less
+
+00:45:39.920 --> 00:45:43.359
+than half the rate of people without
+disabilities
+
+00:45:43.359 --> 00:45:48.160
+and the digital world can solve that but
+another great way another great reason
+
+00:45:48.160 --> 00:45:52.640
+to want to make your
+authoring experience accessible is that
+
+00:45:52.640 --> 00:45:54.720
+then
+you've got
+
+00:45:54.720 --> 00:46:00.400
+people with disabilities
+um both authoring and checking the
+
+00:46:00.400 --> 00:46:04.800
+results of their authoring and so you've
+got a really great community feedback
+
+00:46:04.800 --> 00:46:08.960
+loop to tell you not only how to make
+your authoring process better but how to
+
+00:46:08.960 --> 00:46:13.040
+make the output better you've got more
+people with disabilities scrutinizing
+
+00:46:13.040 --> 00:46:18.079
+that output so that's a fairly broad
+kind of philosophical answer um
+
+00:46:18.079 --> 00:46:21.839
+and like i said i'm not actually the
+wordpress expert i want to take a step
+
+00:46:21.839 --> 00:46:26.319
+back and put wordpress in the context of
+authoring tools and content management
+
+00:46:26.319 --> 00:46:31.680
+systems in general i agree with you
+mitchell but you do did mention that
+
+00:46:31.680 --> 00:46:35.760
+it's a community and we should make
+changes together so which is why your
+
+00:46:35.760 --> 00:46:39.200
+comment does make an impact
+and it
+
+00:46:39.200 --> 00:46:43.280
+it's adding value to initiatives such as
+wp accessibility day so the next
+
+00:46:43.280 --> 00:46:47.839
+question
+how can we sell the idea or even educate
+
+00:46:47.839 --> 00:46:54.400
+our leadership on leads to make
+accessibility a top priority
+
+00:46:54.560 --> 00:46:59.520
+um there's many answers to that question
+and um i will just hit a couple of high
+
+00:46:59.520 --> 00:47:05.520
+points um
+um i probably everybody on on
+
+00:47:05.520 --> 00:47:08.480
+one answer is watch all of the
+presentations for wordpress
+
+00:47:08.480 --> 00:47:11.920
+accessibility day because i think that's
+just a theme throughout
+
+00:47:11.920 --> 00:47:14.960
+um and
+
+00:47:16.079 --> 00:47:20.160
+i mean
+the the best way is because
+
+00:47:20.160 --> 00:47:23.280
+you're
+you care about users in general you care
+
+00:47:23.280 --> 00:47:27.359
+about your customers you want to have
+more customers you don't want to slap
+
+00:47:27.359 --> 00:47:31.440
+your customers in the face when they
+come wanting to use your content
+
+00:47:31.440 --> 00:47:35.200
+so whenever you can think about it in
+terms of a user-centered
+
+00:47:35.200 --> 00:47:37.760
+approach
+if your company culture is already
+
+00:47:37.760 --> 00:47:42.720
+thinking about your users these are your
+users that's the always the best way to
+
+00:47:42.720 --> 00:47:46.559
+start
+if that doesn't get their attention
+
+00:47:46.559 --> 00:47:50.480
+um you know
+go back to those slides with the
+
+00:47:50.480 --> 00:47:55.920
+complex rules around the world and the
+requirements and the legis and the
+
+00:47:55.920 --> 00:48:00.079
+legislation and the
+lawsuits and scare them a little bit but
+
+00:48:00.079 --> 00:48:03.599
+then once you've scared them come back
+to doing the right thing don't just
+
+00:48:03.599 --> 00:48:06.480
+think about laws all the time just
+that's the reason
+
+00:48:06.480 --> 00:48:09.680
+to begin doing the right thing and then
+come back to that first question what
+
+00:48:09.680 --> 00:48:14.880
+can we do for the users
+absolutely next question
+
+00:48:14.880 --> 00:48:19.920
+imagine you don't know anything about
+wordpress and checking its bb-80 would
+
+00:48:19.920 --> 00:48:26.960
+you consider using it as a cms
+uh so uh i have not so somebody please
+
+00:48:26.960 --> 00:48:31.920
+ping me if there is one i have not seen
+uh like wordpress core having its own
+
+00:48:31.920 --> 00:48:35.359
+vpat
+report
+
+00:48:35.359 --> 00:48:38.960
+so i'm going to answer it a little
+differently looking at
+
+00:48:38.960 --> 00:48:43.760
+looking at wordpress's accessibility
+statements which i just had one link in
+
+00:48:43.760 --> 00:48:46.960
+there just in the interest of time i
+just said here this is the start here
+
+00:48:46.960 --> 00:48:52.160
+page but as many others on this
+uh series have talked about you know
+
+00:48:52.160 --> 00:48:55.920
+really drilling down into you know
+choosing the accessibility ready
+
+00:48:55.920 --> 00:49:00.240
+templates developing your own templates
+watching out for the plugins you know
+
+00:49:00.240 --> 00:49:04.400
+it's got just a ton of information there
+it says what works and what doesn't it
+
+00:49:04.400 --> 00:49:08.960
+really comes across as very um
+transparent
+
+00:49:08.960 --> 00:49:13.440
+um and honest about what works and what
+doesn't it tells you exactly how to go
+
+00:49:13.440 --> 00:49:18.880
+and find the known issues so you know at
+a glance i say it has
+
+00:49:18.880 --> 00:49:25.839
+you know has what we're looking for um
+one other thing i flew by and so these
+
+00:49:25.839 --> 00:49:28.559
+are sort of
+i guess i have to say that i haven't
+
+00:49:28.559 --> 00:49:33.520
+gone and done the same level of deep
+verification for wordpress that i listed
+
+00:49:33.520 --> 00:49:36.800
+that each of us should do
+um
+
+00:49:36.800 --> 00:49:42.559
+and um and that that still
+hasn't been done in
+
+00:49:42.559 --> 00:49:45.119
+in years anyway like
+uh
+
+00:49:45.119 --> 00:49:50.720
+i know that i know the uh the gutenberg
+uh uh block editor got a detailed uh
+
+00:49:50.720 --> 00:49:55.359
+audit uh taking a look at that um
+oh so there's an example i did take a
+
+00:49:55.359 --> 00:50:01.440
+look at that piece of it and um well
+yeah i mean it was it was audited by um
+
+00:50:01.440 --> 00:50:05.280
+a very well-known and reputable uh third
+party and
+
+00:50:05.280 --> 00:50:08.720
+i could see that it covered the
+different pieces
+
+00:50:08.720 --> 00:50:12.720
+you know the different requirements well
+including the prompting pretty well
+
+00:50:12.720 --> 00:50:17.520
+um so yeah i mean there's a lot to like
+about wordpress and it just it lets you
+
+00:50:17.520 --> 00:50:21.680
+know where the problems are and you can
+work around them or work around them and
+
+00:50:21.680 --> 00:50:25.359
+and and
+put and put and upvote them as well you
+
+00:50:25.359 --> 00:50:28.480
+know
+yeah that's all
+
+00:50:28.480 --> 00:50:33.200
+yeah thank you so much mitchell uh i
+would have loved to continue the q a but
+
+00:50:33.200 --> 00:50:38.240
+we are out of time so thank you so much
+once again i would encourage you to
+
+00:50:38.240 --> 00:50:42.480
+post your answers on our website uh so
+that the question that are posted that
+
+00:50:42.480 --> 00:50:48.480
+can also be addressed uh on that note uh
+we come to the end of the session if
+
+00:50:48.480 --> 00:50:53.680
+it's true it ain't bragging choosing
+scms for accessibility i want to thank
+
+00:50:53.680 --> 00:50:58.000
+everyone for attending uh for this
+session with michelle and myself you can
+
+00:50:58.000 --> 00:51:01.839
+continue the conversation using the
+hashtag wpad
+
+00:51:01.839 --> 00:51:07.040
+wpad2020
+and add wp accessibility and don't
+
+00:51:07.040 --> 00:51:11.440
+forget to attend the next stop making
+accessible accessibility reports with
+
+00:51:11.440 --> 00:51:17.280
+caleb ryan uh chart at 10 am utc here in
+the same track with myself see you right
+
+00:51:17.280 --> 00:51:21.839
+here after the break so we will catch
+you again sometime later
+
+00:51:21.839 --> 00:51:26.760
+from now
+thank you very much thank you bye-bye

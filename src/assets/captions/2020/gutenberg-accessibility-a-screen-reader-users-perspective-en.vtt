@@ -1,0 +1,2074 @@
+WEBVTT
+
+00:00:04.880 --> 00:00:13.059
+Hello everyone, uh, welcome to the WordPress
+Accessibility Day 2020. My name is Roberto
+
+00:00:13.059 --> 00:00:20.400
+Remedios. I live in San Jose, Costa Rica,
+um [Raghavendra] Hello everyone.
+
+00:00:20.400 --> 00:00:31.610
+[Roberto] I'm user experience and user interface
+designer. I'm also
+
+00:00:31.610 --> 00:00:37.470
+an advocate to accessibility. I have been
+working on accessibility a couple of years
+
+00:00:37.470 --> 00:00:47.070
+already I fund with a couple of friends a
+local meetup group here and Facebook group,
+
+00:00:47.070 --> 00:00:52.710
+mostly material in Spanish. My native language
+is Spanish, so if you know the accent sorry
+
+00:00:52.710 --> 00:01:03.960
+um. Well the next talk that we're gonna listen
+is the Gutenberg
+
+00:01:03.960 --> 00:01:07.680
+Accessibility, A Screen Reader User Perspective.
+
+00:01:07.680 --> 00:01:19.119
+The speaker will be Raghavendra Satish.
+Raghavendra is a Digital Accessibility evangelist.
+
+00:01:19.119 --> 00:01:25.450
+He works at the Deque Systems as a Senior
+Accessibility Consultant.
+
+00:01:25.450 --> 00:01:29.939
+He's always breaking the web and uh mobile
+accessibility
+
+00:01:29.939 --> 00:01:37.130
+challenges. He's author of an Accessibility
+Blog,
+
+00:01:37.130 --> 00:01:46.709
+and is galvanizing the adoption of accessibility
+by inspiring inspiring the local tech community
+
+00:01:46.709 --> 00:01:55.729
+with meetups and mentorships. He propelled
+his thoughts by founding HelloA11Y a community
+
+00:01:55.729 --> 00:02:02.279
+accessibility, accessibility professionals.
+
+00:02:02.279 --> 00:02:07.939
+When he's away from his computer we can find
+Raghava
+
+00:02:07.939 --> 00:02:18.030
+at the local cafes and restaurants sampling
+cuisine, attending local meetups, these audiobooks
+
+00:02:18.030 --> 00:02:26.620
+or writing on his personal blog. He also helped
+the small business um,
+
+00:02:26.620 --> 00:02:31.610
+help a small business and individuals, digital
+training,
+
+00:02:31.610 --> 00:02:44.060
+marketing and SEO consulting. He has been
+building websites and doing SEO consulting
+
+00:02:44.060 --> 00:02:53.580
+for more than 14 years. So please, let's welcome
+Raghavendra. And thank you.
+
+00:02:53.580 --> 00:02:57.800
+[Raghavendra] Thank you Roberto. uh am I audible
+now?
+
+00:02:57.800 --> 00:03:02.150
+[Roberto] You have your presentation right
+now and your presentation is full screen,
+
+00:03:02.150 --> 00:03:04.240
+so you're ready to go.
+
+00:03:04.240 --> 00:03:11.570
+[Raghavendra] Okay, hi everyone. Welcome to
+WordPress Accessibility Day 2020. I'm excited
+
+00:03:11.570 --> 00:03:17.130
+to be here to sharing my views on Gutenberg
+Accessibility. Uh I'm a person with visual
+
+00:03:17.130 --> 00:03:23.490
+disability. My name is Raghavendra and I'll
+be sharing some of my insights as a person
+
+00:03:23.490 --> 00:03:26.120
+with disability who is using Gutenberg .
+
+00:03:26.120 --> 00:03:31.190
+I've been building websites on WordPress for
+about 12 years now.
+
+00:03:31.190 --> 00:03:38.600
+And just because it's easy to build websites
+on WordPress. It's it, like I fell in love
+
+00:03:38.600 --> 00:03:47.460
+with WordPress. I worked with Joomla, I worked
+with Drupal and other CMS content management
+
+00:03:47.460 --> 00:03:48.460
+systems,
+
+00:03:48.460 --> 00:03:53.690
+but I fell in love with WordPress about 12
+years back when I initially started uh with
+
+00:03:53.690 --> 00:03:58.420
+web. And
+
+00:03:58.420 --> 00:04:03.770
+as Roberto introduced, I work with Deque Systems
+as a Senior Accessibility Consultant. I also
+
+00:04:03.770 --> 00:04:15.190
+run a meetup community called HelloA11y, HelloA11y.com
+and we do a lot of meetups and small conferences
+
+00:04:15.190 --> 00:04:21.600
+here in India for to nurture accessibility
+and promote accessibility within the tech
+
+00:04:21.600 --> 00:04:25.540
+community.
+
+00:04:25.540 --> 00:04:31.450
+So today's agenda is going to be about Gutenberg
+Accessibility. We all know that Gutenberg
+
+00:04:31.450 --> 00:04:39.390
+is a rich editor that is introduced into WordPress
+and I, I'll be taking you through some of
+
+00:04:39.390 --> 00:04:45.730
+the accessibility challenges, usability challenges,
+uh like how people with screen readers and
+
+00:04:45.730 --> 00:04:53.450
+people with disabilities perceive content
+and some of my insights on how I work with
+
+00:04:53.450 --> 00:05:01.020
+Gutenberg and basically how I work with content
+more for my blogs that I run. I run about
+
+00:05:01.020 --> 00:05:10.840
+five to six blogs actively and earlier uh
+about few years back I used to own and run
+
+00:05:10.840 --> 00:05:19.000
+more than about 20, 25 web blogs. Basically
+I'm into affiliate marketing, search optimization
+
+00:05:19.000 --> 00:05:26.070
+also, so that's where all my experience working
+with content editing and content management
+
+00:05:26.070 --> 00:05:29.110
+comes.
+
+00:05:29.110 --> 00:05:35.590
+So today's agenda is going to be why Gutenberg
+needs a learning curve. So even as a power
+
+00:05:35.590 --> 00:05:41.051
+screen reader user, when I mean a power screen
+reader user, I'm, I've been using screen reader
+
+00:05:41.051 --> 00:05:52.310
+for about 15 years now since 2005, 2006. I,
+I'm not born blind. I became blind at a later
+
+00:05:52.310 --> 00:05:58.139
+stage in my life due to Retinitis Pigmentosa 
+a genetical disorder. So I've been losing
+
+00:05:58.139 --> 00:06:03.560
+my eyesight for a while and I've been a low
+vision user. I used a screen magnification
+
+00:06:03.560 --> 00:06:11.840
+software like Magic and then slowly I transitioned
+uh in using screen readers full time like
+
+00:06:11.840 --> 00:06:17.370
+JAWS and NVDA,
+uh which I regularly use now as part of my
+
+00:06:17.370 --> 00:06:22.560
+job and day-to-day activities on the computer.
+
+00:06:22.560 --> 00:06:27.699
+So even as a person with a power screen reader
+user, like I've been using for 15 years the
+
+00:06:27.699 --> 00:06:33.690
+screen reader, even for me when I initially
+uh started with Gutenberg, it needs a lot
+
+00:06:33.690 --> 00:06:37.580
+of learning curve,
+because there are no tutorials on how to use
+
+00:06:37.580 --> 00:06:45.690
+Gutenberg with a screen reader. So I'll be
+demoing some of these challenges like as soon
+
+00:06:45.690 --> 00:06:49.620
+as as soon as you get on to the editing part
+of the
+
+00:06:49.620 --> 00:06:58.840
+post, what happens really and how, what are
+the challenges that I faced.
+
+00:06:58.840 --> 00:07:04.480
+So, so how to work with Gutenberg using a
+screen reader. We will be walking through
+
+00:07:04.480 --> 00:07:09.920
+a demo and the usability challenges and and
+then the some of the accessibility challenges
+
+00:07:09.920 --> 00:07:16.340
+that I have seen in Gutenberg.
+
+00:07:16.340 --> 00:07:23.020
+So what is Gutenberg? So Gutenberg is the
+introduced in WordPress 5.0. It is a rich
+
+00:07:23.020 --> 00:07:30.979
+uh editor and in my perspective, what I have
+seen is that you basically being used to create
+
+00:07:30.979 --> 00:07:36.160
+a rich content. When I say rich content, it's
+not just headings, lists, paragraphs, great
+
+00:07:36.160 --> 00:07:43.360
+design also. The topography, all the layouts
+and and it has evolved. Like it came into
+
+00:07:43.360 --> 00:07:49.970
+existence in WordPress 5.0 and right now the
+version WordPress 5.5 is running, and the
+
+00:07:49.970 --> 00:07:58.040
+core uh Gutenberg plugin gets updated every
+two, once in two weeks. And with every major
+
+00:07:58.040 --> 00:08:02.440
+update the core is merged into WordPress core.
+
+00:08:02.440 --> 00:08:11.759
+So what I have seen is there's a collection
+of blogs, when initially the collection of,
+
+00:08:11.759 --> 00:08:17.580
+when everyone started talking about Gutenberg
+and the saying, it's a block based design.
+
+00:08:17.580 --> 00:08:22.830
+As a person with disability I did not understand
+what is a block. So I, I when I was reading
+
+00:08:22.830 --> 00:08:30.389
+articles on other blogs and websites they
+said heading block, paragraph block or you
+
+00:08:30.389 --> 00:08:35.430
+know all the list block. I did not understand
+what is a block.
+
+00:08:35.430 --> 00:08:39.990
+Theoretically it was very difficult to understand
+what was a block.
+
+00:08:39.990 --> 00:08:46.830
+Then when I started working with Gutenberg,
+then I got a clear picture that every section
+
+00:08:46.830 --> 00:08:55.690
+of the content area is designated a block,
+is called a block. Like you you create a heading,
+
+00:08:55.690 --> 00:09:04.290
+it is a block on its own. It, you have a paragraph,
+it's a block on its own. And Gutenberg gives
+
+00:09:04.290 --> 00:09:10.320
+a lot of control over the content and the
+layout of these blocks.
+
+00:09:10.320 --> 00:09:21.779
+So you can customize all the font size, colour
+uh and styling of all the fonts and all. So
+
+00:09:21.779 --> 00:09:27.120
+these are some of the options that I have
+seen and uh from the technical standpoint
+
+00:09:27.120 --> 00:09:32.839
+like for a person with visual disability,
+it was not very useful for me to go and edit,
+
+00:09:32.839 --> 00:09:38.040
+because I'm not sure what exactly, what the
+color is going to be on the front end. And
+
+00:09:38.040 --> 00:09:52.650
+also I normally generally use the basic themes
+settings that are there.
+
+00:09:52.650 --> 00:09:57.390
+So we all know that the Gutenberg accessibility
+story, it's merged with 5.0.
+
+00:09:57.390 --> 00:10:07.200
+There was a lot of push back from the accessibility
+community and a lot of accessibility professionals
+
+00:10:07.200 --> 00:10:12.870
+and the wider community itself said that it
+should not be merged with 5.0, because it's
+
+00:10:12.870 --> 00:10:17.130
+not mature.
+And what, there were a lot of articles on
+
+00:10:17.130 --> 00:10:22.440
+the web where it was told that it was written,
+
+00:10:22.440 --> 00:10:30.180
+like the design aspect, like accessibility
+is not considered from the start. But what
+
+00:10:30.180 --> 00:10:38.709
+I see is for, with a two week, every two weeks
+development cycle and being pushed every two
+
+00:10:38.709 --> 00:10:44.330
+weeks, it's very difficult to keep up with
+both accessibility design, development, and
+
+00:10:44.330 --> 00:10:49.300
+fixes of accessibility bugs and all that.
+So there were a lot of challenges because
+
+00:10:49.300 --> 00:10:56.670
+there were a lot of moving parts, but uh after
+two years,
+
+00:10:56.670 --> 00:11:03.650
+after two years and what happened in 2019
+is a WP Campus called for an independent audit
+
+00:11:03.650 --> 00:11:09.440
+by an agency, and the agency provided it results
+and we had like close to 300 accessibility
+
+00:11:09.440 --> 00:11:18.140
+bugs that were found, that that were found
+on the Gutenberg. And the Gutenberg was audited,
+
+00:11:18.140 --> 00:11:26.820
+not on the plug-in, but was in the core that
+was merged with WordPress. So what did the
+
+00:11:26.820 --> 00:11:32.000
+WP Campus audit show? It showed like considerable
+amount of accessibility bugs.
+
+00:11:32.000 --> 00:11:38.020
+There were more than 300 accessibility bugs.
+Like couple of more of these bugs were related
+
+00:11:38.020 --> 00:11:45.400
+to authoring tool where you upload a video
+and there were no there is no way to provide
+
+00:11:45.400 --> 00:11:46.400
+caption.
+
+00:11:46.400 --> 00:11:53.690
+So some of these are authoring tool challenges
+and some of them are pure accessibility bugs.
+
+00:11:53.690 --> 00:12:01.950
+And after the WP Campus audit there are a
+lot of bug fixes on the way and the accessibility
+
+00:12:01.950 --> 00:12:06.800
+team started, the development team started
+fixing a lot of these accessibility bugs.
+
+00:12:06.800 --> 00:12:13.740
+And we have seen, I've personally seen some
+of these accessibility fix being uh, in place,
+
+00:12:13.740 --> 00:12:20.589
+during the subsequent Gutenberg plugin releases
+and in the core merge also.
+
+00:12:20.589 --> 00:12:26.570
+And if you go to GitHub, I, I provided the
+link here. There are a couple of significant
+
+00:12:26.570 --> 00:12:34.360
+more accessibility bugs still that are open.
+And some of these bugs are, you know, like
+
+00:12:34.360 --> 00:12:41.540
+pure technical related maybe as a person with
+disability you might not be uh finding it
+
+00:12:41.540 --> 00:12:46.790
+very difficult to navigate, but they are technically
+an accessibility bug, that's why they are
+
+00:12:46.790 --> 00:12:52.019
+called upon.
+
+00:12:52.019 --> 00:12:57.800
+So what, how Gutenberg is uh,
+
+00:12:57.800 --> 00:13:03.600
+very difficult, like, as I said in the previously,
+it's very difficult for screen reader users.
+
+00:13:03.600 --> 00:13:10.240
+So what I did is as a person with visual disability,
+I work with a lot of other people with disability
+
+00:13:10.240 --> 00:13:15.899
+uh in the local community, so me and couple
+of uh my friends who are all screen reader
+
+00:13:15.899 --> 00:13:22.690
+users and some of these people are accessibility
+specialists, so what what I did, I gave them
+
+00:13:22.690 --> 00:13:30.959
+the Guten, I installed the Gutenberg plug-in
+and we, I I studied them how they're going
+
+00:13:30.959 --> 00:13:33.830
+to use.
+And some of the power screen reader users
+
+00:13:33.830 --> 00:13:36.910
+found it very difficult. They they did not
+understand,
+
+00:13:36.910 --> 00:13:42.360
+but like, the there are a lot of elements
+like, as soon as you open the post screen
+
+00:13:42.360 --> 00:13:43.399
+add new post screen,
+
+00:13:43.399 --> 00:13:49.050
+there are lot of elements and you click on
+add block and your focus moves to a search
+
+00:13:49.050 --> 00:13:55.010
+field.
+So there they are like caught off guard completely.
+
+00:13:55.010 --> 00:13:59.270
+So we are going to discuss some of these during
+the demo. Like I'll be running a demo of how
+
+00:13:59.270 --> 00:14:06.160
+I use Gutenberg and how you know,
+it is very different from our Classic Editor.
+
+00:14:06.160 --> 00:14:10.649
+What happens in our Classic Editor is like
+you have the title screen and there you have
+
+00:14:10.649 --> 00:14:14.630
+the content area where you type in the content.
+
+00:14:14.630 --> 00:14:21.110
+Or generally what happens is as a person with
+disability, we generally use uh Microsoft
+
+00:14:21.110 --> 00:14:28.070
+Word and we type in our content and then we
+put it in the Classic Editor and we use screen
+
+00:14:28.070 --> 00:14:34.880
+uh shortcut keys in the Classic Editor to
+give a heading paragraph and block code and
+
+00:14:34.880 --> 00:14:43.950
+other markup to these, to the content that
+we created. So it was pretty easy for us and
+
+00:14:43.950 --> 00:14:46.370
+some of them you know said
+
+00:14:46.370 --> 00:14:55.640
+that, we know HTML, so what they do is they
+use the Classic Editor text, text mode instead
+
+00:14:55.640 --> 00:15:01.020
+of visual editor and they mark up the content
+directly in Microsoft Word and they just put
+
+00:15:01.020 --> 00:15:08.680
+it in the editor and just publish the content.
+And that's where you know as a screen reader
+
+00:15:08.680 --> 00:15:16.790
+user it needs a lot of learning curve here.
+And it, it's a lot of visual aspect Gutenberg,
+
+00:15:16.790 --> 00:15:24.029
+as I said, earlier uh. It's,
+it's there to create great visual design,
+
+00:15:24.029 --> 00:15:30.200
+but as a person with disability and who has
+been writing content for more than 12,12 to
+
+00:15:30.200 --> 00:15:36.899
+14 years uh, I did not find it, like for me
+it's just headings, paragraph, it's more of
+
+00:15:36.899 --> 00:15:43.180
+content than visual aspect of the [unintelligible].
+
+00:15:43.180 --> 00:15:48.660
+So one, one of the challenges that we also
+faced is with regard to the block definitions.
+
+00:15:48.660 --> 00:15:55.290
+So some of the blocks, like if you go out
+onto the Gutenberg search area and go category
+
+00:15:55.290 --> 00:16:00.730
+by category, there are some of these blocks
+like markdown block or uh some of the code
+
+00:16:00.730 --> 00:16:07.660
+or you know it's a separator or so there are
+some of these blocks that we we did not understand,
+
+00:16:07.660 --> 00:16:14.550
+what it, what exactly that block does. Okay
+so some of these blocks for which we tried
+
+00:16:14.550 --> 00:16:19.519
+to find definition and we were not able to
+find. So we felt that you know, if there is
+
+00:16:19.519 --> 00:16:24.310
+a help what exactly this block does? Like
+how it is going to show up in the front end?
+
+00:16:24.310 --> 00:16:30.760
+It would have been very helpful for us to
+use some of these blocks.
+
+00:16:30.760 --> 00:16:39.720
+So I'm going to show a demo right now. So
+Robert, Robert, I'll be sharing my uh screen
+
+00:16:39.720 --> 00:16:46.300
+reader sound, on over the zoom so that people
+will be able to hear what I'm navigating.
+
+00:16:46.300 --> 00:16:57.930
+[Roberto] Yeah the the thing is um let me
+talk with the administrator, because I think
+
+00:16:57.930 --> 00:17:01.470
+what you are sharing is your computer sound.
+
+00:17:01.470 --> 00:17:02.610
+[Raghavendra] Yes
+
+00:17:02.610 --> 00:17:09.770
+[Roberto] Maybe can you place uh your mic
+close to the screen reader?
+
+00:17:09.770 --> 00:17:15.339
+[Raghavendra] Okay, you're able to hear my
+screen reader?
+
+00:17:15.339 --> 00:17:22.170
+[Roberto] Yes, we hear your screen reader.
+
+00:17:22.170 --> 00:17:31.900
+[Raghavendra] So I'm here on a screen uh,
+this is a post, I created a demo post here.
+
+00:17:31.900 --> 00:17:39.480
+So first to get a feel of this particular
+page this screen, I use headings. So what
+
+00:17:39.480 --> 00:17:47.000
+I'm going to do is I'm going to press control
+home to go to the top of the page and then
+
+00:17:47.000 --> 00:17:48.240
+[Screen Reader] [unintelligible].... slower
+slower slower slower slower.
+
+00:17:48.240 --> 00:17:49.290
+[Raghavendra] I'm going to press H.
+
+00:17:49.290 --> 00:17:53.240
+[Screen Reader] Edit post heading level 1,
+script setting level 2, status and visibility
+
+00:17:53.240 --> 00:17:58.141
+heading level 2 button expanded, permalink
+heading level 2 button expanded, view post
+
+00:17:58.141 --> 00:17:59.419
+heading level 3,
+
+00:17:59.419 --> 00:18:03.520
+categories heading level two button expanded,
+tags heading level two button collapsed, feature
+
+00:18:03.520 --> 00:18:07.710
+image heading level two button collapsed,
+excerpt heading level two button collapsed,
+
+00:18:07.710 --> 00:18:11.520
+discussion heading level two button collapsed,
+link suggestions heading level two clickable,
+
+00:18:11.520 --> 00:18:13.140
+wrapping to top, edit post heading level one.
+
+00:18:13.140 --> 00:18:17.510
+[Raghavendra] So, I know I'm at the edit post
+then, I'm going to press tab here.
+
+00:18:17.510 --> 00:18:21.910
+[Screen reader] Tab, document tools, toolbars
+only, add block toggle button.
+
+00:18:21.910 --> 00:18:27.000
+[Raghavendra] So that's a tool bar, so as
+soon as I hear it's a tool bar, as a person
+
+00:18:27.000 --> 00:18:31.590
+with screen reader user, I know that I had
+to use arrow keys to navigate. Let's see what
+
+00:18:31.590 --> 00:18:32.590
+happens.
+
+00:18:32.590 --> 00:18:41.850
+[Screen Reader] Tool, undo button, redo button
+available, content structure button collapse,
+
+00:18:41.850 --> 00:18:47.530
+block navigation button, add block toggle
+button,
+
+00:18:47.530 --> 00:18:51.660
+tools button collapsed, to activate press
+spacebar, undo button
+
+00:18:51.660 --> 00:18:54.330
+[Raghavendra] So, let's add a block.
+
+00:18:54.330 --> 00:18:59.200
+[Screen Reader] Add block toggle button enter,
+toggle button, press search for a block, block
+
+00:18:59.200 --> 00:19:03.070
+library region, search for a block edit, search
+for a block, type and text, 110 results found.
+
+00:19:03.070 --> 00:19:04.070
+[Raghavendra] Okay
+
+00:19:04.070 --> 00:19:08.500
+[Screen reader] Tab, tab, blocks tab, selected
+use clause key plus plus m to move the controled
+
+00:19:08.500 --> 00:19:09.500
+element, one of three.
+
+00:19:09.500 --> 00:19:13.210
+[Raghavendra] So if you see here, there are
+three tabs: one is blocks.
+
+00:19:13.210 --> 00:19:14.799
+[Screen Reader] Patterns tab selected styles
+...
+
+00:19:14.799 --> 00:19:17.220
+[Raghavendra] This, these are block patterns.
+
+00:19:17.220 --> 00:19:20.040
+[Screen Reader] Reusable tabs selected used
+
+00:19:20.040 --> 00:19:25.870
+[Raghavendra] And reusable blocks. So one
+of the one of the things that confused me
+
+00:19:25.870 --> 00:19:32.940
+is about this block patterns and the block
+templates. So uh after reading a lot of articles
+
+00:19:32.940 --> 00:19:38.440
+and tutorials, I came to understand that these
+are some of the pre, pre-designed templates
+
+00:19:38.440 --> 00:19:45.130
+that a person can use. Just select one of
+these block pattern and you can, the visual
+
+00:19:45.130 --> 00:19:49.910
+aspect of the pattern will appear in the front
+end and just you need to update the content .
+
+00:19:49.910 --> 00:19:56.090
+So it was very difficult to understand when
+the blocks came, I, it took me a while to
+
+00:19:56.090 --> 00:20:00.100
+understand and then block patterns is something
+again it's confusing for me.
+
+00:20:00.100 --> 00:20:01.400
+So let's go to block.
+
+00:20:01.400 --> 00:20:08.730
+[Screen Reader] Blocks tab selected, use tab,
+blocks tab panel, text list box, markdown,
+
+00:20:08.730 --> 00:20:10.190
+one of 11
+
+00:20:10.190 --> 00:20:11.190
+[Raghavendra] Okay.
+
+00:20:11.190 --> 00:20:17.490
+[Screen Reader] Paragraph, heading, list,
+quote, five of 11, code, six of 11.
+
+00:20:17.490 --> 00:20:18.490
+[Raghavendra] Okay, let's
+
+00:20:18.490 --> 00:20:23.700
+[Screen Reader] Five of 11, enter, editor
+content region,
+
+00:20:23.700 --> 00:20:26.080
+add block, block tools ,
+add title demo, content right heading, paragraph,
+
+00:20:26.080 --> 00:20:28.940
+block,write heading, paragraph block, empty
+block, semicolon, start writing or type forward
+
+00:20:28.940 --> 00:20:31.561
+slash that chooses a block, block colon, quote
+block, add block, block colon quote, right
+
+00:20:31.561 --> 00:20:36.190
+quote, edit contains text, type and text,
+percent, right quote edit, contains text,
+
+00:20:36.190 --> 00:20:41.800
+empty block, semicolon, start writing block
+colon quotes, right quote, edit contains
+
+00:20:41.800 --> 00:20:45.140
+text,
+type and text, write citation, edit write
+
+00:20:45.140 --> 00:20:48.660
+quote, edit contains text, type and text,
+home selected,
+
+00:20:48.660 --> 00:20:56.160
+out of table, right citation, edit, contain
+write quote, edit, contains text, type and
+
+00:20:56.160 --> 00:20:57.700
+text [Raghavendra] Okay
+
+00:20:57.700 --> 00:21:04.580
+[Screen Reader] t-h-i-s space i-s space a
+space e-x-a-m-p-l-e, home selected, this is
+
+00:21:04.580 --> 00:21:05.669
+a example quote
+
+00:21:05.669 --> 00:21:11.160
+[Raghavendra] Okay so I, I wrote a quote.
+So what if I want to insert a list block inside
+
+00:21:11.160 --> 00:21:16.470
+this particular quote?
+I don't know, I still did not able to figure
+
+00:21:16.470 --> 00:21:23.240
+out, I was not able to figure out how to embed
+one block inside and like generally what I
+
+00:21:23.240 --> 00:21:29.170
+do is like I write the HTML markup. It's easy
+for me, but if I have to put a list block
+
+00:21:29.170 --> 00:21:33.810
+inside this code block code,
+I don't know how to do it. Let's see if there
+
+00:21:33.810 --> 00:21:34.810
+is an option.
+
+00:21:34.810 --> 00:21:38.799
+[Screen Reader] Shift tab block colon quote,
+shift tab, add block, block tools, block tools
+
+00:21:38.799 --> 00:21:41.011
+toolbar read only, change block type or style
+button menu, press space [Raghavendra] So
+
+00:21:41.011 --> 00:21:47.390
+I am here on the block tools. So there are
+some accessibility challenges with this particular
+
+00:21:47.390 --> 00:21:51.450
+version of Gutenberg, on the core right now.
+[Screen Reader] Space
+
+00:21:51.450 --> 00:21:54.039
+[Raghavendra] So I press space
+
+00:21:54.039 --> 00:21:58.539
+[Screen Reader] Space, change block type,
+or style button menu, press space to activate
+
+00:21:58.539 --> 00:22:02.120
+the menu then navigate with arrow keys, add
+title edit, contains text, type and text [Raghavendra]
+
+00:22:02.120 --> 00:22:04.180
+I press space, I'm not sure...
+
+00:22:04.180 --> 00:22:06.410
+[Screen Reader] demo content, demo content,
+add title
+
+00:22:06.410 --> 00:22:09.110
+[Roberto] We're on the title right now.
+
+00:22:09.110 --> 00:22:11.990
+[Raghavendra] Yeah the focus has completely
+shifted.
+
+00:22:11.990 --> 00:22:14.820
+I, I was trying to expand the more tools.
+
+00:22:14.820 --> 00:22:22.891
+[Screen Reader] Add title, tab right, heading,
+edit, contains text, type and text, space
+
+00:22:22.891 --> 00:22:25.180
+[Raghavendra] Space, okay.
+
+00:22:25.180 --> 00:22:30.910
+[Screen Reader] Shift tab, add block, block
+tools, block tools toolbar, read only, change
+
+00:22:30.910 --> 00:22:33.670
+block type or style button menu, press space
+to activate the menu then navigate with arrow
+
+00:22:33.670 --> 00:22:34.670
+keys.
+
+00:22:34.670 --> 00:22:36.140
+[Raghavendra] I'm going to press space bar
+here.
+
+00:22:36.140 --> 00:22:39.720
+[Screen Reader] Space, expanded, menu, change
+block type or style menu to move through items
+
+00:22:39.720 --> 00:22:40.720
+press up or down arrow
+
+00:22:40.720 --> 00:22:45.870
+[Raghavendra] It says expanded, okay. I'm
+pressing down arrow here,
+
+00:22:45.870 --> 00:22:48.630
+I'm not sure if something is happening over
+there.
+
+00:22:48.630 --> 00:22:55.669
+[Roberto] Yes, you have several options about
+paragraph, group, full quote, but they are
+
+00:22:55.669 --> 00:22:57.760
+not accessible at this point.
+
+00:22:57.760 --> 00:23:02.539
+[Raghavendra] Yeah, yes so none of them are
+read and one of the
+
+00:23:02.539 --> 00:23:05.169
+[Screen Reader] Escape, leaving menus, editor
+content region, add block
+
+00:23:05.169 --> 00:23:09.890
+[Raghavendra] And it's very difficult, one
+of the challenge that I'm faced, we faces,
+
+00:23:09.890 --> 00:23:14.799
+is like creating content directly in Gutenberg
+now.
+
+00:23:14.799 --> 00:23:19.670
+If I have to keep adding, like just imagine
+I have like you know, like 10 paragraphs with
+
+00:23:19.670 --> 00:23:22.950
+10 headings, if I have to go through the process
+of...
+
+00:23:22.950 --> 00:23:25.030
+[Screen Reader] Escape, virtual
+
+00:23:25.030 --> 00:23:28.360
+[Raghavendra] Building each block inputting
+content
+
+00:23:28.360 --> 00:23:30.700
+[Screen Reader] Add title, add title
+
+00:23:30.700 --> 00:23:32.350
+[Raghavendra] One more challenge that I face
+is
+
+00:23:32.350 --> 00:23:36.000
+[Screen Reader] Demo content, right heading,
+edit, contains text
+
+00:23:36.000 --> 00:23:40.060
+[Raghavendra] I'm inside this heading, but
+if I press, if I press down arrow from
+
+00:23:40.060 --> 00:23:41.210
+here, it moves to the
+
+00:23:41.210 --> 00:23:44.810
+[Screen Reader] Paragraph block, edit, contains
+text, next paragraph,
+
+00:23:44.810 --> 00:23:45.870
+[Raghavendra] Next block.
+
+00:23:45.870 --> 00:23:52.240
+[Screen Reader] Right heading, edit contains
+text, type and text, home right heading, hello
+
+00:23:52.240 --> 00:23:53.240
+world, edit
+
+00:23:53.240 --> 00:23:58.150
+[Raghavendra] So if normally generally what
+happens is like when I use up and down arrow,
+
+00:23:58.150 --> 00:24:02.470
+I expect the content to be read in an edit
+area,
+
+00:24:02.470 --> 00:24:06.020
+but here what is happening is we move from
+block block to block.
+
+00:24:06.020 --> 00:24:10.590
+And if I, if I want to select the content
+in this particular heading suppose,
+
+00:24:10.590 --> 00:24:17.280
+generally in an edit area, I do control A,
+what what happens is it select all the blocks.
+
+00:24:17.280 --> 00:24:19.940
+[Screen Reader] Hello world
+
+00:24:19.940 --> 00:24:26.080
+six blocks selected, main region, editor content
+region, add block, block tools, add title,
+
+00:24:26.080 --> 00:24:27.080
+demo contents
+
+00:24:27.080 --> 00:24:29.830
+[Raghavendra] So if you are seeing, have selected
+all the six blocks that are there in the
+
+00:24:29.830 --> 00:24:35.240
+[Screen Reader] Escape, edit post, single
+left point, edit post, add type
+
+00:24:35.240 --> 00:24:37.020
+[Raghavendra] So I'm going back to the screen.
+
+00:24:37.020 --> 00:24:39.450
+[Screen Reader] Right heading, edit, contains
+text, type and text
+
+00:24:39.450 --> 00:24:46.520
+escape virtual PC, cursor, escape, tab right heading,
+button, paragraph block, row two, this is
+
+00:24:46.520 --> 00:24:48.850
+a paragraph block, we are trying to demo this
+with screen reader.
+
+00:24:48.850 --> 00:24:53.430
+[Raghavendra] So this is one of the feature
+that I really loved about Gutenberg where
+
+00:24:53.430 --> 00:24:54.430
+you shift tab.
+
+00:24:54.430 --> 00:24:57.460
+[Screen Reader] Shift tab, right heading,
+button heading block, row one level...
+
+00:24:57.460 --> 00:25:00.520
+[Raghavendra] So there are like six blocks
+I know,
+
+00:25:00.520 --> 00:25:05.920
+row one, row two, it reads out this is a paragraph.
+So once the blocks are in place the hierarchy
+
+00:25:05.920 --> 00:25:12.400
+is easily understood, but creating content
+inside a Gutenberg, it it's becoming very
+
+00:25:12.400 --> 00:25:18.760
+difficult. Because or generally we create
+content like me and my friends or any all
+
+00:25:18.760 --> 00:25:24.299
+the people who manage this blog, that we create
+content in a Word document and we edit, we
+
+00:25:24.299 --> 00:25:32.159
+do spell check in Microsoft Word. We edit
+everything and we put it on a Google sheets,
+
+00:25:32.159 --> 00:25:37.340
+people take it from there and then we used
+to put it in the Classic Editor, format it,
+
+00:25:37.340 --> 00:25:44.440
+publish it. But now taking each piece of content,
+like copying each paragraph or heading into
+
+00:25:44.440 --> 00:25:50.130
+this one became difficult. So now what we
+are doing is we are using the Code Editor.
+
+00:25:50.130 --> 00:25:53.180
+So what I do, is like I press alt ctrl shift
+and
+
+00:25:53.180 --> 00:25:58.250
+[Screen Reader] Alt control shift, right heading,
+code editor selected, edit post, single left
+
+00:25:58.250 --> 00:26:02.059
+point add title, edit, add type, tab, type
+text, read [unintelligible]
+
+00:26:02.059 --> 00:26:06.630
+[Raghavendra] So what we do is we put the
+content here then we do the HTML markup on
+
+00:26:06.630 --> 00:26:12.750
+our own. We are not using the Block Editor
+as much as we are supposed to use. So generally
+
+00:26:12.750 --> 00:26:18.230
+what we do, we create a [Screen Reader] Alt
+control shift, edit post
+
+00:26:18.230 --> 00:26:19.230
+[Raghavendra] We create a block.
+
+00:26:19.230 --> 00:26:21.789
+[Screen Reader] Set of collapse, main menu
+,add block toggle button, enter.
+
+00:26:21.789 --> 00:26:24.200
+[Raghavendra] We select the Classic Block
+
+00:26:24.200 --> 00:26:29.909
+[Screen Reader] Main region block library,
+cell A, sic, tab rest, search button, tab
+
+00:26:29.909 --> 00:26:34.480
+tab blocks tab selected, use [unitelligible]
+keyplus tab blocks tab panel text list box
+
+00:26:34.480 --> 00:26:35.480
+classic, one of one
+
+00:26:35.480 --> 00:26:41.410
+enter, editor content region, block colon
+classic block colon classic edit right heading
+
+00:26:41.410 --> 00:26:44.580
+right heading right head paragraph right heading,
+paragraph empty black semicolon start writing
+
+00:26:44.580 --> 00:26:49.000
+in the right quote edit block colon classic,
+classic, edit, toolbar blank edit
+
+00:26:49.000 --> 00:26:53.930
+[Raghavendra] So we we take the Classic block,
+we paste all the content here, then we go
+
+00:26:53.930 --> 00:26:59.140
+back to the Code Editor using alt, control,
+shift M.
+
+00:26:59.140 --> 00:27:04.450
+We give the markup, the necessary markup,
+or we use some of these rich text  tools
+
+00:27:04.450 --> 00:27:05.450
+here.
+
+00:27:05.450 --> 00:27:10.841
+[Screen Reader] Shift tab, block colon classic
+shift tab, tab, block colon classic, toolbar
+
+00:27:10.841 --> 00:27:12.100
+with a  paragraph button menu menu
+
+00:27:12.100 --> 00:27:13.580
+[Raghavendra] So it's been easy you know
+
+00:27:13.580 --> 00:27:14.900
+[Screen Reader] Bold left bearing control
+
+00:27:14.900 --> 00:27:15.900
+[Raghavendra] Because
+
+00:27:15.900 --> 00:27:17.520
+[Screen Reader] Metallic left parenthe..
+
+00:27:17.520 --> 00:27:20.270
+[Raghavendra] So it is easy to mark a paragraph,
+to add text bold, hold it
+
+00:27:20.270 --> 00:27:22.710
+[Screen reader] List left pair numbers list
+left block with left parenthesis line left
+
+00:27:22.710 --> 00:27:25.390
+left pair of the line center align right left
+insert slash at least left barricade
+
+00:27:25.390 --> 00:27:30.460
+[Raghavendra] So this has been very easy to
+do, otherwise it's becoming very difficult
+
+00:27:30.460 --> 00:27:38.150
+for us to navigate within blocks, select content
+then put it here.
+
+00:27:38.150 --> 00:27:42.050
+And some of the other challenges that we face
+is with the plugins.
+
+00:27:42.050 --> 00:27:43.050
+[Screen Reader] Edit post
+
+00:27:43.050 --> 00:27:48.039
+[Raghavendra] One of the confusion that we
+ran into is understanding the block structures.
+
+00:27:48.039 --> 00:27:50.409
+[Screen Reader] Block
+hold block block block hold block hold block
+
+00:27:50.409 --> 00:27:54.270
+insert tool bar and save button, preview blink
+left paren opens the publish button collapsed,
+
+00:27:54.270 --> 00:27:55.270
+settings toggle button
+
+00:27:55.270 --> 00:27:59.539
+[Raghavendra] So the settings we, we thought
+these settings is part of something to do
+
+00:27:59.539 --> 00:28:00.799
+with Gutenberg.
+
+00:28:00.799 --> 00:28:08.012
+We, I did not realize these are post settings.
+So if I select this post this [Screen Reader]
+
+00:28:08.012 --> 00:28:11.070
+Heading publish button, publish button collapsed,
+settings toggle button pressed [Raghavendra]
+
+00:28:11.070 --> 00:28:12.070
+So all the
+
+00:28:12.070 --> 00:28:14.340
+[Screen Reader] Insert classic heading level
+two, scripts setting level edit post heading
+
+00:28:14.340 --> 00:28:17.610
+level wrapping to the bottom, classic heading
+level two, percent deep [unintelligible] notifications
+
+00:28:17.610 --> 00:28:20.820
+[unintelligible] classic heading level two,
+scripts setting level to toggle command,
+
+00:28:20.820 --> 00:28:24.390
+table with two header scripts clickable, edit
+the lab tool under content block nav and certainly
+
+00:28:24.390 --> 00:28:30.510
+output save draft button, preview button collapsed
+save draft button, enter, saving, preview
+
+00:28:30.510 --> 00:28:35.020
+button collapsed, settings toggle button
+pressed, space, main scripts setting level
+
+00:28:35.020 --> 00:28:38.210
+two, wrapping to top, edit post heading left
+percent D block blank notification blank,
+
+00:28:38.210 --> 00:28:41.360
+main reach list end, classic current,
+rightwards arrow, document button block bread
+
+00:28:41.360 --> 00:28:45.250
+crumb list of two items, document button,
+block breadcrumb list of two items, open publish
+
+00:28:45.250 --> 00:28:49.610
+panel button collapsed, open document settings
+button collapsed, blank, table end, combo
+
+00:28:49.610 --> 00:28:51.299
+box bottom pulling before closing a table,
+blank
+
+00:28:51.299 --> 00:28:54.990
+and open document settings, button collapse,
+space list, document button, block left parent
+
+00:28:54.990 --> 00:28:58.040
+selected right pair classic heading level
+two, wrapping the top, edit post edit heading,
+
+00:28:58.040 --> 00:29:02.549
+percent, document button open publish panel
+button collapsed, enter, main region visibility
+
+00:29:02.549 --> 00:29:05.250
+colon, publish heading, publish colon immediately,
+at suggestion colon add tags,
+
+00:29:05.250 --> 00:29:06.250
+share post heading level
+
+00:29:06.250 --> 00:29:09.990
+[Raghavendra] So if you see all these settings
+are hidden inside this button. It's been very
+
+00:29:09.990 --> 00:29:14.279
+difficult to find some, of these settings
+for us. In the Classic Editor it has been
+
+00:29:14.279 --> 00:29:20.350
+very easy. Like you have the Classic Editor,
+you have the categories, you have the sharing
+
+00:29:20.350 --> 00:29:29.540
+settings you have the uh you know your store
+rank math, the SEO snippet where you can edit
+
+00:29:29.540 --> 00:29:37.520
+everything. It's just one screen with uh you
+know what what you want to show on your screen
+
+00:29:37.520 --> 00:29:42.070
+or not. Like in in the screen settings we
+we used to customize them in the screen settings
+
+00:29:42.070 --> 00:29:48.070
+show these these these uh custom meta boxes
+and you know they used to, we used to edit
+
+00:29:48.070 --> 00:29:53.159
+them, but it after the Gutenberg it's been
+it was difficult.
+
+00:29:53.159 --> 00:29:58.370
+Like one particular time we spent half an
+hour trying to find where the categories heading
+
+00:29:58.370 --> 00:30:05.400
+was, because it was assigned to a default 
+uh uncategorized category, one article. So
+
+00:30:05.400 --> 00:30:07.440
+we were trying to find out where the categories
+is.
+
+00:30:07.440 --> 00:30:09.520
+It became very difficult for us to.
+
+00:30:09.520 --> 00:30:12.580
+[Screen Reader] Feature image heading level
+two share this post heading level two button
+
+00:30:12.580 --> 00:30:13.600
+expanded suggestion colon
+
+00:30:13.600 --> 00:30:20.120
+[Roberto] For regular users we, we got lost
+at the beginning with all the interface.
+
+00:30:20.120 --> 00:30:26.540
+[Raghavendra] Yeah so it's, it's been very
+difficult for us like that and
+
+00:30:26.540 --> 00:30:30.260
+[Screen Reader] Edit post, add the tool under
+content struct, block navigation button collapsed,
+
+00:30:30.260 --> 00:30:31.260
+content structure button collapsed
+
+00:30:31.260 --> 00:30:35.871
+[Raghavendra] So content structure, this this
+one I understood at a very later stage. It
+
+00:30:35.871 --> 00:30:38.900
+gives out the structure of the content like
+which headings,
+
+00:30:38.900 --> 00:30:43.860
+paragraphs you have, but all this needs lot
+of learning curve and there are no tutorials
+
+00:30:43.860 --> 00:30:49.669
+like how how to, see there's a specific way
+we are taught how to use screen readers
+
+00:30:49.669 --> 00:30:58.250
+on the web. During one of our uh you know
+like we, me and our friends we gone through
+
+00:30:58.250 --> 00:31:03.029
+professional training because we are late
+blind people and they are taught like how
+
+00:31:03.029 --> 00:31:08.600
+to use screen reader on the web. But after
+a while you get hang of it, how you know,
+
+00:31:08.600 --> 00:31:10.309
+things are laid out on  the web.
+
+00:31:10.309 --> 00:31:13.149
+But all this is so confusing because there's
+so many moving
+
+00:31:13.149 --> 00:31:16.279
+[Screen Reader] Block navigation button circle
+toolbar end, preview button and [unintelligible]
+
+00:31:16.279 --> 00:31:17.669
+[Raghavendra] And this preview also.
+
+00:31:17.669 --> 00:31:20.691
+[Screen Reader] Preview, tab editor top shift
+tab, preview button collapsed, space
+
+00:31:20.691 --> 00:31:21.691
+[Raghavendra] I expand it.
+
+00:31:21.691 --> 00:31:23.340
+[Screen Reader] Tap, menu to move through
+items
+
+00:31:23.340 --> 00:31:29.820
+[Raghavendra] Nothing happens there also,
+even in the preview and I think this preview,
+
+00:31:29.820 --> 00:31:33.370
+I'm not sure if it is broken or if it is like
+accessible
+
+00:31:33.370 --> 00:31:34.370
+[Screen Reader] Tab
+
+00:31:34.370 --> 00:31:36.659
+[Raghavendra] Because when I press enter
+
+00:31:36.659 --> 00:31:42.350
+[Screen Reader] Enter, title, edit post single
+left pointing tab, T
+
+00:31:42.350 --> 00:31:47.850
+equals 4206 and shift tab, tab, B equals,
+tab tab, PC cursor
+
+00:31:47.850 --> 00:31:48.850
+[Raghavendra] I don't know
+
+00:31:48.850 --> 00:31:50.350
+[Screen Reader] To move through items press
+up or down arrow.
+
+00:31:50.350 --> 00:31:51.350
+[Raghavendra] This stuck
+
+00:31:51.350 --> 00:31:56.480
+[Screen Reader] To move through, tab tab P
+equals 4206 and preview equals true.
+
+00:31:56.480 --> 00:32:02.940
+[Raghavendra] It reads some code. I'm not
+able to preview my posts also properly most
+
+00:32:02.940 --> 00:32:03.940
+of the time.
+
+00:32:03.940 --> 00:32:06.440
+[Screen Reader] Escape, leaving menus, editor
+top bar region, preview button
+
+00:32:06.440 --> 00:32:07.970
+[Raghavendra] The preview button is also not
+accessible.
+
+00:32:07.970 --> 00:32:13.039
+[Screen Reader] Virtual PC click left pane
+opens in a new tab right, publish button expanded,
+
+00:32:13.039 --> 00:32:15.130
+settings toggle button pressed, Genesis toggle
+branch toggle button
+
+00:32:15.130 --> 00:32:18.929
+[Raghavendra] So the these been, after I understood
+what settings, what Genesis,
+
+00:32:18.929 --> 00:32:20.350
+[Screen Reader] Jetpack toggle button
+
+00:32:20.350 --> 00:32:26.279
+[Raghavendra] All these things do, I understood
+all the options of these other block related
+
+00:32:26.279 --> 00:32:34.220
+plugin
+are here.
+
+00:32:34.220 --> 00:32:37.809
+[Screen Reader] [unintelligible]
+[Raghavendra] [unintelligible]
+
+00:32:37.809 --> 00:32:42.600
+[Raghavendra] I understoond that as soon as
+I press rank math table
+
+00:32:42.600 --> 00:32:45.890
+[Screen Reader] Edit collab, add to the content
+block added, certainly change block, move
+
+00:32:45.890 --> 00:32:48.960
+up, more option, preview button collapse,
+publish button expanded, settings toggle button
+
+00:32:48.960 --> 00:32:51.300
+Genesis toggle button, rank math toggle, button
+enter
+
+00:32:51.300 --> 00:32:57.429
+[Raghavendra] So what I'm doing is I'm using
+the button B, uh the keys key stroke B to
+
+00:32:57.429 --> 00:32:58.990
+move from button to button.
+
+00:32:58.990 --> 00:33:03.279
+[Screen Reader] Scripts heading level to focus
+keyword, heading level two, basic scale, six
+
+00:33:03.279 --> 00:33:06.240
+errors, heading level two button expanded
+[Raghavendra] So I'm pressing H to go to the
+
+00:33:06.240 --> 00:33:07.240
+headings.
+
+00:33:07.240 --> 00:33:09.700
+[Screen Reade] Additional seven errors, heading
+level two button collapsed, title readability
+
+00:33:09.700 --> 00:33:10.700
+two errors, heading level two
+
+00:33:10.700 --> 00:33:14.830
+[Raghavendra] This has been pretty easy once
+I understood the layout of this, uh how the
+
+00:33:14.830 --> 00:33:20.730
+plugin block plugins work, I understood that
+the plugins are, they they come in the top
+
+00:33:20.730 --> 00:33:28.919
+region and I have to you know activate them
+and select the options.
+
+00:33:28.919 --> 00:33:33.370
+I think this is pretty much what I wanted
+to show like some of these accessibility and
+
+00:33:33.370 --> 00:33:41.220
+usability challenges. Uh I think we have,
+we can go for questions. [Roberto] Yeah, sure
+
+00:33:41.220 --> 00:33:48.370
+thank you very much for the demo. I mean it
+has been really really nice um get the real
+
+00:33:48.370 --> 00:33:52.260
+vision of people who interact with the Gutenberg
+
+00:33:52.260 --> 00:34:03.190
+usability. I mean for regular users, for most
+of the users at the beginning is kind of difficult,
+
+00:34:03.190 --> 00:34:10.210
+because there is like um a lot of stuff to
+learn. I mean visually it looks very clean,
+
+00:34:10.210 --> 00:34:19.269
+it looks very simple, but I think it's a lot
+a lot more complicated than the regular editor.
+
+00:34:19.269 --> 00:34:28.849
+Even at a pro tip when you create content
+you can paste all your content on the Classic
+
+00:34:28.849 --> 00:34:34.730
+Editor and then convert your Classic Editor
+into all the different blocks and most of
+
+00:34:34.730 --> 00:34:42.239
+the times uh WordPress it will translate all
+your different content, but yes it's difficult.
+
+00:34:42.239 --> 00:34:48.429
+And about the plugins, I mean, most of the
+plugins are available as a block and then
+
+00:34:48.429 --> 00:34:55.589
+you call the plugin, but then you need to
+make configurations in the same plugin. So
+
+00:34:55.589 --> 00:35:01.920
+it's very difficult. Let's start with the
+first question and the first question is:
+
+00:35:01.920 --> 00:35:10.690
+Will you find useful to have easy options
+to disable blocks that you can't or you don't
+
+00:35:10.690 --> 00:35:14.109
+wish to use?
+
+00:35:14.109 --> 00:35:20.410
+[Raghavendra] So there are too many block.
+I think the, it's not the question of disabling
+
+00:35:20.410 --> 00:35:28.859
+the blocks uh, like I think there are very
+few blocks that I use on some all my websites.
+
+00:35:28.859 --> 00:35:36.349
+So sometimes you know, I might use the Jetpack,
+Eventbrite, the calendar leave block. They,
+
+00:35:36.349 --> 00:35:45.160
+I use them rarely, but I need them. So disabling
+is not an option, but maybe you know the way
+
+00:35:45.160 --> 00:35:49.880
+I want to approach the content itself should
+be a little different,
+
+00:35:49.880 --> 00:35:57.240
+because I, I don't use all these blocks all
+the time and all the options. Robert?
+
+00:35:57.240 --> 00:36:03.720
+[Roberto] Yes sorry sorry, hello over here
+uh. Okay the the next question actually is
+
+00:36:03.720 --> 00:36:09.569
+my personal question and is away from the
+native blocks, because there is a lot of native
+
+00:36:09.569 --> 00:36:16.359
+blocks uh, did you find the other blocks the
+the plug-in blocks accessible for example,
+
+00:36:16.359 --> 00:36:23.160
+Woo-Commerce, Yoast SEO, other Gravity Forms,
+Contact Form seven, stuff that you usually
+
+00:36:23.160 --> 00:36:29.089
+use a lot to create content, are they friendly
+with screen readers or not?
+
+00:36:29.089 --> 00:36:35.109
+[Raghavendra] Okay Woo-Commerce I'm playing
+with Woo-Commerce right now and Contact Form
+
+00:36:35.109 --> 00:36:40.650
+seven, I'm not using it right now, because
+I tend to use the Jetpack forms, Jetpack forms
+
+00:36:40.650 --> 00:36:48.739
+are very accessible and Mailchimp block is
+accessible uh Ranked Math SEO, Yoast SEO and
+
+00:36:48.739 --> 00:36:54.539
+there are other plugins that are very like
+Atomic uh the Atomic Blocks from StudioPress,
+
+00:36:54.539 --> 00:37:04.559
+they are accessible, the accordions, uh the
+testimonials block and the author block.
+
+00:37:04.559 --> 00:37:11.009
+So most of the blocks that are coming, the
+blocks are whatever I encountered are very
+
+00:37:11.009 --> 00:37:16.499
+accessible. Like creating content has been
+very easy inside them.
+
+00:37:16.499 --> 00:37:24.160
+[Roberto] Okay thank you very much.
+The next question it will be: Do you find
+
+00:37:24.160 --> 00:37:30.229
+any particular combination of the screen reader
+and browser to be better?
+
+00:37:30.229 --> 00:37:37.160
+[Raghavendra] I use JAWS plus Chrome, NVDA
+plus Chrome these are my default screen reader
+
+00:37:37.160 --> 00:37:41.089
+combination.
+
+00:37:41.089 --> 00:37:48.289
+I used to use NVDA plus Firefox earlier, but
+now I prefer NVDA plus Chrome. It's more supported
+
+00:37:48.289 --> 00:37:56.509
+and and you know I come from that era where
+I used to, I learned screen readers using
+
+00:37:56.509 --> 00:38:02.969
+JAWS. So it's a very little difficult transition
+for me to use full-time N-V-D-A, so I tend
+
+00:38:02.969 --> 00:38:10.359
+to use JAWS a lot uh when I'm not doing accessibility
+testing, but when I do accessibility testing
+
+00:38:10.359 --> 00:38:17.049
+specifically for my clients and or I'm testing
+some widget for accessibility I tend to use
+
+00:38:17.049 --> 00:38:20.519
+NVDA plus Chrome.
+
+00:38:20.519 --> 00:38:28.549
+[Roberto] Okay thank you, we have the last
+question is:
+
+00:38:28.549 --> 00:38:37.469
+Unexpected changes of focus are one of the
+WordPress Accessibility Team common complaints
+
+00:38:37.469 --> 00:38:48.789
+about Gutenberg. How often or rarely do you
+feel that happen in your users of Gutenberg?
+
+00:38:48.789 --> 00:38:49.979
+[Raghavendra] Robert can you repeat the question?
+
+00:38:49.979 --> 00:38:56.950
+[Robert] So often, but like the unexpect,
+the unexpected changes on, from one element
+
+00:38:56.950 --> 00:39:01.940
+to another one,
+the focus, is one of the main complaints of
+
+00:39:01.940 --> 00:39:08.059
+of Gutenberg. How often did you get that,
+that do you think you are on one specific
+
+00:39:08.059 --> 00:39:13.819
+place, where you want to go to another place
+and it's not working properly?
+
+00:39:13.819 --> 00:39:21.219
+[Raghavendra] So the the major problem that
+you run into Gutenberg is because you need
+
+00:39:21.219 --> 00:39:27.790
+to understand how this Gutenberg is laid out.
+Like you you being a person with screen reader
+
+00:39:27.790 --> 00:39:34.170
+user or you you can be a even a sighted person,
+just can't open Gutenberg and understand it
+
+00:39:34.170 --> 00:39:41.950
+instantly. Like I run the, I run the Island,
+Hyderabad blogging club also here. I run a
+
+00:39:41.950 --> 00:39:47.750
+club full of bloggers and most of them, I
+think I'm the only person with disability
+
+00:39:47.750 --> 00:39:51.690
+me and another friend are the only person
+with disability in that club and lot of them
+
+00:39:51.690 --> 00:39:55.799
+are sighted. And when the Gutenberg came in,
+they are like, is there a way to switch back
+
+00:39:55.799 --> 00:39:59.150
+to the Classic Editor? Is the question they
+asked.
+
+00:39:59.150 --> 00:40:04.990
+So we told about the Classic Editor plugin,
+but a lot of them uh did not transition to
+
+00:40:04.990 --> 00:40:09.029
+Gutenberg immediately. That took a long time
+to understand.
+
+00:40:09.029 --> 00:40:15.839
+Like we we did a lot of workshops with them
+uh to make them understand how Gutenberg works
+
+00:40:15.839 --> 00:40:22.559
+and how it helps with the design and all that
+and uh now they fell in love with the Gutenberg.
+
+00:40:22.559 --> 00:40:28.759
+They don't want to transition back to Classic
+Editor. So because it was so easy for them
+
+00:40:28.759 --> 00:40:35.700
+to create stories uh it was visual, visual
+stories storytelling and all that. It became
+
+00:40:35.700 --> 00:40:41.049
+very easy for them to create, so they don't
+want to transition back to the Classic Editor.
+
+00:40:41.049 --> 00:40:47.049
+They're using Gutenberg. It takes a lot of
+time to learn Gutenberg, that's the only aspect
+
+00:40:47.049 --> 00:40:52.209
+here and as a person with screen reader use,
+as a disability and the screen leader user,
+
+00:40:52.209 --> 00:40:59.219
+it took a lot of time for me to understand
+Gutenberg end-to-end. Like now I can create
+
+00:40:59.219 --> 00:41:04.190
+blocks, content and all, it's just a little
+difficult for me to manage content rather
+
+00:41:04.190 --> 00:41:09.170
+than create content. Like if I have to copy
+each paragraph from Word, Microsoft Word and
+
+00:41:09.170 --> 00:41:15.599
+put it here into, create one block, put it
+in a put it inside that block then go back
+
+00:41:15.599 --> 00:41:21.849
+to Word again, come back here put it in heading,
+it's taking too much of my time.
+
+00:41:21.849 --> 00:41:31.209
+[Roberto] Awesome, thank you. Uh, well we
+don't have more questions at this moment so
+
+00:41:31.209 --> 00:41:37.160
+please the people who is watching this over
+YouTube feel free to add your questions into
+
+00:41:37.160 --> 00:41:45.239
+the YouTube chat and we will those answer
+that on on the presentation um.
+
+00:41:45.239 --> 00:41:53.509
+Meantime, maybe I have a last question because
+we have another two minutes maybe uh.
+
+00:41:53.509 --> 00:42:01.539
+What what did  you recommend for people
+who is blind who have the disability uh, to
+
+00:42:01.539 --> 00:42:04.010
+interact directly with Gutenberg?
+
+00:42:04.010 --> 00:42:10.940
+You already say it take a lot of time not
+just to understand how Gutenberg work, but
+
+00:42:10.940 --> 00:42:14.940
+great content beyond the tip that you already
+give,
+
+00:42:14.940 --> 00:42:21.089
+create your content on a Word document and
+paste it into WordPress. What other kind of
+
+00:42:21.089 --> 00:42:26.510
+uh tip did you have for the people?
+
+00:42:26.510 --> 00:42:32.710
+[Raghavendra] So one of the other thing is,
+as you said earlier what I do is like I create
+
+00:42:32.710 --> 00:42:37.900
+the content I put it in the Classic Block,
+Classic Editor then I use this plugin called
+
+00:42:37.900 --> 00:42:48.940
+I think uh bulk Gutenberg, so you change all
+the posts into blocks.
+
+00:42:48.940 --> 00:42:59.979
+So I, I converted the old posts and new posts.
+I put them as a regular Classic Block and
+
+00:42:59.979 --> 00:43:06.459
+then I convert them into blocks. So what I
+also did is right now I had a virtual assistant
+
+00:43:06.459 --> 00:43:14.599
+who is helping me with, who's a sighted person
+helping me with all the visual aspect of the
+
+00:43:14.599 --> 00:43:21.400
+design aspect. Like I only concentrate on
+the content and they take care of the pictures,
+
+00:43:21.400 --> 00:43:24.269
+the visual aspect of all the other things.
+
+00:43:24.269 --> 00:43:29.829
+[Roberto] Okay, awesome thank you. And maybe
+the the last question, because we don't get
+
+00:43:29.829 --> 00:43:34.040
+any other ones
+and I have always questions: If you run as
+
+00:43:34.040 --> 00:43:41.529
+a lead of the WordPress project at this moment
+and you decide let's do this 100 percent accessible,
+
+00:43:41.529 --> 00:43:47.750
+where did you focus to make Gutenberg and
+this experience more accessible? What do you
+
+00:43:47.750 --> 00:43:53.680
+want to see on the future or what do you want
+to see on Gutenberg to be more accessible?
+
+00:43:53.680 --> 00:43:59.599
+[Raghavendra] If you ask me like what I am
+thinking is as I said, uh I want to create
+
+00:43:59.599 --> 00:44:04.180
+content in Microsoft Word.
+Just come here put it and then work on the
+
+00:44:04.180 --> 00:44:11.150
+formatting and then maybe you know a button
+or uh option where it will convert everything
+
+00:44:11.150 --> 00:44:14.019
+into blocks. And then I hand over it to my
+design team.
+
+00:44:14.019 --> 00:44:22.589
+So basically I, I come from the content aspect
+of this and as a person with the visual disability,
+
+00:44:22.589 --> 00:44:26.529
+I don't know if I insert a picture, I don't
+know where I'm inserting it,
+
+00:44:26.529 --> 00:44:34.780
+or you know what is the, is it taking completely
+over what is, you know the cropping of the
+
+00:44:34.780 --> 00:44:37.380
+image,
+
+00:44:37.380 --> 00:44:42.529
+where it is placed. Is it placed to the left
+or right, all that aspect. So I normally tend
+
+00:44:42.529 --> 00:44:49.579
+to leave all the design decisions to the design
+team and then just work on the content aspect.
+
+00:44:49.579 --> 00:44:55.959
+So uh if you ask me right now what I
+would want to see is, I just want to see uh
+
+00:44:55.959 --> 00:45:01.930
+uh like how this Classic Block is there right
+now, if I want to input the content I want
+
+00:45:01.930 --> 00:45:08.779
+to input here, format it, then a button or
+you know an option just to convert everything
+
+00:45:08.779 --> 00:45:15.990
+into blocks. And then you know where the design
+team can take it forward from there.
+
+00:45:15.990 --> 00:45:24.010
+It should be easy for me to publish content,
+format content, uh edit content also. One
+
+00:45:24.010 --> 00:45:29.269
+of the main challenges that we are facing
+right now is with the editing of the content.
+
+00:45:29.269 --> 00:45:37.759
+So once we put all the content into blocks
+uh editing of the content is becoming very
+
+00:45:37.759 --> 00:45:41.400
+difficult.
+Like you want to edit a certain line in a
+
+00:45:41.400 --> 00:45:47.030
+particular paragraph, earlier what we used
+to do is we used to copy all the content into
+
+00:45:47.030 --> 00:45:52.789
+Microsoft Word from the Classic Editor do
+Control F, look for that particular keyword
+
+00:45:52.789 --> 00:45:59.609
+and wherever we are supposed to edit them
+and edit and just put it back into the editor.
+
+00:45:59.609 --> 00:46:07.680
+But now with the Gutenberg, it's it's like
+you know I have four paragraphs, four headings,
+
+00:46:07.680 --> 00:46:14.410
+couple of lists, uh it became very difficult
+for us to edit the content. And if I copy
+
+00:46:14.410 --> 00:46:20.059
+from the Code Editor, all the HTML code also
+comes in. So it's just not really working
+
+00:46:20.059 --> 00:46:25.719
+out. So it should become easy for us to edit
+content in the Gutenberg.
+
+00:46:25.719 --> 00:46:31.790
+[Roberto] Awesome, well thank you very much
+um great.
+
+00:46:31.790 --> 00:46:42.720
+This talk, you have been amazing um um I think
+that's all for tonight guys um. Please let's
+
+00:46:42.720 --> 00:46:50.719
+thank Raghavendra and let's um remember we
+we're gonna have our next talk on possibly
+
+00:46:50.719 --> 00:46:54.130
+10 minutes, 6  UTC
+
+00:46:54.130 --> 00:46:56.200
+time uh. It will be Accessibility by Default
+in
+
+00:46:56.200 --> 00:47:06.509
+Authoring Tools by Susanna Laurin. It will
+be on the same channel. So uh let's gonna
+
+00:47:06.509 --> 00:47:10.140
+take a little break and we will see you again
+soon. Bye.
+
+00:47:10.140 --> 00:47:15.449
+[Raghavendra] Thank you, thank you everyone
+I'll be updating my presentation and put it
+
+00:47:15.449 --> 00:47:23.309
+on, give it to the team here and you can all
+follow me on Twitter and other accessible,
+
+00:47:23.309 --> 00:47:24.529
+all the other channels.

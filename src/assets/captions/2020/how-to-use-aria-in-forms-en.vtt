@@ -1,0 +1,1583 @@
+WEBVTT
+
+00:00:03.120 --> 00:00:09.440
+Hello, everyone! Um, welcome again to 
+the WordPress Accessibility Day 2020.
+
+00:00:12.400 --> 00:00:21.360
+My name is Roberto Remedios and I live in 
+San Jose, Costa Rica. I'm a web developer
+
+00:00:21.360 --> 00:00:28.240
+and also user experience, and user interface 
+designer, uh I'm a accessibility advocate,
+
+00:00:39.520 --> 00:00:43.840
+organizer of accessibility here in Costa Rica.
+
+00:00:44.720 --> 00:00:58.160
+Our next speaker will be Rian Rietveld, 
+and she will be talking about the,
+
+00:00:58.160 --> 00:01:05.600
+how to use the ARIA standard in 
+forms. Um, Rian is a web accessibility
+
+00:01:05.600 --> 00:01:12.480
+specialist in a full-service workers agency, 
+Level Level and a trainer at the A11y Collective,
+
+00:01:13.440 --> 00:01:18.880
+so thank you very much, thank you very 
+much. [Rian] Thank you for having me! Yeah,
+
+00:01:20.240 --> 00:01:25.840
+okay, I have a pre-recorded talk. I will 
+explain why and I will share my screen now.
+
+00:01:38.480 --> 00:01:53.840
+Okay, here we go.
+
+00:01:57.000 --> 00:02:07.840
+[Roberto] Sorry, but the video is muted.
+
+00:02:17.840 --> 00:02:21.840
+Sorry, Rian, can you check 
+the volume of the video?
+
+00:02:31.920 --> 00:02:35.840
+I think you need to mute yourself.
+
+00:02:39.240 --> 00:02:41.280
+[Rian] What do you want me to do?
+
+00:02:43.680 --> 00:02:45.840
+Try to, try to play the video now?
+
+00:02:47.400 --> 00:02:51.440
+[Video] 24 hours event of 
+WordPress and accessibility.
+
+00:02:52.720 --> 00:03:03.840
+This talk is pre-recorded, because it contains...
+
+00:03:20.960 --> 00:03:26.160
+Close, well, because we developers 
+learn by looking at example code,
+
+00:03:26.160 --> 00:03:31.840
+and not by reading the specs. 
+I know. So, demos it is.
+
+00:03:32.800 --> 00:03:39.440
+First, a bit about myself. And my name 
+is Rian Rietveld. I'm a web accessibility
+
+00:03:39.440 --> 00:03:47.542
+expert for Level Level. That's a full service 
+WordPress agency in Rotterdam, the Netherlands.
+
+00:03:47.542 --> 00:03:51.200
+[unintelligible]
+
+00:03:51.200 --> 00:04:00.800
+That's a platform of online accessibility courses. 
+What is ARIA? The abbreviation means "accessible
+
+00:04:00.800 --> 00:04:07.040
+rich internet applications" - you can forget 
+that right away, but what you need to know is
+
+00:04:08.960 --> 00:04:17.520
+ARIA are attributes, HTML5 attributes, 
+that give extra information and feedback
+
+00:04:17.520 --> 00:04:21.360
+to assistive technology, like, 
+for example, screen readers.
+
+00:04:23.360 --> 00:04:29.440
+In forms you can use it for naming form 
+controls, describing extra information,
+
+00:04:30.080 --> 00:04:37.360
+and for giving feedback on dynamic changes. 
+I will give you examples of that in the demos
+
+00:04:37.360 --> 00:04:48.080
+later. Before you start, you need to know: the 
+first rule of ARIA is don't use ARIA. There are
+
+00:04:48.080 --> 00:04:54.080
+five rules - go and look them up when you have 
+time - but the first rule is the most important.
+
+00:04:55.040 --> 00:05:02.720
+Don't use ARIA to fix meaningless and incorrect 
+HTML5, use the already available elements,
+
+00:05:02.720 --> 00:05:07.760
+because then the browser and the screen reader 
+knows how to operate and understand them.
+
+00:05:08.800 --> 00:05:18.080
+ARIA is about feedback not about fixing. If 
+you want to join me or look up the code later,
+
+00:05:19.200 --> 00:05:22.160
+the example code is on lvl.li/aria-in-forms.
+
+00:05:31.200 --> 00:05:34.640
+These examples contain very simplified forms,
+
+00:05:35.200 --> 00:05:41.520
+and before you start nagging, no data is 
+submitted; no security checks; no translation;
+
+00:05:42.480 --> 00:05:47.120
+I just want to show you what happens 
+in the front end, so you get the ARIA.
+
+00:05:51.040 --> 00:05:56.400
+I will do the demos in Safari. It's 
+the browser works best together with
+
+00:05:56.400 --> 00:06:02.880
+the VoiceOver screen reader. First, I'll talk 
+you through how to properly name form controls,
+
+00:06:04.160 --> 00:06:07.760
+and we're going to look at the 
+accessibility tree, to show how that works.
+
+00:06:09.360 --> 00:06:13.200
+And then we're going to look at two different 
+forms and add descriptions and feedback.
+
+00:06:14.960 --> 00:06:20.560
+For all the people expecting me to show how to 
+build new web components from scratch with ARIA,
+
+00:06:21.200 --> 00:06:25.440
+I'll share at the end of this talk, 
+my opinion about going fancy in forms.
+
+00:06:26.240 --> 00:06:28.560
+Naming and describing form controls.
+
+00:06:30.720 --> 00:06:33.840
+Let's do that.
+
+00:06:36.720 --> 00:06:45.200
+Before you use ARIA, you have to have the basics 
+in order. The basics - the basic HTML5 - must be
+
+00:06:45.200 --> 00:06:54.320
+correct. And then it's super important that you 
+give your form control a name - an accessible
+
+00:06:54.320 --> 00:06:58.880
+name. Okay. I will show you how 
+that works for a screen reader.
+
+00:06:59.520 --> 00:07:06.480
+Here we have a label, "your question," 
+and a `textarea`. If you can see,
+
+00:07:06.480 --> 00:07:15.840
+you can see the label is put above the form, 
+the form control - perfectly understandable.
+
+00:07:18.560 --> 00:07:24.880
+But the label is not connected to the form 
+control, so a screen reader doesn't know what
+
+00:07:24.880 --> 00:07:33.040
+to announce here. You have to connect the label to 
+the form control, and you can do that with a label
+
+00:07:33.040 --> 00:07:41.280
+`for` is pointing to the `id` of the form 
+control. Here, the textarea has an id of
+
+00:07:41.280 --> 00:07:52.880
+`id-textarea,` so the label has a for with 
+`id-textarea` - now, they are connected. I
+
+00:07:52.880 --> 00:08:00.640
+will start the screen reader and let you hear how 
+important that is. Okay, let's start VoiceOver.
+
+00:08:05.600 --> 00:08:09.360
+[VoiceOver] VoiceOver on. Safari. Naming 
+and describing form controls window,
+
+00:08:09.360 --> 00:08:17.520
+toolbar. [Rian] Okay. When a screen reader 
+enters a form, they jump into "form mode."
+
+00:08:18.800 --> 00:08:23.840
+That gives the user the opportunity to 
+type instead of operating the screen
+
+00:08:23.840 --> 00:08:29.120
+reader. and then you can jump with tab key 
+from focusable element to focusable element.
+
+00:08:30.000 --> 00:08:34.480
+So, I'll tab now in the first form 
+control. [VoiceOver] Leaving toolbar.
+
+00:08:34.480 --> 00:08:38.880
+Entering Naming and Describing form 
+controls web content. Edit text, blank.
+
+00:08:38.880 --> 00:08:44.080
+[Rian] About the form field
+
+00:08:44.080 --> 00:08:47.720
+textarea, it announces "edit text, blank."
+
+00:08:51.360 --> 00:08:59.040
+So, it is an edit text field. "Blank" is "I have 
+no name." If I tab to the next one, that has
+
+00:08:59.040 --> 00:09:04.400
+a `for` and `id` connection: [VoiceOver] 
+your question edit text. [Rian] Then it
+
+00:09:04.400 --> 00:09:10.720
+says "your question, edit text." And then a 
+screen reader user knows what to fill out.
+
+00:09:11.520 --> 00:09:16.960
+So without a connection [VoiceOver] "edit text. 
+blank." With a connection? [VoiceOver] "Your
+
+00:09:16.960 --> 00:09:26.400
+question, edit text." [Rian] Okay. That must 
+be in order. Uh, you have to have a name for
+
+00:09:26.400 --> 00:09:35.840
+the form control. You can use a placeholder - is a 
+placeholder replacement for a label? No, it isn't,
+
+00:09:37.520 --> 00:09:44.320
+but screen readers get smarter and smarter. In 
+this case, I have a textarea with a placeholder,
+
+00:09:44.320 --> 00:09:50.160
+"your question." Let's listen how that sounds. 
+[VoiceOver] "Your question, edit text, blank."
+
+00:09:53.360 --> 00:09:59.040
+"Your question." [Rian] So the screen reader 
+announces "your question," the placeholder,
+
+00:09:59.760 --> 00:10:04.480
+and then tries to figure out what's the 
+name. Cannot come up with the name, so it
+
+00:10:04.480 --> 00:10:06.800
+guesses, okay, the placeholder must be the name.
+
+00:10:08.560 --> 00:10:13.600
+Not all screen readers do this, so 
+don't depend on this always working.
+
+00:10:16.560 --> 00:10:22.000
+There's also another issue with this. 
+The placeholder text disappears when
+
+00:10:22.000 --> 00:10:26.080
+you start typing, or when the field 
+is filled out with an autocomplete.
+
+00:10:27.680 --> 00:10:33.520
+People may forget what to fill out, or need 
+to check if the right value is added to the
+
+00:10:33.520 --> 00:10:40.400
+right fields with an autocomplete. Always 
+add a visual label to prevent errors.
+
+00:10:45.040 --> 00:10:53.600
+So the next thing you can do with ARIA, is give 
+a form control a name with an `aria-label.` In
+
+00:10:53.600 --> 00:11:00.480
+this case, textarea, aria-label "your question." 
+If I tab into this: [VoiceOver] Your question,
+
+00:11:00.480 --> 00:11:06.320
+edit text. [Rian] It's announced perfectly 
+well, but there's no visual label.
+
+00:11:10.080 --> 00:11:15.600
+You can have a placeholder and an aria-label: 
+[VoiceOver] Your question, edit text, describe
+
+00:11:15.600 --> 00:11:21.760
+your question. [Rian] The placeholder is announced 
+in a different voice, "describe your question"
+
+00:11:22.560 --> 00:11:28.640
+and aria-label is "your question," 
+but still you have no visual label.
+
+00:11:31.840 --> 00:11:34.240
+You can use an `aria-labelledby.`
+
+00:11:36.400 --> 00:11:43.280
+Instead of the element `label,` you can 
+use, for example, a `div` - yay, a div.
+
+00:11:46.000 --> 00:11:52.400
+But you have to connect both together, and 
+that you do with `aria-labelledby.` You give
+
+00:11:52.960 --> 00:12:03.440
+the div an `id` and in the form control textarea 
+you say labeled by referring to that id.
+
+00:12:05.760 --> 00:12:12.320
+How is that announced? [VoiceOver] Your question, 
+edit text. [Rian] Perfectly okay. I have no idea
+
+00:12:12.320 --> 00:12:19.920
+why you should use a div instead of a label, but 
+maybe you have some obscure use case for this.
+
+00:12:23.680 --> 00:12:33.280
+Next one. `aria-describedby,` and this is super 
+useful. As I told you, you jump into form mode
+
+00:12:36.400 --> 00:12:47.280
+and then, you only get announced what is connected 
+to the form control. So in this case, if you have
+
+00:12:47.280 --> 00:12:54.960
+your new password, and you have an input for your 
+password, and below that, the rules "please use a
+
+00:12:54.960 --> 00:13:01.360
+password of minimal eight characters," that also 
+must be connected to the input field. Otherwise,
+
+00:13:01.360 --> 00:13:07.040
+the screen reader doesn't announce it, because 
+the screen reader doesn't know it's connected.
+
+00:13:08.560 --> 00:13:11.040
+And that you do with aria-describedby.
+
+00:13:13.440 --> 00:13:17.120
+The paragraph with extra 
+information, you give that an
+
+00:13:17.120 --> 00:13:25.120
+id, and in the input field, the form control, 
+you say aria-describedby referring to that id.
+
+00:13:26.360 --> 00:13:30.000
+[VoiceOver] Your new password, 
+secure edit text with autofill menu.
+
+00:13:32.960 --> 00:13:36.040
+Please use a password of 
+minimal 8 characters. [Rian]
+
+00:13:36.560 --> 00:13:42.560
+You notice there is a time lapse between 
+announcing the label and announcing
+
+00:13:43.920 --> 00:13:48.600
+the aria-describedby information, 
+that's a safari issues. [Unintelligible]
+
+00:13:52.080 --> 00:13:58.560
+...which will solve it, soon but now you 
+first hear the label and then you hear the
+
+00:13:58.560 --> 00:14:06.400
+added paragraph so you get all the information you 
+need with a form control. Next topic: icons. How
+
+00:14:06.400 --> 00:14:12.640
+do you announce an icon? Which of course the 
+screen reader cannot know what's in an icon.
+
+00:14:14.720 --> 00:14:21.440
+Well, in this form you have a label with a 
+search, an input field, and a button. And the
+
+00:14:21.440 --> 00:14:30.640
+button has a class that this font also classes, 
+displays an icon of a search and loop. If you
+
+00:14:30.640 --> 00:14:37.920
+can see this it's perfectly okay, but how does 
+this announce? [VoiceOver] Search, edit text.
+
+00:14:39.080 --> 00:14:47.520
+[Rian] If I give the button focus I hear 
+nothing. So I have to give the button a name.
+
+00:14:51.280 --> 00:14:57.920
+And that you can do with aria-label. 
+`aria-label="Submit search."` you put
+
+00:14:57.920 --> 00:15:04.400
+that on the button all the content inside 
+the button is omitted, only the aria-label
+
+00:15:04.400 --> 00:15:12.800
+is announced. Now, let's see what it does. 
+[VoiceOver] Search, edit text. [Rian] I still
+
+00:15:12.800 --> 00:15:20.480
+hear nothing - that's weird! I put an aria-label 
+on it. I will mute the screen reader now.
+
+00:15:23.360 --> 00:15:25.840
+And now, I'm going to inspect the code.
+
+00:15:28.640 --> 00:15:36.080
+And then, I see button class 
+`font-awesome`, aria-label
+
+00:15:36.080 --> 00:15:41.600
+"submit search" and then font awesome 
+added "aria-hidden"=true to it.
+
+00:15:43.600 --> 00:15:50.640
+That's because font awesome thinks, "Okay, if 
+it's an icon, better hide it from screen readers,
+
+00:15:50.640 --> 00:15:57.360
+because they cannot pronounce it." 
+But if you put a font awesome icon
+
+00:15:57.360 --> 00:16:01.200
+directly on a focusable element, on 
+an element that really makes sense,
+
+00:16:03.360 --> 00:16:05.600
+and you put an aria-hidden through that,
+
+00:16:05.600 --> 00:16:10.320
+the screen reader doesn't know what it is. 
+It omits it, think, "Okay, it doesn't exist."
+
+00:16:12.560 --> 00:16:14.000
+What's the workaround for that?
+
+00:16:18.640 --> 00:16:26.400
+You move the class of the font awesome class out 
+of the button. Of, actually, you move it inside
+
+00:16:26.400 --> 00:16:35.840
+the button, in a `span` and you give the class 
+to a span. So the button has the aria-label only,
+
+00:16:35.840 --> 00:16:42.720
+and the span with the font awesome class with 
+the loop icon is inside, and it's in the span.
+
+00:16:44.880 --> 00:16:50.800
+That way the label aria-label is 
+announced. Now, let's see what...
+
+00:16:52.960 --> 00:17:00.640
+I'll close this. So let's move from the 
+start. [VoiceOver] Search, edit text.
+
+00:17:02.040 --> 00:17:09.760
+[Rian] You hear nothing. [VoiceOver] Search, edit 
+text. [Rian] Scroll up a bit, you hear nothing,
+
+00:17:10.320 --> 00:17:14.320
+and then, with the span inside the 
+button: [VoiceOver] Search, edit text,
+
+00:17:14.960 --> 00:17:21.600
+submit search button. [Rian] Then the button is 
+announced. Okay. Keep this in mind: not every,
+
+00:17:21.600 --> 00:17:26.960
+this aria-hidden is generated by font 
+awesome so, don't put it on an element
+
+00:17:26.960 --> 00:17:31.840
+that needs to be announced, that needs to 
+have a label, because it will be hidden.
+
+00:17:36.400 --> 00:17:43.920
+You can actually check what the accessible name is 
+for a form control by checking the accessibility
+
+00:17:43.920 --> 00:17:51.600
+tree. Each browser generates an accessibility 
+tree, and screen readers, or assistive technology,
+
+00:17:51.600 --> 00:17:59.840
+actually read that accessibility tree to know what 
+to announce and how to operate a form control.
+
+00:18:00.880 --> 00:18:05.440
+I will show you in Chrome and in 
+Firefox. This is the one in Chrome.
+
+00:18:07.600 --> 00:18:08.400
+I will inspect.
+
+00:18:11.040 --> 00:18:16.000
+And here, I chose the area - 
+textarea without connected label.
+
+00:18:19.600 --> 00:18:24.880
+And.. with a sec.. I can check the
+
+00:18:26.400 --> 00:18:34.320
+tab "accessibility" and here's the accessibility 
+tree, and then you can check out the name.
+
+00:18:35.040 --> 00:18:41.040
+So, when there's no connection between the 
+textarea and the label, it has no name. and it
+
+00:18:41.040 --> 00:18:48.440
+cannot find any name, in, for example, the title, 
+the placeholder, aria-label, [unintelligible].
+
+00:18:54.320 --> 00:19:01.440
+So this form control has no accessible name. If we 
+check the next one, with the for/id construction,
+
+00:19:02.560 --> 00:19:09.840
+it has name "your question" and the name comes 
+from the label, and the label is "your question."
+
+00:19:12.000 --> 00:19:13.920
+Next one: placeholder.
+
+00:19:21.120 --> 00:19:28.160
+Name is "your question," and it gets it from the 
+placeholder. This is a screen reader workaround.
+
+00:19:31.360 --> 00:19:38.240
+Aria-label.
+
+00:19:38.240 --> 00:19:45.040
+Name is "your question" and it gets it from 
+the aria-label. So this is a super easy way
+
+00:19:45.040 --> 00:19:51.840
+to actually see where the name comes 
+from, and if it's actually specified.
+
+00:19:53.680 --> 00:19:59.600
+This is a placeholder and an aria-label, 
+the name "your question." It gets a name
+
+00:19:59.600 --> 00:20:05.840
+from the aria-label because that's override 
+the placeholder, overriding the placeholder.
+
+00:20:08.080 --> 00:20:19.840
+This is work in Firefox, as seeing. Firefox 
+has an inspector tab, accessibility properties.
+
+00:20:22.800 --> 00:20:26.560
+And with Firefox you also get error warnings:
+
+00:20:26.560 --> 00:20:33.840
+form elements must be labeled. You didn't 
+get a label because it has no name.
+
+00:20:35.680 --> 00:20:39.200
+Let's pick properties for the 
+next one. Name is "your question."
+
+00:20:40.720 --> 00:20:45.200
+If you have for/id, so inspect 
+that. Look if you have problems,
+
+00:20:45.760 --> 00:20:49.760
+look what the accessible name is. If 
+you're not sure did I label this. Well,
+
+00:20:51.600 --> 00:20:57.600
+as you noticed, naming form controls is essential 
+for understanding how to fill out the form when
+
+00:20:57.600 --> 00:21:06.240
+you depend on your ears and your fingers. Check 
+this in your work or the plugin you use. Well,
+
+00:21:06.240 --> 00:21:11.600
+let's do some live coding and screen reader 
+testing - the reason I pre-recorded this talk.
+
+00:21:13.360 --> 00:21:20.400
+This is a simple subscribe form to our newsletter 
+form, with an indication, please fill out all the
+
+00:21:20.400 --> 00:21:28.640
+fields and agree to the privacy policy. Then 
+name, input field, with the extra description,
+
+00:21:28.640 --> 00:21:34.240
+"give your first and last name," then an 
+email, and then a checkbox "I agree with
+
+00:21:34.240 --> 00:21:40.560
+the privacy policy," and below that, a link to 
+the privacy policies and the subscribe button.
+
+00:21:40.560 --> 00:21:43.760
+Let me go through this with a 
+screen reader. Let's start up
+
+00:21:44.320 --> 00:21:51.600
+VoiceOver. [VoiceOver] VoiceOver on. Safari. Let's 
+build a form. Window. Toolbar. [Rian] And now I
+
+00:21:51.600 --> 00:21:57.040
+tab through the form. [VoiceOver] Name, 
+required, edit text, main. Email, required,
+
+00:21:57.040 --> 00:22:03.600
+edit text. I agree with the privacy policy, 
+required, unchecked checkbox. Visited link,
+
+00:22:03.600 --> 00:22:11.840
+read our privacy policy. Subscribe 
+button. [Rian] And now I submit the form.
+
+00:22:14.720 --> 00:22:22.160
+And you hear nothing. If you can see, you 
+see a big announcement - "There are errors
+
+00:22:22.160 --> 00:22:28.000
+in your form," and below that there are 
+links to the input fields with the error,
+
+00:22:28.000 --> 00:22:34.080
+with the description of what the error is. 
+If I tab further, [VoiceOver] Visited link,
+
+00:22:34.080 --> 00:22:40.400
+"back to index" content information. [Rian] Then 
+I go to, then the focus is on the next link.
+
+00:22:42.480 --> 00:22:48.000
+So for a screen reader user it's so hard to 
+understand what's happening. I hear nothing.
+
+00:22:49.120 --> 00:22:55.280
+This is with an ajax submit, 
+so it's "subscribe" submits on
+
+00:22:55.840 --> 00:23:01.840
+an onClick event. So let's fix this. 
+I use as my code editor PhpStorm,
+
+00:23:05.360 --> 00:23:07.840
+and let's look at the form.
+
+00:23:09.280 --> 00:23:17.040
+Above the form, so it will be announced, em, 
+there is the title "subscribe to our newslette"r
+
+00:23:17.040 --> 00:23:22.640
+and the information what to fill out in the form, 
+and there's a placeholder for the notifications.
+
+00:23:22.640 --> 00:23:27.280
+How do you set it up? It's up to you and 
+your framework, and your way of working.
+
+00:23:27.280 --> 00:23:36.160
+This is just a demo. Just, uh, right. So we need 
+to announce the descriptions with the input field.
+
+00:23:38.640 --> 00:23:49.840
+So we have to give the descriptions
+
+00:24:00.320 --> 00:24:03.840
+an `id`. It'll be connected to 
+the input field, aria-describedby.
+
+00:24:13.360 --> 00:24:16.480
+Description, "give your first and 
+last name" will now be announced
+
+00:24:16.480 --> 00:24:20.640
+together with the input. But I also see 
+a placeholder for the error messages.
+
+00:24:21.520 --> 00:24:26.240
+Will be very useful, as the error messages are 
+also announced together with the input field.
+
+00:24:28.000 --> 00:24:34.720
+So, I can use in the 
+aria-describedby more than one `id`,
+
+00:24:35.680 --> 00:24:43.360
+and you can put the error first, and then the 
+description after that. I do the same with the
+
+00:24:43.360 --> 00:24:50.880
+email. There is no description, so I only have 
+to have an aria-describedby to the error message.
+
+00:24:55.760 --> 00:24:59.840
+That is email error.
+
+00:25:03.520 --> 00:25:08.800
+Right. The checkbox for the terms has 
+a description and an error message,
+
+00:25:08.800 --> 00:25:14.720
+so they need both input field.
+
+00:25:17.200 --> 00:25:18.560
+This is the terms error.
+
+00:25:21.360 --> 00:25:28.640
+And I have to get some description terms, 
+and I have to give the terms an id.
+
+00:25:39.680 --> 00:25:46.480
+Right. If this is okay, everything will be 
+announced together now. Let's see how that
+
+00:25:46.480 --> 00:25:52.880
+works. [VoiceOver] VoiceOver on. Safari. Let's 
+build a form. Window. Toolbar. Entering Let's
+
+00:25:52.880 --> 00:25:59.680
+build a form web content. Name, edit text, 
+main. [Rian] Wait for it... [VoiceOver] Give
+
+00:25:59.680 --> 00:26:04.720
+your first and last name. [Rian] Right. 
+[VoiceOver] Email, required, edit text.
+
+00:26:06.160 --> 00:26:09.840
+I agree with the privacy policy, 
+required, unchecked, checkbox.
+
+00:26:12.680 --> 00:26:17.920
+[Rian] That doesn't work. [VoiceOver] 
+VoiceOver off. [Rian] Let's see what's wrong.
+
+00:26:21.360 --> 00:26:26.800
+Terms error, description terms, I forgot...
+
+00:26:31.920 --> 00:26:38.640
+Welcome in a world of code editing. Repeater 
+again, [VoiceOver] VoiceOver on. Safari. Let's
+
+00:26:38.640 --> 00:26:42.800
+build a form. Window Toolbar. [Rian] That's why 
+testing is so important. [VoiceOver] Leaving
+
+00:26:42.800 --> 00:26:49.280
+toolbar, entering Let's build a form web content. 
+Name, required, edit text, main. Email, required,
+
+00:26:49.280 --> 00:27:05.840
+edit text. I agree with the privacy 
+policy, required, unchecked, checkbox.
+
+00:27:12.680 --> 00:27:13.680
+[Rian]
+
+00:27:13.680 --> 00:27:19.840
+It's description terms, description 
+terms. That's why it's so important too
+
+00:27:20.480 --> 00:27:24.640
+text. [VoiceOver] VoiceOver on. Safari. 
+Let's build a form window. Leaving
+
+00:27:24.640 --> 00:27:29.440
+toolbar. Entering let's build a form web 
+content. Name, required, edit text, main,
+
+00:27:32.480 --> 00:27:36.960
+give your first and last name. 
+Email, required, edit text.
+
+00:27:36.960 --> 00:27:40.480
+I agree with the privacy policy, 
+required, unchecked checkbox,
+
+00:27:43.280 --> 00:27:50.320
+Read our privacy policy, visited link, 
+read our privacy policy. Subscribe, button.
+
+00:27:51.400 --> 00:27:58.160
+[Rian] Okay. Let's see if the error 
+messages are announced together within,
+
+00:27:58.160 --> 00:28:02.800
+with, together with the input field. 
+[VoiceOver] Name, required edit text.
+
+00:28:05.840 --> 00:28:10.880
+Your name is missing. Give your first and 
+last name. Email, required, edit text.
+
+00:28:13.920 --> 00:28:18.880
+Your email address is missing. I agree with the 
+privacy policy required, unchecked, checkbox.
+
+00:28:21.680 --> 00:28:24.720
+Please agree to the terms. 
+Read our privacy policy,
+
+00:28:24.720 --> 00:28:31.360
+visited link, read our privacy policy. [Rian] So 
+now, everything is announced in a logical order.
+
+00:28:31.920 --> 00:28:39.360
+What do we do about the error messages? Let's 
+dive in the code. Let's try `aria-live`.
+
+00:28:43.680 --> 00:28:47.040
+I'll put an aria-life on the notification.
+
+00:28:55.040 --> 00:29:03.840
+Live is... let's make it polite. For aria-live, 
+the element must already be in the DOM,
+
+00:29:03.840 --> 00:29:10.480
+in the generated code. Because putting aria-live 
+on an element makes the screen reader listen
+
+00:29:10.480 --> 00:29:17.040
+to changes inside that element. If the element 
+is new to the DOM, then the screen reader cannot
+
+00:29:17.040 --> 00:29:23.760
+listen to it, so it needs to be present before 
+you add an aria-live on it. You have aria-live
+
+00:29:23.760 --> 00:29:30.320
+is polite - then the screen reader waits until 
+all interaction is done, and aria-live is
+
+00:29:30.320 --> 00:29:35.520
+assertive - then it announces right away. 
+[VoiceOver] VoiceOver on. Safari. Let's build
+
+00:29:35.520 --> 00:29:41.200
+a form, window, toolbar, leaving toolbar, 
+an...email, with, one, I agree with the,
+
+00:29:41.200 --> 00:29:47.680
+privacy, visited link, subscribe, button. 
+[Rian] Let's go. [VoiceOver] There are errors
+
+00:29:47.680 --> 00:29:53.040
+in your form . Bullet. Please enter your name. 
+Bullet. Please enter your email address. Bullet.
+
+00:29:53.040 --> 00:29:57.680
+Please agree to the terms. [Rian] Okay. 
+And if I tab now: [VoiceOver] Visited link,
+
+00:29:57.680 --> 00:30:05.200
+back to index, content information. [Rian] There 
+is a disadvantage on that aria-live. It reads
+
+00:30:05.200 --> 00:30:10.560
+everything inside. If you have like 20 errors. 
+that's a lot to listen to, and maybe someone
+
+00:30:10.560 --> 00:30:17.120
+forgets it. And we also have to fix the focus 
+error - the focus must be on the announcement,
+
+00:30:17.120 --> 00:30:35.840
+and people can tab through the links, and 
+go to the form, and fix them. So, truth...
+
+00:30:50.520 --> 00:30:51.520
+]Roberto]
+
+00:30:51.520 --> 00:31:03.840
+Rian, I think the video stop. 
+Can you check the video please?
+
+00:31:28.880 --> 00:31:37.440
+Hi, everyone. Um, we, we got a little technical 
+issue with the presentation. We're working on
+
+00:31:38.560 --> 00:31:49.840
+getting uh Rian video again, um, please, 
+if you have any question use the YouTube
+
+00:31:51.360 --> 00:31:59.840
+chat, and we will be asking the 
+questions at the end of the talk.
+
+00:32:23.280 --> 00:32:29.440
+Exact same for the question, Ahmed. 
+I mean, it have been awesome. Um,
+
+00:32:29.440 --> 00:32:37.200
+I really loved the first talk, about, uh that - 
+well, Ahmed on the chat asked about my experience
+
+00:32:37.200 --> 00:32:43.920
+at, I think Rian is back. [Rian] So, okay 
+should I, uh where did it go wrong?From
+
+00:32:43.920 --> 00:32:52.240
+where? [Roberto] Do you remember, it our first 
+online event so it always something happened.
+
+00:32:53.200 --> 00:32:58.400
+Can you play the video again at the point that 
+you... [Rian] Yeah, and the point was when it
+
+00:32:59.360 --> 00:33:09.840
+stopped, um ,so i start with, um [Roberto] 
+I think it was minute 25, 27. [Rian] 25?
+
+00:33:14.800 --> 00:33:21.440
+Um, okay. I'll run it from 
+here. I'll share my screen.
+
+00:33:22.800 --> 00:33:25.440
+Sorry about this. [Roberto] Go ahead. No problem.
+
+00:33:31.480 --> 00:33:32.480
+[Rian]
+
+00:33:32.480 --> 00:33:37.840
+I'll put an aria-live on the notification. 
+[Roberto] Can you please share your screen?
+
+00:33:40.920 --> 00:33:49.840
+[Rian] Live is... let's make it polite. 
+For aria-live, the element must already
+
+00:33:49.840 --> 00:33:56.880
+be in the DOM, in the generated code. 
+Because putting aria-live on an element
+
+00:33:56.880 --> 00:34:03.600
+makes the screen reader listen to changes inside 
+that element. If the element is new to the DOM,
+
+00:34:04.240 --> 00:34:09.520
+then the screen reader cannot listen to it, 
+so it needs to be present before you add
+
+00:34:09.520 --> 00:34:14.720
+an aria-live on it. You have aria-live 
+is polite - then the screen reader waits
+
+00:34:14.720 --> 00:34:21.520
+until all interaction is done, and aria-live 
+is assertive - then it announces right away.
+
+00:34:22.480 --> 00:34:25.920
+[VoiceOver] VoiceOver on. Safari. 
+Let's build a form, window, toolbar,
+
+00:34:26.800 --> 00:34:32.240
+leaving toolbar, an...email, with, one, I agree 
+with the, privacy, visited link, subscribe,
+
+00:34:32.960 --> 00:34:37.600
+button. [Rian] Let's go. [VoiceOver] There are 
+errors in your form . Bullet. Please enter your
+
+00:34:37.600 --> 00:34:42.960
+name. Bullet. Please enter your email address. 
+Bullet. Please agree to the terms. [Rian] Okay.
+
+00:34:42.960 --> 00:34:48.880
+And if I tab now: [VoiceOver] Visited link, 
+back to index, content information. [Rian] There
+
+00:34:48.880 --> 00:34:56.400
+is a disadvantage on that aria-live. It reads 
+everything inside. If you have like 20 errors.
+
+00:34:56.400 --> 00:35:02.000
+that's a lot to listen to, and maybe someone 
+forgets it. And we also have to fix the focus
+
+00:35:02.000 --> 00:35:09.200
+error - the focus must be on the announcement, 
+and people can tab through the links, and go to
+
+00:35:09.200 --> 00:35:17.040
+the form, and fix them. So, two things we need 
+to address. First, we address the focus issue.
+
+00:35:19.680 --> 00:35:21.760
+I use jQuery, because I'm lazy,
+
+00:35:24.720 --> 00:35:31.440
+But any framework, any JavaScript will do. It's 
+up to your own preference. I have a document,
+
+00:35:31.440 --> 00:35:36.320
+getElementBy, notifications, focus. 
+But in safari that doesn't work.
+
+00:35:37.680 --> 00:35:57.840
+You need to add something extra to your 
+HTML5. And it is...[unintelligible]
+
+00:36:03.040 --> 00:36:09.920
+...and focus it by giving it `tabindex` 
+of minus one. Now, remove the aria-live,
+
+00:36:09.920 --> 00:36:16.680
+because that was too much to announce. But what 
+do you do then with notification? [unintelligible]
+
+00:36:24.000 --> 00:36:30.640
+Because you move the focus, people can 
+reach from there. Well, with aria-live,
+
+00:36:35.280 --> 00:36:35.780
+use
+
+00:36:39.520 --> 00:36:42.400
+role="alert." It will be announced.
+
+00:36:46.240 --> 00:36:50.160
+So remove the focus on the h3,
+
+00:36:50.160 --> 00:36:55.680
+"thank you for subscribing" or "there are errors 
+in your form." Let me add a role as "alert."
+
+00:36:58.080 --> 00:37:02.560
+Let's see what happens. [VoiceOver] 
+VoiceOver on, Safari, Let's build a form,
+
+00:37:02.560 --> 00:37:07.040
+window, toolbar. [Rian] I'll run through the 
+form. [VoiceOver] Reading, toolbar, email,
+
+00:37:07.680 --> 00:37:13.600
+I agree with the, visited, subscribe, button, 
+there are errors in your form. [Rian] Now the
+
+00:37:13.600 --> 00:37:17.600
+screen reader, it gives a ping - there's an 
+alert! And there are errors in your form.
+
+00:37:19.200 --> 00:37:23.760
+And when I start tabbing: [VoiceOver] Visited 
+link. Please enter your name. List, three
+
+00:37:23.760 --> 00:37:29.680
+items. [Rian] Because this is an unordered list, 
+it announces how many items there are in the list,
+
+00:37:30.400 --> 00:37:34.880
+so you immediately also know how many 
+errors there are. Please enter your name,
+
+00:37:34.880 --> 00:37:40.080
+if I enter that: [VoiceOver] Name, required, edit 
+text, main. [Rian] It jumps to the first field.
+
+00:37:40.080 --> 00:37:45.240
+[VoiceOver] Name, your name is missing, give 
+your first and last name, [Rian] Okay, add that,
+
+00:37:47.360 --> 00:37:52.921
+[VoiceOver] Name, edit text, typing, 
+R I A N. [Rian], Yeah, sorry.
+
+00:37:52.921 --> 00:37:53.920
+[VoiceOver]
+
+00:37:53.920 --> 00:37:59.440
+Your name is missing. Give your first and last 
+name, email, required edit text, your email
+
+00:37:59.440 --> 00:38:08.400
+is h u p, hup @ h u p, hup, n l. I agree with 
+the privacy policy, required, unchecked checkbox,
+
+00:38:09.600 --> 00:38:14.320
+I agree with the privacy policy, checkbox. 
+[Rian] Okay. [VoiceOver] Visited link,
+
+00:38:14.320 --> 00:38:20.000
+read our privacy policy, subscribe, button. [Rian] 
+Okay, what happens now. [VoiceOver] Thank you for
+
+00:38:20.000 --> 00:38:26.640
+subscribing! [Rian] Now the screen reader gets 
+music as feedback! This can do with some styling,
+
+00:38:26.640 --> 00:38:33.440
+I know, but this is the principle, how it 
+works. In WordPress, we have a very elegant
+
+00:38:33.440 --> 00:38:40.640
+way to add aria-live to your code. They are not 
+depending on elements being in the DOM or not.
+
+00:38:42.320 --> 00:38:52.960
+It's a JavaScript method called wp dot a one one y 
+dot speak, and it's included into WordPress core.
+
+00:38:53.520 --> 00:38:59.680
+There is documentation on how to do it on the 
+accessibility handbook of WordPress. That's on
+
+00:38:59.680 --> 00:39:08.080
+make.wordpress.org slash accessibility slash 
+handbook. And there, with the development best
+
+00:39:08.080 --> 00:39:17.760
+practices, there's a chapter about wp.a11y.speak. 
+Let's look at another kind of dynamic change in
+
+00:39:17.760 --> 00:39:27.840
+form. This is a very simplified form for ordering 
+a t-shirt. Now on sale, get one for only 10 euros.
+
+00:39:28.720 --> 00:39:35.040
+You can select the size and an amount, the total 
+price is calculated, and there's a submit button
+
+00:39:35.040 --> 00:39:43.040
+with order. Right. How does, how does that sound? 
+[VoiceOver] VoiceOver on. Safari, Let's calculate,
+
+00:39:43.040 --> 00:39:48.480
+window, toolbar. [Rian] Okay, I'll jump to 
+the size. [VoiceOver[ lessons test talk,
+
+00:39:48.480 --> 00:39:57.120
+medium, size, pop up button, main. [Rian] 
+Okay. Select a large. [VoiceOver] Three items,
+
+00:39:57.120 --> 00:40:01.920
+tick, medium, closing menu, large, 
+size, pop-up, button. [Rian] Okay,
+
+00:40:01.920 --> 00:40:09.840
+I'll select an amount. [VoiceOver] One, 
+amount, pop-up, button, menu, three, two.
+
+00:40:13.240 --> 00:40:14.240
+[Rian]
+
+00:40:14.240 --> 00:40:20.720
+And then, if you can see, you see total price is 
+30 euros. [VoiceOver] Order, button. [Rian] How
+
+00:40:20.720 --> 00:40:26.320
+can you solve this for screen reader? There are 
+several ways, let me talk you through them. Okay.
+
+00:40:27.440 --> 00:40:32.560
+In this case, the total price 
+is added into a paragraph.
+
+00:40:34.080 --> 00:40:40.480
+So what we can do is add aria-live, then 
+if it changes, it will be announced.
+
+00:40:47.600 --> 00:40:51.840
+Let's choose "polite."
+
+00:40:54.240 --> 00:40:58.880
+What happens. [VoiceOver] VoiceOver 
+on, Safari, Let's calculate, window,
+
+00:40:58.880 --> 00:41:03.840
+toolbar. [Rian] Okay, I'll jump quickly to 
+"amount." [VoiceOver] Leaving toolbar, entering,
+
+00:41:03.840 --> 00:41:10.160
+one amount, pop-up button. [Rian] I'll select two. 
+[VoiceOver] Menu, three items, tick. One, two,
+
+00:41:11.200 --> 00:41:17.280
+closing menu, two, amount, pop up button, 
+Twenty. [Rian] It announces twenty.
+
+00:41:18.880 --> 00:41:26.080
+Why is that? [VoiceOver[ VoiceOver off. [Rian] 
+If you look at aria-live=polite, it's listening
+
+00:41:26.080 --> 00:41:34.000
+in this container: Total price, Euro ,and this 
+span with the amount. And it only announces
+
+00:41:34.000 --> 00:41:37.840
+the changes within, and the only 
+thing that changes is the number,
+
+00:41:38.720 --> 00:41:47.760
+so we have to tell to announce everything inside 
+the container. And that's with `aria-atomic`.
+
+00:41:49.120 --> 00:41:49.680
+is true.
+
+00:41:53.920 --> 00:41:58.640
+Then everything is announced. Let's see what 
+happens. [VoiceOver] VoiceOver on, safari,
+
+00:41:58.640 --> 00:42:05.520
+Let's calculate, window, leaving toolbar, one, 
+amount, pop-up button. [Rian] I'll change the
+
+00:42:05.520 --> 00:42:12.000
+amount. [VoiceOver] Menu, three item, two, three, 
+closing menu, three, amount, pop-up button,
+
+00:42:12.000 --> 00:42:18.480
+Total price Euros 30. [Rian] Okay, this 
+makes sense. So everything is announced,
+
+00:42:18.480 --> 00:42:24.000
+but it's not really attached to anything in 
+the form, so if, when, someone changes things,
+
+00:42:24.000 --> 00:42:31.280
+and goes over the form, the information is not 
+repeated - only on when the change happens. Now
+
+00:42:31.280 --> 00:42:38.240
+we saw several ways to solve this. You can add 
+an aria-describedby to the amount, pointing to
+
+00:42:38.240 --> 00:42:44.640
+the total price, so, if someone focuses the 
+amount, also the total price is announced.
+
+00:42:47.200 --> 00:42:53.200
+Um, think about this, What will be the best way 
+for your use case? Is it the best way to edit to
+
+00:42:53.200 --> 00:43:02.080
+your order button? It's an aria-label? Personally, 
+I think in this case you don't need ARIA at all.
+
+00:43:02.640 --> 00:43:11.840
+What about making it a read-only 
+field. Solving it with HTML.
+
+00:43:12.480 --> 00:43:17.200
+A label for total with the total price.
+
+00:43:21.280 --> 00:43:27.360
+And then you have an input field. 
+The id is total, and it's read only,
+
+00:43:27.360 --> 00:43:35.520
+and has an initial value of 10. Right. In your 
+use case, or form, this may be far more complex,
+
+00:43:36.320 --> 00:43:42.000
+but I just want to show you the basics. So you 
+can think about if this way may be better for you.
+
+00:43:42.880 --> 00:43:49.280
+How does this work? There's a field added, 
+"total price" and initial value of 10.
+
+00:43:49.920 --> 00:43:55.280
+Let's listen to the screen reader. [VoiceOver] 
+VoiceOver on, Safari, Let's calculate, window,
+
+00:43:55.280 --> 00:43:59.360
+toolbar, leaving toolbar, entering, 
+Let's calculate web content,
+
+00:44:00.080 --> 00:44:08.720
+medium, size, pop up button, main, one, amount, 
+pop-up button, menu, three it..., two, closing
+
+00:44:08.720 --> 00:44:18.120
+menu, two, amount, pop-up button, twenty, contents 
+selected, total price, text, order, button. [Rian]
+
+00:44:18.880 --> 00:44:27.120
+So now the price is always announced even if it's 
+the initial price. In a normal HTML5 form field.
+
+00:44:28.320 --> 00:44:35.120
+Think about this. I hope these demos were useful 
+for you to get a better idea how aria works,
+
+00:44:35.120 --> 00:44:39.360
+and how you can use it, and test 
+for it. Please try this at home.
+
+00:44:40.960 --> 00:44:45.280
+And now iId like to answer a question I 
+get a lot from developers and designers:
+
+00:44:45.920 --> 00:44:55.760
+Can I use "select2." The short answer is no. 
+And I will explain to you why. This is the
+
+00:44:55.760 --> 00:45:04.880
+demo page of select2. It's on select2.org slash 
+getting dash started slash basic dash usage.
+
+00:45:04.880 --> 00:45:12.400
+Here you have first a normal select, and 
+after that what you can turn it into.
+
+00:45:14.880 --> 00:45:19.680
+Now this normal select doesn't have a label. 
+I will tell you this because we're going to
+
+00:45:19.680 --> 00:45:24.800
+read through this with the screen reader. So 
+this should have a label like "select a state"
+
+00:45:25.360 --> 00:45:29.040
+but it doesn't. Okay. And 
+then there's an example code,
+
+00:45:30.400 --> 00:45:37.360
+an example with a search box, and you can 
+select a state, with your mouse if you want to,
+
+00:45:38.160 --> 00:45:45.840
+and if you search for new, you 
+get all the states with the word,
+
+00:45:50.160 --> 00:45:52.080
+I will start with the screen reader.
+
+00:45:55.600 --> 00:45:58.880
+[VoiceOver[ VoiceOver on. Safari, 
+Basic usage vertical lines Select2:
+
+00:45:58.880 --> 00:46:02.320
+the jquery replacement for 
+select boxes, window, toolbar.
+
+00:46:03.480 --> 00:46:08.720
+[Rian] I will tab to the first select 
+box. [VoiceOver] Leaving toolbar,
+
+00:46:09.280 --> 00:46:14.720
+link, getting started, link, anchor link for: 
+single select boxes. [Rian] Okay, here it
+
+00:46:14.720 --> 00:46:19.520
+goes. [VoiceOver] Alaska, pop-up button. [Rian] 
+Okay, it's a pop-up button, it's called Alaska,
+
+00:46:19.520 --> 00:46:26.480
+there's no label, whatever. If I use the arrow 
+key, I can go through the options. [VoiceOver]
+
+00:46:26.480 --> 00:46:36.720
+Menu 55 items, tick, Alaska, Hawaii, Pacific 
+Time Zone, California, Nevada, Oregon, Washington
+
+00:46:39.960 --> 00:46:43.520
+[Rian] Sometimes a little [VoiceOver] 
+Arizona [Rian], sometimes Safari a
+
+00:46:43.520 --> 00:46:48.640
+bit of hesitates, [VoiceOver] 
+Arizona, Idaho. [Rian] Okay.
+
+00:46:53.120 --> 00:46:59.680
+If Safari were to work properly then everything 
+is announced. Also the date, uh, section
+
+00:46:59.680 --> 00:47:07.280
+headings. This is regular HTML5. Okay, I'll 
+select Idaho. [VoiceOver] Closing menu, Idaho,
+
+00:47:07.280 --> 00:47:15.440
+pop up button. [Rian] Now I go to the example. 
+[VoiceOver] Alaska. Alaska, menu pop-up, combo
+
+00:47:15.440 --> 00:47:22.960
+box. [Rian] Okay. Normally, I open this with the 
+arrow down. [VoiceOver] left arrow select class
+
+00:47:22.960 --> 00:47:28.400
+equals js example basic single [Rian] No, that 
+doesn't work. It jumps out of it. So I move up
+
+00:47:28.400 --> 00:47:35.680
+again. [VoiceOver] Idaho, pop up, Alaska, Alaska, 
+menu pop up, menu pop up, combo box. [Rian] I
+
+00:47:35.680 --> 00:47:41.520
+press enter. [VoiceOver] Search text field blank. 
+[Rian] Okay. The search text field without label.
+
+00:47:42.160 --> 00:47:48.760
+Um, okay, I will want to see if I can look 
+up "new" again. [VoiceOver] n e w. New.
+
+00:47:48.760 --> 00:47:54.560
+[Rian] Gives no feedback 
+on what's happening below.
+
+00:47:55.680 --> 00:48:01.360
+So if I want to select something, maybe 
+I'll arrow down and I can select it.
+
+00:48:03.680 --> 00:48:05.840
+I can select it, but I hear nothing.
+
+00:48:10.000 --> 00:48:14.880
+And there's, now I have no idea to get out 
+of this, then to select something, okay,
+
+00:48:14.880 --> 00:48:22.080
+return. [VoiceOver] New Mexico, New Mexico, menu 
+pop-up, menu pop-up, combo box. [Rian] So this
+
+00:48:22.080 --> 00:48:29.280
+doesn't work well. You get not the proper feedback 
+for a screen reader about what you search for,
+
+00:48:30.080 --> 00:48:38.560
+how to select it, what the select options are. I 
+hope you get the point. If you create something
+
+00:48:38.560 --> 00:48:44.400
+like this, you have to test it with all 
+kinds of different devices. User test.
+
+00:48:46.320 --> 00:48:54.000
+Because select2 doesn't work for everyone, and 
+you want people to contact you, order with you,
+
+00:48:54.000 --> 00:49:01.840
+subscribe to your newsletter. Make that as easy 
+as possible. Make that as predictable as possible.
+
+00:49:03.120 --> 00:49:10.000
+I want to quote Hayden Pickering: "People 
+don't want to be delighted. They want to do
+
+00:49:10.000 --> 00:49:12.880
+what they came for, and then 
+get on with their lives."
+
+00:49:14.720 --> 00:49:20.640
+That doesn't mean that your form needs to be 
+ugly. It can be pretty, and also usable for as
+
+00:49:20.640 --> 00:49:29.840
+many people as possible, and that's the extra 
+challenge. Discuss this with your designer.
+
+00:49:30.640 --> 00:49:32.080
+I'll end my ranting here.
+
+00:49:34.560 --> 00:49:39.360
+If you want to learn more about how to 
+create and code accessible web projects,
+
+00:49:40.880 --> 00:49:49.120
+I'd highly recommend you taking a course at 
+the a11y collective at a11y-collective.com.
+
+00:49:50.720 --> 00:49:56.880
+My colleagues and I created courses for everyone 
+involved in the web project. Business owners,
+
+00:49:56.880 --> 00:50:03.920
+stakeholders, project managers, content 
+managers, designers, and, of course, developers.
+
+00:50:05.360 --> 00:50:12.080
+The course about accessible code will launch very 
+soon, but to start there's also a basic course,
+
+00:50:12.080 --> 00:50:15.760
+where you can get a broad overview 
+of what accessibility actually is.
+
+00:50:17.040 --> 00:50:23.120
+If you're not sure, take the free tryout course 
+to get an impression of what the courses are like.
+
+00:50:23.920 --> 00:50:30.880
+I hope you got an idea on how ARIA can make a 
+form understandable and give proper feedback.
+
+00:50:32.560 --> 00:50:38.800
+If you depend on a plugin for your forms, check 
+if the plugin uses ARIA to describe and give
+
+00:50:38.800 --> 00:50:46.400
+feedback. If labels are properly connected to the 
+form controls, now you know where to look out for.
+
+00:50:48.320 --> 00:50:51.520
+Research this before you implement a plugin
+
+00:50:51.520 --> 00:50:57.360
+on your production website. You want everyone 
+to be able to understand your form, of course.
+
+00:50:59.600 --> 00:51:05.840
+Well, I hope I gave you a lot of homework, and 
+I hope you got a better understanding on how
+
+00:51:05.840 --> 00:51:21.840
+people use the web and your forms in a different 
+way. Thank you for listening, please be safe.
+
+00:51:22.440 --> 00:51:26.640
+[Roberto] Awesome! Um, thank you, very much
+
+00:51:27.440 --> 00:51:31.760
+Rian, for the talk. [Rian] 
+Sorry, for taking so much time!
+
+00:51:33.840 --> 00:51:38.960
+[Roberto] But don't, don't worry about it. I 
+mean, thank you very, very much. We don't have
+
+00:51:38.960 --> 00:51:45.040
+time for questions, but everybody, the questions 
+are going to be on the website, and you can answer
+
+00:51:45.040 --> 00:51:52.400
+the, the questions over there. Thank you very 
+much for your time, and I mean, that's the,
+
+00:51:52.400 --> 00:51:58.000
+the last talk that I will be hosting. 
+Um, the, the next hosting will be Ahmed.
+
+00:51:59.440 --> 00:52:06.800
+Don't forget to attend the next talk: Your CMS 
+is an Accessible Assitant, uh by, [Rian] Yeah,
+
+00:52:06.800 --> 00:52:12.720
+I really would recommend your next talk, that 
+will be an awesome talk, yeah. [Roberto] Okay, it
+
+00:52:12.720 --> 00:52:31.840
+will be eight utc time, and thank you very much, 
+Have a good day - see you in a bit. [Rian] Bye.

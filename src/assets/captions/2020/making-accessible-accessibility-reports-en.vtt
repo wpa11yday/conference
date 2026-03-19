@@ -1,0 +1,1136 @@
+WEBVTT
+
+00:00:35.920 --> 00:00:43.280
+Hello everyone. Welcome once again to WordPress 
+Accessibility Day 2020. This is a 24 hour long
+
+00:00:43.280 --> 00:00:50.240
+event where we talk about accessibility. My name is 
+Ahmed Kabir Chaion and I'm working as a Business
+
+00:00:50.240 --> 00:00:55.040
+Development Manager at weDevs. I'm also a regular 
+contributor to the making WordPress documentation,
+
+00:00:55.040 --> 00:01:01.760
+design, polyglots, accessibility, hosting, community, 
+learn WordPress, and Marketing group. I will be your host
+
+00:01:01.760 --> 00:01:09.280
+for this session. You're here for the 10 am UTC
+talk with Calum Ryan. Please feel free to add your
+
+00:01:09.280 --> 00:01:16.720
+question to the YouTube chat kit and we'll answer 
+those at the end. So how do we approach accessibility
+
+00:01:16.720 --> 00:01:21.440
+while testing in a way that's sufficiently 
+comprehensive from a technical perspective,
+
+00:01:22.480 --> 00:01:28.400
+at the same time presentable to clients 
+without being technically knowledge and
+
+00:01:28.400 --> 00:01:34.720
+who may themselves have a disability. So that's 
+a question posed specifically for this talk.
+
+00:01:34.720 --> 00:01:40.800
+So in this talk the speaker will explain some of 
+the approaches and attention to detail it takes
+
+00:01:40.800 --> 00:01:45.280
+to test and present accessibility 
+issues in websites that's accessible.
+
+00:01:45.920 --> 00:01:51.200
+The points that are will be covered using 
+WordPress to help make accessible, accessibility
+
+00:01:51.200 --> 00:01:56.800
+reports for clients, the conversations with clients 
+as part of the accessibility testing process
+
+00:01:56.800 --> 00:02:03.280
+before and after, and what the benefits are 
+of using this approach. Our speaker Calum
+
+00:02:03.280 --> 00:02:10.080
+is an Accessibility Consultant for dxw, helping the 
+public sector make their websites more accessible.
+
+00:02:10.080 --> 00:02:15.680
+His background is in front and web 
+development and user interface design,
+
+00:02:15.680 --> 00:02:21.840
+having worked in the web industry for around 10 
+years, which brings to this session accessible, um
+
+00:02:24.960 --> 00:02:28.320
+which brings to this session making accessibility,
+
+00:02:29.040 --> 00:02:35.840
+making accessible accessibility reports.
+Apologies for that Calum, take it away.
+
+00:02:38.160 --> 00:02:44.800
+[Calum] Thank you. So I was really in pleased to 
+give this talk about creating accessibility
+
+00:02:44.800 --> 00:02:51.600
+reports, which are accessible. And 
+I, I work for a company called dxw
+
+00:02:52.240 --> 00:02:59.360
+who are based in the UK in London 
+and Leeds has around 70 people roughly.
+
+00:03:00.240 --> 00:03:04.640
+And we design, build, operate 
+through digital public services.
+
+00:03:09.840 --> 00:03:20.000
+And within dxw I'm, I work in GovPress which 
+specifically works with WordPress. We have lots
+
+00:03:20.000 --> 00:03:27.040
+of clients who use WordPress. They're all public 
+sector mainly. And throughout the past few months
+
+00:03:27.040 --> 00:03:33.760
+I've been working on making the websites 
+more accessible and this is for the latest
+
+00:03:35.040 --> 00:03:41.840
+legislation which is now a legal requirement 
+in the UK for all public sector websites to
+
+00:03:41.840 --> 00:03:47.840
+be accessible. If you take a look 
+at accessibility.campaign.gov.uk
+
+00:03:48.640 --> 00:03:54.880
+there's more explanation on what that involves,
+the regulations and who that applies to.
+
+00:03:56.480 --> 00:04:05.280
+So within organization of GovPress, I'm 
+the only accessibility expert and it's been
+
+00:04:05.280 --> 00:04:14.640
+my responsibility to interpret a lot of that 
+information from the WCAG guidelines, the latest
+
+00:04:14.640 --> 00:04:24.560
+guidelines which all public sector organizations 
+must comply to. So if some of you, I mean it depends,
+
+00:04:25.280 --> 00:04:31.520
+um I'm sure there's a whole range of people 
+listening to this talk um, but if you're more
+
+00:04:31.520 --> 00:04:36.960
+technically minded you might have already 
+seen these guidelines. They are an extensive
+
+00:04:37.600 --> 00:04:43.200
+documentation and listing of all the different 
+requirements for having an accessible website.
+
+00:04:43.920 --> 00:04:50.720
+I've probably spent some, quite a 
+few hours bedtime reading for this. It's
+
+00:04:50.720 --> 00:04:54.880
+uh, it's not the sort of thing you can just 
+read off in an hour. It's certainly something
+
+00:04:54.880 --> 00:04:59.680
+you need to get your head around when you're 
+looking at how accessible websites should be.
+
+00:05:01.760 --> 00:05:06.400
+In those guidelines I can summarize 
+that websites need to be perceivable,
+
+00:05:07.040 --> 00:05:09.840
+operable, understandable and robust.
+
+00:05:12.160 --> 00:05:16.269
+So that's a lot of criteria to present to 
+clients and what I'm looking at, in terms of
+
+00:05:20.560 --> 00:05:27.840
+report, is um for clients to understand the 
+importance of having accessible websites
+
+00:05:29.120 --> 00:05:35.520
+and for that reports being useful to them, 
+that not only before, but after the report,
+
+00:05:35.520 --> 00:05:41.040
+they can see which fixes have been done 
+and which fixes are the most critical,
+
+00:05:41.040 --> 00:05:46.320
+need to be done and which are less important,
+but still need to be looked at at some point.
+
+00:05:49.680 --> 00:05:53.200
+In terms of the report going 
+forward as well, it's a useful
+
+00:05:54.000 --> 00:06:00.480
+tool for the clients that we have to create their 
+own accessibility statement which is a requirement
+
+00:06:01.520 --> 00:06:06.800
+for this guidelines at the moment. For 
+certainly in the UK for the legislation
+
+00:06:06.800 --> 00:06:11.200
+that even if your website is fully accessible 
+you still have an accessibility statement.
+
+00:06:15.120 --> 00:06:23.680
+So in terms of actually creating an accessibility 
+report there's a methodology which you can look at
+
+00:06:23.680 --> 00:06:33.280
+from w3.org which gives a good in-depth listing of 
+all the different criteria to look through and how
+
+00:06:33.280 --> 00:06:41.040
+to actually structure your accessibility report.
+Now this is alone something we wouldn't present
+
+00:06:41.040 --> 00:06:51.840
+to our clients because it is a very, uh detailed and 
+quite technical presentation on highlighting
+
+00:06:52.400 --> 00:06:59.040
+what has been tested and who has tested it and 
+the types of tests that have been formed. So the
+
+00:06:59.040 --> 00:07:07.760
+challenge that I wanted to get around was looking 
+at what accessibility reports do at the moment
+
+00:07:08.640 --> 00:07:13.520
+and how we can make that more accessible to not 
+only the people who are going to be fixing the
+
+00:07:13.520 --> 00:07:20.720
+technical issues in the website, but the content 
+issues, the overall readability of the content.
+
+00:07:21.840 --> 00:07:28.560
+So typically we'll have a lot of different people 
+looking at the report so it's important that we
+
+00:07:29.760 --> 00:07:35.440
+make that report as accessible as possible to 
+everybody who is not only reading it, but actually
+
+00:07:35.440 --> 00:07:43.200
+putting in information and issues into that report.
+Typically there'll be many issues which are the
+
+00:07:43.200 --> 00:07:49.200
+same over different pages on websites and the 
+similar solutions as well to fix those issues.
+
+00:07:51.840 --> 00:07:59.920
+And also in terms of our own example where we 
+have many different clients, we need to have
+
+00:07:59.920 --> 00:08:07.520
+multiple people editing those reports or reviewing 
+those reports. So we needed a solution to allow
+
+00:08:07.520 --> 00:08:15.680
+different people to look at those reports at the 
+same time. We also had quite a short deadline to
+
+00:08:16.800 --> 00:08:22.640
+create all of these reports for different clients 
+so having a facility to make those reports in the
+
+00:08:22.640 --> 00:08:31.120
+most efficient and accurate way was very important 
+and having a way to present very technical
+
+00:08:31.120 --> 00:08:37.920
+language in a way which doesn't completely 
+take over the report and make it difficult
+
+00:08:37.920 --> 00:08:44.080
+for somebody who isn't technically minded to 
+get to the most important points in the report.
+
+00:08:46.320 --> 00:08:54.720
+And also a lot of our clients are just used to 
+having a pdf to print off whenever they look at
+
+00:08:54.720 --> 00:09:00.640
+documents. So, although pdfs aren't inherently 
+that accessible, we still have that option
+
+00:09:00.640 --> 00:09:07.840
+for the report to be printed off as 
+a pdf or just as a paper printout.
+
+00:09:10.400 --> 00:09:16.880
+So creating accessibility reports, we decided to 
+use WordPress because WordPress is what we use
+
+00:09:16.880 --> 00:09:25.440
+day-to-day in our company. We have a whole team 
+of people who can not only work on the backend,
+
+00:09:25.440 --> 00:09:32.320
+but develop a front-end user interface, can 
+customize themes and WordPress just generally
+
+00:09:32.320 --> 00:09:39.600
+has got a great community of people to make the 
+whole content management system a lot more robust.
+
+00:09:40.240 --> 00:09:47.520
+Um it's important to say we don't actually use 
+Gutenberg in our reports. We still use the Classic
+
+00:09:48.160 --> 00:09:54.720
+interface and that goes back to my, my 
+intention is to make this report not only
+
+00:09:55.520 --> 00:10:02.160
+accessible for the front end, but accessible for 
+people who are creating reports, so the whole
+
+00:10:03.360 --> 00:10:08.480
+way of entering information into 
+reports is using the standard WordPress
+
+00:10:09.600 --> 00:10:13.600
+content management system, without 
+any of the Gutenberg changes.
+
+00:10:17.600 --> 00:10:26.080
+So starting with how we create the reports, we 
+use, um if anybody is familiar with WordPress,
+
+00:10:26.080 --> 00:10:31.760
+on the backend we use a number of existing 
+plugins, where we use the Classic Editor
+
+00:10:32.480 --> 00:10:38.720
+and the override, so we don't get the 
+Gutenberg presentation. We use Custom Fields,
+
+00:10:39.520 --> 00:10:47.200
+Advanced Custom Fields which gives us a few 
+more options in terms of adding extra fields
+
+00:10:47.200 --> 00:10:55.360
+to content and making that more easy to add  
+repeated content. So if you've got like a repeated
+
+00:10:56.000 --> 00:11:02.800
+issue or repeated criteria, we can just start 
+typing the words for that criteria and it will
+
+00:11:02.800 --> 00:11:07.840
+populate field without us having to go through and 
+repeat the same thing for every single web book.
+
+00:11:10.720 --> 00:11:17.920
+We, we use Custom Post Types to 
+store the solutions and the criteria
+
+00:11:18.640 --> 00:11:26.160
+as a centralized area of content so we can 
+refer back to those pieces of content and put
+
+00:11:26.160 --> 00:11:31.600
+those into each report, and that helps make the 
+whole process a lot more efficient and accurate.
+
+00:11:33.360 --> 00:11:40.800
+And in terms of presenting the reports to 
+clients we use the standard password protection
+
+00:11:40.800 --> 00:11:47.440
+on posts when we publish them, so that only their 
+client with a password can review that report.
+
+00:11:51.760 --> 00:12:01.200
+In terms of actually viewing the reports, 
+as a user we try and comply to WCAG 2.1 (AA)
+
+00:12:01.200 --> 00:12:07.280
+standard and so everything 
+we do is client compliant to that level.
+
+00:12:07.840 --> 00:12:14.000
+You can navigate the entire report using 
+keyboard, screen reader, and each of the
+
+00:12:15.440 --> 00:12:22.400
+sections are all accessible through a single 
+navigation. And [unintelligible] say that the whole
+
+00:12:22.400 --> 00:12:30.080
+report is a single page. So if you want to print 
+it off you can, just print off as a pdf if you wish.
+
+00:12:31.200 --> 00:12:39.440
+And in terms of beyond the technical standards, 
+we also look at how readable language is so if
+
+00:12:39.440 --> 00:12:48.880
+we've got a technical term such as ARIA,
+a-r-i-a, we explain what that abbreviation means
+
+00:12:50.400 --> 00:12:58.080
+and in terms of the whole sort of general 
+design system, we try to apply standards which
+
+00:12:58.080 --> 00:13:06.080
+are accessible. So we have gov.uk has their own 
+design system and we take influence from that so,
+
+00:13:07.200 --> 00:13:11.600
+things such as the issues which 
+I'll show you in a short while
+
+00:13:12.160 --> 00:13:19.840
+uh in reports are all using standard 
+components, which are accessibility tested.
+
+00:13:22.960 --> 00:13:25.200
+So let's look inside the accessibility report.
+
+00:13:28.320 --> 00:13:34.560
+Initially the report was a prototype which 
+I developed without WordPress. So this
+
+00:13:35.360 --> 00:13:44.880
+report is flexible, we can use what um,
+anybody could use the report in whatever CMS or
+
+00:13:44.880 --> 00:13:51.920
+even just a static template if they 
+wanted to. The the current set we have is
+
+00:13:52.800 --> 00:14:01.840
+a WordPress setup that is fairly 
+customizable to however you need it to be.
+
+00:14:02.640 --> 00:14:08.880
+So we start off with saying who created the report,
+outlining the person that was optional if they
+
+00:14:08.880 --> 00:14:15.760
+want to have their avatar or any other information 
+about when the report was done, what their role
+
+00:14:15.760 --> 00:14:22.160
+is in the organization and outlining if there 
+was anybody else who quality checked the report
+
+00:14:23.600 --> 00:14:30.880
+and the overall compliance of report. So 
+in some cases we have clients who stipulate
+
+00:14:30.880 --> 00:14:36.480
+they want their website to be up to AAA
+standard, so we'll make a differentiation
+
+00:14:37.040 --> 00:14:43.840
+between websites which have 
+been checked to AA or AAA.
+
+00:14:48.000 --> 00:14:57.200
+So in terms of outlining what we tested, we created 
+a list of say how many pages or pdfs have been
+
+00:14:57.200 --> 00:15:05.920
+tested and they're now writing how it's being 
+tested, so we always um specify the automated and
+
+00:15:05.920 --> 00:15:12.000
+manual tests which we've done. We have different 
+browsers and [unintelligible] devices we use in the
+
+00:15:12.000 --> 00:15:19.600
+different combinations we use. Typically that will 
+involve a few screen readers. We have a limited team
+
+00:15:19.600 --> 00:15:26.960
+and you can actually do that so although we have,
+there are several different screen readers, we only
+
+00:15:26.960 --> 00:15:37.120
+test with what we have available at the moment.
+We test with VoiceOver, NVDA and the mobile
+
+00:15:37.120 --> 00:15:45.440
+equivalent. So we've got VoiceOver on iOS and 
+TalkBack on Android and Narrator on Windows.
+
+00:15:47.280 --> 00:15:52.240
+And we'll probably look at having some more 
+when we maybe expand actually a bit more in
+
+00:15:52.240 --> 00:15:57.920
+the accessibility side of things. So this is 
+giving an outline of just how it's being tested
+
+00:15:58.720 --> 00:16:07.840
+and that is before any of the issues 
+or outlining how we fix those issues.
+
+00:16:08.480 --> 00:16:16.320
+Now the issues identified in report, we we 
+typically have four user impact levels. So that
+
+00:16:16.320 --> 00:16:28.400
+starts with minor, moderates, serious and critical.
+These are user impact levels we take from the axe
+
+00:16:30.240 --> 00:16:37.760
+tool by Deque and we use that as platform automated 
+tests to get an overview of what are the the
+
+00:16:37.760 --> 00:16:43.520
+main issues with websites before moving on to 
+the manual tests. And so within our report we
+
+00:16:44.160 --> 00:16:53.280
+we can use things such as the accordions from 
+the gov uk design system to make the whole um
+
+00:16:54.640 --> 00:17:02.240
+collection of issues more simplified and 
+more collated. So if there's an issue it's
+
+00:17:02.240 --> 00:17:07.040
+the same issue on different pages it's a 
+lot easier to just go to that single issue
+
+00:17:07.680 --> 00:17:14.080
+and outline it within a certain section. So 
+for each user impact level we have these
+
+00:17:15.920 --> 00:17:24.240
+accordion items which as a description of the 
+image that we have to the right of the slide is
+
+00:17:25.360 --> 00:17:33.040
+the critical issues title, with the issue, the type 
+of test, so in this case it's an automated test
+
+00:17:34.720 --> 00:17:41.440
+and where the issue is located. So in this case 
+we have the home page navigation and then after
+
+00:17:41.440 --> 00:17:49.040
+that we say the level that it's been assessed 
+to. So in this case the level has been WCAG 2.0, AA
+
+00:17:49.600 --> 00:18:00.720
+and the specific criteria that the issue 
+is not complying with, is 1.4.3 contrast minimum.
+
+00:18:02.400 --> 00:18:08.240
+So following those details we outline 
+what is the problem and who it affects.
+
+00:18:09.200 --> 00:18:16.000
+So in this case we have multiple instances of 
+contrast between foreground and background colours.
+
+00:18:16.000 --> 00:18:21.680
+It doesn't meet the contrast ratio threshold 
+and this includes [unintelligible] post states
+
+00:18:22.560 --> 00:18:26.480
+this has a serious user impact 
+because there are many types of vision
+
+00:18:26.480 --> 00:18:30.800
+impairments where poor colour contrast could 
+affect their ability to view the website.
+
+00:18:34.240 --> 00:18:41.840
+Then after that we have screenshots of 
+where that is present. Now this also helps
+
+00:18:41.840 --> 00:18:47.760
+for again people who aren't technically minded 
+to actually get an idea of where the problem is.
+
+00:18:49.200 --> 00:18:54.880
+So in this case we have four small screenshots 
+which can be opened in a light box kind of
+
+00:18:54.880 --> 00:19:02.720
+presentation, if you want to expand it, and 
+within that we may also have code samples.
+
+00:19:03.600 --> 00:19:06.480
+In this example we don't have 
+that, but in some we, we would do.
+
+00:19:09.440 --> 00:19:12.560
+And finally in the issue 
+is the recommended solution.
+
+00:19:14.080 --> 00:19:20.400
+We decided to put the solutions in a separate 
+section. So in this case we have a small summary
+
+00:19:20.400 --> 00:19:25.600
+of what the solution is and an anchor link 
+to the link to the solution further down.
+
+00:19:31.680 --> 00:19:38.960
+So the solutions section is again a collated list 
+of what the solutions are. Typically a solution may
+
+00:19:38.960 --> 00:19:46.560
+be applicable to different issues and in this 
+case we have an image again on the right slide
+
+00:19:46.560 --> 00:19:54.400
+with a few issues of being given solutions.
+And in this case we have one about ARIA,
+
+00:19:54.960 --> 00:20:01.520
+removing ARIA, uh one about changing HTML  
+here because bottom element isn't used,
+
+00:20:03.040 --> 00:20:09.520
+and another one for changing the colour contrast 
+because background colour. So within each of these
+
+00:20:09.520 --> 00:20:17.680
+solutions we give the outline of the solution, how 
+to fix it, in some cases the solution is aimed at
+
+00:20:17.680 --> 00:20:24.160
+a technical person. In some cases the solution is 
+aimed as a content person. So in this example,
+
+00:20:24.160 --> 00:20:29.520
+we don't actually specify that, but in a future 
+iteration of this whole platform we're going to
+
+00:20:30.400 --> 00:20:37.840
+make a lot clearer on who that issue, who that 
+solution is aimed at in terms of responsibility.
+
+00:20:40.240 --> 00:20:47.120
+And finally we refer again to the criteria 
+that the solution is applicable to and again
+
+00:20:47.120 --> 00:20:51.680
+that is another anchor link to a 
+section further down in the report.
+
+00:20:57.040 --> 00:21:03.680
+And finally in the report we have the references 
+section, Uh this again links you to the
+
+00:21:04.240 --> 00:21:12.160
+WCAG reference for the criteria. In each 
+case we also have a secondary link to
+
+00:21:13.280 --> 00:21:23.440
+an explanation of how to understand that criteria,
+a bit more in both cases the explanation is a lot
+
+00:21:23.440 --> 00:21:30.400
+more than we can write and report. And one of the 
+reasons why I decided not to include an entire
+
+00:21:30.400 --> 00:21:36.640
+description of the criteria in the report itself, 
+again it's just not to make it so overwhelming for
+
+00:21:36.640 --> 00:21:43.840
+different people in the report and to make the 
+report a reasonable level for everybody using it.
+
+00:21:48.640 --> 00:21:51.760
+So what have we learnt from creating this platform?
+
+00:21:53.360 --> 00:21:58.320
+Certainly early on we've found there's a lot 
+of information to include in a report and
+
+00:21:58.320 --> 00:22:03.280
+using visual space effectively is certainly 
+something which you need to do when you've
+
+00:22:03.280 --> 00:22:09.840
+got so much information to interpret to a vast 
+range of different people you might be viewing the report.
+
+00:22:09.840 --> 00:22:19.040
+We often have different clients and this is an 
+example, we have the office for national statistics
+
+00:22:19.840 --> 00:22:27.440
+and in such an example as that, we may be creating 
+reports to a more customized level than maybe
+
+00:22:27.440 --> 00:22:34.160
+some others in terms of the people viewing 
+it, in terms of what they need from the reports.
+
+00:22:34.160 --> 00:22:39.840
+There are ways that we might consider making 
+it more customizable than it is at the moment.
+
+00:22:42.320 --> 00:22:48.720
+In terms of again going, going back to who the 
+issues are applicable to, who's responsible
+
+00:22:48.720 --> 00:22:54.320
+for fixing those issues, we should maybe 
+look at making that bit more clearer um.
+
+00:22:55.680 --> 00:23:02.480
+In the discussions we've had with clients I've 
+found that often many will feel that the report
+
+00:23:02.480 --> 00:23:09.440
+is really just for a technical person to look 
+at and really they're just there just to um
+
+00:23:09.440 --> 00:23:17.200
+view reports and summarize that the timing, ah
+actually understand how much time they need for
+
+00:23:17.200 --> 00:23:23.600
+the fixes to be made. Whereas in many cases the 
+fixes are for their own team of content editors
+
+00:23:24.400 --> 00:23:29.040
+and decision makers to spend time 
+making lots of fixes themselves
+
+00:23:32.400 --> 00:23:39.760
+And then also finally looking at the report in 
+terms of how crucial it is to making websites more
+
+00:23:39.760 --> 00:23:48.720
+accessible, it's only a complement to discussion 
+and ongoing discussion with clients to understand
+
+00:23:48.720 --> 00:23:57.040
+about how to make the websites more accessible and 
+going forward that the report is only a one-off
+
+00:23:57.040 --> 00:24:02.240
+snapshot in time. That they need to understand 
+that making their website accessible is an ongoing
+
+00:24:02.240 --> 00:24:09.520
+process which they need to revisit frequently and 
+not just as a one-off to meet this legislation.
+
+00:24:14.640 --> 00:24:20.320
+So what's next for our report platform? 
+We currently have the platform in our
+
+00:24:20.320 --> 00:24:26.800
+own private repository. It's not really in a 
+state where we could open source it right now.
+
+00:24:26.800 --> 00:24:32.400
+We would like to make it open source as 
+potentially a WordPress plugin and also just as
+
+00:24:32.400 --> 00:24:39.840
+a static template that you can work as your own 
+presentation for any content management system.
+
+00:24:42.080 --> 00:24:49.040
+It would also be great to get users to test out 
+the platform, not only as content editors, but as
+
+00:24:49.040 --> 00:24:56.240
+users viewing the report and we'd like to do 
+some usability testing with people to really
+
+00:24:56.240 --> 00:25:03.840
+understand what are the problems are in interpreting 
+that information and how to make reports more
+
+00:25:03.840 --> 00:25:13.760
+accessible. And then finally also to make the whole 
+process a lot more streamlined we'd like to link
+
+00:25:13.760 --> 00:25:20.640
+those issues into a tracking integration. So for 
+example, if you're using a system such as GitHub
+
+00:25:21.600 --> 00:25:27.920
+or Trello potentially having a link with it in 
+that, so potentially maybe it's something like a
+
+00:25:28.640 --> 00:25:38.880
+API so that we could make that whole information 
+a lot more open and easier to link to certain
+
+00:25:38.880 --> 00:25:46.400
+aspects through the report. And not only developers, 
+but anybody else who wants to see the progress of
+
+00:25:46.400 --> 00:25:56.240
+changes being fixed and any other information 
+basically is a lot more easily accessible.
+
+00:25:56.240 --> 00:26:03.120
+So really I'm probably finishing quite 
+early for this, but um just as a roundup
+
+00:26:03.120 --> 00:26:08.480
+really I just wanted to say thank you to 
+everybody who's organized this event .
+
+00:26:08.480 --> 00:26:17.760
+And I am happy to take questions now or later.
+The company dxw.com, do a whole range of
+
+00:26:18.480 --> 00:26:26.000
+work in the public sector. And if you are based 
+in London Leeds or anywhere within the UK, uh
+
+00:26:26.000 --> 00:26:33.120
+we're happy to talk about how we can work for you 
+in making not only the web more accessible but and
+
+00:26:33.920 --> 00:26:38.800
+helping public sector services 
+and service design. Thank you.
+
+00:26:43.520 --> 00:26:49.120
+[Ahmed] Thank you so much Calum, I believe 
+we have a lot of time for questions.
+
+00:26:49.840 --> 00:26:56.480
+We can, but we certainly are not seeing that 
+much questions in the chat so I would like
+
+00:26:56.480 --> 00:27:02.320
+to ask you a personal question. What would you 
+like to see in the future? You mentioned about
+
+00:27:02.320 --> 00:27:06.240
+open source as a plugin, would you 
+give us a bit more details about that?
+
+00:27:08.880 --> 00:27:13.120
+A little bit more in-depth idea about 
+how the future, accessible future to you.
+
+00:27:15.120 --> 00:27:24.000
+[Calum] Sure, em, so my background is in mainly, sort of front end 
+user interface design and I think making the whole
+
+00:27:24.000 --> 00:27:33.840
+um developer process a lot more friendly in terms 
+of the linking of issues to a system which makes
+
+00:27:35.600 --> 00:27:43.280
+things like continuous integration, so developing 
+a way for accessibility testing, an automated way
+
+00:27:43.280 --> 00:27:51.280
+a lot more easy to include in the build process.
+And if that can be, uh I think mainly in my
+
+00:27:51.280 --> 00:27:59.200
+report context, but generally the availability of 
+accessibility testing in continuous integration
+
+00:27:59.200 --> 00:28:08.240
+and development make that process look more well 
+documented and promoted that would be great.
+
+00:28:08.240 --> 00:28:14.400
+Making the web more accessible I think is something 
+which a lot of the developers I've spoken to
+
+00:28:15.600 --> 00:28:20.000
+aren't really aware of enough and how 
+to make that process maybe more easier, I think.
+
+00:28:22.400 --> 00:28:27.120
+[Ahmed] Thank you. So my next question to 
+you is based on your experience,
+
+00:28:27.120 --> 00:28:31.760
+where do you think accessibility 
+is successful more? Is it total is
+
+00:28:31.760 --> 00:28:37.280
+it more leaning towards technology or 
+to acceptance of the use of technology?
+
+00:28:40.160 --> 00:28:42.352
+[Calum] Sorry, if you could repeat that again, sorry.
+
+00:28:42.352 --> 00:28:53.040
+[Ahmed] Sure. So where do 
+you think the success lies for accessibility, overall accessibility? Is it on the use of 
+more technology or making it aware for people
+
+00:28:53.040 --> 00:28:57.440
+to be able to use those technologies?
+Is it on awareness or on technology?
+
+00:28:57.440 --> 00:29:04.560
+How would you prioritize it, the success 
+of accessibility?
+
+00:29:04.560 --> 00:29:10.240
+[Calum] Yeah, I think certainly both. There's room for improvement. On the latter point,
+I think certainly more in terms of awareness
+
+00:29:10.240 --> 00:29:19.760
+and making it more attractive, taking away some of 
+the barriers to how we present that accessibility
+
+00:29:21.840 --> 00:29:28.800
+information. How we make it easier for developer 
+relations to and not only just see it as an
+
+00:29:28.800 --> 00:29:36.160
+afterthought, but something you start doing as as 
+soon as you start writing one line of code.
+
+00:29:36.160 --> 00:29:44.320
+You know how you're going to test it and where there 
+might be potential problems for different users.
+
+00:29:46.320 --> 00:29:52.720
+[Ahmed] Right, so um another question. These are all 
+coming from me so I really appreciate this
+
+00:29:52.720 --> 00:29:58.240
+opportunity for me to get first hand experience 
+of asking the question. So I want to know
+
+00:29:58.240 --> 00:30:04.880
+while trying to explain accessibility to 
+people who is not totally aware of such a thing
+
+00:30:04.880 --> 00:30:12.080
+which exists, would you share some of your experience 
+of struggling uh and and trying to find it very
+
+00:30:12.080 --> 00:30:16.720
+difficult to make someone understand 
+the importance of having accessibility.
+
+00:30:19.760 --> 00:30:23.840
+[Calum] Sure I think the perceptions of accessibility
+
+00:30:23.840 --> 00:30:30.960
+certainly on the web are very limited from 
+my experience of speaking to developers and
+
+00:30:33.520 --> 00:30:42.960
+being able to convince them that what they're 
+doing is is important and that i think it's
+
+00:30:42.960 --> 00:30:49.680
+something where they're certainly improving. And 
+certainly events like this are helping with that
+
+00:30:49.680 --> 00:30:57.360
+process, but just as general awareness is again 
+something which uh I see lacking in my experience
+
+00:30:57.360 --> 00:31:04.320
+of speaking to people and if there's a way of 
+making that process just a little bit easier
+
+00:31:04.320 --> 00:31:10.880
+in terms of the testing process and auditing 
+websites to, to understand that, is certainly
+
+00:31:12.960 --> 00:31:19.120
+some way to go I think. And there are tools 
+which are making that progress easier and the
+
+00:31:19.120 --> 00:31:24.880
+browser tools which I mentioned, axe 
+and white tiles to some extent as well.
+
+00:31:25.760 --> 00:31:32.480
+There are tools which I found have opened up some 
+awareness more in terms of accessibility. I'll still say that there's some way to go.
+
+00:31:36.520 --> 00:31:39.440
+[Ahmed] All 
+right, thank you so much. We did get a question
+
+00:31:39.440 --> 00:31:45.520
+from the chat. So the question is, how can we 
+follow process for the code deliberation from
+
+00:31:45.520 --> 00:31:52.800
+your accessibility report plugin? And there's 
+a form of comment, I'm sure that WordPress a11y
+
+00:31:52.800 --> 00:31:59.040
+community could help to translate and contribute.
+And also this the person says, thanks for the top down.
+
+00:32:01.760 --> 00:32:08.560
+[Calum] So thank you and so yeah the report tool is 
+uh something which it is intention to make it
+
+00:32:08.560 --> 00:32:18.560
+open source. The code is all pretty much just 
+WordPress based templates and WordPress based
+
+00:32:20.480 --> 00:32:26.880
+plugins. So things like custom fields and 
+the presentation itself is relatively
+
+00:32:26.880 --> 00:32:32.400
+easy just to share and I'd like to do that 
+within the next couple of months hopefully.
+
+00:32:33.520 --> 00:32:40.320
+We are open about doing it and not just as an internal 
+tool, but something to help other organizations with.
+
+00:32:40.320 --> 00:32:45.920
+So certainly, um we'll try and put up 
+on GitHub for the next few months if we can.
+
+00:32:47.760 --> 00:32:55.120
+[Ahmed] Absolutely so thank you so much Calum for taking 
+the time and initiative for speaking today at this
+
+00:32:55.120 --> 00:33:02.400
+event, 24 hour long talking about accessibility 
+being part of it. What other initiatives would
+
+00:33:02.400 --> 00:33:08.000
+you encourage the stakeholders, if they could 
+make a change, they could make a difference,
+
+00:33:08.000 --> 00:33:12.080
+who would you encourage to step forward 
+so that accessibility can become more
+
+00:33:12.720 --> 00:33:16.640
+easily available for everyone 
+to understand accept and apply.
+
+00:33:19.040 --> 00:33:22.191
+[Calum] So do you mean in terms of the organizations?
+
+00:33:22.191 --> 00:33:25.520
+[Ahmed] Yeah what's the big ones, policy makers, government.
+
+00:33:28.880 --> 00:33:33.520
+[Calum] Yeah I think certainly credit to some 
+of the people in the government who are
+
+00:33:33.520 --> 00:33:40.400
+stepping forward. Maybe not so much 
+the current government, but in terms of
+
+00:33:40.400 --> 00:33:50.080
+the people working on terms as the government UK 
+guidelines and the the overall drive to make at
+
+00:33:50.080 --> 00:33:55.120
+least the government's website more accessible,
+that's um certainly setting a good standard.
+
+00:33:56.240 --> 00:34:01.440
+I think in terms of private sector as 
+well, there's some great examples of
+
+00:34:02.480 --> 00:34:12.080
+organizations I'm trying to think of one now,
+but uh potentially Monzo who are the, one of the
+
+00:34:12.880 --> 00:34:18.720
+organizations in Ukraine online banking 
+and if they were possibly more vocal on
+
+00:34:18.720 --> 00:34:24.400
+what they're doing for accessibility that's a 
+good example there, but also some of the more
+
+00:34:24.400 --> 00:34:31.040
+established private sector organizations and the 
+uh, the banking sector certainly because so many
+
+00:34:31.040 --> 00:34:39.760
+banks are essential to making our day-to-day lives 
+um possible through accessible websites. So that's
+
+00:34:39.760 --> 00:34:46.080
+certainly somewhere which would be great to 
+see. I know Barclays in the UK do a great
+
+00:34:46.880 --> 00:34:52.960
+effort towards not only accessibility, their own 
+website, but talking about it, being more open.
+
+00:34:52.960 --> 00:34:56.652
+So that's certainly one I'd reference.
+
+00:34:56.652 --> 00:35:08.080
+[Ahmed] All 
+right Calum, with that we wrap up the Q A session as well. Thank you so so much once again 
+for your support towards the initiative and
+
+00:35:08.080 --> 00:35:13.920
+we hope to see you again in future WordPress 
+Accessibility Day celebrations such as this one.
+
+00:35:13.920 --> 00:35:19.200
+I would also like to thank everyone for attending 
+the session with Calum Ryan and myself. You can
+
+00:35:19.200 --> 00:35:26.960
+continue the conversation using the #wpad, #wpad2020 and @wpaccessibility.
+
+00:35:27.600 --> 00:35:32.080
+Also don't forget to attend the next stop 
+Digital Transformation or Social Digital
+
+00:35:32.080 --> 00:35:40.080
+Transformation with Merary Alvarado at 11 am UTC sharp, here in the same track. The host for the next
+
+00:35:40.080 --> 00:35:46.160
+few talks would be Amanda Bailey. I would like to 
+personally give shout out to the session manager
+
+00:35:46.160 --> 00:35:55.920
+Stefano; our chat monitor, Monique, Hareesh, and also 
+to Joe Dolson for being the lead organizer and
+
+00:35:55.920 --> 00:36:03.440
+putting up such an amazing team with efficiency 
+and success. Until the next talk happens, we
+
+00:36:03.440 --> 00:36:09.280
+want to say goodbye to the viewers from Calum and 
+myself. See you right here after the break, bye bye.

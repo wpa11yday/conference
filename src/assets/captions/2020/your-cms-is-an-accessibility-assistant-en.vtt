@@ -1,0 +1,1701 @@
+WEBVTT
+
+00:00:26.560 --> 00:00:32.640
+Hello, everyone. Welcome once again to WordPress 
+Accessibility Day 2020. My name is Ahmed Kabir
+
+00:00:32.640 --> 00:00:37.600
+Chaion, and I'm working as a business development 
+manager at weDevs. I'm also a regular contributor
+
+00:00:37.600 --> 00:00:43.600
+to the making WordPress documentation, design, 
+polyglots, accessibility, hosting, community,
+
+00:00:43.600 --> 00:00:49.440
+learn WordPress, and marketing. I will be your 
+host for this session. You're here for the 8
+
+00:00:49.440 --> 00:00:55.600
+a.m UTC talk with Hidde de Vries. Please feel 
+free to add your questions to the YouTube chat,
+
+00:00:55.600 --> 00:01:01.440
+and we'll answer those at the end. Your 
+content management system plays a decisive
+
+00:01:01.440 --> 00:01:09.360
+part in creating accessible content suggest the 
+Authoring Tools Accessibility Guideline - ATAG.
+
+00:01:09.360 --> 00:01:16.000
+Whenever a content designer creates content the 
+CMS could help with the accessibility of it.
+
+00:01:16.000 --> 00:01:22.480
+For instance, when a designer drops in an image, 
+the CMS could point to the ideal text alternative
+
+00:01:22.480 --> 00:01:29.440
+or calculate the consequences for color contrast. 
+In this talk, you will learn more about what ATAG
+
+00:01:29.440 --> 00:01:36.160
+is and how, with ATAG in mind, CMSs can 
+personally assist content editors on their way
+
+00:01:36.160 --> 00:01:43.680
+to a more accessible website. The speaker for this 
+talk, Hidde, is a web developer and accessibility
+
+00:01:43.680 --> 00:01:50.480
+specialist at the W3C's Web Accessibility 
+Initiative, or WAI based in Rotterdam,
+
+00:01:50.480 --> 00:01:56.400
+Netherlands. As part of the WAI guide project, 
+he works on the accessibility of authoring tools
+
+00:01:56.400 --> 00:02:02.800
+like CMSs and website creators, and guidance 
+that supports the Web Content Accessibility
+
+00:02:02.800 --> 00:02:08.720
+Guidelines - WCAG. He has over 10 years 
+of experience working as a freelance
+
+00:02:08.720 --> 00:02:14.160
+front-end developer and accessibility person 
+for organizations like Mozilla and the Dutch
+
+00:02:14.160 --> 00:02:21.120
+government. On his blog he writes regularly about 
+reusable components, CSS, and web accessibility.
+
+00:02:21.120 --> 00:02:36.840
+Which brings to the session "Your CMS is an 
+accessibility assistant." Take it away, Hidde.
+
+00:02:41.600 --> 00:02:47.280
+[Hidde] Hello, this is Hidde, and I'm here today to 
+talk about how your CMS could be seen as an
+
+00:02:47.280 --> 00:02:52.160
+accessibility assistant, and how that can help 
+organizations, including maybe the clients, or the
+
+00:02:52.160 --> 00:03:00.320
+users of a CMS. Very briefly about myself, I work 
+as an accessibility specialist at the W3C, the
+
+00:03:00.320 --> 00:03:07.520
+World Wide Web consortium, where i worked at the 
+Web Accessibility Initiative. We have a website
+
+00:03:07.520 --> 00:03:12.000
+which I'd like to plug. On our website there is 
+loads of information about web accessibility,
+
+00:03:12.000 --> 00:03:18.800
+about planning, designing, developing, testing, 
+advocating, and training for web accessibility.
+
+00:03:20.000 --> 00:03:25.200
+So many people don't know about all these 
+amazing resources that are on this website, um,
+
+00:03:25.200 --> 00:03:32.080
+so I thought I'd mention it. But disclaimer I, I 
+do work on some of the content for this site. Now,
+
+00:03:32.080 --> 00:03:38.960
+I focus mostly in my work on authoring tools. And 
+authoring tools, if you're not familiar with that
+
+00:03:38.960 --> 00:03:46.000
+phrase, they are tools that create web content. 
+And with that, as probably won't surprise you,
+
+00:03:46.000 --> 00:03:51.760
+they are also tools that can improve a lot of web 
+accessibility at once. That is a very exciting
+
+00:03:51.760 --> 00:03:56.400
+prospect, I think, and I'll be talking a lot 
+today about how we can, can make that a reality.
+
+00:03:56.400 --> 00:04:03.360
+How can we really employ authoring tools to, to 
+improve accessibility in, in many places at once.
+
+00:04:04.720 --> 00:04:09.200
+Now, first let's look at a couple of examples 
+of authoring tools. We're talking about things
+
+00:04:09.200 --> 00:04:14.800
+like WYSIWYG editors, course creators, learning 
+management systems, or anything that they use in
+
+00:04:14.800 --> 00:04:20.720
+online education - very important in times of 
+COVID - content management systems, of course,
+
+00:04:21.600 --> 00:04:28.880
+wikipedia, your "save as html" functionality, 
+social media, form generators, site builders.
+
+00:04:28.880 --> 00:04:33.920
+Lots of these, these different things, all have 
+in common that they create content for the web,
+
+00:04:33.920 --> 00:04:39.040
+or that they they provide some sort of interface 
+for their users to create something that will
+
+00:04:39.040 --> 00:04:45.440
+ultimately live on the web. Now specifically 
+about CMSs - we're at WordPress Accessibility
+
+00:04:45.440 --> 00:04:52.640
+Day - you can think of the authoring tool as the 
+CMS itself. And I imagine some people watching
+
+00:04:52.640 --> 00:04:58.640
+this today work, work on WordPress core, or have 
+provided some patches for it, or maybe considering
+
+00:04:58.640 --> 00:05:03.360
+contributing to WordPress, but others may 
+be working on plugins like form builders,
+
+00:05:03.360 --> 00:05:09.600
+custom field managing stuff, things where you can 
+manage events, or social media, cookie banners,
+
+00:05:09.600 --> 00:05:14.640
+even. Just anything that you can plug into a 
+website, and that will also create web content,
+
+00:05:14.640 --> 00:05:19.040
+it will also be considered as an authoring 
+tool. When I talk about CMSs in this talk,
+
+00:05:19.040 --> 00:05:28.480
+I very much also mean plugins and themes, as 
+well. Now, the web is meant to work for everyone.
+
+00:05:28.480 --> 00:05:35.200
+That is a point that we take very seriously at the 
+W3C. This is a photograph of Sir Tim Berners-Lee,
+
+00:05:36.000 --> 00:05:41.040
+the inventor of the web, who was at the 
+opening ceremony of the London Olympics
+
+00:05:41.040 --> 00:05:48.000
+in 2012. And he made these four words appear. 
+"This is for everyone." Now I think and I haven't,
+
+00:05:48.720 --> 00:05:52.480
+you know, I haven't checked this with him 
+personally, but I think you could interpret
+
+00:05:52.480 --> 00:06:01.360
+this in various ways. One is that the web should 
+be available for, for everyone to, to kind of
+
+00:06:01.360 --> 00:06:06.960
+get onto the web. So, of course you need to get a 
+cable subscription, or go to a library, and maybe
+
+00:06:06.960 --> 00:06:12.560
+pay to use a computer. But, ultimately, the web 
+is available for everyone - this is for everyone.
+
+00:06:14.000 --> 00:06:19.600
+Secondly, I think everyone can have a website 
+on the web, as well. You don't need to apply for
+
+00:06:19.600 --> 00:06:24.640
+permit at your local government, or something 
+like that, or you know do, do something very
+
+00:06:24.640 --> 00:06:30.400
+special. You need to have a web server, or rent 
+one, and you can put some HTML on there and make
+
+00:06:30.400 --> 00:06:35.760
+it available on the URL. So, in that sense it's 
+also for everyone. And, and the third way that
+
+00:06:35.760 --> 00:06:42.000
+you could read this, "this is for everyone" is as, 
+this is something that should work for everyone,
+
+00:06:42.000 --> 00:06:48.000
+including people with disabilities. And that 
+is the definition that we use at, um, at WAI.
+
+00:06:48.000 --> 00:06:54.080
+Making the web work for people with disabilities 
+is what web accessibility is about. We're,
+
+00:06:54.080 --> 00:07:00.560
+we want to make sure that this is for everyone. 
+Now, to that extent at WAI, we have three web
+
+00:07:00.560 --> 00:07:06.640
+standards that are about the accessibility of, of 
+web content, ultimately. Now, many people will be
+
+00:07:06.640 --> 00:07:12.640
+familiar with the WCAG standard, which stands 
+for the web content accessibility guidelines,
+
+00:07:12.640 --> 00:07:18.480
+but there's two more sets of guidelines, that are 
+very closely related, and that together really
+
+00:07:18.480 --> 00:07:24.160
+create that picture of an accessible web. So there 
+is, uh, the web content accessibility guidelines
+
+00:07:24.160 --> 00:07:29.840
+about web content itself, but what about the 
+software that people use to access web content?
+
+00:07:30.560 --> 00:07:36.080
+Browsers, or user agents. There's a specific 
+center for that, the User Agent Accessibility
+
+00:07:36.080 --> 00:07:42.240
+Guidelines - UAAG. And what about the software 
+that creates that content, authoring tools? And
+
+00:07:42.240 --> 00:07:46.960
+for that we have the Authoring Tools Accessibility 
+Guidelines. So together, these three standards,
+
+00:07:46.960 --> 00:07:52.320
+they all say something about the accessibility 
+of web content. About the content itself,
+
+00:07:52.320 --> 00:07:58.400
+about the software we use to view the content, and 
+about the software we use to create the content.
+
+00:07:59.440 --> 00:08:04.400
+Now authoring tools are very important, and 
+CMS is with that. They're essential in this
+
+00:08:04.400 --> 00:08:09.760
+picture of web accessibility. Because if we get 
+it right, if we get it right in authoring tools,
+
+00:08:09.760 --> 00:08:14.160
+we'll be able to include more content creators. 
+We can have more people publish stuff on the web.
+
+00:08:15.360 --> 00:08:19.920
+And the second reason that I think authoring 
+tools are so important and exciting,
+
+00:08:19.920 --> 00:08:24.800
+is that content creators may be allowed 
+to fix accessibility problems before their
+
+00:08:24.800 --> 00:08:29.360
+website goes live. It is the central central 
+theme of what I, what I want to say today.
+
+00:08:31.760 --> 00:08:38.240
+Now the standard for authoring tools, as I said, 
+is ATAG. With the latest iteration ATAG 2.0.
+
+00:08:38.800 --> 00:08:42.640
+Now, in ATAG, and I'll talk 
+about a lot of ATAG today,
+
+00:08:43.520 --> 00:08:48.640
+but if you want to read it at your own pace you 
+can visit the source called "ATAG at a glance."
+
+00:08:48.640 --> 00:08:53.920
+It's a page that has a bulleted list of the main 
+points that are in the ATAG standard. So that is
+
+00:08:53.920 --> 00:08:58.880
+something you could review at your own pace. But 
+today we'll also go through a bunch of different
+
+00:08:58.880 --> 00:09:06.720
+guidelines that are in ATAG - success criteria 
+- and I hope to give you a good overview of what
+
+00:09:06.720 --> 00:09:12.800
+you can find in ATAG and how it can really help 
+end users and people who edit content on the web.
+
+00:09:14.320 --> 00:09:19.360
+Now, the ATAG standard consists of two parts. 
+The first part is about the editing experience,
+
+00:09:19.360 --> 00:09:26.000
+so the content editing itself, the, the backends 
+for example, and the second part is about the
+
+00:09:26.000 --> 00:09:32.080
+output of content. I'll focus mostly on 
+output today, but also talk a bit about
+
+00:09:32.080 --> 00:09:35.840
+what we can do to improve the editing 
+experience for people with disabilities.
+
+00:09:37.600 --> 00:09:42.240
+Yeah, let's look at that first. So, part 
+A of ATAG is about the accessibility of
+
+00:09:42.240 --> 00:09:47.680
+the editing experience. So the very 
+first success criteria, on A.1.1.1,
+
+00:09:47.680 --> 00:09:53.760
+is about making sure that your interface conforms 
+to the WCAG standard. And part of that, of course,
+
+00:09:53.760 --> 00:09:58.320
+is making sure that your interface works with text 
+zoom. It's something I heard a lot from users,
+
+00:09:58.320 --> 00:10:03.920
+uh, when I talk to them for my work. It's 
+when they zoom in the interface they are,
+
+00:10:03.920 --> 00:10:08.480
+it's not as easy for them to use the interface, 
+or sometimes the interface becomes completely
+
+00:10:08.480 --> 00:10:13.520
+unusable. So testing with text zoom is one thing 
+you can do. Text alternatives for icons. It's
+
+00:10:13.520 --> 00:10:19.040
+very common these days to have interfaces that 
+consist of just icons. So, if you work on the,
+
+00:10:19.040 --> 00:10:23.680
+on a plugin, or a theme, or something that has 
+an editing interface where icons are the main
+
+00:10:23.680 --> 00:10:28.080
+thing you click on, make sure that there are 
+text alternatives for them, so that there's an
+
+00:10:28.080 --> 00:10:34.640
+accessible name somewhere in the source code. Make 
+it work with a keyboard is another great advice.
+
+00:10:35.280 --> 00:10:39.600
+And that includes things like visible focus, so 
+that you can see, at all times, where you are on
+
+00:10:39.600 --> 00:10:44.240
+the page, before you interact with something, and 
+that you can use all controls. So that includes
+
+00:10:44.240 --> 00:10:51.120
+all form fields, anchors, and buttons. Another 
+recommendation in ATAG is about displaying
+
+00:10:51.120 --> 00:10:55.840
+previews accessibly. Because most content 
+management systems, or authoring tools in general,
+
+00:10:56.400 --> 00:11:00.480
+plugins as well, will have some way to 
+preview the content that you're working on.
+
+00:11:01.040 --> 00:11:07.520
+And this material is about making sure that 
+that content is accessible, as well. Or you
+
+00:11:07.520 --> 00:11:12.080
+can think of things like helping with spelling. 
+Some people may have dyslexia - they're editing
+
+00:11:12.080 --> 00:11:16.400
+some content - you can help them a great 
+deal by helping them correct their spelling.
+
+00:11:18.000 --> 00:11:21.680
+Now, that's a bit about the first part of 
+ATAG, improving the editing experience.
+
+00:11:21.680 --> 00:11:26.880
+But what I really promised to talk about today is 
+how your CMS could be an accessibility assistant,
+
+00:11:27.680 --> 00:11:32.240
+and, in that sense, support the production 
+of accessible content, as the official
+
+00:11:32.240 --> 00:11:39.360
+name is for part b of ATAG. And for that, let's 
+talk a bit about what accessible content is.
+
+00:11:39.360 --> 00:11:43.040
+It is things like that you have tables 
+with headers. That you have forms with the
+
+00:11:43.040 --> 00:11:48.560
+appropriate labels. That you have hero images with 
+plenty of contrast. That videos are captioned.
+
+00:11:48.560 --> 00:11:52.000
+That you can have multilingual content 
+with the right language attributes.
+
+00:11:52.640 --> 00:11:57.120
+That everything is nested according to 
+specification. That carousels can pause,
+
+00:11:57.120 --> 00:12:01.520
+and that you have sensible heading structure. 
+So all of these things, they contribute to,
+
+00:12:01.520 --> 00:12:06.640
+to more accessible content. So for your end 
+users, for the people using the website or,
+
+00:12:06.640 --> 00:12:11.600
+you know, web content that you're creating, 
+all these things need to be in order. So if
+
+00:12:11.600 --> 00:12:16.640
+we want to have a good accessibility assistant, it 
+should assist with all of these different things.
+
+00:12:16.640 --> 00:12:21.920
+And usually they could be different, different 
+products, right? Because sometimes you might have
+
+00:12:21.920 --> 00:12:28.720
+a plug-in specifically for creating tables, or one 
+specifically for creating forms, so they could be
+
+00:12:28.720 --> 00:12:34.800
+specialized products that focus on these specific 
+tasks. And an accessibility assistant would,
+
+00:12:34.800 --> 00:12:40.000
+of course, help avoid inaccessible content. So it 
+would avoid things like tables with no headers,
+
+00:12:40.000 --> 00:12:44.160
+it would avoid things like form fields 
+that have no names, illegible text,
+
+00:12:44.160 --> 00:12:48.720
+caption-less videos, multilingual content 
+that doesn't have the right lang attributes,
+
+00:12:49.680 --> 00:12:55.440
+non-standard nesting, carousels that don't have a 
+pause button, and headings for the wrong reasons.
+
+00:12:55.440 --> 00:13:00.720
+So, a CMS that really helps you get 
+your accessibility right will, maybe,
+
+00:13:00.720 --> 00:13:05.840
+warn you for these kinds of mistakes, or it will 
+generate markup that doesn't have these problems,
+
+00:13:06.560 --> 00:13:10.800
+and, and provide templates that 
+comes with with the right stuff.
+
+00:13:11.920 --> 00:13:15.840
+So that's what this is all about. We 
+want to avoid inaccessible content
+
+00:13:15.840 --> 00:13:21.520
+for our end users ultimately, and we want to 
+help the people that are using our products,
+
+00:13:21.520 --> 00:13:27.040
+like our CMS, or our plugin, or our theme. We 
+want to help them avoid inaccessible content,
+
+00:13:27.040 --> 00:13:34.240
+so that they can ship a website that is 
+accessible and find problems before they ship it,
+
+00:13:34.240 --> 00:13:39.360
+ideally. So a great CMS can really help content 
+managers make their content more accessible.
+
+00:13:40.560 --> 00:13:48.080
+Think about things like when content is created, 
+it is accessible, which is the success criterion
+
+00:13:48.080 --> 00:13:52.640
+1.1.2 - B.1.1.2 in, in the ATAG standard, 
+and that is about things like, you know,
+
+00:13:52.640 --> 00:13:56.880
+you need to make sure that it's nested according 
+to the standard, you want to make sure there's no
+
+00:13:56.880 --> 00:14:03.120
+empty links inside of this content. Sometimes, 
+to make content accessible, you need some more
+
+00:14:03.120 --> 00:14:08.160
+information. So maybe you need to prompt the 
+user for required accessibility information, like
+
+00:14:08.160 --> 00:14:15.200
+a caption for table, an alternative text for an 
+image, or for video, those sorts of things. You,
+
+00:14:15.200 --> 00:14:19.600
+you need to prompt for, if you know that, that 
+could cause an accessibility problem. and,
+
+00:14:19.600 --> 00:14:24.000
+you know, you rely on the content editor to 
+provide the information, you'll need to prompt
+
+00:14:24.000 --> 00:14:29.440
+for it. So, uh, captions for tables, alt text for 
+images, and labels for form fields, are just some
+
+00:14:29.440 --> 00:14:34.800
+examples of things that you could prompt for. Or 
+when content is generated, maybe there could be
+
+00:14:34.800 --> 00:14:40.880
+automated accessibility checks. Or if it can only 
+be checked manually, maybe the tools could suggest
+
+00:14:40.880 --> 00:14:47.280
+to the user to do a manual check. For instance, 
+if it's about the heading structure of the page,
+
+00:14:47.280 --> 00:14:53.280
+or if it is about text alternatives, maybe 
+they are centrally managed, and you want the
+
+00:14:53.280 --> 00:14:58.560
+user to make sure that the text alternative makes 
+sense for this specific use case. For instance a
+
+00:14:58.560 --> 00:15:04.160
+photo of a speaker, but their name is also in the 
+content, so maybe at that point you would want a
+
+00:15:04.160 --> 00:15:10.720
+zero, or you would want an empty alternative text, 
+rather than repeat the name of the speaker, so
+
+00:15:10.720 --> 00:15:15.840
+that sort of thing, that requires a manual check. 
+Someone who knows the content and understands it
+
+00:15:15.840 --> 00:15:20.800
+to, to go through it, and as an authoring 
+tool, as a CMS you could actually provide
+
+00:15:20.800 --> 00:15:26.640
+the right instructions and help the the user to 
+figure out how to make their content accessible.
+
+00:15:28.720 --> 00:15:34.640
+2.1.1 is about allowing to create accessible 
+content. So, not everyone realizes this, but there
+
+00:15:34.640 --> 00:15:40.960
+are a lot of authoring tools out there that don't 
+provide, or don't allow for entering accessible
+
+00:15:40.960 --> 00:15:47.200
+content. For instance, if you upload a video, if 
+there's no caption it isn't accessible - but if
+
+00:15:47.200 --> 00:15:54.240
+your video widget doesn't have a caption button, 
+then you know the user cannot create an accessible
+
+00:15:54.240 --> 00:15:59.520
+video with your authoring tool. Or if there's no 
+alternative text option. And some social media.
+
+00:15:59.520 --> 00:16:03.680
+for instance. only recently added the option 
+to add alternative text. And there is a bunch
+
+00:16:03.680 --> 00:16:08.960
+of social media out there that still don't have 
+that option available. So even if users want to
+
+00:16:08.960 --> 00:16:13.120
+create accessible content, they are not able to, 
+because there's no option for alternative text.
+
+00:16:14.320 --> 00:16:17.360
+So, for image fields, that means there 
+should be an alternative text field,
+
+00:16:17.360 --> 00:16:23.280
+and for video players there should be an upload 
+button for captions. And this is specifically
+
+00:16:23.280 --> 00:16:28.560
+important for those creating plugins that deal 
+with video or, or images. Make sure that people
+
+00:16:28.560 --> 00:16:33.520
+can manage their alternative text, so that they 
+can create accessible content in the first place.
+
+00:16:35.600 --> 00:16:40.080
+Something else that ATAG recommends is to have 
+accessible templates for the most common use
+
+00:16:40.080 --> 00:16:46.800
+cases, and to be able to filter for that. Um, 
+I know there is a filter available in the,
+
+00:16:46.800 --> 00:16:51.520
+in the WordPress directory of different 
+themes, so that is another important way
+
+00:16:51.520 --> 00:16:57.280
+that you can help content editors make the 
+right decisions. And there's a B.2.5.1,
+
+00:16:57.280 --> 00:17:02.400
+which says that you should provide accessible UI 
+components. Or, as the specification calls it,
+
+00:17:02.400 --> 00:17:08.080
+"pre-authored content." So when you provide 
+something like a carousel, or, or tabs component,
+
+00:17:08.720 --> 00:17:14.240
+and users can add that into the page, make sure 
+that they are accessible by default, so that the
+
+00:17:14.800 --> 00:17:20.640
+content editor doesn't need to do anything - it 
+just ships as an accessible component. So it makes
+
+00:17:20.640 --> 00:17:26.320
+a lot of sense to spend time on accessibility 
+if you provide something like a carousel tool,
+
+00:17:27.040 --> 00:17:32.240
+because everyone is going to use your plugin 
+is going to have a more accessible website. So,
+
+00:17:32.240 --> 00:17:38.320
+it's going to have a huge, a huge effect if 
+you spend that extra time on on accessibility,
+
+00:17:38.320 --> 00:17:44.560
+for all of those end users, specifically. 
+So here's some interpretation of B.3.1.1
+
+00:17:45.280 --> 00:17:51.200
+which is, why don't warn users when they introduce 
+a color contrast issue? Say you work at an agency,
+
+00:17:51.200 --> 00:17:56.640
+and a designer has produced this beautiful header 
+with a dark photo of a black cat with white text
+
+00:17:56.640 --> 00:18:01.680
+on top of it. It has perfect contrast, and it's 
+been checked according to the accessibility
+
+00:18:01.680 --> 00:18:07.520
+guidelines. This is good, it passes all the tests, 
+but then someone decides to replace the photo
+
+00:18:07.520 --> 00:18:14.400
+with one of Korean food, in this case. And it is 
+a perfectly valid photo - but it is very light,
+
+00:18:14.400 --> 00:18:18.800
+and the text is also light, so at this point, 
+when we drop in this photo, we've introduced
+
+00:18:18.800 --> 00:18:24.240
+a color contrast issue. And it's possible to 
+programmatically detect color contrast problems.
+
+00:18:24.880 --> 00:18:29.600
+And with that, you could provide a warning for the 
+content author that something is going wrong here.
+
+00:18:30.160 --> 00:18:34.000
+You could say, well, there's not enough contrast 
+- maybe there should be background color
+
+00:18:34.000 --> 00:18:39.680
+painted behind this text to fix the problem, or in 
+some cases a larger text, or a bolder font could
+
+00:18:39.680 --> 00:18:45.440
+be just enough to address the problem. Something 
+else that you could do is to add a spell checker
+
+00:18:45.440 --> 00:18:53.840
+to content fields. I have a button here that says 
+"Swpmit," which, I guess for visual sighted users,
+
+00:18:53.840 --> 00:18:58.240
+they might parse it in their head and see that it 
+probably says "submit," because the "w" looks so
+
+00:18:58.240 --> 00:19:03.440
+much like a "u," but if you are trying to 
+use some assistive technology, it's going
+
+00:19:03.440 --> 00:19:08.880
+to be pretty tricky to use this button, and it's 
+going to read it out weirdly in a screen reader.
+
+00:19:08.880 --> 00:19:14.320
+If you use something like Naturally Speaking, it's 
+going to be hard to identify the specific button.
+
+00:19:14.320 --> 00:19:18.240
+So if there was a spell checker, you could 
+avoid these accessibility problems altogether.
+
+00:19:19.840 --> 00:19:24.320
+Something else that you could automatically do 
+is report readability levels. And I think I've
+
+00:19:24.320 --> 00:19:30.080
+seen this in some SEO plugins, but it's also very 
+valid thing to do for accessibility, to make sure
+
+00:19:30.080 --> 00:19:35.360
+that the text is nice and easy to read. And you 
+could have readability levels, uh, warn the user
+
+00:19:35.360 --> 00:19:39.840
+when they've added text that's too complicated and 
+maybe help them fix the problems there, as well.
+
+00:19:42.720 --> 00:19:47.040
+Something else that the standard recommends is 
+to provide accessible examples. So if you work
+
+00:19:47.040 --> 00:19:53.760
+on documentation, you can do a great deal, as 
+well, about accessibility of your CMS or plugin
+
+00:19:53.760 --> 00:19:59.280
+by making sure that all of the examples really 
+help the user to get their accessibility right.
+
+00:19:59.280 --> 00:20:02.320
+Sometimes that means the stuff 
+that maybe gets copy/pasted,
+
+00:20:02.320 --> 00:20:07.120
+really ensuring that everything there 
+is perfectly accessible. Sometimes,
+
+00:20:07.120 --> 00:20:11.600
+it means providing the right guidelines. 
+Like, you know, if you leave this field empty,
+
+00:20:11.600 --> 00:20:16.080
+there won't be alternative text, so make sure you 
+put something in there. Or explain, kind of, how
+
+00:20:16.080 --> 00:20:22.080
+alternative text works. So it's really putting in 
+an extra mile and making sure that the example is,
+
+00:20:22.880 --> 00:20:29.760
+is accessible and really encourages good 
+accessibility. So, basically, a good CMS can
+
+00:20:29.760 --> 00:20:34.720
+encourage more accessible content and help 
+people get their accessibility right. Now,
+
+00:20:34.720 --> 00:20:39.600
+I've talked about the standard quite a bit, but I 
+think one of the exciting things about authoring
+
+00:20:39.600 --> 00:20:45.840
+tools that help with accessibility is that it can 
+really help with your process. Let's look now at
+
+00:20:45.840 --> 00:20:52.960
+when, in the process, authoring tools can help. 
+Now process is a bit of a tricky subject, I think,
+
+00:20:52.960 --> 00:20:57.520
+because whoever you talk to, depending on their 
+organization, they will have different ways of
+
+00:20:57.520 --> 00:21:02.240
+organizing their projects. Now this is an example 
+of a process that your organization might be
+
+00:21:02.240 --> 00:21:08.640
+following, if it follows the waterfall principles. 
+So you might start with some planning and strategy
+
+00:21:08.640 --> 00:21:13.760
+sessions, and do interaction design and visual 
+design, then development and QA, then launch.
+
+00:21:14.960 --> 00:21:20.160
+You might have a process that is much more 
+multidisciplinary, so you might have all the
+
+00:21:20.160 --> 00:21:25.760
+disciplines working together in iterations, 
+and that could be a thing in sprints or doing
+
+00:21:25.760 --> 00:21:32.080
+something like scrum. Um, or you might be going 
+back and forth between these phases. Like going
+
+00:21:32.080 --> 00:21:37.360
+back from launch, to strategy, or to interaction 
+design, or sometimes maybe from QA to design.
+
+00:21:38.480 --> 00:21:43.440
+Whatever you're doing, I think there is 
+a lot to say about where authoring tools
+
+00:21:43.440 --> 00:21:48.000
+fit into the process. For instance, if 
+you're working in planning and strategy,
+
+00:21:48.000 --> 00:21:52.240
+you can make a huge difference by choosing an 
+authoring tool that supports accessibility in
+
+00:21:52.240 --> 00:21:59.360
+the ways that I outlined before. So adopting a lot 
+of the principles in ATAG, and really helping the,
+
+00:21:59.360 --> 00:22:05.040
+the user to get their accessibility right, can 
+really help in the long run, because if that's
+
+00:22:05.040 --> 00:22:10.160
+the case, then later on in the process, it'll 
+be much easier for the organization to create
+
+00:22:10.160 --> 00:22:16.400
+webpages that are accessible. In the interaction 
+design phase, you could spend a great deal on how
+
+00:22:17.440 --> 00:22:22.400
+content should be authored in an accessible 
+manner. You could test the authoring process
+
+00:22:22.400 --> 00:22:27.280
+with people with disabilities, if user testing is 
+part of your your interaction design discipline.
+
+00:22:28.240 --> 00:22:34.240
+If you're doing visual design, you could provide 
+guidelines for customizing color, so that contrast
+
+00:22:34.240 --> 00:22:41.040
+works well. You could work on accessible examples, 
+like large enough touch targets. Uh, all these
+
+00:22:41.040 --> 00:22:46.080
+sorts of things, uh, can help you in a design 
+phase, to make sure that anyone who's authoring,
+
+00:22:46.080 --> 00:22:50.800
+uh, web pages later on, because you might not 
+be designing every single web page - it might
+
+00:22:50.800 --> 00:22:56.720
+happen in the templating phase, and then content 
+people might work with designs that were created.
+
+00:22:56.720 --> 00:23:00.160
+So providing some guidelines there can 
+really help in the authoring phase.
+
+00:23:01.120 --> 00:23:06.000
+When we're talking about development, you could 
+make a great difference by picking a theme that
+
+00:23:06.000 --> 00:23:12.080
+has accessibility support, or plug-in with 
+accessibility support. Because, again, you'll
+
+00:23:12.080 --> 00:23:18.160
+help people who create web content to do that in 
+a more accessible manner, or sometimes get a lot
+
+00:23:18.160 --> 00:23:23.040
+of accessibility for free, if there's a carousel 
+component or something that was built accessibly.
+
+00:23:24.160 --> 00:23:29.120
+When it comes to QA, you could embed automated 
+accessibility tests in the authoring process.
+
+00:23:29.680 --> 00:23:34.080
+So, for instance, if someone 
+creates a new page and presses save
+
+00:23:34.080 --> 00:23:37.280
+that there are some tests that are 
+running automatically. If you have some
+
+00:23:37.840 --> 00:23:43.040
+test automation engineers in your team, take 
+advantage of them, and let them help make the
+
+00:23:43.040 --> 00:23:49.280
+authoring process more valuable as well in terms 
+of accessibility. And then, when you launch, you
+
+00:23:49.280 --> 00:23:54.240
+may have something that is much more accessible 
+than if you wouldn't have done all those, those
+
+00:23:54.240 --> 00:24:00.400
+things, uh, because many websites are launched 
+without much required for accessibility, sadly.
+
+00:24:01.200 --> 00:24:06.720
+That still happens. And those websites might find 
+that they then hire accessibility consultants,
+
+00:24:06.720 --> 00:24:12.720
+get a big list of issues that they never thought 
+of, and it might take them a lot more time to,
+
+00:24:12.720 --> 00:24:17.680
+to work through all of those issues. So if you 
+start very much in the planning phase, and think
+
+00:24:17.680 --> 00:24:21.840
+about accessibility in all of these different 
+phases - and I know that's not a new thing,
+
+00:24:22.480 --> 00:24:27.200
+but I just want to say that that really makes 
+a big difference. And if you think of authoring
+
+00:24:27.200 --> 00:24:32.960
+in all of these phases, that can really help 
+create much more accessible things by default.
+
+00:24:35.280 --> 00:24:41.440
+Now it may be clear to you by now, that at WAI 
+we find authoring tools are really important part
+
+00:24:41.440 --> 00:24:47.040
+of web accessibility. And to that extent we're, 
+you know, we're doing a number of things to, uh,
+
+00:24:47.040 --> 00:24:54.480
+to improve the situation. The first thing is, um, 
+I just wanted to mention that if the ATAG standard
+
+00:24:54.480 --> 00:25:01.280
+itself is a bit of a long read. There is also the 
+Implementing ATAG 2.0 document that has rationale
+
+00:25:01.280 --> 00:25:05.920
+and intent for each of the success criteria, and 
+a bunch of different practical examples. And I've
+
+00:25:05.920 --> 00:25:11.600
+taken some of the examples in this presentation 
+from there, as well. It helps to understand ATAG
+
+00:25:11.600 --> 00:25:18.480
+a bit better, if you you get stuck in in the main 
+ATAG document. Now, something that I'm involved
+
+00:25:18.480 --> 00:25:23.120
+with personally is something called the WAI 
+Guide project. And one thing that we're creating
+
+00:25:23.120 --> 00:25:29.520
+as part of that, to help people use the authoring 
+process that I just outlined right, really putting
+
+00:25:29.520 --> 00:25:36.000
+authoring tools at the front and center, to help 
+you get your accessibility right. We want to help
+
+00:25:36.000 --> 00:25:40.800
+people find tools that support accessibility. So 
+we've created a list of authoring tools where you
+
+00:25:40.800 --> 00:25:47.440
+can filter by ATAG criteria and find tools that 
+support accessibility. Now this is all still dummy
+
+00:25:47.440 --> 00:25:54.240
+data that you can see here - it's not live yet. 
+But we are working on getting our first entries
+
+00:25:54.240 --> 00:25:59.760
+into the list, and you know, if you create a 
+tool, uh, that you think qualifies for this,
+
+00:25:59.760 --> 00:26:04.640
+and has accessibility support, and that meets one 
+or more of the ATAG criteria, do get in touch.
+
+00:26:04.640 --> 00:26:10.000
+I'd be interested to, to hear from you. Um, at 
+the same time, we're also working on something
+
+00:26:10.000 --> 00:26:18.320
+called the ATAG Report Tool, where you can report 
+on ATAG criteria. So you can fill in some details,
+
+00:26:18.320 --> 00:26:22.320
+and then you go to each of the guidelines, 
+and then you will say whether it passes or
+
+00:26:22.320 --> 00:26:27.840
+fails. And you can fill in some information 
+about each of them. Now this is kind of on an
+
+00:26:29.200 --> 00:26:34.000
+optional basis, so each of these are optional. You 
+can fill in the ones that you want to showcase,
+
+00:26:34.000 --> 00:26:38.880
+so if you particularly deal with one of 
+the criteria well, then you fill in those,
+
+00:26:38.880 --> 00:26:43.360
+and maybe leave the others empty. Of course 
+we want to have as many criteria as possible,
+
+00:26:43.360 --> 00:26:49.280
+that will also make it easier for people to 
+find your tool in our list, but yeah, we welcome
+
+00:26:50.320 --> 00:26:56.800
+reports this way as well. In this tool, you 
+are able to create a report in JSON or HTML
+
+00:26:57.920 --> 00:27:02.720
+and you can also publish that on your website to 
+showcase how well you meet ATAG. And, ultimately,
+
+00:27:02.720 --> 00:27:06.400
+you would be able to create a listing in the 
+authoring tools list that we're working on.
+
+00:27:06.960 --> 00:27:11.520
+At the moment there's not that connection yet, 
+because it's still in its early phases, bu,t
+
+00:27:12.240 --> 00:27:16.320
+yeah. Very much interested to hearing 
+your feedback on this tool, as well.
+
+00:27:17.200 --> 00:27:24.320
+Now, going to conclusions, uh, what I wanted to 
+share with you today is very much that CMSs are
+
+00:27:24.320 --> 00:27:31.040
+essential for an accessible web. It won't surprise 
+you, as people who work on, on CMS's and plugins,
+
+00:27:31.040 --> 00:27:37.200
+and maybe themes, even, but yeah, your work is 
+very important for website, web accessibility.
+
+00:27:37.200 --> 00:27:42.800
+I hope this, this talk gave some more insights in 
+more ways that it, that it does. Now, secondly,
+
+00:27:42.800 --> 00:27:47.840
+I think CMSs should really help content editors 
+get their accessibility right. And I open this
+
+00:27:47.840 --> 00:27:53.120
+talk about, like, the number of ways in which 
+they, they can, so yeah. Hopefully, we can really
+
+00:27:53.120 --> 00:27:59.040
+see our CMSs as accessibility assistants, um, and 
+that's the question I want to leave you with: How
+
+00:27:59.040 --> 00:28:05.120
+would you turn your CMS, your plugin, your theme 
+into a better assistant for web accessibility?
+
+00:28:05.120 --> 00:28:08.240
+For now, thanks very much for 
+listening. You can find the slides on
+
+00:28:08.240 --> 00:28:13.840
+talks.hiddedevries.nl. It is also, it's 
+also going to have all the resources, links,
+
+00:28:15.120 --> 00:28:20.720
+and video, ultimately, I think. Uh, if you have 
+any questions, feel free to get in touch. It's
+
+00:28:20.720 --> 00:28:27.760
+hidde@w3.org, or you can reach out on Twitter. 
+Now I'm going to be showing off in a live Q and A
+
+00:28:27.760 --> 00:28:33.040
+right after this, so then I want to just thank you 
+for listening, and shout out to the organizers of
+
+00:28:33.040 --> 00:28:43.840
+WordPress Accessibility Day. Thanks so much for 
+putting this event on, and inviting me to speak.
+
+00:28:47.720 --> 00:28:55.360
+[Ahmed] Thank you so much, Hidde, with that 
+presentation. We actually was able to learn
+
+00:28:55.360 --> 00:29:03.120
+a lot of things that are very, very important to 
+choosing CMSs, and we have a bunch of questions.
+
+00:29:03.120 --> 00:29:07.520
+So, let's just start with the first 
+one, while a few more comes in. So,
+
+00:29:07.520 --> 00:29:14.320
+the first question we have for you is, "What would 
+be the most important feature you must change in
+
+00:29:14.320 --> 00:29:19.440
+Gutenberg to be completely accessible? If you need 
+to correct something, you could also do that."
+
+00:29:20.680 --> 00:29:27.760
+[Hidde] Yeah, so I'm probably not the right person 
+to ask, because I don't work on, on Gutenberg. I
+
+00:29:27.760 --> 00:29:32.880
+think one very interesting presentation that would 
+get you up to date with the latest on Gutenberg
+
+00:29:32.880 --> 00:29:39.280
+Accessibility is by Joe Dolson at the WordPress 
+Campus. The video of that has recently been
+
+00:29:39.280 --> 00:29:44.880
+released, and I think that will give you a good 
+overview of the stuff that that team is working
+
+00:29:44.880 --> 00:29:50.320
+on, sometimes struggling with, uh, sometimes 
+really massively improving. So there's, there's a
+
+00:29:50.320 --> 00:29:56.880
+lot of work happening on uh, on Gutenberg, which I 
+think is great. It's hard to make a, an editor of
+
+00:29:56.880 --> 00:30:02.960
+the future, and also do it accessibly, so I admire 
+the effort. I think it's, uh, there's lots of
+
+00:30:02.960 --> 00:30:08.480
+great work happening there, but I don't have 
+too much to say about the actual issues there.
+
+00:30:09.560 --> 00:30:18.400
+[Ahmed] Awesome. Next one is your suggestion 
+if you know of any good tool for developers
+
+00:30:18.400 --> 00:30:26.240
+to test the different levels of accessibility - A, 
+AA, or triple A. [Hidde] Yeah, so, those levels,
+
+00:30:26.240 --> 00:30:31.200
+they actually exist in multiple standards. So 
+most people will refer to them when they look
+
+00:30:31.200 --> 00:30:36.560
+at the WCAG standard, that has these, these 
+three levels: A, double A, triple A. The ATAG
+
+00:30:36.560 --> 00:30:42.160
+standard does as well. Now, for the UAAG standard, 
+there's a bunch of different automated test tools
+
+00:30:42.160 --> 00:30:50.160
+that try to interpret the rules that are in WCAG 
+as test rules and, and run automatically. Um,
+
+00:30:50.160 --> 00:30:55.280
+for, for ATAG those don't really, uh, don't 
+really exist. Uh, so at the W3C we have this
+
+00:30:55.280 --> 00:31:01.680
+project called ACT rules, where we try to bring 
+different tool vendors together, and work on, uh,
+
+00:31:01.680 --> 00:31:06.640
+test rules, harmonize those test rules, so that 
+every tool kind of interprets WCAG the same way.
+
+00:31:07.280 --> 00:31:11.520
+Uh, I think that's an interesting project to watch 
+if you wanna, wanna know more about different
+
+00:31:11.520 --> 00:31:18.000
+rules that exist. Um, but yeah, you can definitely 
+test automatically for WCAG - that is good for
+
+00:31:18.000 --> 00:31:23.440
+if you're developing a CMS, because one of the 
+ATAG guidelines is conform to WCAG, so that's,
+
+00:31:24.160 --> 00:31:28.320
+that's good for the editing experience, but it's 
+also good for, uh, for the output. So if you check
+
+00:31:28.960 --> 00:31:34.400
+the the page that is being generated, or that the 
+editor is working on, if you run that through some
+
+00:31:34.400 --> 00:31:41.040
+automated test tool, you might also be able to 
+prevent some accessibility issues. [Ahmed] Great.
+
+00:31:41.600 --> 00:31:49.760
+So, the next question is one of my favorite, 
+and this one asks why are we all focusing on
+
+00:31:49.760 --> 00:31:58.680
+WCAG and not also on ATAG - is there, uh, bias? 
+Is there a priority when we're choosing? [Hidde]
+
+00:31:59.680 --> 00:32:06.400
+It's, it's a great question, um, and something we 
+noticed at WAI, as well, and, and kind of partly
+
+00:32:06.400 --> 00:32:11.600
+the reason why I'm now assigned to, to work on 
+this. Uh, we would love more people to embrace
+
+00:32:11.600 --> 00:32:18.720
+ATAG and show the benefit of embracing ATAG, not 
+just for people who make CMSs, or sell plugins,
+
+00:32:18.720 --> 00:32:24.320
+but also for the companies that buy them. 
+We feel like there's a unique selling point
+
+00:32:24.320 --> 00:32:28.880
+to be made because so many organizations 
+are now required by law to be accessible.
+
+00:32:29.520 --> 00:32:33.920
+And if your tool can help them, you might be 
+able to charge them more money. So we feel like
+
+00:32:33.920 --> 00:32:39.200
+there's a lot of benefit to, um, to looking 
+at ATAG. It's not happening, or it wasn't
+
+00:32:39.200 --> 00:32:44.240
+happening so much, we see more uptake in the 
+last year, and more people talking about it.
+
+00:32:45.600 --> 00:32:49.360
+We heard, um, Susanna talk earlier about 
+the accessibility of authoring tools,
+
+00:32:49.360 --> 00:32:54.320
+and we have this, this conference day today, 
+so there's more, uh, more talk about it,
+
+00:32:55.200 --> 00:32:59.440
+and that is great. We see more people focus on 
+it. But I think one of the main reasons is that
+
+00:32:59.440 --> 00:33:04.800
+WCAG is a standard that is embraced by so many 
+governments worldwide, and the one thing that
+
+00:33:05.440 --> 00:33:11.920
+they, uh, put in, into legislation often. ATAG is, 
+is not, but it can really help to, to meet that
+
+00:33:11.920 --> 00:33:17.280
+WCAG legislation. So I hope to have showed that 
+a bit in this talk, as well, that these things
+
+00:33:17.280 --> 00:33:23.760
+can really play together. [Ahmed] Awesome. 
+Since we talked about the content management
+
+00:33:23.760 --> 00:33:28.560
+system being an accessibility assistant, 
+the next few questions focuses on WordPress.
+
+00:33:28.560 --> 00:33:35.280
+So, this is my personal question to you: how 
+ready do you think WordPress is, right now,
+
+00:33:35.280 --> 00:33:41.600
+to serve as an accessibility assistant among 
+the CMSs that are out ther? [Hidde] Yeah,
+
+00:33:41.600 --> 00:33:48.000
+so I look at a lot of different CMSs for, for my 
+work, and my work is vendor-neutral, so to say, so
+
+00:33:48.000 --> 00:33:52.080
+I don't look too much at specifics. I do 
+know in WordPress there are things like,
+
+00:33:52.640 --> 00:33:57.120
+um, good options for alternative 
+text for, for images, so there's,
+
+00:33:57.120 --> 00:34:03.280
+uh, clear information on what you should do there, 
+I think that's very helpful. Um, there is also
+
+00:34:03.280 --> 00:34:07.680
+something about color contrast, I remember? 
+That will, um, show you if you have the, the
+
+00:34:07.680 --> 00:34:13.440
+wrong color contrast, and help you get it right. 
+Uh, I think those are, those are great features.
+
+00:34:13.440 --> 00:34:17.760
+Um, I think there's a page structure thing, as 
+well, so there's, there's a bunch of things in
+
+00:34:17.760 --> 00:34:23.840
+WordPress that really can help people get their 
+accessibility right. But also work to do. I think,
+
+00:34:23.840 --> 00:34:27.840
+uh, people of the accessibility team, and 
+organizer of this, this event, will be more
+
+00:34:27.840 --> 00:34:34.000
+up to date with, with the things that are still 
+being worked on. [Ahmed] Yeah, we can certainly
+
+00:34:34.000 --> 00:34:40.320
+look towards the future. So, if you had to 
+rate WordPress as an accessibility assistant,
+
+00:34:40.320 --> 00:34:45.760
+how would you rate it amongst a double A and 
+triple A - I know it can get controversial, but up
+
+00:34:45.760 --> 00:34:51.040
+to you, if you want to make any comments. [Hidde] 
+I, I cannot possibly comment on that, because we
+
+00:34:51.040 --> 00:34:56.800
+we look at all the different CMSs, and we want 
+everyone to, to meet as many criteria as possible.
+
+00:34:56.800 --> 00:35:02.720
+Good thing to mention there is that, um, it's not 
+about meeting all of ATAG, or being completely
+
+00:35:02.720 --> 00:35:07.520
+compliant. Just like with WCAG, that is pretty 
+hard to do, and not many organizations do it.
+
+00:35:08.240 --> 00:35:13.200
+Um, and they have to, by law, but you know 
+it's a continuous process. And one person
+
+00:35:13.200 --> 00:35:19.040
+updates one image, it could be inaccessible. The 
+point is really to meet as many of these criteria
+
+00:35:19.040 --> 00:35:24.000
+as possible, and, um, you know every, every little 
+bit really, really helps. And we see that a lot,
+
+00:35:24.000 --> 00:35:29.360
+that organizations are, are doing that. And 
+also that CMSs are making small improvements,
+
+00:35:29.360 --> 00:35:34.720
+and they are all helpful, and the end users 
+will, will be happy with these huge improvements,
+
+00:35:34.720 --> 00:35:40.640
+I think. [Ahmed] Uh, I must admit, Hidde, that 
+our talk is certainly sparking a little bit of
+
+00:35:40.640 --> 00:35:46.000
+conversation in the chat feed, we're getting a 
+few more questions as we speak. We have time,
+
+00:35:46.000 --> 00:35:52.320
+so the next question is on Craft CMS. 
+Is Craft CMS much better than WordPress
+
+00:35:52.320 --> 00:35:59.120
+in terms of the accessibility of the editor, 
+thoughts? [Hidde] Are you referring to the
+
+00:35:59.120 --> 00:36:06.080
+W3C choice of, uh, of CMS? [Ahmed] I suppose 
+so, I suppose that's the question. [Hidde] Uh,
+
+00:36:06.080 --> 00:36:10.960
+so I'd really like to refer to the the blog post 
+I've already published about this, because, um, I
+
+00:36:10.960 --> 00:36:17.920
+had a tiny part in, in discussing this internally, 
+of course. Um, the main, the main points are we,
+
+00:36:18.480 --> 00:36:24.240
+we found not many, um, not many tools meet all 
+of our criteria that we need, and that's a lot
+
+00:36:24.240 --> 00:36:28.960
+of different criteria. So we, we need an 
+accessible CMS, we need a CMS that supports
+
+00:36:28.960 --> 00:36:31.600
+internationalization, because we 
+work with the global community,
+
+00:36:32.160 --> 00:36:37.600
+um, bunch of different things, basically, 
+that we've decided our CMS choice based on.
+
+00:36:38.720 --> 00:36:43.840
+Accessibility was, was one of them, and in my work 
+I really tried to convince other organizations to
+
+00:36:43.840 --> 00:36:49.040
+do what we did - make accessibility part of that 
+choice, because, uh, it's going to help you in the
+
+00:36:49.040 --> 00:36:55.680
+process, like I showed in the slides. Um, they did 
+that, so the, the vendor that we hired for the,
+
+00:36:55.680 --> 00:37:02.080
+the new website they, they looked at these 
+different, um, aspects and also at accessibility,
+
+00:37:02.080 --> 00:37:08.400
+uh, and they looked at how they, how they feel 
+it is going to improve. And that is, you know,
+
+00:37:08.400 --> 00:37:12.960
+that's a different, difficult thing to, uh, 
+to assess. Because, you know, you cannot look
+
+00:37:12.960 --> 00:37:19.120
+into the future. Um, but yeah, it seems like, 
+like for them that the, the Craft CMS had, had
+
+00:37:19.120 --> 00:37:25.520
+more commitment, uh maybe also from the top, to, 
+uh, to make their accessibility features better.
+
+00:37:26.240 --> 00:37:31.280
+Um, but yeah, maybe WordPress will be a better 
+choice for other organizations. It's really tricky
+
+00:37:31.280 --> 00:37:37.920
+to, uh, to say, and I can't comment in too much 
+detail about that. [Ahmed] That's fair enough. Uh,
+
+00:37:37.920 --> 00:37:43.760
+then, I, I think I can understand where 
+you're coming from. So, uh, such forum, when,
+
+00:37:43.760 --> 00:37:51.040
+where we discuss and we try to assess, uh, CMSs, 
+if they're accessibility-ready, so such questions
+
+00:37:51.040 --> 00:37:57.520
+are quite realistic, I suppose. But then again, I 
+request you to go through our website and answer
+
+00:37:57.520 --> 00:38:03.280
+the question. I'm sure you will be given the link 
+later, also viewers, we've also shared the slides
+
+00:38:03.280 --> 00:38:09.040
+to the presentation by Hidde. Before, I can ask 
+you the last question. So, the last one says:
+
+00:38:09.040 --> 00:38:17.840
+Have you tried to use ACF and a headless front-end 
+as editor to get accessibility content creation?
+
+00:38:19.000 --> 00:38:26.480
+[Hidde] Yes. Not in my capacity at the W3C, but 
+I do have from personal experience with that.
+
+00:38:28.240 --> 00:38:34.640
+Something in general you can say about, um, 
+so, so ACF is an Advanced Custom Field, right,
+
+00:38:34.640 --> 00:38:40.800
+so you define your own fields. Um, and what's 
+interesting about that, is that you could have
+
+00:38:41.520 --> 00:38:46.880
+just strings of text that people put in, and 
+then you can invent your own markup around that,
+
+00:38:46.880 --> 00:38:52.560
+so you control all of the accessibility. Uh, you 
+could do it badly, and you could do it greatly,
+
+00:38:52.560 --> 00:38:58.160
+right. So, like I mentioned, some CMSs don't 
+have the option to add captions to a video.
+
+00:38:58.960 --> 00:39:04.720
+Um, if you create your own fields, then you can 
+create a field for captions, so you can really
+
+00:39:04.720 --> 00:39:10.000
+control that, uh yourself, and then make it 
+more of an accessibility assistant in a way,
+
+00:39:10.000 --> 00:39:14.880
+as well, because you could explain why 
+they need captions, do it in a way that is
+
+00:39:15.440 --> 00:39:19.120
+the perfect tone of voice, and that will 
+inspire people to do it, rather than,
+
+00:39:19.120 --> 00:39:22.880
+uh, make them annoyed. Because I saw 
+someone asked like, you know, how can we,
+
+00:39:23.600 --> 00:39:29.120
+uh, avoid that people choose a different CMS if 
+we confront them with accessibility too much. Uh,
+
+00:39:29.120 --> 00:39:33.440
+so yeah we have that positive tone of voice. So 
+that's something you can really control, if you
+
+00:39:33.440 --> 00:39:40.000
+define your own fields. Uh, so yeah, that's uh, if 
+you are, uh, an integrator with, with WordPress,
+
+00:39:40.000 --> 00:39:44.560
+and I think that makes a lot of sense to, to try 
+and find your own fields, and get full control
+
+00:39:44.560 --> 00:39:51.440
+over, over what these fields look like and what 
+they say. [Ahmed] Thank you so much, Hidde, with
+
+00:39:51.440 --> 00:39:57.120
+your time, your effort, and patience with 
+the questions. Um, before we can wrap up,
+
+00:39:57.120 --> 00:40:03.600
+I would like to ask you one personal question: 
+How would you like the stakeholders out there,
+
+00:40:03.600 --> 00:40:09.120
+who can make a difference to initiatives such as 
+WordPress Accessibility Day, we know this is only
+
+00:40:09.120 --> 00:40:15.440
+happening for the first time, uh, what if you 
+had a, um, had a platform, if you had a voice,
+
+00:40:15.440 --> 00:40:20.800
+what would your message be out there for the 
+people who can make the difference? [Hidde] Uh,
+
+00:40:20.800 --> 00:40:26.880
+the difference in choosing, making, [Ahmed] making 
+such initiatives better and more accessible.
+
+00:40:28.720 --> 00:40:34.520
+[Hidde] Uh, like the today's event or... [Ahmed] 
+Today's event, yes. Yes, thank you. [Hidde]
+
+00:40:35.200 --> 00:40:40.880
+That's a tricky one. I, I don't know. I mean 
+there's, uh, there's captions, um, so that's,
+
+00:40:40.880 --> 00:40:47.040
+that's good. Uh, I don't know. I haven't looked 
+too much in, into the accessibility aspects of
+
+00:40:47.040 --> 00:40:51.840
+today's event. [Ahmed] I'm sure we will 
+have your support for the future, so
+
+00:40:52.560 --> 00:40:58.720
+on that note, we come to the end of this session, 
+um, your CMS is an Accessibility Assistant. I want
+
+00:40:58.720 --> 00:41:02.720
+to personally thank Hidde for being patient 
+enough, and answering all the questions,
+
+00:41:02.720 --> 00:41:08.000
+um, also I want to give a huge shout out to 
+Harish, who has been acting as the moderator
+
+00:41:08.000 --> 00:41:13.200
+for this session, posting the questions on our 
+site. Also, I would like to give a huge shout
+
+00:41:13.200 --> 00:41:18.240
+out to the session manager, Stefano. working in 
+the background. So I also would like to thank
+
+00:41:18.240 --> 00:41:25.360
+everyone for attending with Hidde and myself. You 
+can continue the conversation using hashtag WPAD,
+
+00:41:25.360 --> 00:41:32.720
+hashtag WPAD2020 add the at of @wpaccessibility. 
+Don't forget to attend the next talk:
+
+00:41:32.720 --> 00:41:38.800
+If it's true, it ain't bragging: choosing a CMS 
+for accessibility", with Mitchell Evan and myself,
+
+00:41:39.360 --> 00:41:45.920
+right at 9:00 am UTC, here in the same time. Until 
+that happens, see you right here after the break.
+
+00:41:45.920 --> 00:41:53.600
+Thank you so much, Hidde. Bye bye! 
+[Hidde] Thanks so much for having me!

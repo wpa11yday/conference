@@ -241,7 +241,7 @@ No translations yet.
 
 ## 2025
 
-22 completed translations.
+23 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -289,4 +289,5 @@ No translations yet.
   	- French; Andy Amado
 23. Build the Website with AI. But is it Accessible?
 24. Advancing Accessibility Through Community and Open Source
+  	- Spanish; María Paz Maureira
 25. Build for Everyone or Build for No One

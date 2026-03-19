@@ -159,7 +159,7 @@ No translations yet.
 
 ## 2024
 
-51 completed translations.
+52 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -209,6 +209,7 @@ No translations yet.
 	- Portuguese (Brazilian); Paloma Marques
 15. How to Read a VPAT and ACR
 	- Spanish; Andy Amado
+	- German; Jennifer Wjertzoch
 	- Portuguese; Paloma Marques
 16. WPAD Organizers: Ask Me Anything!
 	- Spanish; Sidney del Rocio
@@ -240,7 +241,7 @@ No translations yet.
 
 ## 2025
 
-19 completed translations.
+24 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -281,8 +282,13 @@ No translations yet.
   	- French; Andy Amado
 19. Accessibility isn't Extra Work. It's Risk Management.
 20. The Art of Accessibility: Making Documents Delightfully Inclusive
+  	- Spanish; Diana Córdoba Gómez
 21. Invisible Until it Hurts: Rethinking Brand Design Through the Lens of Accessibility
+  	- Spanish; Luz Zuniga
 22. A "Game"-Changing Approach to Accessibility Education
+  	- Spanish; Andy Amado
+  	- French; Andy Amado
 23. Build the Website with AI. But is it Accessible?
 24. Advancing Accessibility Through Community and Open Source
+  	- Spanish; María Paz Maureira
 25. Build for Everyone or Build for No One

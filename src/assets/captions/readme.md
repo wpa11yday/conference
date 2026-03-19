@@ -241,7 +241,7 @@ No translations yet.
 
 ## 2025
 
-23 completed translations.
+24 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -284,6 +284,7 @@ No translations yet.
 20. The Art of Accessibility: Making Documents Delightfully Inclusive
   	- Spanish; Diana Córdoba Gómez
 21. Invisible Until it Hurts: Rethinking Brand Design Through the Lens of Accessibility
+  	- Spanish; Luz Zuniga
 22. A "Game"-Changing Approach to Accessibility Education
   	- Spanish; Andy Amado
   	- French; Andy Amado

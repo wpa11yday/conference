@@ -242,7 +242,7 @@ No translations yet.
 
 ## 2025
 
-25 completed translations.
+26 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -294,3 +294,4 @@ No translations yet.
 24. Advancing Accessibility Through Community and Open Source
   	- Spanish; María Paz Maureira
 25. Build for Everyone or Build for No One
+  	- Spanish; Jordan Gilavert

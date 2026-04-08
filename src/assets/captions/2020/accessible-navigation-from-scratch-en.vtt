@@ -1,1555 +1,2691 @@
 WEBVTT
 
-00:00:06.295 --> 00:00:14.080
-[Mike] Hello and welcome back to the 
-WP Accessibility Day, one o'clock a.m.
+1
+00:00:06.295 --> 00:00:17.080
+<v Mike Demopoulos> Hello and welcome back to the 
+WP Accessibility Day, one o'clock a.m. UTC session.
 
-00:00:14.080 --> 00:00:21.440
-UTC session. If you have any questions, our 
-chat moderator Kayla will be answering them.
+2
+00:00:17.080 --> 00:00:21.440
+If you have any questions, our chat moderator 
+Kayla will be answering them.
 
-00:00:21.440 --> 00:00:26.480
+3
+00:00:21.440 --> 00:00:24.989
 So please put the questions that you have 
-for our speaker. Please remember that we are
+for our speaker. 
 
-00:00:26.480 --> 00:00:33.600
-welcoming community and there is a code of conduct 
-in force during this entire event and you can find
+4
+00:00:24.989 --> 00:00:32.532
+Please remember that we are welcoming community 
+and there is a code of conduct in force during this entire event. 
 
-00:00:33.600 --> 00:00:39.040
-slides and Twitter links all the information 
+5
+00:00:32.532 --> 00:00:36.474
+You can find slides and Twitter links, 
+all the information 
+
+6
+00:00:36.474 --> 00:00:39.040
 on our website at wpaccessibilityday.org.
 
-00:00:40.000 --> 00:00:47.680
-Our speaker right now is Adam. Adam is a Web 
-Developer at the University of Connecticut,
+7
+00:00:40.000 --> 00:00:42.705
+Our speaker right now is Adam. 
 
-00:00:47.680 --> 00:00:55.120
-or Uconn in the role at the Office of University 
-Communications. He specializes in WordPress
+8
+00:00:42.705 --> 00:00:47.680
+Adam is a Web Developer at the University of Connecticut,
 
-00:00:55.120 --> 00:01:00.480
-Application Development and Web Accessibility. 
-He's also been on the Accessibility and Diversity
+9
+00:00:47.680 --> 00:00:52.937
+or UConn, in the role at the 
+Office of University Communications. 
 
-00:01:00.480 --> 00:01:07.520
-Committees at Uconn. These include Uconn's 
+10
+00:00:52.937 --> 00:00:57.523
+He specializes in WordPress Application Development 
+and Web Accessibility. 
+
+
+11
+00:00:57.523 --> 00:01:02.452
+He's also been on the Accessibility and Diversity 
+Committees at UConn. 
+
+12
+00:01:02.452 --> 00:01:07.520
+These include UConn's 
 Innovation and Communication Technology Task Force
 
-00:01:07.520 --> 00:01:14.240
-and University Communications Diversity Equity 
-and Inclusion Task Force. When he's not working
+13
+00:01:07.520 --> 00:01:12.739
+and University Communications Diversity, Equity, 
+and Inclusion Task Force. 
 
-00:01:14.240 --> 00:01:20.640
-he enjoys reading, martial arts and spending 
-time with his family. So it's my pleasure
+14
+00:01:12.739 --> 00:01:19.275
+When he's not working he enjoys reading, 
+martial arts, and spending time with his family. 
 
-00:01:20.640 --> 00:01:25.840
-to welcome Adam and his talk,
+15
+00:01:19.275 --> 00:01:25.840
+It's my pleasure to welcome Adam and his talk, 
 Accessible Navigation from Scratch.
 
-00:01:25.840 --> 00:01:32.800
-[Adam] Hi everybody uh let me see if I can get 
-my screen shared, make sure this works correctly
+16
+00:01:25.840 --> 00:01:30.773
+<v Adam Berkowitz> Hi everybody. 
+Let me see if I can get my screen shared, 
 
-00:01:34.560 --> 00:01:42.080
-and I think that should do it. Okay, 
-excellent. So uh thank you very much
+17
+00:01:30.773 --> 00:01:34.400
+make sure this works correctly. 
 
-00:01:42.080 --> 00:01:47.600
-for that terrific introduction um and 
-thank you all for being here with me
+18
+00:01:34.400 --> 00:01:39.388
+I think that should do it. Okay, excellent. 
 
+19
+00:01:39.388 --> 00:01:47.600
+Thank you very much for that terrific introduction
+and thank you all for being here with me.
+
+20
 00:01:47.600 --> 00:01:54.000
-uh. I hope that you've enjoyed everything so far 
+I hope that you've enjoyed everything so far 
 and learned a lot from the other presenters today.
 
-00:01:54.000 --> 00:02:01.520
-So the web team in our office focuses on top 
-level and strategic marketing sites, such as
+21
+00:01:54.000 --> 00:02:00.929
+The web team in our office focuses on top level 
+and strategic marketing sites, 
 
-00:02:01.520 --> 00:02:08.800
-uconn.edu which is our main university website, 
-our regional campus websites and hospital network.
+22
+00:02:00.929 --> 00:02:05.087
+such as uconn.edu which is our main university website, 
 
-00:02:10.080 --> 00:02:15.120
-And as you can imagine, these get a lot of 
-traffic and we need to make sure that they
+23
+00:02:05.087 --> 00:02:08.800
+our regional campus websites and 
+hospital network.
 
-00:02:15.120 --> 00:02:19.840
-are as accessible and and welcoming 
-as possible to everyone who visits.
+24
+00:02:10.080 --> 00:02:13.104
+As you can imagine, these get a lot of traffic 
 
+25
+00:02:13.104 --> 00:02:16.570
+and we need to make sure that they are as accessible 
+
+26
+00:02:16.570 --> 00:02:19.840
+and welcoming as possible to everyone who visits.
+
+27
 00:02:21.520 --> 00:02:29.440
-A few years ago, um the World Accessibility Day 
+A few years ago, the World Accessibility Day 
 New England Conference was held at the university.
 
+28
 00:02:30.080 --> 00:02:33.280
-Pretty much everyone from our 
-office's web team attended.
+Pretty much everyone from our office's 
+web team attended.
 
+29
 00:02:34.080 --> 00:02:40.080
 As the conference went on, it became very obvious, 
 very quickly, how much work we needed to do.
 
+30
 00:02:40.880 --> 00:02:45.680
-One of the things we looked at on our 
-sites, was the main navigation components.
+One of the things we looked at on our sites, 
+was the main navigation components.
 
-00:02:46.720 --> 00:02:52.400
-As a state institution, we had some pretty 
-specific requirements. For instance, I think
+31
+00:02:46.720 --> 00:02:51.029
+As a state institution, 
+we had some pretty specific requirements. 
 
-00:02:52.400 --> 00:03:00.240
-that at the time we were still supporting Internet 
-Explorer 10 and we also wanted to make sure that
+32
+00:02:51.029 --> 00:02:57.522
+For instance, I think that at the time 
+we were still supporting Internet Explorer 10 
 
-00:03:00.240 --> 00:03:07.920
-for instance, people could use the navigation 
-elements without JavaScript and we wanted to
+33
+00:02:57.522 --> 00:03:01.741
+and we also wanted to make sure that, for instance, 
 
-00:03:07.920 --> 00:03:14.800
-make sure that we were in compliance with all 
-the relevant state and federal laws. And we also
+34
+00:03:01.741 --> 00:03:06.610
+people could use the navigation elements without JavaScript 
 
-00:03:14.800 --> 00:03:21.760
-wanted to do the right thing and have our websites 
-be as good as they could be. So one of the things
+35
+00:03:06.610 --> 00:03:10.520
+and we wanted to make sure that we were in compliance
 
-00:03:21.760 --> 00:03:27.200
-after that conference was, I wanted to improve 
-these navigational elements which leads us here
+36
+00:03:10.520 --> 00:03:13.988
+with all the relevant state and federal laws. 
 
-00:03:27.200 --> 00:03:35.200
-today. Now I'd like to point out that this project 
-and presentation are based on the majority of the
+37
+00:03:13.988 --> 00:03:20.384
+And we also wanted to do the right thing and have 
+our websites be as good as they could be. 
 
-00:03:35.200 --> 00:03:41.440
-needs for sites currently in use at the University 
-of Connecticut. So even if you choose not to use
+38
+00:03:20.384 --> 00:03:28.811
+One of the things after that conference was, I wanted 
+to improve these navigational elements which leads us here today. 
 
-00:03:41.440 --> 00:03:48.000
-the specific approach I'll show you, the basic 
-ideas can be adapted to a wide range of sites.
+39
+00:03:28.811 --> 00:03:33.002
+Now I'd like to point out that this project 
+and presentation 
 
-00:03:49.520 --> 00:03:55.360
-Now unless you're building a site which is 
-only one page, people are going to have to find
+40
+00:03:33.002 --> 00:03:36.070
+are based on the majority of the needs for sites
 
-00:03:55.360 --> 00:04:02.960
-their way around and not only that, but as a web 
-developer I know that if I put something or really
+41
+00:03:36.070 --> 00:03:39.394
+currently in use at the University of Connecticut. 
 
-00:04:02.960 --> 00:04:10.720
-anything interactive on a site, people are going 
-to try and use it. So that means interactive
+42
+00:03:39.394 --> 00:03:44.137
+Even if you choose not to use the specific approach I'll show you, 
 
-00:04:10.720 --> 00:04:19.280
-elements may get used in ways that are unexpected 
-or unfamiliar to me. As developers, just like
+43
+00:03:44.137 --> 00:03:48.000
+the basic ideas can be adapted to a wide range of sites.
 
-00:04:19.280 --> 00:04:25.440
-we validate forum inputs, because we can't 
-anticipate every single thing someone might enter,
+44
+00:03:49.520 --> 00:03:53.284
+Now unless you're building a site which is only one page, 
 
-00:04:26.240 --> 00:04:33.200
-we need to consider how people will use our 
-sites besides with a mouse and screen. In terms
+45
+00:03:53.284 --> 00:03:56.949
+people are going to have to find their way around 
 
-00:04:33.200 --> 00:04:40.960
-of accessibility, this concept applies to visitors 
-with permanent disabilities first and foremost. At
+46
+00:03:56.949 --> 00:04:00.205
+and not only that, but as a web developer 
 
-00:04:40.960 --> 00:04:47.840
-the same time, some visitors may have a temporary 
-or contextual accessibility need with respect to
+47
+00:04:00.205 --> 00:04:05.863
+I know that if I put something or 
+really anything interactive on a site, 
 
-00:04:47.840 --> 00:04:53.920
-a site. Their mouse might break, they might be 
-working on an airplane going through turbulence,
+48
+00:04:05.863 --> 00:04:08.729
+people are going to try and use it. 
 
-00:04:54.480 --> 00:04:59.840
-their dominant hand might be broken or maybe 
-they visited an eye doctor and got their pupils
+49
+00:04:08.729 --> 00:04:13.498
+That means interactive elements may get used in ways 
 
-00:04:59.840 --> 00:05:06.560
-dilated, we just can't know. We can't know the 
-situation for every single person who visits us,
+50
+00:04:13.498 --> 00:04:17.187
+that are unexpected or unfamiliar to me. 
 
-00:05:07.920 --> 00:05:14.080
-but we can try to design, build and prepare 
-sites in the most equitable ways we can.
+51
+00:04:17.187 --> 00:04:20.724
+As developers, just like we validate forum inputs, 
 
-00:05:15.120 --> 00:05:19.680
-So how can we make sure this happens?
+52
+00:04:20.724 --> 00:04:25.440
+because we can't anticipate every single thing someone might enter,
+
+53
+00:04:26.240 --> 00:04:32.588
+we need to consider how people will use our sites 
+besides with a mouse and screen. 
+
+54
+00:04:32.588 --> 00:04:37.155
+In terms of accessibility, this concept applies to visitors 
+
+55
+00:04:37.155 --> 00:04:40.808
+with permanent disabilities first and foremost. 
+
+56
+00:04:40.808 --> 00:04:43.523
+At the same time, some visitors may have 
+
+57
+00:04:43.523 --> 00:04:48.092
+a temporary or contextual accessibility need 
+with respect to a site. 
+
+58
+00:04:48.092 --> 00:04:53.920
+Their mouse might break, they might be working 
+on an airplane going through turbulence,
+
+59
+00:04:54.480 --> 00:04:56.856
+their dominant hand might be broken, 
+
+60
+00:04:56.856 --> 00:05:01.029
+or maybe they visited an eye doctor and 
+got their pupils dilated.
+
+61
+00:05:01.029 --> 00:05:06.560
+We just can't know. We can't know the situation 
+for every single person who visits us,
+
+62
+00:05:07.920 --> 00:05:11.616
+but we can try to design, build, 
+and prepare sites 
+
+63
+00:05:11.616 --> 00:05:14.080
+in the most equitable ways we can.
+
+64
+00:05:15.120 --> 00:05:17.494
+So how can we make sure this happens? 
+
+65
+00:05:17.494 --> 00:05:19.680
 Well we try to keep our sites POUR.
 
+66
 00:05:21.840 --> 00:05:25.360
 You may have heard or seen 
 this acronym POUR in the past,
 
-00:05:26.240 --> 00:05:32.560
-but what does it mean in the context of a 
-navigation menu? In my view, Perceivable
+67
+00:05:26.240 --> 00:05:30.787
+but what does it mean in the 
+context of a navigation menu? 
 
-00:05:32.560 --> 00:05:40.160
-means if a visitor can physically see the menu, 
+68
+00:05:30.787 --> 00:05:36.242
+In my view, Perceivable means 
+if a visitor can physically see the menu,
+
+69
+00:05:36.242 --> 00:05:40.160
 it must be visible or be able to be made visible.
 
-00:05:41.360 --> 00:05:47.280
-If that visitor can't physically see the menu, a 
-screen reader should detect and announce items.
+70
+00:05:41.360 --> 00:05:44.258
+If that visitor can't physically see the menu, 
 
-00:05:48.960 --> 00:05:55.680
-For the menu to be Operable, someone should be 
-able to interact with it, with the mouse and
+71
+00:05:44.258 --> 00:05:47.280
+a screen reader should detect and announce items.
 
-00:05:55.680 --> 00:06:04.000
-or the keyboard. If someone uses a mouse and there 
-are sub-menus, they need to be resilient. That is,
+72
+00:05:48.960 --> 00:05:54.351
+For the menu to be Operable, someone should be able to interact with it, 
 
-00:06:04.000 --> 00:06:10.640
-the sub-menus can't disappear immediately.
-Further, all the items in a sub-menu need to
+73
+00:05:54.351 --> 00:05:57.222
+with the mouse and or the keyboard. 
 
-00:06:10.640 --> 00:06:18.320
-be reachable with a mouse or a keyboard. For the 
-menu to be Understandable, it should behave in a
+74
+00:05:57.222 --> 00:06:01.181
+If someone uses a mouse and there are sub-menus, 
 
-00:06:18.320 --> 00:06:26.720
-predictable way. Therefore, it needs to maintain 
-visual and auditory consistency. For instance,
+75
+00:06:01.181 --> 00:06:03.362
+they need to be resilient. 
 
-00:06:26.720 --> 00:06:32.640
-if an icon toggles between two states, such as 
-open and closed, it should do that predictably.
+76
+00:06:03.362 --> 00:06:07.228
+That is, the sub-menus can't disappear immediately.
 
-00:06:33.600 --> 00:06:38.960
-Menu items should announce themselves in a 
-predictable way for people who use screen readers.
+77
+00:06:07.228 --> 00:06:10.098
+Further, all the items in a sub-menu 
 
-00:06:40.400 --> 00:06:46.720
-Finally for the menu to be Robust, in our 
-case, we wanted to ensure that it would work
+78
+00:06:10.098 --> 00:06:13.899
+need to be reachable with a mouse or a keyboard. 
 
-00:06:46.720 --> 00:06:53.520
+79
+00:06:13.899 --> 00:06:16.832
+For the menu to be Understandable, 
+
+80
+00:06:16.832 --> 00:06:20.100
+it should behave in a predictable way. 
+
+81
+00:06:20.100 --> 00:06:22.823
+Therefore, it needs to maintain 
+
+82
+00:06:22.823 --> 00:06:25.631
+visual and auditory consistency. 
+
+83
+00:06:25.631 --> 00:06:29.039
+For instance, if an icon toggles between two states, 
+
+84
+00:06:29.039 --> 00:06:32.640
+such as open and closed, it should do that predictably.
+
+85
+00:06:33.600 --> 00:06:35.790
+Menu items should announce themselves 
+
+86
+00:06:35.790 --> 00:06:38.960
+in a predictable way for people who use screen readers.
+
+87
+00:06:40.400 --> 00:06:43.927
+Finally for the menu to be Robust, in our case, 
+
+88
+00:06:43.927 --> 00:06:50.537
+we wanted to ensure that it would work 
 at least to some degree without JavaScript 
-and this meant keeping the style, the
 
-00:06:53.520 --> 00:06:59.040
-the style and user experience approximately the 
-same, as if there were JavaScript available.
+89
+00:06:50.537 --> 00:06:52.988
+and this meant keeping the style 
 
-00:07:00.960 --> 00:07:04.080
-In order to accomplish these goals, we identified
+90
+00:06:52.988 --> 00:06:56.255
+and user experience approximately the same, 
 
-00:07:04.080 --> 00:07:09.600
-three cases for menu items that are 
-typical for the types of site we build.
+91
+00:06:56.255 --> 00:06:59.040
+as if there were JavaScript available.
 
-00:07:11.840 --> 00:07:18.960
-Overall, I think these cases are pretty 
-common. First a link by itself which we
+92
+00:07:00.960 --> 00:07:04.389
+In order to accomplish these goals, 
+we identified 
 
-00:07:18.960 --> 00:07:25.200
-can easily rely on WordPress to handle. After 
-that we identified two types of sub-menus.
+93
+00:07:04.389 --> 00:07:09.600
+three cases for menu items that are typical 
+for the types of site we build.
 
-00:07:26.080 --> 00:07:32.240
-Those that have a link to a top level page with 
-sub-pages beneath and menu items that need to be,
+94
+00:07:11.840 --> 00:07:16.201
+Overall, I think these cases 
+are pretty common. 
 
-00:07:33.120 --> 00:07:39.840
-and menu items that need to solely act 
+95
+00:07:16.201 --> 00:07:21.556
+First a link by itself which we can easily 
+rely on WordPress to handle. 
+
+96
+00:07:21.556 --> 00:07:25.200
+After that we identified 
+two types of sub-menus.
+
+97
+00:07:26.080 --> 00:07:28.747
+Those that have a link 
+to a top level page
+
+98
+00:07:28.747 --> 00:07:36.568
+with sub-pages beneath and 
+menu items that need to solely act 
+
+99
+00:07:36.568 --> 00:07:39.840
 as a toggle to a series of sub-items.
 
-00:07:41.280 --> 00:07:47.760
-These are fairly typical types of elements in 
-a nav menu. Either you want to go somewhere by
+100
+00:07:41.280 --> 00:07:45.365
+These are fairly typical types of 
+elements in a nav menu. 
 
-00:07:47.760 --> 00:07:53.440
-following a link, or you want to reveal more 
-choices through some kind of toggling action.
+101
+00:07:45.365 --> 00:07:48.789
+Either you want to go somewhere
+by following a link, 
 
+102
+00:07:48.789 --> 00:07:51.050
+or you want to reveal more choices 
+
+103
+00:07:51.050 --> 00:07:53.440
+through some kind of toggling action.
+
+104
 00:07:54.560 --> 00:07:59.360
-So now that we've got our goals 
-through the POUR acronym and our cases,
+Now that we've got our goals through 
+the POUR acronym and our cases,
 
+105
 00:07:59.360 --> 00:08:04.320
-we need to have a good idea of what 
-elements are available to build with.
+we need to have a good idea of 
+what elements are available to build with.
 
-00:08:06.320 --> 00:08:12.240
-So before we try to style anything or provide 
-interaction, we need to get a handle on the
+106
+00:08:06.320 --> 00:08:10.244
+Before we try to style anything
+or provide interaction, 
 
-00:08:12.240 --> 00:08:17.840
-HTML tags and properties we want and how 
-they're going to get rendered to the page.
+107
+00:08:10.244 --> 00:08:14.471
+we need to get a handle on 
+the HTML tags and properties we want 
 
-00:08:18.720 --> 00:08:26.720
-This actually has a massive impact on the 
-overall, all the decisions that get made later.
+108
+00:08:14.471 --> 00:08:17.840
+and how they're going to 
+get rendered to the page.
 
-00:08:26.720 --> 00:08:33.120
-For instance, the style, JavaScript, everything 
-else that comes after. If we don't have a good
+109
+00:08:18.720 --> 00:08:22.615
+This actually has a massive impact on
 
-00:08:33.120 --> 00:08:40.160
-concept of what we have at the beginning and where 
-we're trying to go, then we won't be able to add
+110
+00:08:22.615 --> 00:08:26.720
+all the decisions that get made later.
 
-00:08:40.160 --> 00:08:49.600
-on. Fortunately, WordPress has a built-in way to 
+111
+00:08:26.720 --> 00:08:31.554
+For instance, the style, JavaScript, 
+everything else that comes after. 
+
+112
+00:08:31.554 --> 00:08:36.102
+If we don't have a good concept of 
+what we have at the beginning 
+
+113
+00:08:36.102 --> 00:08:41.588
+and where we're trying to go, 
+then we won't be able to add on. 
+
+114
+00:08:41.588 --> 00:08:49.600
+Fortunately, WordPress has a built-in way to 
 generate a menu with the wp_nav_menu function.
 
-00:08:49.600 --> 00:08:58.720
-And I'm sure that many of you are familiar 
-with this.The good news is that wp_ nav_menu
+115
+00:08:49.600 --> 00:08:55.156
+I'm sure that many of you 
+are familiar with this.
 
-00:08:58.720 --> 00:09:05.360
-is easy to use and get started with. It accepts 
-a list of arguments that provide a fair amount
+116
+00:08:55.156 --> 00:08:57.825
+The good news is that wp_ nav_menu
 
-00:09:05.360 --> 00:09:12.400
-of customization quickly and then after that, 
-as soon as the page loads, it displays a menu.
+117
+00:08:57.825 --> 00:09:00.807
+is easy to use and get started with. 
 
-00:09:13.840 --> 00:09:20.960
-One argument which I tend to change immediately, 
-is the container argument. By default,
+118
+00:09:00.807 --> 00:09:03.187
+It accepts a list of arguments 
 
-00:09:20.960 --> 00:09:27.280
-the menu will be contained by a div. This 
-isn't ideal for a navigation menu of this type,
+119
+00:09:03.187 --> 00:09:07.179
+that provide a fair amount of customization quickly 
 
-00:09:27.920 --> 00:09:34.720
-because a div doesn't impart any structure 
-or meeting on its own, but you can set the
+120
+00:09:07.179 --> 00:09:12.400
+and then after that, as soon as the page loads, 
+it displays a menu.
 
-00:09:34.720 --> 00:09:42.000
-container to a nav element. When you do this the 
-final output of the menu will be wrapped in a nav
+121
+00:09:13.840 --> 00:09:17.768
+One argument which I tend to change immediately,
 
-00:09:42.000 --> 00:09:50.720
-tag. Browsers will then detect the tag and create 
-an implicit ARIA role for it, with a landmark.This
+122
+00:09:17.768 --> 00:09:20.060
+is the container argument. 
 
-00:09:50.720 --> 00:09:56.880
-is a useful accessibility improvement, because 
-a screen reader will have an easier time
+123
+00:09:20.060 --> 00:09:23.528
+By default, the menu will be contained by a div. 
 
-00:09:56.880 --> 00:10:04.160
-parsing the document's content. There are other 
-arguments which you may be familiar with as well.
+124
+00:09:23.528 --> 00:09:27.280
+This isn't ideal for a navigation menu of this type,
 
-00:10:04.160 --> 00:10:10.960
-For instance, you can set custom classes or 
-IDs or set a theme location. Depending on
+125
+00:09:27.920 --> 00:09:33.200
+because a div doesn't impart any 
+structure or meaning on its own, 
 
-00:10:10.960 --> 00:10:15.360
-how many navigation sections you 
-have on the page, you might also
+126
+00:09:33.200 --> 00:09:36.750
+but you can set the container to a nav element. 
 
-00:10:15.360 --> 00:10:22.080
-set the container, or ARIA label argument as 
-well, to further clarify the menu's purpose.
+127
+00:09:36.750 --> 00:09:40.465
+When you do this the 
+final output of the menu
 
-00:10:23.360 --> 00:10:31.520
-Now wp_nav_menu works really well for menus 
-that have only one level of content. However,
+128
+00:09:40.465 --> 00:09:42.968
+will be wrapped in a nav tag. 
 
-00:10:31.520 --> 00:10:35.600
-once you add depth to the menu, 
+129
+00:09:42.968 --> 00:09:46.370
+Browsers will then detect the tag and create 
+
+130
+00:09:46.370 --> 00:09:49.848
+an implicit ARIA role for it, with a landmark.
+
+131
+00:09:49.848 --> 00:09:53.211
+This is a useful accessibility improvement, 
+
+132
+00:09:53.211 --> 00:09:56.786
+because a screen reader will have an easier time
+
+133
+00:09:56.786 --> 00:09:59.244
+parsing the document's content. 
+
+134
+00:09:59.244 --> 00:10:04.160
+There are other arguments which 
+you may be familiar with as well.
+
+135
+00:10:04.160 --> 00:10:07.429
+For instance, you can set custom classes, 
+
+136
+00:10:07.429 --> 00:10:09.920
+or IDs, or set a theme location.
+
+137
+00:10:09.920 --> 00:10:14.396
+Depending on how many navigation sections you have on the page, 
+
+138
+00:10:14.396 --> 00:10:19.299
+you might also set the container, 
+or ARIA label argument as well, 
+
+139
+00:10:19.299 --> 00:10:22.080
+to further clarify the menu's purpose.
+
+140
+00:10:23.360 --> 00:10:27.303
+Now wp_nav_menu works really well for menus
+
+141
+00:10:27.303 --> 00:10:30.787
+that have only one level of content. 
+
+142
+00:10:30.787 --> 00:10:33.317
+However, once you add depth to the menu, 
+
+143
+00:10:33.317 --> 00:10:35.600
 you'll run into accessibility issues.
 
-00:10:36.640 --> 00:10:42.640
-Let's take a look at how wp_nav_menu 
+144
+00:10:36.640 --> 00:10:39.274
+Let's take a look at how wp_nav_menu
+
+145
+00:10:39.274 --> 00:10:42.640
 interprets each of the three cases I shared,
 
-00:10:43.280 --> 00:10:50.640
-then we can see how we might improve their 
-accessibility. The markup for a plain link
+146
+00:10:43.280 --> 00:10:48.302
+then we can see how we might 
+improve their accessibility. 
 
-00:10:50.640 --> 00:10:56.800
-is pretty straightforward. WordPress gives us 
-just what we need, an anchor tag with a URL.
+147
+00:10:48.302 --> 00:10:52.230
+The markup for a plain link 
+is pretty straightforward. 
 
-00:10:57.840 --> 00:11:03.680
-This will provide a nice accessible link that 
-supports people who use keyboard navigation and
+148
+00:10:52.230 --> 00:10:56.800
+WordPress gives us just what we need, 
+an anchor tag with a URL.
 
-00:11:03.680 --> 00:11:10.400
-or screen readers. So far so good. After 
-this, things start to get complicated.
+149
+00:10:57.840 --> 00:11:00.415
+This will provide a nice accessible link 
 
-00:11:12.880 --> 00:11:19.600
+150
+00:11:00.415 --> 00:11:04.010
+that supports people who use keyboard navigation
+
+151
+00:11:04.010 --> 00:11:07.005
+and/or screen readers. 
+So far so good. 
+
+152
+00:11:07.005 --> 00:11:10.400
+After this, things start to get complicated.
+
+153
+00:11:12.880 --> 00:11:16.278
 In this case, we want to provide the ability 
-to either click on a top-level link to visit
 
-00:11:19.600 --> 00:11:27.120
-a page or access items in a sub-menu. As 
-the markup is now though, we run into a
+154
+00:11:16.278 --> 00:11:20.702
+to either click on a top-level link to visit a page 
 
-00:11:27.120 --> 00:11:34.720
-couple of things that could be better. First the 
-aria-label attribute on the link takes precedence
+155
+00:11:20.702 --> 00:11:23.391
+or access items in a sub-menu. 
 
-00:11:34.720 --> 00:11:42.480
-for screen readers over the content inside of 
-the anchor tag. So instead of a screen reader
+156
+00:11:23.391 --> 00:11:29.933
+As the markup is now though, 
+we run into a couple of things that could be better. 
 
-00:11:42.480 --> 00:11:49.280
-saying the inner text of the link which is About 
-Us, it will say the value of the aria-label which
+157
+00:11:29.933 --> 00:11:33.513
+First, the aria-label attribute on the link 
 
-00:11:49.280 --> 00:11:55.840
-is just sub-menu. That's not terribly descriptive, 
+158
+00:11:33.513 --> 00:11:36.361
+takes precedence for screen readers
+
+159
+00:11:36.361 --> 00:11:40.070
+over the content inside of 
+the anchor tag. 
+
+160
+00:11:40.070 --> 00:11:42.732
+Instead of a screen reader saying 
+
+161
+00:11:42.732 --> 00:11:46.042
+the inner text of the link which is About Us, 
+
+162
+00:11:46.042 --> 00:11:50.427
+it will say the value of the aria-label which is just sub-menu. 
+
+163
+00:11:50.427 --> 00:11:52.717
+That's not terribly descriptive, 
+
+164
+00:11:52.717 --> 00:11:55.840
 because someone might want to click the link.
 
+165
 00:11:57.280 --> 00:12:04.000
-Next, aria-haspopup will announce to a 
-screen reader that a pop-up is available,
+Next, aria-haspopup will announce to a screen reader
+that a pop-up is available,
 
-00:12:04.800 --> 00:12:11.200
-but we're missing supporting ARIA attributes to 
-associate the link with a specific sub-menu and
+166
+00:12:04.800 --> 00:12:07.832
+but we're missing supporting ARIA attributes 
 
-00:12:11.200 --> 00:12:19.040
-indicate if that sub-menu is open or closed. Last, 
-depending on how the sub-menu is hidden and shown,
+167
+00:12:07.832 --> 00:12:11.200
+to associate the link with a specific sub-menu and
 
-00:12:19.040 --> 00:12:25.920
-there might be no good way for people who use a 
-keyboard to get to it effectively. In addition,
+168
+00:12:11.200 --> 00:12:14.659
+indicate if that sub-menu is open or closed. 
 
-00:12:25.920 --> 00:12:30.960
-aside from showing the sub-menu when the mouse 
-hovers over the list element, it's not clear how
+169
+00:12:14.659 --> 00:12:19.040
+Last, depending on how the sub-menu is hidden and shown,
 
-00:12:30.960 --> 00:12:36.080
-we can open the sub-menu. If we click on the 
-link it'll take us to the page and never open
+170
+00:12:19.040 --> 00:12:25.051
+there might be no good way for people who use a keyboard 
+to get to it effectively. 
 
-00:12:36.080 --> 00:12:44.000
-the sub-menu. If we just want the top nav item to 
-work as a toggle, we can use a hash symbol as the
+171
+00:12:25.051 --> 00:12:29.984
+In addition, aside from showing the sub-menu 
+when the mouse hovers over the list element, 
 
-00:12:44.000 --> 00:12:48.800
-link. Of course then we need to use JavaScript 
-to prevent it from reloading the page when
+172
+00:12:29.984 --> 00:12:32.478
+it's not clear how we can open the sub-menu. 
 
-00:12:48.800 --> 00:12:53.680
-the link is clicked and this is something that 
-internally at our department we wanted to avoid.
+173
+00:12:32.478 --> 00:12:37.995
+If we click on the link, it'll take us to the page 
+and never open the sub-menu. 
 
-00:12:54.720 --> 00:13:00.640
+174
+00:12:37.995 --> 00:12:41.835
+If we just want the top nav item to work as a toggle, 
+
+175
+00:12:41.835 --> 00:12:43.947
+we can use a hash symbol as the link.
+
+176
+00:12:43.947 --> 00:12:47.223
+Of course then we need to use JavaScript to prevent it from 
+
+177
+00:12:47.223 --> 00:12:49.625
+reloading the page when the link is clicked 
+
+178
+00:12:49.625 --> 00:12:53.680
+and this is something that internally at our department 
+we wanted to avoid.
+
+179
+00:12:54.720 --> 00:12:57.818
 However, if we get rid of the href attribute 
+
+180
+00:12:57.818 --> 00:13:00.640
 by removing any link from the admin area,
 
-00:13:00.640 --> 00:13:06.480
+181
+00:13:00.640 --> 00:13:03.462
 the item can't be focused with a keyboard. 
+
+182
+00:13:03.462 --> 00:13:06.480
 Browsers will interpret anchor tags without an
 
-00:13:06.480 --> 00:13:13.360
-href property like a span or any other inline 
-element. So we can add non-JavaScript dependent
+183
+00:13:06.480 --> 00:13:10.549
+href property like a span or any other inline element. 
 
-00:13:13.360 --> 00:13:21.040
-toggles to list of issues we need to handle. Now 
-I'd like to show you uh what we'd like to add,
+184
+00:13:10.549 --> 00:13:14.202
+So we can add non-JavaScript dependent toggles 
 
-00:13:21.040 --> 00:13:27.760
-how we're going to get there, and what the result 
-is. At this point, what I wanted was a portable,
+185
+00:13:14.202 --> 00:13:17.077
+to list of issues we need to handle. 
 
-00:13:27.760 --> 00:13:34.160
-flexible, robust set of choices to build 
-off. That included things like being able
+186
+00:13:17.077 --> 00:13:21.040
+Now I'd like to show you what we'd like to add,
 
-00:13:34.160 --> 00:13:40.160
-to distinguish between links that go somewhere 
-and toggles that don't. More ARIA attributes
+187
+00:13:21.040 --> 00:13:24.743
+how we're going to get there, and what the result is. 
 
-00:13:40.160 --> 00:13:45.840
-to support people who use screen readers, 
-custom classes, icons and so and so on.
+188
+00:13:24.743 --> 00:13:28.080
+At this point, what I wanted was a portable, 
 
-00:13:46.960 --> 00:13:53.520
-WordPress does provide some additional filters 
-for navigation menus such as wp_nav_menu items,
+189
+00:13:28.080 --> 00:13:31.491
+flexible, robust set of choices to build off. 
 
-00:13:53.520 --> 00:14:00.400
-wp_nav_menu_object filters. However, I wanted 
-to be able to create the same kinds of markup
+190
+00:13:31.491 --> 00:13:35.013
+That included things like being able to distinguish 
 
-00:14:00.400 --> 00:14:06.000
-across a variety of themes. For us, this 
-would help with our brand consistency and
+191
+00:13:35.013 --> 00:13:38.805
+between links that go somewhere and toggles that don't. 
 
-00:14:06.000 --> 00:14:12.320
+192
+00:13:38.805 --> 00:13:43.470
+More ARIA attributes to support 
+people who use screen readers, 
+
+193
+00:13:43.470 --> 00:13:45.840
+custom classes, icons and so on.
+
+194
+00:13:46.960 --> 00:13:51.706
+WordPress does provide some 
+additional filters for navigation menus 
+
+195
+00:13:51.706 --> 00:13:55.724
+such as wp_nav_menu items, 
+wp_nav_menu_object filters. 
+
+196
+00:13:55.724 --> 00:13:58.436
+However, I wanted to be able to create
+
+197
+00:13:58.436 --> 00:14:02.289
+the same kinds of markup across a variety of themes. 
+
+198
+00:14:02.289 --> 00:14:06.000
+For us, this would help with our brand consistency and
+
+199
+00:14:06.000 --> 00:14:09.264
 visitor expectation from one site to the next. 
+
+200
+00:14:09.264 --> 00:14:12.320
 Fortunately, we can tap into an override the
 
-00:14:12.320 --> 00:14:18.960
-core class wp_nav_menu uses to generate the 
-output for a navigation menu. We can do this
+201
+00:14:12.320 --> 00:14:14.433
+core class wp_nav_menu uses 
 
-00:14:18.960 --> 00:14:24.880
-with a custom Walker class. To make it portable 
-we can then turn that into a Composer package
+202
+00:14:14.433 --> 00:14:17.904
+to generate the output for a navigation menu. 
 
-00:14:24.880 --> 00:14:30.480
+203
+00:14:17.904 --> 00:14:20.656
+We can do this with a custom Walker class. 
+
+204
+00:14:20.656 --> 00:14:24.880
+To make it portable we can then 
+turn that into a Composer package
+
+205
+00:14:24.880 --> 00:14:27.802
 that can be installed from GitHub or Packagist.
+
+
+206
+00:14:27.802 --> 00:14:30.480
 The project can then be used in many places.
 
-00:14:32.480 --> 00:14:38.880
-The Walker_Nav_Menu class is part of a collection 
-of Walkers which all inherit their functionality
+207
+00:14:32.480 --> 00:14:36.464
+The Walker_Nav_Menu class 
+is part of a collection of Walkers 
 
-00:14:38.880 --> 00:14:45.600
-from a general Walker class. Now to be completely 
-honest, when I started looking into this back
+208
+00:14:36.464 --> 00:14:41.032
+which all inherit their functionality from a general Walker class. 
 
-00:14:45.600 --> 00:14:51.920
-then, the Walkers were incredibly confusing. 
-Fortunately, these classes take care of a lot of
+209
+00:14:41.032 --> 00:14:45.969
+Now to be completely honest, 
+when I started looking into this back then, 
 
-00:14:51.920 --> 00:14:58.080
-the work for us though. For example, we don't have 
+210
+00:14:45.969 --> 00:14:48.539
+the Walkers were incredibly confusing.
+
+211
+00:14:48.539 --> 00:14:53.184
+Fortunately, these classes take care of a lot of the work for us though. 
+
+212
+00:14:53.184 --> 00:14:58.080
+For example, we don't have 
 to worry about writing our own recursive functions
 
-00:14:58.080 --> 00:15:03.040
+213
+00:14:58.080 --> 00:15:01.862
 to traverse menu structure since that's 
-their main purpose . Rather we can focus
+their main purpose. 
 
-00:15:03.040 --> 00:15:07.840
-on logic for the markup our menu might 
-need and what the output should look like.
+214
+00:15:01.862 --> 00:15:05.672
+Rather we can focus on logic 
+for the markup our menu might need 
 
-00:15:09.920 --> 00:15:14.080
-Once you write your a custom 
-Walker class you can then add it
+215
+00:15:05.672 --> 00:15:07.840
+and what the output should look like.
 
-00:15:14.080 --> 00:15:16.880
-to the list of arguments used by wp_nav_menu.
+216
+00:15:09.920 --> 00:15:12.740
+Once you write your custom Walker class 
 
+217
+00:15:12.740 --> 00:15:16.880
+you can then add it to the 
+list of arguments used by wp_nav_menu.
+
+218
 00:15:18.320 --> 00:15:22.240
 When you do this, all the 
-markup created by wp-nav-menu
+markup created by wp_nav_menu
 
-00:15:22.240 --> 00:15:28.080
-will flow through the Custom Walker. This means 
-that you can override any of the Walker nav
+219
+00:15:22.240 --> 00:15:24.615
+will flow through the Custom Walker. 
 
-00:15:28.080 --> 00:15:36.400
-menu's methods, with your own and that's what 
-wp_nav_menu will use. There are four class methods
+220
+00:15:24.615 --> 00:15:27.963
+This means that you can override any of the 
 
-00:15:36.400 --> 00:15:41.840
-available which will let you start a level, 
+221
+00:15:27.963 --> 00:15:31.082
+Walker Nav Menu's methods with your own, 
+
+222
+00:15:31.082 --> 00:15:33.973
+and that's what wp_nav_menu will use. 
+
+223
+00:15:33.973 --> 00:15:38.578
+There are four class methods available 
+which will let you start a level, 
+
+224
+00:15:38.578 --> 00:15:41.840
 start an element, end an element and end a level.
 
-00:15:42.640 --> 00:15:48.560
+225
+00:15:42.640 --> 00:15:45.534
 In this context, we only need two of those. 
+
+226
+00:15:45.534 --> 00:15:48.560
 The one to start a level and start an element.
 
-00:15:50.400 --> 00:15:57.680
+227
+00:15:50.400 --> 00:15:56.662
 Every item in the menu is going to pass through 
-the start_el and end_el methods.These methods
+the start_el and end_el methods.
 
-00:15:58.240 --> 00:16:03.360
-are where we can add logic to support 
-the type of markup we want to build.
+228
+00:15:56.662 --> 00:15:59.748
+These methods are where we can add logic 
 
+229
+00:15:59.748 --> 00:16:03.360
+to support the type of markup we want to build.
+
+230
 00:16:04.240 --> 00:16:09.280
 Consequently, the start-el method was where 
-most of the work for my Custom Walker happened.
+most of the work for my custom Walker happened.
 
-00:16:10.400 --> 00:16:15.520
-However, we're not just dealing with a flat 
-menu, we need to be able to add depth as well.
+231
+00:16:10.400 --> 00:16:13.244
+However, we're not just dealing with a flat menu, 
 
-00:16:17.200 --> 00:16:23.440
-When we create a nested sub-menu the 
-Walker will pass the output for the markup
+232
+00:16:13.244 --> 00:16:15.520
+we need to be able to add depth as well.
 
-00:16:23.440 --> 00:16:28.560
-through the start and end level methods 
-as well. These create the unordered lists.
+233
+00:16:17.200 --> 00:16:19.852
+When we create a nested sub-menu, 
 
+234
+00:16:19.852 --> 00:16:23.440
+the Walker will pass the output for the markup
+
+235
+00:16:23.440 --> 00:16:26.500
+through the start and end level methods as well. 
+
+236
+00:16:26.500 --> 00:16:28.560
+These create the unordered lists.
+
+237
 00:16:30.400 --> 00:16:36.640
-We can take advantage of that to affect how the 
-submenu unordered list elements get created.
+We can take advantage of that to affect 
+how the submenu unordered list elements get created.
 
+238
 00:16:37.600 --> 00:16:43.600
-In terms of accessibility, we can make sure we're 
-adding useful IDs to each level for example.
+In terms of accessibility, we can make sure 
+we're adding useful IDs to each level for example.
 
-00:16:44.800 --> 00:16:51.440
-By default WordPress wasn't doing this, or at 
-least I don't remember it doing it back when I
+239
+00:16:44.800 --> 00:16:47.687
+By default WordPress wasn't doing this, 
 
-00:16:51.440 --> 00:16:57.920
-started this. It may do it now. This will let us 
-match up the sub-menu to an aria-owns property
+240
+00:16:47.687 --> 00:16:50.646
+or at least I don't remember it doing it 
 
-00:16:57.920 --> 00:17:04.880
-in the items markup. Now that we've seen the 
-path the markup takes through the Walker class,
+241
+00:16:50.646 --> 00:16:53.609
+back when I started this. It may do it now. 
 
+242
+00:16:53.609 --> 00:16:56.409
+This will let us match up the sub-menu 
+
+243
+00:16:56.409 --> 00:16:59.711
+to an aria-owns property in the items markup. 
+
+244
+00:16:59.711 --> 00:17:04.880
+Now that we've seen the path 
+the markup takes through the Walker class,
+
+245
 00:17:04.880 --> 00:17:08.880
 let's zoom in to the start_el method 
 where most of the logic happens.
 
+246
 00:17:10.640 --> 00:17:16.000
-Here I've written out some pseudo code to describe 
-the flow through our custom start_el  method.
+Here I've written out some pseudo code 
+to describe the flow through our custom start_el  method.
 
+247
 00:17:17.040 --> 00:17:20.960
-The shell of this is exactly what you 
-would see if you took a look at the Walker.
+The shell of this is exactly what you would see 
+if you took a look at the Walker.
 
-00:17:22.160 --> 00:17:28.240
-We can start by checking to see if the current 
-item has children. That is, should it be a link by
+248
+00:17:22.160 --> 00:17:26.297
+We can start by checking to see if the current item has children. 
 
-00:17:28.240 --> 00:17:35.120
-itself, or should it have a sub-menu with it. If 
-not, if it's just a link by itself, we can output
+249
+00:17:26.297 --> 00:17:31.550
+That is, should it be a link by itself, 
+or should it have a sub-menu with it?
 
-00:17:35.840 --> 00:17:39.680
-the start of a list item with 
-a link inside and then finish.
+250
+00:17:31.550 --> 00:17:34.331
+If not, if it's just a link by itself, 
 
-00:17:41.040 --> 00:17:46.880
-Otherwise, we need to know if the top 
-level item should be a link or a button.
+251
+00:17:34.331 --> 00:17:37.150
+we can output the start of a list item 
 
-00:17:48.400 --> 00:17:54.720
-If it doesn't have a link, we can output the 
-start of a list item with a button on the inside.
+252
+00:17:37.150 --> 00:17:39.680
+with a link inside and then finish.
 
-00:17:55.920 --> 00:18:03.600
-Otherwise, we need both a link and then a 
-button as a sibling. This way we can account for
+253
+00:17:41.040 --> 00:17:44.662
+Otherwise, we need to know if the top level item
 
-00:18:03.600 --> 00:18:10.400
-all the cases in the markup. With this logic in 
-place we can also do things like add additional
+254
+00:17:44.662 --> 00:17:46.880
+should be a link or a button.
 
-00:18:10.400 --> 00:18:16.800
-custom classes and data attributes. Those can help 
-us style and interact with the menu more easily.
+255
+00:17:48.400 --> 00:17:51.089
+If it doesn't have a link, we can output
 
-00:18:18.000 --> 00:18:23.280
-Let's look at some examples of the 
-output that the Custom Walker I wrote,
+256
+00:17:51.089 --> 00:17:54.720
+the start of a list item with a button on the inside.
 
-00:18:23.280 --> 00:18:31.280
-creates. So here we're back at our plain 
-link, but notice that we've added prefixed am
+257
+00:17:55.920 --> 00:18:01.296
+Otherwise, we need both a link 
+and then a button as a sibling. 
 
-00:18:31.280 --> 00:18:38.320
-dash classes in addition to the standard WordPress 
-classes. These will help designers and developers
+258
+00:18:01.296 --> 00:18:05.481
+This way we can account 
+for all the cases in the markup. 
 
-00:18:38.320 --> 00:18:43.680
-create styles specifically for these types of 
-menus without relying on WordPress classes.
+259
+00:18:05.481 --> 00:18:09.357
+With this logic in place,
+we can also do things like 
 
-00:18:44.880 --> 00:18:51.280
-There's also a no.js class on the element. The 
-no.js class will be removed from the markup
+260
+00:18:09.357 --> 00:18:12.658
+add additional custom classes and data attributes. 
 
-00:18:51.280 --> 00:18:56.080
+261
+00:18:12.658 --> 00:18:16.800
+Those can help us style and interact with the menu more easily.
+
+262
+00:18:18.000 --> 00:18:21.525
+Let's look at some examples of the output 
+
+263
+00:18:21.525 --> 00:18:24.886
+that the custom Walker I wrote, creates. 
+
+264
+00:18:24.886 --> 00:18:28.083
+So here we're back at our plain link, 
+
+265
+00:18:28.083 --> 00:18:31.858
+but notice that we've added prefixed am dash classes
+
+266
+00:18:31.858 --> 00:18:35.416
+in addition to the standard WordPress 
+classes. 
+
+267
+00:18:35.416 --> 00:18:38.320
+These will help designers and developers
+
+268
+00:18:38.320 --> 00:18:41.452
+create styles specifically for these types of menus 
+
+269
+00:18:41.452 --> 00:18:43.680
+without relying on WordPress classes.
+
+270
+00:18:44.880 --> 00:18:47.904
+There's also a no-js class on the element. 
+
+271
+00:18:47.904 --> 00:18:51.280
+The no-js class will be removed from the markup
+
+272
+00:18:51.280 --> 00:18:53.993
 if the menu's JavaScript is available. 
+
+273
+00:18:53.993 --> 00:18:56.080
 If the JavaScript doesn't run,
 
-00:18:56.080 --> 00:19:01.200
-this class will provide a fail safe for opening 
-and closing sub-menus as I'll show soon.
+274
+00:18:56.080 --> 00:18:58.175
+this class will provide a fail safe 
 
-00:19:03.760 --> 00:19:08.640
+275
+00:18:58.175 --> 00:19:01.200
+for opening and closing sub-menus 
+as I'll show soon.
+
+276
+00:19:03.760 --> 00:19:06.377
 Here's how we can improve the markup 
+
+277
+00:19:06.377 --> 00:19:08.640
 for linked items with sub-menus.
 
+278
 00:19:09.600 --> 00:19:16.480
-First, instead of the link, links 
+First, instead of the link's 
 aria-label only saying sub-menu,
 
-00:19:16.480 --> 00:19:21.760
-it now describes the text of the link and gives 
-a hint about how you can interact with it.
+279
+00:19:16.480 --> 00:19:18.709
+it now describes the text of the link 
 
-00:19:22.320 --> 00:19:27.520
-You can obviously change this to 
-whatever is appropriate for you. Next,
+280
+00:19:18.709 --> 00:19:21.760
+and gives a hint about how 
+you can interact with it.
 
-00:19:28.640 --> 00:19:34.240
-the button is going to provide a semantically 
-appropriate element that we can interact with
+281
+00:19:22.320 --> 00:19:24.520
+You can obviously change this 
 
-00:19:34.240 --> 00:19:40.720
-whether JavaScript is available or not. We've 
-also added a couple more ARIA attributes to it.
+282
+00:19:24.520 --> 00:19:27.159
+to whatever is appropriate for you. 
 
-00:19:41.920 --> 00:19:48.000
-Aria-expanded will indicate to a screen 
-reader if the sub-menu is open or not.
+283
+00:19:27.159 --> 00:19:29.860
+Next, the button is going to provide 
 
-00:19:49.680 --> 00:19:55.520
-We can change its state with JavaScript 
-later. Since we don't want any text to
+284
+00:19:29.860 --> 00:19:32.415
+a semantically appropriate element 
 
-00:19:55.520 --> 00:20:01.680
-show on the button, we need to give it an 
-aria-label to provide context. If it's,
+285
+00:19:32.415 --> 00:19:36.983
+that we can interact with whether 
+JavaScript is available or not. 
 
-00:20:02.320 --> 00:20:08.240
-this is in case the button is focused. Inside 
-the button we can then make space for an icon.
+286
+00:19:36.983 --> 00:19:40.720
+We've also added a couple more ARIA attributes to it.
 
-00:20:09.280 --> 00:20:16.080
-Here we can use the aria-hidden property. The 
-aria-hidden property will hide only the icon
+287
+00:19:41.920 --> 00:19:45.614
+Aria-expanded will indicate 
+to a screen reader 
 
-00:20:16.080 --> 00:20:21.920
-from screen readers, but still leave it visually 
-available. Since we've created screen reader
+288
+00:19:45.614 --> 00:19:48.000
+if the sub-menu is open or not.
 
-00:20:21.920 --> 00:20:28.800
-accessible text on the button with the aria-label 
-property and added the aria-expanded property,
+289
+00:19:49.680 --> 00:19:53.199
+We can change its state with JavaScript later. 
 
-00:20:28.800 --> 00:20:37.200
-we can use aria-hidden to hide the icon without a 
-problem. The aria-owns property will associate the
+290
+00:19:53.199 --> 00:19:57.068
+Since we don't want any text to show on the button, 
 
-00:20:37.200 --> 00:20:44.320
-button with the sub-menu that with the sub-menu 
-with the aria-owns property or the correct ID
+291
+00:19:57.068 --> 00:20:01.085
+we need to give it an 
+aria-label to provide context. 
 
-00:20:44.320 --> 00:20:53.040
-rather. This works in a way similar to how a label 
-is associated with a form element. This is now
+292
+00:20:01.085 --> 00:20:04.085
+This is in case the button is focused. 
 
-00:20:53.040 --> 00:20:59.120
-markup that will let a visitor choose between 
-clicking on a link or opening up a sub-menu.
+293
+00:20:04.085 --> 00:20:08.240
+Inside the button we can then make space for an icon.
 
-00:21:00.720 --> 00:21:07.840
+294
+00:20:09.280 --> 00:20:12.418
+Here we can use the aria-hidden property. 
+
+295
+00:20:12.418 --> 00:20:16.080
+The aria-hidden property will hide only the icon
+
+296
+00:20:16.080 --> 00:20:19.848
+from screen readers, but still leave it visually available. 
+
+297
+00:20:19.848 --> 00:20:23.302
+Since we've created screen reader accessible text 
+
+298
+00:20:23.302 --> 00:20:26.272
+on the button with the aria-label property 
+
+299
+00:20:26.272 --> 00:20:28.800
+and added the aria-expanded property,
+
+300
+00:20:28.800 --> 00:20:33.756
+we can use aria-hidden 
+to hide the icon without a problem. 
+
+301
+00:20:33.756 --> 00:20:37.562
+The aria-owns property will associate the button 
+
+302
+00:20:37.562 --> 00:20:44.441
+with the sub-menu, 
+with the aria-owns property or the correct ID, rather. 
+
+303
+00:20:44.441 --> 00:20:48.499
+This works in a way similar to how a label
+
+304
+00:20:48.499 --> 00:20:51.977
+is associated with a form element. 
+
+305
+00:20:51.977 --> 00:20:55.408
+This is now markup that will let a visitor choose
+
+306
+00:20:55.408 --> 00:20:59.120
+between clicking on a link or opening up a sub-menu.
+
+307
+00:21:00.720 --> 00:21:04.467
 In the last case, there is no link for the item. 
-It's replaced entirely by a button, so it can
 
-00:21:07.840 --> 00:21:15.680
-always act as a toggle. You can imagine that if 
-you combine all these cases you can start to get
 
-00:21:15.680 --> 00:21:23.520
-a very flexible and accessible menu, but we're 
-not quite done yet. So far we've made sure that
+308
+00:21:04.467 --> 00:21:09.956
+It's replaced entirely by a button, so it can always act as a toggle. 
 
-00:21:23.520 --> 00:21:29.840
-people will be able to interact with the menu with 
-a mouse, keyboard, keyboard and a screen reader,
+309
+00:21:09.956 --> 00:21:14.112
+You can imagine that if you combine all these cases, 
 
+310
+00:21:14.112 --> 00:21:18.828
+you can start to get a very flexible and accessible menu, 
+
+311
+00:21:18.828 --> 00:21:21.268
+but we're not quite done yet. 
+
+312
+00:21:21.268 --> 00:21:26.224
+So far we've made sure that people 
+will be able to interact with the menu 
+
+313
+00:21:26.224 --> 00:21:29.840
+with a mouse, keyboard, and a screen reader.
+
+314
 00:21:30.560 --> 00:21:34.800
-but now we have to think a little bit 
-more about design and interaction.
+Now we have to think a little bit more 
+about design and interaction.
 
+315
 00:21:35.920 --> 00:21:40.480
-In our context, we wanted menus to 
-work primarily through toggling action.
+In our context, we wanted menus 
+to work primarily through toggling actions.
 
-00:21:42.640 --> 00:21:49.680
-Actually, um as I was writing this, I forgot 
-one thing and I added this slide today.
+316
+00:21:42.640 --> 00:21:47.160
+Actually, as I was writing this, I forgot one thing 
 
-00:21:49.680 --> 00:21:54.000
-So as I was preparing the presentation 
-I realized I had made a mistake.
+317
+00:21:47.160 --> 00:21:49.680
+and I added this slide today.
 
-00:21:54.800 --> 00:22:01.760
-Uh, in the navigation menu you want to have the 
-current, the current page and or its top level
+318
+00:21:49.680 --> 00:21:51.871
+As I was preparing the presentation
 
-00:22:01.760 --> 00:22:08.480
-parent visually highlighted somehow, and this lets 
-people know which page is active. WordPress gives
+319
+00:21:51.871 --> 00:21:54.000
+ I realized I had made a mistake.
 
-00:22:08.480 --> 00:22:14.880
-classes for this, but also you want to make sure 
+320
+00:21:54.800 --> 00:21:58.415
+In the navigation menu you want to have 
+
+321
+00:21:58.415 --> 00:22:01.770
+the current page and/or its top level parent 
+
+322
+00:22:01.770 --> 00:22:04.006
+visually highlighted somehow, 
+
+323
+00:22:04.006 --> 00:22:07.415
+and this lets people know which page is active. 
+
+324
+00:22:07.415 --> 00:22:09.681
+WordPress gives classes for this, 
+
+325
+00:22:09.681 --> 00:22:11.747
+but also you want to make sure 
+
+326
+00:22:11.747 --> 00:22:14.880
 that the aria-current property is set on pages.
 
+327
 00:22:15.600 --> 00:22:20.080
-Prior to WordPress 5.3 I think, 
+Prior to WordPress 5.3, I think, 
 you had to do this manually.
 
+328
 00:22:20.720 --> 00:22:26.800
-Typically, you could check the, you could do 
-this with the nav_menu_link attributes filter,
+Typically, you could do this 
+with the nav_menu_link attributes filter,
 
-00:22:27.600 --> 00:22:32.640
-but in checking, this filter doesn't seem to 
-work with the custom Walker I created. I'm not
+329
+00:22:27.600 --> 00:22:32.252
+but in checking, this filter doesn't seem to work 
+with the custom Walker I created. 
 
-00:22:32.640 --> 00:22:38.960
-entirely sure why right now, so I'm going to have 
-to go back and refine it, but that's okay. I think
+330
+00:22:32.252 --> 00:22:34.550
+I'm not entirely sure why right now, 
 
-00:22:38.960 --> 00:22:44.400
-the more important thing is to note that even 
-while trying my best , I still ended up missing
+331
+00:22:34.550 --> 00:22:38.525
+so I'm going to have to go back and refine it, 
+but that's okay. 
 
-00:22:44.400 --> 00:22:48.960
-something by accident, which is all the more 
-reason for me to keep learning and researching.
+332
+00:22:38.525 --> 00:22:42.990
+I think the more important thing is 
+to note that even while trying my best, 
 
-00:22:50.800 --> 00:22:58.560
-Now I'm not going to go over everything in the CSS 
-for this project, but rather focus on CSS related
+333
+00:22:42.990 --> 00:22:45.418
+I still ended up missing something by accident, 
 
-00:22:58.560 --> 00:23:06.640
-to hiding and showing content. When we use CSS 
-to hide and show content, our choices affect how
+334
+00:22:45.418 --> 00:22:48.960
+which is all the more reason for me 
+to keep learning and researching.
 
-00:23:06.640 --> 00:23:14.640
-people who use screen readers and keyboards can 
-or cannot interact with web content. The ability
+335
+00:22:50.800 --> 00:22:56.077
+Now I'm not going to go over 
+everything in the CSS for this project,
 
-00:23:14.640 --> 00:23:20.240
-to show and hide content is an important part 
-of user interface and user experience design.
+336
+00:22:56.077 --> 00:23:01.318
+but rather focus on CSS related to hiding and showing content. 
 
-00:23:21.200 --> 00:23:26.880
+337
+00:23:01.318 --> 00:23:04.811
+When we use CSS to hide and show content, 
+
+338
+00:23:04.811 --> 00:23:10.299
+our choices affect how people,
+who use screen readers and keyboards, 
+
+339
+00:23:10.299 --> 00:23:13.739
+can or cannot interact with web content. 
+
+340
+00:23:13.739 --> 00:23:17.589
+The ability to show and hide content 
+is an important part of 
+
+341
+00:23:17.589 --> 00:23:20.240
+user interface and user experience design.
+
+342
+00:23:21.200 --> 00:23:24.105
 This is especially true for navigation menus 
-where we often want to hide or show content
 
-00:23:26.880 --> 00:23:33.280
-on hover or focus. If we're not careful, 
-we can inadvertently use CSS to create
+343
+00:23:24.105 --> 00:23:28.730
+where we often want to hide or show content on hover or focus. 
 
-00:23:33.280 --> 00:23:38.480
-an inaccessible experience for our visitors. 
+344
+00:23:28.730 --> 00:23:32.598
+If we're not careful, we can inadvertently use CSS 
+
+345
+00:23:32.598 --> 00:23:35.938
+to create an inaccessible experience for our visitors. 
+
+346
+00:23:35.938 --> 00:23:38.480
 So I think that it's important to understand
 
+347
 00:23:38.480 --> 00:23:43.360
 the accessibility implications of 
 how we use CSS to accomplish this.
 
-00:23:44.720 --> 00:23:49.760
-There's several cases where this chart is 
-important. We might consider the case where a
+348
+00:23:44.720 --> 00:23:47.790
+There's several cases where this chart is important. 
 
-00:23:49.760 --> 00:23:55.840
-visitor who uses a screen reader wants to skim all 
-the links on a site. We should be aware that if
+349
+00:23:47.790 --> 00:23:51.875
+We might consider the case where a visitor who uses a screen reader 
 
-00:23:55.840 --> 00:24:02.800
-we use display:none or visibility:hidden, we'll be 
-hiding content from them. Another visitor may come
+350
+00:23:51.875 --> 00:23:54.254
+wants to skim all the links on a site. 
 
-00:24:02.800 --> 00:24:09.120
-to our site and have an issue with motor control 
-and browse with a keyboard. Depending on how we
+351
+00:23:54.254 --> 00:23:58.825
+We should be aware that if we use 
+display: none or visibility: hidden, 
 
-00:24:09.120 --> 00:24:16.320
-hide and show content, our choices may make that 
-user experience more or less accessible. If the
+352
+00:23:58.825 --> 00:24:01.183
+we'll be hiding content from them. 
 
-00:24:16.320 --> 00:24:22.480
-links in the navigation menu can be found in other 
-ways or duplicated somewhere, that may not be a
+353
+00:24:01.183 --> 00:24:03.525
+Another visitor may come to our site
 
-00:24:22.480 --> 00:24:27.840
-problem. But we should think about our choices and 
-the overall context of the site as we make them.
+354
+00:24:03.525 --> 00:24:07.884
+and have an issue with motor control 
+and browse with a keyboard. 
 
-00:24:30.000 --> 00:24:33.680
+355
+00:24:07.884 --> 00:24:10.984
+Depending on how we hide and show content, 
+
+356
+00:24:10.984 --> 00:24:15.887
+our choices may make that user experience 
+more or less accessible. 
+
+357
+00:24:15.887 --> 00:24:19.780
+If the links in the navigation menu 
+can be found in other ways
+
+358
+00:24:19.780 --> 00:24:22.884
+or duplicated somewhere, 
+that may not be a problem. 
+
+359
+00:24:22.884 --> 00:24:24.921
+But we should think about our choices
+
+360
+00:24:24.921 --> 00:24:27.840
+and the overall context 
+of the site as we make them.
+
+361
+00:24:30.000 --> 00:24:33.247
 One of the design requirements as 
-I've said for our menus, was that
+I've said for our menus, 
 
-00:24:33.680 --> 00:24:39.840
-some menus should be open and closed by toggle. 
+362
+00:24:33.247 --> 00:24:36.968
+was that some menus should be open and closed by toggle. 
+
+363
+00:24:36.968 --> 00:24:39.840
 The usual way to do this is with JavaScript,
 
+364
 00:24:39.840 --> 00:24:43.760
-so that when someone clicks on the menu 
-item, the sub-menu is shown or hidden.
+so that when someone clicks on the menu item, 
+the sub-menu is shown or hidden.
 
+365
 00:24:44.640 --> 00:24:48.480
 However, we can't predict if people 
 will have JavaScript available to them.
 
+366
 00:24:49.520 --> 00:24:54.000
-Some people may choose to not use 
-JavaScript. They may block it entirely.
+Some people may choose to not use JavaScript. 
+They may block it entirely.
 
-00:24:54.960 --> 00:24:59.680
-There may be a delay getting JavaScript 
-to someone, or there may be an error that
+367
+00:24:54.960 --> 00:24:57.990
+There may be a delay getting JavaScript to someone, 
 
-00:24:59.680 --> 00:25:05.920
-prevents JavaScript from loading correctly. If 
-we're going to hide the sub-menus or content,
+368
+00:24:57.990 --> 00:25:02.761
+or there may be an error that 
+prevents JavaScript from loading correctly. 
 
+369
+00:25:02.761 --> 00:25:05.920
+If we're going to hide the sub-menus or content,
+
+370
 00:25:06.480 --> 00:25:11.040
 we should still think about how we can 
 give people a way to access those items.
 
-00:25:12.160 --> 00:25:17.280
+371
+00:25:12.160 --> 00:25:14.537
 One way to do this is the focus-within 
+
+372
+00:25:14.537 --> 00:25:17.280
 pseudo class which I'll describe in a moment.
 
+373
 00:25:18.560 --> 00:25:21.360
 You should be aware though, that focus-within
 
-00:25:21.360 --> 00:25:26.400
-isn't supported by Internet Explorer or 
-non-chromium versions of Microsoft Edge.
+374
+00:25:21.360 --> 00:25:23.691
+isn't supported by Internet Explorer 
 
+375
+00:25:23.691 --> 00:25:26.400
+or non-chromium versions of Microsoft Edge.
+
+376
 00:25:27.680 --> 00:25:30.720
 According to the analytics 
 I looked at for our sites,
 
+377
 00:25:30.720 --> 00:25:33.440
 this represented a small 
 percentage of our visitors.
 
-00:25:34.560 --> 00:25:40.000
+378
+00:25:34.560 --> 00:25:37.250
 Further, this pseudo class will only be used 
+
+379
+00:25:37.250 --> 00:25:40.000
 in the event that JavaScript fails altogether.
 
-00:25:41.040 --> 00:25:48.160
-I think that the browser restrictions are a 
-fair trade-off to get a very similar effect. Now
+380
+00:25:41.040 --> 00:25:43.981
+I think that the browser restrictions 
 
-00:25:48.160 --> 00:25:56.160
-if the JavaScript does not run correctly the no-js 
-class and its styles will be applied to the menu.
+381
+00:25:43.981 --> 00:25:47.928
+are a fair trade-off to get a very similar effect. 
 
-00:25:56.160 --> 00:26:02.480
-This includes the focus-within pseudo class. The 
-Mozilla developer network says that focus-within,
+382
+00:25:47.928 --> 00:25:51.456
+Now if the JavaScript does not run correctly 
 
-00:26:03.840 --> 00:26:10.240
+383
+00:25:51.456 --> 00:25:56.160
+the no-js class and its styles will be applied to the menu.
+
+384
+00:25:56.160 --> 00:25:59.033
+This includes the focus-within pseudo class. 
+
+385
+00:25:59.033 --> 00:26:02.480
+The Mozilla developer network says that focus-within,
+
+386
+00:26:03.840 --> 00:26:07.040
 "represents an element that has received focus 
+
+387
+00:26:07.040 --> 00:26:10.240
 or contains an element that has received focus.
 
-00:26:11.120 --> 00:26:14.320
-In other words, it represents an element that is
+388
+00:26:11.120 --> 00:26:14.210
+In other words, it represents an element that is 
 
-00:26:14.320 --> 00:26:19.760
+389
+00:26:14.210 --> 00:26:17.048
 itself matched by the focus pseudo class or 
+
+
+390
+00:26:17.048 --> 00:26:19.760
 has a descendant that is matched by focus."
 
-00:26:21.840 --> 00:26:28.560
-In plain terms, this means that even if a parent 
-element can't be focused, if a child element can,
+391
+00:26:21.840 --> 00:26:26.983
+In plain terms, 
+this means that even if a parent element can't be focused, 
 
-00:26:28.560 --> 00:26:34.080
-the entire structure can be styled 
-as if the parent can be focused,
+392
+00:26:26.983 --> 00:26:30.454
+if a child element can, the entire structure 
 
+393
+00:26:30.454 --> 00:26:34.080
+can be styled as if the parent can be focused.
+
+394
 00:26:35.040 --> 00:26:40.240
-That's why it can be applied to the unordered 
-list element, instead of an anchor tag.
+That's why it can be applied to the unordered list element, 
+instead of an anchor tag.
 
-00:26:41.200 --> 00:26:47.760
-Typically unordered list elements can't receive 
-focus, but because the list can contain an
+395
+00:26:41.200 --> 00:26:45.209
+Typically unordered list elements can't receive focus, 
 
-00:26:47.760 --> 00:26:53.440
-element like a link that can receive focus, the 
-list will respond to the focus-within class.
+396
+00:26:45.209 --> 00:26:50.313
+but because the list can contain an element 
+like a link that can receive focus, 
 
-00:26:55.200 --> 00:27:01.360
-Here's a small demonstration. The markup 
-for each of these menus is exactly the same.
+397
+00:26:50.313 --> 00:26:53.440
+the list will respond to the focus-within class.
 
-00:27:01.360 --> 00:27:07.520
-You can confirm as much by going to the CodePen 
-linked in the slide. The only difference
+398
+00:26:55.200 --> 00:26:57.374
+Here's a small demonstration. 
 
-00:27:08.160 --> 00:27:15.360
-is the use of the focus-within selector. You 
-can see that on the left, the sub menu elements
+399
+00:26:57.374 --> 00:27:01.360
+The markup for each of these menus is exactly the same.
 
-00:27:15.920 --> 00:27:21.920
-for the About Us menu item aren't 
-reachable by keyboard. However,
+400
+00:27:01.360 --> 00:27:06.190
+You can confirm as much by going to the CodePen, 
+linked in the slide. 
 
-00:27:21.920 --> 00:27:26.320
-on the right you can tab through them 
+401
+00:27:06.190 --> 00:27:11.140
+The only difference is the use of 
+the focus-within selector. 
+
+402
+00:27:11.140 --> 00:27:15.360
+You can see that on the left, 
+the sub-menu elements
+
+403
+00:27:15.920 --> 00:27:21.193
+for the About Us menu item aren't reachable by keyboard. 
+
+404
+00:27:21.193 --> 00:27:24.231
+However, on the right you can tab through them 
+
+405
+00:27:24.231 --> 00:27:26.320
 as you would the top level links.
 
-00:27:28.560 --> 00:27:33.840
-Here is an example in context. The 
-Admissions and About elements are
+406
+00:27:28.560 --> 00:27:30.932
+Here is an example in context. 
 
-00:27:33.840 --> 00:27:39.680
-links with buttons to toggle sub-menus next to 
-them as siblings, symbolized by the carrots.
+407
+00:27:30.932 --> 00:27:33.916
+The Admissions and About elements are links 
 
-00:27:40.800 --> 00:27:46.960
-Without JavaScript enabled, you can see 
-how a visitor might traverse the menu items
+408
+00:27:33.916 --> 00:27:39.680
+with buttons to toggle sub-menus next to them as siblings, 
+symbolized by the carrots.
 
+409
+00:27:40.800 --> 00:27:42.878
+Without JavaScript enabled, 
+
+410
+00:27:42.878 --> 00:27:46.960
+you can see how a visitor 
+might traverse the menu items
+
+411
 00:27:46.960 --> 00:27:51.600
 just with a keyboard and of course, 
 they can still use a mouse as well.
 
-00:27:53.200 --> 00:27:58.320
-There are still some improvements we can make 
-to this though. For instance, maybe a visitor
+412
+00:27:53.200 --> 00:27:56.688
+There are still some improvements we can make to this though. 
 
-00:27:58.320 --> 00:28:03.840
-doesn't want to tab through every single item of 
-every single sub-menu to find the one they want.
+413
+00:27:56.688 --> 00:28:00.968
+For instance, maybe a visitor doesn't want to 
+tab through every single item 
 
-00:28:05.040 --> 00:28:10.000
+414
+00:28:00.968 --> 00:28:03.840
+of every single sub-menu to find the one they want.
+
+415
+00:28:05.040 --> 00:28:08.803
 In this menu, maybe they want to tab to the 
-student life sub-menu without going through
+student life sub-menu 
 
-00:28:10.000 --> 00:28:18.720
-all the others. Now for that we need to start 
-talking about JavaScript. We can definitely get
+416
+00:28:08.803 --> 00:28:11.966
+without going through all the others.
 
-00:28:18.720 --> 00:28:25.200
-some accessibility improvements to this type 
-of menu if we add JavaScript. In this project
+417
+00:28:11.966 --> 00:28:16.925
+Now for that we need to start talking about JavaScript. 
 
-00:28:25.200 --> 00:28:31.360
-when a button is clicked the aria-expanded 
-state changes from true to false or vice versa.
+418
+00:28:16.925 --> 00:28:20.879
+We can definitely get some accessibility improvements 
 
-00:28:32.240 --> 00:28:37.840
-The CSS is then set up so that the button's 
-icon will be changed depending on the state.
+419
+00:28:20.879 --> 00:28:24.082
+to this type of menu if we add JavaScript. 
 
-00:28:38.960 --> 00:28:44.800
+420
+00:28:24.082 --> 00:28:26.912
+In this project when a button is clicked, 
+
+421
+00:28:26.912 --> 00:28:31.360
+the aria-expanded state changes from 
+true to false or vice versa.
+
+422
+00:28:32.240 --> 00:28:35.358
+The CSS is then set up so that the button's icon 
+
+423
+00:28:35.358 --> 00:28:37.840
+will be changed depending on the state.
+
+424
+00:28:38.960 --> 00:28:42.115
 This provides both visual and auditory context 
-for sites visitors as they use the menu.
 
-00:28:45.920 --> 00:28:52.960
-However, one group that we haven't really 
-talked about is developers themselves. We
+425
+00:28:42.115 --> 00:28:44.800
+for a site's visitors as they use the menu.
 
-00:28:52.960 --> 00:28:58.320
-might create a plug-in or library that 
-has technically excellent accessibility,
+426
+00:28:45.920 --> 00:28:52.790
+However, one group that we haven't really talked about 
+is developers themselves. 
 
-00:28:58.320 --> 00:29:02.560
+427
+00:28:52.790 --> 00:28:55.285
+We might create a plug-in or library 
+
+428
+00:28:55.285 --> 00:28:58.320
+that has technically excellent accessibility,
+
+429
+00:28:58.320 --> 00:29:01.500
 but if it's hard for a developer who's 
-beginning their career to use the JavaScript
+beginning their career 
 
-00:29:02.560 --> 00:29:07.360
-or CSS that's included, they may choose 
-to avoid using the project altogether.
+430
+00:29:01.500 --> 00:29:04.169
+to use the JavaScript or CSS that's included, 
 
-00:29:09.200 --> 00:29:15.280
-The JavaScript or CSS for that matter, for 
-this project, doesn't require any additional
+431
+00:29:04.169 --> 00:29:07.360
+they may choose to avoid using 
+the project altogether.
 
-00:29:15.280 --> 00:29:22.560
-dependencies or libraries. Not only that, but 
-in the context of WordPress the relevant script
+432
+00:29:09.200 --> 00:29:13.183
+The JavaScript or CSS for that matter, 
+for this project, 
 
-00:29:22.560 --> 00:29:30.480
-or styles can be enqueued directly from Composer's 
-vendor directory. This means that developers don't
+433
+00:29:13.183 --> 00:29:17.534
+doesn't require any additional dependencies or libraries. 
 
-00:29:30.480 --> 00:29:36.960
-need any additional front-end tooling or bundling 
-libraries to get started. All that's required,
+434
+00:29:17.534 --> 00:29:22.560
+Not only that, 
+but in the context of WordPress the relevant script
 
-00:29:36.960 --> 00:29:41.360
-is that they follow a typical WordPress 
-workflow to enqueue dependencies.
+435
+00:29:22.560 --> 00:29:27.971
+or styles can be enqueued directly from 
+Composer's vendor directory. 
 
+436
+00:29:27.971 --> 00:29:32.779
+This means that developers 
+don't need any additional front-end tooling
+
+437
+00:29:32.779 --> 00:29:35.518
+or bundling libraries to get started. 
+
+438
+00:29:35.518 --> 00:29:41.360
+All that's required, 
+is that they follow a typical WordPress workflow to enqueue dependencies.
+
+439
 00:29:44.400 --> 00:29:49.760
 Once the script is properly enqueued 
 it also has a very small external API.
 
+440
 00:29:50.880 --> 00:29:56.160
-There's a configuration object which only has 
-two properties, both of which are optional.
+There's a configuration object which only has two properties, 
+both of which are optional.
 
-00:29:57.120 --> 00:30:03.600
-In order to use the navigation JavaScript, there's 
-only one method you need to know. This means
+441
+00:29:57.120 --> 00:30:02.918
+In order to use the navigation JavaScript, 
+there's only one method you need to know. 
 
-00:30:03.600 --> 00:30:09.600
-developers with a wide range of experience can 
-use this in their projects. This approach may be
+442
+00:30:02.918 --> 00:30:08.351
+This means developers with a wide range of experience can 
+use this in their projects. 
 
-00:30:09.600 --> 00:30:15.680
-less flexible than something with a larger API. 
-However, I believe in this context it's a good
+443
+00:30:08.351 --> 00:30:12.723
+This approach may be less flexible 
+than something with a larger API. 
 
-00:30:15.680 --> 00:30:20.880
-trade-off, because developers with a wide range 
-of experience will be able to use it more quickly.
+444
+00:30:12.723 --> 00:30:15.986
+However, I believe in this context it's a good trade-off, 
 
+445
+00:30:15.986 --> 00:30:20.880
+because developers with a wide range of experience 
+will be able to use it more quickly.
+
+446
 00:30:21.600 --> 00:30:27.760
-In fact, as a university, sometimes we have 
-student developers who work on our projects.
+In fact, as a university, 
+sometimes we have student developers who work on our projects.
 
-00:30:29.840 --> 00:30:34.880
-The init method in the JavaScript starts by 
-defining which menu the JavaScript should
+447
+00:30:29.840 --> 00:30:33.635
+The init method in the JavaScript 
+starts by defining which menu 
 
-00:30:34.880 --> 00:30:43.920
-apply to. It then removes the Node.js CSS class 
-from that menu. Finally, it runs a method to
+448
+00:30:33.635 --> 00:30:41.416
+the JavaScript should apply to. 
+It then removes the no-js CSS class from that menu. 
 
-00:30:43.920 --> 00:30:48.880
-setEventListeners on the menu and the 
-document. The setEventListeners method
+449
+00:30:41.416 --> 00:30:46.890
+Finally, it runs a method to setEventListeners 
+on the menu and the document. 
 
-00:30:48.880 --> 00:30:54.880
-attaches listeners to menu items and prepares 
-them to pass events to an eventDispatcher.
+450
+00:30:46.890 --> 00:30:51.124
+The setEventListeners method 
+attaches listeners to menu items 
 
+451
+00:30:51.124 --> 00:30:54.880
+and prepares them to pass events 
+to an eventDispatcher.
+
+452
 00:30:55.840 --> 00:31:01.360
 The dispatcher determines the type of event 
 and routes it to a particular eventHandler.
 
+453
 00:31:02.720 --> 00:31:06.960
-Once the event is properly dispatched 
-to the handler, it's responsible
+Once the event is properly dispatched to the handler, 
+it's responsible
 
+454
 00:31:06.960 --> 00:31:10.080
 for the logic to set the state 
 of menu items and properties.
 
+455
 00:31:11.120 --> 00:31:16.160
 Depending on the state of the menu, 
 eventListeners are also added to the document,
 
+456
 00:31:16.160 --> 00:31:21.920
-so people can close open sub-menus, with the 
-escape key or by clicking outside the menu area.
+so people can close open sub-menus, 
+with the escape key or by clicking outside the menu area.
 
-00:31:24.240 --> 00:31:29.760
-Here are two of the event handlers that are part 
-of the JavaScript. They're divided so that they
+457
+00:31:24.240 --> 00:31:28.150
+Here are two of the event handlers 
+that are part of the JavaScript. 
 
-00:31:29.760 --> 00:31:36.160
-can manage mouse or focus events separately. And
-while I was working on the project, I found it was
+458
+00:31:28.150 --> 00:31:32.781
+They're divided so that they can 
+manage mouse or focus events separately. 
 
-00:31:36.160 --> 00:31:41.760
-best to keep mouse, keyboard, and focus events 
-separate from each other. That way I could
+459
+00:31:32.781 --> 00:31:35.284
+And while I was working on the project, 
 
-00:31:41.760 --> 00:31:47.440
-handle exceptions for each type of event while 
+460
+00:31:35.284 --> 00:31:40.773
+I found it was best to keep mouse, 
+keyboard, and focus events separate from each other. 
+
+461
+00:31:40.773 --> 00:31:44.583
+That way I could handle exceptions 
+for each type of event while 
+
+462
+00:31:44.583 --> 00:31:47.440
 encapsulating other parts of the code for reuse.
 
-00:31:49.360 --> 00:31:55.120
-One thing to note here, is that these menu 
-follow the disclosure design pattern for
+463
+00:31:49.360 --> 00:31:52.344
+One thing to note here, 
+is that these menu 
 
-00:31:55.120 --> 00:32:01.280
-navigation menus. As I understand it, in terms 
-of keyboard support, this means that they're
+464
+00:31:52.344 --> 00:31:56.270
+follow the disclosure design pattern for navigation menus. 
 
-00:32:01.280 --> 00:32:08.480
-required to do three things. Move among items 
-with the Tab key, be able to select and activate
+465
+00:31:56.270 --> 00:31:59.723
+As I understand it, 
+in terms of keyboard support, 
 
-00:32:08.480 --> 00:32:13.840
-items once they're focused with the Space or 
-Enter key and close items with the Escape key.
+466
+00:31:59.723 --> 00:32:03.623
+this means that they're required to do three things:
 
-00:32:15.120 --> 00:32:22.080
-This is very different than an element with the 
-Menu ARIA role. The Menu ARIA Role requires more
+467
+00:32:03.623 --> 00:32:06.238
+Move among items with the Tab key, 
 
-00:32:22.080 --> 00:32:29.200
-types of keyboard interaction, such as the ability 
-to use arrow keys. However, in the example linked
+468
+00:32:06.238 --> 00:32:11.615
+be able to select and activate items 
+once they're focused with the Space or Enter key, 
 
-00:32:29.200 --> 00:32:34.000
-in the slide, well it doesn't appear to be linked 
-in the slide, sorry about that. We'll get that
+469
+00:32:11.615 --> 00:32:13.840
+and close items with the Escape key.
 
-00:32:34.000 --> 00:32:42.160
-later. Uh the markup is trying to create something 
-more like an application menu for a text editor.
+470
+00:32:15.120 --> 00:32:19.760
+This is very different than 
+an element with the Menu ARIA role. 
 
-00:32:42.160 --> 00:32:46.880
-If it turns out that I'm completely wrong about 
-this, and that I need to add more keyboard support
+471
+00:32:19.760 --> 00:32:24.303
+The Menu ARIA Role requires 
+more types of keyboard interaction, 
 
-00:32:46.880 --> 00:32:52.640
-to the menus, that's okay. The JavaScript is 
-flexible enough to allow more types of keyboard
+472
+00:32:24.303 --> 00:32:27.071
+such as the ability to use arrow keys. 
 
-00:32:52.640 --> 00:32:58.880
-events. The event routing would require only 
-a few additional cases. From there I could add
+473
+00:32:27.071 --> 00:32:29.453
+However, in the example linked in the slide 
 
-00:32:58.880 --> 00:33:04.720
-appropriate event handlers without too much 
-difficulty, I hope. In any event, I think
+474
+00:32:29.453 --> 00:32:34.994
+(Well it doesn't appear to be linked in the slide, sorry about that. 
+We'll get that later.),
 
-00:33:04.720 --> 00:33:10.320
-it's always worth going back to review projects 
-from the past and see how they can be updated.
+475
+00:32:34.994 --> 00:32:38.698
+the markup is trying to create something more 
 
-00:33:10.320 --> 00:33:15.920
-Earlier this morning I read an article 
-about WCAG 2.2 and for all I know I'll need
+476
+00:32:38.698 --> 00:32:42.160
+like an application menu for a text editor.
 
-00:33:15.920 --> 00:33:20.400
-to bring this project up to date to conform 
-at some point to that, or a future version.
+477
+00:32:42.160 --> 00:32:44.761
+If it turns out that I'm completely wrong about this, 
 
-00:33:22.560 --> 00:33:28.400
+478
+00:32:44.761 --> 00:32:49.105
+and that I need to add more keyboard support to the menus, that's okay. 
+
+479
+00:32:49.105 --> 00:32:53.630
+The JavaScript is flexible enough to 
+allow more types of keyboard events. 
+
+480
+00:32:53.630 --> 00:32:57.505
+The event routing would require only a few additional cases. 
+
+481
+00:32:57.505 --> 00:33:03.330
+From there I could add appropriate event handlers 
+without too much difficulty, I hope. 
+
+482
+00:33:03.330 --> 00:33:06.974
+In any event, I think it's always worth going back to review 
+
+483
+00:33:06.974 --> 00:33:10.320
+projects from the past and see how they can be updated.
+
+484
+00:33:10.320 --> 00:33:14.031
+Earlier this morning I read an article about WCAG 2.2 
+
+485
+00:33:14.031 --> 00:33:17.380
+and for all I know I'll need to 
+bring this project up-to-date
+
+486
+00:33:17.380 --> 00:33:20.400
+to conform at some point to that, 
+or a future version.
+
+487
+00:33:22.560 --> 00:33:28.332
 In any event, here you can see the effect 
-the JavaScript has on keyboard navigation. A
+the JavaScript has on keyboard navigation. 
 
-00:33:28.400 --> 00:33:33.840
-visitor can now select among different sub-menus, 
+488
+00:33:28.332 --> 00:33:31.255
+A visitor can now select among different sub-menus, 
+
+489
+00:33:31.255 --> 00:33:33.840
 however they like, with a mouse or a keyboard.
 
-00:33:34.720 --> 00:33:40.560
-Once the sub-menu is open, the next key press on 
-the tab key will take visitors to the sub-menu.
+490
+00:33:34.720 --> 00:33:38.370
+Once the sub-menu is open, 
+the next key press on the tab key
 
-00:33:41.280 --> 00:33:47.440
-You can also see the relevant icon stays changed 
-as well, until someone leaves and closes the menu.
+491
+00:33:38.370 --> 00:33:40.560
+will take visitors to the sub-menu.
 
+492
+00:33:41.280 --> 00:33:44.889
+You can also see the relevant icon 
+stays changed as well, 
+
+493
+00:33:44.889 --> 00:33:47.440
+until someone leaves and closes the menu.
+
+494
 00:33:48.880 --> 00:33:53.120
-This is done by tying the CSS to the 
-aria-expanded attribute of the toggle.
+This is done by tying the CSS to the aria-expanded attribute of the toggle.
 
-00:33:55.200 --> 00:34:01.360
-Here are just a few resources collected into one 
-place. I listed a few of the themes this project
+495
+00:33:55.200 --> 00:33:58.756
+Here are just a few resources collected into one place. 
 
-00:34:01.360 --> 00:34:07.760
-is part of, just to demonstrate how it can be 
-styled in different contexts. This variety is
+496
+00:33:58.756 --> 00:34:02.344
+I listed a few of the themes this project is part of, 
 
-00:34:07.760 --> 00:34:12.800
-why I wanted to make sure that the project was 
-portable and which is why we chose to bundle it
+497
+00:34:02.344 --> 00:34:06.745
+just to demonstrate how it can be styled in different contexts. 
 
-00:34:12.800 --> 00:34:18.560
-as a Composer package. I thought it would also 
-be helpful to give a few code resources and
+498
+00:34:06.745 --> 00:34:10.727
+This variety is why I wanted to 
+make sure that the project was portable 
 
-00:34:18.560 --> 00:34:25.040
-documentation as well. You can browse the repo we 
-use and if you like contribute to help improve it.
+499
+00:34:10.727 --> 00:34:14.463
+and which is why we chose to bundle it as a Composer package. 
 
-00:34:27.360 --> 00:34:30.800
-So to wrap things up, there's 
-still quite a lot to do,
+500
+00:34:14.463 --> 00:34:17.459
+I thought it would also be helpful to give a few 
 
-00:34:30.800 --> 00:34:36.560
-even after so much time. Web Accessibility 
-standards continue to be updated and refined.
+501
+00:34:17.459 --> 00:34:20.112
+code resources and documentation as well. 
 
+502
+00:34:20.112 --> 00:34:25.040
+You can browse the repo we use and if you like, 
+contribute to help improve it.
+
+503
+00:34:27.360 --> 00:34:32.471
+To wrap things up, there's still quite a lot to do, 
+even after so much time. 
+
+504
+00:34:32.471 --> 00:34:36.560
+Web Accessibility standards 
+continue to be updated and refined.
+
+505
 00:34:37.120 --> 00:34:40.800
-Plus, as I've shown, there's at least one 
-thing that I've missed and need to revise.
+Plus, as I've shown, 
+there's at least one thing that I've missed and need to revise.
 
+506
 00:34:41.760 --> 00:34:45.760
-So personally, I want to make sure 
-that I stay informed and engaged
+Personally, I want to make sure that 
+I stay informed and engaged
 
+507
 00:34:45.760 --> 00:34:50.080
-with issues around accessibility, so I can 
-be of service to the people who visit us.
+with issues around accessibility, 
+so I can be of service to the people who visit us.
 
-00:34:51.280 --> 00:34:57.600
-So to finish up, I'd like to thank all of you for 
-being here with me. And I'd also like to thank
+508
+00:34:51.280 --> 00:34:55.888
+To finish up, I'd like to thank all of you for being here with me. 
 
-00:34:57.600 --> 00:35:02.320
-everyone involved with today's conference for 
-giving me some time to share this with you all.
+509
+00:34:55.888 --> 00:34:59.556
+I'd also like to thank everyone involved with today's conference, 
 
+510
+00:34:59.556 --> 00:35:02.320
+for giving me some time to share this with you all.
+
+511
 00:35:03.200 --> 00:35:06.880
-If you have questions, I am 
-more than happy to answer them.
+If you have questions, I am more than happy to answer them.
 
+512
 00:35:08.080 --> 00:35:10.240
 Let's see if I can stop the screen sharing.
 
+513
 00:35:14.160 --> 00:35:17.760
 I can turn my camera on, 
-right? Is that okay? Yeah okay.
+right? Is that okay?
 
+514
 00:35:17.760 --> 00:35:18.458
-[Mike] Yes, definitely. Hey.
+<v Mike> Yes, definitely.
 
-00:35:18.458 --> 00:35:22.720
-[Adam] There we go, I did that. 
-Hey it's good to see you in person.
+515
+00:35:18.458 --> 00:35:20.496
+<v Adam> There we go, I did that. 
 
-00:35:22.720 --> 00:35:30.480
-[Mike] Nice to see you in person uh in the, in 
-the Inter webs as it were. So yeah um,great talk
+516
+00:35:20.496 --> 00:35:22.720
+It's good to see you in person.
 
-00:35:30.480 --> 00:35:38.640
-uh very informative. What is the project license? 
+517
+00:35:22.720 --> 00:35:29.326
+<v Mike> Nice to see you in person, in the interwebs as it were. 
+
+518
+00:35:29.326 --> 00:35:31.937
+Great talk, very informative. 
+
+519
+00:35:31.937 --> 00:35:38.640
 What's the open source license, is it MIT, GPL?
 
-00:35:38.640 --> 00:35:44.640
-[Adam] You know, I don't remember off the 
-top of my head. It is probably a very broad,
+520
+00:35:38.640 --> 00:35:42.687
+<v Adam> You know, I don't remember off the top of my head. 
 
-00:35:45.840 --> 00:35:48.880
-broad license. I mean this, this was basically um
+521
+00:35:42.687 --> 00:35:45.914
+It is probably a very broad license. 
 
-00:35:50.800 --> 00:35:57.840
-this was basically we looked at the websites 
-that we had and realized that these,
+522
+00:35:45.914 --> 00:35:54.262
+I mean, basically we looked at the websites that we had 
 
-00:35:58.880 --> 00:36:05.040
-beyond just ordering things with proper uh you 
-know H1 H2 H3 right, there were some broader
+523
+00:35:54.262 --> 00:36:02.510
+and realized that these, beyond just 
+ordering things with proper H1, H2, H3, 
 
-00:36:05.040 --> 00:36:10.560
-issues involved that at a technical level we were 
-going to have to deal with. And this was the first
+524
+00:36:02.510 --> 00:36:06.795
+there were some broader issues involved that, 
+at a technical level, 
 
-00:36:10.560 --> 00:36:15.920
-one I wanted to tackle, because it seemed like 
-it was going to be one of the most difficult um.
+525
+00:36:06.795 --> 00:36:09.132
+we were going to have to deal with. 
 
+526
+00:36:09.132 --> 00:36:11.813
+This was the first one I wanted to tackle, 
+
+527
+00:36:11.813 --> 00:36:15.920
+because it seemed like it was going to be 
+one of the most difficult.
+
+528
 00:36:16.720 --> 00:36:22.040
-So I think the license is, if I 
-even wrote one is very broad. Yeah.
+So I think the license, if I 
+even wrote one, is very broad.
 
-00:36:22.040 --> 00:36:27.040
-[Mike] Fair enough. I always just find that 
-interesting, uh how people license things
+529
+00:36:22.040 --> 00:36:25.516
+<v Mike> Fair enough. 
+I always just find that interesting, 
 
-00:36:27.040 --> 00:36:31.440
-um, but anyway I'm a geek so uh. 
-We have some questions and if you
+530
+00:36:25.516 --> 00:36:29.268
+how people license things, 
+but anyway I'm a geek. 
 
-00:36:31.440 --> 00:36:36.800
-still have questions um please put them into 
-the chat and Kayla our chat moderator will
 
-00:36:36.800 --> 00:36:40.320
-send them over to me and then I'll say them 
-out loud and then Adam will answer them.
+531
+00:36:29.268 --> 00:36:34.711
+We have some questions and if you still have questions, 
+please put them into the chat 
 
-00:36:40.320 --> 00:36:48.400
-So our first one is, is a mega menu accessible 
-accessibility suited or can it be made usable?
+532
+00:36:34.711 --> 00:36:37.303
+and Kayla our chat moderator 
+will send them over to me 
 
-00:36:48.400 --> 00:36:53.760
-If so can you describe or provide a sample? So 
-I think is a mega menu accessible or can it be
+533
+00:36:37.303 --> 00:36:40.320
+and then I'll say them out loud 
+and then Adam will answer them.
 
-00:36:53.760 --> 00:37:01.520
-made accessible? [Adam] I mean, I guess that would 
-entirely depend upon whether or not it conforms to
+534
+00:36:40.320 --> 00:36:45.937
+Our first one is, 
+"Is a mega menu accessibility suited 
 
-00:37:02.320 --> 00:37:08.640
-WCAG standards, right. So can you navigate 
-the menu using a mouse and or a keyboard,
+535
+00:36:45.937 --> 00:36:48.400
+or can it be made usable?
 
-00:37:09.440 --> 00:37:17.360
-uh does it respond appropriately to a screen 
-reader, when you do so? Um so for instance my,
+536
+00:36:48.400 --> 00:36:50.909
+If so can you describe or provide a sample?" 
 
-00:37:17.360 --> 00:37:21.840
-just so you all know, my reference point for 
-screen readers is the Mac OS screen reader.
+537
+00:36:50.909 --> 00:36:55.078
+Is a mega menu accessible or 
+can it be made accessible? 
 
+538
+00:36:55.078 --> 00:36:59.287
+<v Adam> I guess that would 
+entirely depend upon 
+
+539
+00:36:59.287 --> 00:37:03.320
+whether or not it conforms to WCAG standards. 
+
+540
+00:37:03.320 --> 00:37:08.640
+Can you navigate the menu using 
+a mouse and/or a keyboard?
+
+541
+00:37:09.440 --> 00:37:15.380
+Does it respond appropriately to a screen reader, 
+when you do so? 
+
+542
+00:37:15.380 --> 00:37:21.840
+For instance my reference point for screen readers 
+is the Mac OS screen reader.
+
+543
 00:37:22.720 --> 00:37:25.840
-I honestly, I don't have 
+Honestly, I don't have 
 JAWS or anything like that
 
-00:37:27.120 --> 00:37:31.760
-and we don't really have to have 
-have that kind of material where I
+544
+00:37:27.120 --> 00:37:31.791
+and we don't really have to have 
+that kind of material where I work. 
 
-00:37:31.760 --> 00:37:36.800
-work. But I try to use the Mac OS screen 
-reader as best I can. I would say that
+545
+00:37:31.791 --> 00:37:35.717
+But I try to use the 
+Mac OS screen reader as best I can. 
 
-00:37:39.440 --> 00:37:46.800
-yeah, you should just be very careful in the case 
-of a mega menu, because you may inadvertently hide
+546
+00:37:35.717 --> 00:37:40.738
+I would say that you should just be very careful 
 
-00:37:48.160 --> 00:37:55.600
-content that you would rather have people get 
-to. Um yeah, so I think that what you should do
+547
+00:37:40.738 --> 00:37:43.607
+in the case of a mega menu, 
 
-00:37:55.600 --> 00:38:00.720
-in the case of a mega menu, is try to navigate 
-the site with the screen reader and see what
+548
+00:37:43.607 --> 00:37:47.542
+because you may inadvertently hide content
 
-00:38:00.720 --> 00:38:07.120
-happens if you, like can you actually get to any 
-of the items? Um can you get to the items if you
+549
+00:37:47.542 --> 00:37:51.571
+that you would rather have people get to. 
 
-00:38:07.120 --> 00:38:14.320
-only navigate by keyboard? Yeah and I think that 
-will be the determinant if it's accessible or not,
+550
+00:37:51.571 --> 00:37:55.998
+I think that what you should do 
+in the case of a mega menu, 
 
+551
+00:37:55.998 --> 00:38:01.411
+is try to navigate the site 
+with the screen reader and see what happens. 
+
+552
+00:38:01.411 --> 00:38:04.599
+Can you actually get to any of the items? 
+
+553
+00:38:04.599 --> 00:38:08.944
+Can you get to the items if you only navigate by keyboard? 
+
+554
+00:38:08.944 --> 00:38:14.320
+I think that will be the determinant 
+if it's accessible or not,
+
+555
 00:38:14.320 --> 00:38:18.320
-better than me just giving a broad, you 
-know, yes they are, no they're not, yeah.
+better than me just giving a broad, 
+yes they are, no they're not.
 
+556
 00:38:18.320 --> 00:38:24.320
-[Mike] Sure, our next question is um, 
-how have you found the experience to be
+<v Mike> Our next question is, 
+"How have you found the experience to be
 
+557
 00:38:24.320 --> 00:38:31.840
-for voice command users when using ARIA 
-label to provide the accessible name?
+for voice command users when using 
+ARIA label to provide the accessible name?"
 
-00:38:31.840 --> 00:38:35.840
-[Adam] Uh so is the question, I guess 
-I'm not quite sure I understand the
+558
+00:38:31.840 --> 00:38:35.680
+<v Adam> I guess I'm not quite sure 
+I understand the question. 
 
-00:38:35.840 --> 00:38:39.080
-question. Is the question, does 
-it read the name appropriately?
+559
+00:38:35.680 --> 00:38:39.080
+Is the question, 
+does it read the name appropriately?
 
+560
 00:38:39.080 --> 00:38:42.720
-[Mike] I think so um I mean I.
+<v Mike> I think so.
 
+561
 00:38:42.720 --> 00:38:47.760
-[Adam] I, yeah I believe that it 
-reads, last I checked it did um.
+<v Adam> I believe that it reads. 
+Last I checked it did.
 
-00:38:47.760 --> 00:38:54.880
-I mean, it's certainly, we don't have 
-anything that responds to voice commands
+562
+00:38:47.760 --> 00:38:51.468
+I mean we don't have anything that 
 
-00:38:55.520 --> 00:39:01.600
-uh in these menus. Um certainly I, I 
-don't have the background to handle
+563
+00:38:51.468 --> 00:38:56.023
+responds to voice commands in these menus. 
 
-00:39:01.600 --> 00:39:05.520
-that. Although if it's something that I need 
-to do, I can certainly start looking into it.
+564
+00:38:56.023 --> 00:38:59.262
+Certainly, I don't have the background to handle that. 
 
-00:39:06.160 --> 00:39:10.080
-But as best I know, uh and the last time I
-checked, yes they, they all read
+565
+00:38:59.262 --> 00:39:02.722
+Although if it's something that I need to do, 
 
-00:39:10.080 --> 00:39:15.760
-correctly. [Mike] Okay. And our last question, 
-and if anyone has a last minute question,
+566
+00:39:02.722 --> 00:39:05.520
+I can certainly start looking into it.
 
-00:39:15.760 --> 00:39:22.400
-please put it into the chat now and we'll 
-try to get to that um uh is, menus seemed um
+567
+00:39:06.160 --> 00:39:08.828
+But as best I know, and the last time I checked, 
 
-00:39:22.400 --> 00:39:28.960
-a web feature that hasn't gone away over time.
-With Skip NAV and one-page sites becoming more
+568
+00:39:08.828 --> 00:39:10.754
+yes, they all read correctly. 
 
-00:39:28.960 --> 00:39:34.560
-prevalent, do you see them being phased 
-out for simple more accessible experiences?
+569
+00:39:10.754 --> 00:39:15.760
+<v Mike> Our last question,
+(and if anyone has a last minute question
 
+570
+00:39:15.760 --> 00:39:21.170
+please put it into the chat now 
+and we'll try to get to that) is, 
+
+571
+00:39:21.170 --> 00:39:25.506
+"Menus seemed a web feature that hasn't gone away over time.
+
+572
+00:39:25.506 --> 00:39:29.515
+With Skip NAV and one-page sites becoming more prevalent, 
+
+573
+00:39:29.515 --> 00:39:34.560
+do you see them being phased out for simple, 
+more accessible experiences?"
+
+574
 00:39:34.560 --> 00:39:38.080
-[Adam] Oh that's actually really interesting um.
+<v Adam> Oh that's actually, 
+really interesting.
 
-00:39:41.680 --> 00:39:46.960
-So we definitely use Skip NAV. Um I'm not, 
-I have no information about how many people
+575
+00:39:41.680 --> 00:39:43.787
+We definitely use Skip NAV. 
 
-00:39:46.960 --> 00:39:51.280
-actually use that. Um as 
-far as single page sites go,
+576
+00:39:43.787 --> 00:39:45.903
+I have no information about 
 
-00:39:51.280 --> 00:39:54.720
-uh you know I think there's a 
-big difference between literally
+577
+00:39:45.903 --> 00:39:48.549
+how many people actually use that. 
 
-00:39:54.720 --> 00:39:59.200
-a single page which is like a brochure and a 
-single page application site, which is a more
+578
+00:39:48.549 --> 00:39:51.280
+As far as single page sites go,
 
-00:40:01.120 --> 00:40:08.320
-larger scale or something like that. Um in the 
-latter case or in the in the former case rather,
+579
+00:39:51.280 --> 00:39:54.125
+I think there's a big difference 
+between literally 
 
-00:40:08.320 --> 00:40:14.880
-a single literally single page, yeah I'm not quite 
-sure why you would necessarily need a navigation.
+580
+00:39:54.125 --> 00:39:56.324
+a single page which is like a brochure 
 
-00:40:14.880 --> 00:40:20.240
-Um you might just have like some links at 
-the top that would jump you up and down.
+581
+00:39:56.324 --> 00:39:58.354
+and a single page application site, 
 
-00:40:21.280 --> 00:40:28.560
-In the latter case, I'm not sure. I think 
-that some applications in site are so complex
+582
+00:39:58.354 --> 00:40:03.291
+which is a more, larger scale or something like that. 
 
-00:40:30.800 --> 00:40:36.160
-that you wouldn't necessarily need them. I 
-think the only thing that I would say is,
+583
+00:40:03.291 --> 00:40:09.800
+In the latter case, or in the in the former case rather, 
+literally single page, 
 
+584
+00:40:09.800 --> 00:40:14.880
+I'm not quite sure why you would 
+necessarily need a navigation.
+
+585
+00:40:14.880 --> 00:40:18.096
+You might just have some links at the top 
+
+586
+00:40:18.096 --> 00:40:20.240
+that would jump you up and down.
+
+587
+00:40:21.280 --> 00:40:24.093
+In the latter case, I'm not sure. 
+
+588
+00:40:24.093 --> 00:40:28.560
+I think that some applications in site are so complex
+
+589
+00:40:30.800 --> 00:40:33.385
+that you wouldn't necessarily need them. 
+
+590
+00:40:33.385 --> 00:40:36.160
+I think the only thing that I would say is,
+
+591
 00:40:36.160 --> 00:40:40.000
-lots of people now get to sites just 
-by Googling the information they want.
+lots of people now get to sites 
+just by Googling the information they want.
 
-00:40:40.800 --> 00:40:48.000
-Um and then my intuition is that if for 
-some reason the content doesn't make sense,
+592
+00:40:40.800 --> 00:40:45.008
+Then my intuition is that if for some reason
 
-00:40:48.000 --> 00:40:54.080
-or is structured in a bizarre way, then 
-they might need to use, uh more navigational
+593
+00:40:45.008 --> 00:40:48.000
+the content doesn't make sense,
 
-00:40:54.080 --> 00:40:58.800
-elements in order to find what they're 
-looking for, after the fact. [Mike] Sure,
+594
+00:40:48.000 --> 00:40:50.504
+or is structured in a bizarre way, 
 
-00:40:59.600 --> 00:41:05.840
-okay. Uh well um again I just want to thank 
-you so much Adam for sharing your expertise.
+595
+00:40:50.504 --> 00:40:54.097
+then they might need to use more navigational elements 
 
-00:41:06.560 --> 00:41:11.680
-Are you, you listed your contact information on 
-the slide and if you want to get those slides
+596
+00:40:54.097 --> 00:40:58.005
+in order to find what they're looking for, after the fact. 
 
-00:41:11.680 --> 00:41:19.360
-you can go to wpaccessabilityday.org to download 
-all of the slides and find out information about
+597
+00:40:58.005 --> 00:41:05.840
+<v Mike> Again, I just want to thank you 
+so much Adam for sharing your expertise.
 
-00:41:19.360 --> 00:41:24.960
-all of our speakers and our wonderful sponsors. 
-Please continue the conversation on Twitter. Our
+598
+00:41:06.560 --> 00:41:09.537
+You listed your contact information on the slide,
 
-00:41:24.960 --> 00:41:37.120
-hashtag is wpaccessibilityday and #wpad2020.
+599
+00:41:09.537 --> 00:41:12.176
+and if you want to get those slides 
+
+600
+00:41:12.176 --> 00:41:14.888
+you can go to wpaccessabilityday.org 
+
+601
+00:41:14.888 --> 00:41:17.124
+to download all of the slides 
+
+602
+00:41:17.124 --> 00:41:21.899
+and find out information about 
+all of our speakers and our wonderful sponsors.
+
+603
+00:41:21.899 --> 00:41:24.776
+Please continue the conversation on Twitter. 
+
+604
+00:41:24.776 --> 00:41:31.351
+Our hashtag is wpaccessibilityday and #wpad2020.
+
+
+605
+00:41:31.351 --> 00:41:37.120
 And our Twitter account is wpaccessibility.
 
-00:41:37.120 --> 00:41:43.520
-Plea, at the 2 o'clock UTC hour please join me 
-um and Christina Workman and she's going to talk
+606
+00:41:37.120 --> 00:41:41.828
+At the 2 o'clock UTC hour, 
+please join me and Christina Workman. 
 
-00:41:43.520 --> 00:41:50.080
-about Accessible Websites Benefit Everyone. Um and 
-again, just a big thank you to our chat moderator
+607
+00:41:41.828 --> 00:41:46.193
+She's going to talk about 
+Accessible Websites Benefit Everyone. 
 
-00:41:50.080 --> 00:41:55.520
-Kayla um. She is uh stepping away and we're 
-getting a new chat moderator at the next hour. But
+608
+00:41:46.193 --> 00:41:49.775
+Again, a big thank you to our chat moderator, Kayla. 
 
-00:41:55.520 --> 00:42:00.880
-again thanks Adam and thanks everyone for watching 
+609
+00:41:49.775 --> 00:41:55.310
+She is stepping away and 
+we're getting a new chat moderator at the next hour. 
+
+610
+00:41:55.310 --> 00:41:58.318
+But again thanks Adam and 
+thanks everyone for watching
+
+611
+00:41:58.318 --> 00:42:00.880
 and being part of WP Accessibility Day 2020.
 
+612
 00:42:00.880 --> 00:42:03.760
-[Adam] Thanks, thanks Mike. Thank you very much.
+<v Adam> Thanks, Mike. 
+Thank you very much.

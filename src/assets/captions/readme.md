@@ -31,7 +31,7 @@ No translations yet.
 
 ## 2022
 
-18 completed translations.
+19 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 	- Spanish; Andy Amado
@@ -55,6 +55,7 @@ No translations yet.
 	- Spanish; Andy Amado
 12. Lightning Talks: Round 3
 13. The Alt Scene: When and How to Write Alternative Text
+	- Spanish; Diana Córdoba Gómez
 14. Overlays Underwhelm
 	- Spanish; Jordan Gilavert
 15. Beyond Colors and Captions: How to Provide More Inclusive Accessibility

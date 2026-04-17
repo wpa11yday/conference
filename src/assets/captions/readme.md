@@ -160,7 +160,7 @@ No translations yet.
 
 ## 2024
 
-54 completed translations.
+55 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -230,6 +230,7 @@ No translations yet.
 	- German; Jennifer Wjertzoch
 	- Portuguese; Melissa Antunes
 21. Creating a Developer Culture of Accessibility
+	- Spanish; María Paz Maureira
 22. How to Juggle Different Teams at Different Places in Their Accessibility Journey
 	- Spanish; Diana Córdoba Gómez
 23. How to Design and Implement Accessible Cards

@@ -245,7 +245,7 @@ No translations yet.
 
 ## 2025
 
-27 completed translations.
+28 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -255,6 +255,7 @@ No translations yet.
   	- French; Lorena Aguiar Franjoux
 4. Typography, Readability and Digital Accessibility
   	- Spanish; Andy Amado
+  	- French; Andy Amado
 5. Reality Check: Building Accessibility that Works in the Global South
   	- Spanish; Debora Ermel
 6. Creating a Hyper-Accessible Website for Blind, Low Vision, and Sighted Users

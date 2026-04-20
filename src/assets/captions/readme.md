@@ -259,6 +259,7 @@ No translations yet.
   	- French; Andy Amado
 5. Reality Check: Building Accessibility that Works in the Global South
   	- Spanish; Debora Ermel
+  	- French; Andy Amado
 6. Creating a Hyper-Accessible Website for Blind, Low Vision, and Sighted Users
   	- Spanish; Jordan Gilavert
 7. Audio Accessibility in WordPress

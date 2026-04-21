@@ -160,7 +160,7 @@ No translations yet.
 
 ## 2024
 
-54 completed translations.
+55 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -227,6 +227,7 @@ No translations yet.
 	- Spanish; Luz Zuniga
 	- Portuguese; Melissa Antunes
 20. Beyond Automation: Why Manual Accessibility Testing is Important
+	- Spanish; Guada Barea
 	- German; Jennifer Wjertzoch
 	- Portuguese; Melissa Antunes
 21. Creating a Developer Culture of Accessibility
@@ -244,7 +245,7 @@ No translations yet.
 
 ## 2025
 
-26 completed translations.
+27 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -269,6 +270,7 @@ No translations yet.
   	- Spanish; Andy Amado
   	- French; Andy Amado
 11. Make All WordPress Events Accessible
+  	- Spanish; Debora Ermel
 12. Auditing WordPress Plugin Accessibility: A Practical Journey from Code to Compliance
   	- Spanish; Jordan Gilavert
 13. Demystifying Screen Readers: Your Guided Intro to Manual Accessibility Testing for WordPress Sites

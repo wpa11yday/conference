@@ -229,6 +229,7 @@ No translations yet.
 	- Spanish; Luz Zuniga
 	- Portuguese; Melissa Antunes
 20. Beyond Automation: Why Manual Accessibility Testing is Important
+	- Spanish; Guada Barea
 	- German; Jennifer Wjertzoch
 	- Portuguese; Melissa Antunes
 21. Creating a Developer Culture of Accessibility
@@ -274,6 +275,7 @@ No translations yet.
   	- Spanish; Andy Amado
   	- French; Andy Amado
 11. Make All WordPress Events Accessible
+  	- Spanish; Debora Ermel
 12. Auditing WordPress Plugin Accessibility: A Practical Journey from Code to Compliance
   	- Spanish; Jordan Gilavert
 13. Demystifying Screen Readers: Your Guided Intro to Manual Accessibility Testing for WordPress Sites

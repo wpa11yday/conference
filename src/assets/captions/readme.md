@@ -31,7 +31,7 @@ No translations yet.
 
 ## 2022
 
-18 completed translations.
+19 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 	- Spanish; Andy Amado
@@ -55,6 +55,7 @@ No translations yet.
 	- Spanish; Andy Amado
 12. Lightning Talks: Round 3
 13. The Alt Scene: When and How to Write Alternative Text
+	- Spanish; Diana Córdoba Gómez
 14. Overlays Underwhelm
 	- Spanish; Jordan Gilavert
 15. Beyond Colors and Captions: How to Provide More Inclusive Accessibility
@@ -160,14 +161,15 @@ No translations yet.
 
 ## 2024
 
-55 completed translations.
+57 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
 	- Spanish; Diana Córdoba Gómez
 3. How to Remediate Accessibility Issues in WordPress
 	- Spanish; Estefani Pahola Suarez
- 	- Italian; Fabiana Lassandro
+	- German; Sylvia Egger
+	- Italian; Fabiana Lassandro
  	- Norwegian; Lena Marie Gjerald
 	- Portuguese; Melissa Antunes
 4. Agile Accessibility: Building Inclusivity into the Product Roadmap
@@ -231,6 +233,7 @@ No translations yet.
 	- German; Jennifer Wjertzoch
 	- Portuguese; Melissa Antunes
 21. Creating a Developer Culture of Accessibility
+	- Spanish; María Paz Maureira
 22. How to Juggle Different Teams at Different Places in Their Accessibility Journey
 	- Spanish; Diana Córdoba Gómez
 23. How to Design and Implement Accessible Cards
@@ -245,7 +248,7 @@ No translations yet.
 
 ## 2025
 
-27 completed translations.
+30 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -255,8 +258,10 @@ No translations yet.
   	- French; Lorena Aguiar Franjoux
 4. Typography, Readability and Digital Accessibility
   	- Spanish; Andy Amado
+  	- French; Andy Amado
 5. Reality Check: Building Accessibility that Works in the Global South
   	- Spanish; Debora Ermel
+  	- French; Andy Amado
 6. Creating a Hyper-Accessible Website for Blind, Low Vision, and Sighted Users
   	- Spanish; Jordan Gilavert
 7. Audio Accessibility in WordPress
@@ -283,6 +288,7 @@ No translations yet.
   	- Spanish; Andy Amado
   	- French; Andy Amado
 17. Making Gutenberg Blocks Accessible: Practical Techniques with AI and DevTools
+  	- Spanish; Sidney del Rocio
 18. Real Inclusion: How to Run Insightful and Respectful User Testing with Disabled People
   	- Spanish; Andy Amado
   	- French; Andy Amado

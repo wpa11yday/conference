@@ -248,7 +248,7 @@ No translations yet.
 
 ## 2025
 
-30 completed translations.
+31 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -268,6 +268,7 @@ No translations yet.
   	- Spanish; Luz Zuniga
 8. Accessibility Lawsuits and WordPress: The Violations Every Business Needs to Know
   	- Spanish; Sidney del Rocio
+  	- French; Andy Amado
 9. Why Accessibility Matters: From a Blind-Visually Impaired Perspective
   	- Spanish; Andy Amado
   	- French; Andy Amado

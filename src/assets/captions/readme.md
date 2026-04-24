@@ -249,7 +249,7 @@ No translations yet.
 
 ## 2025
 
-31 completed translations.
+32 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -295,6 +295,7 @@ No translations yet.
   	- Spanish; Andy Amado
   	- French; Andy Amado
 19. Accessibility isn't Extra Work. It's Risk Management.
+  	- Spanish; Amalia Llarín
 20. The Art of Accessibility: Making Documents Delightfully Inclusive
   	- Spanish; Diana Córdoba Gómez
 21. Invisible Until it Hurts: Rethinking Brand Design Through the Lens of Accessibility

@@ -2266,8 +2266,8 @@ function wpad_outlook_cal( $session_id ) {
 	$title   = get_the_title( $session_id );
 	$time    = get_post_meta( $session_id, '_wpcs_session_time', true );
 	$time    = ( $time ) ? $time : strtotime( get_option( 'wpad_start_time' ) );
-	$start   = gmdate( 'Ymd\THi00\Z', $time );
-	$end     = gmdate( 'Ymd\THi00\Z', $time + 50 * 60 );
+	$start   = gmdate( 'Y-m-d\THi00\Z', $time );
+	$end     = gmdate( 'Y-m-d\THi00\Z', $time + 50 * 60 );
 	$excerpt = get_the_excerpt( $session_id );
 	$source  = 'https://outlook.live.com/calendar/0/action/compose';
 	$speaker = wpcs_session_speakers( $session_id );

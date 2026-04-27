@@ -161,7 +161,7 @@ No translations yet.
 
 ## 2024
 
-57 completed translations.
+58 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -188,6 +188,7 @@ No translations yet.
 	- Italian; Daniele Manca
 	- Norwegian; Lena Marie Gjerald
 7. Accessible Firebrand: “Why can’t I use my brand color there, and if not there, then where?”
+	- Spanish; Luz Zuniga
 8. Is Your Page Builder Actually Accessible?
 	- Spanish; Andy Amado
 	- German; Christian Herrmann
@@ -248,7 +249,7 @@ No translations yet.
 
 ## 2025
 
-30 completed translations.
+32 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -268,6 +269,7 @@ No translations yet.
   	- Spanish; Luz Zuniga
 8. Accessibility Lawsuits and WordPress: The Violations Every Business Needs to Know
   	- Spanish; Sidney del Rocio
+  	- French; Andy Amado
 9. Why Accessibility Matters: From a Blind-Visually Impaired Perspective
   	- Spanish; Andy Amado
   	- French; Andy Amado
@@ -293,6 +295,7 @@ No translations yet.
   	- Spanish; Andy Amado
   	- French; Andy Amado
 19. Accessibility isn't Extra Work. It's Risk Management.
+  	- Spanish; Amalia Llarín
 20. The Art of Accessibility: Making Documents Delightfully Inclusive
   	- Spanish; Diana Córdoba Gómez
 21. Invisible Until it Hurts: Rethinking Brand Design Through the Lens of Accessibility

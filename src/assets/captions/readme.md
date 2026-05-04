@@ -249,7 +249,7 @@ No translations yet.
 
 ## 2025
 
-34 completed translations.
+35 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -284,6 +284,7 @@ No translations yet.
   	- French; Andy Amado
 13. Demystifying Screen Readers: Your Guided Intro to Manual Accessibility Testing for WordPress Sites
   	- Spanish; Luz Zuniga
+  	- French; Andy Amado
 14. Technical Checklist: Testing WordPress Themes and Plugins for Accessibility
   	- Spanish; Diana Córdoba Gómez
 15. Auslan Accessibility in WordPress, Themes, and Plugins for the Whole Deaf Australian Community

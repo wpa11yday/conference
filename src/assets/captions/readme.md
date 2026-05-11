@@ -31,7 +31,7 @@ No translations yet.
 
 ## 2022
 
-19 completed translations.
+20 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 	- Spanish; Andy Amado
@@ -65,6 +65,7 @@ No translations yet.
 17. Accessibility of common Gutenberg blocks
 	- Spanish; Misael Rivero
 18. Inclusive Coding and Design
+	- Spanish; Jordan Gilavert
 19. Accessibility Testing in the CI/CD process
 	- Spanish; Luz Zuniga
 20. Designing a webpage for the Institute for the Blind and Visually impaired

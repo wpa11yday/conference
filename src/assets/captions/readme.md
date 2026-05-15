@@ -249,7 +249,7 @@ No translations yet.
 
 ## 2025
 
-36 completed translations.
+37 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025

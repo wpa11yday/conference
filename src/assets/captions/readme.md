@@ -31,7 +31,7 @@ No translations yet.
 
 ## 2022
 
-19 completed translations.
+20 completed translations.
 
 1. Keynote: Open Source and accessibility: Do it with us, not for us.
 	- Spanish; Andy Amado
@@ -65,6 +65,7 @@ No translations yet.
 17. Accessibility of common Gutenberg blocks
 	- Spanish; Misael Rivero
 18. Inclusive Coding and Design
+	- Spanish; Jordan Gilavert
 19. Accessibility Testing in the CI/CD process
 	- Spanish; Luz Zuniga
 20. Designing a webpage for the Institute for the Blind and Visually impaired
@@ -249,7 +250,7 @@ No translations yet.
 
 ## 2025
 
-35 completed translations.
+36 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -287,6 +288,7 @@ No translations yet.
   	- French; Andy Amado
 14. Technical Checklist: Testing WordPress Themes and Plugins for Accessibility
   	- Spanish; Diana Córdoba Gómez
+  	- French; Andy Amado
 15. Auslan Accessibility in WordPress, Themes, and Plugins for the Whole Deaf Australian Community
   	- Spanish; Sidney del Rocio
 16. The Future is Automated: But Will it be Accessible?

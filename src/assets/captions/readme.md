@@ -162,7 +162,7 @@ No translations yet.
 
 ## 2024
 
-58 completed translations.
+59 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
@@ -213,6 +213,7 @@ No translations yet.
 14. Accessible Design: WCAG or Trendy? No, WCAG AND Trendy!
 	- Spanish; Diana Córdoba Gómez
  	- German; Jennifer Wjertzoch
+ 	- Italian; Fabiana Lassandro
 	- Portuguese (Brazilian); Paloma Marques
 15. How to Read a VPAT and ACR
 	- Spanish; Andy Amado

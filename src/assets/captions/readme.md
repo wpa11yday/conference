@@ -2,11 +2,12 @@
 
 ## 2020
 
-No translations yet.
+1 completed translation.
 
 1. So how do I know if my WordPress website is accessible?
 1. Unmeasurable Accessibility: The Case for Inclusive Design
 1. Accessible Color Considerations
+	- Spanish; Luz Zuniga
 1. Creating Accessible Content with WordPress
 1. Much Ado About Captioning Videos for WordPress and Beyond
 1. Using Smart Speakers for Accessibility

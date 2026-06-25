@@ -86,7 +86,7 @@ function wpcsp_create_links( $post_ID ) {
  * @param string  $level Heading level.
  * @param string  $button Disclosure trigger text. Empty to disable disclosure.
  *
- * @return full HTML block.
+ * @return string full HTML block.
  */
 function wpcsp_social_block( $post_ID, $heading = '', $level = 'h2', $button = '' ) {
 	$links  = wpcsp_create_links( $post_ID );

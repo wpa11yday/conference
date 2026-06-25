@@ -464,7 +464,7 @@ function wpad_draw_topics( $talk_id ) {
 /**
  * Draw a single session in the schedule.
  *
- * @param int    $talk Array with ID and timestamp for session to format.
+ * @param array  $talk Array with ID and timestamp for session to format.
  * @param bool   $is_current Is the current session or next if event not started.
  * @param string $text Label for current status.
  * @param string $session_id Visible session ID.
@@ -590,6 +590,8 @@ function wpcs_event_start( $atts = array() ) {
 function wpcs_banner() {
 	$time   = time();
 	$output = '';
+	$start  = '';
+	$append = '';
 	// If more than 10 minutes before start time.
 	if ( $time < ( strtotime( get_option( 'wpad_start_time', '' ) ) - 600 ) ) {
 		// Actual start time.
@@ -614,11 +616,11 @@ function wpcs_banner() {
  * @return array Array containing output HTML and a list of names. [html=>'',list=>'']
  */
 function wpcs_session_speakers( $session_id, $talk_type = 'session' ) {
-	$html         = '';
-	$list         = array();
-	$speakers_cpt = get_post_meta( $session_id, 'wpcsp_session_speakers', true );
-	$speakers_cpt = ( is_array( $speakers_cpt ) ) ? array_reverse( $speakers_cpt ) : array( get_post_meta( $session_id, '_wpcs_session_speakers', true ) );
-
+	$html             = '';
+	$list             = array();
+	$speakers_cpt     = get_post_meta( $session_id, 'wpcsp_session_speakers', true );
+	$speakers_cpt     = ( is_array( $speakers_cpt ) ) ? array_reverse( $speakers_cpt ) : array( get_post_meta( $session_id, '_wpcs_session_speakers', true ) );
+	$speakers_heading = '';
 	if ( $speakers_cpt ) {
 		$speakers_heading = '';
 		if ( ! is_page( 'schedule' ) ) {

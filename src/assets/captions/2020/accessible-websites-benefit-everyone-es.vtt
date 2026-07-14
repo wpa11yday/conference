@@ -1,0 +1,1317 @@
+WEBVTT
+
+00:00:05.120 --> 00:00:11.360
+Hola y bienvenidos al día de la
+accesibilidad de WP 2020 de las dos
+
+00:00:11.360 --> 00:00:14.960
+de la tarde UTC.
+Yo seré su anfitrión, Mike Demo
+
+00:00:14.960 --> 00:00:19.199
+y estoy muy emocionado hoy por la próxima
+presentación, pero antes de eso,
+
+00:00:19.199 --> 00:00:22.880
+un poco sobre la organización.
+Antes que nada, recuerden que somos una comunidad acogedora
+
+00:00:22.880 --> 00:00:25.840
+y el código de conducta 
+se aplica en
+
+00:00:25.840 --> 00:00:29.599
+todas las áreas de la experiencia
+incluyendo el chat.
+
+00:00:29.599 --> 00:00:32.399
+Y ese chat es importante porque ahí es donde se colocan
+las preguntas y donde nuestros maravillosos
+
+00:00:32.399 --> 00:00:36.880
+moderadores les harán click
+para que yo las pregunte después de la presentación
+
+00:00:36.880 --> 00:00:42.399
+Por favor, asegúrense de seguirnos en Twitter
+a través de @WPAccessibility y de nuestros dos hashtags
+
+00:00:42.399 --> 00:00:50.079
+que son #wpaccessibilityday
+y #wpad2020
+
+00:00:50.079 --> 00:00:55.920
+A continuación, tenemos a Christina Workman.
+Christina Workman técnico de soporte
+
+00:00:55.920 --> 00:01:00.320
+en WebDevStudios y Maintainn.
+
+00:01:00.320 --> 00:01:05.199
+Como colaboradora de WordPress recientemente
+empezó el podcast "wp_contribute()"
+
+00:01:05.199 --> 00:01:08.799
+y ayuda a organizar el WordCamp en EE. UU.,
+WordCamp Calgary, 
+
+00:01:08.799 --> 00:01:13.520
+y el Encuentro de WordPress de Calgary. 
+Ella siente pasión por enseñar a los niños ciencia, tecnología, ingeniería y matemáticas;
+
+00:01:13.520 --> 00:01:18.720
+y por mejorar sus habilidades en accesibilidad.
+Fuera de wordpress Christina es una
+
+00:01:18.720 --> 00:01:23.680
+porfirófila,
+fanática del té y amante de los shows de detectives británicos.
+
+00:01:23.680 --> 00:01:28.880
+Así que con esto, es un placer para mí
+darle la bienvenida a mi amiga Christina.
+
+00:01:28.880 --> 00:01:35.600
+Christina Workman: Hola Mike, gracias.
+Muy bien, déjenme buscar las diapositivas.
+
+00:01:35.600 --> 00:01:38.960
+Muy bien, hola a todos, gracias por acompañarme
+en nuestro tema de accesibilidad... perdón,
+
+00:01:38.960 --> 00:01:43.200
+"Los sitios web accesibles benefician a
+todos"
+
+00:01:43.200 --> 00:01:46.560
+Primero, un poco sobre mí: Ya se que Mike
+ya ha tocado un poco
+
+00:01:46.560 --> 00:01:52.399
+algunos de estos puntos pero tengo uno
+podcast llamado wp_contribute()
+
+00:01:52.399 --> 00:01:56.240
+donde entrevisto a personas que contribuyen
+al proyecto de WordPress.
+
+00:01:56.240 --> 00:01:59.759
+He sido organizadora en los eventos
+Meetup y Wordcamp durante varios años.
+
+00:01:59.759 --> 00:02:03.280
+Y una buena parte de todo lo que yo
+he aprendido sobre WordPress,
+
+00:02:03.280 --> 00:02:07.520
+lo he aprendido en este tipo de eventos.
+He estado usando Wordpress 
+
+00:02:07.520 --> 00:02:11.920
+por cerca de 10 años.
+primero como freelancer y luego como
+
+00:02:11.920 --> 00:02:14.959
+como Mike dijo,
+como técnico de soporte en WebDevStudios
+
+00:02:14.959 --> 00:02:19.120
+en la División Maintainn.
+Me encanta el té
+
+00:02:19.120 --> 00:02:22.319
+y tengo al menos 100 tipos diferentes de
+té
+
+00:02:22.319 --> 00:02:27.120
+en mi cocina. Y como Mike dijo, soy una
+porfirófila y estoy obsesionada con todas
+
+00:02:27.120 --> 00:02:30.239
+las cosas que sean
+moradas como probablemente podrán ver por mis
+
+00:02:30.239 --> 00:02:35.599
+diapositivas y mi playera y
+obviamente mis auriculares. Así es.
+
+00:02:35.599 --> 00:02:39.360
+Todavía soy un poco un
+principiante en accesibilidad;
+
+00:02:39.360 --> 00:02:44.319
+quizás hace apenas unos dos años comencé a
+aprender sobre la accesibilidad y a considerar la accesibilidad
+
+00:02:44.319 --> 00:02:48.879
+para los sitios web.
+Pero incluso en ese corto tiempo me he dado cuenta
+
+00:02:48.879 --> 00:02:54.239
+que mucha gente siente mucha
+aprensión en asegurarse de que sus
+
+00:02:54.239 --> 00:02:59.680
+sitios web sean accesibles.
+Mi objetivo con esta charla es ayudarles a
+
+00:02:59.680 --> 00:03:03.599
+reconocer que implementar las mejores prácticas
+para hacer sus sitios web
+
+00:03:03.599 --> 00:03:06.959
+accesibles garantizará una mejor experiencia del usuario
+para
+
+00:03:06.959 --> 00:03:11.920
+todos los visitantes de sus sitios. 
+Estaré analizando varios ejemplos.
+
+00:03:11.920 --> 00:03:17.680
+No son exhaustivos en absoluto.
+y espero que empiecen a pensar
+
+00:03:17.680 --> 00:03:20.319
+en sus propios ejemplos a medida que
+los recorramos
+
+00:03:20.319 --> 00:03:26.000
+y una vez que hayamos terminado con todo.
+Así que existen muchas justificaciones
+
+00:03:26.000 --> 00:03:29.440
+que la gente da sobre el por qué
+no hacen que sus sitios sean accesibles,
+
+00:03:29.440 --> 00:03:31.840
+y estoy segura de que muchos de ustedes han escuchado
+muchas de éstas
+
+00:03:31.840 --> 00:03:38.080
+La primera, por supuesto es:
+"Cuesta demasiado". Y hay un montón de
+
+00:03:38.080 --> 00:03:41.680
+contraargumentos a ésto.
+Pero esencialmente cuanto antes se empiece
+
+00:03:41.680 --> 00:03:45.200
+a reconocer y considerar
+la accesibilidad, cuanto menos va a
+
+00:03:45.200 --> 00:03:50.239
+costar.
+Otra razón es: "Arruinará mi diseño".
+
+00:03:50.239 --> 00:03:54.319
+podría ser que cambie el diseño, pero 
+por supuesto, aún se pueden hacer sitios web
+
+00:03:54.319 --> 00:04:00.319
+hermosos, creativos y accesibles.
+Y el tercero es: "Los visitantes de mi sitio
+
+00:04:00.319 --> 00:04:03.439
+no tienen discapacidades"
+
+00:04:04.080 --> 00:04:08.080
+Esta es una falacia gigante que a menudo va
+mano a mano 
+
+00:04:08.080 --> 00:04:12.239
+con la idea errónea de que
+la accesibilidad es sólo por el bien del grupo
+
+00:04:12.239 --> 00:04:17.919
+de personas con discapacidades y para algunos
+tal vez sea el evitar demandas, lo cual no es la
+
+00:04:17.919 --> 00:04:22.160
+razón correcta
+para hacerlo. Sin embargo, 
+
+00:04:22.160 --> 00:04:25.440
+No sólo garantizo que
+que sus sitios web tienen visitantes con
+
+00:04:25.440 --> 00:04:29.120
+discapacidades
+sino que también sé que un sitio web accesible
+
+00:04:29.120 --> 00:04:33.759
+puede tener un impacto positivo en
+cualquiera que lo visite.
+
+00:04:33.759 --> 00:04:37.840
+Necesitamos empezar a entender
+que un sitio web accesible es aquel que
+
+00:04:37.840 --> 00:04:43.440
+puede ser usado fácilmente
+por todos.
+
+00:04:43.440 --> 00:04:47.040
+Así que, tal vez se estén preguntando ¿cómo puedo
+asegurarme
+
+00:04:47.040 --> 00:04:51.040
+que el sitio web tiene visitantes con
+discapacidades?
+
+00:04:51.040 --> 00:04:57.280
+La respuesta es simple. Todos
+de alguna u otra manera hemos experimentado
+
+00:04:57.280 --> 00:05:01.360
+alguna forma de discapacidad
+en nuestras vidas y lo haremos de nuevo.
+
+00:05:01.360 --> 00:05:06.560
+A menudo la imagen de una persona con
+discapacidad es la de alguien que es ciego
+
+00:05:06.560 --> 00:05:14.160
+o sordo o que ha perdido alguna extremidad.
+Éstas se consideran discapacidades
+
+00:05:14.160 --> 00:05:18.240
+permanentes,
+pero también hay discapacidades
+
+00:05:18.240 --> 00:05:24.639
+temporales y situacionales.
+Para poner esto en contexto,
+
+00:05:24.639 --> 00:05:27.840
+si tienen un brazo amputado,
+eso por supuesto
+
+00:05:27.840 --> 00:05:31.520
+sería una discapacidad permanente pero un
+brazo roto,
+
+00:05:31.520 --> 00:05:35.680
+que constituiría una discapacidad temporal,
+puede tener el mismo impacto
+
+00:05:35.680 --> 00:05:39.840
+sobre cómo funcionarían. Y un montón de
+compras de comestibles,
+
+00:05:39.840 --> 00:05:44.000
+también les impediría usar ese brazo
+para otros fines
+
+00:05:44.000 --> 00:05:48.960
+por un período de tiempo muy corto, lo que sería
+situacional.
+
+00:05:48.960 --> 00:05:52.560
+y así, hay muchas consideraciones
+sobre accesibilidad que hacen la vida
+
+00:05:52.560 --> 00:05:57.840
+de las personas que no cuentan
+con alguna forma de discapacidad, más fácil.
+
+00:05:57.840 --> 00:06:00.960
+Así que veamos algunos ejemplos y como ya he
+dicho,
+
+00:06:00.960 --> 00:06:05.919
+estos ejemplos están lejos de ser una lista exhaustiva.
+Hay un millón de ejemplos diferentes,
+
+00:06:05.919 --> 00:06:09.600
+y no vamos a tocar todos los temas y
+tipos de
+
+00:06:09.600 --> 00:06:17.199
+discapacidad pero espero que esto les ayude
+a empezar a pensar en ello. Entonces, primer escenario:
+
+00:06:17.199 --> 00:06:20.479
+Llegan a casa del trabajo y tienen que
+darle de comer a sus hijos.
+
+00:06:20.479 --> 00:06:26.720
+Tienen migraña, los niños están emocionados
+y son ruidosos, lo que contribuye a la confusión mental
+
+00:06:26.720 --> 00:06:30.080
+de su migraña.
+Deciden pedir algo de comer a domicilio de algún
+
+00:06:30.080 --> 00:06:32.639
+sitio web.
+
+00:06:32.800 --> 00:06:36.880
+Ahora, vamos a analizar algunas de las posibles
+barreras que podrían hacer esto
+
+00:06:36.880 --> 00:06:42.160
+una experiencia difícil para ustedes en esta
+situación.
+
+00:06:45.520 --> 00:06:50.560
+Navegación confusa. Botones y enlace
+difíciles de encontrar.
+
+00:06:50.560 --> 00:06:53.599
+Deben ser claro donde se tiene
+que hacer clic
+
+00:06:53.599 --> 00:06:57.919
+para acceder al portal de pedidos,
+para agregar artículos al carrito,
+
+00:06:57.919 --> 00:07:01.120
+para pagar el pedido y todo este tipo
+de cosas.
+
+00:07:01.120 --> 00:07:05.759
+De lo contrario, acabarán sinténdose confundidos
+y frustrados.
+
+00:07:05.759 --> 00:07:09.919
+demasiados CTA's (Calls to action) luchando por
+su atención
+
+00:07:09.919 --> 00:07:14.080
+cuando apenas pueden pensar debido a la
+migraña y a la confusión mental que padecen.
+
+00:07:14.080 --> 00:07:16.720
+Éstas 
+son distracciones que son demasiado difíciles
+
+00:07:16.720 --> 00:07:21.199
+de hacer frente.
+Así que, de nuevo, puede surgir confusión.
+
+00:07:21.199 --> 00:07:25.599
+Animaciones con movimientos rápidos son similares a 
+tener demasiados CTA's
+
+00:07:25.599 --> 00:07:30.319
+pero también pueden provocar peores dolores de cabeza
+y hacerles difícil incluso
+
+00:07:30.319 --> 00:07:37.120
+ver a la pantalla. Y finalmente,
+algunos problemas con los formularios de pago.
+
+00:07:37.120 --> 00:07:40.560
+Las etiquetas de campos de formulario usadas como texto de marcador 
+de posición que desaparecen
+
+00:07:40.560 --> 00:07:44.000
+en cuanto empiezan a escribir en el campo. Yo he
+caído en esta trampa
+
+00:07:44.000 --> 00:07:47.919
+cuando no pongo en el sitio mi atención completa,
+
+00:07:47.919 --> 00:07:53.599
+incluso sin tener dolor de cabeza. Imagínense en nuestro
+escenario
+
+00:07:53.599 --> 00:07:58.000
+que hacen clic en un campo y entonces oyen un ruido muy fuerte
+en la sala donde están, que los distrae,
+
+00:07:58.000 --> 00:08:01.680
+y cuando regresan nuevamente al
+formulario
+
+00:08:01.680 --> 00:08:05.120
+ya han olvidado para qué
+era el campo de texto que estaban llenando
+
+00:08:05.120 --> 00:08:09.919
+y qué era lo que
+se suponía que debían ingresar allí.
+
+00:08:09.919 --> 00:08:14.319
+Y algo que veo con menos frecuencia pero
+que ciertamente ha sucedido,
+
+00:08:14.319 --> 00:08:18.800
+es la imposibilidad de poder hacer clic en un campo que puede
+desconcertar y frustrar
+
+00:08:18.800 --> 00:08:23.520
+y hacerles pensar que es imposible
+completar ese pedido.
+
+00:08:23.599 --> 00:08:28.319
+Todos estos factores podrían resultar en hacerles
+renunciar a realizar el pedido en ese
+
+00:08:28.319 --> 00:08:31.680
+sitio web
+y elegir otro negocio en algún otro lugar.
+
+00:08:31.680 --> 00:08:36.320
+Sin mencionar
+que todo esto se suma a la frustración general
+
+00:08:36.320 --> 00:08:41.120
+y al caos que está ocurriendo
+a su alrededor. Las migrañas se clasifican dentro de
+
+00:08:41.120 --> 00:08:45.040
+la categoría neurológica
+que incluiría otras cosas como
+
+00:08:45.040 --> 00:08:49.200
+TDAH,
+autismo y epilepsia como discapacidades 
+
+00:08:49.200 --> 00:08:52.800
+permanentes.
+¿Así que quién más puede beneficiarse de estas
+
+00:08:52.800 --> 00:08:56.320
+consideraciones neurológicas?
+
+00:08:56.720 --> 00:09:01.440
+Estoy segura de que todos ustedes se podrán identificar con al menos
+una de estas situaciones.
+
+00:09:01.440 --> 00:09:06.560
+Niebla mental que puede ocurrir por sí sola o
+como consecuencia de la falta de sueño
+
+00:09:06.560 --> 00:09:12.959
+o una gripe o un resfriado;
+problemas de salud mental como la ansiedad,
+
+00:09:12.959 --> 00:09:18.880
+la depresión e incluso el estrés general que
+puede afectar la capacidad para concentrarse y
+
+00:09:18.880 --> 00:09:22.560
+procesar
+lo que ven en un sitio, así como el simple hecho
+
+00:09:22.560 --> 00:09:29.920
+de estar en un entorno distractor.
+La accesibilidad neurológica beneficia
+
+00:09:29.920 --> 00:09:32.560
+a todos
+
+00:09:33.040 --> 00:09:39.279
+Entonces, en nuestro siguiente escenario. Ustedes deciden
+trabajar de manera remota desde la cafetería local.
+
+00:09:39.279 --> 00:09:43.760
+Yo solía ​​hacer esto todo el tiempo. 
+Se atascan en un problema
+
+00:09:43.760 --> 00:09:48.160
+y buscan un tutorial. Encuentran
+el video perfecto
+
+00:09:48.160 --> 00:09:55.360
+incrustado en su propia página web pero -maldita sea-,
+olvidaron los auriculares en la casa.
+
+00:09:55.519 --> 00:09:59.040
+Así que ¿Cuáles son algunas de las posibles 
+complicaciones aquí?
+
+00:09:59.040 --> 00:10:03.440
+Primero si no hay subtítulos cerrados o
+subtítulos disponibles
+
+00:10:03.440 --> 00:10:07.839
+no pueden verlo en silencio y saber
+que es lo que se está diciendo
+
+00:10:07.839 --> 00:10:11.440
+Si el video fué la única forma en que se 
+presentó la información,
+
+00:10:11.440 --> 00:10:16.399
+no hay ninguna transcripción ni publicación de blog que
+resuma esa información,
+
+00:10:16.399 --> 00:10:20.320
+ambos casos dan como resultado que ustedes no puedan
+acceder a la información
+
+00:10:20.320 --> 00:10:26.640
+que necesitan cuando lo necesitan.
+El último elemento no es necesariamente una
+
+00:10:26.640 --> 00:10:29.440
+barrera
+pero definitivamente tiene el potencial para
+
+00:10:29.440 --> 00:10:34.160
+causar problemas
+y vergüenza. El video está configurado
+
+00:10:34.160 --> 00:10:37.200
+para reproducirse automáticamente;
+
+00:10:37.360 --> 00:10:41.920
+y tan pronto como la página carga el audio
+se transmite desde sus laptops para todo el mundo.
+
+00:10:41.920 --> 00:10:47.040
+Personalmente, siempre me he
+sobresaltado por los videos que se reproducen automáticamente
+
+00:10:47.040 --> 00:10:52.240
+incluso 
+en sitios que visito constantemente.
+
+00:10:52.240 --> 00:10:56.880
+Todos estos problemas están relacionados con el audio y
+ciertamente afectan a las personas que tienen alguna
+
+00:10:56.880 --> 00:11:00.720
+forma de pérdida auditiva permanente.
+Pero hay otra variedad de personas
+
+00:11:00.720 --> 00:11:05.839
+que pueden beneficiarse de las alternativas de texto
+para el audio
+
+00:11:05.839 --> 00:11:09.760
+personas con pérdida auditiva temporal debido a
+al tinnitus
+
+00:11:09.760 --> 00:11:14.560
+o con un oído tapado que podría ser causado
+por una infección en el oído o por alergias
+
+00:11:14.560 --> 00:11:19.680
+o incluso si han estado viajando y
+se acaban de bajar de un avión.
+
+00:11:19.680 --> 00:11:24.480
+Yo a menudo prefiero hojear el texto para
+encontrar una respuesta rápida en lugar de mirar
+
+00:11:24.480 --> 00:11:29.120
+un video.
+Y algunas personas simplemente procesan
+
+00:11:29.120 --> 00:11:33.839
+mejor la información leyéndola en lugar de
+escucharla
+
+00:11:33.839 --> 00:11:38.399
+Las personas que están aprendiendo un nuevo idioma podrían usar
+los subtítulos para seguir la lectura
+
+00:11:38.399 --> 00:11:42.959
+y ayudarles a aprender y comprender
+mejor el idioma.
+
+00:11:42.959 --> 00:11:46.000
+Y por supuesto, en esta época tenemos
+asistentes digitales
+
+00:11:46.000 --> 00:11:51.279
+como Siri, el asistente de Google, Alexa y
+todos ellos pueden leer el texto de los sitios web.
+
+00:11:51.279 --> 00:11:55.360
+si está ahí. Y por supuesto, entornos
+ruidosos en general
+
+00:11:55.360 --> 00:11:58.560
+pueden hacer que sea muy difícil entender qué
+se está diciendo en el audio.
+
+00:11:58.560 --> 00:12:05.839
+La audio accesibilidad
+beneficia a todos.
+
+00:12:05.920 --> 00:12:11.360
+Así pues, nuestro tercer escenario.
+Ustedes son desarrolladores de WordPress que nunca
+
+00:12:11.360 --> 00:12:16.800
+quitan las manos del teclado.
+Se conocen todos los atajos del teclado, y
+
+00:12:16.800 --> 00:12:20.160
+no hay encuentran
+mouse alguno en ninguna parte de su
+
+00:12:20.160 --> 00:12:23.680
+oficina.
+Deciden registrarse a un curso
+
+00:12:23.680 --> 00:12:26.399
+en línea
+sobre la más nueva y la mejor
+
+00:12:26.399 --> 00:12:28.880
+de las plataformas headless.
+
+00:12:29.360 --> 00:12:35.200
+Así que veamos algunas de las barreras
+que podrían experimentar bajo este escenario.
+
+00:12:35.440 --> 00:12:39.200
+No hay opción para "saltar al contenido", lo que significa
+tienen que usar el tabulador a través
+
+00:12:39.200 --> 00:12:44.320
+de cada uno de los elementos del encabezado antes de
+poder llegar a la parte principal de la página.
+
+00:12:44.320 --> 00:12:48.399
+Aunado a eso añádanle que la navegación principal
+les obliga a recorrer cada elemento
+
+00:12:48.399 --> 00:12:54.240
+de los submenús y puede hacer que sientan que nunca
+terminarán de recorrer el encabezado.
+
+00:12:54.240 --> 00:12:58.000
+La ausencia de indicadores de enfoque significa que no pueden ver
+donde están
+
+00:12:58.000 --> 00:13:01.120
+en esa página, o a qué enlace o botón
+podrían hacerle clic
+
+00:13:01.120 --> 00:13:06.160
+si pulsan enter. Y luego tenemos
+comportamientos inesperados al pulsar
+
+00:13:06.160 --> 00:13:09.920
+el tabulador que puede llevarlos por toda la página en
+algún orden aleatorio.
+
+00:13:09.920 --> 00:13:15.680
+Y he visto casos dónde
+directamente de "saltar al contenido"
+
+00:13:15.680 --> 00:13:18.480
+brinca hasta abajo, hasta la caja del chat,
+que tienen
+
+00:13:18.480 --> 00:13:22.959
+y luego brinca de vuelta a la parte superior y luego hacia
+la parte de en medio,
+
+00:13:24.240 --> 00:13:27.600
+y eso es tan confuso cuando se está
+intentando
+
+00:13:27.600 --> 00:13:32.320
+seguir el flujo de la página.
+Y luego, para cuando finalmente leen
+
+00:13:32.320 --> 00:13:36.800
+la información sobre el curso
+y deciden registrarse, pueden encontrarse
+
+00:13:36.800 --> 00:13:39.839
+con trampas para el teclado
+como el no poder regresar a un campo
+
+00:13:39.839 --> 00:13:42.720
+una vez que ha sido llenado
+o no poder salir del
+
+00:13:42.720 --> 00:13:48.240
+formulario de registro a menos que se pulse enviar.
+Estas son frustraciones que las personas con
+
+00:13:48.240 --> 00:13:51.519
+discapacidades físicas,
+quienes necesitan usar teclados u otros
+
+00:13:51.519 --> 00:13:57.600
+dispositivos especiales para navegar por sitios web
+enfrentan todo el tiempo. Así que aquí hay algunos
+
+00:13:57.600 --> 00:14:00.880
+ejemplos más de cuándo podrían necesitar o querer
+confiar únicamente
+
+00:14:00.880 --> 00:14:03.839
+en el teclado.
+
+00:14:04.000 --> 00:14:07.680
+Es posible que tengan un brazo roto o una muñeca rota,
+o un dedo roto.
+
+00:14:07.680 --> 00:14:13.920
+Cualquier cosa en alguna de las extremidades que
+simplemente no funciona o incluso si sí lo hace
+
+00:14:13.920 --> 00:14:17.760
+Yo 
+me he roto algún dedo antes, y me han
+
+00:14:17.760 --> 00:14:20.800
+puesto una férula. Intenten usar un
+mouse
+
+00:14:20.800 --> 00:14:25.279
+con una férula en el dedo, simplemente
+no se puede.
+
+00:14:25.519 --> 00:14:29.360
+Quizás padezcan síndrome del túnel carpiano o
+alguna otra afección que se manifiesta
+
+00:14:29.360 --> 00:14:35.040
+de vez en cuando, pero no siempre.
+Quizás tengan un mouse inalámbrico y 
+
+00:14:35.040 --> 00:14:39.279
+la batería se agotó y no tienen ninguna
+otra batería adicional en la casa.
+
+00:14:39.279 --> 00:14:42.959
+O personalmente mi favorito, tienen a un
+bebé o a su mascota durmiendo
+
+00:14:42.959 --> 00:14:46.959
+sobre su regazo. A mi perro le encanta sentarse en mi
+regazo
+
+00:14:46.959 --> 00:14:50.000
+y apoyar su cabeza en mi brazo dominante,
+y
+
+00:14:50.000 --> 00:14:53.600
+odio molestarlo, así que no muevo el
+brazo
+
+00:14:53.600 --> 00:14:57.360
+Simplemente lo coloco en alguna posición sobre
+el teclado e intento escribir
+
+00:14:57.360 --> 00:15:01.600
+lo mejor que pueda, usando mi otra mano también.
+
+00:15:01.600 --> 00:15:06.880
+Por lo que la accesibilidad del teclado beneficia a
+todos.
+
+00:15:08.079 --> 00:15:13.600
+Nuestro último escenario: viven en Oregón,
+en la costa oeste de los Estados Unidos
+
+00:15:13.600 --> 00:15:17.920
+y ocurrió hace tres semanas.
+Las temperaturas son altas y no tienen
+
+00:15:17.920 --> 00:15:21.360
+aire acondicionado, por lo que las ventanas necesitan quedarse
+abiertas
+
+00:15:21.360 --> 00:15:25.760
+Los incendios forestales estallan a su alrededor
+causando mala calidad del aire
+
+00:15:25.760 --> 00:15:29.600
+que irrita sus ojos y les nubla la
+visión.
+
+00:15:29.600 --> 00:15:34.399
+Tienen que ser evacuados a una zona más rural
+con mala conexión wifi
+
+00:15:34.399 --> 00:15:37.680
+y tienen que trabajar de forma remota mientras
+están allí; y necesitan visitar una
+
+00:15:37.680 --> 00:15:44.639
+variedad de sitios web a lo largo del día.
+Así que analicemos nuestras barreras aquí.
+
+00:15:44.639 --> 00:15:48.000
+Cuando tienen la vista borrosa, intentar leer
+texto en letras pequeñas
+
+00:15:48.000 --> 00:15:54.560
+o texto con fuentes delgadas es
+realmente difícil. Bajo contraste entre
+
+00:15:54.560 --> 00:15:56.800
+el
+primer plano y el fondo puede hacer
+
+00:15:56.800 --> 00:15:59.040
+difícil ver la información cuando se está
+intentando
+
+00:15:59.040 --> 00:16:02.800
+enfocar con los ojos y simplemente no se enfocan.
+Texto enlazado
+
+00:16:02.800 --> 00:16:06.160
+puede ser difícil de notar si sólo se está usando
+color
+
+00:16:06.160 --> 00:16:10.959
+para diferenciarlo del texto normal y
+si ambos colores son demasiado similares.
+
+00:16:10.959 --> 00:16:14.959
+Quizás quieran hacer zoom para hacer
+el contenido más fácil de leer
+
+00:16:14.959 --> 00:16:21.199
+pero el diseño no está adecuado para cambiar de tamaño.
+Así que las imágenes y tal vez incluso el texto se salgan por un
+
+00:16:21.199 --> 00:16:25.680
+lado de la pantalla
+y no pueden acceder a él. Y si las imágenes
+
+00:16:25.680 --> 00:16:29.279
+no se cargan debido a que
+la conexión wifi es débil y no hay
+
+00:16:29.279 --> 00:16:32.720
+ningún texto alternativo,
+podrían pasar por alto información relevante.
+
+00:16:32.720 --> 00:16:37.360
+Todos ellos
+entran en la categoría visual,
+
+00:16:37.360 --> 00:16:41.680
+que afecta a las personas que tienen color
+ceguera o visión reducida.
+
+00:16:41.680 --> 00:16:45.360
+Y nuevamente, tenemos muchos escenarios que
+pueden afectar la capacidad
+
+00:16:45.360 --> 00:16:48.240
+para ver un sitio web.
+
+00:16:48.480 --> 00:16:52.079
+es posible que tengan una lesión ocular, tal vez tuvieron
+una cirugía ocular o una
+
+00:16:52.079 --> 00:16:58.000
+infección en el ojo. Escuché mencionar esto en
+alguna charla anterior, ¿saben?
+
+00:16:58.000 --> 00:17:01.680
+Hay un error tipográfico en esta diapositiva, pero los
+ojos
+
+00:17:01.680 --> 00:17:06.319
+dilatados tras hacerse un examen de la vista cuando ustedes
+se ponen esas gotas en los ojos.
+
+00:17:06.319 --> 00:17:09.520
+Otra forma de migraña es la
+migraña con aura
+
+00:17:09.520 --> 00:17:14.400
+la cual puede causar que parte o la totalidad de la
+visión se obscurezca.
+
+00:17:14.400 --> 00:17:18.160
+Un sol intenso que brille directamente sobre
+los ojos
+
+00:17:18.160 --> 00:17:22.240
+o sobre una pantalla, puede dificultar
+ver en ella cuando el contraste
+
+00:17:22.240 --> 00:17:28.319
+no es muy alto. Alergias,
+similar al humo irritante de nuestro
+
+00:17:28.319 --> 00:17:32.640
+ejemplo
+puede provocar visión borrosa
+
+00:17:32.640 --> 00:17:37.600
+o tal vez algo tan simple como el haber
+olvidado las gafas de lectura.
+
+00:17:37.600 --> 00:17:42.720
+La accesibilidad visual beneficia a todos.
+
+00:17:44.400 --> 00:17:48.640
+Todos estos escenarios son de la vida real.
+Muchos ejemplos los he vivido
+
+00:17:48.640 --> 00:17:52.960
+personalmente
+o he conocido a alguien a quien le ha pasado.
+
+00:17:52.960 --> 00:17:57.679
+Quizás ustedes puedan relacionarse con uno o dos de ellos.
+Quizás se identifiquen con varios de ellos.
+
+00:17:57.679 --> 00:18:00.799
+De cualquier manera,
+Los reto a que piensen en sus propios
+
+00:18:00.799 --> 00:18:05.120
+ejemplos y que los compartan con otros
+para ayudar a que las consideraciones
+
+00:18:05.120 --> 00:18:09.919
+sobre la accesibilidad se vuelvan más
+comunes.
+
+00:18:09.919 --> 00:18:14.400
+Por último, espero haberles convencido de que hacer
+sus sitios web accesibles
+
+00:18:14.400 --> 00:18:18.799
+los hace mejor para todos
+
+00:18:19.039 --> 00:18:25.200
+Gracias por escuchar. Pueden encontrarme
+en twitter envíarme un correo electrónico y
+
+00:18:25.200 --> 00:18:28.720
+Por supuesto, publicidad gratuita para mi podcast 
+wp_contribute()
+
+00:18:28.720 --> 00:18:33.360
+en todas las plataformas de pódcast.
+
+00:18:33.520 --> 00:18:40.320
+Mike: Bueno, esa fue una gran charla.
+Muchas gracias por tomarte el tiempo
+
+00:18:40.320 --> 00:18:46.400
+de compartir esto.
+Estamos esperando a que lleguen las preguntas.
+
+00:18:46.400 --> 00:18:50.080
+Así que si tienen alguna pregunta,
+por favor, pónganlas en el canal
+
+00:18:50.080 --> 00:18:53.520
+de YouTube, y luego nos las harán llegar
+hasta la página web
+
+00:18:53.520 --> 00:18:58.880
+de wpaccessibilityday.org donde podrán
+de hecho encontrar las diapositivas de Christina
+
+00:18:58.880 --> 00:19:03.919
+también. Pero mientras estamos a 
+la espera
+
+00:19:03.919 --> 00:19:10.799
+de la llegada de las preguntas, 
+aunque ya tenemos una,
+
+00:19:10.799 --> 00:19:14.799
+hum... algo que recordé
+de tu
+
+00:19:14.799 --> 00:19:19.600
+charla fué que cuando estuve
+escuchando a alguien de Accesibilidad
+
+00:19:19.600 --> 00:19:21.760
+Interactiva, dijeron algo
+sobre que
+
+00:19:21.760 --> 00:19:26.320
+cuando los diseñadores son encasillados,
+se vuelven más creativos.
+
+00:19:26.320 --> 00:19:30.720
+Y creo que eso es muy cierto. Y de nuevo,
+esto fue hace ya algún tiempo,
+
+00:19:30.720 --> 00:19:35.200
+antes de que la accesibilidad fuera algo común;
+pero tu punto sobre que sí, aún se pueden
+
+00:19:35.200 --> 00:19:40.720
+diseñas cosas bonitas, que aún se pueden hacer
+aplicaciones interactivas,
+
+00:19:40.720 --> 00:19:44.799
+y eso no significa que se quede uno
+restringido debido a la accesibilidad.
+
+00:19:44.799 --> 00:19:49.360
+Christina: Exactamente, y quiero decir, yo también he aprendido
+algo así también,
+
+00:19:49.360 --> 00:19:52.960
+que a veces necesitamos esa caja para poder ser más
+creativos. ¿Cierto?
+
+00:19:52.960 --> 00:19:57.440
+Cuanto más se sabe sobre la caja
+en la que uno está, más
+
+00:19:57.440 --> 00:20:03.440
+creativo se puede ser.
+Así que absolutamente, ayuda.
+
+00:20:03.440 --> 00:20:06.240
+Mike: Genial, bueno, voy a empezar a hacer
+algunas preguntas.
+
+00:20:06.240 --> 00:20:10.960
+Nuestra primera pregunta es: "Para las empresas ¿Cuál es la solución 
+más sencilla o la mejora más fácil de implementar,
+
+00:20:10.960 --> 00:20:16.559
+para hacer que un sitio web de comercio electrónico sea más accesible?"
+Christina: Esa es una buena pregunta, quiero decir, en última instancia
+
+00:20:16.559 --> 00:20:22.000
+eso dependerá de 
+cuán accesible es de por sí el sitio web
+
+00:20:22.000 --> 00:20:26.080
+pero una de las cosas más importantes que yo
+creo que mucha gente pasa por alto
+
+00:20:26.080 --> 00:20:30.240
+al considerar la accesibilidad, como
+cuando simplemente se intentan hacer sólo
+
+00:20:30.240 --> 00:20:34.960
+ajustes rápidos y fáciles, sería centrarse en
+los formularios de contacto
+
+00:20:34.960 --> 00:20:38.799
+asegurándose de que se puede retroceder
+entre los elementos usando el "back tab"
+
+00:20:38.799 --> 00:20:42.080
+del teclado, de que se puede acceder a ellos con el mouse o con el
+teclado o con
+
+00:20:42.080 --> 00:20:45.280
+un lector de pantalla o como sea que alguien
+pudiera
+
+00:20:45.280 --> 00:20:49.120
+necesitar acceder al formulario, asegurándose de que
+que se puede acceder a él,
+
+00:20:49.120 --> 00:20:55.840
+de que uno se pueda mover dentro de él,
+de que se pueda saber en todo momento en qué campos
+
+00:20:55.840 --> 00:21:02.720
+se está escribiendo y de que sea
+fácil poder enviarlo.
+
+00:21:02.720 --> 00:21:08.400
+Mike: Bien, nuestra siguiente pregunta es:
+"¿Tienes alguna sugerencia acerca de qué herramientas
+
+00:21:08.400 --> 00:21:13.120
+se pueden utilizar para detener o
+bloquear la molesta reproducción automática
+
+00:21:13.120 --> 00:21:17.200
+de audio y video?"
+Christina: Oh, esa es una pregunta genial.
+
+00:21:17.200 --> 00:21:22.000
+No lo sé, pero hasta ahora, ni siquiera he pensado
+en hacerlo
+
+00:21:22.000 --> 00:21:27.440
+porque literalmente y no estaba bromeando,
+yo actualizo sitios cada semana como parte de mi
+
+00:21:27.440 --> 00:21:30.320
+trabajo y hay un sitio que tiene un
+video
+
+00:21:30.320 --> 00:21:33.840
+que se reproduce automáticamente y que además se ubica
+muy debajo en la pantalla, y
+
+00:21:33.840 --> 00:21:40.240
+que cada semana me asusta.
+Todas y cada una de las semanas, así que voy a investigar
+
+00:21:40.240 --> 00:21:44.240
+más sobre eso
+y veré si puedo encontrar algo que me guste
+
+00:21:44.240 --> 00:21:47.760
+y que vaya a utilizar
+y luego actualizaré la respuesta en
+
+00:21:47.760 --> 00:21:54.720
+el sitio web cuando lo encuentre.
+Mike: excelente, así que en la misma línea porque
+
+00:21:54.720 --> 00:21:58.159
+algunas personas, ya sabes, 
+estamos metidos en Wordpress,
+
+00:21:58.159 --> 00:22:01.120
+es el día de la accesibilidad, así que obviamente
+estamos creando nuestros sitios de WordPress
+
+00:22:01.120 --> 00:22:05.120
+accesibles;
+pero no todo el mundo usa el CMS de WordPress.
+
+00:22:05.120 --> 00:22:09.039
+¿Crees que alguna de las
+soluciones listas para usar, tipo "llave en mano",
+
+00:22:09.039 --> 00:22:12.400
+que funcionan con WordPress, pero también con plataformas como Shopify,
+Wix o Weebly,
+
+00:22:12.400 --> 00:22:16.000
+como AudioEye o servicios de accesibilidad Saas 
+similares,
+
+00:22:16.000 --> 00:22:20.799
+tienen algún valor?
+o ¿Crees que
+
+00:22:20.799 --> 00:22:24.400
+el sitio web debería ser accesible
+de manera nativa desde 
+
+00:22:24.400 --> 00:22:27.600
+el comienzo del proceso de diseño?
+Christina: Yo digo que idealmente
+
+00:22:27.600 --> 00:22:30.799
+cuanto más accesible de forma nativa sea,
+cuanto mejor.
+
+00:22:30.799 --> 00:22:35.840
+Partiendo de esa base, cuando
+se habla de los costos de hacer
+
+00:22:35.840 --> 00:22:39.840
+un sitio web accesible,
+en realidad es un
+
+00:22:39.840 --> 00:22:46.000
+problema de "reajuste", ¿no?
+Es más caro
+
+00:22:46.000 --> 00:22:50.720
+reajustar un sitio web existente en lugar de construirlo
+desde el principio teniendo en cuenta la accesibilidad.
+
+00:22:50.720 --> 00:22:54.400
+y cuando
+muchas de esas cuestiones relacionadas
+
+00:22:54.400 --> 00:22:58.400
+con la accesibilidad ni siquiera tienen
+que ver con la plataforma que se está usando,
+
+00:22:58.400 --> 00:23:02.400
+ya sabes, cosas como
+los contrastes de los colores que se utilizan;
+
+00:23:02.400 --> 00:23:05.440
+esas son decisiones de diseño que deben
+hacerse desde el principio.
+
+00:23:05.440 --> 00:23:10.960
+Así que cualquier cosa que se pueda hacer
+para empezar desde una buena base de accesibilidad
+
+00:23:10.960 --> 00:23:15.440
+desde el principio mismo, es la mejor opción.
+
+00:23:15.440 --> 00:23:19.760
+Mike: Genial, excelente. Como 
+no veo ninguna otra pregunta,
+
+00:23:19.760 --> 00:23:25.039
+creo que vamos a
+dar por concluida la presentación. De nuevo, muchas gracias
+
+00:23:25.039 --> 00:23:28.799
+Christina por
+darte el tiempo y compartir tu
+
+00:23:28.799 --> 00:23:33.880
+experiencia con nosotros.
+Tus diapositivas se pueden descargar desde
+
+00:23:33.880 --> 00:23:36.080
+wpaccessibilityday.org y además
+estás en Twitter ¿cierto?
+
+00:23:36.080 --> 00:23:39.360
+Christina: Sí, estoy en Twitter
+Mike: Ok, y ¿cuál es tu nombre de usuario?
+
+00:23:39.360 --> 00:23:43.919
+Christina: Mi nombre de usuario en Twitter
+es: amethystanswers.
+
+00:23:43.919 --> 00:23:47.760
+Lo deletrearé porque muy poca
+gente sabe cómo se escribe amatista.
+
+00:23:47.760 --> 00:23:54.400
+Eso se escribe: 
+A-M-E-T-H-Y-S-T A-N-S-W-E-R-S.
+
+00:23:54.400 --> 00:23:59.120
+Mike: Excelente, y mientras estén en
+Twitter, por favor
+
+00:23:59.120 --> 00:24:03.840
+síganos en
+@WPAccessibility y con nuestros dos hashtags
+
+00:24:03.840 --> 00:24:09.440
+#wpaccessibilityday
+y #wpad2020.
+
+00:24:10.679 --> 00:24:14.080
+Muchas gracias por ver el video.
+
+00:24:14.080 --> 00:24:18.240
+Gracias a todos nuestros maravillosos patrocinadores y
+Por favor, manténganse atentos porque aunque
+
+00:24:18.240 --> 00:24:22.799
+me retiro como su anfitrión, a las 3 de la mañana UTC,
+en la hora en punto,
+
+00:24:22.799 --> 00:24:26.799
+tendremos a Alicia, cuyo tema es "Aventuras
+en la accesibilidad:
+
+00:24:26.799 --> 00:24:30.799
+Cómo adoptar la accesibilidad me hizo una
+mejor narradora".
+
+00:24:30.799 --> 00:24:34.240
+Estoy emocionado por eso, porque
+apenas hace dos semanas, asistí a 
+
+00:24:34.240 --> 00:24:38.000
+la conferencia de encuentros de narradores.
+Así que, todos vayan a comer alguna botana o algo ligero
+
+00:24:38.000 --> 00:24:42.400
+y nos vemos de nuevo en media hora.
+Adiós.

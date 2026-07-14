@@ -2,7 +2,7 @@
 
 ## 2020
 
-2 completed translations.
+3 completed translations.
 
 1. So how do I know if my WordPress website is accessible?
 1. Unmeasurable Accessibility: The Case for Inclusive Design

@@ -15,6 +15,7 @@
 	- Spanish; Jordan Gilavert
 1. Accessible Navigation from Scratch
 1. Accessible Websites Benefit Everyone
+	- Spanish; Luz Zuniga
 1. Adventures in Accessibility: How Embracing Accessibility Made Me a Better Storyteller
 1. Show me the Money!
 1. Gutenberg Accessibility: A Screen Reader Users Perspective

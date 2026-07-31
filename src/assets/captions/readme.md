@@ -2,7 +2,7 @@
 
 ## 2020
 
-4 completed translations.
+5 completed translations.
 
 1. So how do I know if my WordPress website is accessible?
 1. Unmeasurable Accessibility: The Case for Inclusive Design
@@ -20,6 +20,7 @@
 1. Adventures in Accessibility: How Embracing Accessibility Made Me a Better Storyteller
 1. Show me the Money!
 1. Gutenberg Accessibility: A Screen Reader Users Perspective
+	- Spanish; Luz Zuniga
 1. Accessibility by Default in Authoring Tools
 1. How to use ARIA in forms
 1. Your CMS is an Accessibility Assistant

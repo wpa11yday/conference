@@ -166,13 +166,14 @@
 
 ## 2024
 
-59 completed translations.
+60 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
 	- Spanish; Diana Córdoba Gómez
 3. How to Remediate Accessibility Issues in WordPress
 	- Spanish; Estefani Pahola Suarez
+	- French; Jenny Dupuy
 	- German; Sylvia Egger
 	- Italian; Fabiana Lassandro
  	- Norwegian; Lena Marie Gjerald

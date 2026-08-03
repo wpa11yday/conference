@@ -2,13 +2,14 @@
 
 ## 2020
 
-4 completed translations.
+6 completed translations.
 
 1. So how do I know if my WordPress website is accessible?
 1. Unmeasurable Accessibility: The Case for Inclusive Design
 1. Accessible Color Considerations
 	- Spanish; Luz Zuniga
 1. Creating Accessible Content with WordPress
+	- Spanish; Amalia Llarín
 1. Much Ado About Captioning Videos for WordPress and Beyond
 1. Using Smart Speakers for Accessibility
 	- Spanish; Diana Córdoba Gómez
@@ -20,6 +21,7 @@
 1. Adventures in Accessibility: How Embracing Accessibility Made Me a Better Storyteller
 1. Show me the Money!
 1. Gutenberg Accessibility: A Screen Reader Users Perspective
+	- Spanish; Luz Zuniga
 1. Accessibility by Default in Authoring Tools
 1. How to use ARIA in forms
 1. Your CMS is an Accessibility Assistant
@@ -166,13 +168,14 @@
 
 ## 2024
 
-59 completed translations.
+60 completed translations.
 
 1. Opening Remarks
 2. Accessibility is a Civil Right: The Digital Accessibility Legal Landscape for the WordPress Community
 	- Spanish; Diana Córdoba Gómez
 3. How to Remediate Accessibility Issues in WordPress
 	- Spanish; Estefani Pahola Suarez
+	- French; Jenny Dupuy
 	- German; Sylvia Egger
 	- Italian; Fabiana Lassandro
  	- Norwegian; Lena Marie Gjerald

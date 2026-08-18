@@ -1,0 +1,2661 @@
+﻿WEBVTT
+
+00:00:26.744 --> 00:00:31.385
+<v title="Ahmed Kabir Chaion"> Hola a todos. Bienvenidos una vez más
+al Día de la Accesibilidad de WordPress 2020.
+
+00:00:31.410 --> 00:00:33.079
+Mi nombre es Ahmed Kabir Chaion
+
+00:00:33.159 --> 00:00:36.038
+y estoy trabajando como gerente
+de desarrollo empresarial en WeDevs.
+
+00:00:36.063 --> 00:00:39.659
+También soy un colaborador habitual
+creando documentación de WordPress,
+
+00:00:39.684 --> 00:00:44.640
+diseño, idiomas, accesibilidad,
+comunidad de alojamiento web, educando sobre WordPress
+
+00:00:44.665 --> 00:00:45.767
+y el equipo de marketing.
+
+00:00:45.792 --> 00:00:48.307
+Yo seré su anfitrión en esta sesión.
+
+00:00:48.386 --> 00:00:52.948
+Estamos aquí para la charla de las 8:00 am UTC
+con Hidde de Vries.
+
+00:00:52.973 --> 00:00:55.757
+Por favor, siéntanse libres de agregar sus
+preguntas al chat de YouTube,
+
+00:00:55.782 --> 00:00:57.433
+y responderemos esas preguntas al final.
+
+00:00:58.282 --> 00:01:02.000
+Tu sistema de gestión de contenidos
+juega un papel decisivo
+
+00:01:02.024 --> 00:01:03.759
+en la creación de contenido accesible,
+
+00:01:04.280 --> 00:01:09.188
+sugiriendo las herramientas de autoría
+y Directrices de accesibilidad—ATAG.
+
+00:01:09.498 --> 00:01:11.871
+Siempre que un diseñador crea contenido,
+
+00:01:11.896 --> 00:01:15.799
+el CMS podría ayudar con
+su accesibilidad.
+
+00:01:16.159 --> 00:01:19.120
+Por ejemplo, cuando un diseñador
+añade una imagen,
+
+00:01:19.400 --> 00:01:22.439
+el CMS podría señalar alternativas de
+texto ideal
+
+00:01:22.670 --> 00:01:25.359
+o calcular las consecuencias
+del contraste de color.
+
+00:01:25.840 --> 00:01:29.938
+En esta charla aprenderán
+más información sobre qué es ATAG,
+
+00:01:30.288 --> 00:01:32.192
+y cómo teniendo una cuenta ATAG,
+
+00:01:32.217 --> 00:01:38.145
+los CMS pueden brindar asistencia personalizada a los editores de contenido
+para lograr un sitio web más accesible.
+
+00:01:39.549 --> 00:01:44.600
+El orador de esta charla, Hidde, es un
+desarrollador web y especialista en accesibilidad
+
+00:01:44.625 --> 00:01:48.842
+en la Web del W3C,
+Iniciativa de Accesibilidad o WAI,
+
+00:01:49.497 --> 00:01:53.651
+con sede en Rotterdam, Países Bajos,
+como parte del proyecto de guía WAI,
+
+00:01:53.676 --> 00:01:56.516
+trabaja en la
+accesibilidad de las herramientas de autoría
+
+00:01:56.541 --> 00:01:59.414
+como los CMS y los creadores de sitios web,
+
+00:01:59.439 --> 00:02:04.560
+y orientaciones que respaldan las pautas
+de accesibilidad al contenido y WCAG de la Web.
+
+00:02:04.585 --> 00:02:07.355
+Tiene más de 10 años de experiencia
+
+00:02:07.380 --> 00:02:11.500
+trabajando como desarrollador front-end freelance
+y encargado de accesibilidad
+
+00:02:11.525 --> 00:02:14.908
+para organizaciones como Mozilla
+y el gobierno holandés.
+
+00:02:14.933 --> 00:02:17.441
+En su blog, escribe regularmente sobre
+
+00:02:17.466 --> 00:02:20.879
+componentes reutilizables, CSS y
+accesibilidad web,
+
+00:02:21.240 --> 00:02:25.216
+lo que lo trae a la sesión, su
+CMS es un asistente de accesibilidad.
+
+00:02:25.613 --> 00:02:26.680
+Adelante, Hidde.
+
+00:02:41.802 --> 00:02:45.096
+<v title="Hidde de Vries"> Hola, soy Hidde
+y estoy aquí hoy para hablar sobre
+
+00:02:45.120 --> 00:02:48.516
+cómo podría ver su CMS
+como asistente de accesibilidad
+
+00:02:48.541 --> 00:02:50.240
+y cómo eso puede ayudar a las organizaciones
+
+00:02:50.265 --> 00:02:54.671
+incluyendo, quizás, a
+clientes o usuarios de un CMS.
+
+00:02:55.410 --> 00:02:56.755
+Un poco de información sobre mí,
+
+00:02:56.779 --> 00:03:01.862
+trabajo como especialista en accesibilidad en
+el W3C, el Consorcio World Wide Web,
+
+00:03:02.346 --> 00:03:05.215
+donde trabajé en
+iniciativas de accesibilidad web.
+
+00:03:05.949 --> 00:03:09.139
+Tenemos una página web que me gustaría mostrar.
+
+00:03:09.164 --> 00:03:12.076
+En nuestro sitio web hay muchísima
+información sobre accesibilidad web,
+
+00:03:12.101 --> 00:03:15.956
+planificación, diseño,
+desarrollo, pruebas,
+
+00:03:15.981 --> 00:03:19.339
+educación y capacitación.
+
+00:03:20.021 --> 00:03:24.790
+Mucha gente no sabe nada de estos
+increíbles recursos que se encuentran en este sitio web,
+
+00:03:25.294 --> 00:03:27.247
+así que pensé en mencionarlo.
+
+00:03:27.271 --> 00:03:30.898
+Pero aclaración: solo trabajo en
+parte del contenido de este sitio.
+
+00:03:30.923 --> 00:03:35.685
+Ahora, me centro principalmente en
+mi trabajo en herramientas de autoría.
+
+00:03:35.710 --> 00:03:39.757
+Las herramientas de autoría, si no están
+familiarizados con esa frase,
+
+00:03:39.782 --> 00:03:42.706
+son herramientas para crear contenido web,
+
+00:03:42.730 --> 00:03:46.151
+y con eso,
+como probablemente no les sorprenderá,
+
+00:03:46.176 --> 00:03:50.589
+mejorar mucha accesibilidad web a la vez.
+
+00:03:50.614 --> 00:03:52.636
+Me parece una perspectiva muy emocionante,
+
+00:03:52.661 --> 00:03:56.452
+y hoy hablaré mucho sobre
+cómo podemos hacer que eso se convierta en realidad.
+
+00:03:56.477 --> 00:04:01.831
+¿Cómo podemos realmente emplear las
+herramientas de autoría para mejorar la accesibilidad
+
+00:04:01.856 --> 00:04:03.719
+en muchos lugares a la vez?
+
+00:04:04.871 --> 00:04:08.100
+Ahora, primero, veamos un par de
+ejemplos de herramientas de autoría.
+
+00:04:08.125 --> 00:04:11.869
+Estamos hablando de cosas como
+Editores WYSIWYG, creadores de cursos,
+
+00:04:11.894 --> 00:04:16.000
+sistemas de gestión del aprendizaje o
+cualquier cosa que utilicen en la educación en línea,
+
+00:04:16.025 --> 00:04:18.534
+muy importante en tiempos del COVID,
+
+00:04:19.085 --> 00:04:21.248
+sistemas de gestión de contenido, por supuesto,
+
+00:04:21.684 --> 00:04:25.240
+Wikipedia, tu "guardar"
+como funcionalidad HTML,
+
+00:04:25.265 --> 00:04:28.931
+redes sociales, generadores de formas,
+constructores de sitios,
+
+00:04:28.956 --> 00:04:34.029
+muchas de estas cosas tienen en común
+que crean contenido para la web,
+
+00:04:34.054 --> 00:04:36.894
+o que proporcionen algún tipo de interfaz
+
+00:04:36.919 --> 00:04:41.246
+para que sus usuarios creen algo
+que, en última instancia, vivirá en la web.
+
+00:04:42.238 --> 00:04:46.285
+Ahora, específicamente sobre CMS,
+estamos en el Día de la Accesibilidad de WordPress,
+
+00:04:46.310 --> 00:04:49.858
+seguro les vienen a la mente
+herramientas de autoría como el propio CMS,
+
+00:04:49.883 --> 00:04:55.058
+y me imagino que algunas personas que están viendo esto,
+trabajan en el núcleo de WordPress,
+
+00:04:55.083 --> 00:04:57.396
+o han proporcionado algunos parches,
+
+00:04:57.421 --> 00:05:00.360
+o tal vez considerado
+contribuir a WordPress.
+
+00:05:00.385 --> 00:05:06.122
+Pero otros podrían estar trabajando en pugins como
+creadores de formularios, gestión de campos personalizados,
+
+00:05:06.147 --> 00:05:10.245
+gestión de eventos
+o redes sociales, banners de cookies, incluso
+
+00:05:10.270 --> 00:05:12.888
+cualquier cosa que quieran
+conectar a un sitio web,
+
+00:05:12.913 --> 00:05:14.802
+y eso también creará contenido web,
+
+00:05:14.827 --> 00:05:17.040
+también se considerará,
+como herramienta de autoría.
+
+00:05:17.065 --> 00:05:19.223
+Y cuando hablo de CMS en esta charla,
+
+00:05:19.247 --> 00:05:23.319
+también quiero hablar
+sobre plugins y más temas.
+
+00:05:25.311 --> 00:05:28.624
+Ahora, la web está diseñada para funcionar para todos,
+
+00:05:28.649 --> 00:05:32.680
+ese es un punto que nos tomamos
+muy en serio en el W3C.
+
+00:05:33.000 --> 00:05:37.274
+Esta es una fotografía del señor Tim
+Berners-Lee, el inventor de la web,
+
+00:05:37.299 --> 00:05:42.425
+quien estuvo en la ceremonia de apertura
+de los Juegos Olímpicos de Londres de 2012,
+
+00:05:42.480 --> 00:05:46.026
+e hizo mención de estas cuatro palabras:
+''Esto es para todos.''
+
+00:05:46.051 --> 00:05:51.374
+Ahora creo, y no solo creo,
+lo consulté personalmente con él,
+
+00:05:51.399 --> 00:05:54.839
+que dichas palabras
+podrían interpretarse de diversas maneras.
+
+00:05:55.273 --> 00:06:02.812
+Una es que la web debería estar
+disponible para todo el que pueda acceder a internet.
+
+00:06:02.837 --> 00:06:05.656
+Entonces, por supuesto, necesitas Internet
+para obtener una suscripción
+
+00:06:05.681 --> 00:06:08.609
+o ir a una biblioteca y
+tal vez pagar por usar una computadora.
+
+00:06:08.634 --> 00:06:13.093
+Pero en última instancia, la web está disponible
+para todos, esto es para todos.
+
+00:06:13.974 --> 00:06:18.070
+En segundo lugar, creo que todos pueden
+tener un sitio web en internet.
+
+00:06:18.104 --> 00:06:21.491
+No necesitarían solicitar
+permiso en tu gobierno local
+
+00:06:21.516 --> 00:06:25.439
+o algo así o, ya sabes, hacer algo muy complicado.
+
+00:06:25.920 --> 00:06:28.397
+Necesitas tener un
+servidor web o alquilar uno.
+
+00:06:28.421 --> 00:06:31.765
+Puedes añadir código HTML
+y hacerlo disponible en la URL.
+
+00:06:31.790 --> 00:06:34.784
+En ese sentido, también es para todos.
+
+00:06:34.809 --> 00:06:38.383
+Y la tercera forma en que podrías
+interpretar que esto es para todos,
+
+00:06:38.407 --> 00:06:41.942
+es si fuera algo que
+funcionase para todos,
+
+00:06:41.967 --> 00:06:43.879
+incluyendo a las personas con discapacidad.
+
+00:06:43.904 --> 00:06:48.093
+Esa es la definición que utilizamos en WAI.
+
+00:06:48.118 --> 00:06:50.647
+Hacer que la web funcione
+para personas con discapacidad,
+
+00:06:50.671 --> 00:06:53.575
+de eso se trata la accesibilidad web.
+
+00:06:53.600 --> 00:06:57.422
+Queremos asegurarnos de que esto
+sea para todos.
+
+00:06:57.914 --> 00:07:01.223
+Ahora bien, en ese sentido, en WAI,
+tenemos tres estándares web
+
+00:07:01.248 --> 00:07:05.747
+que tienen que ver con la accesibilidad
+del contenido web.
+
+00:07:06.000 --> 00:07:08.920
+Ahora, muchas personas estarán familiarizadas
+con el estándar WCAG,
+
+00:07:09.095 --> 00:07:12.399
+que significa Directrices de accesibilidad
+del Contenido Web.
+
+00:07:12.682 --> 00:07:16.299
+Pero hay dos conjuntos más de
+directrices que están muy estrechamente relacionadas
+
+00:07:16.324 --> 00:07:20.839
+y juntos realmente crean
+esa imagen de una web accesible.
+
+00:07:21.319 --> 00:07:25.983
+Ahí está la accesibilidad del contenido web,
+las directrices sobre el contenido web en sí.
+
+00:07:26.040 --> 00:07:30.650
+Pero ¿qué pasa con el software
+que utilizan las personas para acceder al contenido web?
+
+00:07:30.713 --> 00:07:32.639
+Navegadores o agentes de usuario...
+
+00:07:32.639 --> 00:07:34.551
+Existe un estándar específico para eso,
+
+00:07:34.575 --> 00:07:37.680
+directrices de accesibilidad del
+agente de usuario UAAG.
+
+00:07:38.592 --> 00:07:41.965
+¿Y qué hay del software? ¿Qué crea?
+¿Contenido web, herramientas de autoría?
+
+00:07:42.160 --> 00:07:45.279
+Y para ello, tenemos las directrices de accesibilidad de
+Herramientas de autoría.
+
+00:07:45.480 --> 00:07:48.416
+Así que juntos, estos tres
+estándares, todos dicen algo
+
+00:07:48.441 --> 00:07:51.025
+sobre la accesibilidad del contenido web,
+
+00:07:51.050 --> 00:07:52.447
+sobre el contenido en sí,
+
+00:07:52.472 --> 00:07:54.920
+acerca del software que utilizamos
+para ver el contenido,
+
+00:07:54.959 --> 00:07:58.720
+y sobre el software que utilizamos
+para crear el contenido.
+
+00:07:59.639 --> 00:08:03.600
+Ahora, las herramientas de autoría y los CMS
+son muy importantes,
+
+00:08:03.600 --> 00:08:06.360
+son esenciales en esta imagen
+de accesibilidad web
+
+00:08:06.618 --> 00:08:09.959
+porque si lo hacemos bien,
+
+00:08:10.000 --> 00:08:12.040
+podremos incluir más
+creadores de contenido.
+
+00:08:12.040 --> 00:08:14.399
+Podemos lograr que más personas publiquen
+cosas en la web.
+
+00:08:15.393 --> 00:08:16.556
+Y la segunda razón,
+
+00:08:16.581 --> 00:08:19.917
+que creo que las Herramientas de autoría
+son tan importantes y emocionantes
+
+00:08:19.942 --> 00:08:24.329
+porque los creadores de contenido tienen
+permitido solucionar problemas de accesibilidad
+
+00:08:24.354 --> 00:08:26.215
+antes de que su sitio web se publique.
+
+00:08:26.240 --> 00:08:29.686
+Ese es el tema central del que
+quiero hablar hoy.
+
+00:08:31.860 --> 00:08:35.494
+Ahora, el estándar para
+las herramientas de autoría, como ya dije, son ATAG,
+
+00:08:35.519 --> 00:08:38.480
+con la última versión, ATAG 2.0.
+
+00:08:38.930 --> 00:08:43.111
+Hablaré mucho
+sobre ATAG hoy,
+
+00:08:43.136 --> 00:08:46.415
+pero si quieren leer
+a su propio ritmo,
+
+00:08:46.440 --> 00:08:48.785
+pueden visitar la fuente
+"ATAG at a Glance",
+
+00:08:48.810 --> 00:08:53.399
+es una página que tiene una lista con los
+puntos principales que figuran en la norma ATAG,
+
+00:08:53.679 --> 00:08:56.045
+así que eso es algo que podrían
+repasar a su propio ritmo.
+
+00:08:56.069 --> 00:09:00.844
+Pero hoy también repasaremos un montón
+de diferentes directrices que se encuentran en ATAG,
+
+00:09:00.869 --> 00:09:02.972
+criterios de éxito,
+
+00:09:03.014 --> 00:09:08.065
+y espero poder brindarles una buena experiencia y
+descripción general de lo que pueden encontrar en ATAG
+
+00:09:08.090 --> 00:09:13.000
+y cómo puede ayudar realmente a los usuarios finales
+y las personas que editan contenido en la web.
+
+00:09:14.600 --> 00:09:16.759
+El estándar ATAG consta de
+de dos partes.
+
+00:09:16.960 --> 00:09:19.519
+La primera parte trata sobre la
+experiencia en edición.
+
+00:09:19.519 --> 00:09:24.206
+La edición de contenido en sí,
+la parte trasera, por así decirlo.
+
+00:09:24.618 --> 00:09:27.320
+Y la segunda parte trata sobre
+el contenido en sí.
+
+00:09:27.759 --> 00:09:30.265
+Hoy me centraré principalmente en la producción,
+
+00:09:30.290 --> 00:09:34.698
+pero también hablemos un poco sobre lo que podemos
+hacer para mejorar la experiencia de edición
+
+00:09:34.722 --> 00:09:36.279
+para personas con discapacidad.
+
+00:09:37.660 --> 00:09:38.922
+Sí, veamos eso primero.
+
+00:09:38.947 --> 00:09:43.919
+La A de ATAG trata sobre la
+accesibilidad de la experiencia de edición.
+
+00:09:44.159 --> 00:09:47.881
+El primer
+criterio de éxito, A 1.1.1
+
+00:09:47.906 --> 00:09:52.120
+trata de asegurarse de que su
+interfaz cumple con el estándar WCAG,
+
+00:09:52.399 --> 00:09:56.279
+y parte de eso, por supuesto, es asegurarse de
+que su interfaz funcione con el zoom de texto.
+
+00:09:56.304 --> 00:10:00.577
+Es algo que he escuchado mucho de los usuarios
+cuando hablo con ellos sobre mi trabajo,
+
+00:10:00.943 --> 00:10:03.101
+sobre hacer zoom en la interfaz.
+
+00:10:04.046 --> 00:10:06.107
+No es tan fácil para ellos
+al utilizar la interfaz,
+
+00:10:06.132 --> 00:10:09.360
+o a veces la interfaz se convierte en algo
+completamente inutilizable.
+
+00:10:09.631 --> 00:10:11.880
+Así que estamos probando con zoom de texto,
+es una de las cosas que pueden hacer.
+
+00:10:11.904 --> 00:10:13.425
+Textos alternativos para los iconos.
+
+00:10:13.449 --> 00:10:17.870
+Es muy común en estos días tener
+interfaces que consisten únicamente en íconos.
+
+00:10:18.080 --> 00:10:22.559
+Si trabajas en un plugin o un tema o
+algo que tiene una interfaz de edición
+
+00:10:22.559 --> 00:10:25.106
+donde los iconos son
+lo principal en lo que haces clic,
+
+00:10:25.131 --> 00:10:27.177
+asegúrate de que haya
+alternativas de texto para ellos,
+
+00:10:27.202 --> 00:10:30.240
+para que haya un nombre de acceso
+en algún lugar.
+
+00:10:31.080 --> 00:10:34.960
+Hacer que funcione con un teclado es
+otro gran consejo,
+
+00:10:35.494 --> 00:10:37.501
+y eso incluye cosas como el enfoque visible,
+
+00:10:37.526 --> 00:10:40.289
+para que puedas ver en todo momento
+en qué parte de la página te encuentras
+
+00:10:40.313 --> 00:10:41.720
+antes de interactuar con algo,
+
+00:10:42.055 --> 00:10:43.777
+y que puedas usar todos los controles.
+
+00:10:43.802 --> 00:10:47.240
+Eso incluye todas las formas
+campos, anclas y botones.
+
+00:10:47.399 --> 00:10:52.402
+Otra recomendación en ATAG es sobre
+mostrar vistas previas de forma accesible,
+
+00:10:52.639 --> 00:10:56.323
+porque en la mayoría de la gestión de contenido,
+sistemas o herramientas de autoría en general,
+
+00:10:56.348 --> 00:11:00.720
+los plugins también tendrán alguna forma de
+previsualizar el contenido en el que están trabajando,
+
+00:11:01.039 --> 00:11:06.519
+y este criterio trata de asegurarse de que
+ese contenido también sea accesible.
+
+00:11:07.200 --> 00:11:09.519
+O puedes pensar en cosas como
+ayuda con la ortografía.
+
+00:11:10.039 --> 00:11:12.779
+Algunas personas pueden tener dislexia y
+mientras editan algún contenido,
+
+00:11:12.804 --> 00:11:16.652
+puede ayudarlos mucho
+que se corrija su ortografía.
+
+00:11:18.152 --> 00:11:21.801
+Ahora bien, eso fue un poco sobre la primera parte de
+ATAG, mejorar la experiencia de edición.
+
+00:11:21.826 --> 00:11:23.799
+Lo que realmente dije
+que hablaríamos hoy,
+
+00:11:23.799 --> 00:11:27.120
+es sobre cómo su CMS podría ser un
+asistente accesible.
+
+00:11:27.480 --> 00:11:31.282
+Y en ese sentido, apoyamos la
+producción de contenido accesible
+
+00:11:31.307 --> 00:11:34.440
+como nombre oficial
+para la parte B de ATAG.
+
+00:11:35.180 --> 00:11:39.200
+Y para eso, hablemos un poco sobre
+qué es el contenido accesible.
+
+00:11:39.488 --> 00:11:42.002
+Son cosas como:
+tener tablas con encabezados,
+
+00:11:42.027 --> 00:11:44.320
+que tengan formularios con
+las etiquetas apropiadas,
+
+00:11:44.519 --> 00:11:48.440
+que las imágenes principales tengan mucho
+contraste, los vídeos tengan subtítulos,
+
+00:11:48.840 --> 00:11:52.279
+que puedan tener contenido multilingüe
+con los atributos de idioma correctos,
+
+00:11:52.879 --> 00:11:55.494
+que todo esté
+de acuerdo con las especificaciones,
+
+00:11:55.519 --> 00:11:57.193
+que los carruseles puedan detenerse,
+
+00:11:57.218 --> 00:11:59.055
+y que tengan
+estructuras de encabezado con sentido.
+
+00:11:59.080 --> 00:12:03.159
+Todas estas cosas contribuyen
+a un contenido más accesible
+
+00:12:03.360 --> 00:12:06.114
+para sus usuarios finales,
+para las personas que utilizan el sitio web
+
+00:12:06.139 --> 00:12:08.720
+o, ya sabes, el contenido web
+que estés creando,
+
+00:12:09.242 --> 00:12:11.178
+todas estas cosas deben estar en orden.
+
+00:12:11.440 --> 00:12:14.360
+Entonces, si queremos tener un buen
+asistente de accesibilidad,
+
+00:12:14.385 --> 00:12:16.440
+debería ayudar con todas
+estas cosas.
+
+00:12:16.799 --> 00:12:20.519
+Y normalmente podrían ser diferentes
+productos, ¿verdad?
+
+00:12:20.519 --> 00:12:24.680
+Porque a veces podrías tener
+un plugin específico para crear tablas,
+
+00:12:24.705 --> 00:12:27.600
+o uno específicamente para crear formularios.
+
+00:12:27.799 --> 00:12:32.053
+Por lo tanto, podrían ser productos especializados
+que se centran en estas tareas específicas.
+
+00:12:33.191 --> 00:12:35.283
+Y un asistente de
+accesibilidad, por supuesto,
+
+00:12:35.308 --> 00:12:37.473
+ayuda a evitar contenido inaccesible.
+
+00:12:37.498 --> 00:12:40.039
+Así se evitarían cosas
+como tablas sin encabezados,
+
+00:12:40.240 --> 00:12:42.923
+campos de formulario que no tienen nombre,
+
+00:12:42.948 --> 00:12:45.600
+texto ilegible, vídeos sin subtítulos,
+
+00:12:45.799 --> 00:12:49.319
+contenido multilingüe que no
+tiene los atributos de idioma correctos,
+
+00:12:49.344 --> 00:12:51.568
+anidamiento incorrecto,
+
+00:12:51.799 --> 00:12:55.473
+carruseles que no tienen botón de pausa
+y encabezados por razones equivocadas.
+
+00:12:55.519 --> 00:12:59.787
+Entonces, con un CMS que realmente ayude
+obtienes la accesibilidad correcta,
+
+00:12:59.812 --> 00:13:03.192
+tal vez te avise por
+este tipo de errores
+
+00:13:03.217 --> 00:13:06.303
+o generará marcas sobre que
+no existen estos problemas
+
+00:13:06.328 --> 00:13:11.080
+y proporcionará plantillas que
+vienen con lo necesario.
+
+00:13:11.984 --> 00:13:13.360
+De eso se trata todo esto,
+
+00:13:13.360 --> 00:13:18.240
+queremos evitar el contenido inaccesible
+para nuestros usuarios finales.
+
+00:13:18.559 --> 00:13:21.676
+Y queremos ayudar a la gente
+que utilizan nuestros productos
+
+00:13:21.701 --> 00:13:24.487
+como nuestro CMS, nuestros plugins o nuestro tema.
+
+00:13:24.815 --> 00:13:27.154
+Queremos ayudarlos a evitar
+contenido inaccesible
+
+00:13:27.179 --> 00:13:30.200
+para que puedan publicar un sitio web
+que sea accesible
+
+00:13:30.773 --> 00:13:35.134
+y detectar problemas antes de que se presenten,
+lo ideal sería al publicarlo.
+
+00:13:35.159 --> 00:13:37.506
+Por lo tanto, un buen CMS realmente puede
+ayudar a los gestores de contenido
+
+00:13:37.530 --> 00:13:39.639
+a hacer que su contenido sea más accesible.
+
+00:13:40.600 --> 00:13:44.840
+Piensa en cosas como cuando el contenido
+creado, es accesible,
+
+00:13:44.879 --> 00:13:50.682
+que es el criterio de éxito en 1.1.2,
+B1.1.2 en la norma ATAG.
+
+00:13:50.896 --> 00:13:52.799
+Y eso tiene que ver con cosas como
+
+00:13:52.824 --> 00:13:55.545
+asegurarse de que sea
+anidado según el estándar.
+
+00:13:55.879 --> 00:13:59.879
+Deben asegurarse de que no haya espacios vacíos,
+o enlaces dentro de este contenido.
+
+00:14:00.240 --> 00:14:03.919
+A veces, para hacer que el contenido sea accesible,
+necesitas más información.
+
+00:14:03.919 --> 00:14:07.590
+Entonces tal vez necesites hacer un llamado al
+usuario para obtener la información de accesibilidad requerida,
+
+00:14:07.615 --> 00:14:09.894
+como un pie de foto para una tabla,
+
+00:14:09.919 --> 00:14:12.919
+un texto alternativo para una
+imagen o para vídeo,
+
+00:14:13.383 --> 00:14:16.589
+ese tipo de cosas,
+necesitas solicitarlas
+
+00:14:16.614 --> 00:14:19.200
+si sabes que podría
+causar un problema de accesibilidad
+
+00:14:19.200 --> 00:14:23.396
+y, ya sabes, confías en el
+editor de contenido para proporcionar la información,
+
+00:14:23.421 --> 00:14:24.854
+tendrás que solicitarlo.
+
+00:14:24.879 --> 00:14:29.111
+Subtítulos para tablas, texto alternativo para imágenes
+y etiquetas para los campos del formulario
+
+00:14:29.136 --> 00:14:32.054
+son solo algunos ejemplos de
+cosas que podrían sugerir.
+
+00:14:32.720 --> 00:14:36.679
+O cuando se genera contenido, tal vez haya
+comprobaciones de accesibilidad automatizadas,
+
+00:14:36.871 --> 00:14:39.212
+o si solo se puede comprobar manualmente,
+
+00:14:39.245 --> 00:14:43.639
+tal vez las herramientas deberían sugerir
+al usuario que realice una verificación manual.
+
+00:14:43.879 --> 00:14:47.360
+Por ejemplo, si se trata de la
+estructura de encabezado de la página,
+
+00:14:47.385 --> 00:14:50.360
+o si se trata de texto alternativo,
+
+00:14:50.360 --> 00:14:52.721
+tal vez estén gestionados centralmente,
+
+00:14:52.745 --> 00:14:56.342
+y quieres que el usuario se asegure
+que el texto alternativo tiene sentido
+
+00:14:56.367 --> 00:14:58.082
+para este caso específico.
+
+00:14:58.107 --> 00:15:00.286
+Por ejemplo, una foto de un orador,
+
+00:15:00.310 --> 00:15:02.159
+pero su nombre también aparece en el contenido,
+
+00:15:02.159 --> 00:15:04.710
+así que tal vez en ese momento
+no añades nada,
+
+00:15:04.734 --> 00:15:08.395
+o dejas un
+texto alternativo vacío
+
+00:15:08.420 --> 00:15:10.759
+en lugar de repetir el
+nombre del orador.
+
+00:15:10.759 --> 00:15:13.179
+Ese tipo de cosas que
+requieren verificación manual,
+
+00:15:13.204 --> 00:15:17.000
+alguien que conoce el contenido
+y lo entiende puede hacerlo
+
+00:15:17.000 --> 00:15:19.496
+y como herramienta de autoría, como CMS,
+
+00:15:19.520 --> 00:15:21.923
+en realidad podrían
+proporcionar las instrucciones correctas
+
+00:15:21.948 --> 00:15:26.813
+y ayudar al usuario a entender
+cómo hacer que su contenido sea accesible.
+
+00:15:28.790 --> 00:15:32.600
+2.1.1 trata de permitir la creación de
+contenido accesible.
+
+00:15:32.940 --> 00:15:36.480
+No todo el mundo se da cuenta de esto, pero hay
+muchas herramientas de autoría disponibles
+
+00:15:36.480 --> 00:15:41.559
+que no proporcionan o no permiten
+acceso a contenido accesible.
+
+00:15:41.559 --> 00:15:44.730
+Por ejemplo, si subes un video,
+
+00:15:44.754 --> 00:15:47.095
+si no hay pie de foto,
+no es accesible.
+
+00:15:47.120 --> 00:15:50.279
+Pero si tu widget de vídeo
+no tiene botón de subtítulos,
+
+00:15:50.304 --> 00:15:55.900
+el usuario no puede crear un
+vídeo accesible con tu herramienta de autoría,
+
+00:15:55.924 --> 00:15:58.559
+o si no hay
+opción de texto alternativo.
+
+00:15:58.559 --> 00:16:00.146
+Y en algunas redes sociales, por ejemplo,
+
+00:16:00.171 --> 00:16:03.080
+solo recientemente se agregó la
+opción para añadir texto alternativo.
+
+00:16:03.080 --> 00:16:05.008
+Y hay un montón
+de redes sociales
+
+00:16:05.033 --> 00:16:07.639
+que aún no tienen
+esa opción disponible.
+
+00:16:07.919 --> 00:16:10.359
+Así que incluso si los usuarios quieren
+crear contenido accesible,
+
+00:16:10.384 --> 00:16:13.531
+no pueden porque
+no hay opción para texto alternativo.
+
+00:16:14.341 --> 00:16:17.428
+Para los campos de imagen, eso significa
+que debería haber un campo de texto alternativo
+
+00:16:17.453 --> 00:16:21.519
+y para los reproductores de vídeo, debería haber
+un botón de carga para subtítulos.
+
+00:16:21.919 --> 00:16:25.647
+Y esto es particularmente importante
+para quienes crean plugins
+
+00:16:25.672 --> 00:16:27.823
+que tengan que ver con vídeos o imágenes.
+
+00:16:27.848 --> 00:16:30.282
+Asegurarse de que la gente pueda
+gestionar su texto alternativo
+
+00:16:30.307 --> 00:16:33.985
+para que puedan crear
+contenido accesible en primer lugar.
+
+00:16:35.667 --> 00:16:39.326
+Otra cosa que ATAG recomienda
+es tener plantillas accesibles
+
+00:16:39.359 --> 00:16:41.182
+para los casos de uso más comunes
+
+00:16:41.206 --> 00:16:43.360
+y poder filtrarlos.
+
+00:16:45.320 --> 00:16:49.559
+Sé que hay un filtro disponible en el
+directorio de WordPress con diferentes temas,
+
+00:16:49.951 --> 00:16:51.671
+y esa es otra forma importante
+
+00:16:51.705 --> 00:16:54.679
+de ayudar a los editores de contenido
+a tomar las decisiones correctas.
+
+00:16:55.279 --> 00:17:00.750
+Y está B2.5.1, que dice que se
+deben proporcionar componentes de interfaz de usuario accesibles
+
+00:17:00.775 --> 00:17:03.919
+o como lo denomina la especificación:
+contenido preescrito.
+
+00:17:04.160 --> 00:17:08.645
+Cuando proporcionan algo
+como un componente de carrusel o pestañas,
+
+00:17:08.670 --> 00:17:11.562
+y los usuarios pueden agregar eso a la página,
+
+00:17:11.586 --> 00:17:13.913
+deben asegurarse de que
+son accesibles por defecto
+
+00:17:13.938 --> 00:17:17.317
+para que el editor de contenido
+no necesite hacer nada.
+
+00:17:17.400 --> 00:17:19.720
+Se envía simplemente como un componente accesible.
+
+00:17:20.079 --> 00:17:23.158
+Así que tiene mucho sentido
+dedicar tiempo a la accesibilidad
+
+00:17:23.183 --> 00:17:26.829
+si proporcionan algo
+como una herramienta de carrusel,
+
+00:17:26.853 --> 00:17:30.029
+porque todos los que van
+a usar su plugin
+
+00:17:30.054 --> 00:17:32.079
+van a tener un
+sitio web más accesible.
+
+00:17:32.079 --> 00:17:38.465
+Así que va a tener un efecto enorme
+si dedican tiempo extra a la accesibilidad
+
+00:17:38.490 --> 00:17:40.746
+para todos esos usuarios en concreto.
+
+00:17:41.675 --> 00:17:46.706
+Ahora aquí hay algunas
+interpretaciones de B3.1.1.
+
+00:17:46.731 --> 00:17:49.680
+¿Por qué no alertar a los usuarios cuando
+introducen un problema de contraste de color?
+
+00:17:50.079 --> 00:17:53.911
+Digamos que trabajas en una agencia y
+el diseñador ha creado este hermoso encabezado,
+
+00:17:53.936 --> 00:17:57.400
+con una foto oscura de un gato negro
+con texto blanco encima.
+
+00:17:57.919 --> 00:17:59.252
+Tiene un contraste perfecto
+
+00:17:59.277 --> 00:18:02.353
+y ha sido comprobado según
+las pautas de accesibilidad.
+
+00:18:02.378 --> 00:18:04.994
+Esto es bueno, pasa todas las pruebas,
+
+00:18:05.018 --> 00:18:07.542
+pero entonces alguien
+decide reemplazar la foto
+
+00:18:07.567 --> 00:18:10.150
+con uno de comida coreana en este caso,
+
+00:18:10.174 --> 00:18:13.424
+y es una foto perfectamente válida,
+
+00:18:13.449 --> 00:18:15.678
+pero es muy clara y
+el texto también es claro.
+
+00:18:15.703 --> 00:18:18.151
+Entonces, en este punto, cuando
+ponemos esta foto,
+
+00:18:18.176 --> 00:18:20.366
+hemos introducido un problema de contraste de color.
+
+00:18:20.962 --> 00:18:24.480
+Es posible programar la
+detección de problemas de contraste de color.
+
+00:18:24.756 --> 00:18:27.991
+Y con eso, podrías proporcionar
+una alerta para el autor del contenido
+
+00:18:28.016 --> 00:18:29.817
+de que algo está fallando.
+
+00:18:30.008 --> 00:18:31.960
+Se podría decir, bueno,
+no hay suficiente contraste.
+
+00:18:31.960 --> 00:18:34.079
+Tal vez debería haber
+un color de fondo
+
+00:18:34.104 --> 00:18:36.680
+detrás de este texto
+para solucionar el problema.
+
+00:18:37.039 --> 00:18:39.647
+O en algunos casos, un
+texto más grande o fuente más negrita,
+
+00:18:39.672 --> 00:18:42.244
+podría ser suficiente para
+solucionar el problema.
+
+00:18:43.400 --> 00:18:46.640
+Otra cosa que se podría hacer es añadir
+un corrector ortográfico para los campos de contenido.
+
+00:18:46.972 --> 00:18:53.799
+Tengo un botón aquí que dice "Swbmit",
+lo cual supongo que los usuarios con buena visión,
+
+00:18:54.039 --> 00:18:57.136
+podrían analizarlo en su cabeza
+y ver que probablemente dice "Submit".
+
+00:18:57.161 --> 00:18:59.359
+Pero la W se parece mucho a una U,
+
+00:19:00.191 --> 00:19:02.897
+y si estás intentando usar
+alguna tecnología de asistencia,
+
+00:19:02.931 --> 00:19:05.680
+va a ser bastante
+complicado usar este botón,
+
+00:19:06.079 --> 00:19:08.839
+y lo va a leer de forma extraña
+en un lector de pantalla.
+
+00:19:09.039 --> 00:19:11.359
+Si utilizas una herramienta de
+lenguaje natural,
+
+00:19:11.720 --> 00:19:14.359
+va a ser difícil identificar
+un botón específico.
+
+00:19:14.519 --> 00:19:15.821
+Entonces, si hubiera un corrector ortográfico,
+
+00:19:15.846 --> 00:19:18.440
+podrías evitar estos
+problemas de accesibilidad en general.
+
+00:19:20.039 --> 00:19:23.643
+Otra cosa que podría hacer automáticamente
+es informar sobre los niveles de legibilidad.
+
+00:19:23.839 --> 00:19:26.640
+Y creo que ya he visto esto
+en algunos plugins de SEO.
+
+00:19:26.857 --> 00:19:29.658
+Pero también es una opción muy válida
+para mejorar la accesibilidad
+
+00:19:29.683 --> 00:19:32.160
+y asegurarse de que
+el texto es agradable y fácil de leer.
+
+00:19:32.519 --> 00:19:34.530
+Y podría tener niveles de legibilidad,
+
+00:19:34.887 --> 00:19:37.559
+advertir al usuario cuando haya añadido texto,
+demasiado complicado,
+
+00:19:37.559 --> 00:19:40.119
+y tal vez ayudarlos a solucionar los problemas
+allí también.
+
+00:19:42.880 --> 00:19:46.559
+Otra cosa que recomienda la norma
+es proporcionar ejemplos accesibles.
+
+00:19:46.559 --> 00:19:50.078
+Si trabajan en documentación,
+también pueden hacer mucho
+
+00:19:50.103 --> 00:19:53.928
+por la accesibilidad de su CMS o plugin
+
+00:19:53.952 --> 00:19:56.146
+comprobando que todos los ejemplos
+
+00:19:56.171 --> 00:19:59.160
+realmente ayudan al usuario a
+asegurarse de que sean accesibles.
+
+00:19:59.400 --> 00:20:02.366
+A veces eso significa verificar que
+cosas que tal vez se copien y peguen,
+
+00:20:02.391 --> 00:20:06.795
+realmente son
+accesible.
+
+00:20:06.839 --> 00:20:09.735
+A veces significa proporcionar
+las pautas correctas como
+
+00:20:09.759 --> 00:20:13.160
+si se deja un campo vacío,
+no habrá texto alternativo,
+
+00:20:13.160 --> 00:20:14.773
+así que asegúrense de poner algo ahí dentro,
+
+00:20:14.798 --> 00:20:17.640
+o explicar cómo
+funcionan los textos alternativos.
+
+00:20:17.880 --> 00:20:23.762
+Realmente se trata de hacer un esfuerzo extra y
+asegurarse de que el ejemplo sea accesible
+
+00:20:23.787 --> 00:20:26.104
+y fomentar una buena accesibilidad.
+
+00:20:27.799 --> 00:20:31.530
+Básicamente, un buen CMS puede
+fomentar un contenido más accesible
+
+00:20:31.555 --> 00:20:34.200
+y ayudar a las personas a conseguir
+su derecho a la accesibilidad.
+
+00:20:34.799 --> 00:20:36.938
+Ahora que he hablado bastante
+del estándar,
+
+00:20:36.962 --> 00:20:39.035
+creo que una de las cosas emocionantes
+
+00:20:39.059 --> 00:20:41.718
+acerca de las herramientas de autoría
+que ayudan con la accesibilidad
+
+00:20:41.743 --> 00:20:43.920
+es que realmente pueden
+ayudar con su proceso.
+
+00:20:44.680 --> 00:20:48.960
+Veamos ahora en qué momento del proceso
+las herramientas de autoría pueden ser de ayuda.
+
+00:20:49.200 --> 00:20:52.799
+El proceso es un poco complicado, creo,
+
+00:20:53.119 --> 00:20:56.399
+porque con quien sea que hables,
+dependiendo de su organización,
+
+00:20:56.423 --> 00:20:59.228
+tendrán diferentes maneras
+de organizar sus proyectos.
+
+00:20:59.253 --> 00:21:02.941
+Este es un ejemplo de un proceso
+cuya organización podría estar siguiendo
+
+00:21:02.966 --> 00:21:05.440
+los principios de la cascada.
+
+00:21:06.440 --> 00:21:09.623
+Así que podrían empezar con algunas
+sesiones de planificación y estrategia,
+
+00:21:09.648 --> 00:21:11.794
+luego el diseño de interacción,
+diseño visual,
+
+00:21:11.818 --> 00:21:14.119
+desarrollo,
+luego control de calidad, y después lanzamiento.
+
+00:21:15.119 --> 00:21:18.759
+Es posible que tengan un proceso que sea mucho
+más multidisciplinario.
+
+00:21:19.440 --> 00:21:22.920
+Así que podrías tener todas las disciplinas
+trabajando juntas en iteracciones.
+
+00:21:23.200 --> 00:21:26.839
+Eso sería importante en sprints o
+al hacer algo como scrums.
+
+00:21:28.440 --> 00:21:31.781
+O podrías estar yendo y
+viniendo entre estas fases,
+
+00:21:31.806 --> 00:21:35.311
+como volver desde el lanzamiento hasta
+estrategia o diseño de interacción,
+
+00:21:35.336 --> 00:21:37.599
+o a veces,
+desde el control de calidad hasta el diseño.
+
+00:21:38.640 --> 00:21:41.791
+Hagas lo que hagas, creo que...
+Hay mucho que decir
+
+00:21:41.816 --> 00:21:44.983
+sobre dónde las herramientas de autoría
+encajarían en el proceso.
+
+00:21:45.515 --> 00:21:48.219
+Por ejemplo, si estás trabajando
+en planificación y estrategia,
+
+00:21:48.244 --> 00:21:50.854
+pueden marcar una gran diferencia
+al elegir una herramienta de autoría
+
+00:21:50.879 --> 00:21:53.839
+que apoye la accesibilidad de las maneras
+que ya expliqué anteriormente.
+
+00:21:54.119 --> 00:21:58.162
+Así pues, adoptamos muchos de los principios de ATAG
+
+00:21:58.187 --> 00:22:01.821
+y ayudamos al usuario
+a que su accesibilidad sea adecuada.
+
+00:22:01.846 --> 00:22:03.202
+Puede ser de gran ayuda a largo plazo.
+
+00:22:03.227 --> 00:22:07.858
+Porque si ese es el caso,
+luego más adelante en el proceso,
+
+00:22:07.883 --> 00:22:11.960
+será mucho más fácil para la organización
+crear páginas web accesibles.
+
+00:22:13.065 --> 00:22:16.004
+En la fase de diseño de interacción,
+podría hablar mucho
+
+00:22:16.029 --> 00:22:19.960
+sobre cómo se debe crear el contenido
+de forma accesible.
+
+00:22:20.440 --> 00:22:24.162
+Podrían probar el proceso de creación de contenido
+con personas con discapacidad
+
+00:22:24.187 --> 00:22:27.519
+si las pruebas de usuario forman parte
+del diseño de interacción.
+
+00:22:28.344 --> 00:22:30.158
+Si se dedican al diseño visual,
+
+00:22:30.183 --> 00:22:33.316
+podrían proporcionar directrices
+para personalizar el color
+
+00:22:33.341 --> 00:22:35.388
+para que su contraste funcione bien.
+
+00:22:35.555 --> 00:22:40.279
+Podrían trabajar en ejemplos accesibles
+como objetivos táctiles lo suficientemente grandes.
+
+00:22:40.839 --> 00:22:43.957
+Todo este tipo de cosas pueden
+ayudarles en la fase de diseño
+
+00:22:43.982 --> 00:22:48.339
+a asegurarse de que cualquier persona pueda
+crear páginas web,
+
+00:22:48.364 --> 00:22:50.680
+porque podrían no saber
+diseñar cada una de las páginas web.
+
+00:22:50.680 --> 00:22:52.680
+Podría ocurrir en la fase de plantilla
+y luego
+
+00:22:53.319 --> 00:22:56.680
+los creadores de contenido podrían trabajar con diseños
+que fueron creados anteriormente.
+
+00:22:56.880 --> 00:23:00.559
+Por lo tanto, proporcionar algunas pautas puede
+realmente ayudar en la fase de redacción.
+
+00:23:01.160 --> 00:23:04.874
+Cuando hablamos de desarrollo,
+podría marcar una gran diferencia
+
+00:23:04.899 --> 00:23:07.529
+eligir un tema
+que cuente con soporte de accesibilidad
+
+00:23:07.553 --> 00:23:09.519
+o un plugin con soporte para accesibilidad.
+
+00:23:09.960 --> 00:23:14.201
+Porque, de nuevo, ayudarás a
+personas que crean contenido web
+
+00:23:14.225 --> 00:23:17.013
+a hacerlo de una manera más accesible,
+
+00:23:17.038 --> 00:23:19.616
+o a veces se obtiene mucha
+accesibilidad gratuita,
+
+00:23:19.641 --> 00:23:23.200
+si hay un componente de carrusel o
+algo que fue construido de forma accesible.
+
+00:23:24.303 --> 00:23:28.087
+En lo que respecta al control de calidad, podrías
+integrar pruebas de accesibilidad automatizadas
+
+00:23:28.112 --> 00:23:29.440
+en el proceso de autoría.
+
+00:23:29.759 --> 00:23:34.173
+Por ejemplo, si alguien
+crea una nueva página y pulsa guardar,
+
+00:23:34.198 --> 00:23:36.809
+que haya algunas pruebas
+que se ejecuten automáticamente.
+
+00:23:36.834 --> 00:23:41.494
+Si tienes algunos ingenieros de automatización de pruebas
+en tu equipo, aprovéchalos
+
+00:23:41.519 --> 00:23:45.727
+y deja que ayuden a hacer el
+proceso de autoría más completo
+
+00:23:45.751 --> 00:23:47.167
+en términos de accesibilidad.
+
+00:23:48.119 --> 00:23:49.290
+Y luego, cuando lances,
+
+00:23:49.314 --> 00:23:51.801
+puede que tengas algo
+mucho más accesible
+
+00:23:51.826 --> 00:23:54.817
+que si no lo hicieras.
+He dicho todas esas cosas
+
+00:23:55.559 --> 00:23:57.730
+debido a que se lanzan muchos sitios web
+
+00:23:57.754 --> 00:24:00.559
+sin opciones de accesibilidad,
+lamentablemente.
+
+00:24:01.359 --> 00:24:02.606
+Eso sigue ocurriendo.
+
+00:24:02.640 --> 00:24:06.905
+Y esos sitios web, podrían investigar, que
+luego contratan consultores de accesibilidad,
+
+00:24:06.930 --> 00:24:09.480
+por obtener una larga lista de problemas
+que nunca se les habían ocurrido.
+
+00:24:10.240 --> 00:24:14.720
+Y podría llevarles mucho más tiempo
+abordar todos esos problemas.
+
+00:24:14.745 --> 00:24:16.998
+Entonces, debemos empezar
+en la fase de planificación
+
+00:24:17.023 --> 00:24:19.899
+a pensar en la accesibilidad
+en todas estas diferentes fases,
+
+00:24:19.923 --> 00:24:22.284
+y sé que eso no es algo nuevo,
+
+00:24:22.309 --> 00:24:25.240
+pero solo quiero decir que
+realmente marca una gran diferencia.
+
+00:24:25.240 --> 00:24:28.822
+Y si piensas en la autoría
+en todas estas fases,
+
+00:24:28.847 --> 00:24:33.369
+realmente puede ayudar a crear
+cosas mucho más accesibles por defecto.
+
+00:24:35.431 --> 00:24:38.439
+Puede que esté claro que
+en WAI,
+
+00:24:38.464 --> 00:24:42.720
+las herramientas de autoría son
+parte importante de la accesibilidad web.
+
+00:24:43.215 --> 00:24:44.240
+Y en ese sentido,
+
+00:24:44.265 --> 00:24:48.440
+estamos haciendo una serie de
+cosas para mejorar la situación.
+
+00:24:49.680 --> 00:24:53.577
+Lo primero es que
+
+00:24:53.602 --> 00:24:56.708
+si el estándar ATAG
+en sí mismo es una lectura un poco larga,
+
+00:24:56.732 --> 00:25:00.005
+también está la implementación del
+Documento ATAG 2.0
+
+00:25:00.030 --> 00:25:03.653
+que tiene fundamento e intención
+para cada uno de los criterios de éxito,
+
+00:25:03.678 --> 00:25:05.839
+y un montón de diferentes
+ejemplos prácticos.
+
+00:25:05.839 --> 00:25:09.400
+Y he tomado algunos de los ejemplos en
+esta presentación también,
+
+00:25:09.920 --> 00:25:12.739
+para ayuda a comprender mejor ATAG,
+
+00:25:12.764 --> 00:25:16.311
+por si te quedas atascado en el
+Documento ATAG principal.
+
+00:25:17.415 --> 00:25:19.453
+Ahora, estoy
+involucrado personalmente
+
+00:25:19.478 --> 00:25:21.720
+en algo llamado Proyecto Guía WAI.
+
+00:25:22.024 --> 00:25:24.131
+Una cosa que estamos
+creando
+
+00:25:24.155 --> 00:25:28.206
+para ayudar a las personas a utilizar la autoría,
+
+00:25:28.231 --> 00:25:31.830
+sobre cómo poner las herramientas de autoría,
+en primer plano
+
+00:25:31.855 --> 00:25:34.319
+para ayudarte a lograr una accesibilidad adecuada.
+
+00:25:35.079 --> 00:25:38.640
+Queremos ayudar a la gente a encontrar herramientas
+que apoyan la accesibilidad.
+
+00:25:38.799 --> 00:25:43.138
+Así que hemos creado una lista de herramientas de autoría
+donde puedes filtrar por criterios ATAG
+
+00:25:43.163 --> 00:25:45.425
+y encontrar herramientas que faciliten la accesibilidad.
+
+00:25:46.039 --> 00:25:49.512
+Ahora bien, todo esto siguen siendo datos ficticios
+que puedes ver aquí.
+
+00:25:49.920 --> 00:25:50.960
+Todavía no está disponible.
+
+00:25:51.880 --> 00:25:55.400
+Pero estamos trabajando para conseguir nuestras
+primeras entradas en la lista.
+
+00:25:55.400 --> 00:25:59.874
+Y si creas una herramienta
+que califica para esto
+
+00:25:59.899 --> 00:26:01.167
+y cuenta con soporte de accesibilidad
+
+00:26:01.192 --> 00:26:04.048
+y cumpla con uno o más
+de los criterios ATAG,
+
+00:26:04.073 --> 00:26:06.652
+pongáse en contacto conmigo, 
+estaré encantado de ayudarle.
+
+00:26:08.200 --> 00:26:11.885
+Al mismo tiempo, también estamos trabajando
+en algo llamado herramienta de informes ATAG
+
+00:26:11.910 --> 00:26:15.200
+donde pueden informar sobre los criterios de ATAG.
+
+00:26:15.559 --> 00:26:18.478
+Así que pueden completar algunos detalles
+
+00:26:18.502 --> 00:26:20.351
+y luego van a cada una de las directrices
+
+00:26:20.376 --> 00:26:22.788
+y entonces sabrán
+ya sea que apruebe o repruebe
+
+00:26:22.813 --> 00:26:25.859
+y pueden rellenar alguna
+información sobre cada uno de ellos.
+
+00:26:26.279 --> 00:26:30.160
+Ahora, esto es algo así como
+una base opcional.
+
+00:26:30.160 --> 00:26:31.720
+Por lo tanto, cada una de estas opciones es opcional.
+
+00:26:31.720 --> 00:26:33.920
+Pueden rellenar
+lo que quieran mostrar.
+
+00:26:34.160 --> 00:26:37.846
+Entonces, si ustedes tratan particularmente
+con uno de los criterios,
+
+00:26:37.871 --> 00:26:40.640
+luego rellenan esos y tal vez
+dejan los demás vacíos.
+
+00:26:41.000 --> 00:26:43.519
+Por supuesto, queremos tener la mayor cantidad de
+criterios como sea posible.
+
+00:26:43.519 --> 00:26:47.079
+Eso también facilitará a las personas
+a encontrar su herramienta en nuestra lista.
+
+00:26:48.240 --> 00:26:52.039
+Pero sí, agradecemos los informes
+de esta manera también.
+
+00:26:52.400 --> 00:26:57.079
+En esta herramienta, pueden crear
+un informe en formato JSON o HTML.
+
+00:26:57.519 --> 00:26:59.927
+Y también pueden publicar eso
+en su sitio web
+
+00:26:59.951 --> 00:27:01.880
+para demostrar lo bien que cumple con ATAG.
+
+00:27:02.160 --> 00:27:05.596
+Y por último, podrían crear
+una entrada en la lista de herramientas de autoría,
+
+00:27:05.621 --> 00:27:06.821
+en eso estamos trabajando.
+
+00:27:07.000 --> 00:27:09.020
+En este momento,
+todavía no existe esa conexión,
+
+00:27:09.045 --> 00:27:11.519
+porque aún se encuentra en sus primeras fases.
+
+00:27:11.519 --> 00:27:16.559
+Pero sí, estoy muy interesado en escucharles,
+agradecemos sus comentarios sobre esta herramienta.
+
+00:27:17.314 --> 00:27:21.933
+Ahora, pasemos a las conclusiones,
+lo que quería compartir con ustedes hoy,
+
+00:27:21.966 --> 00:27:26.519
+es muy cierto que los CMS son
+esencial para una web accesible.
+
+00:27:26.839 --> 00:27:33.000
+No les sorprenderá, si son de las personas que trabajan en
+Sistemas de gestión de contenido (CMS), plugins e incluso temas.
+
+00:27:33.599 --> 00:27:37.319
+Pero sí, su trabajo es muy importante
+para la accesibilidad web.
+
+00:27:37.319 --> 00:27:41.960
+Espero que esta charla haya aportado nuevas perspectivas
+en muchos sentidos.
+
+00:27:42.359 --> 00:27:45.539
+Ahora, en segundo lugar, creo que los CMS
+debería ser de gran ayuda para los editores de contenido,
+
+00:27:45.564 --> 00:27:47.160
+asegurándose de que sean accesibles.
+
+00:27:47.440 --> 00:27:50.920
+Y espero haber esbozado en esta charla
+las múltipes maneras en que pueden hacerlo.
+
+00:27:51.759 --> 00:27:56.279
+Así que esperamos que podamos ver realmente
+los sistemas de gestión de contenidos como asistentes de accesibilidad.
+
+00:27:57.119 --> 00:27:59.039
+Y esa es la pregunta con la que
+quiero dejarles.
+
+00:27:59.039 --> 00:28:02.078
+¿Cómo transformarías tu CMS
+tu plugin, tu tema
+
+00:28:02.103 --> 00:28:04.928
+en un mejor asistente
+para la accesibilidad web?
+
+00:28:05.279 --> 00:28:06.880
+Por ahora, muchas gracias por escuchar.
+
+00:28:06.880 --> 00:28:10.039
+Pueden encontrar las diapositivas en
+talks.hiddedevries.nl.
+
+00:28:10.559 --> 00:28:17.160
+También van a tener todos los recursos,
+enlaces y, vídeos, creo.
+
+00:28:18.000 --> 00:28:20.720
+Si tienen alguna pregunta, no duden en consultarnos
+y ponerse en contacto
+
+00:28:20.720 --> 00:28:22.759
+en hidde@w3.org.
+
+00:28:23.279 --> 00:28:25.012
+O también pueden contactarme por Twitter.
+
+00:28:25.037 --> 00:28:28.994
+Ahora voy a aparecer en
+una sesión de preguntas y respuestas en directo justo después.
+
+00:28:29.399 --> 00:28:31.494
+Quiero darles las
+gracias por escuchar
+
+00:28:31.519 --> 00:28:34.400
+y un saludo a los organizadores
+del Día de la Accesibilidad de WordPress.
+
+00:28:34.400 --> 00:28:38.390
+Muchas gracias por organizar este evento
+e invitarme a hablar.
+
+00:28:48.920 --> 00:28:53.000
+<v title="Ahmed"> Muchas gracias, Hidde, por
+esa presentación.
+
+00:28:53.480 --> 00:28:56.559
+De hecho, pudimos aprender
+muchas cosas
+
+00:28:56.599 --> 00:29:01.000
+que son muy, muy importantes
+a la hora de elegir CMS.
+
+00:29:01.225 --> 00:29:03.000
+Y tenemos un montón de preguntas.
+
+00:29:03.279 --> 00:29:07.319
+Así que empecemos con la primera
+mientras llegan algunas más.
+
+00:29:07.559 --> 00:29:12.599
+La primera pregunta que tenemos para usted es:
+¿Cuál sería la característica más importante
+
+00:29:13.279 --> 00:29:17.039
+que deba cambiar en Gutenberg para
+ser completamente accesible?
+
+00:29:17.160 --> 00:29:19.626
+Si necesitas corregir algo,
+también podrías hacer eso.
+
+00:29:21.880 --> 00:29:24.109
+<v title="Hidde"> Probablemente no soy
+la persona adecuada a quien preguntarle
+
+00:29:24.134 --> 00:29:26.920
+porque no trabajo en Gutenberg.
+
+00:29:27.400 --> 00:29:31.273
+Creo que hay una presentación muy interesante
+sobre eso que les pondría al día,
+
+00:29:31.298 --> 00:29:37.119
+con las últimas novedades sobre la accesibilidad de Gutenberg,
+es de Joe Dolson en el campus de WordPress.
+
+00:29:37.559 --> 00:29:39.920
+El video ha sido recientemente
+publicado,
+
+00:29:39.960 --> 00:29:42.276
+y creo que
+les dará una buena visión general
+
+00:29:42.301 --> 00:29:45.575
+de las cosas en las que está trabajando ese equipo,
+
+00:29:45.599 --> 00:29:49.519
+a veces batallando
+para mejorar muchísimo.
+
+00:29:49.759 --> 00:29:54.119
+Así que hay mucho trabajo en marcha en
+Gutenberg, que me parece genial.
+
+00:29:54.160 --> 00:29:59.079
+Es difícil crear el editor del futuro
+y que además sea accesible.
+
+00:29:59.079 --> 00:30:00.896
+Así que admiro el esfuerzo.
+
+00:30:00.921 --> 00:30:04.160
+Creo que hay muchas cosas geniales
+en las que están trabajando allí.
+
+00:30:04.480 --> 00:30:08.840
+Pero no tengo mucho que decir sobre
+sus problemas reales.
+
+00:30:10.678 --> 00:30:11.751
+<v title="Ahmed"> Impresionante.
+
+00:30:11.790 --> 00:30:18.582
+La siguiente es sobre tu sugerencia.
+¿Conoces alguna buena herramienta para que desarrolladores
+
+00:30:18.607 --> 00:30:23.400
+puedan probar los diferentes niveles
+de accesibilidad: A, AA o AAA?
+
+00:30:25.200 --> 00:30:28.119
+<v title="Hidde"> Sí, esos niveles, en realidad
+existen en múltiples estándares.
+
+00:30:28.200 --> 00:30:32.525
+Así que la mayoría de las personas se referirán a ellos
+cuando miran el estándar WCAG
+
+00:30:32.550 --> 00:30:35.599
+que tiene estos tres niveles, A, AA y AAA.
+
+00:30:36.110 --> 00:30:38.031
+El estándar ATAG también lo hace.
+
+00:30:38.119 --> 00:30:42.326
+Ahora, para el estándar WCAG, hay
+un conjunto de diferentes herramientas de prueba automatizadas
+
+00:30:42.351 --> 00:30:48.240
+que intentan interpretar las reglas que están en
+WCAG como reglas de prueba y ejecución automática.
+
+00:30:50.319 --> 00:30:53.519
+Para ATAG, eso realmente no existe.
+
+00:30:54.254 --> 00:30:56.775
+Entonces, en el W3C tenemos este
+proyecto llamado reglas ACT
+
+00:30:56.800 --> 00:30:59.803
+donde intentamos juntar
+diferentes proveedores de herramientas
+
+00:30:59.827 --> 00:31:03.599
+y trabajar en las reglas de prueba,
+armonizar esas reglas de prueba
+
+00:31:03.599 --> 00:31:06.799
+para que cada herramienta interprete de alguna manera
+las WCAG de la misma forma.
+
+00:31:07.423 --> 00:31:09.646
+Creo que eso es un
+proyecto interesante para ver
+
+00:31:09.671 --> 00:31:12.920
+si quieren saber más
+sobre las diferentes reglas que existen.
+
+00:31:14.359 --> 00:31:16.858
+Pero sí, definitivamente pueden ver
+pruebas automáticas para WCAG,
+
+00:31:16.883 --> 00:31:19.405
+eso es bueno
+si están desarrollando un CMS
+
+00:31:19.429 --> 00:31:22.519
+porque en uno de los ATAG
+las directrices se ajustan a las WCAG.
+
+00:31:23.080 --> 00:31:25.795
+Eso es bueno
+para la experiencia de edición,
+
+00:31:25.820 --> 00:31:27.788
+pero también es bueno para el rendimiento.
+
+00:31:27.813 --> 00:31:31.483
+Entonces, si revisan la página
+que se está generando
+
+00:31:31.508 --> 00:31:33.340
+o en la que el editor está trabajando,
+
+00:31:33.365 --> 00:31:35.356
+si pasan eso por
+alguna herramienta de prueba automatizada,
+
+00:31:35.381 --> 00:31:39.319
+también podrían ser capaces de
+prevenir algunos problemas de accesibilidad.
+
+00:31:40.823 --> 00:31:44.839
+<v title="Ahmed"> Genial.
+La siguiente pregunta es una de mis favoritas.
+
+00:31:45.211 --> 00:31:47.731
+Y esta pregunta es:
+
+00:31:47.755 --> 00:31:53.431
+¿por qué nos estamos centrando todos en
+WCAG y no también en ATAG?
+
+00:31:53.456 --> 00:31:57.920
+¿Hay algún sesgo?
+¿Hay alguna prioridad?
+
+00:31:59.871 --> 00:32:01.790
+<v title="Hidde"> Esa es una gran pregunta.
+
+00:32:02.123 --> 00:32:04.765
+Y es algo que también notamos en WAI.
+
+00:32:04.790 --> 00:32:09.734
+Y en parte esa es la razón por la que
+ahora me han asignado trabajar en esto.
+
+00:32:09.759 --> 00:32:15.484
+Nos encantaría que más personas adoptaran ATAG
+y mostrar los beneficios de adoptar ATAG,
+
+00:32:15.509 --> 00:32:18.865
+no solo para personas que quieren
+crear CMS o vender plugins,
+
+00:32:18.890 --> 00:32:20.920
+sino también para las empresas que las compran.
+
+00:32:21.192 --> 00:32:24.968
+Sentimos que hay un único
+argumento de venta a realizar
+
+00:32:24.993 --> 00:32:29.311
+porque muchas organizaciones,
+ahora, por ley, deben ser accesibles,
+
+00:32:29.336 --> 00:32:31.289
+y si tu herramienta puede ayudarlos,
+
+00:32:31.314 --> 00:32:32.963
+es posible que puedas
+cobrarles más dinero.
+
+00:32:32.988 --> 00:32:37.000
+Entonces sentimos que hay muchos
+beneficios de consultar ATAG.
+
+00:32:37.279 --> 00:32:40.114
+No está sucediendo,
+o no estaba ocurriendo tanto.
+
+00:32:40.139 --> 00:32:42.864
+Hemos visto una mayor adopción en el último año,
+
+00:32:42.888 --> 00:32:44.680
+y cada vez más gente habla de ello.
+
+00:32:45.644 --> 00:32:49.455
+Escuchamos a Susanna hablar antes sobre
+la accesibilidad de las herramientas de autoría
+
+00:32:49.480 --> 00:32:51.226
+y tuvimos esta 
+conferencia hoy
+
+00:32:51.251 --> 00:32:54.559
+así que se habla más de ello
+
+00:32:55.265 --> 00:32:57.814
+y eso es genial, ya vemos como
+cada vez más personas se centran en ello.
+
+00:32:57.880 --> 00:33:00.911
+Pero creo que una de las razones principales
+es que WCAG es un estándar
+
+00:33:00.936 --> 00:33:03.559
+que es aceptado por
+muchos gobiernos en todo el mundo,
+
+00:33:03.559 --> 00:33:08.521
+y lo único que ellos
+incluyen con frecuencia en la legislación.
+
+00:33:08.990 --> 00:33:13.720
+ATAG no lo es, pero realmente puede ayudar
+a cumplir con la legislación WCAG.
+
+00:33:13.720 --> 00:33:16.734
+Espero haber demostrado
+un poco de eso también en esta charla,
+
+00:33:16.767 --> 00:33:18.599
+y esos temas están relacionados.
+
+00:33:20.559 --> 00:33:24.289
+<v title="Ahmed"> Genial. Ya que hablamos
+acerca del sistema de gestión de contenidos
+
+00:33:24.313 --> 00:33:26.078
+de asistentes de accesibilidad,
+
+00:33:26.103 --> 00:33:28.655
+las siguientes preguntas
+se centran en WordPress.
+
+00:33:28.680 --> 00:33:31.164
+Esta es una pregunta
+personal para ti.
+
+00:33:31.772 --> 00:33:35.449
+¿Qué tan preparado crees que está
+WordPress ahora mismo
+
+00:33:35.474 --> 00:33:39.559
+para desempeñar funciones de asistente de accesibilidad
+entre los CMS que existen?
+
+00:33:41.559 --> 00:33:44.757
+<v title="Hidde"> Miro mucho de
+diferentes CMS para mi trabajo
+
+00:33:44.782 --> 00:33:47.421
+y mi trabajo es independiente de los proveedores, por así decirlo,
+
+00:33:47.445 --> 00:33:50.301
+por lo que no me fijo demasiado en los detalles.
+
+00:33:50.326 --> 00:33:52.711
+En WordPress,
+
+00:33:52.735 --> 00:33:56.292
+hay buenas opciones para
+texto alternativo para las imágenes,
+
+00:33:56.317 --> 00:33:59.887
+hay una información clara
+sobre qué debes hacer allí.
+
+00:33:59.912 --> 00:34:01.244
+Creo que eso es muy útil.
+
+00:34:02.119 --> 00:34:05.252
+También hay algo sobre
+contraste de color, lo recuerdo,
+
+00:34:05.277 --> 00:34:10.039
+te muestra si tienes un error en
+el contraste de color y te ayuda a hacerlo bien.
+
+00:34:10.519 --> 00:34:13.591
+Son características estupendas.
+
+00:34:14.226 --> 00:34:16.112
+Creo que hay una página
+también sobre cuestiones de estructura.
+
+00:34:16.136 --> 00:34:18.280
+Hay un montón de cosas en WordPress
+
+00:34:18.280 --> 00:34:21.621
+que pueden ayudar a la gente a
+asegurarse de que sean accesibles,
+
+00:34:22.494 --> 00:34:25.676
+pero también hay trabajo que hacer. Creo que
+personas del equipo de accesibilidad
+
+00:34:25.701 --> 00:34:27.501
+y el organizador de este evento,
+
+00:34:27.526 --> 00:34:31.599
+estará más actualizado sobre las
+cosas en las que todavía se está trabajando.
+
+00:34:32.880 --> 00:34:35.409
+<v title="Ahmed"> Sí, sin duda podemos
+mirar hacia el futuro.
+
+00:34:35.433 --> 00:34:40.259
+Entonces, si tuvieras que calificar WordPress
+como asistente de accesibilidad,
+
+00:34:40.284 --> 00:34:43.800
+¿cómo lo calificarías
+entre A, AA y AAA?
+
+00:34:43.800 --> 00:34:47.522
+Sé que puede ser controversial, pero,
+¿quieres hacer algún comentario?
+
+00:34:48.123 --> 00:34:50.174
+<v title="Hidde"> No puedo hacer ningún comentario al respecto
+
+00:34:50.198 --> 00:34:53.433
+porque miramos
+todos los diferentes CMS
+
+00:34:53.458 --> 00:34:56.989
+y queremos que todos conozcan
+tantos criterios como sea posible.
+
+00:34:57.014 --> 00:34:59.560
+Es bueno mencionar que,
+
+00:34:59.585 --> 00:35:03.694
+no se trata de cumplir con todos los requisitos de ATAG.
+
+00:35:03.719 --> 00:35:07.800
+Al igual que con WCAG, eso es bastante difícil de hacer,
+y no muchas organizaciones lo hacen.
+
+00:35:08.288 --> 00:35:12.185
+Y tienen que hacerlo por ley, pero
+ya sabes, es un proceso continuo,
+
+00:35:12.210 --> 00:35:16.295
+cuando una persona actualiza una
+imagen, podría ser inaccesible.
+
+00:35:16.320 --> 00:35:20.016
+El punto es realmente encontrarse con
+tantos de estos criterios como sea posible.
+
+00:35:20.041 --> 00:35:23.254
+Y, ya sabes, cada
+uno ayuda mucho.
+
+00:35:23.279 --> 00:35:26.100
+Vemos que
+muchas organizaciones están haciendo eso.
+
+00:35:26.124 --> 00:35:29.419
+Y también que los CMS están
+haciendo pequeñas mejoras
+
+00:35:29.444 --> 00:35:30.808
+y todos son serviciales,
+
+00:35:30.833 --> 00:35:35.404
+y los usuarios finales estarán contentos
+con estas mejoras, creo.
+
+00:35:36.189 --> 00:35:38.240
+<v title="Ahmed"> Debo admitir que
+
+00:35:38.264 --> 00:35:42.779
+nuestra charla ciertamente está generando un poco de interés
+y conversación en el chat.
+
+00:35:42.804 --> 00:35:44.942
+Vamos a recibir algunas
+preguntas más mientras hablamos.
+
+00:35:44.967 --> 00:35:49.565
+Tenemos tiempo, la siguiente
+pregunta se refiere a Craft CMS.
+
+00:35:49.589 --> 00:35:52.434
+¿Es Craft CMS mucho mejor que WordPress
+
+00:35:52.458 --> 00:35:56.265
+en términos de la accesibilidad
+del editor?
+
+00:35:57.383 --> 00:36:02.380
+<v title="Hidde"> ¿Te refieres a la
+elección del CMS por parte del W3C?
+
+00:36:02.422 --> 00:36:04.857
+<v title="Ahmed"> Supongo que sí,
+esa es la pregunta.
+
+00:36:05.679 --> 00:36:09.679
+<v title="Hidde"> Realmente me gusta referirme a las
+publicaciones que se hicieron sobre esto en el blog
+
+00:36:09.679 --> 00:36:14.719
+porque tuve una pequeña participación en él,
+por supuesto, lo estamos discutiendo internamente.
+
+00:36:16.350 --> 00:36:19.040
+Los puntos principales que encontramos,
+son que
+
+00:36:19.064 --> 00:36:23.436
+no muchas herramientas cumplen con todos los requisitos
+de los criterios que necesitamos,
+
+00:36:23.461 --> 00:36:25.312
+y eso implica muchos criterios diferentes.
+
+00:36:25.337 --> 00:36:30.090
+Entonces necesitamos un CMS accesible, necesitamos
+un CMS que admita la internacionalización
+
+00:36:30.115 --> 00:36:31.971
+porque trabajamos con la comunidad global,
+
+00:36:33.280 --> 00:36:38.097
+un montón de cosas diferentes, básicamente por eso
+hemos hecho nuestra elección de CMS basándonos en
+
+00:36:38.407 --> 00:36:40.519
+la accesibilidad.
+
+00:36:40.840 --> 00:36:44.982
+Y en mi trabajo, intenté convencer a
+otras organizaciones de hacer lo que nosotros hicimos,
+
+00:36:45.173 --> 00:36:47.010
+hacer que la accesibilidad forme parte de esa elección
+
+00:36:47.034 --> 00:36:49.473
+porque va a
+ayudarnos en el proceso.
+
+00:36:49.498 --> 00:36:50.960
+Como mostré en las diapositivas,
+
+00:36:51.409 --> 00:36:56.599
+lo hicieron. El proveedor
+que contratamos para el nuevo sitio web,
+
+00:36:56.624 --> 00:37:01.780
+analizó estos diferentes aspectos
+y también cómo mejorar
+
+00:37:02.153 --> 00:37:07.199
+la accesibilidad.
+
+00:37:07.559 --> 00:37:11.400
+Y eso es
+algo difícil de evaluar
+
+00:37:11.840 --> 00:37:14.039
+porque, ya sabes, no puedes
+ver el futuro.
+
+00:37:15.263 --> 00:37:20.145
+Pero sí, parece que para ellos
+Craft CMS tenía más compromiso,
+
+00:37:20.170 --> 00:37:22.664
+tal vez también desde arriba
+
+00:37:22.689 --> 00:37:25.728
+para hacer que esa accesibilidad tenga
+mejores características.
+
+00:37:27.490 --> 00:37:30.680
+Pero sí, tal vez WordPress sea una
+mejor opción para otras organizaciones.
+
+00:37:30.705 --> 00:37:33.051
+Es realmente difícil decirlo,
+
+00:37:33.076 --> 00:37:35.909
+y no puedo dar
+demasiados detalles sobre eso.
+
+00:37:36.440 --> 00:37:38.373
+<v title="Ahmed"> Me parece bien, Hidde.
+
+00:37:38.397 --> 00:37:40.960
+Creo que puedo entender
+por dónde vienes.
+
+00:37:41.320 --> 00:37:44.907
+En este foro donde discutimos
+
+00:37:44.932 --> 00:37:49.439
+y tratamos de evaluar si los CMS
+están preparados para la accesibilidad,
+
+00:37:49.680 --> 00:37:52.974
+tales preguntas son bastante
+realistas, supongo.
+
+00:37:52.999 --> 00:37:56.806
+Pero de nuevo, les pido que
+visiten nuestro sitio web
+
+00:37:56.831 --> 00:37:58.280
+y respondan a las pregunta.
+
+00:37:58.280 --> 00:38:00.559
+Estoy seguro de que les darán
+el enlace más tarde.
+
+00:38:00.719 --> 00:38:05.866
+Además, espectadores, también hemos compartido
+diapositivas de la presentación de Hidde.
+
+00:38:05.891 --> 00:38:07.760
+Antes de hacerte
+la última pregunta.
+
+00:38:07.760 --> 00:38:11.889
+Entonces la última dice,
+¿has intentado usar ACF
+
+00:38:11.914 --> 00:38:17.175
+y una interfaz sin encabezado como editor
+para lograr la creación de contenido accesible?
+
+00:38:20.039 --> 00:38:23.277
+<v title="Hidde"> Sí, no en
+mi capacidad en el W3C,
+
+00:38:23.302 --> 00:38:26.719
+pero sí tengo alguna
+experiencia personal con eso.
+
+00:38:28.261 --> 00:38:30.393
+En general,
+puedo decir sobre eso
+
+00:38:32.241 --> 00:38:34.853
+que ACF es un
+campo personalizado avanzado, ¿verdad?
+
+00:38:34.878 --> 00:38:36.440
+Así que tú defines tus propios campos,
+
+00:38:37.832 --> 00:38:39.967
+y lo interesante de eso
+
+00:38:39.992 --> 00:38:43.970
+es que podrías haber hecho
+cadenas de texto que la gente pone
+
+00:38:44.327 --> 00:38:47.039
+y entonces puedes inventar
+tu propio margen de beneficio en torno a eso.
+
+00:38:47.039 --> 00:38:49.599
+Tú controlas toda la accesibilidad.
+
+00:38:50.274 --> 00:38:52.901
+Podrías hacerlo mal y
+podrías hacerlo muy bien, ¿verdad?
+
+00:38:52.926 --> 00:38:58.440
+Como mencioné, algunos CMS no
+tienen la opción de añadir subtítulos a un vídeo.
+
+00:38:59.119 --> 00:39:03.880
+Si creas tus propios campos, entonces
+puedes crear un campo para los subtítulos.
+
+00:39:03.880 --> 00:39:06.453
+Así que realmente puedes controlarlo tú mismo,
+
+00:39:06.478 --> 00:39:10.489
+y hacerlo un mejor
+asistente de accesibilidad en cierto modo, también
+
+00:39:10.513 --> 00:39:13.935
+porque puedes explicar
+por qué necesitan subtítulos,
+
+00:39:13.960 --> 00:39:16.862
+hacerlo de una forma que sea
+el tono de voz perfecto
+
+00:39:16.887 --> 00:39:20.559
+y eso inspirará a la gente a hacerlo,
+en lugar de molestarlos.
+
+00:39:20.614 --> 00:39:22.285
+Porque vi que alguien preguntó algo así como:
+
+00:39:22.309 --> 00:39:26.311
+¿cómo podemos evitar
+que la gente elija un CMS diferente
+
+00:39:26.336 --> 00:39:28.639
+si los confrontamos con
+accesibilidad excesiva?
+
+00:39:29.021 --> 00:39:32.039
+Si usamos
+un tono de voz positivo,
+
+00:39:32.064 --> 00:39:35.055
+realmente puedes
+controlar si defines tus propios campos.
+
+00:39:35.436 --> 00:39:40.159
+Si eres
+un integrador con WordPress,
+
+00:39:40.159 --> 00:39:43.404
+entonces creo que tiene mucho sentido
+intentar definir tus propios campos
+
+00:39:43.429 --> 00:39:48.659
+y obtener control total sobre el aspecto
+de los campos y qué dicen.
+
+00:39:50.119 --> 00:39:52.694
+<v title="Ahmed"> Muchas gracias, Hidde, por tu tiempo,
+
+00:39:52.719 --> 00:39:55.159
+esfuerzo y paciencia
+con las preguntas.
+
+00:39:55.400 --> 00:39:59.380
+Antes de terminar, me gustaría...
+hacerte una pregunta personal.
+
+00:39:59.753 --> 00:40:05.347
+¿Cómo le gustaría que se reunieran las partes interesadas
+para marcar la diferencia
+
+00:40:05.372 --> 00:40:08.315
+en iniciativas como
+el Día de la Accesibilidad de WordPress?
+
+00:40:08.360 --> 00:40:10.440
+Sabemos que esto está sucediendo
+por primera vez.
+
+00:40:10.838 --> 00:40:17.536
+Si tuvieras la plataforma, si tuvieras una
+voz, ¿cuál sería tu mensaje
+
+00:40:17.561 --> 00:40:19.480
+para las personas que pueden marcar la diferencia?
+
+00:40:20.780 --> 00:40:22.883
+<v title="Hidde"> La diferencia al elegir...
+
+00:40:22.908 --> 00:40:27.119
+<v title="Ahmed"> Al tomar tales iniciativas
+mejor y más accesibles.
+
+00:40:29.118 --> 00:40:31.119
+<v title="Hidde"> ¿Cómo el evento de hoy o...
+
+00:40:31.119 --> 00:40:32.255
+<v title="Ahmed"> El evento de hoy, sí.
+
+00:40:32.280 --> 00:40:33.719
+Sí, Hidde, gracias.
+
+00:40:35.094 --> 00:40:37.159
+<v title="Hidde"> Ah, esa es una pregunta difícil,
+no sé,
+
+00:40:37.159 --> 00:40:41.800
+quiero decir, hay subtítulos,
+eso es bueno.
+
+00:40:42.255 --> 00:40:44.383
+No lo sé. No lo he hecho,
+parecían demasiados
+
+00:40:44.408 --> 00:40:48.039
+aspectos sobre accesibilidad
+para el evento de hoy.
+
+00:40:49.519 --> 00:40:51.840
+<v title="Ahmed"> Estoy seguro de que lo haremos,
+contamos con su apoyo para el futuro.
+
+00:40:51.840 --> 00:40:55.280
+Así que con eso llegamos
+al final de esta sesión.
+
+00:40:55.854 --> 00:40:58.574
+"Tu CMS es una herramienta de asistencia de accesibilidad."
+
+00:40:58.599 --> 00:41:01.074
+Quiero agradecerte personalmente
+por ser lo suficientemente paciente
+
+00:41:01.107 --> 00:41:02.622
+y responder a todas las preguntas.
+
+00:41:02.960 --> 00:41:08.118
+También quiero enviar un enorme saludo a
+Harish, quien ha estado actuando como moderador
+
+00:41:08.143 --> 00:41:11.159
+para esta sesión, publicando
+las preguntas en nuestro sitio.
+
+00:41:11.440 --> 00:41:13.556
+Además, me gustaría enviar un enorme saludo
+
+00:41:13.597 --> 00:41:16.239
+al gestor de la sesión,
+Stefano, trabajando en segundo plano.
+
+00:41:16.516 --> 00:41:19.656
+También quisiera dar
+gracias a todos por asistir
+
+00:41:19.681 --> 00:41:21.415
+con Hidde y conmigo.
+
+00:41:21.440 --> 00:41:27.538
+Puedes continuar la conversación
+usando el #WPAD, #WPAD2020
+
+00:41:27.911 --> 00:41:30.519
+WP Accessibility.
+
+00:41:30.880 --> 00:41:32.854
+No olvides asistir a la próxima charla,
+
+00:41:32.879 --> 00:41:35.365
+será excelente, no es por presumir,
+
+00:41:35.400 --> 00:41:39.354
+"Seleccionar un CMS para la accesibilidad"
+con Mitchell Evam y un servidor,
+
+00:41:39.379 --> 00:41:42.599
+justo a las 9 am UTC.
+
+00:41:43.039 --> 00:41:45.760
+Mientras tanto, nos vemos
+aquí después de la pausa.
+
+00:41:46.038 --> 00:41:47.212
+Muchísimas gracias, Hidde.
+
+00:41:47.360 --> 00:41:48.420
+Adiós.
+
+00:41:49.047 --> 00:41:50.460
+<v title="Hidde"> Muchas gracias por invitarme.

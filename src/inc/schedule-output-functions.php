@@ -161,7 +161,7 @@ function wpcs_shortcode_people( $atts ) {
  */
 function wpcs_get_sessions() {
 	$post_status = 'publish';
-	if ( isset( $_GET['preview'] ) && current_user_can( 'publish_posts' ) ) {
+	if ( ( isset( $_GET['preview'] ) && current_user_can( 'publish_posts' ) ) || ( is_user_logged_in() && isset( $_GET['_ppp'] ) ) ) {
 		$post_status = array( 'draft', 'approved' );
 	}
 	$query = array(
@@ -292,8 +292,10 @@ function wpcs_schedule( $atts, $content ) {
 
 		$text    = ( time() < $begin ) ? 'Up next: ' : false;
 		$current = ( time() < $begin ) ? true : false;
-		$opening = wpad_draw_session( $opening_remarks, $current, $text, '' );
-		array_unshift( $output, $opening[0] );
+		$opening = '';
+		// Eliminated opening remarks for 2026.
+		// $opening = wpad_draw_session( $opening_remarks, $current, $text, '' );
+		// array_unshift( $output, $opening[0] );
 	}
 
 	$links  = wpcs_banner();

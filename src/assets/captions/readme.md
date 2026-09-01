@@ -259,7 +259,7 @@
 
 ## 2025
 
-38 completed translations.
+39 completed translations.
 
 1. Opening Remarks
 2. Accessible Design Patterns for 2025
@@ -307,6 +307,7 @@
   	- French; Andy Amado
 17. Making Gutenberg Blocks Accessible: Practical Techniques with AI and DevTools
   	- Spanish; Sidney del Rocio
+  	- French; Debora Ermel
 18. Real Inclusion: How to Run Insightful and Respectful User Testing with Disabled People
   	- Spanish; Andy Amado
   	- French; Andy Amado

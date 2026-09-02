@@ -55,11 +55,7 @@ get_header(); ?>
 									<div class="wpcsp-sponsor-swag">
 										<h2>Attendee Swag</h2> 
 										<?php
-										if ( is_user_logged_in() ) {
-											echo $swag;
-										} else {
-											echo '<p>You must be logged into your attendee account to view swag. <a href="' . wp_login_url() . '">Login</a> or <a href="' . esc_url( $register_url ) . '">get a free ticket</a></p>';
-										}
+										echo $swag;
 										?>
 									</div>
 								<?php } ?>

@@ -2012,11 +2012,11 @@ function wpcsp_donors_shortcode( $atts = array(), $content = '' ) {
 function wpad_get_attendees() {
 	global $wpdb;
 	$attendees = array();
-	$query    = "SELECT * FROM {$wpdb->prefix}gf_entry WHERE form_id = 34";
-	$entries  = $wpdb->get_results( $query );
+	$query     = "SELECT * FROM {$wpdb->prefix}gf_entry WHERE form_id = 34";
+	$entries   = $wpdb->get_results( $query );
 	foreach ( $entries as $entry ) {
-		$meta_query = "SELECT * FROM {$wpdb->prefix}gf_entry_meta WHERE entry_id = $entry->id";
-		$meta       = $wpdb->get_results( $meta_query );
+		$meta_query = "SELECT * FROM {$wpdb->prefix}gf_entry_meta WHERE entry_id = %d";
+		$meta       = $wpdb->get_results( $wpdb->prepare( $meta_query, $entry->id ) );
 		$data       = array(
 			'first_name' => '',
 			'last_name'  => '',

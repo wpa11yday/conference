@@ -281,22 +281,6 @@ function wpcs_schedule( $atts, $content ) {
 		}
 		++$n;
 	}
-	$opening_id = get_option( 'wpcs_opening_remarks' );
-	$opening    = '';
-	if ( $opening_id ) {
-		$opening_time    = strtotime( get_option( 'wpad_start_time' ) );
-		$opening_remarks = array(
-			'id' => $opening_id,
-			'ts' => gmdate( 'Y-m-d\TH:i:s\Z', (int) $opening_time ),
-		);
-
-		$text    = ( time() < $begin ) ? 'Up next: ' : false;
-		$current = ( time() < $begin ) ? true : false;
-		$opening = '';
-		// Eliminated opening remarks for 2026.
-		// $opening = wpad_draw_session( $opening_remarks, $current, $text, '' );
-		// array_unshift( $output, $opening[0] );
-	}
 
 	$links  = wpcs_banner();
 	$return = $links . $current_talk . implode( PHP_EOL, $output );

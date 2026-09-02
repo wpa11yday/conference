@@ -2,6 +2,8 @@
 /**
  * The template for displaying the single media partner posts
  *
+ * Actually used directly; not currently replace in theme.
+ *
  * @package wp_conference_schedule_pro
  * @since 1.0.0
  */

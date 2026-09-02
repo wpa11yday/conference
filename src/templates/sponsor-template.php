@@ -4,6 +4,8 @@
  *
  * Replaced by parallel template in https://github.com/wpa11yday/wpaccessibilityday/tree/main/templates
  *
+ * Retained for reference.
+ *
  * @package wp_conference_schedule_pro
  * @since 1.0.0
  */

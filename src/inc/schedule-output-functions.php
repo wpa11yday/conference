@@ -67,6 +67,68 @@ function wpcsp_social_icon_class( $social_icon ) {
 }
 
 /**
+ * Return HTML from Gravity Forms data via shortcode to show attendees.
+ *
+ * @return string
+ */
+function wpad_attendees() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return '';
+	}
+	if ( isset( $_GET['reset_cache'] ) && current_user_can( 'manage_options' ) ) {
+		delete_transient( 'wpcs_attendees' );
+	}
+
+	// get cache.
+	$output = get_transient( 'wpcs_attendees' );
+	if ( $output ) {
+		if ( current_user_can( 'manage_options' ) && isset( $_GET['archive_attendees'] ) ) {
+			$args = array(
+				'ID'           => get_the_ID(),
+				'post_content' => $output,
+			);
+			wp_update_post( $args );
+		}
+		return $output;
+	} else {
+		$output = '';
+	}
+	$attendees = wpad_get_attendees();
+	foreach ( $attendees as $user ) {
+		$default   = plugins_url( '/assets/images/default-gravatar.png', __DIR__ );
+		$name      = $user['first_name'] . ' ' . $user['last_name'];
+		$gravatar  = get_avatar( $user['email'], 96, $default );
+		$city      = $user['city'];
+		$state     = $user['state'];
+		$country   = $user['country'];
+		$company   = $user['company'];
+		$job_title = $user['job_title'];
+
+		if ( $city === $state ) {
+			$loc = $city;
+		} elseif ( '' === $city ) {
+			$loc = $state;
+		} else {
+			$loc = ( '' === $state ) ? $city : $city . ', ' . $state;
+		}
+		$location = ( '' === $country ) ? $loc : $loc . ', ' . $country;
+		$location = ( '' === $loc ) ? str_replace( ', ', '', $location ) : $location;
+		if ( $company || $job_title ) {
+			$company = ( $company ) ? $company : '';
+			$company = ( $job_title && $company ) ? $job_title . ', ' . $company : $company;
+		}
+		$company  = ( $company ) ? '<div class="attendee-employment">' . esc_html( $company ) . '</div>' : '';
+		$location = ( $location ) ? '<div class="attendee-location">' . esc_html( $location ) . '</div>' : '';
+
+		$output .= '<li>' . $gravatar . '<div class="attendee-info"><h2 class="attendee-name">' . $name . '</h2>' . $company . $location . '</div></li>';
+	}
+	$output = '<ul class="wpad-attendees alignwide">' . $output . '</ul>';
+	set_transient( 'wpcs_attendees', $output, 300 );
+
+	return $output;
+}
+
+/**
  * Return HTML from a WordPress profile via shortcode to show attendees.
  *
  * @param array $atts Shortcode attributes with one parameter, user ID.

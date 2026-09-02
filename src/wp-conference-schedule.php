@@ -55,7 +55,7 @@ add_shortcode( 'schedule', 'wpcs_schedule' );
 add_shortcode( 'donors', 'wpcsp_donors_shortcode' );
 add_shortcode( 'partners', 'wpcsp_partners_shortcode' );
 add_shortcode( 'microsponsors', 'wpcs_display_microsponsors' );
-add_shortcode( 'attendees', 'wpcs_shortcode_people' );
+add_shortcode( 'attendees', 'wpad_attendees' );
 add_shortcode( 'able', 'wpcs_get_video' );
 add_shortcode( 'wpad', 'wpcs_event_start' );
 add_shortcode( 'social', 'wpcs_social_links' );
@@ -2005,6 +2005,73 @@ function wpcsp_donors_shortcode( $atts = array(), $content = '' ) {
 	return ob_get_clean();
 }
 
+
+/**
+ * Fetch conference attendees from Gravity Forms data.
+ */
+function wpad_get_attendees() {
+	global $wpdb;
+	$attendees = array();
+	$query    = "SELECT * FROM {$wpdb->prefix}gf_entry WHERE form_id = 34";
+	$entries  = $wpdb->get_results( $query );
+	foreach ( $entries as $entry ) {
+		$meta_query = "SELECT * FROM {$wpdb->prefix}gf_entry_meta WHERE entry_id = $entry->id";
+		$meta       = $wpdb->get_results( $meta_query );
+		$data       = array(
+			'first_name' => '',
+			'last_name'  => '',
+			'email'      => '',
+			'company'    => '',
+			'city'       => '',
+			'state'      => '',
+			'country'    => '',
+			'job_title'  => '',
+			'type'       => '',
+			'attendee'   => '',
+		);
+		foreach ( $meta as $value ) {
+			switch ( $value->meta_key ) {
+				case '1.3':
+					$data['first_name'] = $value->meta_value;
+					break;
+				case '1.6':
+					$data['last_name'] = $value->meta_value;
+					break;
+				case '25':
+					$data['email'] = $value->meta_value;
+					break;
+				case '6':
+					$data['company'] = $value->meta_value;
+					break;
+				case '7.3':
+					$data['city'] = $value->meta_value;
+					break;
+				case '7.4':
+					$data['state'] = $value->meta_value;
+					break;
+				case '7.6':
+					$data['country'] = $value->meta_value;
+					break;
+				case '5':
+					$data['job_title'] = $value->meta_value;
+					break;
+				case '11':
+					$data['type'] = $value->meta_value; // type of ticket.
+					break;
+				case '20':
+					$data['attendee'] = $value->meta_value; // public attendee.
+					break;
+			}
+		}
+
+		if ( isset( $data['attendee'] ) && 'Yes' === $data['attendee'] ) {
+			$attendees[] = $data;
+		}
+	}
+
+	return $attendees;
+}
+
 /**
  * Function to retrieve and display the list of donors
  *
@@ -2088,7 +2155,7 @@ function wpcs_dashboard_widget_handler() {
 			'args'     => array(),
 		),
 		'attendees'     => array(
-			'function' => 'wpcs_shortcode_people',
+			'function' => 'wpad_attendees',
 			'args'     => array(),
 		),
 		'able'          => array(

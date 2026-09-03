@@ -2026,6 +2026,10 @@ function wpad_get_attendees() {
 			'state'      => '',
 			'country'    => '',
 			'job_title'  => '',
+			'website'    => '',
+			'twitter'    => '',
+			'linkedin'   => '',
+			'profile'    => '',
 			'type'       => '',
 			'attendee'   => '',
 		);
@@ -2054,6 +2058,18 @@ function wpad_get_attendees() {
 					break;
 				case '5':
 					$data['job_title'] = $value->meta_value;
+					break;
+				case '17':
+					$data['twitter'] = $value->meta_value;
+					break;
+				case '18':
+					$data['linkedin'] = $value->meta_value;
+					break;
+				case '19':
+					$data['website'] = $value->meta_value;
+					break;
+				case '45':
+					$data['profile'] = $value->meta_value;
 					break;
 				case '11':
 					$data['type'] = $value->meta_value; // type of ticket.

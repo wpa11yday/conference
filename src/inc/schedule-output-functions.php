@@ -72,13 +72,9 @@ function wpcsp_social_icon_class( $social_icon ) {
  * @return string
  */
 function wpad_attendees() {
-	if ( ! current_user_can( 'manage_options' ) ) {
-		return '';
-	}
 	if ( isset( $_GET['reset_cache'] ) && current_user_can( 'manage_options' ) ) {
 		delete_transient( 'wpcs_attendees' );
 	}
-
 	// get cache.
 	$output = get_transient( 'wpcs_attendees' );
 	if ( $output ) {
@@ -103,6 +99,10 @@ function wpad_attendees() {
 		$country   = $user['country'];
 		$company   = $user['company'];
 		$job_title = $user['job_title'];
+		$twitter   = $user['twitter'];
+		$linked    = $user['linkedin'];
+		$profile   = $user['profile'];
+		$website   = $user['website'];
 
 		if ( $city === $state ) {
 			$loc = $city;
@@ -119,8 +119,22 @@ function wpad_attendees() {
 		}
 		$company  = ( $company ) ? '<div class="attendee-employment">' . esc_html( $company ) . '</div>' : '';
 		$location = ( $location ) ? '<div class="attendee-location">' . esc_html( $location ) . '</div>' : '';
+		$icons    = array();
+		if ( $twitter ) {
+			$icons[] = '<a href="' . esc_url( $twitter ) . '"><span class="dashicons fa-brands fa-x-twitter" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html( $name ) . ' on Twitter</span></a>';
+		}
+		if ( $linked ) {
+			$icons[] = '<a href="' . esc_url( $linked ) . '"><span class="dashicons dashicons-linkedin" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html( $name ) . ' on LinkedIn</span></a>';
+		}
+		if ( $website ) {
+			$icons[] = '<a href="' . esc_url( $website ) . '"><span class="dashicons dashicons-admin-links" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html( $name ) . ' website</span></a>';
+		}
+		if ( $profile ) {
+			$icons[] = '<a href="' . esc_url( $profile ) . '"><span class="dashicons dashicons-site" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html( $name ) . ' at WordPress.org</span></a>';
+		}
+		$social  = ( ! empty( $icons ) ) ? '<div class="attendee-social">' . implode( ' ', $icons ) . '</div>' : '';
 
-		$output .= '<li>' . $gravatar . '<div class="attendee-info"><h2 class="attendee-name">' . $name . '</h2>' . $company . $location . '</div></li>';
+		$output .= '<li>' . $gravatar . '<div class="attendee-info"><h2 class="attendee-name">' . $name . '</h2>' . $company . $location . $social . '</div></li>';
 	}
 	$output = '<ul class="wpad-attendees alignwide">' . $output . '</ul>';
 	set_transient( 'wpcs_attendees', $output, 300 );

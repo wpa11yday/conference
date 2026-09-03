@@ -2013,11 +2013,10 @@ function wpad_get_attendees() {
 	global $wpdb;
 	$attendees = array();
 	$query     = "SELECT * FROM {$wpdb->prefix}gf_entry WHERE form_id = 34";
-	$entries   = $wpdb->get_results( $query );
+	$entries   = $wpdb->get_results( $query ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared Query is static.
 	foreach ( $entries as $entry ) {
-		$meta_query = "SELECT * FROM {$wpdb->prefix}gf_entry_meta WHERE entry_id = %d";
-		$meta       = $wpdb->get_results( $wpdb->prepare( $meta_query, $entry->id ) );
-		$data       = array(
+		$meta = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}gf_entry_meta WHERE entry_id = %d", $entry->id ) ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared DB is known.
+		$data = array(
 			'first_name' => '',
 			'last_name'  => '',
 			'email'      => '',

@@ -132,7 +132,7 @@ function wpad_attendees() {
 		if ( $profile ) {
 			$icons[] = '<a href="' . esc_url( $profile ) . '"><span class="dashicons dashicons-site" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html( $name ) . ' at WordPress.org</span></a>';
 		}
-		$social  = ( ! empty( $icons ) ) ? '<div class="attendee-social">' . implode( ' ', $icons ) . '</div>' : '';
+		$social = ( ! empty( $icons ) ) ? '<div class="attendee-social">' . implode( ' ', $icons ) . '</div>' : '';
 
 		$output .= '<li>' . $gravatar . '<div class="attendee-info"><h2 class="attendee-name">' . $name . '</h2>' . $company . $location . $social . '</div></li>';
 	}

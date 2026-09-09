@@ -305,6 +305,11 @@ class WPCS_Conference_Schedule {
 		<fieldset>
 			<legend><?php _e( 'Session Schedule', 'wpa-conference' ); ?></legend>
 		<p>
+			<?php
+			echo sprintf( __( 'Scheduled for %1$s at %2$s', 'wpa-conference' ), esc_html( $session_date ), esc_html( $session_hours . ':' . $session_minutes ) );
+			?>
+		</p>
+		<p>
 			<input type="hidden" id="wpcs-session-date" name="wpcs-session-date" value="<?php echo esc_attr( $session_date ); ?>" />
 			<label for="wpcs-session-hour"><?php esc_html_e( 'Hour:', 'wpa-conference' ); ?></label>
 

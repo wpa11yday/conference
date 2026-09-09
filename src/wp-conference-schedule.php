@@ -306,6 +306,7 @@ class WPCS_Conference_Schedule {
 			<legend><?php _e( 'Session Schedule', 'wpa-conference' ); ?></legend>
 		<p>
 			<?php
+			// translators: 1. session date 2. session time.
 			echo sprintf( __( 'Scheduled for %1$s at %2$s', 'wpa-conference' ), esc_html( $session_date ), esc_html( $session_hours . ':' . $session_minutes ) );
 			?>
 		</p>
@@ -2018,7 +2019,7 @@ function wpad_get_attendees() {
 	global $wpdb;
 	$attendees = array();
 	$query     = "SELECT * FROM {$wpdb->prefix}gf_entry WHERE form_id = 34";
-	$entries   = $wpdb->get_results( $query ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared Query is static.
+	$entries   = $wpdb->get_results( $query ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	foreach ( $entries as $entry ) {
 		$meta = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}gf_entry_meta WHERE entry_id = %d", $entry->id ) ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared DB is known.
 		$data = array(

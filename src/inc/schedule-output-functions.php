@@ -539,7 +539,9 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 	$begin           = strtotime( get_option( 'wpad_start_time' ) );
 	$end             = strtotime( get_option( 'wpad_end_time' ) );
 	$dayof           = ( $begin < time() && time() < $end ) ? true : false;
-	$in_past         = strtotime( $datatime ) < time() ? true : false;
+	// The conference ends at 10am, feedback window ends at midnight of the 5th day after.
+	$before_close    = ( time() - $end ) < ( ( 4 * DAY_IN_SECONDS ) + ( 14 * HOUR_IN_SECONDS ) ) ? true : false;
+	$in_past         = ( strtotime( $datatime ) + 1200 ) < time() ? true : false;
 	$mins            = gmdate( 'i', strtotime( $talk['ts'] ) );
 	$time            = gmdate( 'H', strtotime( $talk['ts'] ) );
 	$track_name      = wpad_get_track_name( $talk_ID );
@@ -592,7 +594,11 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 			$current_talk = "<p class='current-talk wpad-callout'><strong>$text</strong> <a class='button' href='#$session_id'>$time:$mins UTC - $talk->post_title</a></p>";
 		}
 	}
-	$calendar = ( $in_past ) ? '' : wpad_add_calendar_links( $talk_ID );
+	// Show post feedback link for 4 days, 14 hours after conference ends.
+	$post_feedback   = ( $in_past && $before_close ) ? wpad_post_feedback( $talk_ID ) : '';
+	$add_to_calendar = wpad_add_calendar_links( $talk_ID );
+
+	$calendar = ( $in_past ) ? $post_feedback : $add_to_calendar;
 	$class    = ( $in_past && $dayof ) ? 'session-over' : '';
 	$output   = "
 	<div class='wp-block-group schedule $talk_type $class' id='$session_id'>

@@ -2362,6 +2362,29 @@ function wpad_office_cal( $session_id ) {
 	return $url;
 }
 
+
+/**
+ * Set up link to post feedback on a session.
+ *
+ * @param int $session_id Session post ID.
+ *
+ * @return string
+ */
+function wpad_post_feedback( $session_id ) {
+	$link = add_query_arg( 'feedback', $session_id, esc_url( get_option( 'wpcsp_field_feedback_page_url' ) ) );
+
+	$screen_reader_text = '';
+	if ( is_page( 'schedule' ) ) {
+		$screen_reader_text = ' <span class="screen-reader-text">(' . get_the_title( $session_id ) . ')</span>';
+	}
+
+	$output = '<div class="wpad-send-feedback">
+		<a class="button" href="' . esc_url( $link ) . '">Send Feedback' . $screen_reader_text . '</a>
+	</div>';
+
+	return $output;
+}
+
 /**
  * Set up Add to Calendar links.
  *

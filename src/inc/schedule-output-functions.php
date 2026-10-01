@@ -534,11 +534,11 @@ function wpad_draw_topics( $talk_id ) {
  * @return array
  */
 function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
-	$talk_ID         = $talk['id'];
-	$datatime        = $talk['ts'];
-	$begin           = strtotime( get_option( 'wpad_start_time' ) );
-	$end             = strtotime( get_option( 'wpad_end_time' ) );
-	$dayof           = ( $begin < time() && time() < $end ) ? true : false;
+	$talk_ID  = $talk['id'];
+	$datatime = $talk['ts'];
+	$begin    = strtotime( get_option( 'wpad_start_time' ) );
+	$end      = strtotime( get_option( 'wpad_end_time' ) );
+	$dayof    = ( $begin < time() && time() < $end ) ? true : false;
 	// The conference ends at 10am, feedback window ends at midnight of the 5th day after.
 	$before_close    = ( time() - $end ) < ( ( 4 * DAY_IN_SECONDS ) + ( 14 * HOUR_IN_SECONDS ) ) ? true : false;
 	$in_past         = ( strtotime( $datatime ) + 1200 ) < time() ? true : false;

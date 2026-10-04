@@ -130,7 +130,7 @@ function wpad_attendees() {
 			$icons[] = '<a href="' . esc_url( $website ) . '"><span class="dashicons dashicons-admin-links" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html( $name ) . ' website</span></a>';
 		}
 		if ( $profile ) {
-			$icons[] = '<a href="' . esc_url( $profile ) . '"><span class="dashicons dashicons-site" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html( $name ) . ' at WordPress.org</span></a>';
+			$icons[] = '<a href="' . esc_url( $profile ) . '"><span class="dashicons dashicons-wordpress-alt" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html( $name ) . ' at WordPress.org</span></a>';
 		}
 		$social = ( ! empty( $icons ) ) ? '<div class="attendee-social">' . implode( ' ', $icons ) . '</div>' : '';
 

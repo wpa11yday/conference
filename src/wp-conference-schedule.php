@@ -2084,11 +2084,13 @@ function wpad_get_attendees() {
 					break;
 			}
 		}
+		$attendee_key = sanitize_key( $data['last_name'] . '-' . $data['first_name'] . '-' . $data['email'] );
 
 		if ( isset( $data['attendee'] ) && 'Yes' === $data['attendee'] ) {
-			$attendees[] = $data;
+			$attendees[ $attendee_key ] = $data;
 		}
 	}
+	ksort( $attendees );
 
 	return $attendees;
 }

@@ -275,7 +275,7 @@ function wpcs_schedule( $atts, $content ) {
 	$output       = array();
 	$is_draft     = ( 'draft' === get_post_status( get_the_ID() ) ) ? true : false;
 	$return       = ( $is_draft ) ? false : get_transient( 'wpcs_schedule' );
-	$reset_cache  = ( isset( $_GET['reset_cache'] ) && current_user_can('manage_options') );
+	$reset_cache  = ( isset( $_GET['reset_cache'] ) && current_user_can( 'manage_options' ) );
 	$current_talk = '';
 	if ( $return && ! $reset_cache ) {
 		return $return;

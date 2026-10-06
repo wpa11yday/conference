@@ -2369,11 +2369,22 @@ function wpad_office_cal( $session_id ) {
  * Set up link to post feedback on a session.
  *
  * @param int $session_id Session post ID.
+ * @param int $parameter Parameter to include in the feedback link.
  *
  * @return string
  */
-function wpad_post_feedback( $session_id ) {
-	$link = add_query_arg( 'feedback', $session_id, esc_url( get_option( 'wpcsp_field_feedback_page_url' ) ) );
+function wpad_post_feedback( $session_id, $parameter ) {
+	$parameter = wp_strip_all_tags( $parameter );
+	$parameter = str_replace( '0', '', $parameter );
+	$parameter = ( '1' === $parameter ) ? 'keynote' : $parameter;
+	$parameter = 'session-' . trim( $parameter );
+	$link      = add_query_arg(
+		array(
+			'feedback-type' => 'session',
+			'session'       => $parameter,
+		),
+		esc_url( get_option( 'wpcsp_field_feedback_page_url' ) )
+	);
 
 	$screen_reader_text = '';
 	if ( is_page( 'schedule' ) ) {
@@ -2381,7 +2392,7 @@ function wpad_post_feedback( $session_id ) {
 	}
 
 	$output = '<div class="wpad-send-feedback">
-		<a class="button" href="' . esc_url( $link ) . '">Send Feedback' . $screen_reader_text . '</a>
+		<a class="button" href="' . esc_url( $link ) . '">Send Feedback' . $screen_reader_text . '<span class="dashicons dashicons-arrow-right-alt" aria-hidden="true"></span></a>
 	</div>';
 
 	return $output;

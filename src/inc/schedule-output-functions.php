@@ -541,6 +541,7 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 	$end      = strtotime( get_option( 'wpad_end_time' ) );
 	$dayof    = ( $begin < time() && time() < $end ) ? true : false;
 	// The conference ends at 10am, feedback window ends at midnight of the 5th day after.
+	$testing = false;
 	if ( current_user_can( 'manage_options' ) ) {
 		$testing = isset( $_GET['testing'] ) ? $_GET['testing'] : false;
 	}

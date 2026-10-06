@@ -2084,11 +2084,13 @@ function wpad_get_attendees() {
 					break;
 			}
 		}
+		$attendee_key = sanitize_key( $data['last_name'] . '-' . $data['first_name'] . '-' . $data['email'] );
 
 		if ( isset( $data['attendee'] ) && 'Yes' === $data['attendee'] ) {
-			$attendees[] = $data;
+			$attendees[ $attendee_key ] = $data;
 		}
 	}
+	ksort( $attendees );
 
 	return $attendees;
 }
@@ -2360,6 +2362,40 @@ function wpad_office_cal( $session_id ) {
 	$url = str_replace( 'outlook.live.com', 'outlook.office.com', $url );
 
 	return $url;
+}
+
+
+/**
+ * Set up link to post feedback on a session.
+ *
+ * @param int $session_id Session post ID.
+ * @param int $parameter Parameter to include in the feedback link.
+ *
+ * @return string
+ */
+function wpad_post_feedback( $session_id, $parameter ) {
+	$parameter = wp_strip_all_tags( $parameter );
+	$parameter = str_replace( '0', '', $parameter );
+	$parameter = ( '1' === $parameter ) ? 'keynote' : $parameter;
+	$parameter = 'session-' . trim( $parameter );
+	$link      = add_query_arg(
+		array(
+			'feedback-type' => 'session',
+			'session'       => $parameter,
+		),
+		esc_url( get_option( 'wpcsp_field_feedback_page_url' ) )
+	);
+
+	$screen_reader_text = '';
+	if ( is_page( 'schedule' ) ) {
+		$screen_reader_text = ' <span class="screen-reader-text">(' . get_the_title( $session_id ) . ')</span>';
+	}
+
+	$output = '<div class="wpad-send-feedback">
+		<a class="button" href="' . esc_url( $link ) . '">Send Feedback' . $screen_reader_text . '<span class="dashicons dashicons-arrow-right-alt" aria-hidden="true"></span></a>
+	</div>';
+
+	return $output;
 }
 
 /**

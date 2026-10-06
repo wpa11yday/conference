@@ -216,6 +216,12 @@ function wpcsp_settings_init() {
 
 	// register schedule page URL field in the "wpcs_section_info" section, inside the "wpcs" page.
 	add_settings_field( 'wpcsp_field_sponsor_page_url', 'Sponsor URL Redirect', 'wpcsp_field_sponsor_page_url_cb', 'wpa-conference', 'wpcs_section_settings' );
+
+	// register feedback page URL setting for "wpcs" page.
+	register_setting( 'wpa-conference', 'wpcsp_field_feedback_page_url', 'wpcsp_sanitize_field_speakers_page_url' );
+
+	// register feedback page URL field in the "wpcs_section_info" section, inside the "wpcs" page.
+	add_settings_field( 'wpcsp_field_feedback_page_url', 'Feedback Page URL', 'wpcsp_field_feedback_page_url_cb', 'wpa-conference', 'wpcs_section_settings' );
 }
 add_action( 'admin_init', 'wpcsp_settings_init', 11 );
 
@@ -254,7 +260,19 @@ function wpcsp_field_sponsors_page_url_cb() {
 }
 
 /**
- * Sponsor page url callback
+ * Feedback page url callback
+ *
+ * @return void
+ */
+function wpcsp_field_feedback_page_url_cb() {
+	?>
+	<input type="text" name="wpcsp_field_feedback_page_url" value="<?php echo esc_attr( get_option( 'wpcsp_field_feedback_page_url' ) ); ?>" style="width: 450px;" aria-describedby="wpcsp_field_feedback_page_url_desc">
+	<p class="description" id="wpcsp_field_feedback_page_url_desc">The URL of the page that the feedback form is embedded on.</p>
+	<?php
+}
+
+/**
+ * Sponsor page behavior callback
  *
  * @return void
  */
@@ -262,13 +280,13 @@ function wpcsp_field_sponsor_page_url_cb() {
 	$sponsor_url = get_option( 'wpcsp_field_sponsor_page_url' );
 	?>
 	<select name="wpcsp_field_sponsor_page_url" id="sponsors_url">
-		<option value="sponsor_page" 
+		<option value="sponsor_page"
 		<?php
 		if ( 'sponsor_page' === $sponsor_url ) {
 			echo 'selected';}
 		?>
 		>Redirect to Sponsor Page</option>
-		<option value="sponsor_site" 
+		<option value="sponsor_site"
 		<?php
 		if ( 'sponsor_site' === $sponsor_url ) {
 			echo 'selected';}

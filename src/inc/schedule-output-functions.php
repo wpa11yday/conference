@@ -130,7 +130,7 @@ function wpad_attendees() {
 			$icons[] = '<a href="' . esc_url( $website ) . '"><span class="dashicons dashicons-admin-links" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html( $name ) . ' website</span></a>';
 		}
 		if ( $profile ) {
-			$icons[] = '<a href="' . esc_url( $profile ) . '"><span class="dashicons dashicons-site" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html( $name ) . ' at WordPress.org</span></a>';
+			$icons[] = '<a href="' . esc_url( $profile ) . '"><span class="dashicons dashicons-wordpress-alt" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html( $name ) . ' at WordPress.org</span></a>';
 		}
 		$social = ( ! empty( $icons ) ) ? '<div class="attendee-social">' . implode( ' ', $icons ) . '</div>' : '';
 
@@ -274,9 +274,10 @@ function wpcs_get_sessions() {
 function wpcs_schedule( $atts, $content ) {
 	$output       = array();
 	$is_draft     = ( 'draft' === get_post_status( get_the_ID() ) ) ? true : false;
-	$return       = ( str_contains( home_url(), 'staging.wpaccessibility.day' ) || $is_draft ) ? false : get_transient( 'wpcs_schedule' );
+	$return       = ( $is_draft ) ? false : get_transient( 'wpcs_schedule' );
+	$reset_cache  = ( isset( $_GET['reset_cache'] ) && current_user_can( 'manage_options' ) );
 	$current_talk = '';
-	if ( $return && ! isset( $_GET['reset_cache'] ) ) {
+	if ( $return && ! $reset_cache ) {
 		return $return;
 	} else {
 		$return = '';
@@ -306,8 +307,8 @@ function wpcs_schedule( $atts, $content ) {
 	$n                = 1;
 	$current_talk_set = false;
 	for ( $i = $start; $i < $args['start']; $i++ ) {
-		$number     = ( isset( $_GET['buttonsoff'] ) ) ? str_pad( $n, 2, '0', STR_PAD_LEFT ) : '';
-		$session_id = ( isset( $_GET['buttonsoff'] ) ) ? " <span class='session_id'>$number</span>" : '';
+		$number     = str_pad( $n, 2, '0', STR_PAD_LEFT );
+		$session_id = "<span class='session_id'>$number</span>";
 		$is_first   = false;
 		if ( $i === $start ) {
 			$is_first = true;
@@ -534,12 +535,17 @@ function wpad_draw_topics( $talk_id ) {
  * @return array
  */
 function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
-	$talk_ID         = $talk['id'];
-	$datatime        = $talk['ts'];
-	$begin           = strtotime( get_option( 'wpad_start_time' ) );
-	$end             = strtotime( get_option( 'wpad_end_time' ) );
-	$dayof           = ( $begin < time() && time() < $end ) ? true : false;
-	$in_past         = strtotime( $datatime ) < time() ? true : false;
+	$talk_ID  = $talk['id'];
+	$datatime = $talk['ts'];
+	$begin    = strtotime( get_option( 'wpad_start_time' ) );
+	$end      = strtotime( get_option( 'wpad_end_time' ) );
+	$dayof    = ( $begin < time() && time() < $end ) ? true : false;
+	// The conference ends at 10am, feedback window ends at midnight of the 5th day after.
+	if ( current_user_can( 'manage_options' ) ) {
+		$testing = isset( $_GET['testing'] ) ? $_GET['testing'] : false;
+	}
+	$before_close    = ( time() - $end ) < ( ( 4 * DAY_IN_SECONDS ) + ( 14 * HOUR_IN_SECONDS ) ) || 'true' === $testing ? true : false;
+	$in_past         = ( strtotime( $datatime ) + 1200 ) < time() || 'true' === $testing ? true : false;
 	$mins            = gmdate( 'i', strtotime( $talk['ts'] ) );
 	$time            = gmdate( 'H', strtotime( $talk['ts'] ) );
 	$track_name      = wpad_get_track_name( $talk_ID );
@@ -563,7 +569,7 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 	$talk      = get_post( $talk_ID );
 
 	$talk_attr_id = sanitize_title( $talk->post_title );
-	$talk_title   = '<div class="talk-title-meta"><a href="' . esc_url( get_the_permalink( $talk_ID ) ) . '" id="talk-' . $talk_attr_id . '">' . $talk->post_title . '</a>' . $track_name_html . $session_id . '</div>';
+	$talk_title   = '<div class="talk-title-meta"><a href="' . esc_url( get_the_permalink( $talk_ID ) ) . '" id="talk-' . $talk_attr_id . '">' . $talk->post_title . '</a>' . $track_name_html . '</div>';
 	$talk_label   = ( 'panel' === $talk_type ) ? '<strong>Panel:</strong> ' : '';
 	$talk_title  .= '<div class="talk-speakers">' . $talk_label . implode( ', ', $speakers['list'] ) . '</div>';
 	$talk_title   = '<div class="talk-title-wrapper">' . $talk_title . '</div>';
@@ -580,22 +586,26 @@ function wpad_draw_session( $talk, $is_current, $text, $session_id ) {
 	$talk_output .= $unwrap;
 	$talk_output .= $wrap . $speakers['html'] . $unwrap;
 
-	$session_id   = sanitize_title( $talk->post_title );
-	$hidden       = ( isset( $_GET['buttonsoff'] ) ) ? '' : 'hidden';
-	$control      = ( isset( $_GET['buttonsoff'] ) ) ? '' : '<button type="button" class="toggle-details" aria-expanded="false"><span class="dashicons-plus dashicons" aria-hidden="true"></span> View Details<span class="screen-reader-text">: ' . $talk->post_title . '</span></button>';
-	$current_talk = '';
+	$session_id_att = sanitize_title( $talk->post_title );
+	$hidden         = ( isset( $_GET['buttonsoff'] ) ) ? '' : 'hidden';
+	$control        = ( isset( $_GET['buttonsoff'] ) ) ? '' : '<button type="button" class="toggle-details" aria-expanded="false"><span class="dashicons-plus dashicons" aria-hidden="true"></span> View Details<span class="screen-reader-text">: ' . $talk->post_title . '</span></button>';
+	$current_talk   = '';
 	if ( $is_current ) {
 		$hidden  = '';
 		$control = str_replace( '"false"', '"true"', $control );
 		$control = str_replace( '-plus', '-minus', $control );
 		if ( $text ) {
-			$current_talk = "<p class='current-talk wpad-callout'><strong>$text</strong> <a class='button' href='#$session_id'>$time:$mins UTC - $talk->post_title</a></p>";
+			$current_talk = "<p class='current-talk wpad-callout'><strong>$text</strong> <a class='button' href='#$session_id_att'>$time:$mins UTC - $talk->post_title</a></p>";
 		}
 	}
-	$calendar = ( $in_past ) ? '' : wpad_add_calendar_links( $talk_ID );
+	// Show post feedback link for 4 days, 14 hours after conference ends.
+	$post_feedback   = ( $in_past && $before_close ) ? wpad_post_feedback( $talk_ID, $session_id ) : '';
+	$add_to_calendar = wpad_add_calendar_links( $talk_ID );
+
+	$calendar = ( $in_past ) ? $post_feedback : $add_to_calendar;
 	$class    = ( $in_past && $dayof ) ? 'session-over' : '';
 	$output   = "
-	<div class='wp-block-group schedule $talk_type $class' id='$session_id'>
+	<div class='wp-block-group schedule $talk_type $class' id='$session_id_att'>
 		<div class='wp-block-group__inner-container'>
 			" . str_replace( '[control]', '<div>' . $control . '</div>', $talk_heading ) . "
 			<div class='wp-block-columns inside $hidden'>

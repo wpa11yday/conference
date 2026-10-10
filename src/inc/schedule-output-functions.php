@@ -78,6 +78,7 @@ function wpad_attendees() {
 	// get cache.
 	$output = get_transient( 'wpcs_attendees' );
 	if ( $output ) {
+		// Archiving sets post content to the list, and removes the shortcode.
 		if ( current_user_can( 'manage_options' ) && isset( $_GET['archive_attendees'] ) ) {
 			$args = array(
 				'ID'           => get_the_ID(),

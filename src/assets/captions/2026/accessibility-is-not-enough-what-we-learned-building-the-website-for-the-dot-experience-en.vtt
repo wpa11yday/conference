@@ -1,0 +1,2533 @@
+WEBVTT
+
+00:00:02.968 --> 00:00:05.861
+Narrator: WordPress Accessibility Day 2026.
+
+00:00:06.223 --> 00:00:10.046
+Accessibility is Not Enough:
+What We Learned Building the
+
+00:00:10.046 --> 00:00:11.848
+Website for The Dot Experience.
+
+00:00:12.224 --> 00:00:16.930
+Presented by Carl Michel, Creative
+Technology Director at Fieldtrip,
+
+00:00:17.334 --> 00:00:22.214
+Melody Partain, Director of Strategy
+and Integration at Fieldtrip, and
+
+00:00:22.215 --> 00:00:26.241
+Danielle Burton, Communications
+Accessibility Editor, the American
+
+00:00:26.241 --> 00:00:27.863
+Printing House for the Blind.
+
+00:00:28.259 --> 00:00:34.124
+This session was presented on
+October 7th, 2026 at 16:00 UTC.
+
+00:00:37.503 --> 00:00:40.439
+WordPress Accessibility Day 2026.
+
+00:00:40.800 --> 00:00:42.525
+Thank you to our sponsors.
+
+00:00:42.890 --> 00:00:45.479
+Platinum Sponsor, Equalize Digital.
+
+00:00:45.575 --> 00:00:47.384
+Websites for Everyone.
+
+00:00:47.916 --> 00:00:51.602
+Equalize Digital's Accessibility
+Checker Plugin makes real-time
+
+00:00:51.602 --> 00:00:55.016
+testing in the WordPress editor
+faster and more affordable.
+
+00:00:55.913 --> 00:01:00.123
+Auditing services and online
+courses help organizations build
+
+00:01:00.324 --> 00:01:02.304
+and maintain accessible websites.
+
+00:01:02.923 --> 00:01:04.974
+Platinum Sponsor: Gravity.
+
+00:01:05.461 --> 00:01:08.964
+Gravity Forms is the accessible
+form builder for WordPress.
+
+00:01:09.356 --> 00:01:12.942
+Trusted by millions of sites,
+it's built to create powerful
+
+00:01:13.082 --> 00:01:16.122
+WCAG-compliant forms for any project.
+
+00:01:16.663 --> 00:01:21.520
+Gold Sponsors: Kinsta, Insi, WP Engine.
+
+00:01:22.131 --> 00:01:27.359
+Silver Sponsors: Second Melody,
+Tenrec: Your Website, Only Better.
+
+00:01:28.702 --> 00:01:32.594
+Visit sponsor pages to enter to
+win giveaways and access swag.
+
+00:01:33.007 --> 00:01:37.628
+Go to wpaccessibility.day/2026/sponsors.
+
+00:01:41.479 --> 00:01:43.042
+Don't forget to leave feedback.
+
+00:01:43.512 --> 00:01:47.926
+Go to wpaccessibility.day/2026/feedback.
+
+00:01:53.505 --> 00:01:56.131
+Sherose: Welcome to WordPress
+Accessibility Day 2026.
+
+00:01:56.163 --> 00:01:58.943
+My name is Sherose Badruddin, and I'm
+a digital accessibility consultant
+
+00:01:58.944 --> 00:02:00.550
+at the University of North Carolina.
+
+00:02:01.024 --> 00:02:03.946
+Thank you for joining us for
+Accessibility is Not Enough: What We
+
+00:02:03.947 --> 00:02:07.223
+Learned Building Websites for The DOT
+Experience, presented by Carl Michel,
+
+00:02:07.499 --> 00:02:09.332
+Melody Partain, and Danielle Burton.
+
+00:02:09.955 --> 00:02:12.750
+Carl is the creative technology
+director at Fieldtrip, where he shapes
+
+00:02:12.751 --> 00:02:15.481
+the tech strategy and development
+behind the agency's digital work.
+
+00:02:15.885 --> 00:02:19.547
+His expertise spans website architecture,
+content management systems, accessible
+
+00:02:19.548 --> 00:02:22.835
+development, third-party integrations,
+and long-term platform planning.
+
+00:02:23.188 --> 00:02:26.149
+Carl works closely with strategists
+and designers to turn ambitious
+
+00:02:26.150 --> 00:02:29.965
+ideas into technically sound digital
+experiences that organizations
+
+00:02:29.965 --> 00:02:31.708
+can confidently manage and evolve.
+
+00:02:32.432 --> 00:02:35.703
+Melody brings structure, strategy,
+and a user-first perspective to
+
+00:02:35.708 --> 00:02:37.013
+Fieldtrip's website projects.
+
+00:02:37.408 --> 00:02:41.040
+As director of strategy and integration,
+she leads project management and user
+
+00:02:41.040 --> 00:02:44.959
+experience strategy, helping organizations
+translate complex goals and audience
+
+00:02:44.960 --> 00:02:48.787
+needs into digital experiences that
+are clear, intuitive, and accessible.
+
+00:02:50.084 --> 00:02:52.930
+Danielle Burton works at the American
+Printing House for the Blind as the
+
+00:02:52.930 --> 00:02:54.781
+communications accessibility editor.
+
+00:02:55.233 --> 00:02:58.162
+She has been working in the field of
+digital accessibility for four years.
+
+00:02:58.562 --> 00:03:01.021
+She is also a deaf-blind
+individual who relies on assistive
+
+00:03:01.021 --> 00:03:02.655
+technology for access every day.
+
+00:03:03.559 --> 00:03:07.026
+Please feel free to add your questions
+in the Zoom Q&A section, and we'll
+
+00:03:07.026 --> 00:03:08.462
+answer them at the end of the session.
+
+00:03:08.838 --> 00:03:10.876
+Use the chat to connect
+with other attendees.
+
+00:03:14.716 --> 00:03:16.702
+Melody: Hello, and thank
+you for joining us today.
+
+00:03:17.296 --> 00:03:20.009
+Most of us working on websites
+want to believe we're building
+
+00:03:20.020 --> 00:03:21.799
+experiences that work for everyone.
+
+00:03:22.242 --> 00:03:24.725
+We do our best to follow
+accessibility guidelines.
+
+00:03:24.786 --> 00:03:27.281
+We try to decipher a
+checklist of requirements.
+
+00:03:27.626 --> 00:03:30.265
+But through one project, we
+learned that a website can check
+
+00:03:30.266 --> 00:03:32.030
+the boxes and still fall short.
+
+00:03:32.492 --> 00:03:34.896
+Today, we want to share the
+project that changed the way
+
+00:03:34.934 --> 00:03:36.539
+we think about accessibility.
+
+00:03:38.294 --> 00:03:42.058
+Most clients see building an accessible
+website as a check-the-box requirement.
+
+00:03:42.337 --> 00:03:43.058
+So did we.
+
+00:03:44.848 --> 00:03:46.627
+But what if we changed our target?
+
+00:03:47.433 --> 00:03:50.541
+Maybe accessibility isn't
+actually the finish line.
+
+00:03:52.799 --> 00:03:57.543
+What if instead we took a step further and
+shot for inclusive digital experiences?
+
+00:03:58.032 --> 00:03:59.066
+What's the difference?
+
+00:03:59.519 --> 00:04:03.240
+Accessible means someone can
+use your website, but inclusive
+
+00:04:03.288 --> 00:04:06.027
+means they feel like the website
+was built with them in mind.
+
+00:04:06.644 --> 00:04:08.995
+They are not experiencing
+a diminished product.
+
+00:04:12.093 --> 00:04:16.165
+To explore, let's start by going back
+a bit and introducing the project and
+
+00:04:16.166 --> 00:04:18.259
+the team that changed our perspective.
+
+00:04:20.668 --> 00:04:23.355
+American Printing House for
+the Blind is pioneering The Dot
+
+00:04:23.355 --> 00:04:25.300
+Experience, opening later this month.
+
+00:04:25.851 --> 00:04:28.682
+The Dot Experience is the most
+inclusive museum in the world.
+
+00:04:29.228 --> 00:04:34.162
+They have made every exhibit, image, and
+artifact accessible to everyone, including
+
+00:04:34.164 --> 00:04:36.089
+people who may not be able to see them.
+
+00:04:37.863 --> 00:04:41.686
+While this  museum experience is new to
+American Printing House for the Blind
+
+00:04:41.688 --> 00:04:46.243
+roster, they have a deep history of
+creating accessible learning experiences
+
+00:04:46.258 --> 00:04:50.850
+through educational, workplace, and
+independent living products and services
+
+00:04:50.854 --> 00:04:52.638
+for people who are blind and low vision.
+
+00:04:53.576 --> 00:04:57.111
+This includes everything from
+Braille literacy tools and accessible
+
+00:04:57.111 --> 00:05:01.140
+textbooks to tactile graphics,
+assistive technology, and more.
+
+00:05:03.962 --> 00:05:07.288
+Today you'll be hearing from myself
+and Carl Michel from Fieldtrip, an
+
+00:05:07.300 --> 00:05:11.801
+agency from Louisville, Kentucky, that
+specializes in amplifying the impact of
+
+00:05:11.804 --> 00:05:15.736
+cause-driven organizations, and Danielle
+Burton from American Printing House for
+
+00:05:15.738 --> 00:05:20.127
+the Blind, an organization that is br-
+breaking down barriers for people who
+
+00:05:20.127 --> 00:05:22.628
+are blind and low vision since 1858.
+
+00:05:23.513 --> 00:05:24.524
+My name is Melody.
+
+00:05:24.659 --> 00:05:27.193
+I am Director of Strategy and
+Integration here at Fieldtrip
+
+00:05:27.245 --> 00:05:28.802
+and lead for this project.
+
+00:05:29.404 --> 00:05:33.518
+My role was to understand the needs of
+both our users on the website, inclusive
+
+00:05:33.549 --> 00:05:37.962
+of different abilities, and understanding
+the business goals that The Dot Experience
+
+00:05:37.962 --> 00:05:40.110
+itself needed the websites to fulfill.
+
+00:05:40.733 --> 00:05:43.884
+Ultimately, we had to create a
+strategy that supported both.
+
+00:05:46.238 --> 00:05:46.938
+Carl: Hello everyone.
+
+00:05:47.032 --> 00:05:48.053
+I'm Carl Michel.
+
+00:05:48.275 --> 00:05:52.051
+I'm the creative technology director
+here at Fieldtrip, where I help
+
+00:05:52.079 --> 00:05:53.974
+lead the web development work.
+
+00:05:54.928 --> 00:05:59.174
+For The Dot Experience, I was responsible
+for the development of the website,
+
+00:05:59.570 --> 00:06:04.265
+working closely with the team to take
+what we were learning about accessibility
+
+00:06:04.707 --> 00:06:08.959
+and translate it into how the site
+was actually built and experienced.
+
+00:06:11.550 --> 00:06:12.432
+Danielle: Hi, everyone.
+
+00:06:12.491 --> 00:06:17.343
+My name is Danielle Burton, and
+I work at the American Printing
+
+00:06:17.351 --> 00:06:22.243
+House for the Blind as the
+communications accessibility editor.
+
+00:06:22.647 --> 00:06:28.585
+I am also a prototyper for
+The Dot Experience museum.
+
+00:06:29.319 --> 00:06:34.774
+My main role for this particular
+project was to ensure that digital
+
+00:06:34.774 --> 00:06:40.469
+accessibility was included from the
+very beginning of the website and
+
+00:06:40.481 --> 00:06:42.479
+all of The Dot Experience itself.
+
+00:06:43.409 --> 00:06:50.172
+And I also brought to the table as a user
+of, of assistive technology myself, being
+
+00:06:50.172 --> 00:06:56.675
+deaf-blind, had a unique insight into
+building the accessibility in the website.
+
+00:06:58.785 --> 00:07:01.209
+Melody: While the three of us are
+here to speak with you today, this
+
+00:07:01.221 --> 00:07:03.257
+project had a much deeper roster.
+
+00:07:03.601 --> 00:07:06.497
+Our team brought together people
+with different specialties, lived
+
+00:07:06.497 --> 00:07:09.041
+experiences, needs, and perspectives.
+
+00:07:09.378 --> 00:07:12.629
+We also brought in experts in
+accessibility and inclusive website
+
+00:07:12.631 --> 00:07:16.251
+design and development to challenge
+our thinking and help guide our work.
+
+00:07:16.900 --> 00:07:18.912
+That range of perspectives
+was intentional.
+
+00:07:19.137 --> 00:07:23.190
+If we were going to create an experience
+designed to include more people, we needed
+
+00:07:23.200 --> 00:07:26.245
+more people in the process of creating it.
+
+00:07:29.055 --> 00:07:33.590
+Danielle: One of the things we
+did is we looked at different
+
+00:07:33.590 --> 00:07:37.316
+We included different accessibility
+features in The Dot Experience.
+
+00:07:37.575 --> 00:07:42.807
+An example of this is
+the Helen Keller Gallery.
+
+00:07:43.267 --> 00:07:50.190
+And in this gallery, we included
+various pieces of accessibility.
+
+00:07:50.732 --> 00:08:00.178
+Some of these included captions on the
+video, interactive videos, ASL or American
+
+00:08:00.178 --> 00:08:06.672
+Sign Language interpretation on the
+videos, and we also included a transcript
+
+00:08:06.868 --> 00:08:12.957
+with a refreshable Braille device
+at the station for users to read the
+
+00:08:12.958 --> 00:08:14.832
+transcript for those that are deaf/blind.
+
+00:08:16.219 --> 00:08:23.346
+In addition to creating the digital
+accessibility, we did create the physical
+
+00:08:23.346 --> 00:08:32.656
+accessibility of navigating the gallery
+with buttons carefully designed for a
+
+00:08:32.656 --> 00:08:35.263
+wide range of users of all disabilities.
+
+00:08:35.299 --> 00:08:41.537
+The buttons were tested with a group of
+individuals that had various disabilities
+
+00:08:41.549 --> 00:08:47.949
+for layout, clarity, easy to use, and
+anything else that we could think of.
+
+00:08:48.967 --> 00:08:56.838
+In addition to the media in the gallery,
+there will also be 3D representations of
+
+00:08:56.840 --> 00:08:59.971
+various objects that are behind glass.
+
+00:09:00.798 --> 00:09:05.264
+There is also a 3D model of Helen
+Keller herself sitting at her
+
+00:09:05.264 --> 00:09:07.196
+desk that can be explored by touch
+
+00:09:10.170 --> 00:09:15.792
+Another aspect of the accessibility
+of this museum is the floor.
+
+00:09:15.795 --> 00:09:21.972
+And we also used specific textures on
+the floor to mean that this is gallery
+
+00:09:21.972 --> 00:09:27.120
+space versus this is a path of travel
+and to, from gallery to gallery.
+
+00:09:27.282 --> 00:09:32.860
+So all of this combined we- creates
+an accessible museum experience.
+
+00:09:35.289 --> 00:09:37.445
+Melody: The examples
+paint a clear picture.
+
+00:09:37.798 --> 00:09:41.152
+Countless hours of research,
+innovation, and user testing
+
+00:09:41.166 --> 00:09:44.682
+have been poured into making this
+groundbreaking experience a reality.
+
+00:09:45.092 --> 00:09:47.657
+The website needed to live
+up to that same standard.
+
+00:09:48.373 --> 00:09:51.247
+It couldn't simply be a website
+about an inclusive museum.
+
+00:09:51.288 --> 00:09:55.423
+The digital experience itself needed to
+embody that same commitment to inclusion.
+
+00:09:57.174 --> 00:09:59.734
+So how does Fieldtrip
+fit into this project?
+
+00:10:00.187 --> 00:10:02.943
+You'll notice that when I
+introduced Fieldtrip, accessibility
+
+00:10:02.944 --> 00:10:04.569
+was not listed as our niche.
+
+00:10:04.980 --> 00:10:09.158
+We did not win this project because of a
+long list of highly accessible websites.
+
+00:10:09.722 --> 00:10:13.135
+In fact, there was not one website
+in our case studies that hit the
+
+00:10:13.135 --> 00:10:16.493
+mark of accessibility that we
+were targeting for this project.
+
+00:10:17.771 --> 00:10:20.979
+What we did have was the willingness
+to admit what we did not know
+
+00:10:21.295 --> 00:10:25.068
+and an eagerness to learn, to do
+better for this website and for the
+
+00:10:25.070 --> 00:10:26.634
+websites we touch in the future.
+
+00:10:27.480 --> 00:10:31.737
+Audience-centered strategy has always
+been core to how we approach website work.
+
+00:10:32.161 --> 00:10:36.192
+That means stepping away from the wish
+list of the loudest voices in the room
+
+00:10:36.208 --> 00:10:40.092
+and instead focusing in on the people
+who benefit from the work the most.
+
+00:10:40.817 --> 00:10:44.725
+For this project, that same process became
+our starting point, but we were going
+
+00:10:44.725 --> 00:10:48.494
+to have to expand our understanding of
+what truly designing around a user meant.
+
+00:10:51.009 --> 00:10:55.992
+Carl: We have worked with organizations
+solving homelessness in Portland,
+
+00:10:55.992 --> 00:11:00.759
+Oregon, providing healthcare for those
+who need it most here in Louisville,
+
+00:11:01.422 --> 00:11:06.688
+and fighting for equality in women's
+health research across the country.
+
+00:11:08.090 --> 00:11:12.612
+In all these projects, our
+focus was on the primary user,
+
+00:11:13.499 --> 00:11:15.338
+those who need the site most.
+
+00:11:16.275 --> 00:11:21.834
+By leading the project with that group top
+of mind, we created stronger experiences
+
+00:11:21.853 --> 00:11:24.117
+to support the organization as a whole.
+
+00:11:25.034 --> 00:11:29.956
+Th-this approach was still highly
+relevant to The Dot Experience project
+
+00:11:30.421 --> 00:11:34.642
+and set us up to follow our standard
+approach to better understand this
+
+00:11:34.673 --> 00:11:37.468
+community and their specific needs online.
+
+00:11:39.313 --> 00:11:41.490
+We also have a deep
+knowledge of WordPress.
+
+00:11:42.100 --> 00:11:46.336
+I myself have been developing in the
+WordPress environment for about 15 years.
+
+00:11:47.073 --> 00:11:51.781
+We pride ourselves in fully l-
+leaning into the ecosystem to create
+
+00:11:51.812 --> 00:11:57.188
+websites that are easy to manage,
+meet client goals, and often live
+
+00:11:57.200 --> 00:11:59.597
+past the standard website lifespan.
+
+00:12:01.098 --> 00:12:06.658
+So we came into this project with
+a process we trusted, a platform we
+
+00:12:06.658 --> 00:12:12.788
+deeply knew, and we also came in with
+some assumptions about accessibility
+
+00:12:12.941 --> 00:12:14.368
+that were about to be challenged.
+
+00:12:17.473 --> 00:12:19.840
+Melody: So let's talk
+about those assumptions.
+
+00:12:20.495 --> 00:12:24.820
+The first was you have to choose
+between accessibility and great design.
+
+00:12:25.765 --> 00:12:29.400
+That to have something that is highly
+accessible inherently means that you're
+
+00:12:29.401 --> 00:12:32.114
+sacrificing visual interest or immersion.
+
+00:12:33.238 --> 00:12:38.478
+Number two, an accessibility plugin alone
+can fill in the gaps for your website
+
+00:12:38.490 --> 00:12:40.464
+to create an accessible experience.
+
+00:12:41.621 --> 00:12:45.007
+If a website wasn't accessible at
+its foundation, there are tools
+
+00:12:45.008 --> 00:12:47.752
+like plugins that we can layer
+on top to help get you there.
+
+00:12:49.122 --> 00:12:53.943
+And lastly, if you're not using a plugin,
+a more custom approach to accessibility
+
+00:12:53.959 --> 00:12:57.906
+is too expensive or time-consuming
+for a typical website project.
+
+00:12:58.578 --> 00:13:02.688
+The work that goes into it would increase
+client budgets and timelines s- to the
+
+00:13:02.688 --> 00:13:04.449
+point that they were no longer doable.
+
+00:13:06.657 --> 00:13:08.207
+That brings us to discovery.
+
+00:13:08.978 --> 00:13:12.736
+Before we could start designing solutions,
+we needed to challenge those assumptions
+
+00:13:12.737 --> 00:13:16.207
+I just listed and more importantly,
+understand what we didn't know.
+
+00:13:16.866 --> 00:13:21.016
+We couldn't rely solely on accessibility
+guidelines or a checklist of requirements.
+
+00:13:21.397 --> 00:13:23.995
+We needed to understand how
+people with different abilities
+
+00:13:24.056 --> 00:13:25.655
+actually experience the web.
+
+00:13:27.257 --> 00:13:30.484
+Our first order of business was sitting
+with users who utilize assistive
+
+00:13:30.486 --> 00:13:35.487
+technologies to experience firsthand how
+inequitable the online experience can be.
+
+00:13:36.127 --> 00:13:40.014
+We wanted to learn this through the lens
+of someone proficient in utilizing these
+
+00:13:40.015 --> 00:13:44.989
+technologies so that our lack of skill did
+not hide some of the true frustrations.
+
+00:13:48.126 --> 00:13:53.738
+Danielle: The first step is we sat
+down with Fieldtrip, uh, my… I
+
+00:13:53.742 --> 00:13:59.610
+myself sat down with Fieldtrip, and
+we went through various demonstrations
+
+00:13:59.688 --> 00:14:01.595
+of utilizing a screen reader.
+
+00:14:02.005 --> 00:14:09.071
+I first demonstrated the ability to
+navigate a website that was fairly usable
+
+00:14:09.590 --> 00:14:16.806
+and accessible, and pointed out why the
+website was accessible using a screen
+
+00:14:16.806 --> 00:14:23.623
+reader, such as heading navigation,
+clearly labeled links, buttons, tab order.
+
+00:14:24.872 --> 00:14:33.319
+I also then demonstrated a website that
+utilized poor accessibility design and
+
+00:14:33.382 --> 00:14:40.201
+pointed out why a poorly designed website
+is difficult for a screen reader user
+
+00:14:40.201 --> 00:14:47.731
+to use, including illogical heading
+structure, unlabeled buttons, keyboard
+
+00:14:47.735 --> 00:14:53.654
+traps, and anything else that we could
+discover in exploring various websites.
+
+00:14:59.198 --> 00:15:06.654
+We also discussed how a screen reader
+user might navigate a website that they
+
+00:15:06.654 --> 00:15:11.503
+are familiar with versus one that they
+are not familiar with, and understanding
+
+00:15:12.146 --> 00:15:17.250
+those strategies so that the design
+of The Dot Experience website could
+
+00:15:18.132 --> 00:15:23.523
+fully allow a user to utilize those
+strategies effectively when they come
+
+00:15:23.525 --> 00:15:27.087
+and visit the website for themselves
+and explore it for the first time.
+
+00:15:30.714 --> 00:15:39.467
+So one major example that was shown during
+this first step was simply a shopping site
+
+00:15:39.489 --> 00:15:43.119
+where you add the, add a item to the cart.
+
+00:15:43.538 --> 00:15:50.024
+If the cart, add to cart button is not
+accessible, then a user of assisted
+
+00:15:50.025 --> 00:15:56.115
+technology cannot independently make a
+purchase, and this very simple everyday
+
+00:15:56.115 --> 00:16:04.951
+activity that we do every day can either
+be easy or impossible for individuals with
+
+00:16:04.965 --> 00:16:07.218
+disabilities, depending on the design.
+
+00:16:10.276 --> 00:16:13.882
+Melody: Watching Danielle navigate
+websites we use every day challenged the
+
+00:16:13.883 --> 00:16:16.540
+way we understood accessibility barriers.
+
+00:16:17.250 --> 00:16:21.375
+These were not obscure cases buried
+deep within a website, and they
+
+00:16:21.376 --> 00:16:23.466
+also weren't small, unknown sites.
+
+00:16:23.920 --> 00:16:27.318
+They were on sites we all visit
+and were everyday interactions:
+
+00:16:27.506 --> 00:16:33.064
+navigation, headings, buttons, forms,
+things that most of us move through
+
+00:16:33.076 --> 00:16:34.648
+without ever even considering.
+
+00:16:35.739 --> 00:16:38.786
+And when something wasn't built
+correctly, Danielle was the one
+
+00:16:38.825 --> 00:16:40.450
+being asked to do the extra work.
+
+00:16:40.875 --> 00:16:45.513
+She had to figure out what was the website
+meant, find another way through, or
+
+00:16:45.537 --> 00:16:50.601
+sometimes abandon the task altogether, and
+that helped shift, shift our perspective.
+
+00:16:51.615 --> 00:16:55.241
+We stopped looking at accessibility
+issues as technical errors that
+
+00:16:55.242 --> 00:16:58.976
+we needed to fix and instead
+started seeing them as barriers we
+
+00:16:58.976 --> 00:17:00.923
+were responsible for preventing.
+
+00:17:01.811 --> 00:17:04.825
+It also challenged one of the
+assumptions we brought into this
+
+00:17:04.829 --> 00:17:08.587
+project, that an accessibility
+plugin could help fill the gaps.
+
+00:17:10.040 --> 00:17:12.739
+As Danielle showed us how these
+tools actually behave with a
+
+00:17:12.739 --> 00:17:15.894
+screen reader, we saw that adding
+another layer of technology on
+
+00:17:15.896 --> 00:17:19.644
+top of an inaccessible foundation
+doesn't really solve the problem.
+
+00:17:20.089 --> 00:17:24.380
+When implemented poorly, it can actually
+create additional confusion and barriers.
+
+00:17:25.467 --> 00:17:28.053
+That became a pretty clear
+line for this project.
+
+00:17:28.247 --> 00:17:30.658
+We weren't going to rely on
+a plugin to make the website
+
+00:17:30.658 --> 00:17:32.138
+accessible after the fact.
+
+00:17:32.502 --> 00:17:35.843
+Accessibility had to be considered
+in the structure, design, and
+
+00:17:35.843 --> 00:17:37.588
+development of the website itself.
+
+00:17:40.728 --> 00:17:43.071
+Carl: Now on to step two of discovery.
+
+00:17:43.636 --> 00:17:45.099
+We went back to the basics.
+
+00:17:46.120 --> 00:17:51.513
+To build a truly inclusive website, we
+first had to broaden our understanding
+
+00:17:51.608 --> 00:17:54.006
+of what accessibility actually means.
+
+00:17:55.273 --> 00:17:58.741
+Up until this point, much of our
+focus had been centered around
+
+00:17:58.744 --> 00:18:02.459
+blindness because that was the primary
+audience we were designing for.
+
+00:18:03.372 --> 00:18:07.250
+But accessibility is not about
+accommodating a single disability,
+
+00:18:07.840 --> 00:18:10.548
+in the case of The Dot experience,
+blindness and low vision.
+
+00:18:11.535 --> 00:18:15.379
+It is about designing for the
+many different ways people
+
+00:18:15.408 --> 00:18:19.472
+perceive, understand, navigate,
+and interact with the web.
+
+00:18:20.806 --> 00:18:25.227
+The POUR principles became our
+guiding framework: perceivable,
+
+00:18:25.616 --> 00:18:28.756
+operable, understandable, and robust.
+
+00:18:30.149 --> 00:18:35.713
+Using these principles, we took a critical
+look at websites we had built in the past,
+
+00:18:36.227 --> 00:18:40.740
+identifying where we had fallen short and
+where our pros- process could improve.
+
+00:18:41.839 --> 00:18:46.018
+Those lessons became a foundation for
+The Dot Experience, helping us move
+
+00:18:46.022 --> 00:18:50.336
+forward with a much more complete and
+intentional approach to accessibility.
+
+00:18:55.518 --> 00:19:00.202
+Our final step of discovery was utilizing
+assistive technologies ourselves.
+
+00:19:00.917 --> 00:19:04.659
+Watching Danielle use a screen reader
+gave us insight into the world,
+
+00:19:05.020 --> 00:19:09.350
+but using them in, on our own took
+that understanding a step further.
+
+00:19:10.245 --> 00:19:16.456
+We navigated websites, again, including
+ones we had built, with screen readers and
+
+00:19:16.517 --> 00:19:21.839
+other tools to experience firsthand the
+hurdles we had observed through Danielle
+
+00:19:21.893 --> 00:19:23.584
+and learned about in our research.
+
+00:19:24.950 --> 00:19:31.229
+That was valuable because accessibility
+problems can often feel abstract when
+
+00:19:31.230 --> 00:19:34.182
+they appear in guidelines or audits.
+
+00:19:35.366 --> 00:19:40.022
+When you are the person navigating
+without a mouse, facing unclear
+
+00:19:40.022 --> 00:19:45.213
+links, poor heading structure,
+or badly labeled buttons, those
+
+00:19:45.229 --> 00:19:47.607
+barriers become much more tangible.
+
+00:19:49.118 --> 00:19:53.172
+It also reinforced that
+accessibility is about more than
+
+00:19:53.172 --> 00:19:55.121
+just being able to complete a task.
+
+00:19:55.831 --> 00:19:58.225
+The quality of that
+experience matters too.
+
+00:19:58.900 --> 00:20:03.945
+If a website is technically usable
+but requires extra effort, creates
+
+00:20:03.955 --> 00:20:09.090
+confusion, or force-forces workarounds,
+it is still a bad experience.
+
+00:20:10.214 --> 00:20:15.572
+Using these technologies ourselves gave us
+greater empathy, but more importantly, it
+
+00:20:15.572 --> 00:20:17.601
+made us better designers and developers.
+
+00:20:18.184 --> 00:20:22.243
+We began recognizing barriers
+earlier, questioning assumptions,
+
+00:20:22.359 --> 00:20:26.408
+and considering accessibility through
+the design and development process
+
+00:20:26.648 --> 00:20:28.819
+rather than testing for it at the end.
+
+00:20:32.951 --> 00:20:36.394
+Melody: With our research complete, we
+moved on to the design of the website.
+
+00:20:37.728 --> 00:20:40.768
+The Dot Experience is pushing the
+boundaries of what an in-person
+
+00:20:40.768 --> 00:20:44.676
+museum experience can be for people
+with a wide variety of needs.
+
+00:20:45.172 --> 00:20:48.192
+We needed to bring that same
+ambition to our website.
+
+00:20:49.587 --> 00:20:52.311
+We could have played it safe and
+stripped away visual interest until
+
+00:20:52.311 --> 00:20:55.491
+accessibility became an easier
+target, but that would have diminished
+
+00:20:55.493 --> 00:20:57.065
+the experience for everyone.
+
+00:20:57.957 --> 00:21:01.223
+If the museum was challenging
+assumptions about what an accessible
+
+00:21:01.231 --> 00:21:04.187
+physical experience could be, we
+wanted the website to challenge
+
+00:21:04.187 --> 00:21:06.474
+those same, uh, assumptions online.
+
+00:21:09.000 --> 00:21:12.476
+To put it simply, if you imagine
+that a highly aesthetic and immersive
+
+00:21:12.476 --> 00:21:16.572
+website design is one circle and
+accessibility is another, we were
+
+00:21:16.573 --> 00:21:18.553
+looking for the overlap between the two.
+
+00:21:19.088 --> 00:21:22.485
+And rather than just accepting that
+this common ground was a small sliver
+
+00:21:22.485 --> 00:21:27.067
+to work within, we were looking at this
+project as a way to expand that overlap.
+
+00:21:28.676 --> 00:21:33.162
+An example of this work on the website is
+the decorative neumorphic Braille headers.
+
+00:21:34.070 --> 00:21:37.375
+We drew inspiration directly
+from the in-person experience.
+
+00:21:38.146 --> 00:21:41.830
+The exhibits provide a traditional
+title and description with tactile
+
+00:21:41.833 --> 00:21:46.137
+Braille, giving visitors different ways
+to encounter the same information based
+
+00:21:46.138 --> 00:21:47.859
+on how they experience the museum.
+
+00:21:49.551 --> 00:21:53.527
+We wanted to bring that idea
+into the website by adding
+
+00:21:53.531 --> 00:21:55.597
+Braille to support our H1s.
+
+00:21:56.295 --> 00:22:00.405
+The neumorphic style gives the Braille
+just a subtle sense of depth, visually
+
+00:22:00.429 --> 00:22:06.072
+echoing the tactile in-person experience
+and reinforcing a simple truth: everyone
+
+00:22:06.072 --> 00:22:07.520
+encounters the world differently.
+
+00:22:08.987 --> 00:22:11.749
+But that also raised an
+important accessibility question.
+
+00:22:12.533 --> 00:22:16.158
+Neumorphic design relies on low
+contrast to create a sense of depth
+
+00:22:16.426 --> 00:22:21.110
+visually, so we had to ask ourselves,
+does using this style create a
+
+00:22:21.111 --> 00:22:22.748
+barrier for some of our users?
+
+00:22:23.802 --> 00:22:26.652
+That question pushed us to think
+carefully about the role of Braille
+
+00:22:26.652 --> 00:22:30.489
+in the design and whether it was
+providing essential information or
+
+00:22:30.520 --> 00:22:34.779
+actor, or acting as a decorative
+extension of the museum experience.
+
+00:22:37.216 --> 00:22:40.773
+We started each design decision
+with a few primary questions.
+
+00:22:41.005 --> 00:22:44.648
+A ruber, a rubric we could
+use to determine whether an
+
+00:22:44.650 --> 00:22:46.406
+experience was truly inclusive.
+
+00:22:47.337 --> 00:22:49.256
+What is the purpose of this element?
+
+00:22:49.511 --> 00:22:52.079
+What is each audience
+able to take away here?
+
+00:22:52.473 --> 00:22:57.176
+And is one audience getting information
+that another audience will not be able to?
+
+00:22:58.458 --> 00:23:03.425
+So with the Braille in question, let's put
+that treatment through that same rubric.
+
+00:23:04.145 --> 00:23:06.158
+What is the purpose of this element?
+
+00:23:08.105 --> 00:23:12.085
+The Braille is intended to be educational
+for our sighted community who may not
+
+00:23:12.085 --> 00:23:16.606
+have been exposed to Braille previously,
+while also mimicking the inexper--
+
+00:23:16.854 --> 00:23:19.099
+the in-person experience for everyone.
+
+00:23:20.492 --> 00:23:22.770
+What is each audience
+able to take away here?
+
+00:23:23.430 --> 00:23:26.896
+For sighted users, the Braille itself
+becomes part of the experience,
+
+00:23:27.167 --> 00:23:31.294
+something they can see, engage with, and
+potentially become more curious about.
+
+00:23:32.427 --> 00:23:36.541
+While someone using a screen reader,
+seeing that Braille isn't necessary, what
+
+00:23:36.541 --> 00:23:40.668
+matters is the understanding of what the
+Braille represents and why it's there.
+
+00:23:42.284 --> 00:23:44.882
+And lastly, is one audience
+getting information that
+
+00:23:44.882 --> 00:23:46.416
+another will not be able to?
+
+00:23:47.593 --> 00:23:52.267
+Both audience, both audiences here
+receive the same core message, but
+
+00:23:52.271 --> 00:23:56.311
+through experiences designed for how they
+specifically interact with the content.
+
+00:23:59.001 --> 00:24:01.774
+The Braille was applied with
+a few intentional guardrails.
+
+00:24:02.445 --> 00:24:06.253
+First, we pushed the contrast as far
+as we could while still maintaining
+
+00:24:06.264 --> 00:24:08.201
+the neumorphic look and sense of depth.
+
+00:24:09.030 --> 00:24:12.274
+Second, the Braille only
+mirrors an existing H1.
+
+00:24:12.943 --> 00:24:17.482
+It will never introduce new or additive
+information, so nothing is lost if
+
+00:24:17.482 --> 00:24:19.392
+someone cannot perceive it visually.
+
+00:24:20.691 --> 00:24:23.890
+And third, we made sure assistive
+technology could understand
+
+00:24:23.952 --> 00:24:25.394
+what was happening visually.
+
+00:24:25.994 --> 00:24:28.698
+We added an ARIA label
+that provides that context.
+
+00:24:29.289 --> 00:24:34.243
+For the example of our exhibits and
+experience page, it reads, "Animated
+
+00:24:34.281 --> 00:24:38.559
+uncontracted Braille rendering of the
+page title Exhibits and Experiences."
+
+00:24:40.772 --> 00:24:43.739
+With these parameters in place,
+we were able to answer our key
+
+00:24:43.744 --> 00:24:46.598
+accessibility questions and move
+forward with the Braille as part
+
+00:24:46.598 --> 00:24:48.225
+of the site's visual language.
+
+00:24:49.139 --> 00:24:53.305
+It also gave us an opportunity to develop
+something special for The Dot Experience,
+
+00:24:53.486 --> 00:24:55.435
+our very own text-to-Braille converter.
+
+00:24:56.355 --> 00:24:59.762
+Rather than manually creating each
+treatment, we developed a system
+
+00:24:59.762 --> 00:25:03.216
+that could take the page title
+and translate it into uncontracted
+
+00:25:03.217 --> 00:25:06.914
+Braille, allowing the effect to be
+used consistently throughout the site.
+
+00:25:11.226 --> 00:25:16.572
+Carl: The brown headers are one visible
+example of accessibility, but much of the
+
+00:25:16.573 --> 00:25:21.503
+important work happens behind the scenes
+in how the website is actually built.
+
+00:25:22.288 --> 00:25:23.793
+Let's take a look at that next.
+
+00:25:26.524 --> 00:25:31.550
+Accessibility could not be something
+that we add after the website was built.
+
+00:25:31.940 --> 00:25:35.686
+It had to be part of the
+foundation from the very beginning.
+
+00:25:36.312 --> 00:25:41.086
+For us, that meant focusing on
+three key pillars that shaped how
+
+00:25:41.087 --> 00:25:42.750
+we approached the entire build.
+
+00:25:44.922 --> 00:25:47.583
+It all starts with semantic HTML.
+
+00:25:48.406 --> 00:25:50.717
+A heading needs to read as a real heading.
+
+00:25:51.337 --> 00:25:53.367
+A button needs to be a real button.
+
+00:25:53.941 --> 00:25:57.356
+Navigation needs to be
+identified as navigation.
+
+00:25:58.236 --> 00:26:03.155
+Forms need to have clear labels and
+instructions and error messaging.
+
+00:26:04.753 --> 00:26:09.088
+Those structural choices give assistive
+tools the information that they
+
+00:26:09.090 --> 00:26:13.480
+need to understand not just what's
+on the page, but how each one of
+
+00:26:13.480 --> 00:26:15.013
+those things relate to one another.
+
+00:26:16.490 --> 00:26:21.264
+Sighted users may be able to understand
+those relationships through size,
+
+00:26:21.265 --> 00:26:23.773
+spacing, color, and position.
+
+00:26:24.586 --> 00:26:28.280
+Screen reader users often depend
+on the underlying structure
+
+00:26:28.779 --> 00:26:32.418
+to me-- to communicate the
+same hierarchy and meaning.
+
+00:26:33.399 --> 00:26:37.949
+Good semantic HTML helps make
+sure that that information is
+
+00:26:37.967 --> 00:26:42.227
+not simply lost because someone
+experiences the page differently.
+
+00:26:45.688 --> 00:26:48.410
+We also focused closely on interaction.
+
+00:26:49.180 --> 00:26:53.255
+Every interactive element needed
+to work without relying on a mouse.
+
+00:26:53.940 --> 00:26:58.551
+Users had to be able to navigate with
+a keyboard, clearly understand where
+
+00:26:58.552 --> 00:27:03.674
+their focus was, operate controls,
+and complete tasks without getting
+
+00:27:03.675 --> 00:27:05.308
+trapped or losing their place.
+
+00:27:06.404 --> 00:27:10.655
+But it wasn't enough for something
+to technically respond to a keyboard.
+
+00:27:11.312 --> 00:27:15.325
+It also needed to behave in a way
+that felt logical and predictable.
+
+00:27:16.147 --> 00:27:19.874
+When a menu or modal opens,
+where does the focus go?
+
+00:27:20.406 --> 00:27:23.176
+When it closes, where
+does that focus return?
+
+00:27:23.989 --> 00:27:27.173
+Can the user tell which
+element is currently active?
+
+00:27:27.798 --> 00:27:31.013
+Does a control communicate
+whether it is expanded,
+
+00:27:31.520 --> 00:27:33.704
+collapsed, selected, or disabled?
+
+00:27:34.880 --> 00:27:39.783
+Those details can feel small, but
+together they determine whether an
+
+00:27:39.966 --> 00:27:45.472
+interface feels intuitive or frustrating
+for someone navigating without a mouse.
+
+00:27:48.730 --> 00:27:51.803
+The third part of the
+foundation was reusability.
+
+00:27:52.659 --> 00:27:56.823
+We were building a WordPress
+system that the museum staff would
+
+00:27:56.823 --> 00:27:59.154
+continue using long after launch.
+
+00:27:59.890 --> 00:28:03.175
+We could not depend on someone
+remembering a long accessibility
+
+00:28:03.185 --> 00:28:05.734
+checklist every time they created a page.
+
+00:28:06.783 --> 00:28:12.524
+So we built accessibility behaviors
+into reusable components and established
+
+00:28:12.536 --> 00:28:19.028
+consistent patterns for headings,
+buttons, links, navigation, form,
+
+00:28:19.097 --> 00:28:21.993
+media, and other content blocks.
+
+00:28:22.927 --> 00:28:28.929
+Content authors would still need to write
+meaningful link text, provide appropriate
+
+00:28:28.964 --> 00:28:34.625
+image descriptions, and organize
+content clearly, but the system should
+
+00:28:34.650 --> 00:28:37.148
+guide them towards accessible choices.
+
+00:28:40.610 --> 00:28:44.081
+Danielle: What is the user testing
+look like for The DOT Experience?
+
+00:28:44.572 --> 00:28:50.525
+So in order to thoroughly test
+this website, we had to ensure that
+
+00:28:50.908 --> 00:28:56.663
+we had a, a group of testers that
+had a variety of disabilities and
+
+00:28:56.663 --> 00:29:02.820
+utilized a variety of assistive
+technology devices and platforms.
+
+00:29:03.285 --> 00:29:09.506
+Some of these included using a
+PC with JAWS screen reader or
+
+00:29:09.567 --> 00:29:12.569
+NVDA, Non-Visual Desktop Access.
+
+00:29:13.451 --> 00:29:17.399
+Some of our users also
+used VoiceOver on a Mac.
+
+00:29:17.752 --> 00:29:24.621
+We also had users that utilized screen
+magnification both on the PC and the Mac.
+
+00:29:24.853 --> 00:29:31.536
+So having this wide variety of
+testers, we were able to catch a--
+
+00:29:32.879 --> 00:29:39.635
+more accessibility, uh, errors than we
+would have caught just with one device,
+
+00:29:39.668 --> 00:29:45.853
+and this allowed more fine-tuning of
+the website for maximum accessibility.
+
+00:29:46.361 --> 00:29:51.945
+We also had users who used refreshable
+Braille displays connected to their
+
+00:29:51.945 --> 00:29:58.293
+computers, and that was also tested
+to ensure that Braille display users
+
+00:29:58.293 --> 00:30:02.962
+could access the same material that
+was spoken to the screen reader user.
+
+00:30:04.062 --> 00:30:10.123
+Having all of this together ensures
+that not only is a website accessible
+
+00:30:10.141 --> 00:30:14.759
+for individuals that use screen
+reading technology, but it's also
+
+00:30:15.197 --> 00:30:20.330
+accessible for individuals who use
+other types of assistive technology,
+
+00:30:20.341 --> 00:30:28.149
+such as im- alternative input devices,
+eye-tracking devices, and other types
+
+00:30:28.149 --> 00:30:35.283
+of technology that would require the
+use of good keyboard navigation and the
+
+00:30:35.283 --> 00:30:38.295
+ability to navigate from item to item.
+
+00:30:41.088 --> 00:30:44.468
+Melody: This was an exciting but
+also slightly nerve-wracking moment.
+
+00:30:44.688 --> 00:30:49.192
+We had spent a ton of time learning,
+questioning our assumptions, and
+
+00:30:49.204 --> 00:30:52.498
+ultimately building this experience
+that we felt was hitting the
+
+00:30:52.499 --> 00:30:54.369
+mar- uh, mark of inclusivity.
+
+00:30:55.005 --> 00:30:59.391
+But by leaning into this group of
+individuals, we were going to find
+
+00:30:59.393 --> 00:31:01.266
+out how well we had actually done.
+
+00:31:01.859 --> 00:31:07.899
+Between the team that Danielle described
+and then a consultant of accessibility
+
+00:31:07.909 --> 00:31:12.896
+experts, we were able to jump in and
+find out what was working, what was
+
+00:31:12.898 --> 00:31:15.061
+causing issues, and how we could improve.
+
+00:31:16.252 --> 00:31:19.256
+As expected, even though we
+did all of that upfront work,
+
+00:31:19.312 --> 00:31:20.669
+we still received notes.
+
+00:31:21.422 --> 00:31:24.503
+New things were added to our
+accessibility knowledge base that
+
+00:31:24.514 --> 00:31:26.365
+shifted this project forward.
+
+00:31:27.188 --> 00:31:32.312
+This larger perspective that we could
+not have internally allowed us to move to
+
+00:31:32.312 --> 00:31:34.538
+launch much more confident and excited.
+
+00:31:37.688 --> 00:31:41.581
+This testing reinforced one of the
+biggest lessons from this project: there's
+
+00:31:41.652 --> 00:31:43.735
+always room for another perspective.
+
+00:31:44.283 --> 00:31:48.240
+We had done the research, followed
+standards, and had built accessibility
+
+00:31:48.250 --> 00:31:51.814
+into the design and development process
+from the very beginning, but these
+
+00:31:51.826 --> 00:31:56.427
+Braille users still s- taught us things
+that we had not yet considered, and
+
+00:31:56.427 --> 00:31:58.126
+that is just part of the process.
+
+00:31:58.720 --> 00:32:03.313
+In that respect, can we ever really call
+a website fully accessible and complete?
+
+00:32:05.790 --> 00:32:09.617
+Because of this, we make gathering
+feedback part of our online experience.
+
+00:32:10.109 --> 00:32:14.505
+We created paths on the website for users
+to tell us when something wasn't working
+
+00:32:14.508 --> 00:32:19.552
+for them or when they interacted with a
+barrier that we just did not anticipate.
+
+00:32:20.226 --> 00:32:23.831
+Because launching an accessible website
+does not mean your work is done.
+
+00:32:24.636 --> 00:32:28.879
+The ongoing feedback allows us to
+continue to refine what an inclusive
+
+00:32:28.879 --> 00:32:31.478
+web experience should be moving forward.
+
+00:32:33.883 --> 00:32:36.315
+So what do we take from all of this?
+
+00:32:37.313 --> 00:32:41.871
+The Dot Experience changed the way
+we approached accessibility, not just
+
+00:32:41.872 --> 00:32:46.530
+for the, this website, but for every
+website Fieldtrip touches in the future.
+
+00:32:47.087 --> 00:32:51.065
+And to understand how, let's go back
+to the assumptions we started with.
+
+00:32:54.011 --> 00:32:58.832
+Danielle: So to go back to the
+question, do you have to choose
+
+00:32:58.892 --> 00:33:03.230
+between accessibility and design?
+
+00:33:03.562 --> 00:33:04.893
+The answer is no.
+
+00:33:05.158 --> 00:33:12.375
+You can create an accessible website that
+is fully navigable by a wide range of
+
+00:33:12.416 --> 00:33:20.485
+users with various disabilities, but also
+create a visually appealing website that
+
+00:33:20.687 --> 00:33:24.501
+looks great and works well for everyone
+
+00:33:26.718 --> 00:33:31.546
+Melody: The most impactful experiences
+are both accessible and visually engaging.
+
+00:33:31.706 --> 00:33:36.570
+It is Fieldtrip's belief now that
+accessibility should not be viewed as a
+
+00:33:36.570 --> 00:33:41.337
+creative constraint, rather an opportunity
+to design better for everyone who's going
+
+00:33:41.337 --> 00:33:43.000
+to be interacting with your website.
+
+00:33:45.614 --> 00:33:50.589
+Carl: So the assumption of a
+accessible plugin is enough.
+
+00:33:51.249 --> 00:33:52.133
+Here's what we learned.
+
+00:33:53.012 --> 00:33:55.066
+Accessibility is built.
+
+00:33:55.253 --> 00:33:56.302
+It's not installed.
+
+00:33:57.174 --> 00:34:03.476
+A plugin can help identify or address
+certain issues, but it cannot replace
+
+00:34:03.616 --> 00:34:05.921
+intentional design and development.
+
+00:34:06.934 --> 00:34:12.937
+True accessibility begins with semantic
+structure, keyboard-friendly interactions,
+
+00:34:13.520 --> 00:34:17.684
+clear content, and components that
+are built correctly from the start.
+
+00:34:18.690 --> 00:34:24.087
+Plugins can be useful tools, but
+they are a supplement to accessible
+
+00:34:24.087 --> 00:34:26.399
+development, not a substitute for it.
+
+00:34:30.330 --> 00:34:34.130
+Melody: And finally, we assume that
+doing accessibility right would require
+
+00:34:34.130 --> 00:34:39.860
+a much more custom approach, one that
+ultimately would add time and cost to
+
+00:34:39.861 --> 00:34:41.763
+the website projects of our clients.
+
+00:34:42.927 --> 00:34:46.369
+What we learned through this project
+is that accessibility does not have
+
+00:34:46.370 --> 00:34:47.852
+to be a separate phase of work.
+
+00:34:48.663 --> 00:34:52.125
+When it's considered from the very
+beginning, it becomes part of how
+
+00:34:52.126 --> 00:34:54.381
+you strategize, design, and develop.
+
+00:34:55.543 --> 00:34:58.179
+You choose the right semantic
+structure the first time.
+
+00:34:58.467 --> 00:35:02.185
+You build keyboard interactions into
+the component from the very start.
+
+00:35:02.719 --> 00:35:06.438
+You establish accessible patterns that
+can be reused throughout the site.
+
+00:35:07.541 --> 00:35:11.657
+There is still time and expertise
+involved, of course, but the bigger
+
+00:35:11.658 --> 00:35:15.177
+lift comes when accessibility is
+treated as something you go back and
+
+00:35:15.191 --> 00:35:19.391
+add later when you're re-engineering
+your site to hit these guidelines.
+
+00:35:20.707 --> 00:35:24.162
+Once you learn how to build with
+accessibility in mind, it simply
+
+00:35:24.163 --> 00:35:27.529
+becomes part of how you build
+these websites moving forward.
+
+00:35:30.622 --> 00:35:33.348
+Now, if you're watching this
+presentation today, there's a
+
+00:35:33.349 --> 00:35:37.175
+good chance that you share in the
+responsibility of making the web a
+
+00:35:37.176 --> 00:35:39.355
+more inclusive space in some capacity.
+
+00:35:39.943 --> 00:35:45.659
+Whether you're a designer, developer,
+project manager, copywriter, or client,
+
+00:35:45.974 --> 00:35:50.671
+you have the opportunity to challenge
+assumptions, ask better questions, and
+
+00:35:50.673 --> 00:35:53.165
+invite more voices into your processes.
+
+00:35:54.238 --> 00:35:58.143
+For more than 165 years, APH has
+worked to break down barriers for
+
+00:35:58.150 --> 00:36:00.181
+people who are blind and low vision.
+
+00:36:00.746 --> 00:36:04.330
+The Dot Experience challenged us to think
+about what it looks like to carry that
+
+00:36:04.331 --> 00:36:06.616
+same commitment into the digital world.
+
+00:36:08.140 --> 00:36:11.845
+And what we learned is that accessibility
+isn't about getting every box
+
+00:36:11.846 --> 00:36:14.863
+checked or reaching a point where
+you can say the work is complete.
+
+00:36:15.624 --> 00:36:19.551
+It's about creating the foundation
+that allows more people to f- fully
+
+00:36:19.575 --> 00:36:21.251
+participate in the experience.
+
+00:36:22.432 --> 00:36:26.394
+So if you walk away with one thing from
+our time together today, let it be this:
+
+00:36:26.873 --> 00:36:29.067
+accessibility isn't the finish line.
+
+00:36:29.151 --> 00:36:30.678
+It's where inclusion begins.
+
+00:36:41.188 --> 00:36:45.077
+Sherose: Oh, thank you so much for joining
+us, uh, Danielle, Carl, and Melody.
+
+00:36:45.411 --> 00:36:51.514
+We have a ton of questions in the Q&A and
+about 10 or so minutes to address them.
+
+00:36:51.828 --> 00:36:53.948
+Let me start with a quick one first.
+
+00:36:54.252 --> 00:36:57.928
+Could you describe what is meant
+by uncontracted, um, Braille?
+
+00:37:00.069 --> 00:37:01.906
+Danielle: Uh, this is
+Danielle, I can take that.
+
+00:37:02.498 --> 00:37:08.015
+Um, uncontracted Braille is every
+letter is spelled out versus contracted
+
+00:37:08.022 --> 00:37:12.397
+Braille, which is the standard Braille
+code, meaning that there are symbols
+
+00:37:12.403 --> 00:37:14.531
+to represent groups of letters.
+
+00:37:14.895 --> 00:37:19.058
+And most, uh, Braille readers
+read standard contracted Braille,
+
+00:37:19.336 --> 00:37:23.453
+and we generally start beginning
+Braille users with uncontracted.
+
+00:37:25.016 --> 00:37:25.870
+Sherose: Thank you.
+
+00:37:25.971 --> 00:37:31.194
+Um, and then we have some, uh,
+some questions about, uh, reusable
+
+00:37:31.209 --> 00:37:32.384
+content blocks in WordPress.
+
+00:37:32.391 --> 00:37:36.395
+So one question asks what WordPress
+design system did you use, like Block
+
+00:37:36.395 --> 00:37:40.076
+Themes or Theme Builder, and another
+person wanted to know, um, if there
+
+00:37:40.076 --> 00:37:44.118
+was, like, a design system or framework
+that made creating these foundations,
+
+00:37:44.162 --> 00:37:45.736
+foundations easier for your team.
+
+00:37:46.632 --> 00:37:52.308
+Carl: Um, so we do not use
+any, um, third-party themes or
+
+00:37:52.341 --> 00:37:54.106
+anything like that at Fieldtrip.
+
+00:37:54.106 --> 00:37:55.480
+We kind of start from the ground up.
+
+00:37:55.506 --> 00:37:58.411
+Now, we do have kind of like a
+starter theme that we've built for
+
+00:37:58.412 --> 00:38:03.772
+ourselves, um, but we don't use any
+preexisting design systems or any
+
+00:38:03.779 --> 00:38:05.901
+CSS frameworks or anything like that.
+
+00:38:06.547 --> 00:38:11.495
+Um, in terms of how we built out
+those res- reusable components,
+
+00:38:11.544 --> 00:38:17.199
+um, it was not a, um, a theme
+builder or anything like that.
+
+00:38:17.230 --> 00:38:21.203
+It was just going back to, uh,
+advanced custom fields, their
+
+00:38:21.205 --> 00:38:26.153
+flexible content approach, and
+building out, um, essentially those
+
+00:38:26.165 --> 00:38:27.935
+content blocks that we referred to.
+
+00:38:29.089 --> 00:38:31.341
+Sherose: Were there any themes
+that you may have, like, checked
+
+00:38:31.341 --> 00:38:32.978
+before deciding to go that route?
+
+00:38:33.986 --> 00:38:34.386
+Carl: No.
+
+00:38:34.388 --> 00:38:36.902
+We, we really do not
+use themes at Fieldtrip.
+
+00:38:36.926 --> 00:38:39.580
+We start kind of everything
+from the ground up here.
+
+00:38:40.022 --> 00:38:40.629
+Sherose: Interesting.
+
+00:38:40.636 --> 00:38:41.069
+Interesting.
+
+00:38:41.077 --> 00:38:41.520
+Thank you.
+
+00:38:41.933 --> 00:38:44.341
+Um, the next question for Danielle.
+
+00:38:44.404 --> 00:38:48.477
+Um, do you think that testing with one
+screen reader is good enough, or is
+
+00:38:48.478 --> 00:38:50.285
+it important to test with multiple?
+
+00:38:50.736 --> 00:38:54.712
+Um, how important is testing on
+mobile and with mobile screen
+
+00:38:54.714 --> 00:38:56.480
+readers on a website like this?
+
+00:38:57.480 --> 00:39:03.495
+Danielle: So I would say you would
+need to use multiple screen readers.
+
+00:39:03.741 --> 00:39:09.134
+One reason is, um, you know, there's
+a wide variety of personal preferences
+
+00:39:09.134 --> 00:39:10.616
+in screen readers these days.
+
+00:39:10.862 --> 00:39:14.035
+Not everybody uses JAWS, for example.
+
+00:39:14.069 --> 00:39:16.490
+NVDA has become very popular.
+
+00:39:16.852 --> 00:39:21.875
+So I think, you know, especially for,
+you know, this day and time, you need
+
+00:39:22.091 --> 00:39:24.187
+to test with multiple screen readers.
+
+00:39:24.221 --> 00:39:29.520
+And I also think that it's actually
+even more important to test on mobile.
+
+00:39:30.053 --> 00:39:35.477
+Most individuals who are blind or
+low vision is more likely to access
+
+00:39:35.589 --> 00:39:42.452
+digital content on their phone than
+they are the computer in this, you
+
+00:39:42.452 --> 00:39:44.571
+know, current stream of technology, so.
+
+00:39:45.781 --> 00:39:49.554
+Sherose: That's really interesting,
+um, that mobile should pr- It sounds
+
+00:39:49.554 --> 00:39:54.075
+like mobile, um, experience should
+be prioritized when, um, developing,
+
+00:39:54.327 --> 00:39:55.752
+uh, with accessibility in mind.
+
+00:39:55.854 --> 00:39:57.381
+Is, am I understanding you correctly?
+
+00:39:58.058 --> 00:39:58.613
+Danielle: Yes.
+
+00:39:58.670 --> 00:40:02.866
+A- and honestly, es- especially for
+older adults who are blind or low vision,
+
+00:40:02.875 --> 00:40:06.788
+many of them do not even… Some of
+them… I have friends who don't even
+
+00:40:06.790 --> 00:40:13.164
+have a computer that's working right now
+And so I think it's h- very important
+
+00:40:13.520 --> 00:40:15.968
+to take that into consideration.
+
+00:40:16.180 --> 00:40:21.822
+Not only that, mobile is generally easier,
+especially for a deaf/blind person who's
+
+00:40:21.822 --> 00:40:24.252
+using a Braille display to navigate.
+
+00:40:24.283 --> 00:40:29.990
+I personally find it easier to
+navigate on mobile than a cluttered
+
+00:40:30.004 --> 00:40:31.699
+desktop version of a website.
+
+00:40:32.693 --> 00:40:33.378
+Sherose: Interesting.
+
+00:40:33.579 --> 00:40:38.330
+Would you mind maybe expanding,
+like, um, what are some common
+
+00:40:38.330 --> 00:40:42.665
+accessibility barriers you experience
+across mobile sites that WordPress
+
+00:40:42.667 --> 00:40:44.080
+developers should be aware of?
+
+00:40:45.130 --> 00:40:45.573
+Danielle: Sure.
+
+00:40:45.623 --> 00:40:48.570
+Um, I think one of the
+big ones is a lot of ads.
+
+00:40:48.602 --> 00:40:53.361
+I, um, like to do… I, I, I
+like to cook, so I'm on a lot
+
+00:40:53.362 --> 00:40:55.401
+of recipe websites, for example.
+
+00:40:56.077 --> 00:40:57.001
+Probably too much.
+
+00:40:57.253 --> 00:41:04.734
+And one of the things that I encounter a
+lot is I get stuck in these ads, and then
+
+00:41:04.736 --> 00:41:09.330
+I'm trying to get out of it, and all I
+really want is just to read the recipe.
+
+00:41:09.330 --> 00:41:15.699
+And, and there's been occasions where I've
+tested the link to, you know, my sighted
+
+00:41:15.822 --> 00:41:17.983
+husband and said, "Here, type it out.
+
+00:41:18.278 --> 00:41:22.710
+I'm done fighting it." So I
+think for me that's the big one.
+
+00:41:22.710 --> 00:41:27.158
+And ha- you know, and also having good
+heading navigation is very helpful.
+
+00:41:27.180 --> 00:41:28.326
+Or even a link.
+
+00:41:28.364 --> 00:41:32.299
+I, I love when the link says,
+"Jump to recipes." So those
+
+00:41:32.299 --> 00:41:34.130
+are things to keep in mind.
+
+00:41:34.366 --> 00:41:34.738
+Sherose: Yeah.
+
+00:41:34.738 --> 00:41:37.408
+What I'm hearing from you is, is the
+semantic structure that y'all were
+
+00:41:37.408 --> 00:41:40.824
+speaking of earlier is what really
+matters here, and having a clean and
+
+00:41:40.827 --> 00:41:43.889
+easy-to-understand navigation like
+you do on The Dot Museum website.
+
+00:41:44.115 --> 00:41:47.160
+Like, these are all things that,
+that translate well in mobile
+
+00:41:47.206 --> 00:41:48.623
+and matter to your experience.
+
+00:41:49.221 --> 00:41:49.374
+Danielle: Yes.
+
+00:41:49.435 --> 00:41:49.688
+Uh,
+
+00:41:49.706 --> 00:41:53.776
+Carl: you know, I, I'd like to add that-
+Mm-hmm … in this experience for myself
+
+00:41:53.777 --> 00:41:59.224
+as a developer for many years and l-
+learning what it takes to build something
+
+00:41:59.226 --> 00:42:06.455
+like this, is, um, I think accessibility
+can be over-complicated because we
+
+00:42:06.455 --> 00:42:10.342
+have a lot of things that are already
+pre-made for us that people have, uh,
+
+00:42:10.342 --> 00:42:15.062
+you know, foundations and, uh, browsers
+and things like that from years past.
+
+00:42:15.064 --> 00:42:20.481
+I, I saw a comment, uh, that someone
+made about 2005 semantic HTML, and
+
+00:42:20.481 --> 00:42:25.972
+now we're saying it again in 2026,
+um, in that there's things that are
+
+00:42:25.973 --> 00:42:31.487
+already at our disposable to make
+these things easier, um, and we should
+
+00:42:31.487 --> 00:42:34.486
+just use them as opposed to getting
+in our own way, if that makes sense.
+
+00:42:34.798 --> 00:42:35.324
+Sherose: Yeah.
+
+00:42:35.422 --> 00:42:36.165
+Yeah, uh, course.
+
+00:42:36.178 --> 00:42:37.014
+Yeah, absolutely.
+
+00:42:37.490 --> 00:42:39.164
+Um, I have another technical question.
+
+00:42:39.176 --> 00:42:43.610
+What are some non-screen reader tools
+that you used during the discovery phase?
+
+00:42:45.728 --> 00:42:50.052
+Carl: Um, so we had some br- uh,
+Chrome browser extensions like ARC
+
+00:42:50.125 --> 00:42:54.804
+and Axe that helped us just identify,
+like looking at websites that we
+
+00:42:54.804 --> 00:42:57.530
+had built in the past to see, uh- Mm
+
+00:42:57.530 --> 00:42:59.611
+what failed, what didn't work.
+
+00:43:00.007 --> 00:43:03.878
+And that was more kind of looking
+at the HTML and things like that.
+
+00:43:04.364 --> 00:43:09.312
+But really, other than JAWS, we
+were using, uh, VoiceOver for
+
+00:43:09.369 --> 00:43:11.974
+the, uh, Apple, Apple ecosystem.
+
+00:43:13.071 --> 00:43:13.342
+Sherose: Okay.
+
+00:43:13.345 --> 00:43:13.777
+Wonderful.
+
+00:43:13.784 --> 00:43:14.258
+Thank you.
+
+00:43:14.626 --> 00:43:18.557
+Um, the next question, uh,
+probably short answer here.
+
+00:43:18.563 --> 00:43:21.116
+How long did it take, um,
+to complete this project?
+
+00:43:23.365 --> 00:43:24.808
+Melody: That's a great question.
+
+00:43:24.808 --> 00:43:27.529
+We, uh, worked it in two different phases.
+
+00:43:27.533 --> 00:43:30.709
+So we actually started with
+just the learning and discovery.
+
+00:43:31.094 --> 00:43:35.193
+And if I'm remembering correctly, that
+was probably around, uh, four months.
+
+00:43:35.395 --> 00:43:40.175
+And then we moved into the actual,
+uh, design and development, and that
+
+00:43:40.175 --> 00:43:42.728
+was probably another five or six.
+
+00:43:43.301 --> 00:43:46.432
+Can't remember exacts at this stage,
+but we d- we did take our time
+
+00:43:46.433 --> 00:43:50.764
+and do many rounds of revisions
+and review, but from, um, all the
+
+00:43:50.764 --> 00:43:52.992
+way back to the design portion.
+
+00:43:53.065 --> 00:43:56.892
+Um, and then obviously when we had
+an actual developed experience, we
+
+00:43:56.892 --> 00:43:58.662
+could send through further testing.
+
+00:43:59.446 --> 00:44:04.232
+Sherose: Y- you mentioned design, um, and
+I wanted to ask, is there, um, a design
+
+00:44:04.260 --> 00:44:09.018
+element that became, uh, a barrier, like
+perhaps an insurmountable barrier when
+
+00:44:09.019 --> 00:44:11.030
+trying to make the website accessible?
+
+00:44:11.772 --> 00:44:12.896
+And how did you get around that?
+
+00:44:16.227 --> 00:44:19.303
+Carl: Um, this isn't necessarily
+from a design perspective, and
+
+00:44:19.308 --> 00:44:22.529
+someone actually mentioned it in the
+comments earlier, but one of the big
+
+00:44:22.531 --> 00:44:26.691
+surprises for me, uh, was video embeds.
+
+00:44:26.808 --> 00:44:33.336
+Um, and that things like YouTube
+and Vimeo, those players are
+
+00:44:33.337 --> 00:44:35.087
+actually not very accessible at all.
+
+00:44:35.754 --> 00:44:38.819
+Um, and so that was a
+big challenge for us.
+
+00:44:38.872 --> 00:44:42.783
+And if I'm being completely honest,
+I think we still have some room
+
+00:44:42.830 --> 00:44:46.511
+to improve there, um, in terms
+of how we've implemented that.
+
+00:44:46.511 --> 00:44:52.977
+We tried our best with, um, uh, putting
+it inside of accessible players.
+
+00:44:53.459 --> 00:44:55.575
+Uh, so in this case it was Able Player.
+
+00:44:56.136 --> 00:44:59.544
+Um, but that was a big surprise for me.
+
+00:44:59.734 --> 00:45:04.859
+With such large company, w- you know,
+those two large companies, um, and
+
+00:45:04.859 --> 00:45:10.566
+learning that, you know, those embeds
+are all over the internet and so, um,
+
+00:45:10.578 --> 00:45:12.979
+that those things are not the greatest.
+
+00:45:13.944 --> 00:45:14.462
+Sherose: They're not.
+
+00:45:14.613 --> 00:45:15.009
+They're not.
+
+00:45:15.015 --> 00:45:20.176
+And when they're hosting third-party, uh,
+video players, it's so much harder to c-
+
+00:45:20.221 --> 00:45:22.169
+uh, control the experience for your user.
+
+00:45:22.216 --> 00:45:22.654
+Excellent.
+
+00:45:22.671 --> 00:45:22.734
+Yeah.
+
+00:45:23.026 --> 00:45:25.453
+Um, okay, uh, we only have,
+like, a minute and a half.
+
+00:45:25.453 --> 00:45:26.884
+I'll ask you a question.
+
+00:45:27.124 --> 00:45:29.611
+Um, you answered a little bit
+in your presentation already.
+
+00:45:29.837 --> 00:45:32.678
+How do you approach ensuring that
+content editors in the future
+
+00:45:32.727 --> 00:45:34.486
+continue to create accessible content?
+
+00:45:34.511 --> 00:45:37.138
+You did mention creating reusable
+blocks, but was there any other
+
+00:45:37.138 --> 00:45:38.185
+support that you provided?
+
+00:45:39.131 --> 00:45:42.982
+Carl: Um, so one of the things that we
+did, and it, you know, takes extra time
+
+00:45:42.984 --> 00:45:48.102
+to do this but it's worth it, is that
+we leave notes and comments, uh, for the
+
+00:45:48.102 --> 00:45:52.857
+client as they're editing content to say,
+"Hey, remember this, don't forget this.
+
+00:45:52.872 --> 00:45:57.571
+Best practice for that." Um, so that
+was a sense of, like, a documentation
+
+00:45:57.571 --> 00:46:01.627
+of sort that kind of follows them along
+as they're reusing those components.
+
+00:46:02.544 --> 00:46:05.727
+Melody: And when we were doing our
+training on the website because our…
+
+00:46:05.794 --> 00:46:10.709
+You know, it is fully managed by our
+client, uh, we also tried to remind and
+
+00:46:10.723 --> 00:46:14.837
+educate on some of these accessibility
+principles because there are elements that
+
+00:46:14.850 --> 00:46:19.569
+go beyond our reach, the actual words on
+the page and, uh, things of that nature
+
+00:46:19.569 --> 00:46:23.803
+that can quickly move an accessible site
+into not a super accessible experience.
+
+00:46:23.816 --> 00:46:27.049
+So we try to pair the
+education aspect as well.
+
+00:46:27.772 --> 00:46:31.180
+Sherose: Uh, Melody, w- do you
+mean, like, stuff like, um, using
+
+00:46:31.182 --> 00:46:35.062
+plain language or, um, how to
+write a heading, things like that?
+
+00:46:35.305 --> 00:46:36.024
+Melody: Yep, both.
+
+00:46:36.069 --> 00:46:40.102
+So the technical side of making sure
+your heading structure is labeled and
+
+00:46:40.102 --> 00:46:42.720
+used properly in the back end, but
+also all the way down to, like, what
+
+00:46:42.720 --> 00:46:44.470
+are the actual words on the page.
+
+00:46:45.354 --> 00:46:45.750
+Sherose: Thank you.
+
+00:46:45.752 --> 00:46:46.252
+Thank you.
+
+00:46:46.511 --> 00:46:49.086
+Um, I wanna thank you all for
+attending this session with
+
+00:46:49.095 --> 00:46:50.537
+Carl, Melody and Danielle.
+
+00:46:50.964 --> 00:46:53.901
+Um, you can continue the conversation
+in the chat or on social media
+
+00:46:53.906 --> 00:47:00.551
+using #WPAllyDay, um, and #WPAD2026.
+

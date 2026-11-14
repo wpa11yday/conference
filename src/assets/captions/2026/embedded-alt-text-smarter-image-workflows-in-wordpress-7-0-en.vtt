@@ -1,0 +1,2794 @@
+WEBVTT
+
+00:00:01.604 --> 00:00:04.681
+Narrator: WordPress
+Accessibility Day 2026.
+
+00:00:05.181 --> 00:00:09.985
+Embedded Alt Text: Smarter Image
+Workflows in WordPress 7.0.
+
+00:00:10.466 --> 00:00:15.701
+Presented by Caroline Desrosiers,
+Founder and CEO of Scribely.
+
+00:00:16.829 --> 00:00:22.684
+This session was presented
+October 7, 2026 at 21:00 UTC.
+
+00:00:25.382 --> 00:00:28.318
+WordPress Accessibility Day 2026.
+
+00:00:28.682 --> 00:00:30.410
+Thank you to our sponsors.
+
+00:00:30.772 --> 00:00:35.263
+Platinum Sponsor: Equalize
+Digital, websites for everyone.
+
+00:00:35.796 --> 00:00:39.482
+Equalize Digital's Accessibility
+Checker plugin makes real-time
+
+00:00:39.482 --> 00:00:42.890
+testing in the WordPress editor
+faster and more affordable.
+
+00:00:43.794 --> 00:00:48.012
+Auditing services and online
+courses help organizations build
+
+00:00:48.202 --> 00:00:50.183
+and maintain accessible websites.
+
+00:00:50.804 --> 00:00:52.852
+Platinum Sponsor: Gravity.
+
+00:00:53.341 --> 00:00:56.847
+Gravity Forms is the accessible
+form builder for WordPress.
+
+00:00:57.236 --> 00:01:00.822
+Trusted by millions of sites,
+it's built to create powerful
+
+00:01:00.962 --> 00:01:04.012
+WCAG-compliant forms for any project.
+
+00:01:04.544 --> 00:01:09.396
+Gold sponsors: Kinsta, Insi, WP Engine.
+
+00:01:10.010 --> 00:01:15.239
+Silver sponsors: Second Melody, 10
+Rack - Your Website, Only Better.
+
+00:01:16.583 --> 00:01:20.470
+Visit sponsor pages to enter to
+win giveaways and access swag.
+
+00:01:20.886 --> 00:01:25.507
+Go to wpaccessibility.day/2026/sponsors.
+
+00:01:29.361 --> 00:01:30.915
+Don't forget to leave feedback.
+
+00:01:31.390 --> 00:01:35.806
+Go to wpaccessibility.day/2026/feedback.
+
+00:01:42.138 --> 00:01:45.294
+Kadian: Hello and welcome to
+WordPress Accessibility Day 2026.
+
+00:01:45.551 --> 00:01:47.832
+My name is Kadian Vance, and
+I'm the founder and principal
+
+00:01:47.833 --> 00:01:49.709
+developer of Focus Visible.
+
+00:01:50.340 --> 00:01:54.537
+Thank you for joining us for Embedded
+Alt Text: Smarter Image Workflows in
+
+00:01:54.540 --> 00:01:57.077
+WordPress 7.0 with Caroline Desrosiers.
+
+00:01:58.028 --> 00:02:02.296
+Caroline Desrosiers is an accessibility
+advocate, speaker, writer, and founder
+
+00:02:02.319 --> 00:02:07.387
+of Scribely, a Forbes Accessibility 200
+company dedicated to quality alt text
+
+00:02:07.566 --> 00:02:10.065
+and creating endlessly effective images.
+
+00:02:10.648 --> 00:02:14.823
+Her work has been featured in The New
+York Times, Fast Company, and Mashable,
+
+00:02:15.073 --> 00:02:19.429
+and she collaborates with organizations
+such as Amazon, Sesame Street, and the
+
+00:02:19.429 --> 00:02:23.415
+Smithsonian to integrate accessibility
+and context engineering into their
+
+00:02:23.417 --> 00:02:25.448
+content strategies and workflows.
+
+00:02:25.819 --> 00:02:29.960
+Passionate about born-accessible
+practices, Caroline led the creation
+
+00:02:29.974 --> 00:02:34.016
+of the new IPTC accessibility
+metadata standards that ensure quality
+
+00:02:34.016 --> 00:02:37.923
+accessibility information travels with
+images wherever they appear online.
+
+00:02:38.344 --> 00:02:42.398
+Through Scribely, she continues to
+advance digital accessibility by helping
+
+00:02:42.404 --> 00:02:46.144
+organizations move beyond compliance,
+leveraging end-to-end workflow
+
+00:02:46.150 --> 00:02:51.081
+enablement and AI contents-- context
+engineering to achieve quality at scale.
+
+00:02:51.590 --> 00:02:55.058
+Please feel free to add your questions
+to the Zoom Q&A section, and we'll
+
+00:02:55.101 --> 00:02:57.602
+answer them after, uh, the session.
+
+00:02:58.085 --> 00:03:01.480
+Please feel free to add your questions
+to the Zoom Q&A section, and we'll
+
+00:03:01.480 --> 00:03:03.020
+answer them after the session.
+
+00:03:03.310 --> 00:03:06.899
+Use the chat to connect with other
+attendees, and enjoy the session
+
+00:03:10.421 --> 00:03:13.661
+Caroline: Hello everyone,
+and welcome to my session.
+
+00:03:14.012 --> 00:03:19.296
+I'm really excited to be with all of you
+here today at WordPress Accessibility Day.
+
+00:03:19.861 --> 00:03:25.660
+This session is titled Embedded Alt Text:
+Smarter Image Workflows in WordPress
+
+00:03:25.671 --> 00:03:31.529
+7.0, Moving From Blank Slates to
+Scalable, Portable Image Accessibility.
+
+00:03:32.363 --> 00:03:38.005
+For decades, image accessibility has
+suffered from a fundamental workflow flaw.
+
+00:03:38.325 --> 00:03:43.815
+Alternative text or alt text is treated
+as an afterthought, hastily typed into
+
+00:03:43.815 --> 00:03:46.341
+a box right before hitting publish.
+
+00:03:46.743 --> 00:03:51.483
+And I know what some of you are thinking
+out there, how are we still stuck in
+
+00:03:51.484 --> 00:03:53.749
+the same place after all these years?
+
+00:03:54.138 --> 00:03:56.332
+And that's a really g- great question.
+
+00:03:56.347 --> 00:04:00.529
+I find myself asking myself
+that, um, all the time.
+
+00:04:00.540 --> 00:04:04.945
+But my honest answer, it's
+because alt text is really a
+
+00:04:04.947 --> 00:04:08.057
+lot harder than it seems, truly.
+
+00:04:08.387 --> 00:04:13.060
+Uh, on the content side, alt text
+is a technical writing skill.
+
+00:04:13.250 --> 00:04:17.017
+Um, you're translating visual
+intent into user experience.
+
+00:04:17.356 --> 00:04:22.304
+On the workflow side, most platforms
+simply weren't built for accessibility
+
+00:04:22.322 --> 00:04:26.243
+at scale, and they assumed that
+adding alt text at the very end
+
+00:04:26.243 --> 00:04:28.312
+of the process would be enough.
+
+00:04:28.607 --> 00:04:29.885
+Turns out, it isn't.
+
+00:04:30.222 --> 00:04:36.533
+Alt text touches photographers, writers,
+DAMs, CMSs, and it's really across
+
+00:04:36.534 --> 00:04:41.704
+the workflow, so actually connecting
+those dots, um, across platforms as
+
+00:04:41.705 --> 00:04:46.650
+well is really what's missing and
+creating this massive operational
+
+00:04:46.662 --> 00:04:48.911
+hurdle for organizations to manage.
+
+00:04:49.150 --> 00:04:51.477
+Um, so no surprise we're still here today.
+
+00:04:51.794 --> 00:04:56.530
+Um, but we're not gonna focus on best
+practices around writing alt text.
+
+00:04:56.811 --> 00:05:00.813
+Uh, we're actually going to cover
+the other side of alt text that you
+
+00:05:00.813 --> 00:05:05.219
+rarely hear about, and that's the
+technical and production side that
+
+00:05:05.219 --> 00:05:09.682
+really acts as the silent killer
+for your accessibility initiatives.
+
+00:05:09.899 --> 00:05:11.582
+Um, it's all workflow.
+
+00:05:11.784 --> 00:05:15.712
+Um, that's what we're-- where we're
+seeing, uh, these issues arise and
+
+00:05:15.777 --> 00:05:17.357
+alt text fall through the cracks.
+
+00:05:17.693 --> 00:05:21.647
+So in this presentation, I'm
+going to break down these systemic
+
+00:05:21.659 --> 00:05:23.174
+issues that are taking place.
+
+00:05:23.419 --> 00:05:28.565
+We're gonna look at how embedded alt
+text in image files works, uh, under the
+
+00:05:28.566 --> 00:05:33.257
+hood and behind the scenes, and we're
+going to see how that embedded alt text
+
+00:05:33.433 --> 00:05:38.928
+creates portable, scalable workflows
+that save hours of manual effort.
+
+00:05:39.649 --> 00:05:42.346
+Also, we're going to
+run through a live demo.
+
+00:05:42.362 --> 00:05:43.082
+Very exciting.
+
+00:05:43.259 --> 00:05:48.115
+I'm gonna show you how to s- how this,
+uh, new update to WordPress 7.0 with
+
+00:05:48.115 --> 00:05:52.535
+embedded alt text actually works,
+um, so we can see it all in action.
+
+00:05:52.993 --> 00:05:54.135
+All right, let's dive in.
+
+00:05:55.525 --> 00:06:00.008
+So before we look into this WordPress
+update, we need to talk about the
+
+00:06:00.056 --> 00:06:05.574
+underlying engine that makes it possible,
+and that is IPTC photo metadata.
+
+00:06:05.911 --> 00:06:09.763
+So for anyone unfamiliar
+with the term photo metadata,
+
+00:06:10.118 --> 00:06:12.262
+it's simply data about data.
+
+00:06:12.586 --> 00:06:16.560
+Every time you take a picture on
+a phone or a camera, there are
+
+00:06:16.560 --> 00:06:22.041
+technical specs like the resolution,
+the date, uh, the camera model.
+
+00:06:22.317 --> 00:06:27.002
+All of that information is automatically
+embedded into the image file.
+
+00:06:27.445 --> 00:06:31.898
+Beyond these technical specs, we
+also have descriptive information
+
+00:06:32.112 --> 00:06:37.099
+like captions, keywords, copyright,
+and creator, um, credits.
+
+00:06:37.348 --> 00:06:43.878
+So this is where IPTC comes in, and
+IPTC stands for the International
+
+00:06:43.919 --> 00:06:46.363
+Press and Telecommunications Council.
+
+00:06:46.841 --> 00:06:50.782
+They are a global standards body
+that defines photo metadata fields
+
+00:06:50.977 --> 00:06:56.071
+for news agencies, publishers,
+museums, and software tools worldwide.
+
+00:06:56.810 --> 00:07:01.847
+Having this single worldwide standard
+is absolutely vital because it
+
+00:07:01.847 --> 00:07:06.493
+ensures metadata is written in one--
+that's written in one professional
+
+00:07:06.493 --> 00:07:11.102
+tool can actually be read by another
+that also supports that standard.
+
+00:07:11.307 --> 00:07:16.438
+So it allows us to connect systems and
+collaborate seamlessly across them.
+
+00:07:17.420 --> 00:07:21.307
+And, uh, this is also a,
+a personal note from me.
+
+00:07:21.355 --> 00:07:26.961
+Uh, I was part of the team that helped get
+accessibility added to the IPTC standard.
+
+00:07:26.973 --> 00:07:34.114
+So I joined, um, IPTC in May 2021,
+working alongside the Photo Metadata
+
+00:07:34.123 --> 00:07:38.403
+Working Group and also industry partners
+like the Smithsonian Institution,
+
+00:07:38.631 --> 00:07:43.452
+who were actively pushing for these
+very same accessibility fields, just
+
+00:07:43.457 --> 00:07:44.968
+coincidentally at the same time.
+
+00:07:44.970 --> 00:07:48.589
+So, um, the stars aligned, and we
+all got to work on adding these
+
+00:07:48.592 --> 00:07:51.618
+accessibility fields to the IPTC standard.
+
+00:07:51.966 --> 00:07:57.154
+Um, and that hard work paid off just
+a few months later, um, in October
+
+00:07:57.176 --> 00:08:03.139
+2021, when the IPTC announced a truly
+game-changing milestone for digital
+
+00:08:03.141 --> 00:08:07.986
+inclusion, and they officially updated
+their photo metadata standard to include
+
+00:08:08.151 --> 00:08:13.484
+two metadata ex- um, accessibility
+properties: alt text accessibility and
+
+00:08:13.485 --> 00:08:15.278
+extended description accessibility.
+
+00:08:15.573 --> 00:08:20.243
+So for the very first time, um,
+alternative text, um, is not trapped
+
+00:08:20.243 --> 00:08:22.957
+inside an isolated website database.
+
+00:08:23.221 --> 00:08:27.225
+It all of a sudden had the possibility
+of becoming portable, um, a
+
+00:08:27.225 --> 00:08:32.671
+standardized property embedded directly
+inside the image, uh, file itself.
+
+00:08:32.975 --> 00:08:35.165
+Um, so very exciting milestone.
+
+00:08:35.448 --> 00:08:39.153
+And ever since then, it's been an
+advocacy effort to get, um, more and
+
+00:08:39.153 --> 00:08:43.542
+more software providers supporting
+the accessibility properties
+
+00:08:46.872 --> 00:08:49.900
+So, what is so great about this update?
+
+00:08:50.372 --> 00:08:55.440
+To put it simply, WordPress 7.0
+automatically pulls this embedded
+
+00:08:55.454 --> 00:09:00.154
+image description data into media
+uploads, and this eliminates
+
+00:09:00.156 --> 00:09:02.424
+the need for manual data entry.
+
+00:09:02.925 --> 00:09:07.815
+So this update, um, just including
+some specifics here on the slide, um,
+
+00:09:07.848 --> 00:09:14.526
+it's, it's landed thanks to Changeset
+61841 on WordPress Core, and I have
+
+00:09:14.528 --> 00:09:18.610
+a little blurb here that explains
+it, and it reads, "This Changeset
+
+00:09:18.645 --> 00:09:27.060
+introduces a new wp_get_image_alttext
+function that extracts image alt text
+
+00:09:27.070 --> 00:09:29.749
+metadata from image IPTC metadata."
+
+00:09:30.029 --> 00:09:32.926
+So this happened on, in May 2026.
+
+00:09:33.276 --> 00:09:34.579
+Um, very exciting.
+
+00:09:35.086 --> 00:09:37.582
+Why is this specific
+function such a big deal?
+
+00:09:38.334 --> 00:09:43.326
+Most platforms actually strip out this
+embedded metadata when the image is
+
+00:09:43.358 --> 00:09:48.665
+uploaded, which really causes issues
+for connecting the dots and creates
+
+00:09:48.665 --> 00:09:53.058
+this kind of useless duplication
+of effort, um, when alt text or
+
+00:09:53.058 --> 00:09:55.355
+really any metadata already exists.
+
+00:09:55.540 --> 00:09:58.429
+Um, you actually have to find
+a, a workaround, or you have
+
+00:09:58.430 --> 00:09:59.759
+to populate it all again.
+
+00:10:00.102 --> 00:10:05.620
+So overcoming that hurdle, um, really
+sets a new standard for streamlining
+
+00:10:05.637 --> 00:10:08.978
+alt text production, where we can
+now start to have a conversation
+
+00:10:09.255 --> 00:10:15.032
+about how we can manage images as
+they change hands across a workflow.
+
+00:10:15.774 --> 00:10:21.237
+So with this, um, this update, the alt
+text field is already populated within
+
+00:10:21.237 --> 00:10:26.328
+the file's built-in description the
+very moment it hits the media library.
+
+00:10:26.360 --> 00:10:28.689
+So we're gonna see that more
+in the, in the demo later.
+
+00:10:28.992 --> 00:10:32.899
+Um, but from there, uh, content
+creators simply need to review what
+
+00:10:32.901 --> 00:10:37.611
+that baseline description is, and
+then make any necessary tweaks for
+
+00:10:37.612 --> 00:10:39.983
+context, and then finally hit publish.
+
+00:10:40.000 --> 00:10:42.146
+But that information is preserved.
+
+00:10:42.322 --> 00:10:44.137
+Uh, they don't have to start from scratch.
+
+00:10:44.322 --> 00:10:48.920
+Significantly easer, easier than
+just staring at a blank box and
+
+00:10:48.920 --> 00:10:50.451
+writing something, I promise you.
+
+00:10:51.608 --> 00:10:56.532
+So, to see how passing descriptive
+metadata works in practice, um, I wanna
+
+00:10:56.541 --> 00:10:58.592
+think about a real-world scenario.
+
+00:10:58.606 --> 00:11:00.631
+So just kind of follow along with me.
+
+00:11:01.214 --> 00:11:06.722
+Think about, um, you're a, a web
+designer, um, and you're, you're tasked
+
+00:11:06.722 --> 00:11:11.413
+with creating this About Us page that
+pic- that has all of the different team
+
+00:11:11.428 --> 00:11:17.428
+members' images, um, on it, and you need
+to make that page accessible, right?
+
+00:11:17.781 --> 00:11:22.315
+So, let's go back to the very first
+time these pictures were captured.
+
+00:11:22.505 --> 00:11:24.807
+We have a company shoot day.
+
+00:11:25.045 --> 00:11:29.954
+A photographer is taking headshots of
+30 team members that are present, and
+
+00:11:29.955 --> 00:11:35.227
+then a week later, those images land on
+the desk of you, um, the, the individual
+
+00:11:35.232 --> 00:11:39.607
+who's supposed to add these to the
+webpage and then make the website go live.
+
+00:11:40.021 --> 00:11:47.280
+Um, so when it comes to, um, writing alt
+text, uh, you might find yourself as, you
+
+00:11:47.281 --> 00:11:49.805
+know, a step removed from that process.
+
+00:11:50.061 --> 00:11:54.811
+You're staring at 30 headshots, and
+they're suddenly like, "How do I
+
+00:11:54.823 --> 00:11:59.420
+visually describe my colleagues in
+a way that's respectful, accurate,
+
+00:11:59.602 --> 00:12:02.355
+helpful?" And it feels uncomfortable.
+
+00:12:02.362 --> 00:12:05.358
+It's time-consuming, and
+it's easy to get wrong.
+
+00:12:05.997 --> 00:12:08.737
+So, that is something
+that happens quite often.
+
+00:12:09.013 --> 00:12:13.665
+The images that were taken are a few
+steps removed from the person actually
+
+00:12:13.675 --> 00:12:17.836
+publishing them, so they don't feel
+empowered with the information that they
+
+00:12:17.838 --> 00:12:21.113
+need to actually write quality alt text.
+
+00:12:21.286 --> 00:12:24.753
+So they either end up skipping the
+alt text or writing something generic.
+
+00:12:25.101 --> 00:12:29.694
+So when it comes to team members, um,
+what's relevant is how they look, right?
+
+00:12:29.945 --> 00:12:32.680
+That's what people are curious about
+when they go to an About Us page.
+
+00:12:32.776 --> 00:12:36.194
+But oftentimes we see kind of generic
+labels with just their name or
+
+00:12:36.195 --> 00:12:39.796
+something like that, um, which leaves
+a lot to desire, uh, be desired.
+
+00:12:39.796 --> 00:12:42.855
+We can't actually understand
+what these individuals look like.
+
+00:12:43.634 --> 00:12:48.391
+So, imagine a different scenario
+where we're utilizing IPTC metadata.
+
+00:12:48.910 --> 00:12:52.752
+At the shoot, while setting up the
+shot, the photographer can simply ask
+
+00:12:52.771 --> 00:12:56.409
+the subject of the photo, "How would
+you like to be visually described?" And
+
+00:12:56.409 --> 00:13:00.718
+that individual can provide their own
+v- authentic self-description, their
+
+00:13:00.719 --> 00:13:04.180
+clothing, their hair, whatever they want
+to talk about with their visual features.
+
+00:13:04.658 --> 00:13:09.939
+Uh, and then that helps at the editing
+station because they can then take those
+
+00:13:09.940 --> 00:13:13.752
+details, they can standardize them,
+they can create consistency across the
+
+00:13:13.752 --> 00:13:17.390
+range of descriptions, um, and they
+can essentially just polish them up.
+
+00:13:17.742 --> 00:13:21.914
+Um, so a lot of assistance provided
+where we're, we're building on
+
+00:13:21.916 --> 00:13:26.017
+that baseline description that was
+provided from that shoot day, and
+
+00:13:26.074 --> 00:13:30.309
+then we're bringing it into, um,
+a polished state for the website.
+
+00:13:31.086 --> 00:13:36.396
+So, the idea is, we're not starting
+from scratch, and, um, our colleague
+
+00:13:36.397 --> 00:13:39.887
+is being supported with information
+they need to publish really
+
+00:13:39.890 --> 00:13:42.364
+high-quality alt text on the website.
+
+00:13:45.789 --> 00:13:50.250
+To understand why this technical
+update is so necessary, we need to
+
+00:13:50.250 --> 00:13:54.379
+take a step back and look at the
+real world data associated with this.
+
+00:13:54.782 --> 00:14:00.067
+So according to WebAIM Million's
+report, 53% of the top 1 million
+
+00:14:00.071 --> 00:14:02.249
+homepages are missing alt text.
+
+00:14:02.723 --> 00:14:07.854
+And honestly, that 53% missing alt text
+is really just the tip of the iceberg.
+
+00:14:08.344 --> 00:14:13.265
+The amount of unhelpful alt text,
+bad alt text, generic alt te- text on
+
+00:14:13.281 --> 00:14:19.727
+homepages is much higher when you factor
+in, um, you know, folks using image
+
+00:14:19.732 --> 00:14:22.915
+filenames or generic labels like graphic.
+
+00:14:23.210 --> 00:14:26.746
+Um, over a third of homepage
+images fail to give screen reader
+
+00:14:26.746 --> 00:14:28.862
+users any meaningful context.
+
+00:14:28.867 --> 00:14:31.897
+So, um, that's adding to this number.
+
+00:14:32.639 --> 00:14:34.134
+So why is this happening?
+
+00:14:34.173 --> 00:14:38.321
+Why hasn't that percentage moved
+significantly in the past five years?
+
+00:14:38.321 --> 00:14:42.269
+We really haven't seen significant
+improvement, and I don't think we
+
+00:14:42.270 --> 00:14:47.413
+can blame a lack of awareness of alt
+text anymore because it's one of the
+
+00:14:47.414 --> 00:14:51.968
+most common accessibility, uh, uh,
+requirements that's, that's talked about.
+
+00:14:52.290 --> 00:14:57.250
+Um, for anyone working in content
+publishing, it's more likely a broken
+
+00:14:57.259 --> 00:15:02.099
+workflow problem that manifests in three
+distinct ways, which I have up here
+
+00:15:02.101 --> 00:15:04.585
+on the first slide, on, on this slide.
+
+00:15:05.715 --> 00:15:08.495
+The first is legacy archives.
+
+00:15:08.586 --> 00:15:12.562
+So this is retroactively fixing
+thousands of images feels
+
+00:15:12.563 --> 00:15:14.497
+like an insurmountable chore.
+
+00:15:14.737 --> 00:15:18.689
+Opening every file one by one
+stops teams before they begin.
+
+00:15:19.045 --> 00:15:24.793
+So when your asset library spans years
+or decades, manual rem- remediation
+
+00:15:24.810 --> 00:15:28.275
+is so overwhelming that organizations
+don't even know where to start.
+
+00:15:29.271 --> 00:15:31.911
+The second is new content overhead.
+
+00:15:32.458 --> 00:15:36.483
+With over 40 images on the average
+homepage starting from a blank slate
+
+00:15:36.513 --> 00:15:41.034
+at publication, this is creating
+massive administrative friction.
+
+00:15:41.252 --> 00:15:46.074
+So new content that's added to a page,
+um, stopping at the last minute to
+
+00:15:46.074 --> 00:15:51.834
+write 40 individual descriptions right
+before hitting publish, um, it may-might
+
+00:15:51.835 --> 00:15:55.164
+be the case where the individual
+just doesn't, doesn't have time or
+
+00:15:55.165 --> 00:15:59.353
+expertise, and they end up hitting
+publish without that alt text included.
+
+00:15:59.675 --> 00:16:04.098
+Um, so the work gets pushed off, and
+then the backlog grows even larger.
+
+00:16:04.804 --> 00:16:06.731
+And finally, lost production work.
+
+00:16:06.988 --> 00:16:09.958
+Photographers and agencies
+already write great alt text
+
+00:16:09.958 --> 00:16:11.600
+in Lightroom or Photo Mechanic.
+
+00:16:11.871 --> 00:16:15.181
+Um, historically WordPress and
+other, many other platforms
+
+00:16:15.202 --> 00:16:17.075
+ignored or stripped this away.
+
+00:16:17.327 --> 00:16:22.434
+So, even though we may have had alt
+text, it was being stripped out, and
+
+00:16:22.444 --> 00:16:26.589
+we were having to do this, um, copy
+and paste effort, manual workarounds,
+
+00:16:26.929 --> 00:16:29.395
+and, um, that's simply frustrating.
+
+00:16:29.448 --> 00:16:30.924
+It stops a workflow right there.
+
+00:16:31.736 --> 00:16:36.016
+So upstream creators are frequently
+spending time writing descriptions in
+
+00:16:36.016 --> 00:16:40.769
+professional shoots, but clients rarely
+request this work because they assume
+
+00:16:40.944 --> 00:16:43.144
+that the CMS will just wipe it out anyway.
+
+00:16:43.427 --> 00:16:47.915
+So up until now, all of that diligent
+production work, um, was ultimately
+
+00:16:47.915 --> 00:16:52.142
+ignored at the upload stage and forced
+to be written-- rewritten from scratch.
+
+00:16:52.367 --> 00:16:56.490
+So that's the, that's the problem
+that we're encountering and, um,
+
+00:16:56.896 --> 00:17:01.174
+the exact bottleneck that the
+WordPress 7.0 update eliminates.
+
+00:17:01.952 --> 00:17:05.970
+So, to see why passing descriptive
+metadata is so powerful in the
+
+00:17:05.972 --> 00:17:10.636
+real world, I want to give you
+another example, um, uh, this time
+
+00:17:10.658 --> 00:17:12.964
+for e-commerce product workflows.
+
+00:17:13.320 --> 00:17:17.319
+So, picture an online fashion
+retailer launching a new
+
+00:17:17.331 --> 00:17:19.014
+seasonal conne- collection.
+
+00:17:19.502 --> 00:17:23.335
+They have hundreds of products, and
+each product has six different im-
+
+00:17:23.377 --> 00:17:28.425
+images, all of the different angles,
+model shots, um, maybe an outfit shot.
+
+00:17:29.010 --> 00:17:30.956
+Where does the product information live?
+
+00:17:31.341 --> 00:17:35.779
+Usually, it lives upstream in a DAM
+or product information system, a
+
+00:17:35.781 --> 00:17:38.036
+PIM, and managed by the product team.
+
+00:17:38.656 --> 00:17:42.841
+In a traditional workflow, once those
+product photos are exported and upload
+
+00:17:42.860 --> 00:17:47.148
+to-- uploaded to WordPress, the content
+manager has to manually retype or
+
+00:17:47.152 --> 00:17:52.252
+copy-paste descriptions for dozens
+of image, uh, variations one by one.
+
+00:17:52.670 --> 00:17:55.799
+It's tedious, it's error-prone,
+and it usually results in
+
+00:17:55.799 --> 00:17:57.615
+generic alt text, to be honest.
+
+00:17:58.016 --> 00:18:01.450
+Um, now picture the
+embedded IPTC workflow.
+
+00:18:01.768 --> 00:18:06.806
+Uh, we can start upstream again, the
+product team this time embedding rich
+
+00:18:06.830 --> 00:18:10.516
+baseline descriptions directly into
+the image files during production.
+
+00:18:10.847 --> 00:18:15.129
+They're specifying color, cut,
+texture, details that are all much
+
+00:18:15.145 --> 00:18:17.248
+closer to them as the product team.
+
+00:18:17.869 --> 00:18:21.575
+The workflow then moves to portable
+import, where those assets are
+
+00:18:21.623 --> 00:18:27.037
+uploaded to WordPress and the CMS
+reads the IPTC metadata automatically.
+
+00:18:27.571 --> 00:18:31.837
+So this results in zero data
+loss and a supported workflow.
+
+00:18:31.940 --> 00:18:35.860
+The alt text arrives pre-populated,
+verified, and complete.
+
+00:18:36.500 --> 00:18:40.862
+Now, if those same product images are
+then syndicated to wholesaler partner
+
+00:18:40.868 --> 00:18:45.537
+si- sites or distributed to affiliate
+networks, um, that accessibility
+
+00:18:45.543 --> 00:18:47.382
+can also travel with the file.
+
+00:18:47.620 --> 00:18:53.066
+So, uh, a provider can coordinate,
+uh, an external metadata, um, feed
+
+00:18:53.223 --> 00:18:57.076
+that actually provides that image
+da- image data or just simply passing
+
+00:18:57.077 --> 00:18:59.542
+their files to, um, their provider.
+
+00:18:59.553 --> 00:19:05.030
+So again, if, if we have more folks
+using this standard, we can use image
+
+00:19:05.030 --> 00:19:07.476
+file metadata to pass this information.
+
+00:19:10.673 --> 00:19:15.000
+So let's talk about connecting
+the dots and take a closer look at
+
+00:19:15.004 --> 00:19:17.105
+how this all works under the hood.
+
+00:19:17.905 --> 00:19:24.083
+So essentially, a core custom XML
+parser reads the XMP metadata headers
+
+00:19:24.203 --> 00:19:27.121
+embedded inside every uploaded image.
+
+00:19:27.491 --> 00:19:29.312
+And here is the three-step workflow.
+
+00:19:29.734 --> 00:19:33.465
+First, you drag and drop the image,
+and it lands in the WordPress media
+
+00:19:33.466 --> 00:19:35.558
+library, just like any other upload.
+
+00:19:35.973 --> 00:19:38.186
+Next, the fields are detected.
+
+00:19:38.447 --> 00:19:43.081
+Alt text accessibility metadata,
+metadata is read from the file.
+
+00:19:43.966 --> 00:19:47.501
+And lastly, the baseline
+alt text is populated.
+
+00:19:47.795 --> 00:19:51.348
+WordPress instantly populates
+the media library settings, and
+
+00:19:51.348 --> 00:19:54.574
+this gives content managers a
+foundational description to work with.
+
+00:19:55.370 --> 00:19:59.303
+So I want to take a moment to mention
+the necessity of contextual review
+
+00:19:59.305 --> 00:20:00.924
+here because it's very important.
+
+00:20:01.522 --> 00:20:04.803
+This is-- this automation is a foundation.
+
+00:20:04.812 --> 00:20:09.199
+It's definitely not a replacement
+for human oversight, so publishers
+
+00:20:09.250 --> 00:20:14.032
+must still evaluate and adjust the
+alt text to fit each page's context.
+
+00:20:14.523 --> 00:20:18.675
+While this saves immense time, it
+doesn't eliminate human judgment.
+
+00:20:19.019 --> 00:20:23.226
+A photographer upstream couldn't possibly
+know how their photo will be used three
+
+00:20:23.227 --> 00:20:25.557
+months from now in a specific article.
+
+00:20:25.946 --> 00:20:29.846
+So complete rewrites of alt
+text are entirely appropriate if
+
+00:20:29.847 --> 00:20:31.452
+the page context calls for it.
+
+00:20:31.951 --> 00:20:36.581
+Accuracy and quality remain the ultimate
+priorities when it comes to publishing
+
+00:20:36.598 --> 00:20:41.574
+alt text online because ultimately, we're
+creating experience for screen reader
+
+00:20:41.574 --> 00:20:45.273
+users, for assistive technology users,
+and they're depending on these fields.
+
+00:20:45.504 --> 00:20:47.629
+So if we need to make any
+changes, then we should.
+
+00:20:48.945 --> 00:20:52.923
+So while this r- this really does,
+um, bridge the gap between creators
+
+00:20:52.923 --> 00:20:56.651
+and publishers, it's also turning
+accessibility into a shared and
+
+00:20:56.651 --> 00:20:58.173
+collaborative responsibility.
+
+00:20:59.697 --> 00:21:05.083
+So let's talk through the IPTC
+accessibility fields, um, for, um,
+
+00:21:05.299 --> 00:21:08.483
+versus traditional metadata, just so
+we can distinguish the difference.
+
+00:21:09.526 --> 00:21:09.754
+Oops.
+
+00:21:12.248 --> 00:21:14.848
+So first up, we have title and headline.
+
+00:21:15.290 --> 00:21:19.165
+These are really built for file
+management and visual page layout.
+
+00:21:19.182 --> 00:21:24.989
+The headline is a brief publishable
+synopsis of the image, so not
+
+00:21:25.231 --> 00:21:27.623
+really the same as alt text at all.
+
+00:21:28.485 --> 00:21:32.620
+The caption description is
+more for the contextual facts.
+
+00:21:32.632 --> 00:21:37.586
+Think the who, what, where, where
+credits, um, of the image that
+
+00:21:37.586 --> 00:21:39.141
+are usually visible to everyone.
+
+00:21:39.145 --> 00:21:41.598
+Sometimes they're in a
+caption under the news photo.
+
+00:21:41.920 --> 00:21:45.423
+Those facts about the image are
+also not the same as alt text.
+
+00:21:46.699 --> 00:21:51.504
+Now, alt text accessibility captures
+visual meaning and intent, an objective
+
+00:21:51.504 --> 00:21:55.907
+description written to convey equivalent
+visual meaning to screen reader users.
+
+00:21:56.296 --> 00:22:00.528
+So, emphasis on the visual
+description and also the word meaning.
+
+00:22:00.752 --> 00:22:04.449
+We need purpose and meaning infused
+into these descriptions, and that
+
+00:22:04.450 --> 00:22:08.212
+comes from understanding the contextual
+experience of that page, so the
+
+00:22:08.222 --> 00:22:10.244
+alt text is written in context.
+
+00:22:11.242 --> 00:22:15.040
+The extended description is more for
+structured content with heading and
+
+00:22:15.040 --> 00:22:18.723
+lists, and this is more appropriate
+for complex visual-- visuals like
+
+00:22:18.739 --> 00:22:22.874
+charts or infographics, um, that
+assistive technology can navigate
+
+00:22:22.901 --> 00:22:27.117
+seamlessly when there are those headings
+and lists, um, actually applied.
+
+00:22:27.584 --> 00:22:31.490
+So, um, just a quick note here that
+extended description accessibility
+
+00:22:31.648 --> 00:22:38.197
+is imported, preserved, and passed by
+WordPress, um, but it is not, um, included
+
+00:22:38.229 --> 00:22:43.421
+in, in, into importing into a field
+called extended description accessibility.
+
+00:22:43.785 --> 00:22:46.926
+And that's because, um,
+extended descriptions require
+
+00:22:46.938 --> 00:22:48.053
+additional development.
+
+00:22:48.508 --> 00:22:52.772
+Um, we're running short on time, so I'm
+going to kind of breeze through this,
+
+00:22:52.778 --> 00:22:56.396
+but there are three different approaches
+to adding extended descriptions.
+
+00:22:56.641 --> 00:23:00.191
+Um, search for WebAIM complex images.
+
+00:23:00.356 --> 00:23:04.232
+This will take you to a page where
+there are-- there's guidance on how to
+
+00:23:04.265 --> 00:23:06.513
+add extended descriptions to websites.
+
+00:23:06.848 --> 00:23:09.597
+It's not the primary focus
+of this presentation, so I'm
+
+00:23:09.597 --> 00:23:10.746
+just going to jump ahead.
+
+00:23:11.105 --> 00:23:17.187
+So beyond CMS databases, um,
+embedded alt text really becomes
+
+00:23:17.227 --> 00:23:19.186
+a portable source of truth.
+
+00:23:19.551 --> 00:23:25.266
+So, first thing we need to
+consider is ecosystem consistency.
+
+00:23:25.570 --> 00:23:28.990
+Embedded alt text travels
+everywhere, enabling adaptation,
+
+00:23:29.030 --> 00:23:33.170
+driving system-wide consistency,
+and eliminating duplicate work.
+
+00:23:33.951 --> 00:23:35.986
+It also promotes shared accountability.
+
+00:23:36.142 --> 00:23:40.294
+It holds the platforms and ourselves to
+real standards that matter for users,
+
+00:23:40.525 --> 00:23:45.266
+instead of focusing on flashy features
+that honestly often break accessibility.
+
+00:23:45.547 --> 00:23:46.769
+Um, this is really important.
+
+00:23:46.812 --> 00:23:47.715
+We need to get this right.
+
+00:23:48.212 --> 00:23:50.086
+And finally, data in-integrity.
+
+00:23:50.574 --> 00:23:53.522
+Save the work, pass it
+on, adapt as you go.
+
+00:23:53.701 --> 00:23:56.998
+It's a beautiful workflow that
+preserves and passes quality
+
+00:23:57.002 --> 00:23:59.612
+metadata, um, that scales alt text.
+
+00:24:01.759 --> 00:24:05.367
+All right, so I just wanted to give
+a brief walkthrough of what you're
+
+00:24:05.368 --> 00:24:07.782
+about to experience in the live demo.
+
+00:24:07.803 --> 00:24:10.207
+We're gonna show embedded
+alt text in action.
+
+00:24:10.569 --> 00:24:13.959
+Um, I'm gonna show what it looks
+like upstream actually embedding
+
+00:24:13.963 --> 00:24:16.409
+that photo metadata in image files.
+
+00:24:16.492 --> 00:24:20.527
+We're going to import into a WordPress
+media library, and then we're going
+
+00:24:20.528 --> 00:24:24.384
+to look at the possibilities of
+editing, adapting for page context,
+
+00:24:24.618 --> 00:24:27.637
+and then finally, we're going to
+publish and see what that l- that
+
+00:24:27.655 --> 00:24:30.010
+alt text looks like on a live site.
+
+00:24:30.473 --> 00:24:32.789
+So let's get into the live demo.
+
+00:24:34.586 --> 00:24:38.792
+Okay, so we are now in the live
+demo portion of the presentation.
+
+00:24:39.224 --> 00:24:43.383
+Here I am on a WordPress
+template website called Cleoline.
+
+00:24:43.667 --> 00:24:48.236
+It's a skincare products brand, and I
+just wanna walk through the customer
+
+00:24:48.236 --> 00:24:49.719
+experience, the typical journey.
+
+00:24:50.032 --> 00:24:51.897
+So here we are, the customer.
+
+00:24:51.935 --> 00:24:53.000
+We're on the homepage.
+
+00:24:53.268 --> 00:24:54.230
+We like the brand.
+
+00:24:54.301 --> 00:24:56.029
+We wanna check out more
+about the products.
+
+00:24:56.616 --> 00:24:59.141
+So, top navigation, we click Shop.
+
+00:24:59.223 --> 00:25:03.264
+This opens up a page where we can
+see all of the different Cleoline
+
+00:25:03.277 --> 00:25:04.645
+products that are available.
+
+00:25:04.697 --> 00:25:08.056
+And today I'm gonna be shopping
+for Ultra Cleansing Lotion, so I'm
+
+00:25:08.056 --> 00:25:09.232
+gonna go ahead and click on that.
+
+00:25:09.369 --> 00:25:12.673
+As a customer, I'm very interested
+in learning more details about this
+
+00:25:12.673 --> 00:25:14.661
+product and potentially buying.
+
+00:25:14.953 --> 00:25:17.845
+Um, but it's all about the information
+that's presented to me at this point.
+
+00:25:18.118 --> 00:25:21.591
+Up here on the right, we have a
+product title, Ultra Cleansing Lotion.
+
+00:25:21.631 --> 00:25:22.513
+We have a price.
+
+00:25:22.558 --> 00:25:26.467
+We have a little description, "A
+gentle cleansing oil that removes
+
+00:25:26.467 --> 00:25:29.839
+makeup and impurities while
+maintaining skin's moisture." That's
+
+00:25:29.856 --> 00:25:32.039
+really it for descriptive details.
+
+00:25:32.056 --> 00:25:36.396
+We have some features like vegan and
+cruelty-free, green packaging, 30 days
+
+00:25:36.397 --> 00:25:40.772
+return, uh, that may factor into our
+decision, but ultimately, I don't think
+
+00:25:40.774 --> 00:25:44.926
+a lot of folks would have confidence
+buying just off of that short description.
+
+00:25:45.287 --> 00:25:48.144
+The images actually tell us
+a lot about this product.
+
+00:25:48.430 --> 00:25:51.829
+So we're looking at the first image in
+the sequence, the hero product image.
+
+00:25:52.082 --> 00:25:55.516
+It's showing us the front view
+of the product, and we can see
+
+00:25:55.529 --> 00:25:58.500
+not only what the product looks
+like, but also it has a label.
+
+00:25:58.689 --> 00:26:03.110
+That label information includes features
+and benefits and ingredients that are not
+
+00:26:03.113 --> 00:26:04.763
+found anywhere else on the product page.
+
+00:26:04.917 --> 00:26:09.113
+So, accessibility guidelines state
+that we need alt text that actually
+
+00:26:09.113 --> 00:26:13.253
+includes that text on the image,
+otherwise it would be completely lost.
+
+00:26:13.381 --> 00:26:16.373
+So the next product image in
+the sequence is a model shot.
+
+00:26:16.618 --> 00:26:20.972
+So here we see a model dispensing some of
+the product into their palm of their hand.
+
+00:26:21.114 --> 00:26:24.905
+Um, so in this case, we can actually,
+um, start to imagine what it
+
+00:26:24.906 --> 00:26:26.667
+would be like to use this product.
+
+00:26:26.702 --> 00:26:30.057
+Maybe we are looking for something
+that has that kind of consistency.
+
+00:26:30.345 --> 00:26:34.104
+Um, and we can see how it transforms
+from a liquid state into a mousse state.
+
+00:26:34.388 --> 00:26:38.563
+So again, more information that's
+helpful to, uh, making a purchase.
+
+00:26:39.140 --> 00:26:41.605
+And lastly, we have a product
+shot or a packaging shot.
+
+00:26:41.683 --> 00:26:44.974
+Some folks really care about packaging,
+others don't, but they definitely
+
+00:26:44.974 --> 00:26:46.400
+put this image there for a reason.
+
+00:26:46.425 --> 00:26:51.269
+So we can see what type of packaging we
+might expect and information, um, that
+
+00:26:51.270 --> 00:26:54.542
+we can't actually read in this image
+that's available on the side of the box.
+
+00:26:54.810 --> 00:26:56.858
+So, let's look behind the scenes.
+
+00:26:57.297 --> 00:26:59.517
+What is in the alt attribute?
+
+00:26:59.650 --> 00:27:02.488
+What I'm doing is I'm clicking…
+I'm right clicking, I'm in a Chrome
+
+00:27:02.493 --> 00:27:07.607
+browser, and I'm choosing Inspect,
+and that opens up a side panel where I
+
+00:27:07.607 --> 00:27:09.517
+can see what is in the alt attribute.
+
+00:27:09.725 --> 00:27:13.734
+It says, "Beauty product
+image 19C." So pretty generic,
+
+00:27:13.784 --> 00:27:15.198
+absolutely non-descriptive.
+
+00:27:15.258 --> 00:27:16.644
+We need to update the alt text.
+
+00:27:17.340 --> 00:27:20.071
+Let's dive into the back end
+to see how we can do that.
+
+00:27:20.153 --> 00:27:24.335
+So I'm clicking over to WordPress
+admin, and I have a, an app called
+
+00:27:24.337 --> 00:27:28.299
+SureCart, um, that's loaded onto
+this website, and it just helps
+
+00:27:28.302 --> 00:27:31.981
+with setting up e-commerce product
+information and checkout experiences.
+
+00:27:32.415 --> 00:27:34.986
+We have the product pulled up
+here, Ultra Cleansing Lotion,
+
+00:27:35.237 --> 00:27:36.849
+and also all of the images.
+
+00:27:37.139 --> 00:27:38.967
+There's an option to add more images.
+
+00:27:39.165 --> 00:27:42.722
+These images are also
+in the media library.
+
+00:27:42.931 --> 00:27:46.977
+When we click into each one of those
+images on the product page, we can see
+
+00:27:46.978 --> 00:27:51.413
+that very same alt text, that generic alt
+text, that's populated in the back end.
+
+00:27:51.689 --> 00:27:55.605
+We have the option to manually update
+the alt text, but let's explore how
+
+00:27:55.606 --> 00:28:00.761
+we can actually use embedded alt text
+to, um, populate this field as well.
+
+00:28:00.895 --> 00:28:04.834
+So I'm going to minimize this browser,
+and we're gonna open up Bridge.
+
+00:28:05.351 --> 00:28:08.806
+So if I were to download these
+images and look at the metadata,
+
+00:28:08.907 --> 00:28:10.401
+I can see it's completely empty.
+
+00:28:10.540 --> 00:28:13.720
+So even that generic alt text
+description is not found here.
+
+00:28:13.866 --> 00:28:17.458
+We need to add our alt text to
+these embedded metadata fields.
+
+00:28:17.697 --> 00:28:22.067
+So let's click on another folder I
+have preloaded here, and we're gonna
+
+00:28:22.068 --> 00:28:23.773
+click on that hero image once again.
+
+00:28:23.904 --> 00:28:27.891
+This time, we do have fields
+in Bridge that are populated.
+
+00:28:28.086 --> 00:28:30.625
+The alt text accessibility
+field has a description.
+
+00:28:30.788 --> 00:28:34.683
+We've also populated headline,
+and we've added a placeholder to
+
+00:28:34.697 --> 00:28:36.310
+extended description accessibility.
+
+00:28:36.438 --> 00:28:37.839
+We're not gonna get into this a ton.
+
+00:28:38.111 --> 00:28:41.216
+I just wanna, um, add this
+placeholder here to show you one
+
+00:28:41.233 --> 00:28:42.714
+final thing at the very, very end.
+
+00:28:42.941 --> 00:28:46.239
+But in terms of a description for
+this first product image, we have,
+
+00:28:46.534 --> 00:28:50.116
+"Front product shot of Cleoline Ultra
+Gentle Cleansing Mousse in a clear
+
+00:28:50.118 --> 00:28:54.244
+cylindrical bottle with a white pump
+dispenser filled with pale yellow liquid.
+
+00:28:54.502 --> 00:29:00.254
+The label displays Cleoline Ultra Gentle
+Cleansing Mousse listing 5X ceramides,
+
+00:29:00.541 --> 00:29:03.399
+white truffle, and probiotic complex.
+
+00:29:03.644 --> 00:29:07.841
+Benefits include cleanses pores and
+excess oils, clarifies complexion,
+
+00:29:08.042 --> 00:29:09.796
+and balances skin microbiome.
+
+00:29:09.974 --> 00:29:15.899
+Volume re-reads 100 milliliters,
+3.38 fluid ounces." Total mouthful.
+
+00:29:16.341 --> 00:29:19.428
+Um, but we needed to cl- include this
+information, this text on the image,
+
+00:29:19.435 --> 00:29:20.833
+because it doesn't appear anywhere else.
+
+00:29:20.894 --> 00:29:23.009
+So contextually relevant, right?
+
+00:29:23.362 --> 00:29:27.131
+If this information was found elsewhere
+on the page, we would- could focus more
+
+00:29:27.140 --> 00:29:29.409
+on a visual description of the product.
+
+00:29:29.713 --> 00:29:33.085
+This next, uh, product image in the
+sequence, for the alt text, we have
+
+00:29:33.095 --> 00:29:37.164
+close up model shot of a person holding
+a Cleoline Ultra Gentle Cleansing
+
+00:29:37.255 --> 00:29:40.949
+Mousse bottle after pressing the white
+pump dispenser with an index finger.
+
+00:29:41.204 --> 00:29:45.265
+A dollop of thick, opaque white
+foam, about one-third of the size of
+
+00:29:45.265 --> 00:29:47.477
+their open palm, rests on their hand.
+
+00:29:47.595 --> 00:29:50.431
+To add this alt text, you simply
+need to enter it into Bridge in the
+
+00:29:50.432 --> 00:29:53.381
+appropriate field, and then click
+this tiny little checkbox here
+
+00:29:53.382 --> 00:29:55.275
+at the bottom corner for apply.
+
+00:29:55.548 --> 00:29:58.278
+Um, Bridge will remind you if
+you forget to apply, but that's
+
+00:29:58.279 --> 00:30:03.300
+how you actually write the, um,
+IPTC metadata to the image file.
+
+00:30:03.699 --> 00:30:08.030
+So back in WordPress, in the media
+library, we can drag and drop
+
+00:30:08.097 --> 00:30:11.077
+into the media library itself.
+
+00:30:11.148 --> 00:30:14.359
+So I'm going to do that now
+and upload these three images.
+
+00:30:14.712 --> 00:30:14.947
+Great.
+
+00:30:14.961 --> 00:30:18.995
+They're done uploading, and our little
+headline appears, um, as the label.
+
+00:30:19.007 --> 00:30:21.961
+So that's helping us, uh,
+find the, the right image.
+
+00:30:22.152 --> 00:30:26.574
+Clicking into that, we can see the alt
+text that we added for the hero image
+
+00:30:26.802 --> 00:30:31.489
+is now appearing in WordPress in that
+alternative text field, so it's instantly
+
+00:30:31.503 --> 00:30:34.055
+imported that description into the system.
+
+00:30:35.029 --> 00:30:39.645
+And then the last thing we really need
+to do is just add these images to the
+
+00:30:39.645 --> 00:30:42.193
+SureCart product information page.
+
+00:30:42.438 --> 00:30:44.684
+Back on that page, clicking Add.
+
+00:30:44.759 --> 00:30:49.097
+You can, um, go to the media library
+or you can upload files directly.
+
+00:30:49.220 --> 00:30:53.294
+But let's just click on this hero
+image 'cause I wanna show you.
+
+00:30:53.551 --> 00:30:55.929
+The description's also
+visible in a side panel.
+
+00:30:56.138 --> 00:30:57.091
+This is a great place.
+
+00:30:57.092 --> 00:31:00.491
+If we wanted to make any updates,
+uh, to this description, we
+
+00:31:00.491 --> 00:31:01.624
+could absolutely do that.
+
+00:31:02.047 --> 00:31:03.845
+Um, so I have a little update.
+
+00:31:04.166 --> 00:31:07.081
+Oops, we have a, a code
+instead of an ampersand.
+
+00:31:07.295 --> 00:31:08.217
+We wanna change that.
+
+00:31:08.261 --> 00:31:10.126
+So let's just change it right here.
+
+00:31:10.285 --> 00:31:16.301
+This is just an example of how we can
+update on the fly or based on context,
+
+00:31:16.422 --> 00:31:17.826
+and it's right there on the page.
+
+00:31:17.847 --> 00:31:24.047
+So I'm going to select these other images,
+and we're going to add them to the page.
+
+00:31:24.290 --> 00:31:29.112
+Gonna remove the old images, and here
+we have our new images that we've added.
+
+00:31:29.358 --> 00:31:34.396
+So these now have alt text, and all we
+need to do is save the product and head
+
+00:31:34.404 --> 00:31:41.576
+back to our live product page, refresh,
+and let's take a look at what's there now.
+
+00:31:41.586 --> 00:31:46.206
+So once again, I've right-clicked to
+inspect the alt attribute, and we can
+
+00:31:46.206 --> 00:31:51.726
+see the description that we added to, um,
+WordPress is here in the alt attribute.
+
+00:31:52.099 --> 00:31:52.683
+Okay.
+
+00:31:53.025 --> 00:31:57.120
+So, back in the media library,
+I wanna show you one more thing.
+
+00:31:57.454 --> 00:32:01.726
+So these new images that we
+added, we can't see that extended
+
+00:32:01.739 --> 00:32:04.951
+description accessibility placeholder
+anywhere within the metadata.
+
+00:32:05.365 --> 00:32:10.024
+But I wanna show that that
+metadata is actually preserved.
+
+00:32:10.146 --> 00:32:15.726
+I'm going to download that image file
+that we uploaded to WordPress, and
+
+00:32:15.736 --> 00:32:20.455
+I'm going to open Bridge once again
+and navigate to that image file on my
+
+00:32:20.455 --> 00:32:24.669
+desktop to see what metadata is there,
+and yes, the extended description
+
+00:32:24.676 --> 00:32:27.211
+accessibility property is preserved.
+
+00:32:27.521 --> 00:32:29.277
+So I hope you enjoyed the demo.
+
+00:32:29.610 --> 00:32:31.057
+Uh, we learned a lot today.
+
+00:32:31.058 --> 00:32:32.574
+We saw a lot in action.
+
+00:32:32.855 --> 00:32:36.852
+We started with a product page
+that had non-descriptive alt text.
+
+00:32:37.035 --> 00:32:41.491
+We went through a workflow of how to
+add embedded alt text to image files.
+
+00:32:41.714 --> 00:32:44.620
+We also tested extended
+description accessibility to
+
+00:32:44.621 --> 00:32:45.720
+make sure it was preserved.
+
+00:32:46.187 --> 00:32:47.922
+We uploaded those image files.
+
+00:32:47.923 --> 00:32:52.661
+We imported them into the media
+library, and we made slight changes
+
+00:32:52.688 --> 00:32:56.748
+to the alt text at the, uh, stage
+of adding to the product page.
+
+00:32:56.974 --> 00:33:01.141
+So making sure that contextually
+everything looks great and
+
+00:33:01.155 --> 00:33:02.569
+the alt text is ready to go.
+
+00:33:02.971 --> 00:33:05.926
+From there, we published our alt
+text, and then we saw it on the
+
+00:33:05.927 --> 00:33:07.797
+live site in the alt attribute.
+
+00:33:08.490 --> 00:33:11.884
+So I hope you enjoyed this demo,
+and back to the presentation.
+
+00:33:15.471 --> 00:33:22.350
+Okay, so let's talk about what it's like
+to actually, um, confront the task of bulk
+
+00:33:22.373 --> 00:33:28.208
+updating because we looked at a workflow
+that really is for-- more appropriate
+
+00:33:28.208 --> 00:33:32.865
+for new content uploads, um, where
+images do not exist in a media library.
+
+00:33:32.905 --> 00:33:38.109
+But if we're looking at, um,
+uh, legacy libraries, uh, these
+
+00:33:38.109 --> 00:33:39.583
+really need a different approach.
+
+00:33:39.598 --> 00:33:44.238
+So all four options below, um, all
+manage alt text in a spreadsheet and
+
+00:33:44.239 --> 00:33:46.729
+then write it back into files at scale.
+
+00:33:47.199 --> 00:33:49.534
+So I'm gonna click through,
+um, a few options that you
+
+00:33:49.535 --> 00:33:51.319
+have to, to update in bulk.
+
+00:33:51.702 --> 00:33:56.386
+The first is using Metadata Deluxe,
+which is an extension of Adobe Bridge.
+
+00:33:56.482 --> 00:33:58.286
+Highly recommend checking this out.
+
+00:33:58.593 --> 00:34:03.371
+Um, you can create tab-delimited
+t- uh, text files and export
+
+00:34:03.372 --> 00:34:07.726
+metadata into spreadsheet columns,
+um, associated-- the, the existing
+
+00:34:07.730 --> 00:34:09.451
+metadata that's already associated.
+
+00:34:09.730 --> 00:34:14.391
+You can edit the alt text line by
+line in Excel and then re-import
+
+00:34:14.499 --> 00:34:18.911
+and map those alt text accessibility
+values back by file name.
+
+00:34:19.143 --> 00:34:24.043
+So you don't need to follow this
+one-by-one approach of using Adobe Bridge.
+
+00:34:24.279 --> 00:34:28.663
+You can use an extension to help
+manage this with a, with a spreadsheet.
+
+00:34:29.621 --> 00:34:32.525
+Next is ExifTool, and
+it's a command line tool.
+
+00:34:32.830 --> 00:34:35.274
+Um, it works off of standard CSV files.
+
+00:34:35.521 --> 00:34:40.447
+So you take a CSV with a source file
+column, and you add an alt text field
+
+00:34:40.447 --> 00:34:46.092
+header, and then that just a simple
+command applies each row to its image.
+
+00:34:46.096 --> 00:34:49.746
+So if you're more comfortable with
+command line, um, you can use ExifTool.
+
+00:34:51.330 --> 00:34:54.043
+Photo Mechanic, another great option.
+
+00:34:54.290 --> 00:34:59.275
+Um, so they also do tab-delimited
+text or CSV files, so you can map
+
+00:34:59.276 --> 00:35:01.917
+file names or keys to text strings.
+
+00:35:02.165 --> 00:35:05.517
+Um, you can work with variable
+placeholders like alt text to
+
+00:35:05.518 --> 00:35:07.540
+populate thousands of images at once.
+
+00:35:07.715 --> 00:35:10.243
+So another great option for bulk editing.
+
+00:35:11.164 --> 00:35:14.960
+And finally, Python, um, if you're
+more comfortable with that, um, it
+
+00:35:14.961 --> 00:35:22.944
+combines ExifTool and PyExifTool, um,
+working with CSV, XLSX or JSON files.
+
+00:35:23.245 --> 00:35:28.607
+Um, so a program like Pandas reads
+rows ca- um, and calls ExifTool
+
+00:35:28.630 --> 00:35:31.583
+to embed each string of text.
+
+00:35:31.820 --> 00:35:36.190
+And then you can run automated checks,
+flagging text over 150 characters,
+
+00:35:36.403 --> 00:35:39.713
+um, if you want to, if you're
+checking for, for character count, um,
+
+00:35:39.715 --> 00:35:41.685
+before actually writing to the file.
+
+00:35:41.696 --> 00:35:45.401
+So there are extra capabilities
+there, um, within Python.
+
+00:35:48.091 --> 00:35:53.362
+So to wrap up some of the key points
+here, the key takeaways, when we
+
+00:35:53.362 --> 00:35:58.332
+connect the dots between embedded
+metadata and WordPress 7.0, we are
+
+00:35:58.332 --> 00:36:02.922
+unlocking three major operational
+wins for web accessibility.
+
+00:36:03.253 --> 00:36:05.063
+The first is efficiency gains.
+
+00:36:05.288 --> 00:36:09.877
+We eliminate blank slate manual
+entry, saving content creators hours
+
+00:36:09.878 --> 00:36:11.500
+of tedious administrative work.
+
+00:36:11.887 --> 00:36:16.464
+By automatically pre-populating fields
+on upload, we remove the primary point
+
+00:36:16.465 --> 00:36:20.650
+of friction that causes teams to skip
+over alt text when deadlines hit.
+
+00:36:21.383 --> 00:36:23.000
+The second is data integrity.
+
+00:36:23.326 --> 00:36:27.558
+We shift from isolated database
+text to portable metadata that
+
+00:36:27.558 --> 00:36:30.143
+protects human-authored descriptions.
+
+00:36:30.606 --> 00:36:35.978
+So, protecting that human quality, working
+across collaborative workflows, um, this
+
+00:36:35.978 --> 00:36:40.674
+is another way to scale alt text in a
+reliable way across your organization.
+
+00:36:41.140 --> 00:36:43.662
+And then third is quality and context.
+
+00:36:43.833 --> 00:36:47.364
+We combine automated file reading
+with the indispensable nuance
+
+00:36:47.383 --> 00:36:49.950
+of human review at publication.
+
+00:36:50.389 --> 00:36:54.542
+Automation gives us a strong
+human-authored foundation, freeing up
+
+00:36:54.544 --> 00:36:59.817
+publishers to focus on-- focus all of
+their energy on refining the text to
+
+00:36:59.817 --> 00:37:04.091
+fit the specific narrative of the page
+rather than simply getting a description
+
+00:37:04.102 --> 00:37:06.371
+in any form in the alt attribute.
+
+00:37:06.777 --> 00:37:13.184
+So WordPress 7.0 is truly a massive leap
+forward that allows us to build scalable,
+
+00:37:13.233 --> 00:37:15.776
+portable, and sustainable image workflows.
+
+00:37:16.182 --> 00:37:19.038
+So I just want to leave you
+with some final thoughts today.
+
+00:37:19.790 --> 00:37:25.139
+Getting these fields into the IPTC
+standard back in 2021 was step one.
+
+00:37:25.592 --> 00:37:30.243
+Getting WordPress Core to read
+them in version 7.0 was step two.
+
+00:37:30.778 --> 00:37:32.886
+Step three is, of course, up to us.
+
+00:37:33.383 --> 00:37:37.765
+We need to build accessible, scalable
+workflows for the entire web.
+
+00:37:38.545 --> 00:37:41.782
+If you'd like to get in touch
+with me, um, please reach out.
+
+00:37:41.814 --> 00:37:47.659
+My email is Caroline,
+C-A-R-O-L-I-N-E @scribely.com.
+
+00:37:47.748 --> 00:37:51.743
+That's S-C-R-I-B-E-L-Y.com.
+
+00:37:52.028 --> 00:37:53.392
+I'm very active on LinkedIn.
+
+00:37:53.553 --> 00:37:56.888
+You can search my name, Caroline
+Desrosiers, and find me there.
+
+00:37:57.275 --> 00:38:01.119
+Um, and also the Scribely company
+LinkedIn is quite active and helpful with
+
+00:38:01.119 --> 00:38:06.162
+lots of alt text tips and techniques,
+and you can follow @HelloScribely.
+
+00:38:06.447 --> 00:38:10.340
+So thank you so much again for listening
+to this presentation, and I'm looking
+
+00:38:10.340 --> 00:38:11.711
+forward to taking your questions.
+
+00:38:17.840 --> 00:38:20.809
+Kadian: That was such a great
+presentation, and we have a ton
+
+00:38:20.811 --> 00:38:22.241
+of questions lined up for you.
+
+00:38:22.593 --> 00:38:26.754
+A lot of them ended up getting answered
+as the, uh, presentation went on.
+
+00:38:27.217 --> 00:38:31.686
+Um, I do wanna start you off
+with, uh, Ruth's question.
+
+00:38:32.297 --> 00:38:37.278
+Uh, and Ruth says, "This makes
+sense for photos that were
+
+00:38:37.283 --> 00:38:39.587
+originally intended for public use.
+
+00:38:40.148 --> 00:38:43.973
+However, what kind of personal and private
+information do we need to be concerned
+
+00:38:43.973 --> 00:38:49.525
+about revealing, uh, from our personal
+photo collections with the IPTC embedded
+
+00:38:49.560 --> 00:38:55.076
+metadata when we use them online?" And
+this is coming from, um, a stock… A, a
+
+00:38:55.076 --> 00:38:58.612
+professional photography stock context.
+
+00:39:00.044 --> 00:39:00.413
+Caroline: Yeah.
+
+00:39:00.415 --> 00:39:05.786
+So we're really just referring
+to one IPTC metadata field.
+
+00:39:06.145 --> 00:39:09.738
+Um, so I don't really want to
+speak to just IPTC embedded
+
+00:39:09.768 --> 00:39:11.250
+metadata- Mm-hmm … in general.
+
+00:39:11.568 --> 00:39:15.409
+Um, that information is
+recorded and, and passed.
+
+00:39:15.410 --> 00:39:19.946
+And, um, I think that what we're
+talking about here is whether or not a
+
+00:39:19.974 --> 00:39:22.705
+description is added and then passed.
+
+00:39:22.926 --> 00:39:27.493
+So, um, that description can be
+added at many different phases.
+
+00:39:27.767 --> 00:39:29.757
+Someone had a question about
+adding within a camera app.
+
+00:39:29.774 --> 00:39:35.653
+I think that's a very, um, interesting,
+um, question, and it depends on support.
+
+00:39:35.957 --> 00:39:40.149
+So if they have, um, alt text
+support in that camera app, it can
+
+00:39:40.150 --> 00:39:42.165
+be added and then passed that way.
+
+00:39:42.467 --> 00:39:45.952
+But oftentimes we're looking at,
+you know, photographers or, or
+
+00:39:45.952 --> 00:39:50.812
+creative teams working within, um,
+an application like Lightroom- Mm-hmm
+
+00:39:50.812 --> 00:39:54.984
+um, or Photo Mechanic, where
+they are managing the, um, image,
+
+00:39:55.031 --> 00:39:56.726
+the image metadata in general.
+
+00:39:56.979 --> 00:40:00.841
+So that's where they would add, um,
+the description caption field, which
+
+00:40:00.842 --> 00:40:03.078
+is more like the facts about the image.
+
+00:40:03.305 --> 00:40:05.150
+Um, that's also where they
+would add their alt text.
+
+00:40:05.151 --> 00:40:11.431
+So, um, I was showing Adobe Bridge, which
+is a free, um, way to add embedded alt
+
+00:40:11.441 --> 00:40:14.977
+text, but they should be working within
+programs like that if they're in…
+
+00:40:15.098 --> 00:40:16.482
+if they're managing images.
+
+00:40:16.789 --> 00:40:17.238
+Kadian: Yeah.
+
+00:40:17.408 --> 00:40:17.813
+Okay.
+
+00:40:19.366 --> 00:40:27.533
+Um, next, uh, Gary asks: Does WordPress
+write to the images IPTC field in,
+
+00:40:27.783 --> 00:40:29.816
+uh, if the alt text is modified?
+
+00:40:30.140 --> 00:40:32.978
+So if the image is downloaded,
+that data carries along with it.
+
+00:40:33.811 --> 00:40:34.941
+Caroline: Um, yes.
+
+00:40:35.131 --> 00:40:39.063
+So, it should be, uh… or
+actually, you know what?
+
+00:40:40.025 --> 00:40:42.553
+Um, I don't know if Joe
+Devon is in the chat.
+
+00:40:42.904 --> 00:40:50.505
+Um, I would call on Joe to actually
+confirm this because, um, I want
+
+00:40:50.506 --> 00:40:54.164
+to make sure I'm speaking correctly
+because reading metadata, importing it,
+
+00:40:54.191 --> 00:40:56.393
+and writing it is a different thing.
+
+00:40:56.703 --> 00:40:58.921
+Um, and I don't wanna, I
+don't wanna speak out of turn.
+
+00:40:58.921 --> 00:41:01.967
+So Joe, if you could answer that
+question, that would be great.
+
+00:41:03.014 --> 00:41:03.860
+Very good question.
+
+00:41:04.575 --> 00:41:04.906
+Kadian: Yeah.
+
+00:41:05.297 --> 00:41:08.986
+Yeah, there's a, there's… Yeah,
+it… I m- Alt text is such a, a, a
+
+00:41:08.986 --> 00:41:12.887
+hot topic for everybody, especially
+running, running e-commerce stores,
+
+00:41:12.907 --> 00:41:14.710
+uh, with thousands of images.
+
+00:41:15.427 --> 00:41:21.676
+Um, the, y- you know, this is a, a, a kind
+of an interesting one where w- um, for
+
+00:41:21.676 --> 00:41:24.800
+stock a- AI-generated stock images, it…
+
+00:41:24.811 --> 00:41:28.052
+Does that impact the, the process at all?
+
+00:41:29.702 --> 00:41:31.702
+Caroline: Um, h- impact
+the process in what way?
+
+00:41:31.704 --> 00:41:33.027
+Could you provide more context?
+
+00:41:34.565 --> 00:41:39.887
+Kadian: Um, well, the, uh, there's not,
+um, more con- uh, more context in the
+
+00:41:39.888 --> 00:41:46.783
+question itself, but I guess what I was
+thinking is, um, is, is does… Excuse me.
+
+00:41:46.784 --> 00:41:51.646
+Does the AI generation, um, actually-
+
+00:41:53.680 --> 00:41:57.587
+mess up the metadata in a way
+that makes it more complex.
+
+00:41:58.637 --> 00:42:00.658
+Caroline: AI generation specifically?
+
+00:42:00.953 --> 00:42:01.352
+Kadian: Yeah.
+
+00:42:02.009 --> 00:42:09.865
+Caroline: So, um, I haven't heard of
+any cases where AI-generated images
+
+00:42:09.877 --> 00:42:15.059
+also have AI-generated alt text
+that's, that's actually populating
+
+00:42:15.105 --> 00:42:17.693
+the embedded alt text field.
+
+00:42:18.136 --> 00:42:22.253
+Um, I suppose that's not out of
+the realm of possibility, right?
+
+00:42:22.461 --> 00:42:28.946
+Where if we're using some sort of service,
+then, um, and we're prompting, uh, th-
+
+00:42:28.960 --> 00:42:32.725
+that it can actually be generating an alt
+text description based off of prompts,
+
+00:42:32.770 --> 00:42:34.571
+and then populating that information.
+
+00:42:34.853 --> 00:42:35.611
+Absolutely.
+
+00:42:35.632 --> 00:42:43.312
+But an individual needs to write this
+description within metadata in most cases.
+
+00:42:43.538 --> 00:42:47.676
+Um, if anyone finds an example of AI
+populating the alt text accessibility
+
+00:42:47.677 --> 00:42:49.075
+field, please send that my way.
+
+00:42:52.449 --> 00:42:58.757
+Kadian: Um, here is… I, I, I found
+it interesting how many photographers
+
+00:42:58.773 --> 00:43:02.938
+are really, really in, in… They
+seem to be in the chat bit, and
+
+00:43:02.938 --> 00:43:04.068
+they're definitely in the questions.
+
+00:43:04.405 --> 00:43:08.126
+Um, how common is it for
+photographers to customarily fill
+
+00:43:08.138 --> 00:43:10.012
+in the metadata like they should?
+
+00:43:10.568 --> 00:43:14.108
+Uh, will I be asking them for
+something they commonly do, or is this
+
+00:43:14.109 --> 00:43:15.523
+something that's generally ignored?
+
+00:43:16.599 --> 00:43:21.785
+Caroline: So I think that, um,
+photographers writing alt text within,
+
+00:43:21.807 --> 00:43:26.684
+you know, their programs, they would have
+to be submitting to an image licenser
+
+00:43:26.693 --> 00:43:31.067
+that was requesting that from them, and
+I know offhand that some actually do.
+
+00:43:31.338 --> 00:43:34.671
+That in order to submit photos
+for consideration, you must
+
+00:43:34.671 --> 00:43:36.241
+include an alt text description.
+
+00:43:36.469 --> 00:43:41.885
+So when they're, um, filling in other
+required metadata, like description
+
+00:43:41.887 --> 00:43:46.307
+caption, the ca- the facts about the
+image, um, the title, the headline, the
+
+00:43:46.310 --> 00:43:51.365
+c- the copyright holder, um, all important
+metadata fields that need to be populated,
+
+00:43:51.608 --> 00:43:55.785
+they're simply asking them to write one
+more description, um, and include that.
+
+00:43:55.855 --> 00:44:00.213
+So, it's not out of the ordinary
+for photographers to be, um, writing
+
+00:44:00.213 --> 00:44:02.391
+information into image files.
+
+00:44:02.658 --> 00:44:05.798
+It's just that they, many
+were not taking this step.
+
+00:44:06.238 --> 00:44:11.027
+Um, there were several questions in, in
+the chat about whether the photographer
+
+00:44:11.027 --> 00:44:15.119
+or the creator, um, is writing the
+final version, and I, I wanted to make,
+
+00:44:15.148 --> 00:44:20.904
+just underscore the point that, um, the
+photographer is just one step along the
+
+00:44:20.914 --> 00:44:27.301
+workflow here, and if we can request that
+they provide a visual description of the
+
+00:44:27.301 --> 00:44:31.909
+important details from their perspective,
+um, then that information can be passed.
+
+00:44:31.921 --> 00:44:35.354
+If we don't ask them to do that,
+then we're starting from scratch.
+
+00:44:35.704 --> 00:44:35.801
+Yeah.
+
+00:44:35.805 --> 00:44:39.642
+So just think of the, the photographer
+or the creator, the, the one that's
+
+00:44:39.658 --> 00:44:44.171
+managing metadata, as the person that
+starts this process off for a workflow.
+
+00:44:45.635 --> 00:44:45.965
+Kadian: Great.
+
+00:44:46.072 --> 00:44:47.476
+That's a fantastic answer.
+
+00:44:48.434 --> 00:44:49.035
+Um-
+
+00:44:51.192 --> 00:44:52.406
+One just came in.
+
+00:44:52.428 --> 00:44:53.089
+Um
+
+00:44:55.145 --> 00:44:57.241
+All right, and we're
+running really short here.
+
+00:44:57.241 --> 00:45:04.332
+So, um, I wanna, uh, you know, how,
+how do you respond in general to
+
+00:45:04.333 --> 00:45:09.770
+the e-commerce sites that are, that
+have the thousands of images, um,
+
+00:45:10.107 --> 00:45:15.023
+the grassroots, um, and, and, um
+
+00:45:17.406 --> 00:45:18.779
+I'm … Sorry, it's a long question.
+
+00:45:18.779 --> 00:45:22.368
+I'm scanning, but I've- Mm-hmm … I
+also have the, the, uh, uh, you know, a
+
+00:45:22.370 --> 00:45:27.537
+lot of people have that question about
+thousands, thousands of alt texts.
+
+00:45:27.537 --> 00:45:31.334
+You did have- Yeah … um, the
+slide, uh, towards the end there.
+
+00:45:31.750 --> 00:45:34.665
+Um, do you have anything
+else to expand on that?
+
+00:45:34.884 --> 00:45:39.031
+M- like, an inspirational thing for these
+people- Yeah … who are struggling.
+
+00:45:40.428 --> 00:45:43.140
+Caroline: I'm gonna go ahead and, and
+get on my soapbox and say something,
+
+00:45:43.142 --> 00:45:47.542
+because I feel it's an important to-
+point to make, especially on WordPress
+
+00:45:47.546 --> 00:45:52.593
+Accessibility Day, that, um, that
+problem didn't happen overnight,
+
+00:45:52.982 --> 00:45:54.883
+and neither should the solution.
+
+00:45:55.435 --> 00:46:01.763
+Um, if we, we … Yes, we have a massive
+gap of information that was never added.
+
+00:46:02.000 --> 00:46:06.232
+Um, these alt text descriptions were
+not included work- in workflows over
+
+00:46:06.232 --> 00:46:11.393
+decades, despite education, awareness,
+um, resources that were provided.
+
+00:46:11.583 --> 00:46:13.435
+Nevertheless, we have these gaps.
+
+00:46:13.932 --> 00:46:16.196
+That's not a unique place to be in.
+
+00:46:16.519 --> 00:46:20.641
+The decision we make on how we
+fill those gaps is everything.
+
+00:46:21.029 --> 00:46:25.973
+If you decide to deploy AI to write,
+um, generic descriptions that you don't
+
+00:46:25.973 --> 00:46:30.718
+even think are, are good and then hit
+publish, that is the decision, um,
+
+00:46:30.718 --> 00:46:34.250
+that, that those, those descriptions are
+gonna take the place of those images.
+
+00:46:34.511 --> 00:46:40.056
+If you decide that, um, you'd like to
+have a quick solution and, and just
+
+00:46:40.074 --> 00:46:44.536
+programmatically apply, um, the, the
+title, product title and the image number
+
+00:46:44.537 --> 00:46:49.448
+for every single, um, image, I think you
+can, you can answer for yourself very
+
+00:46:49.449 --> 00:46:51.218
+quickly, that's not helpful information.
+
+00:46:51.220 --> 00:46:54.257
+In fact, it's annoying
+and, and it's disruptive.
+
+00:46:54.613 --> 00:46:59.505
+So, um, we need to make good decisions
+about how we solve this problem.
+
+00:46:59.828 --> 00:47:03.725
+So yes, thanks for mentioning that,
+um, how to manage this in bulk, because
+
+00:47:04.216 --> 00:47:10.031
+thinking about this happening one by
+one is, um, it- it's difficult, right?
+
+00:47:10.254 --> 00:47:14.491
+Um, if, if I'm a, a photographer or
+creator managing many images, I'm
+
+00:47:14.491 --> 00:47:16.102
+I may want to do this in bulk.
+
+00:47:16.423 --> 00:47:20.902
+There's still a way to draft image
+descriptions using humans and using a, a
+
+00:47:20.950 --> 00:47:25.533
+well-defined process and then once those
+descriptions are complete, automatically,
+
+00:47:25.645 --> 00:47:28.045
+um, writing them to image files in bulk.
+
+00:47:28.252 --> 00:47:30.779
+So that section of the
+presentation was about that.
+
+00:47:31.038 --> 00:47:31.067
+Mm-hmm.
+
+00:47:31.067 --> 00:47:34.479
+Of course, the writing process is
+up to whatever makes the most sense.
+
+00:47:34.509 --> 00:47:39.024
+But, um, you don't have to manage,
+um, the, you know, just copying and
+
+00:47:39.024 --> 00:47:40.548
+pasting descriptions one by one.
+
+00:47:40.875 --> 00:47:45.569
+You can look at a whole, um,
+collection of images and have alt
+
+00:47:45.574 --> 00:47:49.430
+text drafted for those, and then
+embed the alt text in the image files
+
+00:47:50.921 --> 00:47:51.500
+Kadian: All right.
+
+00:47:52.299 --> 00:47:58.310
+That, fantastic, fantastic answer,
+fantastic presentation, and, um,
+
+00:47:58.356 --> 00:48:00.415
+it, we're about at time here.
+
+00:48:00.915 --> 00:48:03.365
+Uh, do you have any cl- closing remarks?
+
+00:48:04.546 --> 00:48:04.928
+Caroline: Yeah.
+
+00:48:04.928 --> 00:48:08.678
+I would just say that,
+um, images have value.
+
+00:48:08.707 --> 00:48:11.859
+That's why we're using more and
+more of them all of the time.
+
+00:48:12.178 --> 00:48:18.040
+Um, we communicate visually, and the
+words that we choose to attach those
+
+00:48:18.058 --> 00:48:24.553
+images end up speaking for our brand, our
+idea, um, our, our creative endeavors.
+
+00:48:24.828 --> 00:48:24.854
+Mm-hmm.
+
+00:48:24.854 --> 00:48:28.767
+So this translation that you're
+making to words is very important.
+
+00:48:28.821 --> 00:48:33.455
+It unlocks many different forms
+of assistive technology, um, and
+
+00:48:33.457 --> 00:48:34.861
+it creates those possibilities.
+
+00:48:34.870 --> 00:48:38.743
+So I would urge everyone to, um, pay
+attention to the decisions that are
+
+00:48:38.743 --> 00:48:42.504
+being made at that crucial moment
+of translating from visual to words.
+
+00:48:43.118 --> 00:48:44.332
+Kadian: Thank you so much.
+
+00:48:44.988 --> 00:48:46.692
+We're gonna, we're gonna wrap it there.
+
+00:48:46.727 --> 00:48:50.895
+Uh, thank you for attending this
+session with, uh, Caroline Desrosiers.
+
+00:48:51.160 --> 00:48:54.370
+You can continue the conversation
+in Slack or on social media
+
+00:48:54.374 --> 00:49:00.077
+using #wpallyday and #wpad2026.
+

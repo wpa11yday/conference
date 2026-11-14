@@ -1,0 +1,2750 @@
+WEBVTT
+
+00:00:02.438 --> 00:00:05.380
+Narrator: WordPress Accessibility Day 2026.
+
+00:00:05.713 --> 00:00:10.930
+The PDF Trap: When Accessible
+Websites Still Exclude Users.
+
+00:00:11.382 --> 00:00:17.495
+Presented by Rinitta Rajeev, Accessibility
+Lead and SME at the Ally Group.
+
+00:00:18.135 --> 00:00:23.520
+This session was presented
+October 8th, 2026 at 4:00 UTC.
+
+00:00:27.840 --> 00:00:30.755
+WordPress Accessibility Day 2026.
+
+00:00:31.119 --> 00:00:32.845
+Thank you to our sponsors.
+
+00:00:33.211 --> 00:00:37.702
+Platinum Sponsor: Equalize
+Digital, websites for everyone.
+
+00:00:38.236 --> 00:00:41.921
+Equalize Digital's Accessibility
+Checker plugin makes real-time
+
+00:00:41.921 --> 00:00:45.336
+testing in the WordPress editor
+faster and more affordable.
+
+00:00:46.232 --> 00:00:50.444
+Auditing services and online
+courses help organizations build
+
+00:00:50.644 --> 00:00:52.623
+and maintain accessible websites.
+
+00:00:53.242 --> 00:00:55.294
+Platinum Sponsor: Gravity.
+
+00:00:55.781 --> 00:00:59.284
+Gravity Forms is the accessible
+form builder for WordPress.
+
+00:00:59.675 --> 00:01:03.260
+Trusted by millions of sites,
+it's built to create powerful
+
+00:01:03.403 --> 00:01:06.445
+WCAG-compliant forms for any project.
+
+00:01:06.983 --> 00:01:11.838
+Gold Sponsors: Kinsta, Insi, WP Engine.
+
+00:01:12.450 --> 00:01:17.676
+Silver Sponsors: Second Melody,
+Tenrec: Your Website, Only Better.
+
+00:01:19.021 --> 00:01:22.912
+Visit sponsor pages to enter to
+win giveaways and access swag.
+
+00:01:23.326 --> 00:01:27.949
+Go to wpaccessibility.day/2026/sponsors.
+
+00:01:31.799 --> 00:01:33.363
+Don't forget to leave feedback.
+
+00:01:33.831 --> 00:01:38.245
+Go to wpaccessibility.day/2026/feedback.
+
+00:01:42.181 --> 00:01:45.057
+David: Welcome to WordPress
+Accessibility Day 2026.
+
+00:01:45.628 --> 00:01:50.294
+My name is David Cox, and I work on design
+systems and product accessibility at Lyft.
+
+00:01:51.138 --> 00:01:54.514
+Thank you for joining us for this
+session titled The PDF Trap: When
+
+00:01:54.514 --> 00:01:56.802
+Accessible Websites Still Exclude Users.
+
+00:01:57.668 --> 00:02:00.833
+Our presenter for this session
+is Rinitta Rajeev from India.
+
+00:02:01.570 --> 00:02:05.377
+Rinitta is an accessibility lead and
+subject matter expert at Ally Group,
+
+00:02:05.658 --> 00:02:08.484
+with over a decade of experience
+helping organizations build more
+
+00:02:08.484 --> 00:02:10.162
+inclusive digital experiences.
+
+00:02:10.762 --> 00:02:14.478
+She has partnered with teams across
+banking, e-commerce, healthcare, and
+
+00:02:14.480 --> 00:02:19.224
+retail, specializing in accessibility
+audits, remediation guidance, mobile
+
+00:02:19.224 --> 00:02:21.465
+accessibility, and PDF accessibility.
+
+00:02:22.115 --> 00:02:26.014
+Rinitta is passionate about translating
+accessibility standards into practical
+
+00:02:26.015 --> 00:02:29.072
+solutions that development teams
+can implement with confidence.
+
+00:02:29.632 --> 00:02:32.836
+She is an IAAP certified web
+accessibility specialist.
+
+00:02:33.242 --> 00:02:35.894
+Through her work, she aims to
+make accessibility approachable,
+
+00:02:35.942 --> 00:02:39.150
+actionable, and a key part of the
+product development life cycle.
+
+00:02:40.019 --> 00:02:43.132
+Please feel free to add your questions
+in the Zoom Q&A section, and we'll
+
+00:02:43.132 --> 00:02:44.562
+answer them at the end of the session.
+
+00:02:45.110 --> 00:02:47.774
+You can use the chat function
+to connect with other attendees.
+
+00:02:48.322 --> 00:02:49.678
+And with that, let's begin.
+
+00:02:50.277 --> 00:02:51.002
+Rinitta: Hi, everyone.
+
+00:02:51.053 --> 00:02:54.668
+Hope you're all having a great day,
+and thank you all for being here today.
+
+00:02:55.675 --> 00:02:58.362
+Um, so I'll quickly introduce myself.
+
+00:02:58.389 --> 00:02:59.582
+Um, I'm Rinitta.
+
+00:02:59.678 --> 00:03:03.451
+I am an accessibly- accessibility
+specialist and SME at Ally Group.
+
+00:03:03.990 --> 00:03:08.082
+Uh, I am a CPWA certified
+accessibility consultant.
+
+00:03:08.699 --> 00:03:13.574
+Um, so today we will look at
+why PDFs can become a barrier to
+
+00:03:13.574 --> 00:03:17.732
+accessibility, how assistive technology
+interact with them, and what we can
+
+00:03:17.733 --> 00:03:19.285
+do to make them more accessible.
+
+00:03:21.574 --> 00:03:26.907
+So imagine, um, your website,
+um, passed WCAG 2.1 AA.
+
+00:03:27.377 --> 00:03:29.130
+Your color contrast is perfect.
+
+00:03:29.220 --> 00:03:31.147
+Your keyboard navigation is flawless.
+
+00:03:31.542 --> 00:03:32.777
+You've done everything right.
+
+00:03:32.825 --> 00:03:37.325
+Your developers worked on accessibility,
+your designers chose accessible colors,
+
+00:03:37.354 --> 00:03:41.022
+and your content team added meaningful
+alt text and works pretty well with
+
+00:03:41.022 --> 00:03:42.941
+screen reader user, screen readers.
+
+00:03:43.574 --> 00:03:46.658
+But then a user needs
+your financial report, job
+
+00:03:46.659 --> 00:03:48.608
+application, or privacy policy.
+
+00:03:49.079 --> 00:03:52.001
+They download the PDF, and
+suddenly all that work on the
+
+00:03:52.002 --> 00:03:54.082
+website means absolutely nothing.
+
+00:03:54.629 --> 00:03:59.167
+The PDF might be untagged, have no proper
+reading order, contain inaccessible
+
+00:03:59.198 --> 00:04:03.679
+tables, or even be a scanned image
+that a screen reader can't read at all.
+
+00:04:04.377 --> 00:04:06.417
+And this isn't an occasional problem.
+
+00:04:06.889 --> 00:04:11.755
+Um, around 85 percentage of PDFs
+fail basic accessibility checks.
+
+00:04:12.642 --> 00:04:16.584
+The problem is that PDFs are often
+treated as an afterthought, but for a
+
+00:04:16.584 --> 00:04:21.403
+screen reader user, that PDF is still
+an essential content, and if it isn't
+
+00:04:21.404 --> 00:04:23.847
+accessible, it can become a major barrier.
+
+00:04:24.344 --> 00:04:26.292
+So that's the accessibility paradox.
+
+00:04:26.492 --> 00:04:30.714
+An accessible website can still
+deliver an inaccessible experience.
+
+00:04:33.791 --> 00:04:39.080
+Um, so today we'll look at the PDF trap,
+how assistive technology, um, read PDFs
+
+00:04:39.107 --> 00:04:41.120
+and the common barriers users face.
+
+00:04:41.651 --> 00:04:45.251
+We'll then cover the testing rem-
+testing and remediation and when to
+
+00:04:45.252 --> 00:04:50.425
+choose PDF or HTML, and finish off
+with some, um, practical takeaways
+
+00:04:53.140 --> 00:04:55.813
+So now let's start by
+understanding who actually gets
+
+00:04:55.813 --> 00:04:58.039
+excluded by inaccessible PDFs.
+
+00:04:58.529 --> 00:05:03.272
+For a screen reader user, imagine,
+um, for the first, for-- The first one
+
+00:05:03.272 --> 00:05:05.044
+is, for example, a screen reader user.
+
+00:05:05.544 --> 00:05:09.840
+Imagine downloading a 50-page report
+and hearing, "Graphic, graphic,"
+
+00:05:09.864 --> 00:05:13.948
+and again, "Graphic." No headings,
+no structure, no way to navigate.
+
+00:05:14.431 --> 00:05:19.623
+For someone using magnification at
+30% or, or 300 percentage or 400
+
+00:05:19.629 --> 00:05:24.096
+percentage zoom, a fixed-layout PDF
+can actually mean constantly scrolling
+
+00:05:24.097 --> 00:05:25.894
+sideways just to read each line.
+
+00:05:26.457 --> 00:05:28.892
+The next one is motor impairment users.
+
+00:05:29.131 --> 00:05:31.837
+For someone with a motor
+impairment, a poor tab order can
+
+00:05:31.837 --> 00:05:33.825
+actually make a form frustrating.
+
+00:05:34.179 --> 00:05:38.135
+Focus might jump from field 1 to
+field 17 and then back to field 3.
+
+00:05:38.757 --> 00:05:42.945
+And next is the cognitive
+and neurodiverse, uh, users.
+
+00:05:43.253 --> 00:05:47.756
+For people with cognitive and neurodiverse
+us- uh, users, clear headings and
+
+00:05:47.756 --> 00:05:49.400
+structures provide a mental map.
+
+00:05:49.799 --> 00:05:53.111
+Without them, navigating a long
+document can actually feel like
+
+00:05:53.111 --> 00:05:55.246
+being in a city with no street signs.
+
+00:05:55.924 --> 00:06:00.410
+Now, this matters because disability
+is not a small or edge case audience.
+
+00:06:00.786 --> 00:06:05.192
+Around one in six people actually
+experience significant disability.
+
+00:06:05.621 --> 00:06:08.791
+That's more than a billion people
+who can be affected by whether
+
+00:06:08.806 --> 00:06:10.433
+our digital content is accessible.
+
+00:06:10.782 --> 00:06:13.991
+So when a PDF isn't accessible,
+we are potentially excluding a
+
+00:06:13.991 --> 00:06:15.900
+significant part of our audience.
+
+00:06:18.402 --> 00:06:20.601
+So now let's look at the
+scale of this problem.
+
+00:06:21.150 --> 00:06:24.533
+So 2.5 trillion PDFs are
+actually created every year.
+
+00:06:25.126 --> 00:06:30.095
+That's an enormous number, and a PDF
+is clearly not going anywhere away.
+
+00:06:30.860 --> 00:06:34.256
+But here's the problem, around
+85 percentage of PDFs fail
+
+00:06:34.292 --> 00:06:35.880
+basic accessibility checks.
+
+00:06:35.950 --> 00:06:39.341
+That means billions of documents
+can actually create barriers
+
+00:06:39.349 --> 00:06:40.657
+for people with disability.
+
+00:06:41.129 --> 00:06:46.905
+And 73 percentage of organizations do not
+have a clear PD- PDF accessibility policy.
+
+00:06:47.485 --> 00:06:51.281
+We have accessibility policies
+for websites and other apps,
+
+00:06:51.567 --> 00:06:53.487
+but PDFs are often forgotten.
+
+00:06:54.336 --> 00:06:56.325
+Now, that's a strong business case too.
+
+00:06:56.429 --> 00:07:00.341
+The global disability market
+is estimated at $13 trillion.
+
+00:07:01.138 --> 00:07:03.090
+So let's put these numbers together.
+
+00:07:03.628 --> 00:07:09.539
+2.5 trillion, uh, trillion PDFs, 85
+percentage of failing accessibility
+
+00:07:09.540 --> 00:07:15.816
+checks, 73 percentage of organizations
+without a clear policy, and 13 trillion,
+
+00:07:16.042 --> 00:07:18.433
+uh, mar- thir- $13 trillion market.
+
+00:07:19.172 --> 00:07:23.763
+Now, these numbers actually tell us that
+PDF accessibility isn't a small problem.
+
+00:07:24.062 --> 00:07:28.751
+It's a significant problem, and a, and
+even more a significant opportunity.
+
+00:07:29.499 --> 00:07:32.369
+So why are PDFs so difficult
+to make it accessible?
+
+00:07:32.900 --> 00:07:38.231
+Now, let's see, uh, let's actually see
+how screen reader interact with a PDF.
+
+00:07:42.488 --> 00:07:44.608
+So it actually starts with
+the document structure.
+
+00:07:44.726 --> 00:07:50.346
+Every property… every, uh, properly
+built PDF can actually contain a hidden,
+
+00:07:50.455 --> 00:07:55.475
+um, tag tree, a semantic layer that
+actually describes the heading, paragraph,
+
+00:07:55.671 --> 00:08:01.072
+um, list, tables, and forms, which is
+invisible to sighted user, but it's
+
+00:08:01.090 --> 00:08:03.328
+extremely essential to everyone else.
+
+00:08:03.751 --> 00:08:07.852
+Assistive technology tools
+like NVDA, JAWS, or VoiceOver
+
+00:08:07.852 --> 00:08:09.218
+don't read the visual page.
+
+00:08:09.636 --> 00:08:13.406
+They actually query that tag tree
+through the operating system acc-
+
+00:08:13.515 --> 00:08:18.616
+operating system's accessibility API to
+actually retrieve the document semantic.
+
+00:08:19.564 --> 00:08:24.941
+Um, the screen reader then pulls out
+the actual text along with the role
+
+00:08:24.942 --> 00:08:30.027
+information, which could be headings,
+list items, or forms, and any other
+
+00:08:30.030 --> 00:08:34.679
+alternative text which is, uh, sourced
+directly from this particular tag tree.
+
+00:08:35.361 --> 00:08:39.336
+And finally, that content gets
+synthesized as speech or, uh,
+
+00:08:39.355 --> 00:08:41.115
+even routed to a Braille display.
+
+00:08:41.653 --> 00:08:45.646
+Uh, even navigation commands like
+pressing H to jump between headings
+
+00:08:45.668 --> 00:08:52.784
+or T to, um, jump between, um, tables
+rely entirely on these tags or tag
+
+00:08:52.809 --> 00:08:55.580
+tree being present and being correct.
+
+00:08:57.065 --> 00:09:02.321
+Um, so no tag tree basically means, um,
+no semantic information, and with no
+
+00:09:02.321 --> 00:09:07.644
+semantic information, the s- uh, the
+screen reader can only, um, can only guess
+
+00:09:07.664 --> 00:09:10.292
+or even kind of fall silent completely.
+
+00:09:14.329 --> 00:09:17.713
+So now let's take a closer look
+at the tag tree itself, uh, the
+
+00:09:17.714 --> 00:09:19.558
+hidden architecture of the PDF.
+
+00:09:20.230 --> 00:09:24.145
+Um, on the left is an example
+structure of a tag tree.
+
+00:09:24.679 --> 00:09:28.598
+Um, everything should sit under the
+document tree, uh, document root.
+
+00:09:29.214 --> 00:09:34.150
+Uh, inside that there are part tags which
+divide the document into logical sections.
+
+00:09:34.199 --> 00:09:39.472
+Within section one, you can see an H1
+heading reading Annual Report 2024,
+
+00:09:39.476 --> 00:09:43.853
+followed by a paragraph tag with body
+text and a figure tag containing a
+
+00:09:43.858 --> 00:09:48.601
+chart with its alt text, uh, attached,
+uh, directly to that, um, uh, to
+
+00:09:48.602 --> 00:09:50.557
+that image, uh, to that figure.
+
+00:09:50.954 --> 00:09:55.404
+Section two then continues with, with
+an H2 heading, uh, Financial Overview,
+
+00:09:55.510 --> 00:10:00.228
+which is followed by an actual, um,
+table tag with table rows containing
+
+00:10:00.252 --> 00:10:06.092
+TH tags for headers like Quarter and
+Revenue, and TD tags for the data itself.
+
+00:10:06.537 --> 00:10:11.082
+There's also a list tag for key
+highlights, and section three contains
+
+00:10:11.108 --> 00:10:13.215
+a form tag for interactive fields.
+
+00:10:14.054 --> 00:10:19.622
+Um, so now here are some of the, um,
+key accessibility cons, uh, concept that
+
+00:10:19.622 --> 00:10:22.135
+this particular structure, um, enables.
+
+00:10:22.587 --> 00:10:24.352
+The first one is semantic mapping.
+
+00:10:24.876 --> 00:10:30.367
+Mm, tags actually define the, um, role
+of each element, whether it is a heading,
+
+00:10:30.402 --> 00:10:33.202
+whether it is a list, a table, a form.
+
+00:10:33.881 --> 00:10:35.804
+Uh, the second one is reading order.
+
+00:10:36.156 --> 00:10:40.447
+The tag tree actually establish the
+exact logical sequence, um, a screen
+
+00:10:40.449 --> 00:10:45.074
+reader mu-- screen readers would
+follow, uh, which is independent of
+
+00:10:45.101 --> 00:10:46.958
+the visual placement of the text.
+
+00:10:47.361 --> 00:10:51.983
+Um, alternative text, uh, for image
+is attached directly to images and
+
+00:10:51.983 --> 00:10:53.610
+charts within this tree itself.
+
+00:10:54.047 --> 00:10:58.069
+And structural navigation, this is what
+let users jump between heading levels.
+
+00:10:58.523 --> 00:11:02.713
+Uh, one important distinction to
+actually remember here is that tags
+
+00:11:02.827 --> 00:11:04.504
+provide the programmatic structure.
+
+00:11:04.814 --> 00:11:06.095
+They are not bookmarks.
+
+00:11:06.198 --> 00:11:09.915
+Um, bookmarks are actually
+vis- actually visual navigation
+
+00:11:09.944 --> 00:11:14.092
+aid for sighted users clicking
+through the, through a PDF viewer.
+
+00:11:14.626 --> 00:11:19.583
+Mm, tags are what assistive technology
+actually depends on to understand, um,
+
+00:11:19.632 --> 00:11:23.046
+and communicate to the, communicate
+the document to screen reader
+
+00:11:23.046 --> 00:11:25.270
+user or assistive technology user.
+
+00:11:29.769 --> 00:11:32.812
+So now let's look at, um, some
+of the, some of the common
+
+00:11:32.834 --> 00:11:34.824
+accessibility barriers in PDF.
+
+00:11:35.488 --> 00:11:39.762
+Um, the first one, uh, being missing
+or broken document structure.
+
+00:11:40.214 --> 00:11:42.625
+So now here's a problem, um, structurally.
+
+00:11:43.126 --> 00:11:47.666
+Um, most PDFs are missing the
+document root tag entirely.
+
+00:11:47.964 --> 00:11:53.603
+Mm, content that should be read out
+as, um, real meaningful text get tagged
+
+00:11:53.603 --> 00:11:57.767
+as artifact, which tells assistive
+technology to completely ignore.
+
+00:11:58.251 --> 00:12:03.233
+Mm, documents are often missing part
+or, um, section containers that would
+
+00:12:03.233 --> 00:12:05.367
+actually, um, organize the content.
+
+00:12:05.809 --> 00:12:11.280
+Everything ends up, um, being tagged
+gener-generically as a paragraph,
+
+00:12:11.670 --> 00:12:15.586
+regardless of whether it's actually
+a heading or a list or a caption.
+
+00:12:16.141 --> 00:12:20.223
+Mm, and headers and footers aren't
+properly marked as artifacts, so they
+
+00:12:20.223 --> 00:12:24.265
+don't get filtered out the way they
+should be, uh, to a screen reader or
+
+00:12:24.266 --> 00:12:26.722
+an assistive technology, um, tools.
+
+00:12:27.665 --> 00:12:30.592
+Now, here's what that actually
+means for a sc- uh, for a user.
+
+00:12:31.050 --> 00:12:35.117
+The screen reader actually end up
+reading the header text out loud, um,
+
+00:12:35.182 --> 00:12:37.637
+on every single page over and over.
+
+00:12:38.115 --> 00:12:43.168
+Mm, there's no way an, a user can
+navigate by section or topic because
+
+00:12:43.170 --> 00:12:44.957
+the structure simply doesn't exist.
+
+00:12:45.382 --> 00:12:50.092
+Um, the whole document ends
+up feeling like, uh, one giant
+
+00:12:50.154 --> 00:12:52.169
+undifferentiated block of text.
+
+00:12:52.649 --> 00:12:56.689
+Page numbers and watermarks, um,
+interrupt the reading flow at random
+
+00:12:56.689 --> 00:13:02.006
+points, and ultimately, users can't
+build a mental model of the document.
+
+00:13:02.404 --> 00:13:06.543
+They can't tell where, where they
+are, what's coming next, or how
+
+00:13:06.544 --> 00:13:08.668
+the content is actually organized.
+
+00:13:09.545 --> 00:13:14.457
+Document structure is basically the
+foundation, um, on which everything
+
+00:13:14.463 --> 00:13:15.970
+ac- everything else sits on.
+
+00:13:16.476 --> 00:13:21.557
+If the structure itself is broken, no
+amount of alt text on images or table
+
+00:13:21.595 --> 00:13:26.793
+tagging actually, uh, would work or
+make up for a broken document structure.
+
+00:13:31.012 --> 00:13:32.646
+So how do we actually fix this?
+
+00:13:32.666 --> 00:13:36.765
+Here are the, um, here are some
+recommended actions for compliance.
+
+00:13:37.420 --> 00:13:40.165
+First is to ensure document is a root tag.
+
+00:13:40.192 --> 00:13:43.159
+Every piece of content should
+sit within that structure.
+
+00:13:43.597 --> 00:13:46.173
+Second is to manage artifacts properly.
+
+00:13:46.513 --> 00:13:49.924
+That means, um, keeping the
+headers, footers, page numbers,
+
+00:13:49.924 --> 00:13:54.279
+and waterma-ma-marks, um, should
+be tagged as artifacts so screen
+
+00:13:54.292 --> 00:13:57.939
+readers can actually skip over
+them while actual content is not.
+
+00:13:58.582 --> 00:14:02.716
+The third one is to establish,
+um, semantic boundaries, um, using
+
+00:14:02.748 --> 00:14:06.222
+part tags and section containers
+to actually organize the document
+
+00:14:06.249 --> 00:14:10.849
+logically so users can navigate, uh,
+by structure through the document.
+
+00:14:11.382 --> 00:14:15.225
+The fourth one is, um, apply
+appropriate semantic tags.
+
+00:14:15.255 --> 00:14:19.732
+Um, headings should be tagged as headings,
+lists as lists, tables as tables.
+
+00:14:20.157 --> 00:14:23.173
+Not everything should be flattened
+into a generic paragraph tag.
+
+00:14:23.751 --> 00:14:28.604
+And fifth, um, which is to perform, um,
+fifth and the last one is to perform
+
+00:14:28.604 --> 00:14:30.788
+structural, um, quality control.
+
+00:14:31.247 --> 00:14:34.644
+Once the tagging is done, go back
+and actually validate it, because a
+
+00:14:34.683 --> 00:14:39.344
+tag tree that looks right on paper
+can still contain gaps that only
+
+00:14:39.344 --> 00:14:40.882
+show up when you actually test it.
+
+00:14:41.242 --> 00:14:45.920
+So get these five right and you
+have actually built a foundation the
+
+00:14:45.921 --> 00:14:50.167
+rest of the document's accessibility
+can actually, um, fall onto or,
+
+00:14:50.180 --> 00:14:51.983
+you know, it can actually stand on.
+
+00:14:56.921 --> 00:14:59.105
+The second barrier is heading hierarchy.
+
+00:14:59.429 --> 00:15:03.485
+This one's subtle because visually the
+document can actually look perfectly fine.
+
+00:15:04.006 --> 00:15:08.035
+The problem lives entirely in how
+headings are tagged underneath.
+
+00:15:08.603 --> 00:15:13.897
+Um, on the left, you can see, um, it is
+a broken hierarchy, heading hierarchy.
+
+00:15:14.435 --> 00:15:19.198
+Uh, the 18-point bold text is
+correctly tagged as H1, but then the
+
+00:15:19.198 --> 00:15:23.721
+16-point bold text jumps straight
+to H3, skipping H2 entirely.
+
+00:15:24.284 --> 00:15:29.438
+14-point bold text gets tagged as another
+H1, which is a duplicate, um, when it-
+
+00:15:29.499 --> 00:15:31.353
+when ideally it should be a lower level.
+
+00:15:31.937 --> 00:15:36.943
+12-point bold, uh, text jumps all
+the way to H5, skipping H3 and
+
+00:15:36.953 --> 00:15:39.221
+H4, um, heading levels in between.
+
+00:15:39.794 --> 00:15:43.934
+A regular body text, which is a
+paragraph text, get mistakenly, uh,
+
+00:15:43.977 --> 00:15:49.089
+tagged as an H2, which creates a
+false, um, false sense of heading.
+
+00:15:49.762 --> 00:15:54.411
+Um, and the last, uh, one
+more, mm, 18-point bold heading
+
+00:15:54.420 --> 00:15:56.129
+isn't tagged, um, at all.
+
+00:15:56.565 --> 00:16:01.091
+To a screen reader user navigating
+by headings, this, uh, format
+
+00:16:01.130 --> 00:16:02.578
+can be very disorienting.
+
+00:16:02.906 --> 00:16:07.003
+Um, the outline jumps around
+unpredict-predictably or important
+
+00:16:07.011 --> 00:16:08.889
+sections do not show up at all.
+
+00:16:10.270 --> 00:16:13.820
+Now, on the right, the same visual
+document is tagged correctly.
+
+00:16:14.107 --> 00:16:18.347
+18-point bold is H1,
+um, Annual Report 2024.
+
+00:16:18.759 --> 00:16:22.944
+The 18-point… Um, the 16-point,
+uh, bold text which is followed
+
+00:16:22.961 --> 00:16:25.201
+by the H1 is marked as H2.
+
+00:16:25.709 --> 00:16:30.525
+The 14-point bold is then,
+um, text is again marked as H3
+
+00:16:30.540 --> 00:16:32.497
+and so f- uh, and followed on.
+
+00:16:33.122 --> 00:16:37.334
+Um, the body text is correctly
+tagged, tagged as a plain paragraph,
+
+00:16:37.405 --> 00:16:41.808
+and the last 16-point bold heading
+is given as actual heading rather
+
+00:16:41.842 --> 00:16:44.022
+than giving it as a normal text.
+
+00:16:44.346 --> 00:16:48.755
+So this is the right, um,
+hierarchy, heading hierarchy for
+
+00:16:48.755 --> 00:16:51.505
+this particular, um, tag tree.
+
+00:16:55.750 --> 00:16:59.931
+So now let's see why heading
+hierarchy actually matters so
+
+00:16:59.936 --> 00:17:01.966
+much to assistive technology user.
+
+00:17:02.690 --> 00:17:08.512
+The navigation found in, uh, foundation
+is this, um, screen readers, screen reader
+
+00:17:08.513 --> 00:17:14.281
+users don't, um, read documents top to
+bottom, just like how a sighted, uh,
+
+00:17:14.282 --> 00:17:16.816
+users would often skim through a document.
+
+00:17:17.334 --> 00:17:19.644
+They actually navigate by heading level.
+
+00:17:19.984 --> 00:17:23.175
+That is jumping from heading to
+heading to build a mental map of
+
+00:17:23.175 --> 00:17:27.406
+the document before actually diving
+into a specific, um, section.
+
+00:17:27.938 --> 00:17:33.633
+When that hierarchy breaks, um, user
+runs into, uh, very frustrating patterns.
+
+00:17:34.058 --> 00:17:39.054
+Mm, for example, broken navigation
+sounds, uh, like, where did the H2 go?
+
+00:17:39.405 --> 00:17:42.591
+When a level is actually skipped,
+users kind of lose their sense of
+
+00:17:42.591 --> 00:17:43.799
+where they are in the structure.
+
+00:17:44.456 --> 00:17:50.329
+Um, outline confusion sounds like, which
+one is the real title in the document?
+
+00:17:50.675 --> 00:17:54.838
+When there are multiple, um, multiple
+headings or duplicate headings or
+
+00:17:54.847 --> 00:17:59.276
+misused heading level, it's unclear,
+uh, for a user what's actually
+
+00:17:59.276 --> 00:18:01.182
+the document's, um, main heading.
+
+00:18:01.906 --> 00:18:06.725
+Uh, and semantic noise sounds like,
+why is this paragraph, um, announced
+
+00:18:06.725 --> 00:18:09.756
+as a heading when body text is…
+
+00:18:09.813 --> 00:18:12.466
+body text gets mistakenly
+tagged as a heading?
+
+00:18:12.982 --> 00:18:18.683
+Mm, it interrupts navigation with, um,
+false landmarks for a screen reader user.
+
+00:18:19.330 --> 00:18:24.255
+Now, the primary mechanism to actually
+remember here is that proper heading
+
+00:18:24.256 --> 00:18:30.488
+hierarchy is the number one navigation,
+um, mechanism for any screen reader user.
+
+00:18:31.145 --> 00:18:36.169
+Get this right and you have given
+screen reader user a reliable
+
+00:18:36.195 --> 00:18:40.157
+way to actually move through
+the document on their own terms.
+
+00:18:44.349 --> 00:18:46.985
+Now, the third barrier
+is, um, reading order.
+
+00:18:47.409 --> 00:18:51.218
+This one especially is very
+disorienting because it happens
+
+00:18:51.241 --> 00:18:53.417
+completely invisible to sighted user.
+
+00:18:54.033 --> 00:18:59.147
+On the left here, um, you can see the
+visual order, what you actually see on the
+
+00:18:59.147 --> 00:19:04.590
+page: a sidebar image, the main article
+headline, the main article body text,
+
+00:19:04.609 --> 00:19:06.586
+um, and a footer with a page number.
+
+00:19:06.992 --> 00:19:10.846
+This follows a natural, um, left
+to right, top to bottom flow.
+
+00:19:11.246 --> 00:19:14.969
+It matches how, um, human
+eyes visually scan a page.
+
+00:19:15.373 --> 00:19:18.834
+But now on the right is the tag
+order, what assistive technology
+
+00:19:18.836 --> 00:19:22.600
+actually reads, and it can tell
+a completely different story.
+
+00:19:22.997 --> 00:19:26.868
+In this particular example, the screen
+reader starts with the footer and its
+
+00:19:26.885 --> 00:19:31.805
+page number, then moves to the sidebar
+image with no alt text, then the main
+
+00:19:31.807 --> 00:19:36.611
+article's body text, and only at the
+end does it actually reach the headline.
+
+00:19:37.260 --> 00:19:41.559
+That order is actually arbitrary
+based on when the elements were
+
+00:19:41.559 --> 00:19:46.610
+created in the source document,
+that is the, um, Word or the Word
+
+00:19:46.618 --> 00:19:48.237
+document that they would have used.
+
+00:19:48.875 --> 00:19:51.979
+Uh, it is not based on how
+they actually appear visually.
+
+00:19:52.619 --> 00:19:56.477
+Um, often it's completely backward,
+and in this case, a screen reader
+
+00:19:56.490 --> 00:20:01.261
+actually hears a footer first, even
+before they even know what the article,
+
+00:20:01.399 --> 00:20:03.061
+uh, they're reading or what it is.
+
+00:20:04.433 --> 00:20:08.673
+This is exactly why visual inspection
+isn't enough to confirm accessibility.
+
+00:20:08.758 --> 00:20:13.059
+A document, um, can look perfectly
+ordered and can still be read,
+
+00:20:13.263 --> 00:20:17.634
+um, in a completely scrambled se-
+sequence for a screen reader user.
+
+00:20:20.730 --> 00:20:23.416
+So why does reading order
+go wrong in the first place?
+
+00:20:23.514 --> 00:20:27.347
+It usually comes down to how
+the document was actually built.
+
+00:20:27.586 --> 00:20:31.123
+Mm. The first one is,
+um, multi-column layouts.
+
+00:20:31.137 --> 00:20:32.696
+Multi-column layouts are a big one.
+
+00:20:33.024 --> 00:20:37.144
+When they are created without, um, any
+awareness of the underlying structure,
+
+00:20:37.502 --> 00:20:42.107
+the tag order of the PDF often just
+follows, um, the raw creation sequence
+
+00:20:42.109 --> 00:20:46.780
+and not the actual, um, visual, uh,
+columns and actual visual sequence.
+
+00:20:47.784 --> 00:20:52.381
+Um, sidebar content is frequently
+added after the main content, uh, which
+
+00:20:52.383 --> 00:20:57.601
+means it can get inserted into the tag
+order in the wrong place, even though
+
+00:20:57.614 --> 00:21:00.093
+visually it sits off onto the side.
+
+00:21:00.671 --> 00:21:06.518
+In tools like InDesign or Word, um, text
+boxes are often placed, um, in whatever
+
+00:21:06.518 --> 00:21:13.213
+order felt natural during the layout and
+not exactly in the order that, uh, should
+
+00:21:13.227 --> 00:21:15.644
+be actually be read by a screen reader.
+
+00:21:16.269 --> 00:21:21.901
+Um, form fields, uh, are usually
+included, uh, at the end as a final
+
+00:21:21.931 --> 00:21:26.076
+step, and so their tab order frequently
+doesn't match the visual layout the
+
+00:21:26.076 --> 00:21:27.836
+user ends up seeing on the screen.
+
+00:21:28.547 --> 00:21:30.619
+The last one is the copy-pasted content.
+
+00:21:30.647 --> 00:21:33.920
+Copy-pasted content carries,
+um, its original creation
+
+00:21:33.928 --> 00:21:35.716
+timestamp into the tag order.
+
+00:21:36.151 --> 00:21:40.388
+So content pasted in from elsewhere
+can actually jump the que- queue.
+
+00:21:40.845 --> 00:21:46.066
+Uh, it could appear out of, um, sequence
+from where it actually, uh, visually sits.
+
+00:21:46.606 --> 00:21:51.591
+So if you notice the pattern, um,
+of the issues of the common… of
+
+00:21:51.591 --> 00:21:57.058
+the reading order, um, co- issues,
+none of these are actually, um,
+
+00:21:57.183 --> 00:21:59.768
+really, um, intentional mistakes.
+
+00:22:00.022 --> 00:22:03.923
+They're just side effects of how
+documents get built, which is
+
+00:22:03.923 --> 00:22:08.605
+exactly why reading order needs to
+be checked, um, and not assumed.
+
+00:22:12.677 --> 00:22:17.232
+Our fourth common barrier is images
+without meaningful alt text, and
+
+00:22:17.232 --> 00:22:19.684
+this shows up in few different ways.
+
+00:22:20.281 --> 00:22:22.274
+First, the image-based PDF.
+
+00:22:22.925 --> 00:22:26.545
+This happens when a document
+is scanned, um, rather than
+
+00:22:26.545 --> 00:22:28.226
+actually created digitally.
+
+00:22:28.645 --> 00:22:32.833
+The whole page then becomes
+a one, um, giant image.
+
+00:22:33.263 --> 00:22:36.004
+To a screen reader, there is
+no text at all, just a picture.
+
+00:22:36.027 --> 00:22:37.668
+The user gets absolutely nothing.
+
+00:22:38.379 --> 00:22:41.670
+Second one, what I call
+is the decorative charts.
+
+00:22:41.818 --> 00:22:42.967
+This is sneakier.
+
+00:22:43.642 --> 00:22:49.140
+Um, someone build a complex, um,
+infographic, um, maybe with multiple,
+
+00:22:49.203 --> 00:22:54.501
+um, data points, data categories, and
+actually, um, different data relationship,
+
+00:22:54.919 --> 00:22:58.780
+but it is all tagged as a decorative
+figure with absolutely no alt text.
+
+00:22:59.457 --> 00:23:03.181
+The visual is doing a lot of
+communication or communicator work,
+
+00:23:03.271 --> 00:23:07.478
+uh, to a visual user, but a screen
+reader user has no idea what it says.
+
+00:23:08.286 --> 00:23:10.587
+And third, the text as image.
+
+00:23:10.822 --> 00:23:14.306
+Headings, logos or call-outs
+saved as image files instead
+
+00:23:14.308 --> 00:23:15.921
+of real selectable text.
+
+00:23:16.563 --> 00:23:21.407
+It might look fine visually, but it
+can't be read aloud, resized or even
+
+00:23:21.424 --> 00:23:22.926
+picked up by a screen reader at all.
+
+00:23:23.726 --> 00:23:27.954
+So here are the common thread that you
+will notice is that if it's an image
+
+00:23:28.387 --> 00:23:32.109
+and it is conveying information, it
+should absolutely have an alt text
+
+00:23:32.389 --> 00:23:37.023
+that actually describes the information
+and not just some, um, random file
+
+00:23:37.023 --> 00:23:39.193
+name or, or absolutely nothing at all.
+
+00:23:43.035 --> 00:23:48.656
+So now let's talk about, um, some of the
+best practices for alt text in PDFs and,
+
+00:23:48.793 --> 00:23:54.091
+um, it completely depends on the type of
+image that is being used in the document.
+
+00:23:54.812 --> 00:23:57.091
+Um, the first one is informative image.
+
+00:23:57.102 --> 00:23:59.634
+For informative images, be specific.
+
+00:24:00.096 --> 00:24:07.062
+Instead of, um, tagging it as or naming it
+as chart or some random name as image001,
+
+00:24:07.581 --> 00:24:09.716
+um, describe what it actually shows.
+
+00:24:09.729 --> 00:24:14.655
+For example, if it is a charge… chart,
+um, if it is a chart, make sure that you
+
+00:24:14.656 --> 00:24:19.540
+are including, um, something like bar
+chart showing quarterly revenue growth
+
+00:24:19.562 --> 00:24:21.935
+from $8.2 million to $12.4 million.
+
+00:24:22.911 --> 00:24:27.336
+The alt text should actually,
+um, convey the data and not just
+
+00:24:27.345 --> 00:24:30.810
+the la- and not just providing a
+label to that particular object.
+
+00:24:32.513 --> 00:24:37.638
+Um, for decorative images, um, like
+borders, backgrounds, or any other
+
+00:24:37.638 --> 00:24:42.721
+decorative photos that add absolutely
+no value or information, don't
+
+00:24:42.726 --> 00:24:46.280
+force screen readers to actually
+announce every visual element.
+
+00:24:46.662 --> 00:24:50.225
+These should be marked as a decorator
+and should be skipped entirely
+
+00:24:50.233 --> 00:24:52.350
+for assistive technology users.
+
+00:24:53.418 --> 00:25:00.134
+Uh, for complex diagrams, um, alt text
+alone often isn't, um, very useful.
+
+00:25:00.670 --> 00:25:04.918
+Use a link to reference an extended
+description elsewhere rather than
+
+00:25:04.919 --> 00:25:11.068
+trying to, um, cram a lot of information
+into a 255 character alt text.
+
+00:25:11.164 --> 00:25:15.815
+Um, better to give a user
+link and reference that.
+
+00:25:16.582 --> 00:25:19.521
+Um, and the last one is text-as image.
+
+00:25:19.624 --> 00:25:24.457
+Mm, for text-as image, um,
+like a company logo, mm, never
+
+00:25:24.879 --> 00:25:27.274
+leave that text unannounced.
+
+00:25:27.690 --> 00:25:33.955
+Um, provide something like, um, Acme
+Co-Corporation, um, company logo or
+
+00:25:33.956 --> 00:25:38.633
+Acme Corporation logo, um, and it
+actually ensures that it is… When
+
+00:25:38.634 --> 00:25:44.170
+you are giving a alt text to a company
+logo, it actually ensures that it is,
+
+00:25:44.306 --> 00:25:48.788
+um, not invisible to a screen reader
+user or an assistive technology user.
+
+00:25:49.904 --> 00:25:54.757
+Um, so the rule of thumb here
+again is that match the alt text
+
+00:25:54.898 --> 00:25:56.293
+to the purpose of the image.
+
+00:25:56.840 --> 00:26:00.514
+Um, the purpose of the image could
+be whether it is informative,
+
+00:26:00.675 --> 00:26:05.299
+whether it is a decorator, whether
+it is complex, um, charts or graphs,
+
+00:26:05.328 --> 00:26:08.168
+or whether it is a textual image.
+
+00:26:08.999 --> 00:26:12.050
+So depending on that, you
+need to match the alt text.
+
+00:26:17.565 --> 00:26:20.820
+Um, the next barrier
+is inaccessible tables.
+
+00:26:21.071 --> 00:26:23.536
+Mm, on the left we have a broken table.
+
+00:26:24.268 --> 00:26:28.050
+Every cell including the ta- uh,
+including the header is actually tagged
+
+00:26:28.099 --> 00:26:35.292
+as plain table, um, data cells or TD.
+Visually, it looks absolutely fine.
+
+00:26:35.451 --> 00:26:41.058
+Um, product Q1, Q2 across the
+top, widget A and B below.
+
+00:26:41.485 --> 00:26:44.510
+But to a screen reader,
+there's no difference between
+
+00:26:44.541 --> 00:26:46.027
+a header and a data cell.
+
+00:26:46.507 --> 00:26:52.822
+So when a user navigate to, um, the text
+120 or the number 120, they have no way
+
+00:26:52.822 --> 00:26:55.848
+of knowing that's widget A's Q1 number.
+
+00:26:56.259 --> 00:26:57.892
+The relationship is lost.
+
+00:26:58.472 --> 00:27:01.781
+On the right, the accessible
+version actually fixes this.
+
+00:27:02.273 --> 00:27:07.128
+Header cells are tagged as TH with
+scope attributes defining whether they
+
+00:27:07.128 --> 00:27:09.697
+are, um, column headers or row headers.
+
+00:27:10.329 --> 00:27:14.053
+Now, when a screen reader lands on
+that same 120, it, it can actually
+
+00:27:14.053 --> 00:27:20.011
+announce widget A Q1 120 because the
+semantic structure tells it exactly
+
+00:27:20.017 --> 00:27:24.434
+how that cell, um, can… how that
+cell is actually related to its header.
+
+00:27:25.463 --> 00:27:28.503
+Um, so it's not enough for a
+table to actually look right,
+
+00:27:28.514 --> 00:27:29.752
+it has to be built right.
+
+00:27:29.809 --> 00:27:34.368
+With real header tags, um, screen
+readers can actually convey those, um,
+
+00:27:34.380 --> 00:27:39.447
+same relationship which visual users
+can actually scan and with their eyes.
+
+00:27:43.289 --> 00:27:47.169
+Um, so now beyond the basic
+header tagging, there are a few
+
+00:27:47.171 --> 00:27:51.344
+more critical gaps, um, that
+kind of show up in PDF tables.
+
+00:27:52.109 --> 00:27:54.576
+Um, some of them are merged cells.
+
+00:27:54.607 --> 00:27:56.491
+Um, merged cells are a common one.
+
+00:27:56.493 --> 00:28:00.076
+Without proper span attribute,
+screen readers kind of lose
+
+00:28:00.079 --> 00:28:02.907
+count of how many columns or
+rows they're actually navigating.
+
+00:28:03.507 --> 00:28:06.117
+Mm, nested tables cause a similar problem.
+
+00:28:06.125 --> 00:28:09.535
+Screen readers can't determine the
+parent-child relationship between
+
+00:28:09.541 --> 00:28:10.943
+the outer and the inner table.
+
+00:28:11.438 --> 00:28:13.099
+The structure kind of falls apart.
+
+00:28:13.483 --> 00:28:16.283
+Sometimes tables aren't
+used for data at all.
+
+00:28:16.425 --> 00:28:18.224
+They're used purely for visual layout.
+
+00:28:18.629 --> 00:28:21.796
+That creates semantic confusion
+because a screen reader assumes
+
+00:28:21.798 --> 00:28:25.664
+a table means table of data, and
+it tries to announce it that way.
+
+00:28:26.047 --> 00:28:30.991
+For complex, um, data tables, a missing
+tables, um, summary is another gap.
+
+00:28:31.384 --> 00:28:36.139
+Users benefit from, um, a short
+description of the table structure and,
+
+00:28:36.477 --> 00:28:40.406
+um, understand the purpose before they
+actually dive into the data itself.
+
+00:28:41.150 --> 00:28:43.598
+And finally, providing empty header cells.
+
+00:28:44.031 --> 00:28:48.693
+Th tags that exist structurally but
+contain absolutely no, um, text,
+
+00:28:49.091 --> 00:28:52.814
+um, that's almost worse than no
+header at all since it actually
+
+00:28:52.817 --> 00:28:56.609
+signals, um, structure without
+actually delivering any information.
+
+00:28:58.055 --> 00:29:02.389
+Now, each of these, um, break the
+experience in a very different way for
+
+00:29:02.390 --> 00:29:07.775
+a screen read-- screen reader user, but
+they all come down to the same root issue:
+
+00:29:08.306 --> 00:29:13.557
+structure that looks right without the
+underlying, um, markup to support it.
+
+00:29:17.216 --> 00:29:22.441
+Um, the next barrier, mm, that we
+would be discussing here is, uh, forms.
+
+00:29:23.237 --> 00:29:28.329
+Typical field failures that we actually
+see in forms are, mm, a flat form,
+
+00:29:28.692 --> 00:29:33.580
+um, that is text box that look like
+fields but are just rectangles, so
+
+00:29:33.580 --> 00:29:35.731
+users can't actually enter data.
+
+00:29:36.283 --> 00:29:40.271
+Even when fields are interactive, uh,
+some of these fields do not have labels
+
+00:29:40.281 --> 00:29:44.252
+for a screen reader user to understand
+what's the purpose of those fields.
+
+00:29:44.624 --> 00:29:47.118
+Uh, it would just announce as edit blank.
+
+00:29:47.711 --> 00:29:53.885
+Um, another… It basically does not
+give, uh, any information to users.
+
+00:29:54.514 --> 00:29:59.450
+Uh, incorrect tab order can send,
+um, focus jumping from name straight
+
+00:29:59.450 --> 00:30:03.653
+to the submit f- uh, submit button
+in the form, skipping, um, maybe
+
+00:30:03.656 --> 00:30:05.166
+four to five fields in between.
+
+00:30:05.808 --> 00:30:11.202
+Um, fields often lack descriptions like
+whether it is a required field or a format
+
+00:30:11.207 --> 00:30:14.666
+hints and, uh, error messages go unstated.
+
+00:30:15.094 --> 00:30:18.850
+Now, if there are group fields like
+radio buttons or a group of checkboxes,
+
+00:30:18.864 --> 00:30:22.138
+if they are not… if they aren't
+wrapped in a field set, uh, with
+
+00:30:22.140 --> 00:30:25.562
+a shared label, those relationship
+is also lost for screen reader.
+
+00:30:25.987 --> 00:30:29.998
+And custom JavaScript validation can
+actually trap keyboard users, preventing
+
+00:30:29.999 --> 00:30:32.946
+them from, preventing them from
+actually moving through the form at all.
+
+00:30:33.821 --> 00:30:37.087
+Um, so now here's how we can
+actually fix all of this problem.
+
+00:30:37.401 --> 00:30:41.186
+Start with Acrobat's prepare form
+tool to actually auto-detect and
+
+00:30:41.186 --> 00:30:42.963
+actually create interactive fields.
+
+00:30:43.334 --> 00:30:48.544
+Set a descriptive tool tip for every field
+that then, that b- that actually b- makes
+
+00:30:48.544 --> 00:30:51.479
+it, um, that becomes its accessible name.
+
+00:30:52.993 --> 00:30:56.363
+Uh, verify the tab order match the, um…
+
+00:30:56.477 --> 00:31:00.115
+verify that the tab order actually
+match the, mm, visual flow.
+
+00:31:00.746 --> 00:31:05.133
+Add, um, clear descriptions
+with, um, format requirements.
+
+00:31:05.967 --> 00:31:11.732
+Um, group related fields, um,
+especially radio buttons or checkboxes,
+
+00:31:12.140 --> 00:31:14.037
+um, under shared group names.
+
+00:31:14.528 --> 00:31:19.517
+And finally, test everything with both
+keyboard-only navigation and a screen
+
+00:31:19.519 --> 00:31:21.453
+reader before you actually publish.
+
+00:31:22.051 --> 00:31:25.739
+The message here is a form
+isn't accessible just because
+
+00:31:25.740 --> 00:31:27.480
+it looks, um, fillable.
+
+00:31:27.903 --> 00:31:32.518
+It has to actually work for someone
+who can't see or who can't click it.
+
+00:31:35.321 --> 00:31:39.292
+So now let's talk about our
+testing toolkit because catching
+
+00:31:39.316 --> 00:31:43.507
+all these barriers, um, takes
+more than, um, one tool.
+
+00:31:44.413 --> 00:31:46.227
+Um, so let's start with
+automated checkers.
+
+00:31:46.240 --> 00:31:51.340
+Some of these checkers like, mm, Adobe's
+Acrobat Pro built-in accessibility
+
+00:31:51.340 --> 00:31:58.674
+checker, um, the PAC 3, uh, PDF
+validator, axe DevTools Pro, um, and
+
+00:31:58.689 --> 00:32:04.228
+CommonLook PDF can all flag structural
+issues quickly and consistently.
+
+00:32:05.081 --> 00:32:08.429
+But automated testing is
+just the starting point.
+
+00:32:08.560 --> 00:32:11.427
+You also need to test with
+actual screen readers.
+
+00:32:11.877 --> 00:32:16.602
+That means, um, testing it with
+NVDA and JAWS on Windows, uh,
+
+00:32:16.623 --> 00:32:22.225
+VoiceOver on Mac, Narrator on
+Windows and, um, TalkBack on Android.
+
+00:32:22.741 --> 00:32:26.957
+Each one can be used slightly differently,
+so testing across a few can actually
+
+00:32:26.958 --> 00:32:28.683
+give you a real- realistic picture.
+
+00:32:29.226 --> 00:32:31.278
+And finally, manual inspection.
+
+00:32:31.590 --> 00:32:35.677
+This includes reviewing the tag panel
+directly, checking reading order, testing
+
+00:32:35.680 --> 00:32:40.823
+keyboard-only navigation, verifying the
+color contrast, zooming the content to 200
+
+00:32:40.823 --> 00:32:45.103
+to 400 percentage, and actually walking
+through f- uh, form field for tab order.
+
+00:32:45.809 --> 00:32:49.101
+So the takeaway here is that no single
+tool can actually catch everything.
+
+00:32:49.118 --> 00:32:54.830
+Automated checkers find only about 30%
+of accessibility issues, which means
+
+00:32:54.831 --> 00:32:59.546
+that screen reader testing is not just
+optional, but it is also very mandatory
+
+00:33:01.854 --> 00:33:03.983
+So how does all of this
+actually come together?
+
+00:33:04.634 --> 00:33:09.498
+Here I have put in a full PDF
+remediation workflow in six steps.
+
+00:33:10.045 --> 00:33:12.937
+Um, step one is source audit.
+
+00:33:13.942 --> 00:33:16.654
+This happens even before
+the PDF even exist.
+
+00:33:16.970 --> 00:33:23.914
+Use proper word styles, structure content
+correctly, uh, in InDesign and, um,
+
+00:33:23.949 --> 00:33:26.654
+avoid text as images from the very start.
+
+00:33:27.324 --> 00:33:29.435
+Step two is actually to auto-export.
+
+00:33:29.678 --> 00:33:36.099
+Mm. When converting to PDF, export
+it with tags intact, uh, enable
+
+00:33:36.105 --> 00:33:40.699
+the PDF, uh, UA compliance, and
+actually preserve the bookmarks.
+
+00:33:41.301 --> 00:33:46.161
+Um, step three is, um, making sure
+that you are doing, uh, auto-check,
+
+00:33:46.219 --> 00:33:50.678
+run it through the Acrobat Checker
+and the PAC 3 validator, and flag
+
+00:33:50.776 --> 00:33:52.394
+any critical errors that come up.
+
+00:33:52.837 --> 00:33:54.547
+Step four is manual fix.
+
+00:33:54.585 --> 00:33:58.202
+This is where you actually gets
+on… get on hands-on, editing the
+
+00:33:58.202 --> 00:34:01.349
+tag panels directly, correcting the
+reading order, and actually adding
+
+00:34:01.385 --> 00:34:03.846
+alt text, um, and table structure.
+
+00:34:04.659 --> 00:34:08.540
+Um, the step five is actually doing
+screen reader testing, um, that is
+
+00:34:08.554 --> 00:34:13.507
+validating the document with, um,
+NVDA or JAWS, um, do a keyboard-only
+
+00:34:13.514 --> 00:34:18.263
+testing, and even confirm, uh, form
+validation actually works as expected.
+
+00:34:18.902 --> 00:34:22.516
+The last and final step is
+publish and actually monitor.
+
+00:34:23.130 --> 00:34:25.596
+Accessibility doesn't end at launch.
+
+00:34:25.735 --> 00:34:31.768
+Mm. Maintain the version control, create a
+user feedback loop, and actually schedule,
+
+00:34:31.850 --> 00:34:37.989
+um, regular re-audits to catch issues that
+may emerge over time after you publish.
+
+00:34:38.634 --> 00:34:41.387
+So accessibility here
+isn't a single checkbox.
+
+00:34:41.733 --> 00:34:45.340
+It's a workflow that starts at
+creation and then continues along,
+
+00:34:45.748 --> 00:34:48.587
+um, along and long after publishing.
+
+00:34:52.958 --> 00:34:56.724
+So up till now, we've been talking
+about fixes, um, after the document is
+
+00:34:56.725 --> 00:34:59.381
+already created or has already existed.
+
+00:35:00.016 --> 00:35:03.324
+But the biggest impact comes from
+getting it right at the source,
+
+00:35:03.422 --> 00:35:05.079
+um, as I've mentioned previously.
+
+00:35:05.567 --> 00:35:09.890
+Mm, in Microsoft Word, that means
+using the built-in, um, heading
+
+00:35:09.890 --> 00:35:14.399
+one through nine styles rather
+than just, um, using bold text.
+
+00:35:15.096 --> 00:35:19.472
+Um, adding alt text to an image,
+um, using table properties to
+
+00:35:19.486 --> 00:35:23.852
+add alt text and actually define
+header, heading rows or header rows.
+
+00:35:24.671 --> 00:35:29.421
+Um, use- using real text formatting
+instead of actually manually typing
+
+00:35:29.421 --> 00:35:31.146
+in hyphens or numbers for a list.
+
+00:35:31.604 --> 00:35:35.702
+Mm, setting the document title in
+properties and before exporting, actually
+
+00:35:35.712 --> 00:35:38.576
+running the built-in accessibility
+checker in a Microsoft Word.
+
+00:35:39.550 --> 00:35:43.621
+Uh, in Adobe InDesign, use the
+articles panel to actually define
+
+00:35:43.622 --> 00:35:48.108
+the reading order, map your paragraph
+styles to PDF, to PDF tags through p-
+
+00:35:48.141 --> 00:35:50.529
+ver- through paragraph style option.
+
+00:35:51.402 --> 00:35:55.332
+Tag images as you export, and
+set your export options to,
+
+00:35:55.429 --> 00:35:57.881
+uh, create proper tagged PDF.
+
+00:35:58.573 --> 00:36:03.856
+Uh, use the structure, uh, panel to
+control tab orders and avoid, um, using
+
+00:36:03.872 --> 00:36:11.418
+any, um, flattening text to outline, uh,
+that an actual, um, actually turn real
+
+00:36:11.472 --> 00:36:13.876
+text into, um, an unreadable shapes.
+
+00:36:14.953 --> 00:36:16.928
+So avoid using any flattening text.
+
+00:36:17.003 --> 00:36:23.261
+Um, so here's a rule of thumb to
+actually remember: 80 percentage of PDF
+
+00:36:23.270 --> 00:36:27.586
+accessibility is actually determined
+by how the source document is created
+
+00:36:27.931 --> 00:36:30.376
+and not by how it is fixed afterward.
+
+00:36:30.899 --> 00:36:34.664
+So getting it right at the source
+saves enormous w- rework down the line.
+
+00:36:36.675 --> 00:36:40.837
+So given everything we have covered
+about PDF, um, accessibility challenge,
+
+00:36:40.839 --> 00:36:44.583
+it's naturally fair to ask, should we
+even be using PDFs in the first place?
+
+00:36:45.082 --> 00:36:46.529
+Sometimes the answer is yes.
+
+00:36:46.570 --> 00:36:51.677
+Fixed layout is essential in cases like
+legal contrast-- contracts that need exact
+
+00:36:51.679 --> 00:36:56.565
+signature placement, um, architectural
+drawing, um, drawings with precise
+
+00:36:56.567 --> 00:37:01.409
+measurements, or print-ready brochures
+where design integrity actually matters.
+
+00:37:01.875 --> 00:37:05.856
+Um, there, there are also
+regula-regulatory and legal requirements
+
+00:37:05.909 --> 00:37:10.635
+like court fillings, um, that need
+exact page reproduction, government
+
+00:37:10.638 --> 00:37:15.184
+submission that require, um, you know,
+PDF archival standards or documents that
+
+00:37:15.184 --> 00:37:17.287
+actually need, um, digital signature.
+
+00:37:17.937 --> 00:37:21.870
+Offline distribution is another valid
+reason when users need access without
+
+00:37:21.871 --> 00:37:26.096
+internet connectivity, field workers
+using tablets in remote locations.
+
+00:37:26.588 --> 00:37:29.924
+Uh, the last one is when there
+are complex visual lay-layouts,
+
+00:37:29.940 --> 00:37:33.998
+for example, magazines and annual
+reports, design-heavy publication.
+
+00:37:34.512 --> 00:37:38.908
+Um, so here's a question worth
+asking every time: Do I need a fixed
+
+00:37:38.909 --> 00:37:40.951
+layout or do I just need a document?
+
+00:37:41.400 --> 00:37:46.087
+Most of the time, the hon- the honest
+answer is the latter, and that's when
+
+00:37:46.087 --> 00:37:51.016
+a properly structured Word or an HTML
+document will actually serve users better
+
+00:37:51.367 --> 00:37:54.404
+than a PDF could ever, uh, serve the user.
+
+00:37:56.507 --> 00:38:00.006
+So if PDF isn't always the
+right call, when does ac- HTML
+
+00:38:00.009 --> 00:38:01.476
+actually serve users better?
+
+00:38:01.737 --> 00:38:04.284
+Let's walk through it
+and through it quickly.
+
+00:38:04.852 --> 00:38:10.764
+Um, for forms, HTML gives you native
+input labels, um, validation elements.
+
+00:38:11.224 --> 00:38:14.398
+PDFs tend to have flat forms
+and broken ta- tab order.
+
+00:38:14.454 --> 00:38:18.779
+For da- uh, for data tables, HTML
+can be responsive, sortable, and
+
+00:38:18.779 --> 00:38:20.086
+screen reader friend- friendly.
+
+00:38:20.538 --> 00:38:24.734
+While PDF tables are fixed layout and
+require complex remediations to get right.
+
+00:38:25.238 --> 00:38:28.549
+For long documents, HTML
+reflows to fit any screen.
+
+00:38:28.694 --> 00:38:32.889
+Uh, PDFs often force horizontal
+scrolling at higher zoom levels.
+
+00:38:33.386 --> 00:38:37.867
+Um, for dynamic content, HTML supports
+live updates, searching, and filtering.
+
+00:38:38.358 --> 00:38:42.373
+PDF is pretty static and requires
+a fully, um, and would require full
+
+00:38:42.379 --> 00:38:44.603
+re-export every time something changes.
+
+00:38:45.073 --> 00:38:50.155
+Uh, for mobile users, HTML, uh, HTML's
+responsive design adapts to the device.
+
+00:38:50.583 --> 00:38:54.647
+PDFs often turn into a pinch/zoom
+nightmares on most phones.
+
+00:38:55.099 --> 00:38:59.284
+For search engines, HTML content
+gets indexed and is SEO friendly,
+
+00:38:59.607 --> 00:39:03.396
+while PDFs are frequently, um,
+invisible to search crawls.
+
+00:39:03.779 --> 00:39:08.723
+And for accessibility, accessibility
+itself, HTML5 gives you, um, native
+
+00:39:08.742 --> 00:39:10.966
+semantic elements built in from the start.
+
+00:39:11.373 --> 00:39:14.661
+So PDFs require manual tag
+creation every single time.
+
+00:39:15.194 --> 00:39:16.772
+So the pattern here is very clear.
+
+00:39:16.888 --> 00:39:21.301
+HTML is accessible by default, PDF
+has to be made, um, accessible,
+
+00:39:21.703 --> 00:39:23.747
+and that's a much heavier lift.
+
+00:39:25.516 --> 00:39:28.993
+So before we wrap up, here's a
+resource slide worth bookmarking,
+
+00:39:29.035 --> 00:39:33.873
+a starting toolkit for going deeper
+into PDF testing and remediation,
+
+00:39:33.933 --> 00:39:35.557
+um, for your- on your own.
+
+00:39:36.207 --> 00:39:42.724
+Um, for testing tools, you've got, um,
+Adobe Acrobat Pro DC, PAC, axe DevTools,
+
+00:39:42.781 --> 00:39:45.326
+um, NVDA, Color Contrast Analyzer.
+
+00:39:46.176 --> 00:39:50.097
+Um, for learning resources,
+you can go to WebAIM.
+
+00:39:50.272 --> 00:39:53.394
+Um, you can, um, go to Deque University.
+
+00:39:53.394 --> 00:39:55.527
+You can actually go to Section 508.
+
+00:39:55.878 --> 00:39:57.712
+User PDF Techniques for WCAG.
+
+00:39:57.884 --> 00:40:02.649
+Mm. And for communities to actually
+keep learning alongside others, there
+
+00:40:02.650 --> 00:40:05.141
+is the, um, Accessibility Slack.
+
+00:40:05.204 --> 00:40:07.611
+There is the PDF
+Accessibility on LinkedIn.
+
+00:40:08.082 --> 00:40:10.600
+Um, there is a CSUN conference.
+
+00:40:11.155 --> 00:40:16.049
+Um, you don't really need to master all of
+this today, but keep this slide, um, handy
+
+00:40:16.384 --> 00:40:19.310
+as a reference for the next time you're
+actually working through an accessib-
+
+00:40:19.798 --> 00:40:22.190
+accessibility fix, which is pretty tricky.
+
+00:40:24.154 --> 00:40:28.557
+So now let's bring the session all
+together with five key takeaways.
+
+00:40:28.848 --> 00:40:33.018
+Um, one, PDF are the silent
+killers of inclusive design.
+
+00:40:33.571 --> 00:40:37.995
+They look finished, but for many users,
+they are simply not reuse- not usable.
+
+00:40:38.600 --> 00:40:41.473
+The second one, um, the
+tag tree is everything.
+
+00:40:41.596 --> 00:40:44.924
+It's the invisible skeleton that
+actually determines whether a document
+
+00:40:44.926 --> 00:40:48.825
+makes sense to a screen reader or
+whether it would fall apart entirely.
+
+00:40:49.332 --> 00:40:52.200
+The third one is test with
+real assistive technology.
+
+00:40:52.451 --> 00:40:55.328
+Automated checkers only catch
+about a third of issues.
+
+00:40:55.719 --> 00:40:58.761
+Real screen readers and keyboard
+testing is non-negotiable.
+
+00:40:59.395 --> 00:41:01.455
+Um, the fourth one is start at the source.
+
+00:41:01.502 --> 00:41:05.408
+The vast majority of accessibility
+comes from how a document is built
+
+00:41:05.412 --> 00:41:09.306
+in Word or in InDesign, not from
+the fixes applied a-afterward.
+
+00:41:09.884 --> 00:41:13.185
+And the last and final one is
+it- is to actually default to
+
+00:41:13.185 --> 00:41:15.698
+HTML and justify the use of PDF.
+
+00:41:16.198 --> 00:41:18.357
+Do not use PDF simply out of habit.
+
+00:41:18.460 --> 00:41:23.274
+Choose it when there's a real need, such
+as a fixed layout or a legal requirement.
+
+00:41:23.671 --> 00:41:27.506
+Otherwise, HTML will usually provide
+a more accessible experience.
+
+00:41:27.797 --> 00:41:29.433
+So that's the whole talk in fine line.
+
+00:41:29.433 --> 00:41:32.622
+Remember these, and you're already
+ahead of most of what's out there.
+
+00:41:34.225 --> 00:41:36.261
+So yeah, um, thank you so much.
+
+00:41:36.361 --> 00:41:38.499
+That's pretty much all I wanted to cover.
+
+00:41:38.499 --> 00:41:40.106
+Thank you so much for your time today.
+
+00:41:40.365 --> 00:41:41.968
+Happy to take any questions now.
+
+00:41:45.026 --> 00:41:45.807
+David: All right.
+
+00:41:46.882 --> 00:41:49.676
+A round of applause for the presentation.
+
+00:41:49.942 --> 00:41:51.848
+You can use the reactions
+in Zoom for that.
+
+00:41:52.368 --> 00:41:55.984
+Uh, and yeah, thank you so much,
+Rinitta, for both being… for both
+
+00:41:55.986 --> 00:41:58.935
+presenting and also for being here
+after to answer the questions we have.
+
+00:41:59.317 --> 00:42:02.919
+Um, yeah, and just generally for
+sharing your accessibility expertise
+
+00:42:02.926 --> 00:42:05.942
+with the WordPress community and all
+the attendees we have here today.
+
+00:42:06.327 --> 00:42:08.779
+Uh, we're now ready for questions,
+and it looks like we've got quite
+
+00:42:08.779 --> 00:42:11.951
+a few, uh, about five, so we'll
+see how many we can get through.
+
+00:42:12.221 --> 00:42:16.096
+We've got about seven minutes to go
+through, so just keep that in mind.
+
+00:42:16.457 --> 00:42:19.482
+Uh, but yeah, if you wanna look
+at any of the questions, you can
+
+00:42:19.482 --> 00:42:23.357
+go to the Q&A option, which will
+be under the More button in Zoom.
+
+00:42:23.841 --> 00:42:26.413
+Uh, and without further ado,
+we'll start on the first question.
+
+00:42:27.303 --> 00:42:27.948
+All right.
+
+00:42:28.383 --> 00:42:32.372
+First question we've got here: how
+well do the in- built-in accessibility
+
+00:42:32.375 --> 00:42:35.600
+checkers work, uh, when creating PDFs?
+
+00:42:35.616 --> 00:42:38.430
+So I'm assuming that's for the,
+the PDF softwares themselves,
+
+00:42:38.801 --> 00:42:40.777
+uh, be them branded as they may.
+
+00:42:40.832 --> 00:42:42.042
+How well do those ones work?
+
+00:42:43.788 --> 00:42:44.461
+Rinitta: Um, so yes.
+
+00:42:44.482 --> 00:42:49.531
+Um, um, so the main, uh, software that
+we do use for PDF, um, remediation
+
+00:42:49.547 --> 00:42:53.721
+is the Acrobat, uh, Pro DC, and there
+are in-built accessibility checkers
+
+00:42:53.725 --> 00:42:55.538
+within the Pro DC, which is great.
+
+00:42:55.770 --> 00:42:59.089
+That's a great start because it'll
+actually help with the semantics and the
+
+00:42:59.089 --> 00:43:01.406
+tagging, but that alone is not enough.
+
+00:43:01.446 --> 00:43:05.464
+As I said, uh, the tags could
+be created, could be checked,
+
+00:43:05.642 --> 00:43:06.941
+the semantics could be right.
+
+00:43:07.241 --> 00:43:11.408
+Uh, all of those could be, uh, correctly
+placed, but even then, um, a screen
+
+00:43:11.413 --> 00:43:14.716
+reader, when… screen reader user,
+when they actually run the NVDA or
+
+00:43:14.718 --> 00:43:18.444
+JAWS or any other screen readers
+on the PDF, it could create, uh, it
+
+00:43:18.446 --> 00:43:21.305
+could actually create structural,
+uh, issues or reading order issues.
+
+00:43:21.586 --> 00:43:22.653
+So it is a great start.
+
+00:43:22.667 --> 00:43:27.392
+The accessibility checkers within the,
+um, Pro DC is great, is a great start,
+
+00:43:27.413 --> 00:43:32.856
+but that is not the, um, that, that's not
+going to give you 100% accessible PDF.
+
+00:43:34.066 --> 00:43:34.402
+David: All right.
+
+00:43:34.404 --> 00:43:34.959
+Thank you.
+
+00:43:35.131 --> 00:43:36.614
+We'll move right on to the next one.
+
+00:43:36.944 --> 00:43:38.618
+Uh, and it's a nice and short one.
+
+00:43:38.728 --> 00:43:39.549
+We've got it right here.
+
+00:43:39.866 --> 00:43:42.308
+Is there a good guide to
+create accessible PDFs?
+
+00:43:42.337 --> 00:43:44.595
+And I know we've got some in the
+chat, but are there any that you
+
+00:43:44.596 --> 00:43:48.319
+wanted to plug, um, as long as
+it's not, like, self-branded ones.
+
+00:43:48.346 --> 00:43:50.006
+Um, but any, any sources you have.
+
+00:43:51.017 --> 00:43:54.136
+Rinitta: Uh, so I think I've already
+mentioned a few in the slides, um,
+
+00:43:54.163 --> 00:43:57.906
+uh, in the, uh, in the resources
+that they can all go back to, but
+
+00:43:57.908 --> 00:43:59.424
+I would definitely recommend Deque.
+
+00:43:59.439 --> 00:44:03.201
+It is a paid one, but it is, uh,
+something that gives an enormous
+
+00:44:03.223 --> 00:44:05.533
+information, uh, on, uh, PDF.
+
+00:44:05.830 --> 00:44:09.055
+There is also a lot of free, uh,
+resources that you can, uh, go back to.
+
+00:44:09.087 --> 00:44:12.482
+WebAIM is one, and there's a lot
+of other, uh, communities, uh,
+
+00:44:12.511 --> 00:44:16.832
+within LinkedIn and Facebook as
+well, uh, that you can all log in.
+
+00:44:16.845 --> 00:44:20.571
+But I specifically recommend the
+Deque one because the, the c- the
+
+00:44:20.573 --> 00:44:24.076
+content is extremely, uh, good,
+and it is placed really well.
+
+00:44:25.918 --> 00:44:27.052
+David: All right, awesome.
+
+00:44:27.627 --> 00:44:31.788
+I'm gonna skip around 'cause I see one
+question got a, a thumbs up, and it's
+
+00:44:31.788 --> 00:44:33.187
+related to what we talked about before.
+
+00:44:33.528 --> 00:44:37.874
+Is it possible to audit and remediate
+a PDF without using Adobe Acrobat Pro?
+
+00:44:38.260 --> 00:44:41.446
+Um, to your, the best of your
+knowledge, are, are there other
+
+00:44:41.446 --> 00:44:44.985
+tools beyond that, like, paid
+one, uh, that you would recommend?
+
+00:44:46.362 --> 00:44:50.191
+Rinitta: Um, I don't think so,
+um, or at least I'm not aware of.
+
+00:44:50.215 --> 00:44:55.179
+Um, I have only used Adobe
+Acroba- Acrobat Pro DC to actually
+
+00:44:55.190 --> 00:44:58.228
+remediate, um, and, uh, to remediate.
+
+00:44:58.240 --> 00:45:04.217
+But, uh, again, like I said in the
+presentation, it's not, uh… I- if you
+
+00:45:04.237 --> 00:45:08.168
+really want to make sure that your PDF,
+PDFs are accessible, we have to make sure
+
+00:45:08.168 --> 00:45:10.045
+that it is accessible from the source.
+
+00:45:10.362 --> 00:45:14.190
+That is making sure that the document
+that you are converting, whether it
+
+00:45:14.191 --> 00:45:18.677
+is a Microsoft Word or is an InDesign
+file, if that gets, if that itself is
+
+00:45:18.687 --> 00:45:20.473
+accessible, that can actually help a lot.
+
+00:45:20.824 --> 00:45:25.869
+Um, so yes, Acrobat DC is one of
+the, uh, most commonly used, uh, and
+
+00:45:25.870 --> 00:45:29.598
+it is the most, uh, powerful tool
+when it comes to PDF remediation.
+
+00:45:29.886 --> 00:45:33.774
+I don't think I'm aware of
+anything else that is as, uh,
+
+00:45:33.800 --> 00:45:35.575
+powerful as the Acrobat Pro DC
+
+00:45:37.328 --> 00:45:38.390
+David: All right, fair enough.
+
+00:45:38.487 --> 00:45:43.240
+I'll plug what my hack for this as well
+is, yeah, I'll start with as accessible
+
+00:45:43.252 --> 00:45:47.441
+of a Word document as possible, uh, and
+then I'll get, don't tell anyone, uh,
+
+00:45:47.453 --> 00:45:52.723
+free trials of the A- Acrobat Pro to
+do the final remediation all sort of
+
+00:45:52.723 --> 00:45:54.716
+within a seven-day window as needed.
+
+00:45:55.075 --> 00:45:58.725
+Uh, and then I go back to not paying
+for it, but I didn't say that.
+
+00:45:59.111 --> 00:46:00.629
+All right, we'll go to
+the next one, though.
+
+00:46:00.701 --> 00:46:03.929
+Um, do you have any thoughts on
+AI or AI agents that claim to
+
+00:46:03.930 --> 00:46:05.676
+help build accessible documents?
+
+00:46:07.200 --> 00:46:12.152
+Rinitta: Um, so, uh, I think
+I did recommend, um, using
+
+00:46:12.256 --> 00:46:13.692
+PAC as an, uh, checker.
+
+00:46:14.141 --> 00:46:19.817
+Um, so I, I think the latest version of
+PAC, the accessibility checker, um, has,
+
+00:46:19.941 --> 00:46:23.027
+um, AI agents, uh, inbuilt within it.
+
+00:46:23.373 --> 00:46:27.511
+So I'm not sure how great that would
+be, but yes, it is definitely, again,
+
+00:46:27.511 --> 00:46:30.964
+a great start, uh, just like how
+the automated che- uh, checkers are.
+
+00:46:31.263 --> 00:46:36.292
+Uh, so I think, uh, it would definitely
+help expedite the, uh, remediation or
+
+00:46:36.317 --> 00:46:37.968
+the testing, whichever side you are in.
+
+00:46:38.304 --> 00:46:42.339
+But that is not the, uh, final
+result because it, as I said,
+
+00:46:42.339 --> 00:46:44.933
+it's, it, it is going to only
+help the structures and semantics.
+
+00:46:45.210 --> 00:46:48.631
+But what we, what we really need is
+making sure that the end user, that is
+
+00:46:48.631 --> 00:46:52.516
+the screen reader user, can actually
+access the PDF using their screen reader.
+
+00:46:52.732 --> 00:46:56.852
+So definitely it helps, but I wouldn't
+say that is the, um, final check or it,
+
+00:46:56.853 --> 00:47:00.868
+uh, that doesn't make sure that, you know,
+the PDF itself is accessible if you just
+
+00:47:00.868 --> 00:47:03.796
+use AI, um, agents or AI, uh, checkers.
+
+00:47:04.913 --> 00:47:08.357
+David: Okay, so potentially a tool
+along the way, but not a one-stop shop.
+
+00:47:08.923 --> 00:47:10.149
+Rinitta: Yes, exactly.
+
+00:47:11.562 --> 00:47:12.243
+David: Fair enough.
+
+00:47:12.332 --> 00:47:15.065
+Uh, and we'll go to our final
+ch- uh, question from the Q&A.
+
+00:47:15.582 --> 00:47:19.520
+Uh, we've got here, what is the
+purpose of a periodic re-audit
+
+00:47:19.553 --> 00:47:21.172
+of an already published PDF file?
+
+00:47:21.424 --> 00:47:23.875
+Would that be just to catch
+any issues that were missed?
+
+00:47:25.268 --> 00:47:26.417
+Rinitta: Um, that's a good question.
+
+00:47:26.444 --> 00:47:27.312
+Um, you're right.
+
+00:47:27.314 --> 00:47:31.308
+I mean, PDFs are usually, um-
+It's not something that usually
+
+00:47:31.310 --> 00:47:36.143
+constantly changes just like an HTML,
+um, pages or HTML, uh, documents.
+
+00:47:36.650 --> 00:47:39.429
+But having said that, yes, the first
+thing is to, you know, making sure that,
+
+00:47:39.433 --> 00:47:43.192
+you know, if, if there is anything that
+is missed out in the f- initial auditing
+
+00:47:43.372 --> 00:47:47.779
+or initial, uh, you know, creation of
+the, um, PDF, that is a good thing to
+
+00:47:47.817 --> 00:47:51.850
+actually manually audit, uh, manually
+check or main- maintain that particular,
+
+00:47:51.895 --> 00:47:55.698
+um, uh, PDF and see if there is
+anything that, that has been missed out.
+
+00:47:56.087 --> 00:47:59.827
+But more than that, what is, uh,
+important is making sure that if the…
+
+00:48:00.264 --> 00:48:03.408
+You know, if you don't, uh, actually
+go back and check pe- periodically,
+
+00:48:03.446 --> 00:48:07.049
+uh, check for those PDFs, uh, there
+is a possibility, so the PDFs could
+
+00:48:07.058 --> 00:48:11.822
+be outdated or, you know, someone can
+come in and manually change something,
+
+00:48:11.851 --> 00:48:13.797
+uh, in the PDF which is not accessible.
+
+00:48:14.122 --> 00:48:18.856
+So all of these are certain things that,
+you know, could put your, uh, uh, website
+
+00:48:18.861 --> 00:48:22.500
+or your product into, um, you know,
+in, in again, another risky situation.
+
+00:48:22.661 --> 00:48:25.868
+So it is just like maintaining your,
+uh, websites or your HTML pages.
+
+00:48:26.075 --> 00:48:28.679
+We have to make sure that if,
+you know, even the PDFs are also
+
+00:48:28.718 --> 00:48:33.025
+maintained, uh, thoroughly, uh,
+and it, it is not something that
+
+00:48:33.035 --> 00:48:38.163
+you, um, you know, it is not, uh,
+finished off in the first go itself.
+
+00:48:39.613 --> 00:48:40.163
+David: Fair enough.
+
+00:48:40.214 --> 00:48:44.281
+So it's all part of the, the magical
+cycle of file version control,
+
+00:48:44.377 --> 00:48:46.192
+um, where it always comes back.
+
+00:48:46.631 --> 00:48:47.264
+All right.
+
+00:48:47.616 --> 00:48:51.038
+Uh, with that, I'm gonna say, uh,
+a second thank you to Rinitta.
+
+00:48:51.096 --> 00:48:54.266
+Thank you for your time, thank you for
+your presentation, your expertise, and
+
+00:48:54.268 --> 00:48:55.651
+for answering all the questions here.
+
+00:48:55.944 --> 00:48:59.681
+Uh, feel free to give claps, hearts,
+anything like that in the chat, and
+
+00:48:59.681 --> 00:49:01.057
+I'll close us out for this session.
+
+00:49:01.491 --> 00:49:05.045
+Uh, so thank you so much for
+attending this session with Rinitta.
+
+00:49:05.045 --> 00:49:07.546
+You can continue the conversations
+in Slack or on social media
+
+00:49:07.578 --> 00:49:13.618
+using #WPA11YDay and #WPAD2026.
+

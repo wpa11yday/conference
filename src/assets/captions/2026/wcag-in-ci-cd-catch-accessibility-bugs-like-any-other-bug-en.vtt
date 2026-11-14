@@ -1,0 +1,2556 @@
+WEBVTT
+
+00:00:02.181 --> 00:00:05.460
+Narrator: WordPress Accessibility Day 2026.
+
+00:00:05.906 --> 00:00:12.437
+WCAG in CI/CD: Catch Accessibility
+Bugs Like Any Other Bug.
+
+00:00:12.831 --> 00:00:17.122
+Presented by William Patton, software
+engineer at Equalize Digital.
+
+00:00:18.051 --> 00:00:23.954
+This session was presented on
+October 7th, 2026, at 20:00 UTC.
+
+00:00:27.552 --> 00:00:30.482
+WordPress Accessibility Day 2026.
+
+00:00:30.846 --> 00:00:32.570
+Thank you to our sponsors.
+
+00:00:32.939 --> 00:00:37.430
+Platinum sponsor: Equalize
+Digital – Websites for everyone.
+
+00:00:37.960 --> 00:00:41.646
+Equalize Digital's accessibility
+checker plugin makes real-time
+
+00:00:41.646 --> 00:00:45.061
+testing in the WordPress editor
+faster and more affordable.
+
+00:00:45.961 --> 00:00:50.171
+Auditing services and online
+courses help organizations build
+
+00:00:50.370 --> 00:00:52.346
+and maintain accessible websites.
+
+00:00:52.967 --> 00:00:55.016
+Platinum sponsor: Gravity.
+
+00:00:55.506 --> 00:00:59.007
+Gravity Forms is the accessible
+form builder for WordPress.
+
+00:00:59.400 --> 00:01:02.987
+Trusted by millions of sites,
+it's built to create powerful
+
+00:01:03.128 --> 00:01:06.169
+WCAG-compliant forms for any project.
+
+00:01:06.710 --> 00:01:11.561
+Gold sponsors: Kinsta, In:si, WP Engine.
+
+00:01:12.172 --> 00:01:17.404
+Silver sponsors: Second Melody,
+Tenrec – Your website, only better.
+
+00:01:18.749 --> 00:01:22.634
+Visit sponsor pages to enter to
+win giveaways and access swag.
+
+00:01:23.053 --> 00:01:27.673
+Go to wpaccessibility.day/2026/sponsors.
+
+00:01:31.526 --> 00:01:33.083
+Don't forget to leave feedback.
+
+00:01:33.558 --> 00:01:37.971
+Go to wpaccessibility.day/2026/feedback.
+
+00:01:44.067 --> 00:01:47.765
+Welcome to WordPress
+Accessibility Day 2026.
+
+00:01:48.092 --> 00:01:52.541
+My name is Abigail Silva, and I am
+a digital accessibility consultant
+
+00:01:52.572 --> 00:01:55.649
+from the state of California
+Department of Rehabilitation.
+
+00:01:56.158 --> 00:02:02.700
+Thank you for joining us for WCAG in
+CI/CD: Catch accessibility bugs like
+
+00:02:02.864 --> 00:02:05.389
+any other bug, with William Patton.
+
+00:02:05.879 --> 00:02:10.860
+William is a WordPress developer at
+Equalize Digital, where he works on
+
+00:02:10.870 --> 00:02:12.792
+the Accessibility Checker plugin.
+
+00:02:13.143 --> 00:02:17.394
+He has built plugins, themes,
+and overseen website builds.
+
+00:02:17.692 --> 00:02:22.421
+He plays guitar in his spare time
+and is a lover of sandwiches.
+
+00:02:22.923 --> 00:02:27.279
+Please feel free to add your questions
+in the Zoom Q&A section, and we'll
+
+00:02:27.304 --> 00:02:29.152
+answer them at the end of the session.
+
+00:02:29.392 --> 00:02:32.405
+Use the chat to connect
+with other attendees.
+
+00:02:34.170 --> 00:02:34.789
+Hi, everyone.
+
+00:02:35.054 --> 00:02:40.051
+I'm William Patton, software developer at
+Equalize Digital, and today I'm gonna be
+
+00:02:40.052 --> 00:02:46.868
+walking through, um, using WCAG in CI/CD,
+catching accessibility bugs the same as
+
+00:02:46.869 --> 00:02:48.630
+you would catch any other type of bug.
+
+00:02:49.198 --> 00:02:52.599
+So I will be wiring automated
+accessibility checks right into
+
+00:02:52.600 --> 00:02:59.209
+the CI/CD pipeline using GitHub
+Actions, axe-core, and Playwright.
+
+00:02:59.878 --> 00:03:03.101
+I'll show you how to apply it to
+two different systems: a static
+
+00:03:03.101 --> 00:03:06.676
+site where we check just the front
+end, and a more complicated example
+
+00:03:06.714 --> 00:03:09.906
+where we test the admin area and
+the output of a WordPress plugin.
+
+00:03:10.643 --> 00:03:15.396
+Um, I've used these patterns
+day-to-day at work, so I've packaged
+
+00:03:15.409 --> 00:03:19.026
+these up into reusable systems and
+ready to share them with people.
+
+00:03:19.970 --> 00:03:23.487
+All of the code for the entire talk
+will be available on my GitHub, which
+
+00:03:23.504 --> 00:03:25.908
+will be linked at the end of this talk.
+
+00:03:28.314 --> 00:03:30.757
+So this is how it usually goes.
+
+00:03:31.346 --> 00:03:35.440
+Testing for accessibility is
+quite often a manual step.
+
+00:03:35.751 --> 00:03:38.426
+It depends on someone
+actually remembering to do it.
+
+00:03:39.182 --> 00:03:44.723
+Um, it quite often feels as if it is
+specialist work, something only an
+
+00:03:45.110 --> 00:03:46.976
+accessibility expert might be able to do.
+
+00:03:47.144 --> 00:03:49.840
+Most developers don't
+think they're qualified.
+
+00:03:49.942 --> 00:03:55.569
+They don't touch it, and it almost
+always happens late, after release,
+
+00:03:55.649 --> 00:03:59.361
+when the fix costs much more
+than catching it in development.
+
+00:03:59.821 --> 00:04:04.885
+Usually spotted by someone visiting
+your website, using your plugin, or
+
+00:04:04.885 --> 00:04:06.792
+just browsing around the, the internet.
+
+00:04:07.119 --> 00:04:10.011
+Not usually spotted by
+people on your own team.
+
+00:04:10.745 --> 00:04:15.448
+But none of that is because anyone has
+ignored accessibility, been negligent.
+
+00:04:15.916 --> 00:04:19.793
+It's because the testing's manual
+and treat like specialist knowledge
+
+00:04:19.841 --> 00:04:22.005
+no one on the team actually has.
+
+00:04:22.683 --> 00:04:26.022
+But here's the thing, accessibility
+debt is mostly a process
+
+00:04:26.022 --> 00:04:27.768
+bug, not a knowledge gap.
+
+00:04:28.328 --> 00:04:32.086
+You already know how to write
+code, use GitHub, CI/CD.
+
+00:04:32.455 --> 00:04:35.510
+What's missing isn't
+expertise, it's the wiring.
+
+00:04:38.558 --> 00:04:40.020
+So here's the whole pipeline.
+
+00:04:40.279 --> 00:04:43.104
+Everything fits inside of
+one of these five stages.
+
+00:04:43.441 --> 00:04:47.184
+First one is a pull request
+triggers the CI to run.
+
+00:04:48.984 --> 00:04:54.982
+CI builds and puts the changes where it
+needs to be, um, so that it can be tested.
+
+00:04:55.964 --> 00:04:58.719
+The scan runs against
+that build from the PR.
+
+00:04:59.378 --> 00:05:04.058
+Results, results get written into
+some form of a report, and in the
+
+00:05:04.058 --> 00:05:07.534
+end, branch protection decides whether
+that merge is actually allowed.
+
+00:05:08.051 --> 00:05:12.003
+So just gonna say upfront, none
+of this actually needs CI to run.
+
+00:05:12.059 --> 00:05:16.070
+You can actually run all of this on
+your local machine as you develop.
+
+00:05:16.472 --> 00:05:20.505
+Same configuration, same axe-core,
+and get the same report at the end.
+
+00:05:21.222 --> 00:05:25.087
+CI is what turns this into the
+merge gate, but locally is how you
+
+00:05:25.087 --> 00:05:28.421
+would catch a regression before
+you ever even have to publish your
+
+00:05:28.421 --> 00:05:29.822
+code for anyone else to see it.
+
+00:05:30.527 --> 00:05:35.522
+Um, the demos that we'll show later run
+against real GitHub, but the same checks
+
+00:05:35.522 --> 00:05:39.219
+would work on your laptop, your work
+machine, wherever you build your things.
+
+00:05:39.989 --> 00:05:45.155
+Um, public repos on GitHub have a pretty
+generous amount of runner minutes.
+
+00:05:45.308 --> 00:05:49.782
+If you have a paid GitHub account and
+you're using private repos, then you're
+
+00:05:49.784 --> 00:05:54.029
+actually already paying for the entire
+part of this system has any cost at all.
+
+00:05:54.165 --> 00:05:56.498
+Everything else is free
+open source software.
+
+00:05:58.732 --> 00:06:02.433
+So before we get into the demos, here's
+the first of the two actions that
+
+00:06:02.433 --> 00:06:08.186
+we're gonna run, or the two action
+pairs we run in the… in CI/CD.
+
+00:06:08.796 --> 00:06:13.618
+So this first one is the scan action,
+and underneath it is just Playwright.
+
+00:06:14.522 --> 00:06:18.476
+Um, most people might… who've done
+any end-to-end testing before will be
+
+00:06:18.476 --> 00:06:20.506
+very familiar with how Playwright works.
+
+00:06:20.849 --> 00:06:25.289
+Um, but in this configuration, you
+just give it a list of URLs, each one
+
+00:06:25.289 --> 00:06:27.551
+gets opened in a real headless browser.
+
+00:06:28.053 --> 00:06:31.938
+It loads the page, and then once
+that page gets rendered, it injects
+
+00:06:31.939 --> 00:06:34.231
+axe-core and runs against what it sees.
+
+00:06:34.734 --> 00:06:39.207
+It does that for every URL that's in the
+list that it gets fed, and it collects
+
+00:06:39.222 --> 00:06:44.474
+all of axe-core's results into one package
+set that can be processed later on.
+
+00:06:45.340 --> 00:06:49.866
+Um, so that raw output is what
+the next two actions get fed.
+
+00:06:50.128 --> 00:06:55.034
+Um, and just to be upfront about this
+action, this is the simple option.
+
+00:06:55.433 --> 00:06:58.936
+This only scans publicly
+available URLs that you feed in.
+
+00:06:59.111 --> 00:07:03.448
+It doesn't handle logging in, clicking
+run, performing any interactions
+
+00:07:03.498 --> 00:07:08.275
+whatsoever, um, which might not be what
+you need for your development flow.
+
+00:07:08.593 --> 00:07:12.438
+Um, I do have a demo on a WordPress
+site that where you would write your
+
+00:07:12.438 --> 00:07:16.787
+own interactions, Playwright can run,
+but you will need to drive Playwright
+
+00:07:16.787 --> 00:07:18.804
+yourself in those complex cases.
+
+00:07:20.948 --> 00:07:23.782
+So this is the second part of
+the stack, the report actions.
+
+00:07:23.924 --> 00:07:24.806
+There's two of them.
+
+00:07:25.197 --> 00:07:28.534
+They both do similar things, but
+they have different forms of output.
+
+00:07:29.192 --> 00:07:31.668
+Um, both of these are
+technically optional.
+
+00:07:31.899 --> 00:07:33.317
+The gate still works without them.
+
+00:07:33.320 --> 00:07:34.351
+The scan still runs.
+
+00:07:34.352 --> 00:07:36.604
+You would still get a
+pass or fail at the end.
+
+00:07:36.914 --> 00:07:40.219
+But these two actions are what
+make the findings actually usable.
+
+00:07:40.811 --> 00:07:46.868
+Um, they take the raw scan results
+from axe-core, and they do two things.
+
+00:07:46.907 --> 00:07:50.902
+The first one is they generate a
+markdown report, which gets added
+
+00:07:50.928 --> 00:07:54.823
+directly to the GitHub action run,
+so it's available in the job summary.
+
+00:07:55.161 --> 00:07:59.748
+Anyone who looks on GitHub can check
+that summary, see the information.
+
+00:07:59.789 --> 00:08:01.619
+They don't have to dig
+through the raw results.
+
+00:08:02.139 --> 00:08:05.126
+Um, the second one is
+an HTML report action.
+
+00:08:05.435 --> 00:08:09.955
+It generates an HTML report that
+is self-contained, shareable.
+
+00:08:10.269 --> 00:08:13.813
+You can give this to someone who
+might not be on GitHub day-to-day,
+
+00:08:13.969 --> 00:08:19.705
+might not be using, um, your CI or
+your CD day-to-day, like a designer,
+
+00:08:19.926 --> 00:08:23.277
+project manager, or whoever else
+needs to see what the results are.
+
+00:08:23.878 --> 00:08:26.301
+Um, you can skip adding these actions.
+
+00:08:26.356 --> 00:08:29.342
+You will still get the pass and the
+fail, but the difference between
+
+00:08:29.344 --> 00:08:33.259
+that and this is you just know the
+check failed, but with these reports,
+
+00:08:33.260 --> 00:08:35.098
+you can actually show people why.
+
+00:08:37.745 --> 00:08:43.512
+So we do have two
+different sites, um, here.
+
+00:08:43.583 --> 00:08:45.891
+So we have a simple one,
+which is Demo Bakery.
+
+00:08:46.037 --> 00:08:48.692
+It's a small static
+site, mostly just HTML.
+
+00:08:48.724 --> 00:08:50.982
+There's no complex build site step.
+
+00:08:51.136 --> 00:08:56.132
+It's live and runs on GitHub Pages,
+and this one is fast enough we can
+
+00:08:56.168 --> 00:09:01.743
+actually perform a live run, watch an
+accessibility issue, block the merge, and
+
+00:09:01.743 --> 00:09:06.363
+see when we fix it, the deploy actually
+getting changed and becoming live.
+
+00:09:07.004 --> 00:09:12.038
+Um, we also have another site that
+is the test bed for a notice plugin.
+
+00:09:12.844 --> 00:09:18.460
+Um, most people who are building
+plugins are gonna have, um, a
+
+00:09:18.460 --> 00:09:22.572
+staging site somewhere, and they are
+only gonna wanna test their actual
+
+00:09:22.592 --> 00:09:24.615
+plugin, not the entire website.
+
+00:09:24.618 --> 00:09:28.070
+So this will be an example of how
+you can scope that to just what your
+
+00:09:28.088 --> 00:09:33.629
+plugin touches within the context of
+a full website and without getting
+
+00:09:33.634 --> 00:09:38.041
+blocked by any of the actual theme
+issues or other website content issues.
+
+00:09:40.050 --> 00:09:44.119
+Um, uh, before we break anything,
+um, I do wanna point out that in the
+
+00:09:44.119 --> 00:09:46.221
+report, we have a breakdown of personas.
+
+00:09:46.413 --> 00:09:50.502
+These personas come from the
+GOV.UK, the UK government digital
+
+00:09:50.904 --> 00:09:54.591
+services, and they're used across
+all UK government services.
+
+00:09:55.152 --> 00:10:00.263
+Um, they're not just simulations of
+people, they're a planning tool for
+
+00:10:00.268 --> 00:10:04.556
+thinking about who findings actually
+affect in the accessibility world.
+
+00:10:04.908 --> 00:10:09.145
+So I've plotted them against the
+core rules so that we can measure
+
+00:10:09.146 --> 00:10:12.879
+how much of each person's needs
+automation can actually detect.
+
+00:10:13.434 --> 00:10:17.015
+So we have high coverage
+for Ashley and Ron.
+
+00:10:17.107 --> 00:10:20.929
+Ashley r- uses a screen reader
+and requires good page semantics.
+
+00:10:21.462 --> 00:10:24.597
+Um, Ron needs large text and simple form.
+
+00:10:25.747 --> 00:10:29.188
+Um, we have good coverage
+for Claudia and Christopher.
+
+00:10:29.439 --> 00:10:33.681
+Claudia uses a magnifier and
+relies on webpage having sufficient
+
+00:10:33.681 --> 00:10:36.534
+contrast so that she can identify
+the breaks between things.
+
+00:10:37.095 --> 00:10:41.938
+Christopher navigates primarily with
+keyboard, but also with speech input.
+
+00:10:43.073 --> 00:10:46.683
+Um, there is only moderate
+coverage for Simone and Saleem.
+
+00:10:47.214 --> 00:10:51.854
+Simone relies on having readable
+structure on the page so that she
+
+00:10:51.854 --> 00:10:53.693
+can navigate around and find herself.
+
+00:10:54.114 --> 00:10:59.170
+Um, Saleem needs, Saleem needs
+captions and ways to contact
+
+00:10:59.176 --> 00:11:00.943
+people that are not audio-based.
+
+00:11:01.846 --> 00:11:06.435
+And we only have low coverage
+with automation for Pawel, who
+
+00:11:06.492 --> 00:11:08.291
+requires low cognitive load.
+
+00:11:08.560 --> 00:11:11.922
+He needs to be able to understand
+what's on the page clearly
+
+00:11:12.121 --> 00:11:13.813
+without too many distractions.
+
+00:11:16.520 --> 00:11:21.390
+And the handoff here is if you
+have one label violation on a page,
+
+00:11:21.502 --> 00:11:25.086
+it actually becomes impact screen
+reader and speech input users,
+
+00:11:25.384 --> 00:11:27.263
+affects Ashley and Christopher.
+
+00:11:27.519 --> 00:11:31.562
+So converts the rule ID to a
+person by name, and that helps an
+
+00:11:31.563 --> 00:11:34.473
+awful lot of people to understand
+why something is important.
+
+00:11:36.475 --> 00:11:43.437
+So in CI, we have workflows, and this
+is the, the file that's actually gonna
+
+00:11:43.528 --> 00:11:47.305
+do the bulk of the work for us, where
+we'll configure all of our setup.
+
+00:11:47.877 --> 00:11:54.551
+So we have, um, four mechanics
+specifically on this one, um, or four
+
+00:11:54.555 --> 00:11:56.237
+mechanics that matter in the workflow.
+
+00:11:56.251 --> 00:12:00.039
+Workflows typically have a lot of
+other steps like checkout, set up
+
+00:12:00.039 --> 00:12:04.733
+node, composer, run and install,
+cache layers, but none of them
+
+00:12:04.733 --> 00:12:06.486
+matter for this purpose here.
+
+00:12:06.582 --> 00:12:10.594
+All we need is to care about is
+that we can build the PR target,
+
+00:12:11.454 --> 00:12:16.691
+run axe against that target, report
+and enforce those thresholds that
+
+00:12:16.691 --> 00:12:22.627
+we have set, and then fail when the
+checks actually discover problems.
+
+00:12:23.355 --> 00:12:28.964
+So the, the fail at the end is the gate
+that decides whether something is gonna
+
+00:12:28.973 --> 00:12:30.970
+be mergeable and deployable or not.
+
+00:12:31.770 --> 00:12:33.189
+And if we have a quick look.
+
+00:12:33.284 --> 00:12:37.907
+So the whole concept here
+is fail last, not fast.
+
+00:12:38.172 --> 00:12:41.975
+So in GitHub Actions, typically
+when a failure is encountered,
+
+00:12:42.057 --> 00:12:43.642
+the action run stops.
+
+00:12:44.249 --> 00:12:47.054
+But we need to bypass that
+default behavior here.
+
+00:12:47.251 --> 00:12:54.009
+So the scan step runs with continue on
+error set to true, so that if this fails,
+
+00:12:54.425 --> 00:12:56.860
+it will still move on to the report step.
+
+00:12:57.516 --> 00:13:00.756
+Um, the reporting, aggregating, and
+uploading for the artifacts would
+
+00:13:00.756 --> 00:13:05.062
+never happen if any of the prior
+steps failed in default configuration.
+
+00:13:05.690 --> 00:13:10.362
+So that the, the scan
+action will always run.
+
+00:13:10.548 --> 00:13:16.165
+The report actions will also always run,
+and at the end, based on the initial
+
+00:13:16.167 --> 00:13:18.498
+scan, is when the fail is determined.
+
+00:13:19.309 --> 00:13:24.760
+Um, there… This, this workflow here
+shows the simple one with the axe
+
+00:13:24.772 --> 00:13:28.656
+scan action, but it looks much the
+same in a more complex situation.
+
+00:13:29.095 --> 00:13:31.570
+So if we look at this one, the
+first step will actually be
+
+00:13:31.668 --> 00:13:33.419
+calling Playwright specifically.
+
+00:13:34.264 --> 00:13:38.094
+Uh, when you call that, you will need to
+configure it yourself, drive it yourself,
+
+00:13:38.152 --> 00:13:39.960
+and set up all of the interactions.
+
+00:13:42.633 --> 00:13:44.022
+So what should we scan?
+
+00:13:44.934 --> 00:13:49.599
+So when I'm doing these scans, I break
+things into three separate groups.
+
+00:13:49.731 --> 00:13:53.360
+First off, the, the site itself,
+which are generally the public pages,
+
+00:13:53.901 --> 00:13:57.258
+um, potentially different states for
+those pages and the more advanced
+
+00:13:57.259 --> 00:14:02.072
+use cases, like different appearances
+when someone's logged in, if there's
+
+00:14:02.072 --> 00:14:06.615
+modals, how to scan it when the module
+is open, or any other interaction
+
+00:14:06.623 --> 00:14:08.006
+that user might be able to reach.
+
+00:14:08.957 --> 00:14:12.574
+Um, there's also core pages, which,
+you know, stock WordPress screens.
+
+00:14:12.639 --> 00:14:16.446
+They're normally not gonna be something
+you're gonna have to test against.
+
+00:14:16.540 --> 00:14:19.382
+You would only need to test against
+them if you were building something
+
+00:14:19.399 --> 00:14:23.415
+on top of one of those pages or
+specifically on one of those pages.
+
+00:14:24.128 --> 00:14:28.518
+And then there's the admin step or the
+admin group, which is, you know, your
+
+00:14:28.518 --> 00:14:33.585
+authenticated plugin surfaces, your
+settings pages, setup wizard, custom
+
+00:14:33.585 --> 00:14:35.932
+dashboard widgets, anything that you…
+
+00:14:36.017 --> 00:14:40.966
+a logged in user has to, uh, make use of
+while they're logged into the admin area.
+
+00:14:41.413 --> 00:14:46.421
+And this one requires a logged in session,
+which is where most tooling stops.
+
+00:14:46.621 --> 00:14:50.051
+They typically don't handle the
+logins and tackle any of this.
+
+00:14:50.953 --> 00:14:54.519
+So let's break some things.
+
+00:14:55.752 --> 00:15:01.563
+Um, so first we'll start with the,
+the simpler site, and let me just
+
+00:15:02.168 --> 00:15:10.034
+switch to my browser, and I will
+show you this demo bakery site.
+
+00:15:10.297 --> 00:15:12.979
+So this is what you might expect
+for a typical marketing site.
+
+00:15:12.979 --> 00:15:20.979
+It has a hero, a few buttons, some product
+images, general marketing speak, and some
+
+00:15:21.018 --> 00:15:23.670
+content here at the end in the footer.
+
+00:15:23.738 --> 00:15:27.622
+So this, you know, is a,
+is a fairly simple site.
+
+00:15:28.113 --> 00:15:32.388
+There's nothing here that
+fails on an axe-core scan.
+
+00:15:32.680 --> 00:15:37.347
+But if we were to take a look at one
+of these pull requests, and if someone
+
+00:15:37.347 --> 00:15:42.374
+was to add a holiday banner onto the
+homepage, if we have a quick look
+
+00:15:42.425 --> 00:15:44.206
+at what that code change looks like.
+
+00:15:44.354 --> 00:15:48.962
+So there is some CSS that's being added
+for the promo banner, the promos text.
+
+00:15:49.086 --> 00:15:53.828
+It sets a color, some alignment,
+and adds a section to the homepage.
+
+00:15:54.338 --> 00:15:59.006
+So the promo text section just says,
+"Holiday pre-orders are open. Collect
+
+00:15:59.013 --> 00:16:03.325
+from twentieth of December." So from
+this code diff, nothing stands out
+
+00:16:03.372 --> 00:16:09.039
+as being an accessibility problem
+whatsoever to me, and presumably
+
+00:16:09.040 --> 00:16:10.453
+to most people, none of this does.
+
+00:16:10.925 --> 00:16:16.146
+But realistically, this color here
+doesn't pass on the background.
+
+00:16:16.563 --> 00:16:20.171
+Now, it's almost… It is impossible
+to tell from this single diff.
+
+00:16:20.177 --> 00:16:21.527
+You don't know what the color is.
+
+00:16:21.789 --> 00:16:23.467
+You don't know what the
+contrast ratios are.
+
+00:16:23.967 --> 00:16:27.689
+So if we take a quick look in my IDE.
+
+00:16:31.598 --> 00:16:31.716
+Yeah.
+
+00:16:32.052 --> 00:16:36.707
+So here, here in my IDE, we have
+the holiday pre-orders are open
+
+00:16:36.708 --> 00:16:40.233
+text, the same text we saw on
+GitHub where the, the diff was.
+
+00:16:40.591 --> 00:16:43.769
+And if we take a look at the
+style rules, they're the same.
+
+00:16:44.367 --> 00:16:48.518
+And in the sidebar of my IDE, it
+actually shows a preview of the color,
+
+00:16:48.540 --> 00:16:52.815
+and I can see already that that's a
+fairly light color gray, as opposed
+
+00:16:52.826 --> 00:16:54.176
+to being something dark enough.
+
+00:16:54.511 --> 00:17:01.200
+So if we take a look at this in…
+I can open this in my browser.
+
+00:17:04.984 --> 00:17:08.946
+So here is the text that we
+were referencing, "Holiday
+
+00:17:08.946 --> 00:17:12.308
+pre-orders are open," but it
+is too light of a color to see.
+
+00:17:12.388 --> 00:17:13.514
+It's right after the hero.
+
+00:17:14.164 --> 00:17:17.270
+Now, that is an accessibility
+problem you can't really see from
+
+00:17:17.271 --> 00:17:21.146
+the code, but you can absolutely see
+as soon as you visibly look at it.
+
+00:17:21.705 --> 00:17:27.689
+So if we were to look at the original
+site without any hero, doesn't…
+
+00:17:27.915 --> 00:17:31.993
+Or without that text after the hero, this
+is what's live on the website right now.
+
+00:17:32.657 --> 00:17:38.368
+And, and this tab is what I'm trying to
+get merged via the PR, but this is too
+
+00:17:38.774 --> 00:17:40.858
+light of a color, so I can't merge this.
+
+00:17:40.885 --> 00:17:46.581
+If we look at the PR again and
+scroll down to the checks in GitHub,
+
+00:17:46.734 --> 00:17:49.974
+the checks are shown in the same
+place where the merge button is.
+
+00:17:50.178 --> 00:17:55.844
+If I click on that check, we can
+look at the summary for this job,
+
+00:17:56.155 --> 00:18:00.236
+and we can see that one out of
+the six URLs we checked failed.
+
+00:18:00.841 --> 00:18:05.924
+Is a serious failure on the
+index page, and we can see that
+
+00:18:05.924 --> 00:18:07.556
+it is a color contrast problem.
+
+00:18:08.271 --> 00:18:11.594
+And there's some links here
+for documentation that outputs.
+
+00:18:11.631 --> 00:18:18.108
+It also highlights that Ashley, Claudia,
+Christopher, Pawel, Ron, Saleem, and
+
+00:18:18.204 --> 00:18:24.582
+Simone are the personas that we have
+tested against, and Ron and Simone
+
+00:18:25.210 --> 00:18:27.650
+both are affected by this color.
+
+00:18:27.800 --> 00:18:29.742
+Also, so is Claudia.
+
+00:18:30.751 --> 00:18:33.523
+But out of the seven
+personas, these four users.
+
+00:18:33.600 --> 00:18:43.470
+And, um, as an artifact for this check,
+we have some, um, attached zip files.
+
+00:18:43.532 --> 00:18:46.550
+If we were to download these,
+inside these zip files, one of
+
+00:18:46.550 --> 00:18:51.153
+them contains an actual HTML report
+which looks a little bit like this.
+
+00:18:51.984 --> 00:18:54.983
+Here is the color contrast
+error in the right sidebar.
+
+00:18:56.094 --> 00:18:58.615
+Shows that the element is the promo text.
+
+00:18:58.870 --> 00:19:01.383
+Here is the bad text that
+we looked at previously.
+
+00:19:01.751 --> 00:19:04.916
+This is the actual error, and this
+is a file that is self-contained.
+
+00:19:04.928 --> 00:19:10.216
+You can share this with, um, anyone
+else on your team, any PM, anyone.
+
+00:19:10.874 --> 00:19:19.269
+So if we go back to the PR, and
+we look at the main page of this
+
+00:19:19.292 --> 00:19:23.091
+PR, the merge button is blocked.
+
+00:19:23.182 --> 00:19:28.982
+So what w- I'm actually gonna do right
+now is I'm gonna fix this in my IDE.
+
+00:19:31.685 --> 00:19:36.296
+If I go to the style rules, I click
+on the color here, I have a color
+
+00:19:36.296 --> 00:19:41.178
+picker up, and I'm just gonna drag
+this color to be a much darker color.
+
+00:19:41.432 --> 00:19:46.802
+So four D, four D, four D is
+the color that I'm gonna pick.
+
+00:19:47.160 --> 00:19:48.172
+Click and save.
+
+00:19:48.973 --> 00:19:59.856
+Open my commit panel, commit this,
+and darken gray for formal banner.
+
+00:20:00.918 --> 00:20:02.409
+I'm gonna commit that change.
+
+00:20:03.507 --> 00:20:07.746
+I'm gonna push that change up to GitHub.
+
+00:20:09.642 --> 00:20:17.153
+And once this pushes up, we can
+go back and look on the browser.
+
+00:20:18.042 --> 00:20:19.836
+If I refresh this get page
+
+00:20:22.273 --> 00:20:28.654
+We should see another… Oh, uh,
+that, so this is actually another PR.
+
+00:20:29.230 --> 00:20:33.750
+So I'll open the PR, which is very
+similar to the, the holiday thing, so
+
+00:20:41.694 --> 00:20:43.702
+So I've opened this PR.
+
+00:20:45.723 --> 00:20:47.974
+The CI check is running right now.
+
+00:20:49.347 --> 00:20:51.224
+If I click into this, we can watch it run.
+
+00:20:51.263 --> 00:20:56.552
+It is not the most interesting of
+observer additions, but here it is.
+
+00:20:57.040 --> 00:21:01.613
+What's happening is it has checked
+out all the code, got to the point
+
+00:21:01.613 --> 00:21:05.436
+where it's built the URL list, which
+is the six URLs we mentioned before,
+
+00:21:05.548 --> 00:21:07.807
+and now it is on the axe-core step.
+
+00:21:07.908 --> 00:21:10.367
+So it's scanning all six of
+those pages with axe-core.
+
+00:21:10.828 --> 00:21:14.845
+Now, this step takes a
+few seconds per, per page.
+
+00:21:14.893 --> 00:21:20.777
+That has already completed, so now
+this, um, CI run has completed.
+
+00:21:21.076 --> 00:21:26.537
+If I go to the summary page again, we have
+the list of the URLs that were scanned.
+
+00:21:27.291 --> 00:21:30.075
+All of them flag as passed.
+
+00:21:30.937 --> 00:21:36.630
+And if I come back to the
+live page and refresh it.
+
+00:21:39.378 --> 00:21:40.356
+No, no.
+
+00:21:41.070 --> 00:21:41.610
+Apologies.
+
+00:21:41.687 --> 00:21:43.278
+So not the live page.
+
+00:21:43.285 --> 00:21:47.219
+We have to merge this, but this
+PR now is actually mergeable
+
+00:21:49.508 --> 00:21:54.506
+Because it does not pass any… It
+doesn't fail any of the accessibility
+
+00:21:54.506 --> 00:21:58.396
+gates, so I'm gonna merge this request.
+
+00:22:03.999 --> 00:22:08.676
+And if we go to the actions tab on
+GitHub, we can see that the merge has run.
+
+00:22:08.976 --> 00:22:10.306
+Now it's gonna run a deploy.
+
+00:22:11.603 --> 00:22:14.370
+First thing will happen again is
+the accessibility gate will run.
+
+00:22:15.190 --> 00:22:19.487
+Once that completes, it will run the
+deploy to GitHub Pages, and then I will
+
+00:22:19.489 --> 00:22:21.820
+be able to see this live on the website.
+
+00:22:29.578 --> 00:22:31.114
+Running the scan step now.
+
+00:22:31.523 --> 00:22:34.353
+Look, it looks like it takes a
+f- maybe four or five seconds
+
+00:22:34.353 --> 00:22:36.189
+per page for this thing.
+
+00:22:36.630 --> 00:22:39.796
+I will say that GitHub doesn't
+always play ball, so hopefully none
+
+00:22:39.797 --> 00:22:41.330
+of these live segments get blocked.
+
+00:22:42.087 --> 00:22:47.935
+So yeah, that's job has completed, and
+now it is moving on to the deploy step.
+
+00:22:51.685 --> 00:22:56.350
+So yeah, it deploys fairly quickly
+because this is a very small static site.
+
+00:22:56.366 --> 00:22:57.684
+It just contains HTML.
+
+00:23:00.082 --> 00:23:04.281
+And if, if you've used GitHub
+CI before, all of this will
+
+00:23:04.282 --> 00:23:06.119
+look fairly familiar for you.
+
+00:23:06.195 --> 00:23:08.894
+There's a list of every
+step in the action runs.
+
+00:23:09.404 --> 00:23:12.812
+Looks like this one has just
+completed, so the deploy's finished.
+
+00:23:13.826 --> 00:23:17.798
+If I come back to the Demo Bakery site,
+we can see now this text is darker.
+
+00:23:18.185 --> 00:23:22.479
+I did in the process happen to
+break the alignment, but that's
+
+00:23:22.479 --> 00:23:23.729
+not an accessibility problem.
+
+00:23:23.875 --> 00:23:28.339
+That's, um, passing now for contrast.
+
+00:23:28.352 --> 00:23:29.669
+Contrast was the issue before.
+
+00:23:30.855 --> 00:23:37.004
+So, um, let's talk a, a little bit
+about what actually just happened here.
+
+00:23:37.241 --> 00:23:39.343
+So I was able to merge the PR.
+
+00:23:39.897 --> 00:23:44.188
+If I come into this other PR, which
+adds cardamom buns to the menu in the
+
+00:23:44.188 --> 00:23:47.815
+homepage, this is also a mergeable PR.
+
+00:23:47.909 --> 00:23:51.058
+But at first, when we were
+looking, I was unable to merge
+
+00:23:51.059 --> 00:23:53.866
+the PR when the check had failed.
+
+00:23:54.673 --> 00:24:00.609
+So what causes that is,
+um, branch protections.
+
+00:24:00.840 --> 00:24:02.941
+So if we go back to the, the deck.
+
+00:24:03.043 --> 00:24:09.430
+So, um, branch protections actually, um-
+
+00:24:11.796 --> 00:24:17.563
+So what they do is you configure the
+branch that you want to only be mergeable
+
+00:24:17.563 --> 00:24:22.109
+into based on, um, a specific CI check.
+
+00:24:22.411 --> 00:24:26.676
+So failed checks equals merge
+button is disabled, so it catches
+
+00:24:26.679 --> 00:24:28.798
+the regression in the specific PR.
+
+00:24:29.497 --> 00:24:36.009
+Um, it, you know, blocks on failure
+and only allows the merge button
+
+00:24:36.021 --> 00:24:38.414
+to be even clicked when it passes.
+
+00:24:38.691 --> 00:24:44.116
+So, um, there's a second type of
+branch protection, which requires the
+
+00:24:44.117 --> 00:24:51.533
+branch to be updated to the, um, to
+the latest copy of the target branch.
+
+00:24:51.577 --> 00:24:56.495
+So what that enforces is, um,
+that your code integrates with
+
+00:24:56.617 --> 00:25:00.764
+other people's code fine without
+causing any regressions as well.
+
+00:25:01.186 --> 00:25:06.075
+So the failure gate only stops your
+bug, but requiring the branch to be
+
+00:25:06.076 --> 00:25:10.079
+updated stops someone else's merge
+work from interacting with yours,
+
+00:25:10.575 --> 00:25:15.948
+and it reruns the scan on that
+combination before it can even merge.
+
+00:25:16.254 --> 00:25:19.821
+Now, I'm not gonna show the branch
+protection right now because that
+
+00:25:19.823 --> 00:25:24.162
+differs per repo and per, um, user.
+
+00:25:24.465 --> 00:25:28.984
+So… But know that you have to
+configure this at the repo level as
+
+00:25:28.984 --> 00:25:30.612
+opposed to being in the scan level.
+
+00:25:30.635 --> 00:25:33.486
+Otherwise, the gate
+doesn't function at all.
+
+00:25:36.221 --> 00:25:41.380
+Um, so I guess I skipped ahead a little
+bit and I already fixed something and
+
+00:25:41.385 --> 00:25:43.861
+shipped something and loaded the page.
+
+00:25:44.476 --> 00:25:50.588
+So let's take a look for a second
+at the more complex example.
+
+00:25:50.812 --> 00:25:54.729
+So I need to pull up my IDE again
+
+00:25:58.139 --> 00:26:00.825
+Um, if we look, uh
+
+00:26:02.925 --> 00:26:04.150
+This page here.
+
+00:26:04.737 --> 00:26:10.706
+So, um, when you're using a more
+complex Playwright driver, you
+
+00:26:10.706 --> 00:26:14.616
+actually need to write all of the
+specification configuration yourself.
+
+00:26:14.692 --> 00:26:18.240
+This will all be available on the
+GitHub repo for this demo plugin.
+
+00:26:19.109 --> 00:26:26.541
+Um, so it… the… A, a single file
+is basically, this targets file, is
+
+00:26:26.544 --> 00:26:30.185
+basically where you configure all
+of the pages that we are gonna scan.
+
+00:26:30.330 --> 00:26:34.578
+So for the more complex WordPress
+example, we have a notice sign-up form
+
+00:26:34.655 --> 00:26:37.002
+on the front end, and that has a modal.
+
+00:26:37.452 --> 00:26:42.582
+And typically, if you run axe-core
+on this homepage of this website,
+
+00:26:42.606 --> 00:26:46.512
+it's only gonna scan in the default
+state, where the notice sign-up is
+
+00:26:46.539 --> 00:26:48.236
+visible, but the modal is not open.
+
+00:26:48.684 --> 00:26:56.699
+So we have this configured with
+states, and if we go to the state,
+
+00:26:57.583 --> 00:27:02.237
+um, in this interactions file,
+we can see that this state is…
+
+00:27:02.302 --> 00:27:05.429
+It finds the button to open the modal.
+
+00:27:05.685 --> 00:27:10.750
+It clicks the button, and then it waits
+for the modal shell to become visible.
+
+00:27:11.280 --> 00:27:13.452
+So that is a stateful scan.
+
+00:27:13.542 --> 00:27:18.133
+It's not as simple as just scanning a URL
+as it presents itself when you load it.
+
+00:27:18.283 --> 00:27:22.090
+This allows you to create any
+interactions on a page that will
+
+00:27:22.090 --> 00:27:25.574
+scan whatever you need it to see.
+
+00:27:25.955 --> 00:27:31.694
+Any interaction is only visible
+after someone has clicked on
+
+00:27:31.694 --> 00:27:33.438
+a thing, operated on a thing.
+
+00:27:33.619 --> 00:27:35.728
+Most scanners don't catch any of this.
+
+00:27:36.092 --> 00:27:39.856
+So if we look again at the targets page.
+
+00:27:39.857 --> 00:27:41.619
+So here we have plugin targets.
+
+00:27:41.667 --> 00:27:42.666
+There's three pages.
+
+00:27:42.905 --> 00:27:47.180
+The front end with the default state,
+the modal open, and we also have a
+
+00:27:47.181 --> 00:27:52.056
+settings page, and this settings page
+requires authentication to get in.
+
+00:27:52.484 --> 00:27:58.082
+So this is actually really quite
+easy to do with, um, Playwright.
+
+00:27:58.218 --> 00:28:01.860
+So if we have a look at the function
+that powers this, it's a function
+
+00:28:01.861 --> 00:28:03.445
+of name sign into WordPress.
+
+00:28:04.246 --> 00:28:09.960
+It has a go to the login page, waits until
+the page loads, which is network idle.
+
+00:28:10.885 --> 00:28:14.321
+Finds the label of username or
+email address and fills it in.
+
+00:28:15.744 --> 00:28:21.880
+Finds the password field, fills that in,
+clicks the login button, and then waits
+
+00:28:21.881 --> 00:28:24.290
+until it lands on the WP admin page.
+
+00:28:24.446 --> 00:28:26.115
+So this is the full login flow.
+
+00:28:26.642 --> 00:28:32.533
+Everything that is needed to
+test backend pages on a website.
+
+00:28:33.265 --> 00:28:39.708
+Now, we can have a quick look
+at this, um, test website.
+
+00:28:39.958 --> 00:28:41.296
+If I load this up.
+
+00:28:43.428 --> 00:28:44.570
+Pull over the browser.
+
+00:28:45.025 --> 00:28:49.003
+So this is the, the test website, and
+this is a fully built-out website.
+
+00:28:49.054 --> 00:28:50.925
+It's made for uptime monitoring.
+
+00:28:51.061 --> 00:28:52.554
+It's also a marketing type website.
+
+00:28:52.572 --> 00:28:58.602
+It has a bunch of sections, different
+features, some tables, but we don't
+
+00:28:58.602 --> 00:29:00.802
+care about anything we see on this page.
+
+00:29:00.845 --> 00:29:07.023
+Our plugin powers this notice that's
+in the bottom as a button, as an icon.
+
+00:29:07.578 --> 00:29:11.935
+It says, "Stay in the loop. Accessibility
+updates now land in your inbox." And
+
+00:29:11.935 --> 00:29:16.360
+if we click this Get Notice Update
+button, it actually opens this modal,
+
+00:29:16.579 --> 00:29:18.004
+and this modal has a form in it.
+
+00:29:18.624 --> 00:29:19.152
+Press the button.
+
+00:29:20.134 --> 00:29:24.387
+Um, and typically, most scanners will
+scan this page in this default state.
+
+00:29:24.590 --> 00:29:27.768
+There is no issues here on this
+default state, but there might be
+
+00:29:27.769 --> 00:29:31.438
+an issue with this form, and most
+scanners will never catch that.
+
+00:29:31.994 --> 00:29:37.271
+So if we have a look on the staging
+copy for this website, we can
+
+00:29:37.271 --> 00:29:40.015
+actually see that a bunch of things
+have been broken in a PR here.
+
+00:29:40.396 --> 00:29:43.736
+The button doesn't have any text
+anymore, and the contrast doesn't pass.
+
+00:29:44.206 --> 00:29:47.158
+All of the contrast doesn't
+actually pass in this.
+
+00:29:47.744 --> 00:29:50.252
+This icon also doesn't
+have an alt text on it.
+
+00:29:51.062 --> 00:29:54.368
+Um, if I were to click on this
+button, which is an icon-only button,
+
+00:29:54.675 --> 00:29:58.504
+same as the submit button in the
+form, the labels aren't associated.
+
+00:29:58.690 --> 00:30:01.060
+This select box doesn't
+have a label associated.
+
+00:30:01.078 --> 00:30:03.487
+These are visible only,
+but not associated.
+
+00:30:03.494 --> 00:30:12.818
+So this form and also the, um- The
+notice bar on the page has a lot of
+
+00:30:12.818 --> 00:30:15.253
+accessibility issues in, in general.
+
+00:30:16.117 --> 00:30:19.223
+Um, and, and I've made them on purpose.
+
+00:30:19.321 --> 00:30:25.156
+If we have a look on GitHub, um,
+in the job summary for the branch
+
+00:30:25.168 --> 00:30:30.224
+where everything fails, we again
+have six pages that we're testing.
+
+00:30:30.812 --> 00:30:33.725
+The standard WordPress
+dashboard page, which passes.
+
+00:30:33.993 --> 00:30:34.960
+There's no issues on that.
+
+00:30:35.524 --> 00:30:38.085
+We also have another core
+page of the login screen.
+
+00:30:38.477 --> 00:30:39.158
+We scan that.
+
+00:30:39.193 --> 00:30:40.116
+It also passes.
+
+00:30:40.389 --> 00:30:42.063
+So both of the core pages pass.
+
+00:30:42.635 --> 00:30:45.591
+Um, but we have a settings
+page in the back end.
+
+00:30:46.019 --> 00:30:49.891
+That's three critical violations, three
+serious violations, it's also failed.
+
+00:30:50.262 --> 00:30:53.793
+And similar problems on the
+front end in the default state,
+
+00:30:53.951 --> 00:30:55.879
+two critical, three serious.
+
+00:30:56.139 --> 00:30:56.870
+That's a failure.
+
+00:30:57.405 --> 00:31:02.029
+But while the modal is open, there's
+actually five critical problems.
+
+00:31:02.377 --> 00:31:05.559
+Most scanners wouldn't be
+catching this problem here.
+
+00:31:06.566 --> 00:31:08.512
+Um, and here's the summary.
+
+00:31:08.512 --> 00:31:11.168
+It breaks it down, which
+page has which issue.
+
+00:31:11.828 --> 00:31:17.984
+Again, which, um, user is affected
+by which of these problems.
+
+00:31:18.817 --> 00:31:22.710
+And, um, if we take a look at
+the report, the report actually
+
+00:31:22.712 --> 00:31:23.721
+looks a little bit different.
+
+00:31:23.966 --> 00:31:28.915
+It has a significant amount more problems
+compared to the first one we looked at.
+
+00:31:29.088 --> 00:31:34.273
+Twelve critical issues, nine serious,
+no moderate, minor, and no impact.
+
+00:31:34.636 --> 00:31:41.911
+So we can group these by URL and see which
+problem failed on that individual page.
+
+00:31:42.748 --> 00:31:46.124
+Um, we can also break it down by
+group, see all the violations.
+
+00:31:46.192 --> 00:31:48.631
+And in this report as well, which
+I didn't touch on before, the
+
+00:31:48.636 --> 00:31:50.697
+personas breakdown is already here.
+
+00:31:50.895 --> 00:31:54.398
+So we can actually look at Ashley
+is affected by four specific rules
+
+00:31:54.457 --> 00:31:56.177
+and thirteen specific elements.
+
+00:31:56.835 --> 00:31:59.987
+Claudia, four rules,
+seventeen elements, et cetera.
+
+00:32:00.009 --> 00:32:08.003
+Every user has the breakdown of what
+affects them based on each of, each
+
+00:32:08.004 --> 00:32:11.707
+of the, the violations that were
+discovered across the entire scan.
+
+00:32:12.425 --> 00:32:15.803
+So again, I will point out that this
+is a staging copy of this website.
+
+00:32:16.278 --> 00:32:17.692
+It has problems on it.
+
+00:32:18.585 --> 00:32:20.464
+This is the live version of the website.
+
+00:32:21.251 --> 00:32:22.538
+It does not have problems.
+
+00:32:23.279 --> 00:32:30.620
+Um, I will quickly log
+in to the admin area
+
+00:32:34.967 --> 00:32:36.259
+Oh, that one
+
+00:32:40.865 --> 00:32:43.927
+Just so that you can see the admin
+area that I actually got scanned
+
+00:32:48.951 --> 00:32:54.270
+So we have in the left sidebar a WP
+Notice signup, which is our plugin.
+
+00:32:55.095 --> 00:32:56.186
+Here's the page.
+
+00:32:56.911 --> 00:33:00.070
+This is the only options we
+have, that this has a form, has
+
+00:33:00.072 --> 00:33:01.607
+an icon, it shows a preview.
+
+00:33:02.189 --> 00:33:06.631
+Now, this page on the live site that I'm
+looking at right now does not have issues.
+
+00:33:07.152 --> 00:33:12.230
+On the staging site, there is
+issues on that, that page, and we
+
+00:33:12.230 --> 00:33:14.007
+have caught them a- in the scan.
+
+00:33:15.385 --> 00:33:18.187
+If we have a, a very quick look at-
+
+00:33:21.605 --> 00:33:25.652
+This failure, and we look
+at the files changed.
+
+00:33:26.072 --> 00:33:33.364
+Again, nothing in these changes jump
+out as potentially being problematic to
+
+00:33:33.364 --> 00:33:35.520
+me from an accessibility perspective.
+
+00:33:35.541 --> 00:33:38.300
+You can't really tell from the
+code while you're writing the code.
+
+00:33:38.928 --> 00:33:42.120
+It might, might legitimately seem fine.
+
+00:33:42.726 --> 00:33:48.986
+So the blocker here as the, the CI check
+gate is the thing that saves you from
+
+00:33:48.986 --> 00:33:52.373
+actually releasing this to production.
+
+00:33:52.770 --> 00:33:56.861
+So assuming that you're building a plugin,
+you probably don't control the website
+
+00:33:57.582 --> 00:33:58.854
+that you're gonna be shipping into.
+
+00:33:58.865 --> 00:34:01.785
+You will never control a
+customer's website, so all
+
+00:34:01.789 --> 00:34:03.240
+you care about is your plugin.
+
+00:34:03.912 --> 00:34:07.322
+So we have the staging site
+that, uh, has deployed to.
+
+00:34:07.854 --> 00:34:09.360
+This site has been scanned.
+
+00:34:09.599 --> 00:34:15.199
+Issues have been found, and
+you cannot merge this PR out.
+
+00:34:15.789 --> 00:34:21.207
+So let's quickly swap
+back to the, the deck.
+
+00:34:23.641 --> 00:34:28.018
+So the required checks actually
+gate the merge, which is what we
+
+00:34:28.024 --> 00:34:29.980
+were just, uh, just looking at.
+
+00:34:30.677 --> 00:34:36.176
+So Yeah, so you open a PR, the
+CI gate runs, the scan fails,
+
+00:34:36.245 --> 00:34:37.375
+and the merge is blocked.
+
+00:34:37.410 --> 00:34:38.306
+We just looked at that.
+
+00:34:38.317 --> 00:34:42.105
+There is no way to click that merge
+button if these scans are failed.
+
+00:34:42.167 --> 00:34:45.096
+Now, that is enforced at
+the branch protection level.
+
+00:34:45.852 --> 00:34:51.634
+Um, and so on the WordPress site, same
+gate, but it's a little bit different.
+
+00:34:51.672 --> 00:34:55.471
+So after the branch gets opened,
+it actually deploys it to staging.
+
+00:34:56.520 --> 00:35:00.058
+Um, this is where it actually
+scans on the staging site.
+
+00:35:00.114 --> 00:35:03.078
+And again, we saw gate blocked.
+
+00:35:03.230 --> 00:35:05.162
+So check went red.
+
+00:35:05.325 --> 00:35:07.477
+You can no longer click that merge button.
+
+00:35:08.211 --> 00:35:11.176
+Um, there's als- you can also
+potentially gate the release.
+
+00:35:11.462 --> 00:35:14.705
+Uh, I don't have an example here because
+this plugin isn't available anywhere,
+
+00:35:14.705 --> 00:35:19.777
+but if you wanna talk to me about
+that, reach out on socials, GitHub.
+
+00:35:19.977 --> 00:35:24.542
+You know, we can figure out how
+to set this up in your CI system.
+
+00:35:25.069 --> 00:35:28.616
+So we will quickly talk about
+what actually gets caught here.
+
+00:35:29.390 --> 00:35:34.141
+Things that we can catch automatically
+with axe-core is missing labels, alt
+
+00:35:34.151 --> 00:35:39.701
+text, contrast problems, um, keyboard
+reachability, structural ARIA issues,
+
+00:35:40.167 --> 00:35:43.557
+and, you know, you're gonna catch
+regressions the moment the code
+
+00:35:43.557 --> 00:35:45.810
+lands, not when it reaches production.
+
+00:35:46.413 --> 00:35:50.942
+But what still needs a human is
+logical reading order, screen reader
+
+00:35:50.952 --> 00:35:56.873
+UX quality, cognitive load and plain
+language, and any claim of WCAG
+
+00:35:56.931 --> 00:36:00.459
+level conformance is gonna have to
+have a human do the checking, so…
+
+00:36:01.191 --> 00:36:03.500
+Automation catches structural issues.
+
+00:36:03.727 --> 00:36:06.153
+Accessibility is, uh,
+much broader than that.
+
+00:36:06.174 --> 00:36:10.263
+You do still need manual testing
+and real user feedback after this.
+
+00:36:11.196 --> 00:36:14.515
+But, so what the passing check hides.
+
+00:36:14.848 --> 00:36:17.857
+So some things are not actually your bug.
+
+00:36:17.904 --> 00:36:18.995
+We were just talking about this.
+
+00:36:19.035 --> 00:36:22.017
+If you're scanning someone
+else's website, if you build a
+
+00:36:22.020 --> 00:36:23.959
+plugin, you don't own that site.
+
+00:36:23.959 --> 00:36:27.354
+You have no control over what the
+theme problems are, what content are.
+
+00:36:27.667 --> 00:36:31.810
+You need to decide upfront if those
+theme problems block the release.
+
+00:36:32.290 --> 00:36:37.790
+And if you decide that the theme problems
+should, I feel like probably in the near
+
+00:36:37.790 --> 00:36:42.499
+future, you're gonna wanna skip these
+checks and ignore them, which that means
+
+00:36:42.499 --> 00:36:43.901
+they're not gonna be useful for anyone.
+
+00:36:44.852 --> 00:36:48.732
+Um, Configured does not mean conformant.
+
+00:36:48.825 --> 00:36:52.212
+So a green check means that
+what you have configured passes.
+
+00:36:52.486 --> 00:36:55.290
+You know, in the scan we done,
+we didn't check heading order
+
+00:36:55.348 --> 00:36:56.596
+because it's a best practice.
+
+00:36:57.098 --> 00:37:00.906
+Um, placeholders pass the accessibility
+name check, but you might wanna enforce
+
+00:37:00.917 --> 00:37:03.337
+visible placeholders or visible labels.
+
+00:37:03.738 --> 00:37:07.508
+So axe only checks what you've
+configured, the specific rules for it.
+
+00:37:07.877 --> 00:37:09.350
+Takes deliberate setup.
+
+00:37:10.156 --> 00:37:13.970
+And in this entire system, there is
+no baseline feature built out yet.
+
+00:37:14.013 --> 00:37:19.053
+If you wanna start using this, you need
+to scope tightly to just the elements
+
+00:37:19.056 --> 00:37:23.113
+that you're wanting to check and widen
+it over time, or you will need to start
+
+00:37:23.113 --> 00:37:25.040
+with a low threshold, tighten it later.
+
+00:37:25.344 --> 00:37:29.375
+So here's three things that I
+hope you get to leave here with.
+
+00:37:29.980 --> 00:37:34.337
+First off, in the repos, there is several
+workflows for you to s- uh, learn from.
+
+00:37:34.884 --> 00:37:38.604
+Take the pattern, adapt it to what
+your stack looks like, run it.
+
+00:37:39.647 --> 00:37:44.517
+Um, the gate, the required
+accessibility checks that block merge
+
+00:37:44.529 --> 00:37:48.808
+from production, that has to be set
+up specifically on the repo level.
+
+00:37:48.848 --> 00:37:51.616
+You shouldn't leave that
+without being configured.
+
+00:37:52.326 --> 00:37:53.437
+And the cost here.
+
+00:37:53.676 --> 00:37:55.732
+E-everything is free to run locally.
+
+00:37:56.118 --> 00:38:00.259
+GitHub action minutes are pretty
+generous on public repos, and private
+
+00:38:00.259 --> 00:38:02.386
+repos draw from paid plan minutes.
+
+00:38:02.917 --> 00:38:06.607
+Um, if you already have private
+repos and a paid plan, you're already
+
+00:38:06.609 --> 00:38:07.844
+paying for what this costs you.
+
+00:38:08.203 --> 00:38:09.455
+So yeah.
+
+00:38:09.582 --> 00:38:10.433
+Thanks for watching.
+
+00:38:10.787 --> 00:38:14.968
+Um, everything you've seen here
+is public websites, public demos.
+
+00:38:15.058 --> 00:38:16.256
+All the actions are public.
+
+00:38:16.257 --> 00:38:17.352
+All the code's public.
+
+00:38:17.822 --> 00:38:19.002
+Feel free to take a look.
+
+00:38:19.366 --> 00:38:24.623
+Um, you can contact me on X, GitHub,
+my website, and you can have a look at
+
+00:38:24.627 --> 00:38:27.415
+all of, all of these repos as you want.
+
+00:38:27.694 --> 00:38:30.613
+So, you know, use it in your projects.
+
+00:38:31.056 --> 00:38:34.640
+Tell me if you catch and block
+anything before it manages
+
+00:38:34.652 --> 00:38:36.442
+to actually reach production.
+
+00:38:37.151 --> 00:38:37.560
+So yeah.
+
+00:38:37.792 --> 00:38:38.526
+Thanks for watching.
+
+00:38:38.969 --> 00:38:39.928
+I will catch you later.
+
+00:38:43.341 --> 00:38:45.241
+Thank you so much, William.
+
+00:38:45.241 --> 00:38:50.125
+You definitely know your information,
+um, and it definitely came across very,
+
+00:38:50.143 --> 00:38:52.503
+very clearly to our audience here.
+
+00:38:52.929 --> 00:38:57.491
+Um, just a friendly reminder for
+our attendees, if you have any
+
+00:38:57.491 --> 00:39:00.637
+questions that you would like to ask
+William, now is the time to do it.
+
+00:39:00.967 --> 00:39:04.761
+Uh, if you haven't already added those
+questions to the Q&A, go ahead and take a
+
+00:39:04.761 --> 00:39:07.743
+few minutes to write your questions down.
+
+00:39:08.191 --> 00:39:14.074
+And, um, with that said, William,
+I am probably gonna give you
+
+00:39:14.087 --> 00:39:16.769
+the hardest question first.
+
+00:39:16.779 --> 00:39:18.645
+So, um, here we go.
+
+00:39:18.654 --> 00:39:18.857
+That was hard.
+
+00:39:19.723 --> 00:39:20.127
+All right.
+
+00:39:20.136 --> 00:39:25.015
+So our attendees wanna know,
+what is your favorite sandwich?
+
+00:39:26.384 --> 00:39:29.636
+I, I, I like just the simple
+cheese and ham sandwich.
+
+00:39:30.683 --> 00:39:31.119
+Ah.
+
+00:39:31.199 --> 00:39:32.020
+That's nice and easy.
+
+00:39:32.820 --> 00:39:34.416
+Make it most days.
+
+00:39:34.692 --> 00:39:38.234
+I'm always within reach
+to the kitchen, so yeah.
+
+00:39:39.354 --> 00:39:39.697
+Yeah.
+
+00:39:39.697 --> 00:39:42.469
+And if any of our attendees
+wanna write their favorite
+
+00:39:42.469 --> 00:39:44.461
+sandwich in the chat, go for it.
+
+00:39:45.002 --> 00:39:48.293
+Um, all right, so some more questions
+that came through for you as you were
+
+00:39:48.295 --> 00:39:50.268
+giving your presentation, William.
+
+00:39:50.517 --> 00:39:55.524
+Um, when it came to you running the
+accessibility check, um, at that
+
+00:39:55.534 --> 00:40:00.892
+time… So when you were running the
+accessibility check, does the check
+
+00:40:00.922 --> 00:40:07.086
+take place prior to executing the
+static and dynamic vulnerability scans?
+
+00:40:09.350 --> 00:40:09.550
+Um
+
+00:40:12.416 --> 00:40:13.495
+Interesting question.
+
+00:40:14.104 --> 00:40:21.425
+Um, g- m- I'm not entirely sure what they
+mean by the static vulnerability scans.
+
+00:40:22.796 --> 00:40:23.352
+Um-
+
+00:40:26.592 --> 00:40:27.573
+That's okay.
+
+00:40:27.581 --> 00:40:29.735
+We can move on to our next question.
+
+00:40:29.789 --> 00:40:29.806
+Yeah.
+
+00:40:29.811 --> 00:40:34.537
+It's okay to not always have an
+answer to, um, things that are being
+
+00:40:34.549 --> 00:40:38.135
+asked, and we can always follow
+up following our presentation.
+
+00:40:39.441 --> 00:40:42.711
+Another attendee noticed
+that you use JetBrains.
+
+00:40:43.135 --> 00:40:45.959
+Is that your primary IDE these days?
+
+00:40:46.334 --> 00:40:46.831
+Yes.
+
+00:40:46.841 --> 00:40:49.591
+So JetBrains is what I use day-to-day.
+
+00:40:50.079 --> 00:40:54.446
+Um, Steve, my boss, would love
+for me to swap to VS Code,
+
+00:40:54.503 --> 00:40:57.040
+but it's hard to swap IDEs.
+
+00:40:57.268 --> 00:40:58.496
+JetBrains is what I'm used to.
+
+00:40:59.151 --> 00:41:02.909
+But a- all of the IDEs are
+basically capable of doing
+
+00:41:02.909 --> 00:41:04.212
+all of this work these days.
+
+00:41:04.279 --> 00:41:06.649
+I don't think any IDE
+gives anyone a benefit.
+
+00:41:10.334 --> 00:41:10.971
+Yeah.
+
+00:41:10.986 --> 00:41:13.413
+Great, great feedback there as well.
+
+00:41:13.870 --> 00:41:14.996
+Um, let's see.
+
+00:41:14.997 --> 00:41:18.317
+Let's take a look at some of our
+other questions that came through.
+
+00:41:19.257 --> 00:41:24.150
+Um, one of our attendees says that he
+sees that the tests are pre-written and
+
+00:41:24.151 --> 00:41:29.382
+distinct to the component, but are there
+any possibilities to activate all of
+
+00:41:29.383 --> 00:41:32.247
+the buttons and check Axe after them?
+
+00:41:32.288 --> 00:41:34.959
+Or, like, could they
+do this automatically?
+
+00:41:35.793 --> 00:41:40.621
+Uh, so i- if you're driving the
+more complex examples that require
+
+00:41:40.681 --> 00:41:44.863
+interactions, s- someone is gonna have
+to manually write those interactions.
+
+00:41:44.899 --> 00:41:47.936
+Now, there is a lot of helpers available.
+
+00:41:48.103 --> 00:41:53.851
+In Playwright, there is a UI you can use
+to help you create those individual tests.
+
+00:41:54.353 --> 00:41:58.705
+Um, but i- in general, you're, you're
+gonna be the only person that knows
+
+00:41:59.465 --> 00:42:02.261
+what needs to be set up in advance.
+
+00:42:02.660 --> 00:42:05.121
+Um, Axe will only scan what it can see.
+
+00:42:05.510 --> 00:42:10.595
+Someone does have to set that up, and
+the developer who's built the thing is
+
+00:42:10.596 --> 00:42:12.202
+usually the right person to do that.
+
+00:42:14.338 --> 00:42:14.543
+Yeah.
+
+00:42:14.555 --> 00:42:15.260
+Thank you.
+
+00:42:15.786 --> 00:42:19.719
+And you kinda touched on this at the
+end of your presentation, I believe,
+
+00:42:19.738 --> 00:42:21.734
+but we're gonna ask it anyway.
+
+00:42:22.238 --> 00:42:28.003
+Is there any experience with axe-core
+AI Agent augmented tests where
+
+00:42:28.313 --> 00:42:33.417
+skills for WCAG conformant… I'm
+sorry, WCAG conformance were added?
+
+00:42:34.484 --> 00:42:39.436
+Yeah, so I have not specifically
+tested the, the AI generative, um,
+
+00:42:39.489 --> 00:42:44.053
+Axe or their guided tests at all,
+but I do think what the guided tests
+
+00:42:44.053 --> 00:42:48.990
+in Axe and the AI generated tests
+in Axe are, are quite similar to
+
+00:42:48.992 --> 00:42:51.621
+what we're running here in CI/CD.
+
+00:42:52.278 --> 00:42:55.243
+Um, but I would, I would need to
+actually test them to know for certain.
+
+00:42:55.334 --> 00:42:58.610
+I, I think they're very similar
+but, of course, with the AI, they
+
+00:42:58.999 --> 00:43:01.514
+semi-automate some of that work.
+
+00:43:03.678 --> 00:43:09.604
+And the last question that I see here,
+um, can users define custom personas?
+
+00:43:10.946 --> 00:43:16.089
+So in, in that report action, no,
+the custom personas are fixed,
+
+00:43:16.323 --> 00:43:21.254
+but someone could fork that repo,
+add their own custom personas.
+
+00:43:22.397 --> 00:43:24.944
+I will actually take a note
+of that because that seems
+
+00:43:24.944 --> 00:43:25.908
+like it would be useful.
+
+00:43:25.910 --> 00:43:29.884
+I didn't think of that upfront, but I
+will probably update the actions so that
+
+00:43:29.897 --> 00:43:32.115
+someone can input their own personas.
+
+00:43:34.047 --> 00:43:34.754
+Thank you.
+
+00:43:34.812 --> 00:43:37.925
+And one more question just came
+through, William, so we'll go
+
+00:43:37.926 --> 00:43:39.334
+ahead and answer that as well.
+
+00:43:39.334 --> 00:43:41.690
+It'll be a, I think, pretty
+straightforward one, because you
+
+00:43:41.690 --> 00:43:43.461
+briefly covered this as well.
+
+00:43:43.693 --> 00:43:45.680
+Can you just touch on that cost again?
+
+00:43:45.699 --> 00:43:50.903
+Um, you know, do the a- do the action
+cost money, uh, to run, or is there any
+
+00:43:50.903 --> 00:43:52.511
+way that they can run them for free?
+
+00:43:53.005 --> 00:43:56.168
+Uh, so there is a cost
+associated with actions.
+
+00:43:56.219 --> 00:44:00.169
+If you have public repos, GitHub
+gives you I think it's as many as
+
+00:44:00.952 --> 00:44:05.661
+2,000 or even 3,000 minutes per repo.
+
+00:44:05.960 --> 00:44:10.191
+Um, if you have private repos, you already
+pay, and they give you another 3,000.
+
+00:44:11.595 --> 00:44:15.865
+I, I think it's 3,000 minutes
+to use per organization level.
+
+00:44:16.475 --> 00:44:21.368
+Um, but if you have a free repo,
+I have never ran into a, a minutes
+
+00:44:21.645 --> 00:44:23.883
+exhausted problem on free repos before.
+
+00:44:24.029 --> 00:44:26.530
+The… Thousands of minutes is a lot.
+
+00:44:28.202 --> 00:44:28.661
+Mm-hmm.
+
+00:44:28.904 --> 00:44:29.575
+Yes.
+
+00:44:30.118 --> 00:44:33.634
+And do you find different
+failures on different browsers?
+
+00:44:34.743 --> 00:44:38.568
+Uh, y- you, you do find different
+failures on different browsers sometimes.
+
+00:44:38.568 --> 00:44:40.873
+Not as common anymore.
+
+00:44:41.250 --> 00:44:45.013
+Um, the actions, so when I ran
+those actions, I was running Chrome
+
+00:44:45.711 --> 00:44:48.534
+in the back end, but there is a
+configuration flag where you could
+
+00:44:48.534 --> 00:44:52.087
+also test on Firefox or Safari as well.
+
+00:44:52.606 --> 00:44:57.641
+But in general, testing on one browser
+usually covers the bulk of problems
+
+00:44:57.641 --> 00:44:58.844
+that someone is gonna run into.
+
+00:44:59.818 --> 00:45:00.324
+Okay.
+
+00:45:00.354 --> 00:45:00.873
+Great.
+
+00:45:01.184 --> 00:45:04.185
+Um, and the, the questions
+just keep coming.
+
+00:45:04.185 --> 00:45:05.003
+I'm sorry, William.
+
+00:45:05.004 --> 00:45:07.723
+We're- That's all right … we're
+getting the crowd just excited right now.
+
+00:45:08.024 --> 00:45:10.121
+Um, you mentioned branch protections.
+
+00:45:10.844 --> 00:45:10.878
+Yes.
+
+00:45:10.878 --> 00:45:13.377
+Is that something that
+the repo owner handles?
+
+00:45:14.101 --> 00:45:17.238
+That is… The repo owner would have
+to handle the branch protections.
+
+00:45:17.316 --> 00:45:23.219
+In the majority of organizations,
+usually your main branch would be
+
+00:45:23.935 --> 00:45:27.304
+where you merge into, and that would be
+where you put your branch protections.
+
+00:45:27.339 --> 00:45:32.236
+But branch protections have a lot
+of configuration options available.
+
+00:45:32.253 --> 00:45:35.887
+There's a large amount of rules, so
+whoever owns the repo is likely to
+
+00:45:35.888 --> 00:45:37.871
+know what they want to set it up like.
+
+00:45:38.326 --> 00:45:40.346
+But it's, it's very freeform.
+
+00:45:40.617 --> 00:45:43.595
+Any branch can be protected
+against any kind of merge
+
+00:45:43.601 --> 00:45:46.192
+from inside or outside users.
+
+00:45:46.713 --> 00:45:52.504
+Um, you can even turn admin bypass
+off, which in my demo some people might
+
+00:45:52.504 --> 00:45:54.047
+have noticed I had the little checkbox.
+
+00:45:54.081 --> 00:45:56.358
+I could bypass the
+protections by checking it.
+
+00:45:56.899 --> 00:45:59.790
+But that can be disabled
+by the, the repo owner.
+
+00:46:01.210 --> 00:46:01.488
+Great.
+
+00:46:01.515 --> 00:46:03.240
+Thank you for those, that feedback.
+
+00:46:03.246 --> 00:46:07.270
+Thank you for answering all of
+those questions for us, William.
+
+00:46:07.613 --> 00:46:13.372
+Um, really, really do appreciate your, um,
+just wealth of knowledge on this topic.
+
+00:46:13.375 --> 00:46:16.736
+It's been a, it's, it's been a
+phenomenal, uh, experience for
+
+00:46:16.744 --> 00:46:18.340
+me to just listen to you speak.
+
+00:46:18.606 --> 00:46:21.919
+Um, so I do want to truly thank
+you for this presentation.
+
+00:46:22.229 --> 00:46:26.535
+And I want to thank all of our
+attendees for joining William and
+
+00:46:26.535 --> 00:46:28.683
+listening to him speak t- today as well.
+
+00:46:28.952 --> 00:46:31.829
+Um, you can continue your
+conversation in the chat.
+
+00:46:31.845 --> 00:46:42.661
+You can also continue it on social-
+media using #WPa11yday and #WPAD2026.
+

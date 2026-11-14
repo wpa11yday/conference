@@ -1,0 +1,2892 @@
+WEBVTT
+
+00:00:02.174 --> 00:00:05.412
+Narrator: WordPress Accessibility Day 2026.
+
+00:00:05.808 --> 00:00:09.979
+Fix It Before It Exists:
+Accessibility Through Style Guides.
+
+00:00:10.352 --> 00:00:15.386
+Presented by AmyJune Hineline,
+certification community architect
+
+00:00:15.504 --> 00:00:16.921
+at the Linux Foundation.
+
+00:00:17.383 --> 00:00:23.951
+This session was presented
+October 8, 2026 at 00:00 UTC.
+
+00:00:27.264 --> 00:00:30.198
+WordPress Accessibility Day 2026.
+
+00:00:30.560 --> 00:00:32.287
+Thank you to our sponsors.
+
+00:00:32.650 --> 00:00:37.143
+Platinum sponsor: Equalize
+Digital – Websites for everyone.
+
+00:00:37.676 --> 00:00:41.361
+Equalize Digital's accessibility
+checker plugin makes real-time
+
+00:00:41.363 --> 00:00:44.775
+testing in the WordPress editor
+faster and more affordable.
+
+00:00:45.673 --> 00:00:49.882
+Auditing services and online
+courses help organizations build
+
+00:00:50.084 --> 00:00:52.065
+and maintain accessible websites.
+
+00:00:52.684 --> 00:00:54.732
+Platinum sponsor: Gravity.
+
+00:00:55.223 --> 00:00:58.724
+Gravity Forms is the accessible
+form builder for WordPress.
+
+00:00:59.114 --> 00:01:02.706
+Trusted by millions of sites,
+it's built to create powerful
+
+00:01:02.843 --> 00:01:05.878
+WCAG-compliant forms for any project.
+
+00:01:06.418 --> 00:01:11.256
+Gold sponsors: Kinsta, In:si, WP Engine.
+
+00:01:11.894 --> 00:01:17.100
+Silver sponsors: Second Melody,
+Tenrec – Your website, only better.
+
+00:01:18.464 --> 00:01:22.354
+Visit sponsor pages to enter to
+win giveaways and access swag.
+
+00:01:22.767 --> 00:01:27.388
+Go to wpaccessibility.day/2026/sponsors.
+
+00:01:31.239 --> 00:01:32.802
+Don't forget to leave feedback.
+
+00:01:33.272 --> 00:01:37.687
+Go to wpaccessibility.day/2026/feedback.
+
+00:01:43.902 --> 00:01:46.591
+Welcome to WordPress
+Accessibility Day 2026.
+
+00:01:46.941 --> 00:01:51.304
+My name is Joe A. Simpson Jr., and I'm
+principal at Joe A. Simpson Jr. LLC.
+
+00:01:52.958 --> 00:01:56.698
+Thank you for joining us for Fix It
+Before It Exists: Accessibility Through
+
+00:01:56.699 --> 00:01:59.026
+Style Guides with AmyJune Hineline.
+
+00:02:02.620 --> 00:02:06.826
+AmyJune Hineline is a certification
+community architect at the Linux
+
+00:02:06.827 --> 00:02:12.096
+Foundation, where she collaborates with
+subject matter experts, community members,
+
+00:02:12.557 --> 00:02:18.501
+and the education's global skills team
+to develop certification exams, learning
+
+00:02:18.502 --> 00:02:22.637
+programs, and related documentation
+that reflect open source practices.
+
+00:02:24.927 --> 00:02:30.430
+Before finding her way into tech,
+AmyJune worked as a hospice nurse,
+
+00:02:31.379 --> 00:02:35.512
+where she witnessed firsthand how
+inaccessible systems can create
+
+00:02:35.523 --> 00:02:37.780
+barriers to even the simplest tasks.
+
+00:02:39.834 --> 00:02:43.702
+That experience led her to work in
+accessibility and community building,
+
+00:02:44.551 --> 00:02:48.892
+including her role as co-organizer of
+Accessibility Talks, a monthly event
+
+00:02:49.214 --> 00:02:51.393
+dedicated to digital accessibility.
+
+00:02:53.336 --> 00:02:56.735
+She helps communities discover
+how they can contribute and
+
+00:02:56.736 --> 00:02:58.580
+belong in more ways than code.
+
+00:03:00.253 --> 00:03:05.069
+She also is known for her superpower,
+making any meeting twenty percent
+
+00:03:05.073 --> 00:03:06.755
+more awkward just by showing up.
+
+00:03:07.313 --> 00:03:11.402
+Please feel free to add your questions
+in the Zoom Q&A section, and we'll
+
+00:03:11.403 --> 00:03:12.848
+answer them at the end of the session.
+
+00:03:13.618 --> 00:03:16.014
+Use the chat to connect
+with other attendees.
+
+00:03:19.289 --> 00:03:19.956
+Hi, everyone.
+
+00:03:20.015 --> 00:03:24.308
+I'm AmyJune Hineline, and today I
+want to talk about accessibility a
+
+00:03:24.309 --> 00:03:26.251
+little differently than I usually do.
+
+00:03:26.882 --> 00:03:31.870
+A lot of accessibility work happens
+after content, um, already exists.
+
+00:03:31.898 --> 00:03:36.835
+Uh, we review it, we find problems, we fix
+it, and then often, um, find the same kind
+
+00:03:36.835 --> 00:03:38.891
+of problems again, but somewhere else.
+
+00:03:39.194 --> 00:03:41.850
+Um, so this talk is about moving
+some of that work earlier.
+
+00:03:42.251 --> 00:03:47.102
+Instead of asking, "How do we fix
+this?" after the fact, what we would,
+
+00:03:47.259 --> 00:03:51.417
+if we could, make accessibility
+decisions before the content is created.
+
+00:03:51.524 --> 00:03:53.406
+And this is content specifically.
+
+00:03:53.495 --> 00:03:57.779
+Um, and this is where style guides
+can really become useful, not just
+
+00:03:57.780 --> 00:04:01.812
+as editorial references, but as a way
+to make accessible choices part of
+
+00:04:01.814 --> 00:04:03.488
+how a team works from the beginning.
+
+00:04:04.863 --> 00:04:06.322
+So a little bit of housekeeping.
+
+00:04:06.325 --> 00:04:08.045
+There are some images in the deck.
+
+00:04:08.327 --> 00:04:11.802
+Most of them are decorative, so
+I'm not going to explain them, but
+
+00:04:11.815 --> 00:04:16.166
+if, if they enhance the content,
+um, I'll, I'll, I'll describe them.
+
+00:04:16.478 --> 00:04:19.421
+There's a link to the deck here,
+um, if you wanna follow along.
+
+00:04:19.784 --> 00:04:24.411
+And also I wanted to take a moment to
+thank the WordPress Accessibility Day team
+
+00:04:24.495 --> 00:04:26.477
+and community, um, for having me back.
+
+00:04:26.477 --> 00:04:29.076
+I really appreciate
+being able to, to speak.
+
+00:04:30.506 --> 00:04:35.341
+So I am the certification community
+architect for the global skills
+
+00:04:35.341 --> 00:04:37.203
+team at the Linux Foundation.
+
+00:04:37.221 --> 00:04:42.859
+I support the education's global team
+in helping them develop and maintain
+
+00:04:43.158 --> 00:04:46.908
+exam and training content, and the
+related documentation across the
+
+00:04:46.912 --> 00:04:49.483
+foundation's, uh, global skills portfolio.
+
+00:04:49.517 --> 00:04:52.015
+I help organize a few Drupal events.
+
+00:04:52.043 --> 00:04:56.027
+I'm a member of the Drupal community
+working group conflict resolution team.
+
+00:04:56.366 --> 00:05:02.121
+Um, I am a hospice nurse by
+trade, so I am in touch with,
+
+00:05:02.196 --> 00:05:04.222
+uh, many end user challenges.
+
+00:05:04.269 --> 00:05:08.357
+And then I help organize a meetup called
+A11y Talks where we get together once
+
+00:05:08.357 --> 00:05:10.090
+a month and talk about accessibility.
+
+00:05:11.342 --> 00:05:12.733
+So here's where we're headed today.
+
+00:05:12.851 --> 00:05:16.823
+We'll talk about some of the,
+those small content decisions
+
+00:05:16.828 --> 00:05:20.284
+that can create accessibility
+problems, you know, the patterns.
+
+00:05:20.626 --> 00:05:26.744
+Um, we'll… Things like headings,
+links, instructions, terminology, images.
+
+00:05:27.082 --> 00:05:30.277
+None of them necessarily feel
+like huge decisions when we make
+
+00:05:30.278 --> 00:05:34.293
+them, but all of these choices
+add up as, and have an end result.
+
+00:05:34.525 --> 00:05:38.357
+Then we'll look at what happens when
+we stop relying on every individual
+
+00:05:38.466 --> 00:05:42.379
+contributor to have to remember
+every accessibility requirement,
+
+00:05:42.391 --> 00:05:46.342
+and start building better defaults
+into the way that we create content.
+
+00:05:46.599 --> 00:05:48.495
+We'll also look at what
+useful accessibility
+
+00:05:48.496 --> 00:05:50.034
+guidance actually looks like.
+
+00:05:50.453 --> 00:05:53.971
+I just wanna start with five decisions
+that are worth documenting, and
+
+00:05:53.972 --> 00:05:58.001
+ways to put that guidance closer to
+where people who are doing the work.
+
+00:05:58.287 --> 00:06:02.169
+Then we'll talk about keeping a style
+guide useful over time, and most
+
+00:06:02.171 --> 00:06:05.413
+impor- importantly how to start small.
+
+00:06:05.770 --> 00:06:08.765
+You don't need to document every
+accessibility requirement, um,
+
+00:06:08.765 --> 00:06:10.105
+before this becomes useful.
+
+00:06:12.191 --> 00:06:16.020
+So like I said, accessibility
+issues generally start small.
+
+00:06:16.441 --> 00:06:20.989
+Um, these are the kinds of acce- ac- these
+are some of the issues that start small.
+
+00:06:21.046 --> 00:06:23.607
+A heading level can get skipped
+because someone likes the way
+
+00:06:23.974 --> 00:06:25.274
+a different heading looks.
+
+00:06:25.832 --> 00:06:30.518
+A, a link gets labeled click here
+because the destination feels
+
+00:06:30.585 --> 00:06:32.633
+obvious when it's set in context.
+
+00:06:32.931 --> 00:06:36.418
+An instruction tells someone to
+choose the option on the right.
+
+00:06:36.506 --> 00:06:39.630
+An image gets alt text, but the
+description does not actually
+
+00:06:39.631 --> 00:06:41.441
+communicate, um, what the
+
+00:06:41.871 --> 00:06:43.174
+why the image is there.
+
+00:06:43.710 --> 00:06:46.905
+Again, none of these decisions
+necessarily feel significant in the
+
+00:06:46.907 --> 00:06:51.697
+moment, but when the same pattern
+gets repeated across pages, across
+
+00:06:51.697 --> 00:06:55.690
+lessons, across documentation, or
+across entire digital assets and
+
+00:06:55.691 --> 00:07:00.543
+websites, um, those decisions start
+creating larger accessibility problems.
+
+00:07:00.991 --> 00:07:04.287
+This is the part what- that
+makes the work a little tricky.
+
+00:07:04.770 --> 00:07:08.126
+Um, we're not always dealing
+with one dramatic failure.
+
+00:07:08.174 --> 00:07:11.734
+Often we're dealing with, uh,
+lots of ordinary content decisions
+
+00:07:11.758 --> 00:07:14.484
+that we, that we repeat over time
+
+00:07:17.498 --> 00:07:20.981
+And also this is where those small
+decisions start getting expensive if you
+
+00:07:20.981 --> 00:07:23.028
+wanna look at it from a cost analysis.
+
+00:07:23.559 --> 00:07:27.509
+Um, if we catch an issue while someone
+is creating the content, it may take a
+
+00:07:27.509 --> 00:07:32.055
+few seconds to fix, but if we catch it
+later, that same pattern might already
+
+00:07:32.056 --> 00:07:34.525
+exist in dozens or hundreds of places.
+
+00:07:34.555 --> 00:07:37.704
+Um, you know, we, we work in
+content management systems where the
+
+00:07:37.719 --> 00:07:42.739
+content is displayed dynamically,
+so one, one, one entry can be
+
+00:07:42.739 --> 00:07:44.763
+across d- multiple spaces, right?
+
+00:07:45.790 --> 00:07:48.958
+Um, the content may have gone
+through review and approval, you
+
+00:07:48.959 --> 00:07:50.353
+know, so that costs us some money.
+
+00:07:50.565 --> 00:07:54.795
+Other contributors may have also copied
+the same pattern because they assumed
+
+00:07:55.018 --> 00:07:56.861
+it was the preferred way to do things.
+
+00:07:57.077 --> 00:08:01.050
+So now fixing it means finding it
+in every instance, um, making the
+
+00:08:01.051 --> 00:08:05.371
+correction, and potentially putting the
+content through another round of review.
+
+00:08:06.358 --> 00:08:09.985
+So remediation is not just about the
+time it takes to fix one accessibility
+
+00:08:09.985 --> 00:08:14.448
+issue, it's a- also about all of the
+work that grows around the issue once
+
+00:08:14.448 --> 00:08:16.361
+it becomes part of the normal workflow.
+
+00:08:16.847 --> 00:08:23.384
+The longer we allow a problematic
+pattern to h- to remain in use or keep
+
+00:08:23.384 --> 00:08:28.054
+using it, the more o- opportunities
+we, uh, create for it to spread.
+
+00:08:30.302 --> 00:08:32.368
+This is where it became
+really concrete for me.
+
+00:08:32.413 --> 00:08:37.931
+In my work, um, with certification
+exams and training content, I
+
+00:08:37.932 --> 00:08:42.283
+kept seeing the same accessibility
+issues come back again and again.
+
+00:08:42.828 --> 00:08:46.410
+Reviewers would fix them, but then the
+same kinds of problems would appear in
+
+00:08:46.410 --> 00:08:50.141
+new content because the people creating
+that content did not always have an
+
+00:08:50.141 --> 00:08:53.887
+example or a documented pattern to follow.
+
+00:08:54.677 --> 00:08:56.826
+And that is an important distinction.
+
+00:08:56.908 --> 00:09:01.195
+Um, the problem was not that the
+contributors did not care about
+
+00:09:01.195 --> 00:09:04.827
+accessibility, the problem was that
+we were asking people to make the same
+
+00:09:04.827 --> 00:09:10.639
+accessibility decisions over and over
+without giving them enough guidance.
+
+00:09:10.665 --> 00:09:15.082
+Um, once we started documenting these
+decisions in a style guide, we could
+
+00:09:15.082 --> 00:09:20.391
+move, uh, a lot of that remediation and
+review work, um, earlier in the process.
+
+00:09:20.576 --> 00:09:24.442
+So instead of correcting the same issue
+repeatedly, we could point to that
+
+00:09:24.442 --> 00:09:26.441
+preferred pattern from the beginning.
+
+00:09:26.921 --> 00:09:33.903
+And this is why repeated corrections can
+be used as a, uh, a useful signal as well.
+
+00:09:34.176 --> 00:09:38.183
+They often tell us that the issue
+is not just one person making a
+
+00:09:38.183 --> 00:09:42.644
+mistake, it m- may mean that the
+workflow is missing a good default.
+
+00:09:44.334 --> 00:09:48.189
+And those better defaults really
+make the accessibility choice easier,
+
+00:09:48.481 --> 00:09:50.914
+um, 'cause it makes it consistently.
+
+00:09:50.914 --> 00:09:54.132
+You know, accessibility
+by memory does not scale.
+
+00:09:54.423 --> 00:09:56.797
+Better defaults, not better memory.
+
+00:09:59.183 --> 00:10:04.710
+So a useful style guide reduces the
+time, reduces the need to make the same
+
+00:10:04.710 --> 00:10:06.870
+accessibility decision from scratch.
+
+00:10:08.556 --> 00:10:12.977
+If the same accessibility
+decision comes up again and again,
+
+00:10:13.382 --> 00:10:17.158
+contributors should not have to stop
+every time, search for guidance,
+
+00:10:17.244 --> 00:10:18.992
+interpret it, and decide what to do.
+
+00:10:19.411 --> 00:10:23.745
+We can make that decision once, document
+that preferred approach, and give
+
+00:10:23.766 --> 00:10:26.525
+people an example that they can reuse.
+
+00:10:26.911 --> 00:10:30.299
+An example is a really
+important part of a style guide.
+
+00:10:30.828 --> 00:10:34.777
+Um, this does not remove the need
+for accessibility knowledges, but it
+
+00:10:34.778 --> 00:10:39.094
+reduces the number of routine decisions
+people have to make from scratch.
+
+00:10:39.374 --> 00:10:44.451
+And when that preferred pattern is easy
+to find in one place, a style guide, um,
+
+00:10:44.634 --> 00:10:50.270
+we are much less likely to be recreating
+that same accessibility issue or problem.
+
+00:10:50.614 --> 00:10:56.443
+In this image, um, it's, uh, an example
+of a color guide for the Linux Foundation.
+
+00:10:56.680 --> 00:10:58.259
+Um, uh-
+
+00:11:00.357 --> 00:11:03.842
+Uh, it, it, it defines some of
+the patterns that we use for
+
+00:11:03.842 --> 00:11:05.101
+branding and that kind of thing.
+
+00:11:07.195 --> 00:11:12.868
+So the goal is to make that decision
+once, so instead of asking every
+
+00:11:12.869 --> 00:11:16.306
+contributor to solve the same problem
+again, and they might do it differently.
+
+00:11:16.606 --> 00:11:21.757
+So start by identifying the accessible
+choice, then we document it, and
+
+00:11:21.757 --> 00:11:25.179
+then we show what it looks like in
+practice, and what the guidance-
+
+00:11:25.438 --> 00:11:30.145
+and make that guidance available
+whenever the same decision comes up.
+
+00:11:30.525 --> 00:11:32.592
+The value is in reuse.
+
+00:11:32.655 --> 00:11:36.949
+Um, if we already know that pattern,
+that preferred way to write a link,
+
+00:11:37.204 --> 00:11:40.939
+structure a heading, or describe an
+image, that answer should not live in one
+
+00:11:40.939 --> 00:11:43.791
+person's head or in one review comment.
+
+00:11:43.944 --> 00:11:48.255
+It should bec-come part of that shared
+workflow so the next curs- person,
+
+00:11:48.269 --> 00:11:52.511
+the next content creator or designer
+can make the same decision early.
+
+00:11:54.367 --> 00:11:58.566
+Um, so I've designed a few
+style guides in my history.
+
+00:11:58.568 --> 00:12:02.969
+Um, I worked at opensource.com and we
+had writers, we curated articles, and
+
+00:12:02.969 --> 00:12:06.676
+once we defined the style guide, we
+had far less, um, revisions to make.
+
+00:12:06.964 --> 00:12:10.492
+And then, um, when I started at the
+Linux Foundation, we didn't have a style
+
+00:12:10.493 --> 00:12:12.258
+guide, and so now we've implemented that.
+
+00:12:12.762 --> 00:12:17.942
+Um, because people always have the
+same questions, um, and a useful style
+
+00:12:17.944 --> 00:12:22.204
+guide should answer those questions,
+answer the questions that contributors
+
+00:12:22.212 --> 00:12:23.708
+are likely to have in that moment.
+
+00:12:23.729 --> 00:12:27.225
+The more you work with people, the more
+patterns you recognize in these questions.
+
+00:12:27.519 --> 00:12:30.853
+Um, a lot of them are like,
+"What am I supposed to do?
+
+00:12:31.133 --> 00:12:32.156
+Why does it matter?
+
+00:12:32.329 --> 00:12:34.709
+What does the preferred pattern look like?
+
+00:12:34.748 --> 00:12:40.074
+What should I avoid?" And if something
+needs to change, who owns that guidance?
+
+00:12:40.075 --> 00:12:41.420
+Who owns that style guide?
+
+00:12:41.946 --> 00:12:44.442
+So the important part is that
+contributors should not have to
+
+00:12:44.459 --> 00:12:48.875
+interpret a vague rule and figure
+out what it means for themselves.
+
+00:12:49.285 --> 00:12:54.395
+That clear guidance really reduces, um,
+mental fatigue during content creation.
+
+00:12:54.577 --> 00:12:55.982
+It reduces the guesswork.
+
+00:12:56.170 --> 00:13:00.119
+Um, it gives people something concrete
+that they can recognize and apply.
+
+00:13:02.204 --> 00:13:04.954
+So we talked about this
+kind of basic structure.
+
+00:13:04.955 --> 00:13:07.790
+Look- let's look at what that
+guidance should look like.
+
+00:13:08.322 --> 00:13:14.388
+Usable accessibility guidance should
+be specific enough that someone can
+
+00:13:14.437 --> 00:13:18.875
+act on it without having to stop
+and interpret what the rule means.
+
+00:13:18.906 --> 00:13:21.133
+I know I say this a lot, but
+this is an important part.
+
+00:13:21.469 --> 00:13:26.492
+It should tell contributors what to do,
+give them a reason, and show them an
+
+00:13:26.493 --> 00:13:28.962
+example they can recognize and reuse.
+
+00:13:33.626 --> 00:13:37.362
+The goal is not to create a
+giant accessibility manual.
+
+00:13:37.534 --> 00:13:40.365
+The goal is to make
+everyday decisions easier.
+
+00:13:41.054 --> 00:13:45.136
+Here's an example of what that structure
+can look like in a style guide.
+
+00:13:45.476 --> 00:13:46.951
+The rule is specific.
+
+00:13:48.099 --> 00:13:51.742
+We write link text that
+identifies the destination or
+
+00:13:51.786 --> 00:13:54.405
+action, then we explain why.
+
+00:13:55.283 --> 00:13:59.321
+A link should still make sense
+when someone encounters it
+
+00:13:59.347 --> 00:14:01.268
+outside the surrounding sentence.
+
+00:14:02.006 --> 00:14:05.601
+Then we show the pattern
+we want them to use.
+
+00:14:06.921 --> 00:14:11.137
+You know, read the accessibility
+report, and we show what to avoid.
+
+00:14:11.201 --> 00:14:13.125
+We want to avoid click here.
+
+00:14:13.743 --> 00:14:19.333
+Finally, you know, um, we identify who
+owns that guidance because accessibility
+
+00:14:19.333 --> 00:14:24.212
+guidance needs to be, uh… needs someone
+responsible for maintaining it over time.
+
+00:14:24.219 --> 00:14:26.706
+You know, if you've worked in
+accessibility for any amount of time,
+
+00:14:26.706 --> 00:14:30.229
+you know that it's constantly changing,
+and this never, never has an end point.
+
+00:14:30.229 --> 00:14:31.785
+It's always that, that target.
+
+00:14:31.843 --> 00:14:33.046
+The target's always moving.
+
+00:14:33.504 --> 00:14:37.817
+So the important thing is this does
+not leave the contributor guessing.
+
+00:14:37.977 --> 00:14:42.102
+It gives them a rule, the reason, and
+an example they can walk away with.
+
+00:14:44.135 --> 00:14:48.288
+Rules should help people make a
+decision, not remind them what
+
+00:14:48.288 --> 00:14:50.659
+accessi- that accessibility matters.
+
+00:14:50.988 --> 00:14:56.992
+Use accessible headings sounds good,
+but often the con- it leaves someone
+
+00:14:57.008 --> 00:14:59.860
+asking, "Okay, so what does that mean?"
+
+00:15:00.307 --> 00:15:06.652
+Um, so choose heading levels based on
+content structure, not visual appearance,
+
+00:15:06.864 --> 00:15:09.757
+gives them something concrete to do.
+
+00:15:10.250 --> 00:15:13.854
+That is the difference between a
+principle and a usable guidance.
+
+00:15:14.020 --> 00:15:19.059
+A good rule should really help someone
+make the right choice while they are
+
+00:15:19.059 --> 00:15:23.803
+working without requiring them to
+stop and translate the guidance first.
+
+00:15:24.112 --> 00:15:28.130
+And examples are far more useful
+and faster to understand than
+
+00:15:28.136 --> 00:15:30.053
+paragraphs of explanation.
+
+00:15:32.434 --> 00:15:36.670
+There's a lot of accessibility
+decisions a team could document,
+
+00:15:37.134 --> 00:15:42.496
+but these five are a strong place
+to start because they often…
+
+00:15:43.627 --> 00:15:47.685
+They come up a lot in our everyday
+content, um, creation in our work.
+
+00:15:47.913 --> 00:15:54.149
+We'll look at semantic structure, s-
+meaningful links, clear instructions,
+
+00:15:54.536 --> 00:15:59.348
+consistent plain language, which,
+you know, if you're working with a
+
+00:15:59.351 --> 00:16:03.950
+global audience, which most of us are
+these days because, um, the internet
+
+00:16:03.962 --> 00:16:08.187
+has made the, the world a lot more
+reachable, um, could mean using
+
+00:16:08.187 --> 00:16:11.086
+global English or, um, translations.
+
+00:16:11.436 --> 00:16:14.929
+And then we'll talk about images
+and alternative text as well.
+
+00:16:15.877 --> 00:16:21.168
+So the goal is not to cover every possible
+accessibility requirement, it's to focus
+
+00:16:21.199 --> 00:16:25.806
+on repeatable content decisions where
+a little guidance can prevent the same
+
+00:16:25.807 --> 00:16:28.087
+problem from showing up again and again.
+
+00:16:28.994 --> 00:16:32.798
+So headings do more than
+make content look organized.
+
+00:16:32.818 --> 00:16:36.476
+Um, they create that structure that people
+use to understand and navigate the page.
+
+00:16:36.726 --> 00:16:41.244
+So the guidance around that should
+be clear about using descriptive
+
+00:16:41.246 --> 00:16:47.773
+headings and keeping that, um, that,
+that, that, uh, that level logical.
+
+00:16:47.806 --> 00:16:50.549
+You know, the heading level should
+reflect the relationship between
+
+00:16:50.551 --> 00:16:54.696
+sections, not how large or bold
+someone wants the text to appear.
+
+00:16:55.100 --> 00:16:58.995
+If something needs to look
+different, that's a styling decision.
+
+00:16:58.997 --> 00:17:02.529
+You know, we use CSS or
+the design system for that.
+
+00:17:03.197 --> 00:17:08.775
+Um, keeping structure and appearance, uh,
+separate helps preserve that predictable
+
+00:17:08.776 --> 00:17:12.887
+hierarchy, which makes the content
+easier to navigate and understand.
+
+00:17:14.788 --> 00:17:16.866
+Here's a simple before and after example.
+
+00:17:17.166 --> 00:17:21.562
+In the first version, we have an H1 for
+a course title, and then we jump all
+
+00:17:21.562 --> 00:17:23.975
+the way down to H4 for getting started.
+
+00:17:24.027 --> 00:17:26.661
+After that, requirements
+is just bold text.
+
+00:17:27.424 --> 00:17:33.469
+Visually, someone could style all, all
+three of these, um, so they look perfectly
+
+00:17:33.470 --> 00:17:37.097
+reasonable on the page, but structurally,
+they're not telling the same story.
+
+00:17:37.341 --> 00:17:40.872
+Um, you know, especially for people
+who are, um, navigating your content,
+
+00:17:41.184 --> 00:17:43.690
+um, using assistive technology.
+
+00:17:45.197 --> 00:17:49.163
+The heading level should reflect the
+relationship between the sections.
+
+00:17:49.165 --> 00:17:53.369
+So getting started should follow the
+course title as an H2, and requirements
+
+00:17:53.371 --> 00:17:55.450
+should be nested beneath it as an H3.
+
+00:17:55.803 --> 00:17:57.929
+This is why visual
+appearance is not enough.
+
+00:17:57.938 --> 00:18:01.864
+The two pages can look identical
+and still have enough, um, uh, very
+
+00:18:01.864 --> 00:18:03.473
+different underlying structures.
+
+00:18:07.818 --> 00:18:09.568
+So the second, um-
+
+00:18:11.837 --> 00:18:16.452
+The second thing worth, like, putting
+into your style guide are, um, is
+
+00:18:16.452 --> 00:18:18.274
+the concept of meaningful links.
+
+00:18:18.588 --> 00:18:23.468
+Um, for links, that main question
+is whether the text makes the
+
+00:18:23.468 --> 00:18:25.918
+destination or the action clear.
+
+00:18:26.373 --> 00:18:30.867
+Um, when assistive technology, um,
+accesses links, sometimes they'll do it
+
+00:18:30.867 --> 00:18:34.231
+on a rotor so all they, all they read
+are the links, so they need to make
+
+00:18:34.316 --> 00:18:39.096
+sense out of, uh, out of, out of the
+context of what's e- else is on the page.
+
+00:18:39.447 --> 00:18:44.164
+So, you know, most of us know that
+click here and learn more, um, make,
+
+00:18:44.549 --> 00:18:47.916
+may make sense when someone reads the
+full sentence, but the link itself does
+
+00:18:47.916 --> 00:18:50.412
+not provide the information we need.
+
+00:18:50.687 --> 00:18:53.761
+So a better pattern is to make that
+link text meaningful on its own.
+
+00:18:54.024 --> 00:18:56.639
+Tell people what they are opening,
+what they are reading, what they are
+
+00:18:56.640 --> 00:18:58.187
+downloading or what they're starting.
+
+00:18:58.540 --> 00:19:04.596
+It's also helpful to indicate when the
+destination is something different, um,
+
+00:19:04.706 --> 00:19:10.590
+maybe it's a PDF or it's another file
+type, uh, so there's fewer surprises.
+
+00:19:10.808 --> 00:19:16.183
+And while I mention PDF, um, working,
+um… This is a talk I can do for
+
+00:19:16.208 --> 00:19:19.203
+hours some, some other time where
+you can ask me questions about it.
+
+00:19:19.569 --> 00:19:21.790
+Um, we shouldn't be using PDFs anymore.
+
+00:19:21.797 --> 00:19:26.503
+They're an antiquated way of accessing
+information and inherently inaccessible.
+
+00:19:26.706 --> 00:19:30.263
+So, um, but that, like I said,
+that's another talk for another day.
+
+00:19:30.655 --> 00:19:35.678
+Um, so with this meaningful link text,
+it's the goal is to remove the guesswork.
+
+00:19:35.851 --> 00:19:40.351
+If more specific link text is
+available, we need to use it.
+
+00:19:41.804 --> 00:19:43.508
+So here's what it looks like in practice.
+
+00:19:43.909 --> 00:19:48.228
+Each of these examples, the surrounding
+sentence gives us some content-- context,
+
+00:19:48.562 --> 00:19:52.216
+but the actual link text is pretty vague.
+
+00:19:52.418 --> 00:19:55.738
+You know, click here, here, or just link.
+
+00:19:56.142 --> 00:20:00.277
+Um, I see this a lot in, in our
+newsletters from the Linux Foundation
+
+00:20:00.279 --> 00:20:02.401
+where it, it just says link at the end.
+
+00:20:02.864 --> 00:20:07.543
+Um, this means that the reader has
+to rely on the sentence around it
+
+00:20:07.544 --> 00:20:09.101
+to understand what the link does.
+
+00:20:09.112 --> 00:20:12.274
+You know, a stronger version puts the
+meaning, um, into the link itself.
+
+00:20:12.277 --> 00:20:16.101
+So instead of click here, use
+something like review the s- review
+
+00:20:16.101 --> 00:20:17.805
+the certification requirements.
+
+00:20:18.043 --> 00:20:23.080
+Instead of use this link to
+register, um, change it to
+
+00:20:23.081 --> 00:20:24.935
+register for the training workshop.
+
+00:20:25.474 --> 00:20:30.739
+The goal is for the link text itself to
+communicate that action it's performing
+
+00:20:30.739 --> 00:20:35.523
+or the destination so that people, um,
+do not have to piece that information
+
+00:20:35.523 --> 00:20:37.459
+together with the surrounding content.
+
+00:20:38.679 --> 00:20:39.786
+So clear instructions.
+
+00:20:39.786 --> 00:20:42.832
+These are really important in
+a, in a lot of our, in a lot of
+
+00:20:42.833 --> 00:20:44.989
+our everyday, uh, activities.
+
+00:20:45.411 --> 00:20:45.914
+Um-
+
+00:20:50.717 --> 00:20:54.174
+This is another place where
+accessibility can improve just by
+
+00:20:54.180 --> 00:21:01.910
+making the language more precise, um,
+using direct, familiar wording and
+
+00:21:01.922 --> 00:21:06.374
+name controls by the labels people
+actually encounter in the interface.
+
+00:21:06.712 --> 00:21:11.420
+Um, if there are multiple steps, present
+them in the order that they happen.
+
+00:21:11.779 --> 00:21:14.634
+Uh, that reduces the amount of
+interpretation someone has to do
+
+00:21:14.634 --> 00:21:16.638
+while, uh, trying to complete the task.
+
+00:21:16.932 --> 00:21:22.328
+So avoid relying on visual descriptions
+like location, shape, color, or direction.
+
+00:21:22.572 --> 00:21:26.014
+You know, a good test is whether
+the instruction could still make
+
+00:21:26.016 --> 00:21:28.230
+sense if the layout changed.
+
+00:21:28.810 --> 00:21:33.507
+Um, if it does not, that wording
+is probably depending too much
+
+00:21:33.508 --> 00:21:35.034
+on the visual presentation.
+
+00:21:35.905 --> 00:21:39.331
+And remember, everyone accesses
+information differently, so the way
+
+00:21:39.331 --> 00:21:43.889
+I access a visual asset, you know,
+something that's, uh, you know, uh,
+
+00:21:43.900 --> 00:21:47.074
+silver and shiny might be distracting
+to me and put me on a different
+
+00:21:47.189 --> 00:21:48.780
+place on the page than someone else.
+
+00:21:50.645 --> 00:21:54.133
+Another set of examples where the
+instruction looks too much what… on-
+
+00:21:54.191 --> 00:21:59.746
+relies too much on, um, what the interface
+looks like, uh, use the button below.
+
+00:22:00.185 --> 00:22:04.358
+This assumes that the layout will always
+place the button below the text, you know.
+
+00:22:04.464 --> 00:22:06.997
+Choose the green option on the right.
+
+00:22:07.338 --> 00:22:10.421
+That's not only position,
+but it's color as well.
+
+00:22:11.008 --> 00:22:16.130
+Uh, click the icon in the upper
+left corner, um, assumes someone can
+
+00:22:16.130 --> 00:22:20.433
+identify that control visually and that
+it will stay in that same location.
+
+00:22:20.591 --> 00:22:25.872
+You know, we all work with mobile and
+iPads and, and laptops and big screens.
+
+00:22:25.874 --> 00:22:29.718
+That button is not always gonna be
+in the same place depending on your,
+
+00:22:29.766 --> 00:22:31.776
+on, on your, on your breakpoints.
+
+00:22:32.199 --> 00:22:38.565
+Um, a stronger instruction names
+the control and action directly.
+
+00:22:38.884 --> 00:22:41.933
+Instead of describing where
+something is or what it looks
+
+00:22:41.934 --> 00:22:44.062
+like, tell people what to select.
+
+00:22:44.464 --> 00:22:50.492
+That makes the instruction more
+reliable across the various
+
+00:22:50.492 --> 00:22:54.300
+layouts that we might have across
+those devices and the different
+
+00:22:54.301 --> 00:22:56.475
+ways of navigating the interface.
+
+00:22:58.827 --> 00:23:01.778
+So instructions should use
+the same language people
+
+00:23:01.827 --> 00:23:03.615
+encounter in the interface.
+
+00:23:03.951 --> 00:23:10.360
+If the control says save
+draft, call it save draft.
+
+00:23:10.680 --> 00:23:15.773
+If the action is called publish, use
+publish consistently instead of switching
+
+00:23:15.774 --> 00:23:19.192
+between publish, submit or finish.
+
+00:23:19.680 --> 00:23:25.072
+That consistency matters because changing
+terminology can make people wonder-
+
+00:23:28.156 --> 00:23:32.245
+It can make people wonder whether
+we are talking about the same thing.
+
+00:23:32.737 --> 00:23:38.615
+If it has multiple actions, break them
+up into separate steps rather than
+
+00:23:38.620 --> 00:23:41.514
+packing everything into one sentence.
+
+00:23:41.796 --> 00:23:46.839
+Um, I have a tip on this slide
+that says, "Do not make readers
+
+00:23:46.852 --> 00:23:50.361
+interpret an expression before
+they can complete the task."
+
+00:23:54.561 --> 00:23:56.238
+Plain language.
+
+00:23:56.333 --> 00:23:59.963
+I think, um, plain language is underrated.
+
+00:24:00.285 --> 00:24:08.624
+Um, it's less about making everything
+sound simple and more about reducing
+
+00:24:08.754 --> 00:24:11.362
+unnecessary effort for the reader.
+
+00:24:12.805 --> 00:24:17.487
+This happens a lot in our training
+and certification content where people
+
+00:24:17.487 --> 00:24:22.154
+become fatigued because they have
+to l- use a dictionary of, uh, every
+
+00:24:22.155 --> 00:24:25.265
+other paragraph or maybe, you know,
+English isn't their first language.
+
+00:24:25.468 --> 00:24:32.188
+They have to look up the instruction when
+if we would just used a, a, a, a, a plain
+
+00:24:32.188 --> 00:24:34.886
+word, um, we wouldn't get as fatigued.
+
+00:24:36.625 --> 00:24:40.840
+So consistency is one of the easiest
+ways to make content easier to process,
+
+00:24:40.860 --> 00:24:42.870
+you know, using those familiar words.
+
+00:24:43.213 --> 00:24:47.404
+Put the main point first and keep
+sentences focused so readers do
+
+00:24:47.405 --> 00:24:50.456
+not have to work through extra
+wording to find what matters.
+
+00:24:50.759 --> 00:24:55.589
+Um, we all know this, you know,
+people don't always read anymore,
+
+00:24:55.589 --> 00:24:57.159
+especially when they're on their phones.
+
+00:24:57.328 --> 00:24:59.128
+They scroll, right?
+
+00:25:00.141 --> 00:25:03.940
+Um, so reinforce that main idea first.
+
+00:25:04.312 --> 00:25:08.576
+Um, if every time the wording
+changes, readers have to decide
+
+00:25:08.576 --> 00:25:10.689
+whether the meaning changed too.
+
+00:25:11.391 --> 00:25:16.593
+Consistent language reduces
+the extra interpretation and
+
+00:25:16.797 --> 00:25:20.677
+helps people move through that
+content with way less friction.
+
+00:25:21.485 --> 00:25:29.715
+So sign in, log in, access
+your content, enter the portal.
+
+00:25:31.120 --> 00:25:36.254
+These might mean all the same thing,
+but changing the language makes your
+
+00:25:36.254 --> 00:25:42.209
+user or your reader stop and wonder
+if that action has changed as well.
+
+00:25:42.482 --> 00:25:46.298
+So once you choose a
+term, use it consistently.
+
+00:25:46.463 --> 00:25:50.337
+That predictable language reduces
+that unnecessary cognitive
+
+00:25:50.338 --> 00:25:52.055
+load that can lead to fatigue.
+
+00:25:54.110 --> 00:25:57.655
+When we introduced global English
+into our style guides, we started
+
+00:25:57.655 --> 00:26:03.037
+seeing fewer customer service tickets
+that were really about ambiguity.
+
+00:26:03.391 --> 00:26:07.750
+Um, people were not necessarily having
+technical issues with our content.
+
+00:26:07.787 --> 00:26:12.892
+Um, they were contacting support
+because a question or instruction
+
+00:26:12.976 --> 00:26:15.625
+could be interpreted more than one way.
+
+00:26:15.932 --> 00:26:17.021
+And I'm gonna say that again.
+
+00:26:19.917 --> 00:26:23.389
+They didn't know how to answer
+questions or follow the training
+
+00:26:23.399 --> 00:26:28.615
+because a question or instruction
+could be interpreted more than one way.
+
+00:26:28.916 --> 00:26:33.038
+So once we started, like, really
+standardizing the terminology,
+
+00:26:33.248 --> 00:26:38.194
+rem- re- we removed idioms and
+localisms and made the questions more
+
+00:26:38.204 --> 00:26:43.030
+direct, those what does this mean
+ticket, those counts went way down.
+
+00:26:44.303 --> 00:26:47.692
+So that's another cost eff- effective
+thing about having style guides
+
+00:26:47.693 --> 00:26:52.276
+and using, you know, this global
+language, um, concept is, uh,
+
+00:26:52.576 --> 00:26:54.575
+less customer support was needed.
+
+00:26:55.822 --> 00:27:00.629
+And that, um, it's really a useful
+for- for reminder for me when the
+
+00:27:00.629 --> 00:27:03.800
+tickets started going down that
+that plain language is not just
+
+00:27:03.800 --> 00:27:06.568
+about making content nicer to read.
+
+00:27:07.291 --> 00:27:12.063
+Uh, clearer content can reduce support
+needs because fewer people have to
+
+00:27:12.063 --> 00:27:14.205
+stop and ask someone to interpret it.
+
+00:27:17.485 --> 00:27:18.395
+I love examples.
+
+00:27:18.513 --> 00:27:21.805
+Um, this is plain language, you
+know, about being about clarity,
+
+00:27:22.082 --> 00:27:23.761
+not just using shorter words.
+
+00:27:24.148 --> 00:27:29.162
+Piece of cake may be familiar, that
+expression piece of cake may be familiar
+
+00:27:29.162 --> 00:27:31.497
+to some people, but it's an idiom.
+
+00:27:32.065 --> 00:27:35.609
+Someone has to understand the
+ex- expression before they can
+
+00:27:35.650 --> 00:27:37.331
+understand the instruction.
+
+00:27:37.701 --> 00:27:42.121
+Um, close of business sounds
+very precise, but is it?
+
+00:27:42.483 --> 00:27:43.990
+Um, whose business day?
+
+00:27:44.185 --> 00:27:45.891
+What time zone, you know?
+
+00:27:46.149 --> 00:27:48.143
+Um, what time exactly?
+
+00:27:48.276 --> 00:27:52.690
+Uh, my end of business day
+is 5:00 PM Pacific Time.
+
+00:27:53.917 --> 00:27:55.721
+N- not for someone in India.
+
+00:27:56.709 --> 00:27:59.338
+So these revised versions
+say exactly what we mean.
+
+00:27:59.948 --> 00:28:05.320
+Um, follow these steps to complete
+the process, and submit the
+
+00:28:05.322 --> 00:28:08.216
+form by 5:00 PM Eastern Time.
+
+00:28:10.974 --> 00:28:16.309
+We're removing the need for extra
+interpre- interpretation and
+
+00:28:16.323 --> 00:28:20.494
+giving people the information they
+actually need to complete a task,
+
+00:28:20.667 --> 00:28:22.585
+and to complete a task on time.
+
+00:28:24.351 --> 00:28:27.063
+So the fifth pattern
+is images and alt text.
+
+00:28:27.076 --> 00:28:31.117
+Um, I've given some really fun
+presentations on alternative text.
+
+00:28:31.368 --> 00:28:35.875
+Um, if you wanna look those up, they're,
+they're really, uh, great examples that
+
+00:28:35.876 --> 00:28:41.700
+are fun, um, uh, uh, if you wanna learn
+more about, uh, meaningful alt text.
+
+00:28:43.625 --> 00:28:47.968
+For images, the guidance needs
+to cover more than simply whether
+
+00:28:47.968 --> 00:28:50.466
+an alt text field gets filled in.
+
+00:28:50.820 --> 00:28:54.741
+Um, someone needs to decide whether
+the image actually needs alternative
+
+00:28:54.741 --> 00:28:58.947
+text, whether it is decorative,
+and what information that image is
+
+00:28:58.947 --> 00:29:01.218
+contributing to that particular context.
+
+00:29:01.239 --> 00:29:05.184
+And I think when we talk about repeated
+content or we're working with, you
+
+00:29:05.185 --> 00:29:07.711
+know, different teams, we're working
+with product teams, we're working with
+
+00:29:07.725 --> 00:29:14.904
+customer service, we're working with,
+um, marketing, um, we all interpret
+
+00:29:14.905 --> 00:29:16.803
+why that image is, is valuable.
+
+00:29:19.361 --> 00:29:21.503
+But it's also clear to talk
+about the responsibility.
+
+00:29:21.505 --> 00:29:24.075
+You know, who understands
+why the image is being used?
+
+00:29:24.297 --> 00:29:26.873
+Who writes the alternative
+text, and who reviews it?
+
+00:29:27.130 --> 00:29:31.510
+And if the image changes later, who makes
+sure the alt text still makes sense?
+
+00:29:31.885 --> 00:29:36.359
+That ownership matters because
+good alt text depends on purpose.
+
+00:29:36.736 --> 00:29:39.403
+It's not about technical field
+that someone can complete at
+
+00:29:39.403 --> 00:29:43.144
+the end of a, uh, at the end of
+the content creation process.
+
+00:29:45.765 --> 00:29:50.985
+Alt text is about communicating what the
+image is doing in that particular context.
+
+00:29:51.251 --> 00:29:56.313
+The exact same image can serve different
+purposes in different places, which means
+
+00:29:56.315 --> 00:30:00.788
+that the useful alt text may change too,
+and documenting this is really important.
+
+00:30:01.260 --> 00:30:05.182
+Sometimes that information
+is, is what is pictured.
+
+00:30:05.595 --> 00:30:09.624
+Sometimes what's important about it
+is the action that's being performed,
+
+00:30:10.125 --> 00:30:15.587
+or, um, a detail, or a piece of
+information that the image supports.
+
+00:30:16.195 --> 00:30:21.295
+And sometimes that the image is decorative
+and does not need alternative text at all.
+
+00:30:21.618 --> 00:30:27.033
+So rather than asking what is this
+a picture of, a more useful question
+
+00:30:27.033 --> 00:30:29.254
+is why is this image even here?
+
+00:30:29.464 --> 00:30:31.851
+Or what does someone need to know from it?
+
+00:30:32.272 --> 00:30:35.396
+Um, I have a little exercise
+to show what this means.
+
+00:30:37.975 --> 00:30:45.234
+So when we say the word, the, the
+combination of words dead bug, what,
+
+00:30:45.424 --> 00:30:47.762
+what may that conjure up in your brain?
+
+00:30:49.485 --> 00:30:53.180
+So here's a picture of a dead bug.
+
+00:30:55.327 --> 00:30:59.752
+And here's a different
+picture of a dead bug.
+
+00:31:00.402 --> 00:31:04.269
+Very different images but the
+same alternative text, right?
+
+00:31:05.594 --> 00:31:09.207
+So we wanna be more specific
+about explaining that image.
+
+00:31:09.437 --> 00:31:16.494
+Um, so that first dead bug is… I
+might use this alt text instead, "An
+
+00:31:16.553 --> 00:31:21.455
+assassin bug on a green leaf carrying
+a stack of dead bugs on its back."
+
+00:31:21.665 --> 00:31:24.046
+Well, that really defines
+what that dead bug is.
+
+00:31:24.114 --> 00:31:29.037
+And then the ne- the next one is, "A
+vintage rusted out Volkswagen Beetle
+
+00:31:29.050 --> 00:31:35.312
+sitting under a tree with Grateful Dead
+logos on its body." Now we know that
+
+00:31:35.312 --> 00:31:39.387
+those are two very different images,
+but they're both images of dead bugs.
+
+00:31:45.736 --> 00:31:48.708
+A style guide is useful, but we
+can take this a step further.
+
+00:31:49.014 --> 00:31:54.650
+If contributors have to stop what they
+are doing, leave the editor, search
+
+00:31:54.650 --> 00:31:57.561
+through the documentation, and find
+the right accessibility rule every
+
+00:31:57.562 --> 00:32:01.576
+time they make a decision, we're still
+putting a lot of responsibility on them.
+
+00:32:01.815 --> 00:32:05.789
+The real opportunity is to bring that
+guidance closer to the work itself.
+
+00:32:06.128 --> 00:32:10.231
+In WordPress, that can mean letting
+the decisions we have documented
+
+00:32:10.233 --> 00:32:15.089
+start influencing the CMS itself, the
+patterns, the templates, the controls,
+
+00:32:15.267 --> 00:32:17.751
+the options contributors already use.
+
+00:32:18.093 --> 00:32:22.395
+There's less distance between the
+guidance and the moment someone
+
+00:32:22.406 --> 00:32:26.656
+needs it, the easier it becomes
+to make the accessible choice.
+
+00:32:28.870 --> 00:32:32.500
+The closer accessibility guidance is
+to the moment someone is making the
+
+00:32:32.500 --> 00:32:35.331
+decision, the more useful it becomes.
+
+00:32:35.790 --> 00:32:41.633
+That guidance does not have to live only,
+to live only in one big style guide.
+
+00:32:43.160 --> 00:32:47.620
+It can show up in author templates,
+editorial checklists, contributor
+
+00:32:47.620 --> 00:32:53.485
+documentation, examples besides form
+fields, reusable content patterns, and
+
+00:32:53.601 --> 00:32:55.925
+even in review comments or onboarding.
+
+00:32:59.365 --> 00:33:02.991
+The idea really is to meet people
+where they are already working.
+
+00:33:05.308 --> 00:33:09.538
+If someone has to leave their workflow,
+go search for a document, and figure
+
+00:33:09.540 --> 00:33:12.135
+out which rule applies, there's
+a good chance that they're gonna
+
+00:33:12.146 --> 00:33:14.133
+skip the step or not get it right.
+
+00:33:14.499 --> 00:33:18.452
+Um, but if that guidance is already there,
+right when the decision is being made,
+
+00:33:18.467 --> 00:33:21.134
+it becomes easier to use consistently.
+
+00:33:23.439 --> 00:33:29.329
+Requirements tell people what they
+are supposed to do, but examples show
+
+00:33:29.329 --> 00:33:31.566
+them what that actually looks like.
+
+00:33:33.316 --> 00:33:37.572
+For each rule, I like to include
+a preferred example, something
+
+00:33:37.572 --> 00:33:41.584
+to avoid, and a short explanation
+of why that difference matters.
+
+00:33:42.208 --> 00:33:46.289
+And when the topic needs more detail,
+the style guide can link out to a
+
+00:33:46.302 --> 00:33:50.495
+deeper guidance rather than trying
+to explain everything in one place.
+
+00:33:50.665 --> 00:33:53.998
+The goal is not to overwhelm our
+contributors or content creators
+
+00:33:54.845 --> 00:33:56.536
+with every possible edge case.
+
+00:33:57.007 --> 00:33:59.792
+It's to show them what success
+looks like so they have something
+
+00:33:59.794 --> 00:34:01.899
+concrete they can recognize and apply.
+
+00:34:03.027 --> 00:34:07.025
+The goal is not to turn every
+contributor into an accessibility expert.
+
+00:34:08.817 --> 00:34:12.668
+For everyday content decisions, the
+guidance should help people recognize
+
+00:34:12.668 --> 00:34:15.704
+that a decision is being made,
+show them that preferred pattern,
+
+00:34:15.725 --> 00:34:18.425
+and make it clear when something
+falls outside that usual guidance.
+
+00:34:18.724 --> 00:34:20.308
+That last part really matters.
+
+00:34:20.689 --> 00:34:26.212
+A style guide should not pretend to answer
+every possible accessibility question.
+
+00:34:26.524 --> 00:34:32.253
+It should help contributors handle
+the common cases confidently and
+
+00:34:32.253 --> 00:34:36.690
+recognize when they need to bring
+in someone with deeper e- expertise.
+
+00:34:36.980 --> 00:34:40.761
+That way, we support different people
+at different experience levels without
+
+00:34:40.772 --> 00:34:42.671
+lowering the accessibility standard.
+
+00:34:43.564 --> 00:34:48.343
+And once we know what the preferred
+accessible patterns are, we can start
+
+00:34:48.343 --> 00:34:49.977
+building them into WordPress itself.
+
+00:34:50.365 --> 00:34:54.513
+That might mean creating approved block
+patterns, defining heading strucker-
+
+00:34:54.575 --> 00:34:58.637
+structures, providing accessible
+button styles, limiting color choices,
+
+00:34:58.698 --> 00:35:02.398
+this is an important one, limiting
+color choices, requiring labels where
+
+00:35:02.398 --> 00:35:08.391
+possible, or giving our, our creators and
+contributors reusable content templates.
+
+00:35:08.612 --> 00:35:11.457
+The idea is not to remove that
+flexibility that everyone enjoys.
+
+00:35:11.593 --> 00:35:16.825
+It's just makes it easier to make the
+safe choice … makes it easier for,
+
+00:35:16.885 --> 00:35:18.555
+for us to find that safer choice.
+
+00:35:19.157 --> 00:35:22.558
+If the option is already built into
+our authoring experiences, contributors
+
+00:35:22.560 --> 00:35:25.615
+don't have to remember the rule and
+recreate the solution every time.
+
+00:35:25.916 --> 00:35:30.186
+The tools and the templates can carry
+some of that responsibility for us.
+
+00:35:32.383 --> 00:35:34.160
+And these two pieces work together.
+
+00:35:34.160 --> 00:35:36.429
+You know, the style guide
+e- explains the decision.
+
+00:35:36.466 --> 00:35:39.759
+It tells contributors what the
+preferred pattern is, why it
+
+00:35:39.761 --> 00:35:41.038
+matters, and what it looks like.
+
+00:35:41.374 --> 00:35:44.738
+So if the guide says we have an approved
+button pattern, WordPress can make
+
+00:35:44.738 --> 00:35:47.071
+that button or that pattern available.
+
+00:35:47.317 --> 00:35:49.949
+If the guide defines how
+headings should be structured,
+
+00:35:49.949 --> 00:35:51.410
+the templates can reinforce.
+
+00:35:51.879 --> 00:35:55.396
+Documentation gives people the
+knowledge, and good defaults
+
+00:35:55.411 --> 00:35:56.966
+reduce the effort required.
+
+00:35:57.163 --> 00:35:57.945
+Nobody--
+
+00:36:00.071 --> 00:36:03.787
+No one has to carry that entire
+accessibility process on their own.
+
+00:36:04.944 --> 00:36:08.415
+So we really need to, do need
+to keep the guide usable.
+
+00:36:08.482 --> 00:36:09.580
+So start small.
+
+00:36:09.790 --> 00:36:13.259
+A style guide does not have to
+cover every accessibility edge case.
+
+00:36:13.261 --> 00:36:14.223
+We talked about that.
+
+00:36:14.707 --> 00:36:17.703
+Um, begin with the
+problems you see repeated.
+
+00:36:18.274 --> 00:36:21.721
+These are usually the best candidates
+for shared guidance because you already
+
+00:36:21.721 --> 00:36:23.502
+know they are creating extra work.
+
+00:36:23.884 --> 00:36:25.893
+Uh, make the guidance easy to search.
+
+00:36:25.926 --> 00:36:27.173
+Use direct language.
+
+00:36:27.174 --> 00:36:31.506
+Include examples so contributors can
+quickly recognize that preferred pattern.
+
+00:36:31.848 --> 00:36:35.350
+The guide itself should model the
+same accessibility and clarity
+
+00:36:35.366 --> 00:36:39.774
+patterns, practices we are
+asking contributors to follow.
+
+00:36:40.725 --> 00:36:42.502
+It also needs clear ownership.
+
+00:36:42.712 --> 00:36:46.837
+Someone should be responsible for
+maintaining it, reviewing the guidance,
+
+00:36:46.837 --> 00:36:49.558
+and deciding how, um, updates get made.
+
+00:36:49.879 --> 00:36:53.959
+Contributors should know how to suggest
+changes when they notice something that
+
+00:36:53.959 --> 00:36:59.274
+is unclear or has become outdated and no
+longer matches, uh, the way the CMS works.
+
+00:36:59.750 --> 00:37:02.806
+So examples, um, also need
+to be revisited over time.
+
+00:37:02.857 --> 00:37:07.087
+Interfaces change, patterns change,
+and guidance, uh, that was once
+
+00:37:07.093 --> 00:37:10.067
+correct, um, may stop being useful.
+
+00:37:10.287 --> 00:37:13.189
+So without ownership, that
+style guide can slowly become
+
+00:37:13.189 --> 00:37:14.578
+a collection of old decisions.
+
+00:37:14.585 --> 00:37:17.584
+With ownership, it can stay
+relevant and continue supporting
+
+00:37:17.585 --> 00:37:18.837
+the people who rely on it.
+
+00:37:19.455 --> 00:37:23.812
+So the practical takeaway is, um, you
+don't need to build the entire style
+
+00:37:23.814 --> 00:37:25.176
+guide before you can make progress.
+
+00:37:25.337 --> 00:37:28.692
+Pick one accessibility issue that
+keeps showing up in your reviews.
+
+00:37:28.962 --> 00:37:32.444
+Make the decision about what
+the preferred pattern should be.
+
+00:37:32.682 --> 00:37:34.424
+Write the rule clearly.
+
+00:37:34.765 --> 00:37:39.278
+Add an example so people c- can
+see what success looks like, and
+
+00:37:39.279 --> 00:37:42.402
+put that guidance somewhere where
+contributors will actually find it.
+
+00:37:44.064 --> 00:37:45.850
+And give someone responsibility.
+
+00:37:45.888 --> 00:37:50.469
+That one rule may feel small, but it's
+already doing what we have talked about
+
+00:37:50.469 --> 00:37:55.819
+through this entire session, moving
+an accessibility decision earlier,
+
+00:37:55.835 --> 00:37:59.214
+making it reusable, and reducing
+the chance that it happens again.
+
+00:38:00.183 --> 00:38:02.156
+And that's really the
+outcome we're aiming for.
+
+00:38:02.408 --> 00:38:07.002
+Um, accessibility works better when
+it's not treated as an extra step that
+
+00:38:07.006 --> 00:38:08.908
+someone has to remember at the end.
+
+00:38:09.356 --> 00:38:14.593
+If the preferred patterns are documented,
+built into the workflow, supported by
+
+00:38:14.598 --> 00:38:19.638
+the tools people use, then the accessible
+choice becomes the normal choice.
+
+00:38:19.817 --> 00:38:23.370
+It stops feeling like a
+special accessibility task.
+
+00:38:23.598 --> 00:38:27.201
+It just becomes how the
+team creates content.
+
+00:38:28.977 --> 00:38:33.687
+So thank you very much for your time,
+and thanks again to the WordPress
+
+00:38:33.692 --> 00:38:35.500
+accessibility team for having me back.
+
+00:38:35.555 --> 00:38:38.265
+There's a few links on here
+where you can find me across
+
+00:38:38.404 --> 00:38:39.627
+some of the social networks.
+
+00:38:39.627 --> 00:38:42.604
+I'm usually Volkswagen
+Chick in most of the spaces.
+
+00:38:43.490 --> 00:38:43.991
+Thank you.
+
+00:38:49.919 --> 00:38:51.528
+Wow, that was incredible, AmyJune.
+
+00:38:51.718 --> 00:38:52.588
+Thank you so much.
+
+00:38:52.592 --> 00:38:56.163
+I love, love, love style sheets,
+uh, so I really appreciate
+
+00:38:56.164 --> 00:38:58.433
+that from a design perspective.
+
+00:38:58.639 --> 00:39:00.628
+Uh, we have quite a few
+questions in the chat.
+
+00:39:01.361 --> 00:39:02.295
+Um, let's get to 'em.
+
+00:39:04.111 --> 00:39:04.356
+All right.
+
+00:39:04.356 --> 00:39:08.325
+What is your opinion us- on using
+AI to help draft up a style guide?
+
+00:39:09.635 --> 00:39:10.121
+Okay.
+
+00:39:10.122 --> 00:39:15.978
+So, um, I work for the Linux Foundation,
+so this is an unofficial opinion on AI.
+
+00:39:16.343 --> 00:39:21.180
+Um, I don't believe in using AI, but I
+know that it's inevitable and people will.
+
+00:39:21.532 --> 00:39:26.986
+So I think that AI can, um,
+be really useful for getting
+
+00:39:26.988 --> 00:39:28.373
+that style guide started.
+
+00:39:28.402 --> 00:39:31.315
+Um, it can help you,
+like, organize your ideas.
+
+00:39:31.320 --> 00:39:35.749
+It can perhaps even, uh, suggest
+structure and maybe even draft
+
+00:39:35.760 --> 00:39:37.171
+some examples really quickly.
+
+00:39:38.288 --> 00:39:43.996
+But, right, I would not treat
+that output as authoritative.
+
+00:39:44.096 --> 00:39:48.336
+Um, accessibility guidance still
+needs that human in the loop.
+
+00:39:48.396 --> 00:39:53.757
+Um, we need to review for the accuracy,
+the content, the context, and, um,
+
+00:39:53.760 --> 00:39:56.991
+whether it actually fits for the people
+that we're aiming for, you know, and
+
+00:39:56.991 --> 00:40:00.500
+the content and the workflows, um,
+of the people who are helping us.
+
+00:40:00.778 --> 00:40:05.287
+So the blank page is really hard, and
+we all know that, so sometimes when
+
+00:40:05.289 --> 00:40:09.799
+we have that AI output, that helps
+us, like, really destroy it, right?
+
+00:40:09.799 --> 00:40:13.036
+You know how it's easy when you already
+have something and you can take it apart.
+
+00:40:13.037 --> 00:40:15.476
+But it definitely needs a human in a loop.
+
+00:40:16.477 --> 00:40:16.896
+Great.
+
+00:40:16.973 --> 00:40:19.970
+Um, I've got a couple of PDF
+questions, if you don't mind.
+
+00:40:20.262 --> 00:40:20.642
+Oh, God.
+
+00:40:20.658 --> 00:40:21.212
+Um- Okay.
+
+00:40:21.581 --> 00:40:24.315
+What do you recommend as
+an alternative to a PDF?
+
+00:40:24.354 --> 00:40:26.279
+And then I have a second part
+when you get done with that.
+
+00:40:26.477 --> 00:40:27.055
+Okay.
+
+00:40:27.426 --> 00:40:27.999
+So-
+
+00:40:30.138 --> 00:40:32.599
+I'm not gonna vote for
+PDFs in November either.
+
+00:40:32.822 --> 00:40:33.178
+Um,
+
+00:40:36.342 --> 00:40:38.895
+But, um, usually- That should've
+been off the ballot a long time ago.
+
+00:40:39.762 --> 00:40:44.081
+But usually an HTML
+webpage is a good solution.
+
+00:40:44.084 --> 00:40:44.383
+You know?
+
+00:40:44.383 --> 00:40:46.934
+There's really no reason
+for us to have PDFs anymore.
+
+00:40:47.134 --> 00:40:50.713
+We're not p- we're not really printing
+things, and the technology that we were
+
+00:40:50.713 --> 00:40:55.580
+using those PDFs for definitely has
+advanced that they can, like, read, um,
+
+00:40:55.592 --> 00:40:58.083
+structured off of a, off of a webpage.
+
+00:40:58.490 --> 00:40:58.985
+Um,
+
+00:41:01.006 --> 00:41:06.872
+m- mostly I suggest HTML because it's
+responsive, it's searchable, it's
+
+00:41:07.069 --> 00:41:12.406
+typically accessible across our different
+devices and assistive technologies.
+
+00:41:12.747 --> 00:41:17.834
+But if a PDF is still needed, I
+like offering the same information
+
+00:41:18.048 --> 00:41:22.841
+in a web accessible format too,
+like a web format, you know, rather
+
+00:41:22.843 --> 00:41:25.707
+than making PDF the only option.
+
+00:41:25.719 --> 00:41:28.307
+So if you do have them, I
+would say give an alternative.
+
+00:41:28.931 --> 00:41:29.174
+Right.
+
+00:41:29.310 --> 00:41:30.969
+And I think that answered
+the second question.
+
+00:41:31.156 --> 00:41:34.542
+The second question was what's an
+alternative, um, in the EV flow.
+
+00:41:34.654 --> 00:41:36.795
+So all right, so let's move
+on to the next question.
+
+00:41:37.254 --> 00:41:41.586
+Uh, do you address whether to use title
+or sentence case in your style guide?
+
+00:41:41.883 --> 00:41:45.282
+It's hard to find consistent info
+on whether one is accessible.
+
+00:41:45.819 --> 00:41:49.514
+Also, what, what about
+ampersands and parentheses,
+
+00:41:50.538 --> 00:41:52.281
+such as to introduce acronyms?
+
+00:41:53.149 --> 00:41:53.603
+Okay.
+
+00:41:53.604 --> 00:41:57.340
+So I've… That's a
+multiple question for me.
+
+00:41:57.362 --> 00:42:00.531
+Maybe a, a two-part quest- or
+three-part question for me.
+
+00:42:00.900 --> 00:42:04.996
+Um, so let's talk about
+sentence case first.
+
+00:42:05.020 --> 00:42:09.469
+Um, I usually recommend sentence case
+because it's easier to read, and it
+
+00:42:09.471 --> 00:42:14.018
+creates a more consistent experience,
+especially with headings and buttons and
+
+00:42:14.018 --> 00:42:19.953
+labels, but that's really a personal or an
+organization or a design choice, you know?
+
+00:42:19.973 --> 00:42:24.642
+But for me, I find that, you know, when
+we're working with, um, with folks who
+
+00:42:24.642 --> 00:42:28.431
+might have, um, cognitive disabilities,
+that sentence case is easier for them
+
+00:42:28.432 --> 00:42:32.154
+to parse, um, because they can see it
+as a sentence and one clear thought.
+
+00:42:32.544 --> 00:42:39.057
+Um, for acronyms, um, I do
+recommend, um, spelling them out
+
+00:42:39.062 --> 00:42:41.912
+the first time and putting that
+acronym in parentheses, right?
+
+00:42:42.175 --> 00:42:46.977
+Um, like Web Content, uh, Accessibility
+Guidelines and then, you know,
+
+00:42:47.105 --> 00:42:50.365
+uh, the WCAG in parentheses.
+
+00:42:50.930 --> 00:42:53.346
+And then after that, you
+know, using it on your own.
+
+00:42:53.626 --> 00:42:59.658
+Um, if the acronym is… That's if the,
+if, if it's common for your audience.
+
+00:42:59.658 --> 00:43:03.352
+You may not need to define it every
+time, but definitely that first time
+
+00:43:03.371 --> 00:43:07.335
+ev- on every, on every, like, at
+the beginning of your webinar or at
+
+00:43:07.336 --> 00:43:08.753
+the beginning of your white paper.
+
+00:43:09.103 --> 00:43:14.628
+So and then let's talk about ampersands
+and all those kinds of signs.
+
+00:43:14.976 --> 00:43:24.790
+Um, for screen readers, I think,
+and for folks who, um, uh, maybe
+
+00:43:24.790 --> 00:43:27.182
+come from a different language set
+or something like that, some of
+
+00:43:27.182 --> 00:43:32.703
+those characters can be confusing,
+so I typically recommend only using
+
+00:43:32.707 --> 00:43:34.939
+characters that are on your keyboard.
+
+00:43:35.532 --> 00:43:38.647
+If you have to, like, type a
+special way to get, like, a…
+
+00:43:39.172 --> 00:43:42.269
+I don't like em dashes either
+for a lot of different reasons.
+
+00:43:42.270 --> 00:43:47.723
+But if you have to type it special
+on your keyboard, typically not all
+
+00:43:47.938 --> 00:43:52.325
+accessibility or assistive technology
+can read that the way you intend it,
+
+00:43:52.331 --> 00:43:53.941
+and it can kind of mess things up.
+
+00:43:54.205 --> 00:43:58.893
+So I do recommend that you stick to those
+characters on your standard keyboard.
+
+00:44:00.069 --> 00:44:00.314
+All right.
+
+00:44:00.316 --> 00:44:04.216
+And then, and then, um, I didn't
+know if you t- touched on the title
+
+00:44:04.216 --> 00:44:05.851
+or sentence case in the style guide.
+
+00:44:06.332 --> 00:44:09.118
+Yeah, I think that's- Okay
+… personal, but mostly I recommend
+
+00:44:09.118 --> 00:44:11.477
+the sentence case 'cause it's
+easier- Got it … to parse, yeah.
+
+00:44:11.586 --> 00:44:11.800
+Yeah.
+
+00:44:11.957 --> 00:44:12.136
+Got it.
+
+00:44:12.392 --> 00:44:14.719
+All right, so we're, we're back at PDFs.
+
+00:44:15.014 --> 00:44:15.029
+Okay.
+
+00:44:15.029 --> 00:44:16.933
+Um, they love your stance on PDFs.
+
+00:44:17.273 --> 00:44:20.699
+Uh, what are your thoughts on PDF
+alternatives on mobile devices?
+
+00:44:21.395 --> 00:44:22.092
+Okay.
+
+00:44:22.884 --> 00:44:28.813
+So I think my hatred for PDFs
+came from accessing them on mobile
+
+00:44:28.813 --> 00:44:31.469
+devices, um, to begin with, right?
+
+00:44:31.494 --> 00:44:35.495
+And then finding the hatred just
+seep out all over, um, after that.
+
+00:44:35.977 --> 00:44:39.282
+Uh, but they can be really frustrating.
+
+00:44:39.293 --> 00:44:42.895
+You know, I worked in hospice for
+a really long time and, you know,
+
+00:44:42.897 --> 00:44:46.507
+sometimes our elderly people or people
+who had traumatic brain injuries,
+
+00:44:46.516 --> 00:44:48.177
+all they had was their mobile device.
+
+00:44:48.602 --> 00:44:51.966
+Um, and they found those, the, the
+forms that we had at the hospice to
+
+00:44:51.970 --> 00:44:55.471
+be especially frustrating because
+they required people to, like,
+
+00:44:55.754 --> 00:45:01.116
+zoom in and do horizontal scrolling
+and really awkward navigation.
+
+00:45:01.445 --> 00:45:06.764
+Um, so even a technically
+accessible PDF really did not work.
+
+00:45:06.788 --> 00:45:09.825
+Well, I don't know if there's a
+thing as an accessible PDF, but
+
+00:45:10.110 --> 00:45:12.053
+they didn't work on the phone.
+
+00:45:12.080 --> 00:45:14.375
+You know, it was just this
+frustrating experience,
+
+00:45:14.375 --> 00:45:15.919
+especially with those scroll bars.
+
+00:45:16.284 --> 00:45:20.628
+So if the content's really meant to
+be read on a phone, I'd go back to
+
+00:45:20.628 --> 00:45:26.282
+that HTML page, um, and offer the PDF
+as an optional download again, so.
+
+00:45:27.872 --> 00:45:28.593
+All right, thank you.
+
+00:45:28.593 --> 00:45:28.908
+Yeah.
+
+00:45:28.908 --> 00:45:32.933
+Uh, what's a convincing argument for
+plain language when stakeholders claim
+
+00:45:33.142 --> 00:45:37.741
+that their target audience is educated
+adults who don't need simpler language?
+
+00:45:37.991 --> 00:45:38.415
+Okay.
+
+00:45:38.551 --> 00:45:41.678
+So plain language doesn't mean
+simple language necessarily.
+
+00:45:41.743 --> 00:45:43.986
+Maybe I got that wording wrong in my talk.
+
+00:45:43.986 --> 00:45:44.825
+I can't remember.
+
+00:45:45.212 --> 00:45:51.073
+Um, so I work in a… I work building
+exams for the, the Linux Foundation, and
+
+00:45:51.075 --> 00:45:55.033
+we have a global audience, and because
+we're a non-profit, we don't always
+
+00:45:55.042 --> 00:45:58.477
+have the funds to translate our exams.
+
+00:45:58.714 --> 00:46:02.131
+And so when I first started on it,
+you know, a number of years ago,
+
+00:46:02.524 --> 00:46:06.086
+some of these test questions were,
+like, overly complicated, and then
+
+00:46:06.087 --> 00:46:09.861
+the- the- the- the choices, you know,
+the answers and the distractors,
+
+00:46:10.178 --> 00:46:12.895
+were overly, like, verbose, right?
+
+00:46:13.363 --> 00:46:18.328
+And we would get support tickets saying
+that there was ambiguous language.
+
+00:46:18.350 --> 00:46:22.118
+But once we, like, switched to global
+English, like a globified, glob-
+
+00:46:22.332 --> 00:46:26.519
+global English- Mm-hmm … our support
+tickets for that, you know, ambiguous
+
+00:46:26.587 --> 00:46:35.395
+wording really went down because
+plain language reduces cognitive load.
+
+00:46:36.006 --> 00:46:36.067
+I guess so.
+
+00:46:36.069 --> 00:46:41.229
+Um, it makes information easier to
+understand the first time, right?
+
+00:46:41.493 --> 00:46:44.203
+Of course, like, there's white papers,
+there's all, you know, all those
+
+00:46:44.216 --> 00:46:47.370
+kinds of things, but when we're, like,
+talking about our global audience
+
+00:46:47.372 --> 00:46:51.499
+and our, and our digital assets being
+accessible for- for people, especially
+
+00:46:51.499 --> 00:46:56.423
+when they can't be translated, um, you
+know, reading in that second language.
+
+00:46:56.453 --> 00:46:59.819
+And, you know, even, like, for people
+with those episodic disabilities,
+
+00:46:59.819 --> 00:47:03.598
+like a migraine at the end of the day
+or you've had a full workday, you've
+
+00:47:03.600 --> 00:47:10.428
+been on your computer, that cognitive
+load may keep people from continuing
+
+00:47:10.428 --> 00:47:12.723
+to engage with your content, you know?
+
+00:47:12.982 --> 00:47:16.428
+Um, especially when you're trying
+to do something quickly, right?
+
+00:47:16.604 --> 00:47:20.397
+You know, um, so I really think that
+it's… it makes the information
+
+00:47:20.435 --> 00:47:23.473
+easier to understand the first
+time, to sort of iterate on that.
+
+00:47:24.493 --> 00:47:24.870
+Awesome.
+
+00:47:24.870 --> 00:47:25.247
+Awesome.
+
+00:47:25.589 --> 00:47:28.147
+Um, the next one is an alt text question.
+
+00:47:28.473 --> 00:47:30.841
+Do you use alt text for
+images behind headings?
+
+00:47:32.509 --> 00:47:36.821
+Um, do I use alt text for
+images behind headings?
+
+00:47:37.134 --> 00:47:40.950
+I'm not quite sure what that means,
+but I will- I'm assuming dec-
+
+00:47:40.977 --> 00:47:43.086
+decorative, but I- I wanna stay- Okay.
+
+00:47:43.091 --> 00:47:44.247
+So, okay … accurate first.
+
+00:47:44.247 --> 00:47:44.257
+Okay.
+
+00:47:44.257 --> 00:47:50.437
+So, you know, if that alt… if that
+image is purely decorative, um, behind the
+
+00:47:50.437 --> 00:47:54.942
+heading, I would usually give it an empty
+alt text so the screen reader skips it.
+
+00:47:55.348 --> 00:48:00.484
+Um, if the image adds information that's
+not conveyed by the heading, um, or
+
+00:48:00.500 --> 00:48:03.973
+the nearby text, then it definitely
+needs that meaningful alt text.
+
+00:48:04.165 --> 00:48:08.618
+But also, like, I give a- a… I
+don't, I don't know if I did it for-
+
+00:48:08.952 --> 00:48:13.993
+for this conference or not, but I give
+a talk on, like, providing alt text,
+
+00:48:14.256 --> 00:48:16.189
+and I talk about decorative images.
+
+00:48:16.464 --> 00:48:16.942
+And-
+
+00:48:19.357 --> 00:48:23.162
+Is really think about why you're
+using that decorative image.
+
+00:48:23.206 --> 00:48:28.174
+Like, if it's conveying,
+like, mood or feeling,
+
+00:48:30.848 --> 00:48:35.940
+you're doing a disservice to your
+content consumer by not describing it.
+
+00:48:36.350 --> 00:48:39.219
+So really think about that
+decorative image, you know?
+
+00:48:39.220 --> 00:48:43.269
+What, uh, but at the same time, like,
+you know, does, is… I don't know.
+
+00:48:43.270 --> 00:48:48.551
+It's such a complicate such a complicated
+topic and, um, but really think about why
+
+00:48:48.551 --> 00:48:50.196
+you're using the image in the first place.
+
+00:48:50.205 --> 00:48:54.507
+So, you know, if you're conveying mood or
+conveying emotion, I would say describe
+
+00:48:54.507 --> 00:48:56.505
+it, but without being overly verbose.
+
+00:48:57.479 --> 00:48:57.776
+Okay.
+
+00:48:57.819 --> 00:49:00.417
+I think we have about a, a, a
+minute and a half- Okay … so I'm
+
+00:49:00.418 --> 00:49:02.581
+gonna try to ask a simple question.
+
+00:49:02.592 --> 00:49:05.125
+Hopefully it's not-
+Okay … too, uh, too difficult.
+
+00:49:05.179 --> 00:49:08.370
+Uh, is there a good
+source for global English?
+
+00:49:11.877 --> 00:49:12.718
+Hmm.
+
+00:49:13.727 --> 00:49:19.383
+So I might not have the answer to that,
+but there's the Kincaid scale, I think
+
+00:49:19.383 --> 00:49:25.658
+it's called, that you can run your, your
+content through, uh, uh, like a parser
+
+00:49:25.674 --> 00:49:29.959
+that will tell you what reading level
+you're at in your, in your language.
+
+00:49:30.225 --> 00:49:33.803
+You know, typically for the global
+audience, we say ninth grade
+
+00:49:33.803 --> 00:49:37.102
+reading level, maybe even lower,
+you know, in parts of Europe.
+
+00:49:37.285 --> 00:49:41.528
+United States, I think we aim for the
+11th grade, but don't quote me on that.
+
+00:49:41.547 --> 00:49:42.462
+That might be wrong.
+
+00:49:42.640 --> 00:49:45.859
+But there are resources online where
+you can run your content through it
+
+00:49:46.162 --> 00:49:51.991
+and then, um, you know, uh, uh…
+Yeah, I don't, I don't, I don't,
+
+00:49:52.031 --> 00:49:53.452
+I don't have a guide offhand.
+
+00:49:53.462 --> 00:49:56.944
+I've just been a technical editor for
+so long that it's just really easy
+
+00:49:56.946 --> 00:49:59.245
+for me to translate things, right?
+
+00:49:59.850 --> 00:50:00.145
+Mm-hmm.
+
+00:50:00.350 --> 00:50:04.067
+And I think, um, the great thing about
+this community, people are just thr- you
+
+00:50:04.067 --> 00:50:06.560
+know, they're- Oh … just lighting up
+the chat with them, so- Flesch-Kincaid.
+
+00:50:06.597 --> 00:50:08.100
+Yeah, that's the one … they've got,
+they've got your back on this one.
+
+00:50:08.522 --> 00:50:12.499
+Um, so, uh, I mean, I've, I've seen
+you s- present so many times, and it
+
+00:50:12.499 --> 00:50:16.615
+was so much better for me to be here
+with you as an emcee and just- Right
+
+00:50:16.616 --> 00:50:19.877
+and just take it, take it in in
+person, so thank you so much for
+
+00:50:19.877 --> 00:50:21.564
+sharing with the community today.
+
+00:50:21.578 --> 00:50:22.557
+Thank you, AmyJune.
+
+00:50:23.777 --> 00:50:25.982
+Thank you, Joe, and thanks
+to the WordPress community.
+
+00:50:25.984 --> 00:50:27.395
+I always enjoy coming back.
+
+00:50:27.812 --> 00:50:28.158
+Yeah.
+
+00:50:28.399 --> 00:50:29.576
+You were awesome as always.
+
+00:50:30.924 --> 00:50:33.442
+Thank you for attending this
+session with AmyJune Hineline.
+
+00:50:33.611 --> 00:50:36.207
+You can continue this
+conversation on Slack or on
+
+00:50:36.207 --> 00:50:42.859
+social media at WP Accessibility
+Day or WP 2026, or WPAD 2026.
+

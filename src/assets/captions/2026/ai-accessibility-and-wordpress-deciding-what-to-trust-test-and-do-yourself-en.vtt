@@ -1,0 +1,2575 @@
+WEBVTT
+
+00:00:01.700 --> 00:00:04.651
+Narrator: WordPress Accessibility Day 2026.
+
+00:00:05.217 --> 00:00:11.489
+AI, Accessibility, and WordPress: Deciding
+What to Trust, Test, and Do Yourself.
+
+00:00:11.908 --> 00:00:17.213
+Presented by Simon Miner, Founder
+and CEO at Pedal Point Solutions.
+
+00:00:17.719 --> 00:00:23.473
+This session was presented on
+October 8th, 2026 at 02:00 UTC.
+
+00:00:25.533 --> 00:00:28.462
+WordPress Accessibility Day 2026.
+
+00:00:28.829 --> 00:00:30.554
+Thank you to our sponsors.
+
+00:00:30.918 --> 00:00:35.412
+Platinum Sponsor: Equalize
+Digital, websites for everyone.
+
+00:00:35.943 --> 00:00:39.625
+Equalize Digital's Accessibility
+Checker plugin makes real-time
+
+00:00:39.626 --> 00:00:43.038
+testing in the WordPress editor
+faster and more affordable.
+
+00:00:43.942 --> 00:00:48.158
+Auditing services and online
+courses help organizations build
+
+00:00:48.349 --> 00:00:50.328
+and maintain accessible websites.
+
+00:00:50.949 --> 00:00:52.999
+Platinum Sponsor: Gravity.
+
+00:00:53.487 --> 00:00:56.995
+Gravity Forms is the accessible
+form builder for WordPress.
+
+00:00:57.382 --> 00:01:00.967
+Trusted by millions of sites,
+it's built to create powerful
+
+00:01:01.110 --> 00:01:04.152
+WCAG-compliant forms for any project.
+
+00:01:04.691 --> 00:01:09.541
+Gold Sponsors: Kinsta, Insi, WP Engine.
+
+00:01:10.156 --> 00:01:15.391
+Silver Sponsors: Second Melody,
+Tenrec: Your Website, Only Better.
+
+00:01:16.731 --> 00:01:20.615
+Visit sponsor pages to enter to
+win giveaways and access swag.
+
+00:01:21.033 --> 00:01:25.656
+Go to wpaccessibility.day/2026/sponsors.
+
+00:01:29.509 --> 00:01:31.066
+Don't forget to leave feedback.
+
+00:01:31.537 --> 00:01:35.953
+Go to wpaccessibility.day/2026/feedback.
+
+00:01:42.012 --> 00:01:44.865
+Joe: Welcome to WordPress
+Accessibility Day 2026.
+
+00:01:45.346 --> 00:01:49.643
+My name is Joe Simpson Jr. and I'm
+principal at Joe A. Simpson Jr., LLC.
+
+00:01:50.481 --> 00:01:54.690
+Thank you for joining us for AI,
+Accessibility, and WordPress:
+
+00:01:55.080 --> 00:01:59.501
+Deciding What to Trust, Test,
+and Do Yourself with Simon Miner.
+
+00:02:01.067 --> 00:02:06.300
+Simon Miner is the founder of Pedal Point
+Solutions, pedalpoint.com, a certified
+
+00:02:06.312 --> 00:02:11.592
+disability-owned agency dedicated to
+helping organizations learn, practice,
+
+00:02:11.948 --> 00:02:13.950
+and experience digital accessibility.
+
+00:02:15.710 --> 00:02:20.512
+He is a certified web accessibility
+professional with IAAP and has
+
+00:02:20.525 --> 00:02:25.310
+over 25 years of experience in web
+development and software engineering
+
+00:02:27.742 --> 00:02:32.070
+Simon has given presentations on
+training and web accessibility to
+
+00:02:32.071 --> 00:02:36.273
+corporations, colleges, and community
+groups for more than 10 years
+
+00:02:38.464 --> 00:02:43.225
+He also creates software tools to help
+people with disabilities better use
+
+00:02:43.225 --> 00:02:49.209
+the internet, such as the Site Unseen
+and Sound Pointer Chrome extensions,
+
+00:02:49.546 --> 00:02:55.316
+the So- the Song Clock web app, and
+the award-winning Inclusiville website.
+
+00:02:57.004 --> 00:03:02.436
+He regularly gives talks and presentations
+for events and organizations such as the
+
+00:03:02.441 --> 00:03:07.227
+CSUN Assistive Technology Conference,
+the International Association of
+
+00:03:07.242 --> 00:03:11.620
+Accessibility Professionals, and
+the Disabled Stories Co- Collective.
+
+00:03:14.362 --> 00:03:18.692
+Please feel free to add your questions
+in the Zoom Q&A section, and we'll
+
+00:03:18.692 --> 00:03:20.132
+answer them at the end of the session.
+
+00:03:21.361 --> 00:03:23.810
+Use the chat to connect
+with other at-attendees.
+
+00:03:24.659 --> 00:03:25.634
+Simon: Hey, everybody.
+
+00:03:26.460 --> 00:03:30.823
+I hope you're having a wonderful
+WordPress Accessibility Day today, and
+
+00:03:30.894 --> 00:03:36.747
+it is my honor to be here with you to
+chat a little bit about AI accessibility
+
+00:03:36.779 --> 00:03:43.184
+and WordPress, and specifically think
+about how we decide what to test, what
+
+00:03:43.184 --> 00:03:46.147
+to trust, and what to do ourselves.
+
+00:03:46.991 --> 00:03:50.741
+So, um, I know you're all busy and
+eager, so let's get right into it.
+
+00:03:51.416 --> 00:03:53.302
+Just a little bit about me to begin with.
+
+00:03:53.316 --> 00:03:54.586
+My name is Simon Miner.
+
+00:03:54.992 --> 00:04:00.141
+I've been a software engineer and
+developer for over 25 years, and for
+
+00:04:00.142 --> 00:04:04.864
+the last 10 of those years or more,
+I have been involved in developing
+
+00:04:04.875 --> 00:04:06.874
+and teaching digital accessibility.
+
+00:04:07.341 --> 00:04:14.425
+Um, I have had the privilege of becoming
+certified as an accessibility practitioner
+
+00:04:14.427 --> 00:04:20.067
+through IAAP, and I run an agency named
+Pedal Point Solutions, where we help
+
+00:04:20.084 --> 00:04:24.849
+organizations learn, practice, and
+experience digital accessibility through
+
+00:04:25.030 --> 00:04:30.674
+consulting, training, accessible website
+and app builds, et cetera, et cetera.
+
+00:04:30.904 --> 00:04:34.241
+And we are a certified
+disability-owned business as well.
+
+00:04:34.968 --> 00:04:40.798
+In addition, I'm legally blind, so this
+is very close to my heart, what we'll be
+
+00:04:40.799 --> 00:04:42.865
+talking about today and, and what I do.
+
+00:04:43.630 --> 00:04:45.520
+And finally, a little bit of a disclaimer.
+
+00:04:45.521 --> 00:04:50.839
+Although I am an avid AI user,
+uh, I am by no means an AI expert.
+
+00:04:51.018 --> 00:04:54.143
+AI is changing and developing
+so quickly that it's very
+
+00:04:54.722 --> 00:04:55.906
+difficult to keep up with it.
+
+00:04:56.403 --> 00:05:00.662
+Um, so we'll learn together today,
+and, uh, that's what I like to do.
+
+00:05:02.429 --> 00:05:07.606
+In terms of a brief agenda or an overview
+of what we're going to cover today, we're
+
+00:05:07.608 --> 00:05:12.360
+gonna start with a little conversation
+about why AI matters for accessibility
+
+00:05:12.360 --> 00:05:17.691
+in WordPress, and then talk about some
+guidelines and guardrails that I've found
+
+00:05:17.692 --> 00:05:20.834
+helpful when using AI for my own work.
+
+00:05:21.575 --> 00:05:28.414
+After that, we'll dive into some targeted
+AI applications for accessibility in
+
+00:05:28.419 --> 00:05:32.986
+WordPress, and these will sort of be
+just cherry-picked examples of things
+
+00:05:32.988 --> 00:05:36.764
+I've found that work for me that will
+hopefully give you some inspiration
+
+00:05:37.166 --> 00:05:39.655
+on applying AI to your workflow.
+
+00:05:40.229 --> 00:05:43.861
+We'll talk about content
+creation with ChatGPT.
+
+00:05:45.308 --> 00:05:51.145
+We'll spend some time, um, discussing
+how to do accessibility fixes with
+
+00:05:51.171 --> 00:05:57.666
+Claude Code, and then we will wrap up
+with just a brief, uh, few comments
+
+00:05:57.688 --> 00:06:02.828
+on website management with MCP and
+the potential that's developing there.
+
+00:06:03.686 --> 00:06:09.926
+Lastly, we'll recap some key takeaways,
+and then, um, you'll be free to go or ask
+
+00:06:09.927 --> 00:06:11.743
+questions if you're in the live session.
+
+00:06:12.815 --> 00:06:16.453
+You are free to download these slides.
+
+00:06:16.528 --> 00:06:21.037
+You can get a copy for yourself, uh,
+by scanning the QR code on the right
+
+00:06:21.038 --> 00:06:22.371
+side of this page if you'd like.
+
+00:06:22.937 --> 00:06:27.977
+There is also a link, um, above
+them, and I'm going to read
+
+00:06:27.979 --> 00:06:29.558
+that in case you can't see it.
+
+00:06:30.050 --> 00:06:37.278
+Um, the link, uh, URL is
+https://pedalpoint.com.
+
+00:06:38.787 --> 00:06:43.259
+That's P-E-D-A-L-P-O-I-N-T.C-O-M/WPA11Y26.
+
+00:06:49.539 --> 00:06:52.368
+So feel free to grab those
+if you'd like as we dive in.
+
+00:06:53.856 --> 00:06:59.029
+So why does AI matter for
+accessibility in WordPress?
+
+00:07:00.000 --> 00:07:03.515
+Well, this may seem kind of obvious,
+but it's a good place to start our
+
+00:07:03.515 --> 00:07:09.103
+conversation because the reality
+for many WordPress practitioners and
+
+00:07:09.117 --> 00:07:14.014
+agencies is that we work on small
+teams or we're solopreneurs like I am.
+
+00:07:14.522 --> 00:07:18.507
+And in, in doing that, we
+have to wear many hats.
+
+00:07:19.167 --> 00:07:25.336
+In addition to the testing, the
+auditing, the design, the development,
+
+00:07:25.350 --> 00:07:30.733
+consulting work, uh, and training we do
+as accessibility professionals, we often
+
+00:07:30.780 --> 00:07:36.907
+need to handle our own sales and marketing
+efforts, and we need to, uh, deal with
+
+00:07:36.932 --> 00:07:44.851
+ancillary but also very important tasks
+of HR, finance, and, uh, legal concerns.
+
+00:07:45.769 --> 00:07:51.184
+And as you've no doubt heard and
+experienced, AI can replace lots
+
+00:07:51.185 --> 00:07:56.118
+of repetitive work and speed
+up structured tasks, uh, which
+
+00:07:56.120 --> 00:08:01.013
+allows smaller organizations and
+solopreneurs like you and me to
+
+00:08:01.026 --> 00:08:06.271
+grow our impact and scale without
+having to increase headcount so much.
+
+00:08:07.245 --> 00:08:13.947
+Now, one drumbeat I'm going to
+hit over and over during this time
+
+00:08:13.948 --> 00:08:21.433
+together is that efficiency cannot
+replace thoughtful accessibility work.
+
+00:08:21.716 --> 00:08:26.584
+Um, and so that needs to be said up
+front, and it needs to come into every
+
+00:08:27.204 --> 00:08:31.132
+conversation and thought process we
+have about artificial intelligence
+
+00:08:33.759 --> 00:08:37.756
+With that said, I wanna talk about
+AI's relationship to accessibility
+
+00:08:37.770 --> 00:08:39.171
+'cause it's a bit complicated.
+
+00:08:40.164 --> 00:08:46.626
+Uh, as we've heard and the hype
+machines have, uh, told us for
+
+00:08:46.642 --> 00:08:50.362
+months and months now, AI is really
+helping, and that's very true.
+
+00:08:50.993 --> 00:08:57.516
+AI can automate some repetitive
+accessibility work, um, like testing
+
+00:08:57.910 --> 00:09:01.784
+and faster audit reporting, uh,
+just to name a couple of things.
+
+00:09:02.001 --> 00:09:09.855
+One of the most interesting pieces
+of, um, of accessibility advantage, I
+
+00:09:09.856 --> 00:09:14.726
+will say, uh, that AI has en-enabled
+is this thing that Anthropic is
+
+00:09:14.727 --> 00:09:17.249
+calling disability as infrastructure.
+
+00:09:17.569 --> 00:09:22.074
+Anthropic, uh, surveyed about eighty-one
+thousand of its users a few months ago,
+
+00:09:22.517 --> 00:09:28.084
+and part of their findings were that,
+um, people with disabilities are actually
+
+00:09:28.087 --> 00:09:35.555
+using AI to write specific tools and
+solutions for problems they are facing
+
+00:09:35.699 --> 00:09:40.478
+to get around accessibility barriers,
+if you will, and overcome obstacles
+
+00:09:40.689 --> 00:09:47.524
+or complete tasks that were otherwise
+challenging or impossible for them.
+
+00:09:47.921 --> 00:09:53.685
+And this is because, you know, with a
+little bit of know-how, uh, many, many
+
+00:09:53.685 --> 00:10:00.069
+people are now able to use AI-assisted
+coding to, uh, create software solutions.
+
+00:10:00.528 --> 00:10:04.660
+And up till this point in
+history, uh, it wasn't economical
+
+00:10:04.670 --> 00:10:10.020
+for each person to develop a
+software solution for themselves.
+
+00:10:10.136 --> 00:10:13.544
+Um, but now it-- now that
+is becoming mainstream.
+
+00:10:14.443 --> 00:10:18.156
+We are able to build things to
+solve our own problems, and that's
+
+00:10:18.157 --> 00:10:26.053
+a really, uh, neat and optimistic,
+promising, uh, feature of AI.
+
+00:10:27.271 --> 00:10:35.948
+Conversely, AI is also hurting,
+uh, accessibility because, um, AI
+
+00:10:35.969 --> 00:10:41.598
+auto-generates inaccessible code,
+websites, and docs really by default, and
+
+00:10:41.598 --> 00:10:43.269
+we'll talk about why that is in a second.
+
+00:10:43.884 --> 00:10:48.478
+Um, it will often build UIs
+without really thinking about
+
+00:10:48.483 --> 00:10:50.125
+s-the semantics underneath of them.
+
+00:10:50.924 --> 00:10:54.435
+And as you've probably seen, it
+can hallucinate with its answers,
+
+00:10:54.435 --> 00:10:57.336
+and with accessibility, that comes
+through in a lot of ways, like with
+
+00:10:57.358 --> 00:10:59.929
+alt text for images being inaccurate.
+
+00:11:01.277 --> 00:11:06.005
+Even more concerning is that
+AI is actively excluding people
+
+00:11:06.021 --> 00:11:07.343
+in the disability community.
+
+00:11:08.040 --> 00:11:14.209
+Disabled voices are often left out of
+the design of models and AI solutions.
+
+00:11:14.876 --> 00:11:22.827
+And most data that AI is trained
+on is inaccessible, uh, in and of
+
+00:11:22.827 --> 00:11:27.921
+itself and lacks disability context.
+
+00:11:28.423 --> 00:11:34.568
+And on top of that, many AI tools
+assume non-disabled defaults.
+
+00:11:35.147 --> 00:11:38.824
+Uh, and I'm not necessarily talking as
+much about, you know, the Claude Codes
+
+00:11:38.846 --> 00:11:44.814
+and the ChatGPTs, but you have probably
+seen that many, many, many companies are
+
+00:11:44.839 --> 00:11:51.386
+offering AI as a feature, um, for their,
+um, products and services these days.
+
+00:11:51.688 --> 00:11:55.155
+And not all of them know about
+accessibility and how to implement it
+
+00:11:55.174 --> 00:12:01.352
+well into their products and services,
+let alone their AI-powered ones.
+
+00:12:02.248 --> 00:12:09.194
+So we are left to sort of deal with
+this spectrum of usefulness versus
+
+00:12:09.195 --> 00:12:13.277
+challenging, um, situations here.
+
+00:12:13.929 --> 00:12:20.311
+And I wanna dig into what I talked about
+with, um, AI generating inaccessible,
+
+00:12:20.771 --> 00:12:23.492
+uh, code and contect-- content.
+
+00:12:23.493 --> 00:12:27.421
+And this is unfortunately
+because AI-assisted, uh, coding
+
+00:12:27.421 --> 00:12:29.866
+is inaccessible by default.
+
+00:12:30.347 --> 00:12:34.420
+And I wrote a blog about this,
+um, uh, a few months ago.
+
+00:12:34.424 --> 00:12:41.830
+Basically, um Talking about how
+because the internet is riddled
+
+00:12:41.830 --> 00:12:47.683
+with an inaccessible code and
+code examples, most large language
+
+00:12:47.702 --> 00:12:50.392
+models are learning from that.
+
+00:12:50.400 --> 00:12:59.493
+Um, Anna Cook wrote another post, um, sort
+of calling this out, uh, w-with respect
+
+00:12:59.532 --> 00:13:02.757
+to the WebAIM Million report this year.
+
+00:13:03.422 --> 00:13:09.004
+Each year, AIM, uh, produces a report,
+as you probably know, that, um, sort
+
+00:13:09.005 --> 00:13:18.254
+of talks about the top accessibility
+errors on the, uh, top one million
+
+00:13:18.266 --> 00:13:21.213
+homepages a-across the, the internet.
+
+00:13:21.715 --> 00:13:27.761
+And they calculate how many
+automatable, uh, defect detections
+
+00:13:27.840 --> 00:13:28.948
+they find on these sites.
+
+00:13:28.949 --> 00:13:33.704
+And so for the past several years,
+it's hovered between 95 and 97%
+
+00:13:34.263 --> 00:13:35.648
+and gone up and down a little bit.
+
+00:13:36.018 --> 00:13:40.683
+And you-- if you can see the graphing,
+uh, on this page, you'll notice that
+
+00:13:40.683 --> 00:13:47.520
+there's a, uh, a purple line that
+shows this percentage year after year.
+
+00:13:48.043 --> 00:13:52.632
+Now, what was concerning is
+that it slowly had been making--
+
+00:13:52.673 --> 00:13:57.292
+th-this percentage had slowly been
+declining over, uh, several years.
+
+00:13:57.316 --> 00:14:00.534
+But then in 2026, the report
+actually showed an uptick.
+
+00:14:01.240 --> 00:14:07.964
+And the folks at w-AIM, uh, WebAIM,
+they, they asserted that this
+
+00:14:07.964 --> 00:14:14.408
+happened, happened at the same time as
+AI-assisted coding, uh, is exploding.
+
+00:14:14.782 --> 00:14:19.339
+And data backs that up, too, because if
+you look at the Stack Overflow Developer
+
+00:14:19.341 --> 00:14:25.553
+Survey, it's showing that, um, over the
+last few years, developers have adopted
+
+00:14:25.577 --> 00:14:28.647
+AI coding tools at an astounding rate.
+
+00:14:29.305 --> 00:14:36.787
+And as that rate of adoption converged
+with , you know, with, uh, went towards
+
+00:14:36.801 --> 00:14:46.299
+85 and 90%, um, we saw the, um, we,
+we saw the WebAIM report's percentage
+
+00:14:46.310 --> 00:14:48.505
+go up again, which is unfortunate.
+
+00:14:48.872 --> 00:14:52.934
+Now, there may be other reasons for that,
+and I wouldn't take this as hard, uh,
+
+00:14:53.144 --> 00:14:57.388
+data and research yet, but it's anecdotal
+evidence that seems to be playing
+
+00:14:57.389 --> 00:14:59.578
+itself out in a lot of arenas here.
+
+00:15:01.881 --> 00:15:02.954
+So what can we do about it?
+
+00:15:03.498 --> 00:15:07.611
+I mean, we all know that AI is here
+to stay, and many of us have found
+
+00:15:07.612 --> 00:15:12.816
+ways to make our lives more productive
+and our work more efficient with it.
+
+00:15:13.377 --> 00:15:18.335
+Well, for me, I found several, um,
+points of guidance and guardrails
+
+00:15:18.335 --> 00:15:25.375
+that I use, uh, to sort of help my
+own work, um, with AI be as, um,
+
+00:15:26.749 --> 00:15:32.084
+as q- high quality, eh, as possible
+and keep its integrity, if you will.
+
+00:15:32.106 --> 00:15:34.226
+And so I wanna spend like a
+few minutes going over those.
+
+00:15:35.365 --> 00:15:39.719
+I found that AI works best
+for me when I employ it on
+
+00:15:39.719 --> 00:15:41.630
+repetitive and structured tasks.
+
+00:15:42.333 --> 00:15:48.198
+So in the accessibility world, that
+might be drafting reports or formatting
+
+00:15:48.606 --> 00:15:54.930
+notes, summarizing, uh, you know,
+findings, uh, from automated tools,
+
+00:15:54.930 --> 00:15:59.370
+or generating templates that I'm going
+to use to send reports to clients.
+
+00:16:00.026 --> 00:16:05.043
+Um, it's really useful in early stage
+brainstorming and iteration, uh, things
+
+00:16:05.043 --> 00:16:10.856
+like exploring ideas or UI concepts,
+um, alt-- drafting alt texts, and
+
+00:16:10.857 --> 00:16:15.151
+then, um, remediation approaches,
+you know, experimenting with those.
+
+00:16:15.703 --> 00:16:17.923
+Admin and operational work it's great for.
+
+00:16:18.057 --> 00:16:25.187
+F- uh, I use a lot of AI for, um, helping
+customize follow-up emails or proposal
+
+00:16:25.187 --> 00:16:28.980
+scaffolding, um, internal documentation.
+
+00:16:28.986 --> 00:16:31.626
+And, and this is great because it
+leaves more time for the work that
+
+00:16:31.626 --> 00:16:35.046
+I really wanna be doing, uh, helping
+to make the web more accessible.
+
+00:16:35.892 --> 00:16:40.593
+And then, um, it's also great for
+accelerating lower risk deliverables.
+
+00:16:41.117 --> 00:16:45.774
+Things like first drafts of, you know,
+marketing copy or content, uh, training
+
+00:16:45.774 --> 00:16:49.605
+material that I'm going to go over,
+like outlines and things like that, and
+
+00:16:49.606 --> 00:16:56.432
+then reports that I'm going to review
+I don't use AI for certain things as
+
+00:16:56.432 --> 00:16:59.716
+much as I use it for certain things,
+and I think this is just as critical.
+
+00:17:00.184 --> 00:17:04.586
+Um, I, I, I really don't think
+it's a good idea to use AI for
+
+00:17:04.597 --> 00:17:10.389
+business-critical decisions, things
+like accessibility strategy or legal
+
+00:17:10.391 --> 00:17:16.887
+positioning, uh, production launches,
+uh, or high-impact recommendations.
+
+00:17:17.084 --> 00:17:21.365
+Um, you know, it may sort of inform
+those a little bit, but I'm gonna,
+
+00:17:21.940 --> 00:17:27.458
+I'm gonna use my expertise and my
+perspective to really, uh, create
+
+00:17:27.459 --> 00:17:29.735
+those assets, make those decisions.
+
+00:17:30.306 --> 00:17:33.543
+I'm not gonna use it for
+work that differentiates me.
+
+00:17:34.115 --> 00:17:38.745
+Um, you're, you're the only one with
+your voice and your particular style and
+
+00:17:38.746 --> 00:17:44.147
+experience, and you don't wanna let AI
+take that creativity away from you because
+
+00:17:44.147 --> 00:17:47.626
+that what's ma- what, what makes you, you.
+
+00:17:48.368 --> 00:17:52.879
+And it what's h- it, it's what helps you
+build meaningful relationships with your
+
+00:17:52.879 --> 00:17:54.976
+clients and your partners around you.
+
+00:17:56.439 --> 00:18:00.353
+I try to avoid AI for
+important human conversations.
+
+00:18:00.758 --> 00:18:05.730
+If I need to have a sensitive discussion
+that might involve conflict or resolution,
+
+00:18:06.293 --> 00:18:08.103
+uh, I'm not gonna use AI for that.
+
+00:18:08.202 --> 00:18:12.660
+That, that to me is something that should
+be person to person, human to human.
+
+00:18:13.243 --> 00:18:17.963
+Things like coaching and training,
+uh, I also want to have those be,
+
+00:18:18.369 --> 00:18:26.473
+uh, real human-to-human interactions
+because, um, I find that skills and,
+
+00:18:26.473 --> 00:18:33.746
+uh, expertise is caught as often as it
+is taught, and AI really-- It's hard
+
+00:18:33.747 --> 00:18:35.495
+to catch things like that from AI.
+
+00:18:36.712 --> 00:18:42.689
+And then tasks requiring intuition
+or, uh, deep niche experience
+
+00:18:42.735 --> 00:18:47.567
+and expertise are also sort of
+questionable gray areas for AI.
+
+00:18:47.971 --> 00:18:54.190
+Things like con-complex usability
+judgments or, uh, non-trivial workflows
+
+00:18:54.504 --> 00:18:57.151
+or, uh, deeply contextual decisions.
+
+00:18:57.369 --> 00:19:00.624
+Again, AI can inform and help with
+these, but the-- at the end of the
+
+00:19:00.625 --> 00:19:05.224
+day, um, if I'm going to be responsible
+for supporting and backing something
+
+00:19:05.225 --> 00:19:08.844
+up, I wanna make sure I made the
+decisions around it, and I know why.
+
+00:19:10.042 --> 00:19:13.135
+And so over the last year, I've
+actually come up with some really
+
+00:19:13.137 --> 00:19:18.997
+helpful rules, uh, for how to use
+generate-- generative AI in my work.
+
+00:19:20.447 --> 00:19:26.861
+So firstly, um, I tend to be an
+optimist, so I actively seek out new
+
+00:19:26.866 --> 00:19:32.701
+ways to experiment, uh, with AI in my
+workflow and in my everyday activities.
+
+00:19:33.244 --> 00:19:40.039
+However, I'm only going to rely on AI
+for tasks that I have experienced myself
+
+00:19:40.226 --> 00:19:42.657
+and am comfortable doing on my own.
+
+00:19:43.916 --> 00:19:45.210
+And the reason for that is simple: I
+
+00:19:45.210 --> 00:19:45.846
+can't
+
+00:19:46.488 --> 00:19:50.061
+accurately review what I don't understand.
+
+00:19:51.127 --> 00:19:54.627
+And so if I d-- if I ask AI to do
+something for me that I've never done,
+
+00:19:55.460 --> 00:20:00.391
+I'm not really gonna understand the how
+behind it, and I'm always going to review
+
+00:20:00.665 --> 00:20:06.146
+AI-generated content for accuracy and
+completeness because hallucinations are
+
+00:20:06.146 --> 00:20:09.679
+real, and AI speaks them very confidently.
+
+00:20:10.726 --> 00:20:16.109
+Whenever I get a-AI output, I'm going
+to revise it, uh, so that it reflects
+
+00:20:16.109 --> 00:20:19.437
+my own expertise, tone, and judgment.
+
+00:20:20.082 --> 00:20:24.143
+Um, I'm-- I always wanna customize
+it before sharing it or publishing
+
+00:20:24.143 --> 00:20:30.520
+with any-anybody because I need to
+preserve, uh, my voice and my integrity.
+
+00:20:31.012 --> 00:20:35.282
+Uh, my reputation is, is, is
+at stake here, and I don't want
+
+00:20:35.293 --> 00:20:37.199
+to hand that off to a machine.
+
+00:20:39.104 --> 00:20:44.502
+And I found that using detailed prompts
+and conversational chats are very useful.
+
+00:20:44.764 --> 00:20:49.211
+When you're very specific with AI,
+it tends to do better, and, um,
+
+00:20:50.225 --> 00:20:51.639
+you know, that's all fine and good.
+
+00:20:52.296 --> 00:20:55.532
+But I've also found that trying
+to wrestle with AI too much on a
+
+00:20:55.532 --> 00:20:57.161
+problem can be counterproductive.
+
+00:20:57.453 --> 00:21:02.979
+And so I'll stop if the prompting
+work becomes more challenging
+
+00:21:02.979 --> 00:21:04.466
+than the project itself.
+
+00:21:05.006 --> 00:21:09.385
+And in fact, I like to
+regularly skip AI to stay sharp.
+
+00:21:09.853 --> 00:21:14.551
+Um, there's this phenomenon that's
+been called situational disempowerment,
+
+00:21:14.679 --> 00:21:19.800
+where people are actually outsourcing
+their value judgments, uh, and their
+
+00:21:19.800 --> 00:21:21.449
+critical thinking skills to AI.
+
+00:21:22.074 --> 00:21:28.040
+Um, they are trusting AI with expertise
+that they have, but in doing so, it sort
+
+00:21:28.040 --> 00:21:33.864
+of whittles away at their own, um, edge,
+and I need to be able to maintain that.
+
+00:21:33.864 --> 00:21:37.433
+So if AI goes away tomorrow, I
+need to be able to do my job and
+
+00:21:37.433 --> 00:21:38.806
+to make those decisions well.
+
+00:21:39.571 --> 00:21:45.071
+So that's a little bit about how I use
+AI and the guidelines that surround it.
+
+00:21:45.606 --> 00:21:48.322
+So now I want to just take a,
+a really quick trip into some
+
+00:21:48.326 --> 00:21:53.588
+practical WordPress-based, uh,
+applications for AI in accessibility.
+
+00:21:54.553 --> 00:21:58.727
+And these are gonna fall into a couple
+different categories: uh, content creation
+
+00:21:58.786 --> 00:22:02.064
+and, uh, more technical developments.
+
+00:22:02.322 --> 00:22:05.950
+So for the content creation stuff, I
+want us to start with, uh, thinking
+
+00:22:05.951 --> 00:22:09.524
+about ChatGPT, um, to generate copy.
+
+00:22:09.524 --> 00:22:14.039
+I found it to be pretty good with
+content generation, and so I'll use
+
+00:22:14.068 --> 00:22:19.077
+ChatGPT a lot for drafting social
+media posts or blog articles, uh,
+
+00:22:19.690 --> 00:22:24.469
+newsletters, alternative text for
+images, audio description scripts.
+
+00:22:24.501 --> 00:22:27.769
+I've u- I've, I've used ChatGPT
+successfully for all of these.
+
+00:22:28.463 --> 00:22:33.268
+And digging down a little bit, um,
+another type of content is images.
+
+00:22:33.336 --> 00:22:38.857
+Um, ChatGPT can actually help with
+generating promotional banners or blog
+
+00:22:38.858 --> 00:22:45.444
+posts, um, uh, hero images, newsletter
+graphics, uh, simple charts even.
+
+00:22:46.152 --> 00:22:51.430
+Um, one tool I will, I will plug
+here is a website called Venngage.
+
+00:22:51.451 --> 00:22:56.328
+This is a platform, um, that can sort
+of be considered as a Canva alternative.
+
+00:22:56.699 --> 00:23:01.967
+Um, it's a web-based design
+system with a sharp focus on
+
+00:23:02.049 --> 00:23:04.519
+accessibility and AI tooling.
+
+00:23:04.795 --> 00:23:10.556
+So it'll generate images for you and
+then help you to make sure their color
+
+00:23:10.557 --> 00:23:16.231
+contrast is, is, um, uh, correct and
+that it gets good alt text for them.
+
+00:23:16.579 --> 00:23:20.818
+When you're generating content, it'll,
+it'll, um, help you with heading
+
+00:23:20.819 --> 00:23:27.592
+orders and making sure that, um,
+visual and reading orders, uh, match.
+
+00:23:28.765 --> 00:23:32.105
+And then, um, I've come up with this--
+I've recently come up with this,
+
+00:23:32.341 --> 00:23:39.036
+this nice little template for helping
+AI, um, generate alt text for me.
+
+00:23:39.036 --> 00:23:42.748
+I call it guided alt text
+generation, and I'll talk about
+
+00:23:42.749 --> 00:23:44.242
+that more in a, in a moment.
+
+00:23:45.179 --> 00:23:49.828
+Um, AI is also great with
+creating and using templates.
+
+00:23:50.252 --> 00:23:54.850
+So, um, different AI providers
+have different names for these.
+
+00:23:54.850 --> 00:23:56.554
+It could be skills or plugins.
+
+00:23:57.827 --> 00:24:03.257
+Um, uh, there are other names out there,
+but essentially, uh, for instance, I have
+
+00:24:03.258 --> 00:24:10.107
+a template for when I am, um, writing my
+newsletter, my regular newsletter, that
+
+00:24:10.223 --> 00:24:13.627
+understands its structure and what's
+it supposed to-- what's supposed to be
+
+00:24:13.628 --> 00:24:18.753
+in it, and so I can give it, um, the
+tools or, or, or the content I want it
+
+00:24:18.756 --> 00:24:24.134
+to describe, uh, in bullet points as
+opposed to, you know, writing things out.
+
+00:24:24.136 --> 00:24:29.654
+So if I have a list of, uh, really
+cool articles I wanna share about
+
+00:24:29.791 --> 00:24:32.660
+accessibility, I can give tho--
+the URLs to those, and it'll
+
+00:24:32.664 --> 00:24:34.147
+find the title and the author.
+
+00:24:34.405 --> 00:24:38.976
+It can summarize the post, um,
+and make it sort of a teaser that
+
+00:24:38.976 --> 00:24:40.997
+I can then edit and go through.
+
+00:24:41.503 --> 00:24:43.064
+Um, so that's neat.
+
+00:24:43.721 --> 00:24:47.981
+Uh, I've been able to make a
+skill for project documentation
+
+00:24:47.982 --> 00:24:49.122
+or knowledge graphing.
+
+00:24:49.636 --> 00:24:54.756
+This is pretty cool because as I'm
+developing, um, these days, you know,
+
+00:24:54.756 --> 00:24:59.609
+any sort of project, requirements
+tend to shift and change as decisions
+
+00:24:59.613 --> 00:25:01.217
+are made and questions are asked.
+
+00:25:01.697 --> 00:25:07.453
+And I'm finding that if I'm, if I'm
+working with an AI agent, uh, on
+
+00:25:07.498 --> 00:25:13.262
+code, um, it-- there are ways to
+help it understand what's changing
+
+00:25:13.263 --> 00:25:15.695
+and document that as we go along.
+
+00:25:16.168 --> 00:25:19.647
+And that's really helpful because
+it saves a lot of time and,
+
+00:25:19.860 --> 00:25:22.320
+and review of, uh, documents.
+
+00:25:22.321 --> 00:25:27.013
+I mean, obviously I do review the
+documentation, but it's, it's neat that
+
+00:25:27.014 --> 00:25:35.335
+it's able to sort of just flow with the,
+the work, uh, much more than in years gone
+
+00:25:35.335 --> 00:25:37.190
+by, where it was sort of a separate step.
+
+00:25:38.416 --> 00:25:43.762
+And then, uh, one really practical way
+is, uh, for AI I found is that, you know,
+
+00:25:43.763 --> 00:25:48.793
+if I've got a social media post idea I
+want to publish to several platforms,
+
+00:25:49.186 --> 00:25:53.857
+AI can help me tweak its voice and
+language to optimize for those platforms.
+
+00:25:53.869 --> 00:25:57.806
+So an Instagram post is probably
+gonna sound a little bit differently
+
+00:25:58.122 --> 00:26:02.561
+than a LinkedIn post, and AI can
+help with that so that I can focus
+
+00:26:02.581 --> 00:26:07.032
+on the core message and let it
+handle the specifics of platforms.
+
+00:26:08.539 --> 00:26:10.239
+So a couple of examples here.
+
+00:26:10.371 --> 00:26:15.527
+Um, I wrote an article a little bit
+ago about this process I'm using called
+
+00:26:15.542 --> 00:26:22.572
+guided alt text generation, and it
+essentially te- asks three questions:
+
+00:26:22.751 --> 00:26:29.567
+what, where, and why about an image,
+um, which will help surface the idea of
+
+00:26:29.839 --> 00:26:34.202
+the content of the image, the context
+of the image, what's around it, and the
+
+00:26:34.205 --> 00:26:36.589
+purpose of the image, or why is it there?
+
+00:26:37.037 --> 00:26:40.632
+It turns out there are three
+prepositions that go really nicely
+
+00:26:40.633 --> 00:26:43.883
+with each of those, um, terms.
+
+00:26:44.139 --> 00:26:48.677
+Uh, when you're asking what an
+image is about, what is it of
+
+00:26:48.707 --> 00:26:50.813
+is a great way to, to put that.
+
+00:26:51.317 --> 00:26:57.819
+Uh, the context of image or where it is,
+is-- can be, uh, captured in about, and
+
+00:26:57.819 --> 00:27:00.957
+then the purpose is why or what's it for?
+
+00:27:01.535 --> 00:27:08.425
+And so I found that using a prompt
+that combines those three prepositions
+
+00:27:08.675 --> 00:27:10.800
+leads to pretty cool alt texts.
+
+00:27:11.134 --> 00:27:16.077
+So basically, I'll say something like,
+"Give me alt text for this image of…"
+
+00:27:16.683 --> 00:27:21.877
+And then I say what the image is, "for,"
+and then kind of describe the purpose
+
+00:27:21.879 --> 00:27:25.693
+of the image, "about," and then I'll
+talk about the context of the image.
+
+00:27:25.987 --> 00:27:28.695
+So I just wanna show you
+a quick example of that.
+
+00:27:30.418 --> 00:27:30.709
+And
+
+00:27:35.077 --> 00:27:42.867
+So here I am at ChatGPT right now and I'm
+going to upload an image from my computer
+
+00:27:47.681 --> 00:27:48.819
+Just called image.
+
+00:27:49.909 --> 00:27:54.167
+And, you know, I, I've seen so many
+people using AI just say something like,
+
+00:27:54.568 --> 00:28:00.865
+"Generate alt text for this image." And
+so it thinks a bit, and then it comes back
+
+00:28:00.866 --> 00:28:03.956
+and says, "Okay, uh, here's the alt text.
+
+00:28:03.956 --> 00:28:09.608
+Students re- students relax on a grassy
+college campus in front of historic
+
+00:28:09.608 --> 00:28:15.439
+red brick buildings with leaf, uh,
+leafless trees, outdoor chairs, and
+
+00:28:15.440 --> 00:28:21.547
+paved, uh, and paved walkways, uh,
+under a par- a partly cloudy sky."
+
+00:28:21.764 --> 00:28:22.171
+Okay.
+
+00:28:22.352 --> 00:28:23.427
+That's actually true.
+
+00:28:23.511 --> 00:28:25.729
+If you can see the image,
+it sorta looks like that.
+
+00:28:26.612 --> 00:28:30.099
+But that's for… And, and I mean, that's
+not bad alt text, to be honest with
+
+00:28:30.100 --> 00:28:32.585
+you, but it's not very focused either.
+
+00:28:33.288 --> 00:28:38.086
+Um, if I can ask the… If I can
+add some details for this using
+
+00:28:38.088 --> 00:28:41.711
+that template, we might get a
+l- a lot more specific alt text.
+
+00:28:41.944 --> 00:28:51.074
+So say I was, uh, generating alt
+text for this image of, um, and the
+
+00:28:51.074 --> 00:28:54.956
+target a- the target of this was
+going to be an article about famous,
+
+00:28:55.590 --> 00:28:59.631
+uh, residents of this dormitory
+here, which is called Hollis Hall.
+
+00:29:00.257 --> 00:29:05.017
+So then I would say something
+like, "Generate alt text, uh,
+
+00:29:05.017 --> 00:29:06.518
+of this image of Hollis Hall
+
+00:29:09.087 --> 00:29:23.229
+for an article titled Famous
+Residents of Hollis Hall about
+
+00:29:24.101 --> 00:29:35.402
+noteworthy, uh, misspelled it,
+noteworthy occupant of the dorm.
+
+00:29:37.569 --> 00:29:40.860
+We give that to ChatGPT, and
+it'll come back hopefully with
+
+00:29:40.861 --> 00:29:43.662
+something a little more helpful.
+
+00:29:45.146 --> 00:29:45.607
+Here we go.
+
+00:29:46.915 --> 00:29:54.166
+It says, "Hollis Hall, a historic red
+brick Harvard dormitory surrounded by a
+
+00:29:54.166 --> 00:30:01.408
+leafless, uh, and grassy, uh, courtyard
+where students sit and work on a sunny
+
+00:30:01.408 --> 00:30:06.608
+day." So I wouldn't say that's perfect,
+but it's more in the right direction
+
+00:30:06.610 --> 00:30:12.984
+because you'll see the, uh, focus of
+the alt text now is on the subject
+
+00:30:12.984 --> 00:30:18.607
+of the article that we're, that we
+are, um, going to, um, place this in.
+
+00:30:19.121 --> 00:30:21.733
+And so again, I'm not gonna
+use that alt text as is.
+
+00:30:21.741 --> 00:30:26.371
+I'm probably gonna look at it and re--
+and, and, uh, review it more, but you can
+
+00:30:26.371 --> 00:30:28.301
+see that it's, it's much more on target.
+
+00:30:29.309 --> 00:30:30.703
+Okay, moving on
+
+00:30:33.701 --> 00:30:37.868
+I also wanna talk about how, uh,
+I've been able to use AI, um,
+
+00:30:37.882 --> 00:30:40.021
+to generate accessible images.
+
+00:30:40.419 --> 00:30:44.661
+Um, a-and ChatGPT's gotten
+fairly good at this.
+
+00:30:45.103 --> 00:30:49.961
+Um, a few months ago, I was helping
+plan a, um, an event that was
+
+00:30:49.967 --> 00:30:55.596
+bringing, uh, disabled storytellers
+together to share, uh, tales of
+
+00:30:55.638 --> 00:30:57.744
+our challenges and adventures.
+
+00:30:57.774 --> 00:31:02.010
+And, um, this is part of a,
+an organization I, I help out
+
+00:31:02.011 --> 00:31:05.240
+with called Disabled Stories
+Collective, or DisCo for short.
+
+00:31:05.773 --> 00:31:09.237
+And, uh, this was going to
+be our first online event.
+
+00:31:09.526 --> 00:31:14.639
+And so the, um, organizer sent me
+an email with details, including the
+
+00:31:14.639 --> 00:31:21.088
+date, time, location, and the theme,
+and I was able to use ChatGPT, like,
+
+00:31:21.200 --> 00:31:23.680
+uh, like this to generate an image.
+
+00:31:23.721 --> 00:31:28.275
+I just, I, I started with a simple
+prompt that said, "Design a banner for
+
+00:31:28.275 --> 00:31:33.232
+a disabled storytellers event using
+info from this email." And then I just
+
+00:31:33.241 --> 00:31:35.323
+pasted the contents of the email in.
+
+00:31:35.941 --> 00:31:38.775
+And it came back with its first
+draft, which wasn't totally great.
+
+00:31:38.789 --> 00:31:40.276
+I won't show that right now.
+
+00:31:40.696 --> 00:31:43.815
+Um, but it was… there was a lot going
+on in it, and said-- I, I essentially
+
+00:31:43.815 --> 00:31:48.865
+said, "It's too busy. Can you please
+simplify it for me?" And then it
+
+00:31:48.866 --> 00:31:53.950
+came back and the colors weren't
+really that, that distinguishable.
+
+00:31:54.242 --> 00:31:55.881
+And I said, "Okay, this
+needs to be accessible.
+
+00:31:56.132 --> 00:31:59.790
+Please meet minimum contrast,
+uh, requirements with your color
+
+00:31:59.790 --> 00:32:02.688
+combinations." And so then it
+went away and worked and came back
+
+00:32:02.688 --> 00:32:05.488
+with something else, and it was
+getting in the right way, okay.
+
+00:32:05.495 --> 00:32:08.993
+And I said, "Well, you know, I
+have these logos, one for Disabled
+
+00:32:08.998 --> 00:32:12.313
+cl- Disabled Stories Collective
+and another organization that
+
+00:32:12.314 --> 00:32:13.452
+we're working with w- for this."
+
+00:32:13.467 --> 00:32:14.802
+It was the Perkins Library.
+
+00:32:15.253 --> 00:32:22.038
+Um, and so then put those into it and…
+But, um, the contrast, the text that
+
+00:32:22.038 --> 00:32:24.798
+came back was again inaccessible, so
+I said, "Oh, wait a minute, you gotta
+
+00:32:24.798 --> 00:32:26.878
+make that accessible." So it did that.
+
+00:32:26.897 --> 00:32:30.642
+And so finally, uh, some of the
+taglines and stuff came back, but they
+
+00:32:30.642 --> 00:32:35.267
+were a little verbose, and so I said,
+"Shorten this teaser," uh, essentially.
+
+00:32:35.426 --> 00:32:37.053
+Uh, the prompts were a little
+longer than this, but you
+
+00:32:37.055 --> 00:32:38.306
+get, you get the general idea.
+
+00:32:38.358 --> 00:32:42.766
+But after these six prompts, it
+did a fairly good job putting
+
+00:32:42.767 --> 00:32:46.543
+together, um, an accessible banner.
+
+00:32:46.685 --> 00:32:53.433
+Um, here on the screen now is that
+banner with the DISCO and Perkins
+
+00:32:53.434 --> 00:33:01.579
+Library, um- logos at the top, um, in
+front of a, a light green background,
+
+00:33:01.579 --> 00:33:06.529
+and then beneath that it says Virtually
+Able: Stories of Disabled Tech Life,
+
+00:33:06.571 --> 00:33:10.890
+um, on-- written in dark black and
+dark green on top of a light green.
+
+00:33:11.192 --> 00:33:15.765
+Next to them, you've got icons of a
+computer and a phone with, you know, the
+
+00:33:15.767 --> 00:33:17.950
+universal accessibility symbol and stuff.
+
+00:33:18.317 --> 00:33:26.876
+And then the tagline for the event, uh,
+Real Stories, Tech We Use, Lives We Share,
+
+00:33:26.923 --> 00:33:33.901
+again, in that dark black and, uh, green,
+uh, colors on the, on the light green hue.
+
+00:33:34.235 --> 00:33:35.218
+It meets color contrast.
+
+00:33:35.221 --> 00:33:40.065
+And below that you've got the, uh,
+specifics of the events, uh, with
+
+00:33:40.084 --> 00:33:41.442
+white text on black background.
+
+00:33:41.449 --> 00:33:45.104
+Friday, May 29th at 7:00 PM, virtual.
+
+00:33:45.378 --> 00:33:48.986
+And so we were able to post this on
+social media and share it with folks.
+
+00:33:49.013 --> 00:33:51.064
+Um, it worked pretty well, and
+it didn't really take that long.
+
+00:33:51.440 --> 00:33:51.956
+So that was neat.
+
+00:33:53.723 --> 00:34:01.223
+Accessibility fixes, um, uh, are often
+hard to find and more chal-- even
+
+00:34:01.223 --> 00:34:04.518
+more challenging to, uh, remediate.
+
+00:34:04.843 --> 00:34:09.037
+Uh, but I'm finding that with Claude
+Code, some of my development work,
+
+00:34:09.103 --> 00:34:10.877
+uh, can be sped up with those.
+
+00:34:11.313 --> 00:34:16.558
+Um, AI-assisted coding, uh, I'm finding
+for accessibility works best when you
+
+00:34:16.563 --> 00:34:23.723
+have a specific and bounded, um, problem
+that-- whose fixes you can review well.
+
+00:34:24.228 --> 00:34:28.619
+Um, and Claude Code specifically, I
+found works directly in a local Git
+
+00:34:28.621 --> 00:34:35.375
+repository or project folder, uh, on
+your machine with existing, uh, you
+
+00:34:35.376 --> 00:34:40.973
+know, a theme plugin, uh, architecture
+that your WordPress, uh, site may have.
+
+00:34:41.853 --> 00:34:46.752
+So, um, it's a strong fit I found for
+targeted accessibility improvements
+
+00:34:46.752 --> 00:34:52.097
+like keyboard operations, semantic
+markup or ARIA, uh, focus and
+
+00:34:52.112 --> 00:34:54.286
+interaction, interaction behavior.
+
+00:34:54.827 --> 00:35:01.286
+But again, this requires that human
+expertise, uh, still owns the outcome.
+
+00:35:02.226 --> 00:35:06.549
+I need to define the issue, I need
+to review the code, and I need to
+
+00:35:06.549 --> 00:35:10.564
+test with keyboard and assistive
+technology and deploy intentionally,
+
+00:35:10.734 --> 00:35:12.756
+not just letting Claude Code do that.
+
+00:35:14.221 --> 00:35:16.021
+So here's a fun example I, I had.
+
+00:35:16.063 --> 00:35:22.184
+Um, I have a, a client, uh, that, like
+many other, um, companies, wants to
+
+00:35:22.185 --> 00:35:28.159
+have sort of a, a background video
+on their homepage hero image and,
+
+00:35:28.178 --> 00:35:30.085
+uh, or their homepage hero area.
+
+00:35:30.300 --> 00:35:35.916
+And as we may or may not know,
+that's, uh, often a thing that, that,
+
+00:35:35.951 --> 00:35:41.469
+uh, clients do that's inaccessible
+because, um, it needs to have a
+
+00:35:41.479 --> 00:35:43.920
+pause or play button control with it.
+
+00:35:44.046 --> 00:35:47.833
+And, uh, most widgets out
+of the box don't do that.
+
+00:35:47.953 --> 00:35:53.593
+So, uh, for this issue, um, this,
+this video was already there, and I
+
+00:35:53.593 --> 00:35:54.822
+needed to make it more accessible.
+
+00:35:54.825 --> 00:36:00.214
+So my goal was to give users
+control, uh, over motion without
+
+00:36:00.289 --> 00:36:02.777
+disrupting the visual design.
+
+00:36:03.235 --> 00:36:09.608
+So Claude Code was able to update,
+um, the custom theme that this
+
+00:36:09.630 --> 00:36:10.883
+WordPress site was built on.
+
+00:36:11.570 --> 00:36:14.640
+Before this, it's funny, th-this
+custom theme had kind of been kind
+
+00:36:14.640 --> 00:36:18.562
+of over-engineered, but the fact that
+it was already in Git and in a repo
+
+00:36:18.568 --> 00:36:23.557
+made it, uh, fairly straightforward
+to, uh, give to Claude, and then it
+
+00:36:23.591 --> 00:36:28.677
+would straddle the, the theme and fix
+the PHP, JavaScript, and CSS for that.
+
+00:36:29.553 --> 00:36:33.659
+Um, and it actually made the change
+in the video plugin component itself,
+
+00:36:33.661 --> 00:36:35.894
+so it was-- it had a site-wide impact.
+
+00:36:36.818 --> 00:36:41.414
+Now again, human review was needed
+to verify that keyboard operation and
+
+00:36:41.415 --> 00:36:45.431
+screen reader usage, uh, and the, and
+that the announcements worked properly.
+
+00:36:47.515 --> 00:36:52.018
+The key lesson here is that AI can
+write, uh, the patch, but I still
+
+00:36:52.018 --> 00:36:54.393
+need to know what fixed means.
+
+00:36:54.716 --> 00:37:01.479
+And I'll show you that really quickly
+here, um, because… So here, this is,
+
+00:37:01.488 --> 00:37:03.361
+this is kind of the, the website here.
+
+00:37:03.362 --> 00:37:07.083
+You can see the video playing in
+the background behind the text here.
+
+00:37:07.634 --> 00:37:11.625
+And then in the back, uh, at
+the edge of the, the video here,
+
+00:37:11.627 --> 00:37:15.306
+you've, you-- on the bottom right,
+you've got this pause button.
+
+00:37:15.715 --> 00:37:18.721
+And so I can use my mouse
+to pause that or to play it.
+
+00:37:20.018 --> 00:37:24.800
+And in fact, um, that control
+is keyboard focusable.
+
+00:37:24.808 --> 00:37:26.888
+I'm not sure if you can
+see, but my mouse, my…
+
+00:37:26.974 --> 00:37:28.586
+I'm tabbing around the controls.
+
+00:37:28.791 --> 00:37:32.425
+Now I'm on the control,
+and I hit Enter to stop it.
+
+00:37:32.425 --> 00:37:34.672
+I can press space bar to start it again.
+
+00:37:35.375 --> 00:37:36.701
+Screen reader works as well.
+
+00:37:36.701 --> 00:37:37.797
+I'm not gonna demonstrate that now.
+
+00:37:37.797 --> 00:37:44.095
+But I was able to go a little bit even
+further and have the AI make it so that if
+
+00:37:44.169 --> 00:37:48.999
+tapping or clicking anywhere on the image
+itself or the video itself would, would
+
+00:37:49.000 --> 00:37:54.269
+pause it, which was really helpful, um,
+and is a little bit beyond what the WCAG
+
+00:37:54.310 --> 00:37:56.794
+calls for, but very useful none the same.
+
+00:37:58.404 --> 00:37:59.800
+All right, finishing up here.
+
+00:38:00.716 --> 00:38:07.261
+I wanna talk a little bit about WordPress,
+um, site building, uh, with accessibility
+
+00:38:07.261 --> 00:38:10.277
+in mind, um, using Claude Code.
+
+00:38:10.293 --> 00:38:12.277
+'Cause this is something
+I'm just getting into now.
+
+00:38:12.614 --> 00:38:19.384
+But the goal might be to rebuild an
+existing client site from scratch with
+
+00:38:19.432 --> 00:38:25.723
+WCAG 2.2 AA as an explicit requirement
+and target from the beginning.
+
+00:38:26.480 --> 00:38:31.905
+So, um, I had this client who had an
+existing website and wanted to redo
+
+00:38:31.906 --> 00:38:35.317
+it because it had some security, some
+performance, some accessibility issues.
+
+00:38:35.912 --> 00:38:39.818
+And what I was able to do is just
+ask Claude to scrape that site and
+
+00:38:39.959 --> 00:38:46.633
+generate an entirely new WordPress,
+um, installation of it, uh, keeping
+
+00:38:46.643 --> 00:38:52.398
+the content and the general, uh,
+structure of the, of the site intact.
+
+00:38:52.435 --> 00:38:57.189
+But updating the UI such that
+it was much more accessible and
+
+00:38:57.189 --> 00:38:59.135
+user-friendly after doing that.
+
+00:38:59.599 --> 00:39:02.072
+I specified an accessible theme to use.
+
+00:39:02.100 --> 00:39:08.300
+I told it to look at WCAG for this, and,
+um, it set up a local installation with
+
+00:39:08.309 --> 00:39:14.150
+Docker and wp-env, and actually set up
+a, a custom startup plugin where it could
+
+00:39:14.152 --> 00:39:17.151
+run PHP to build the site from scratch.
+
+00:39:18.579 --> 00:39:21.892
+So after doing this, we did
+some testing on, on the website.
+
+00:39:21.972 --> 00:39:27.012
+Uh, it went largely well, but
+again, uh, AI isn't perfect, and
+
+00:39:27.072 --> 00:39:30.205
+it thought it had made st- certain
+things accessible, but it hadn't.
+
+00:39:30.553 --> 00:39:34.671
+And when I went to test the FAQ
+page, I realized that the AI
+
+00:39:34.681 --> 00:39:40.310
+had had a, had a lot of trouble,
+um, capturing and communicating
+
+00:39:40.310 --> 00:39:42.925
+whe-- the state of each FAQ item.
+
+00:39:43.363 --> 00:39:49.504
+Okay, on the screen, you'll see an image
+that shows a short list of FAQ items all
+
+00:39:49.504 --> 00:39:54.558
+closed, which is visually indicated by
+a right-pointing triangle to their left.
+
+00:39:55.231 --> 00:39:58.847
+So that shows you visually whether
+they're closed or open, but underneath,
+
+00:39:59.516 --> 00:40:04.229
+um, the HTML uses ARIA to distinguish
+this, so screen reader users know
+
+00:40:04.229 --> 00:40:05.314
+whether they're open or closed.
+
+00:40:05.575 --> 00:40:08.199
+And the AI had a lot of
+problems getting this right.
+
+00:40:08.199 --> 00:40:12.665
+We had to go back and forth to make
+sure the state, uh, ARIA expanded
+
+00:40:12.668 --> 00:40:18.379
+or ARIA collapsed was communicated
+properly, and, um, to make sure
+
+00:40:18.379 --> 00:40:19.538
+it was announced correctly.
+
+00:40:20.127 --> 00:40:24.750
+And so it just went to show that even
+though the code and the visuals can
+
+00:40:24.750 --> 00:40:32.033
+look good, uh, we still need to, uh,
+test with AT 'cause it could fail there
+
+00:40:32.051 --> 00:40:34.071
+even after the AI thought it was done.
+
+00:40:35.466 --> 00:40:39.151
+And so finally, I just wanna mention in
+quick passing that there's this fairly
+
+00:40:39.152 --> 00:40:44.625
+new idea called MCP, which stands for
+Model Cont- Model Context Protocol, which
+
+00:40:44.645 --> 00:40:52.033
+essentially lets AI tools interact with
+external systems based on, um, permissions
+
+00:40:52.039 --> 00:40:57.400
+and authentications and, uh, whatever
+exposed features are available to it.
+
+00:40:58.305 --> 00:40:59.408
+This is coming to WordPress.
+
+00:40:59.413 --> 00:41:03.691
+It's already there in a lot
+of ways because, um, WordPress
+
+00:41:04.150 --> 00:41:07.146
+Core released an MCP adapter.
+
+00:41:07.613 --> 00:41:13.089
+And from what I can see, that's mostly
+being used right now for reporting
+
+00:41:13.107 --> 00:41:16.155
+and, um, read-only type of operations.
+
+00:41:16.181 --> 00:41:21.860
+Although plugins like WooCommerce
+have, uh, begun delving into
+
+00:41:21.895 --> 00:41:24.688
+product inventory management with
+it, which is really powerful.
+
+00:41:24.927 --> 00:41:28.495
+But this essentially lets you do on
+a live website what I was just sort
+
+00:41:28.495 --> 00:41:30.109
+of talking about on my local machine.
+
+00:41:30.937 --> 00:41:36.995
+And this means that what's coming
+is more powerful AI agents that
+
+00:41:36.997 --> 00:41:42.096
+facilitate accessibility, accessibility
+fixes with a single click.
+
+00:41:42.609 --> 00:41:46.135
+And I know this is coming
+because, uh, companies like
+
+00:41:46.142 --> 00:41:51.552
+Deque are adding MCP servers to
+do just that to their offerings.
+
+00:41:51.967 --> 00:41:55.364
+And maybe, you know, we're
+recording this a little bit before
+
+00:41:55.365 --> 00:41:58.358
+the actual WP Accessibility Day.
+
+00:41:58.388 --> 00:41:59.630
+Maybe it's there by now.
+
+00:41:59.985 --> 00:42:03.023
+But I just wanted to put that on your
+minds 'cause it-- this is a tool with a
+
+00:42:03.024 --> 00:42:05.541
+lot of potential and a lot of challenge.
+
+00:42:06.540 --> 00:42:11.644
+So just to wrap up, my main point
+here again is to use AI to accelerate
+
+00:42:11.651 --> 00:42:17.350
+scaffolding and support work, and
+use human experience and judgment
+
+00:42:17.397 --> 00:42:19.755
+to ensure accessibility is there.
+
+00:42:20.760 --> 00:42:24.267
+Because AI, as we've talked
+about simul-simultaneously
+
+00:42:24.274 --> 00:42:28.150
+helps, harms, and excludes users.
+
+00:42:28.762 --> 00:42:33.336
+Uh, and so we need to use it
+intentionally and not just automatically.
+
+00:42:34.231 --> 00:42:38.087
+We want-- We need to verify everything
+it outputs because it will respond
+
+00:42:38.091 --> 00:42:41.299
+confidently whether it's right or wrong.
+
+00:42:42.489 --> 00:42:47.004
+And on the plus side, there are always
+new tools coming out, and so we wanna
+
+00:42:47.005 --> 00:42:53.049
+find tools and workflows that fit our
+context, our clients, and our style.
+
+00:42:53.839 --> 00:42:58.216
+And again, I wanna just end with this
+point because it's central, is I feel
+
+00:42:58.217 --> 00:43:03.745
+like accessibility expertise matters
+more than ever today in AI-driven work
+
+00:43:03.751 --> 00:43:08.052
+because we need to be able to tell
+AI to be accessible and then evaluate
+
+00:43:08.052 --> 00:43:10.106
+whether it is or is not accessible.
+
+00:43:11.278 --> 00:43:12.611
+So thank you so much for listening.
+
+00:43:12.712 --> 00:43:16.845
+I have, um, information on here
+if you wanna get in touch with me.
+
+00:43:17.240 --> 00:43:18.968
+Uh, again, my name is Simon Miner.
+
+00:43:18.968 --> 00:43:21.514
+My website is pedalpoint.com.
+
+00:43:22.127 --> 00:43:25.799
+Uh, my email, LinkedIn, and
+newsletters are up there.
+
+00:43:25.809 --> 00:43:30.996
+I'll let you look at the downloaded slides
+for, um, specifics on those if you want.
+
+00:43:31.343 --> 00:43:34.297
+But I thank you so much, and
+I wish you all a great day.
+
+00:43:38.706 --> 00:43:41.350
+Joe: Thank you so much, Simon,
+for that great presentation.
+
+00:43:42.095 --> 00:43:46.943
+Um, there's quite a few questions
+in the Q&A, but I wanted to,
+
+00:43:46.973 --> 00:43:48.411
+to start you off with this.
+
+00:43:48.744 --> 00:43:54.467
+Um, I love how you described how you
+were learning and experimenting with AI.
+
+00:43:54.803 --> 00:43:59.598
+Uh, which AI tools do you prefer, and do
+you prefer them f- for specific tasks?
+
+00:44:01.520 --> 00:44:02.907
+Simon: So that's a great question.
+
+00:44:02.947 --> 00:44:06.863
+Um, so I primarily use, uh,
+Claude for development work.
+
+00:44:07.375 --> 00:44:11.798
+Um, it does a really good job
+sitting on top of GitHub repos
+
+00:44:12.110 --> 00:44:15.089
+and, um, uh, working with them.
+
+00:44:15.520 --> 00:44:21.499
+Uh, for more creative or design
+things, I find that OpenAI, uh,
+
+00:44:21.548 --> 00:44:24.125
+tends to be, um, a little better.
+
+00:44:24.125 --> 00:44:25.083
+Now, it's interesting.
+
+00:44:25.332 --> 00:44:33.761
+Accessibility-wise, um, the ChatGPT
+app until recently has been far
+
+00:44:33.764 --> 00:44:38.006
+and away better than Claude, but
+then Claude Code has its thing.
+
+00:44:38.006 --> 00:44:40.181
+So, so it depends on what
+you're looking for, kind of.
+
+00:44:40.601 --> 00:44:40.971
+Joe: Okay.
+
+00:44:41.351 --> 00:44:42.337
+Simon: That's kind of a short answer.
+
+00:44:42.586 --> 00:44:47.027
+Joe: Well, I, I like that because
+Amy has sort of the opposite end,
+
+00:44:47.119 --> 00:44:48.424
+uh, in terms of her question.
+
+00:44:48.757 --> 00:44:48.787
+Oh, yeah?
+
+00:44:48.787 --> 00:44:53.005
+She said, "If you had to give up
+AI for everything except one of the
+
+00:44:53.005 --> 00:44:56.717
+tasks that you discussed in your
+presentation, which one would you…
+
+00:44:57.045 --> 00:45:00.451
+which one are you going to keep?"
+And I'm gonna throw in, "And why?"
+
+00:45:02.196 --> 00:45:02.621
+Simon: Yeah.
+
+00:45:02.622 --> 00:45:03.247
+That's great.
+
+00:45:03.346 --> 00:45:07.365
+Um, so I'm gonna keep it
+for the thing that I am most
+
+00:45:07.379 --> 00:45:10.024
+confident in doing on my own.
+
+00:45:10.472 --> 00:45:15.216
+Um, so in this case I would probably say
+accessibility development and remediation,
+
+00:45:15.243 --> 00:45:16.501
+'cause I've been doing that for a while.
+
+00:45:17.137 --> 00:45:22.299
+I wouldn't trust AI, um, with something
+I don't understand quite as well.
+
+00:45:24.291 --> 00:45:24.685
+Joe: Okay.
+
+00:45:25.210 --> 00:45:26.477
+All right, next question.
+
+00:45:26.834 --> 00:45:29.979
+Uh, do you feel descriptive
+prompts resolve the bulk
+
+00:45:30.020 --> 00:45:32.054
+of AI hallucination issues?
+
+00:45:33.067 --> 00:45:37.062
+And then secondarily, and
+how about the images of folks
+
+00:45:37.063 --> 00:45:38.744
+with extra arms and fingers?
+
+00:45:38.854 --> 00:45:40.138
+Is there a solution for that?
+
+00:45:42.131 --> 00:45:44.847
+Simon: So, uh, descriptive
+prompts are helpful.
+
+00:45:45.316 --> 00:45:49.096
+Again, um, it just… I- i- if
+you're, if you've got some expertise
+
+00:45:49.097 --> 00:45:50.835
+on it, they tend to work better.
+
+00:45:51.195 --> 00:45:56.351
+Uh, extra arms and fingers, your
+mileage may vary depending on whether
+
+00:45:56.351 --> 00:46:00.804
+you prompted for them or not, or,
+um, more accurately, uh, prompted,
+
+00:46:01.130 --> 00:46:02.903
+explicitly prompted not to have them.
+
+00:46:05.273 --> 00:46:05.565
+Joe: Yeah.
+
+00:46:05.719 --> 00:46:07.402
+That's making my skin crawl just-
+
+00:46:07.424 --> 00:46:08.109
+Simon: I know, right?
+
+00:46:08.288 --> 00:46:08.950
+Joe: Oh, geez.
+
+00:46:09.045 --> 00:46:09.327
+Ooh.
+
+00:46:09.327 --> 00:46:09.618
+All right.
+
+00:46:09.649 --> 00:46:14.158
+Um, um, and, you know, during your
+presentation, uh, you did a lot of
+
+00:46:14.158 --> 00:46:16.554
+great work in describing, uh, AI.
+
+00:46:16.787 --> 00:46:21.651
+Um, in describing AI's function and
+scope, um, I've heard it referred
+
+00:46:21.652 --> 00:46:24.186
+to as a pencil, uh, nothing more.
+
+00:46:24.349 --> 00:46:27.351
+How would you describe it, and
+more specifically in terms of how
+
+00:46:27.351 --> 00:46:29.589
+Pedal Point solution leverages it?
+
+00:46:30.599 --> 00:46:31.663
+Simon: Oh, goodness.
+
+00:46:32.216 --> 00:46:37.281
+Um, well, I think we aim to use
+it as a pencil in a lot of our
+
+00:46:37.281 --> 00:46:38.994
+things, because it can be specific.
+
+00:46:39.630 --> 00:46:43.364
+Uh, if I'm honest, there have been times
+I've mistakenly used it as a sledgehammer,
+
+00:46:43.610 --> 00:46:46.179
+and it hasn't worked that, that great.
+
+00:46:46.761 --> 00:46:52.124
+Uh, or as, like, a very broad fishing
+net, which can bring up, uh, good
+
+00:46:52.125 --> 00:46:55.113
+things and bad things, and it's
+up to you to sift through them.
+
+00:46:55.719 --> 00:46:55.956
+Okay.
+
+00:46:55.956 --> 00:46:57.810
+Um, so we're still learning with that.
+
+00:46:58.237 --> 00:46:58.785
+Joe: Oh, perfect.
+
+00:46:58.811 --> 00:46:59.211
+Perfect.
+
+00:46:59.579 --> 00:47:01.432
+The old bull in the China shop routine.
+
+00:47:01.776 --> 00:47:02.868
+Simon: Yes, exactly.
+
+00:47:03.197 --> 00:47:06.916
+Joe: Is there a way to use AI to
+create keyboard commands for buttons?
+
+00:47:08.606 --> 00:47:10.962
+Simon: Yeah, I'm, I'm… Yes, absolutely.
+
+00:47:11.103 --> 00:47:13.525
+Um, in fact, I just
+did that with a client.
+
+00:47:13.864 --> 00:47:20.253
+Um, they wanted their header navigation,
+uh, which had, uh, submenus, um, to work
+
+00:47:20.253 --> 00:47:26.813
+with up and down, um, arrows in addition
+to with, with Tab and Escape and all that.
+
+00:47:26.860 --> 00:47:30.694
+And, you know, I was like, "Well,
+that's kind of… That might be a little
+
+00:47:30.694 --> 00:47:32.882
+advanced," but they really wanted it,
+and there wasn't anything against it,
+
+00:47:32.882 --> 00:47:39.661
+so I just had, um, AI write a little
+snippet for, um, W- the WPCode extension,
+
+00:47:40.046 --> 00:47:45.568
+um, that sat on top of, um, the theme
+GeneratePress and, uh, did that.
+
+00:47:45.569 --> 00:47:46.782
+So you can absolutely do that.
+
+00:47:47.234 --> 00:47:47.618
+Joe: Awesome.
+
+00:47:47.618 --> 00:47:47.628
+Awesome.
+
+00:47:47.628 --> 00:47:48.713
+Simon: They're just event listeners.
+
+00:47:48.797 --> 00:47:49.006
+Yeah.
+
+00:47:49.447 --> 00:47:51.026
+Joe: Uh, Alice had a second question.
+
+00:47:51.387 --> 00:47:55.272
+Um, if you are beginning a
+site from scratch, what do you
+
+00:47:55.273 --> 00:47:58.198
+recommend in using Claude Code?
+
+00:47:59.352 --> 00:48:00.070
+Simon: Hmm.
+
+00:48:00.547 --> 00:48:02.766
+So it depends on the nature of the site.
+
+00:48:03.181 --> 00:48:08.071
+I think if you've got a good design
+in mind, wireframes, uh, pictures,
+
+00:48:08.579 --> 00:48:12.362
+um, sort of a good information
+architecture, you could feed it that,
+
+00:48:12.864 --> 00:48:16.697
+and then it will sort of paint it
+in broad strokes, in my experience.
+
+00:48:16.968 --> 00:48:22.207
+But you're always going to have
+to hone it and, um, you know,
+
+00:48:22.275 --> 00:48:25.851
+uh, w- get, get to where it's a
+pencil, you're using a pencil.
+
+00:48:26.153 --> 00:48:29.590
+And that can be… AI
+can help with that, too.
+
+00:48:29.873 --> 00:48:33.574
+Sometimes it's just faster to do it
+yourself, though, uh, when you get
+
+00:48:33.574 --> 00:48:37.640
+down to the, you know, uh, specific
+content and things like that.
+
+00:48:38.419 --> 00:48:40.576
+Joe: What, what part of your
+learning curve would you say you're,
+
+00:48:40.723 --> 00:48:42.704
+you're in in terms of learning AI?
+
+00:48:44.013 --> 00:48:48.850
+Simon: Uh, I would say I'm solidly
+intermediate, uh, as long as they don't
+
+00:48:48.850 --> 00:48:50.181
+change it that much, which they do.
+
+00:48:50.183 --> 00:48:53.024
+So I'm probably
+advanced-beginner-intermediate
+
+00:48:53.326 --> 00:48:54.109
+if I'm sprinting.
+
+00:48:55.128 --> 00:48:55.601
+Joe: All right.
+
+00:48:55.895 --> 00:48:58.910
+Okay, here's one more question with the
+amount of time- Yeah … we have left.
+
+00:48:59.179 --> 00:48:59.395
+Sure.
+
+00:48:59.395 --> 00:49:03.830
+Uh, how can, how can AI be used
+to retrospectively fix a website
+
+00:49:03.845 --> 00:49:06.000
+to be accessible after it's live?
+
+00:49:06.965 --> 00:49:08.124
+Simon: Uh, that's a great question.
+
+00:49:08.462 --> 00:49:11.150
+Um, first you wanna have a staging
+environment or a development
+
+00:49:11.150 --> 00:49:15.185
+environment, absolutely, before you
+make any changes to a live, um, site.
+
+00:49:15.755 --> 00:49:22.310
+Then, um, you need the source or access
+to the source, um, and the content.
+
+00:49:22.643 --> 00:49:25.567
+Um, I find it best if it's
+checked into a Git repo.
+
+00:49:25.899 --> 00:49:31.817
+Um, then you can, uh, stack Claude
+Code on top of it and start, uh, asking
+
+00:49:31.819 --> 00:49:35.792
+it what r- needs remediation and how
+to do those, and then deploy them
+
+00:49:35.814 --> 00:49:38.856
+incrementally, uh, testing each as you go.
+
+00:49:39.214 --> 00:49:42.115
+Um, 'cause you don't wanna
+do a bunch of changes.
+
+00:49:42.115 --> 00:49:43.478
+Just change one variable at a time.
+
+00:49:43.484 --> 00:49:43.498
+Right.
+
+00:49:44.303 --> 00:49:46.507
+But you can do it, and I've, and
+I've used it to great effect.
+
+00:49:46.977 --> 00:49:47.846
+Joe: Awesome, awesome.
+
+00:49:48.221 --> 00:49:48.769
+Thanks so much.
+
+00:49:48.773 --> 00:49:51.288
+Simon: Yeah, so if you- Go on … if
+you guys wanna chat more, I'll be in,
+
+00:49:51.323 --> 00:49:54.819
+I'll be in Slack in the participants
+channel for a little bit, so thank you.
+
+00:49:55.051 --> 00:49:55.392
+Thanks, Jim.
+
+00:49:55.398 --> 00:49:55.731
+Joe: Awesome.
+
+00:49:56.054 --> 00:49:57.763
+Such a great presentation, Simon.
+
+00:49:58.221 --> 00:50:01.321
+Thank you so much for, uh,
+sharing your topic with us today.
+
+00:50:01.625 --> 00:50:02.661
+I really enjoyed it.
+
+00:50:02.691 --> 00:50:06.217
+Being, you know, I was gonna… I had a, I
+had a couple more questions, but of course
+
+00:50:06.459 --> 00:50:07.775
+I'll try to hit you up in the Slack.
+
+00:50:08.156 --> 00:50:08.346
+Simon: Sure.
+
+00:50:08.346 --> 00:50:09.757
+Joe: But, but thanks again.
+
+00:50:10.627 --> 00:50:11.368
+Thank- Thank you.
+
+00:50:11.368 --> 00:50:13.190
+Thanks to the au- S- Thanks
+to the audience for attending
+
+00:50:13.190 --> 00:50:14.663
+this session with Simon Miner.
+
+00:50:15.102 --> 00:50:18.817
+You can continue the conversation in
+Slack, as he mentioned, or on social
+
+00:50:18.819 --> 00:50:25.500
+media using WP A11Y Day or #WPAD2026.
+

@@ -1,0 +1,2600 @@
+WEBVTT
+
+
+00:00:01.406 --> 00:00:04.743
+Narrator: WordPress
+Accessibility Day 2026.
+
+00:00:05.219 --> 00:00:09.173
+Band-Aids on broken code:
+Why accessibility plugins
+
+00:00:09.261 --> 00:00:11.209
+can't replace human skill.
+
+00:00:11.817 --> 00:00:16.507
+Presented by Julia Undeutsch,
+accessibility specialist at
+
+00:00:16.544 --> 00:00:20.216
+Atos Technologies Austria GmbH.
+
+00:00:20.743 --> 00:00:26.615
+This session was presented on
+October 7th, 2026 at 18:00 UTC.
+
+00:00:28.559 --> 00:00:31.502
+WordPress Accessibility Day 2026.
+
+00:00:31.859 --> 00:00:33.586
+Thank you to our sponsors.
+
+00:00:33.955 --> 00:00:36.546
+Platinum Sponsor, Equalize Digital.
+
+00:00:36.641 --> 00:00:38.453
+Websites for everyone.
+
+00:00:38.982 --> 00:00:42.669
+Equalize Digital's Accessibility
+Checker Plugin makes real-time
+
+00:00:42.669 --> 00:00:46.077
+testing in the WordPress editor
+faster and more affordable.
+
+00:00:46.968 --> 00:00:51.181
+Auditing services and online
+courses help organizations build
+
+00:00:51.376 --> 00:00:53.358
+and maintain accessible websites.
+
+00:00:53.982 --> 00:00:56.029
+Platinum Sponsor, Gravity.
+
+00:00:56.519 --> 00:01:00.032
+Gravity Forms is the accessible
+form builder for WordPress.
+
+00:01:00.422 --> 00:01:04.006
+Trusted by millions of sites,
+it's built to create powerful
+
+00:01:04.149 --> 00:01:07.182
+WCAG-compliant forms for any project.
+
+00:01:07.720 --> 00:01:12.572
+Gold sponsors, Kinsta, Insi, WP Engine.
+
+00:01:13.191 --> 00:01:18.414
+Silver sponsors, Second Melody,
+10rec, your website only better.
+
+00:01:19.762 --> 00:01:23.654
+Visit sponsor pages to enter to
+win giveaways and access swag.
+
+00:01:24.069 --> 00:01:28.691
+Go to wpaccessibility.day/2026/sponsors.
+
+00:01:32.540 --> 00:01:34.098
+Don't forget to leave feedback.
+
+00:01:34.567 --> 00:01:38.983
+Go to wpaccessibility.day/2026/feedback.
+
+00:01:45.415 --> 00:01:49.136
+Abigail Silva: Welcome to
+WordPress Accessibility Day 2026.
+
+00:01:49.203 --> 00:01:53.701
+My name is Abigail Silva, and I am
+a digital accessibility consultant
+
+00:01:53.986 --> 00:01:57.265
+with the State of California
+Department of Rehabilitation.
+
+00:01:57.786 --> 00:02:01.566
+Thank you for joining us for
+Band-Aids on Broken Code: Why
+
+00:02:01.577 --> 00:02:06.184
+Accessibility Plugins Can't Replace
+Human Skill with Julia Undeutsch.
+
+00:02:06.643 --> 00:02:11.122
+Julia is a dev and UX
+accessibility specialist at Atos.
+
+00:02:11.553 --> 00:02:16.187
+After graduating from university with
+degrees in musicology and Japanese
+
+00:02:16.195 --> 00:02:20.879
+studies in the summer of 2020, she
+started learning front-end development and
+
+00:02:20.879 --> 00:02:23.704
+specialized in web accessibility early on.
+
+00:02:24.096 --> 00:02:28.132
+And since then, she has taken every
+opportunity to spread awareness
+
+00:02:28.158 --> 00:02:32.143
+on the topic by regularly creating
+content in the form of blog
+
+00:02:32.166 --> 00:02:35.088
+articles and similar materials.
+
+00:02:36.177 --> 00:02:41.514
+She was certified by IAAP as a
+professional in accessibility core
+
+00:02:41.518 --> 00:02:50.017
+competencies in 2022 and as a web
+accessibility specialist in 2025
+
+00:02:50.041 --> 00:02:55.868
+and was accepted into the Google
+Developer Expert Program in 2023.
+
+00:02:56.700 --> 00:03:01.178
+Please feel free to add your questions
+in the Zoom Q&A section, and we'll
+
+00:03:01.197 --> 00:03:03.067
+answer them at the end of the session.
+
+00:03:03.667 --> 00:03:06.736
+Use the chat to connect
+with other attendees
+
+00:03:10.971 --> 00:03:15.510
+Julia Undeutsch: A few years ago, there
+was a brief period of time when I was
+
+00:03:15.530 --> 00:03:17.979
+working on a website using the Divi theme.
+
+00:03:19.140 --> 00:03:22.554
+I actually hardly ever work with
+WordPress because I prefer coding on
+
+00:03:22.554 --> 00:03:25.882
+my own, especially when it's a small
+website and it's all for myself.
+
+00:03:26.169 --> 00:03:31.832
+But that's when I noticed there was
+a paid accessibility plugin by Divi.
+
+00:03:32.888 --> 00:03:33.625
+I was baffled.
+
+00:03:34.170 --> 00:03:35.461
+What's that all about, guys?
+
+00:03:35.710 --> 00:03:39.181
+If you already know that your
+theme lacks code quality, how dare
+
+00:03:39.181 --> 00:03:42.614
+you develop a plugin to fix your
+own crappy code and make people
+
+00:03:42.673 --> 00:03:44.147
+pay twice for it on top of that?
+
+00:03:46.019 --> 00:03:46.595
+Think about it.
+
+00:03:47.067 --> 00:03:49.379
+Seriously, let that sink in for a moment.
+
+00:03:51.380 --> 00:03:52.101
+I'm Julia.
+
+00:03:52.783 --> 00:03:57.420
+I am self-taught front-end developer
+based in Vienna, and I fell in love with
+
+00:03:57.460 --> 00:04:03.532
+coding during COVID, and specialized
+myself on accessibility there very on.
+
+00:04:04.142 --> 00:04:09.874
+I know that accessibility is scary,
+and nowadays, accessibility plugins
+
+00:04:09.874 --> 00:04:14.034
+are popping out everywhere saying,
+"I can make your website accessible
+
+00:04:14.039 --> 00:04:16.821
+with one click," but I don't think so.
+
+00:04:17.021 --> 00:04:20.491
+So here I am talking to you
+about the illusion of a quick
+
+00:04:20.607 --> 00:04:22.593
+fix, accessibility plugins.
+
+00:04:23.359 --> 00:04:27.465
+Let's take a look together at
+what plugins promise and what
+
+00:04:27.465 --> 00:04:28.870
+they can actually deliver.
+
+00:04:29.434 --> 00:04:34.070
+Why, and maybe this is just my
+opinion or simply a fact, code
+
+00:04:34.071 --> 00:04:35.715
+can't be fixed with just one click.
+
+00:04:36.037 --> 00:04:38.093
+Let's call them technical limitations.
+
+00:04:38.768 --> 00:04:44.250
+Why empathy and human testing will
+never be dispensable, and what we can
+
+00:04:44.258 --> 00:04:49.492
+do to make the WordPress world and CMS
+in general, which I believe accounts
+
+00:04:49.494 --> 00:04:53.975
+for more than 50% of all websites
+out there, a little more accessible.
+
+00:04:54.376 --> 00:04:57.253
+So it really is worth thinking about it.
+
+00:04:58.248 --> 00:05:05.218
+As I mentioned, I hardly ever work
+with WordPress, but of course I know
+
+00:05:05.219 --> 00:05:09.830
+that so many websites are built with
+WordPress, and at some point it became
+
+00:05:09.831 --> 00:05:13.737
+clear to me that sooner or later I
+have to grapple in depth with the
+
+00:05:13.738 --> 00:05:15.711
+challenges of accessibility in a CMS.
+
+00:05:16.019 --> 00:05:19.115
+And now I'm sitting here wondering
+given all the accessibility washing
+
+00:05:19.396 --> 00:05:22.940
+we've seen in recent years, especially
+since the introduction of the European
+
+00:05:22.940 --> 00:05:27.631
+Accessibility Act which CMS are considered
+accessible by design and which plugins
+
+00:05:27.650 --> 00:05:29.595
+are supposed to handle the rest.
+
+00:05:29.718 --> 00:05:30.835
+And here's an analogy.
+
+00:05:31.194 --> 00:05:34.129
+Imagine a building that doesn't
+have a ramp for wheelchair users.
+
+00:05:34.422 --> 00:05:35.324
+The owner solution?
+
+00:05:35.794 --> 00:05:40.401
+He puts up a sign said, that says, "If
+you can't make it up the stairs, just
+
+00:05:40.402 --> 00:05:43.133
+imagine there's a ramp." Sounds absurd?
+
+00:05:43.724 --> 00:05:47.064
+That's exactly what many
+accessibility plugins and overlays do.
+
+00:05:47.485 --> 00:05:50.545
+They promise become WCAG compliant
+with just one line of code.
+
+00:05:50.867 --> 00:05:54.630
+That sounds tempting to agencies
+and websites providers who fear case
+
+00:05:55.137 --> 00:05:59.585
+cease and desist letters, but the
+reality, accessibility isn't a feature
+
+00:05:59.585 --> 00:06:02.278
+you can simply slap on afterward.
+
+00:06:03.219 --> 00:06:06.782
+Here are the best keywords I've
+picked out from the promises.
+
+00:06:08.262 --> 00:06:10.951
+I found on different kind of plugins.
+
+00:06:11.023 --> 00:06:14.468
+It will strengthen any
+weak areas that could cause
+
+00:06:14.542 --> 00:06:16.095
+accessibility issues on your site.
+
+00:06:16.215 --> 00:06:20.727
+It makes smart modifications
+to elements on your site.
+
+00:06:20.770 --> 00:06:25.828
+It instantly find and fixes
+accessibility violations in website code.
+
+00:06:25.853 --> 00:06:33.206
+It may prevent a keyboard-only navigation
+or is in violation of the ADA regulations.
+
+00:06:33.206 --> 00:06:37.011
+So you are saying yourself that
+we probably can't count on you?
+
+00:06:37.859 --> 00:06:41.883
+It provides real sustainable
+improvement for all users.
+
+00:06:42.755 --> 00:06:45.655
+It protects you from
+accessibility lawsuits.
+
+00:06:45.881 --> 00:06:51.655
+It includes one-click fixes for common
+accessibility barriers and browsing
+
+00:06:51.682 --> 00:06:56.853
+experience, this is my  favorite one,
+with a floating accessibility menu.
+
+00:06:57.299 --> 00:06:58.489
+That's a contradiction itself.
+
+00:06:59.579 --> 00:07:02.426
+Yeah, and the list goes on.
+
+00:07:03.606 --> 00:07:08.190
+So I was looking for a few plugins
+that are used by thousands of users
+
+00:07:08.226 --> 00:07:13.200
+or have a  high star rating or from
+providers from accessibility overlays.
+
+00:07:13.253 --> 00:07:14.809
+Those are my favorites anyway.
+
+00:07:15.095 --> 00:07:19.859
+So but since they're, some of them are
+paid plugins or required registration,
+
+00:07:20.172 --> 00:07:27.915
+such as the web accessibility plugin by
+AccessiBe or by Elementor or by UserWay
+
+00:07:28.781 --> 00:07:31.306
+yeah, these were not tested unfortunately.
+
+00:07:32.265 --> 00:07:35.938
+But the plugins I chose in the end were
+WordPress Accessibility by Joe Dolson,
+
+00:07:36.131 --> 00:07:40.313
+Accessibility Widget by One Tap, and
+Accessibility Checker by Equalize.
+
+00:07:40.828 --> 00:07:46.705
+So for the errors on my testing website,
+I focused on the six most common errors
+
+00:07:46.708 --> 00:07:48.864
+identified by the WebAIM Million Report.
+
+00:07:49.264 --> 00:07:53.359
+And then I added a few more
+errors that the plugins are
+
+00:07:53.362 --> 00:07:54.539
+supposed to be able to fix.
+
+00:07:54.564 --> 00:07:57.622
+So for the most common ones, we have
+low contrast text, we have missing
+
+00:07:57.623 --> 00:08:01.760
+alt text, missing label, empty links,
+empty buttons, and missing language.
+
+00:08:02.288 --> 00:08:07.868
+And additional ones are, for example,
+highlighting links focus borders,
+
+00:08:07.912 --> 00:08:13.052
+adding skip links, forcing links
+to be underlined, viewbo- viewport
+
+00:08:13.094 --> 00:08:19.039
+scalability, removing a positive tab
+index yeah, disabling animations.
+
+00:08:19.137 --> 00:08:20.765
+I think this is everything.
+
+00:08:20.765 --> 00:08:24.029
+So here you can see the
+setup I used for testing
+
+00:08:27.809 --> 00:08:28.164
+Yeah.
+
+00:08:28.373 --> 00:08:31.980
+So I did it with the automatic
+testing tool axe DevTools.
+
+00:08:32.421 --> 00:08:36.301
+Let's take a look what errors it found.
+
+00:08:38.805 --> 00:08:43.907
+We yeah, we have critical ones like
+images must have alternative text,
+
+00:08:44.165 --> 00:08:47.920
+zooming and scaling must not be
+disabled, button must have discernible
+
+00:08:47.920 --> 00:08:50.682
+text, form elements must have labels.
+
+00:08:50.959 --> 00:08:57.288
+For the serious issues we have elements
+must meet minimum color contrast
+
+00:08:57.309 --> 00:09:02.688
+ratio threshold, documents must have a
+title element to aid navigation, HTML
+
+00:09:02.706 --> 00:09:07.158
+element must have a lang attribute,
+links must be distinguishable without
+
+00:09:07.193 --> 00:09:11.017
+relying on color, links must have
+discernible text, and elements should
+
+00:09:11.018 --> 00:09:13.442
+not have a tabindex greater than zero.
+
+00:09:13.925 --> 00:09:15.592
+And we have a few moderate issues.
+
+00:09:15.888 --> 00:09:18.992
+Heading level should only increase
+by one, and all page content
+
+00:09:18.999 --> 00:09:21.789
+should be contained by landmark.
+
+00:09:23.477 --> 00:09:25.674
+We do not have any minor issues.
+
+00:09:29.246 --> 00:09:35.884
+Yeah, and for the manual errors I
+added in myself, obviously we have
+
+00:09:37.090 --> 00:09:38.753
+missing focus on interactive elements.
+
+00:09:38.754 --> 00:09:40.368
+This will be the navigation bar.
+
+00:09:40.499 --> 00:09:43.019
+Animation longer than five
+seconds, not stoppable.
+
+00:09:43.436 --> 00:09:45.582
+An aria-label on a div element.
+
+00:09:46.159 --> 00:09:51.012
+If you read more and click here links,
+a toggle button coded as a div with
+
+00:09:51.014 --> 00:09:54.759
+the role of a button, so it has no
+keyboard focus or does keyboard operable.
+
+00:09:55.129 --> 00:09:58.685
+We have an expand widget coded with
+an a tag instead of a button tag.
+
+00:09:58.996 --> 00:10:02.650
+And yeah, I think a few others
+we… I will show you in a
+
+00:10:02.660 --> 00:10:04.935
+bit on the website itself.
+
+00:10:07.227 --> 00:10:08.780
+So let's start testing
+
+00:10:13.864 --> 00:10:17.832
+Yeah, here is the testing website
+we are going to work today.
+
+00:10:19.443 --> 00:10:24.864
+So let's check out the source
+code, what we have here with using
+
+00:10:24.882 --> 00:10:28.486
+F-Dev- Axe DevTools tools to show
+you how many issues it will find.
+
+00:10:28.850 --> 00:10:30.641
+It's 19 in total.
+
+00:10:30.906 --> 00:10:34.763
+Yeah, the few critical, serious, and
+moderate ones I already told you about,
+
+00:10:34.763 --> 00:10:37.482
+and here's the list I added to the table.
+
+00:10:39.604 --> 00:10:40.658
+So.
+
+00:10:44.769 --> 00:10:52.308
+Also, let's do a bit on the website
+itself for manual testing starting on top.
+
+00:10:53.239 --> 00:10:54.327
+For the tab index
+
+00:10:59.924 --> 00:11:04.302
+So you can or can't see that we have
+a skip link, and the first focus is on
+
+00:11:04.303 --> 00:11:10.172
+the Twitter icon, which is of course
+not correct in the order, and it is due
+
+00:11:10.182 --> 00:11:14.171
+to the tabindex of 1, I implemented.
+
+00:11:15.418 --> 00:11:17.669
+So what else do we have?
+
+00:11:18.146 --> 00:11:23.709
+There is no focus border, no visible
+focus on the navigation elements,
+
+00:11:25.792 --> 00:11:27.576
+and they also lack on color contrast
+
+00:11:31.363 --> 00:11:32.934
+Then now we're in the search field.
+
+00:11:32.991 --> 00:11:34.003
+Where is the focus now?
+
+00:11:34.040 --> 00:11:38.619
+The focus is now on the two links
+within the paragraph, which we could not
+
+00:11:38.670 --> 00:11:43.254
+distinguish all the visually because they
+have no underline, and the color contrast
+
+00:11:43.254 --> 00:11:45.398
+to the body text is also not high enough.
+
+00:11:45.775 --> 00:11:51.563
+We could also, when we move further
+yeah, of course, we have the read
+
+00:11:51.622 --> 00:11:56.289
+more button, so the text is not
+distinguishable or not very descriptive.
+
+00:11:56.377 --> 00:11:59.008
+Then there is a toggle button.
+
+00:11:59.369 --> 00:12:02.081
+It worked with mouse, but
+it's not keyboard accessible.
+
+00:12:02.582 --> 00:12:09.192
+Yeah, and then we have this expand widget,
+which is a link, and that's why we jumped
+
+00:12:09.438 --> 00:12:18.559
+to the button because when we  we cannot
+use the space bar on it, which would be a
+
+00:12:18.560 --> 00:12:23.092
+default setting when we used the correct
+HTML element, which would be a button.
+
+00:12:23.686 --> 00:12:24.623
+Here you can see it again.
+
+00:12:24.961 --> 00:12:26.388
+We have an onclick event on a link.
+
+00:12:26.723 --> 00:12:33.376
+And for the div, yeah, we have a div with
+the role of a button and an onclick event,
+
+00:12:33.858 --> 00:12:36.111
+meaning it's not keyboard accessible.
+
+00:12:42.051 --> 00:12:43.428
+A bit down of the website.
+
+00:12:43.455 --> 00:12:47.576
+Yeah, we have a form fields but
+these are not connected to the label.
+
+00:12:47.588 --> 00:12:50.739
+It seems that there's a visual
+label, but they are not connected
+
+00:12:50.739 --> 00:12:53.675
+by a code, so it would be bad
+for screen reader user, users.
+
+00:12:53.675 --> 00:12:57.541
+They cannot understand
+what they have to fill in.
+
+00:12:58.781 --> 00:12:59.177
+Yeah.
+
+00:12:59.234 --> 00:13:01.409
+Another click here link.
+
+00:13:02.804 --> 00:13:05.899
+Not very descriptive and distinguishable.
+
+00:13:07.013 --> 00:13:07.370
+So
+
+00:13:09.410 --> 00:13:13.757
+I think this was it for … Oh, now
+and on top of it, so we do not have
+
+00:13:13.792 --> 00:13:17.954
+the lang attribute, and here you can
+also see the view board that I have the
+
+00:13:17.955 --> 00:13:20.043
+maximum scale of one and scalable, no
+
+00:13:22.650 --> 00:13:25.496
+But now let's go to the
+interesting part, the plugins.
+
+00:13:26.020 --> 00:13:29.122
+So we start with the WordPress
+Accessibility Plugin by Joe Dolson.
+
+00:13:29.159 --> 00:13:32.025
+In the description it says, "Helps
+improve accessibility in your WordPress
+
+00:13:32.028 --> 00:13:36.754
+site, like removing title attributes."
+Yeah, not so much information.
+
+00:13:37.487 --> 00:13:44.018
+On the detailed in- description,
+we can find that they are saying,
+
+00:13:44.427 --> 00:13:47.585
+yeah most accessibility issues
+can't be addressed without directly
+
+00:13:47.594 --> 00:13:50.072
+changing your theme, which I think
+is very good that they mention it.
+
+00:13:50.486 --> 00:13:53.893
+WordPress accessibility adds a number
+of accessibility features with a minimum
+
+00:13:53.895 --> 00:13:55.768
+amount of setup and expert knowledge.
+
+00:13:56.855 --> 00:13:59.878
+Yeah, I really like that they
+address that most of accessibility
+
+00:13:59.890 --> 00:14:04.592
+issues cannot be fixed, so they
+are at least honest about it.
+
+00:14:04.610 --> 00:14:07.619
+And it's not intended to make
+a site compatible with any
+
+00:14:07.619 --> 00:14:08.712
+accessibility guidelines.
+
+00:14:08.827 --> 00:14:11.691
+Also very important to mention that.
+
+00:14:11.759 --> 00:14:14.936
+So I really like this plugin for this.
+
+00:14:15.625 --> 00:14:21.518
+And yeah, and a few things we can do, like
+we can add a skip link, but which we need.
+
+00:14:21.518 --> 00:14:25.131
+We can add a language attribute,
+which we also need for our site.
+
+00:14:25.167 --> 00:14:28.543
+Yeah, outline to keep it focus
+elements for our navigation bar.
+
+00:14:29.315 --> 00:14:32.022
+And what else could be interesting?
+
+00:14:33.693 --> 00:14:35.730
+No, we do not have posts.
+
+00:14:36.438 --> 00:14:41.911
+But would be interesting actually if
+it works the remove a tab index from
+
+00:14:41.950 --> 00:14:47.357
+elements who are focusable for our
+Twitter icon and remove user scalable.
+
+00:14:47.379 --> 00:14:47.627
+No.
+
+00:14:48.931 --> 00:14:49.254
+Yeah.
+
+00:14:49.388 --> 00:14:52.982
+So these are the ones
+we are going to test.
+
+00:14:53.010 --> 00:14:56.296
+Anything else interesting for us?
+
+00:14:57.233 --> 00:14:58.075
+I don't think so.
+
+00:14:58.084 --> 00:14:59.192
+So let's activate it.
+
+00:14:59.915 --> 00:15:05.586
+We've activated, and now we have
+this new tab in our sidebar.
+
+00:15:06.133 --> 00:15:07.383
+What can we do here?
+
+00:15:07.942 --> 00:15:12.579
+We can do a few settings like, yeah,
+enable the skip link to our hero section.
+
+00:15:12.756 --> 00:15:13.777
+This is our ID.
+
+00:15:14.710 --> 00:15:17.706
+We want to maybe we want the user
+to be able to jump to the hero
+
+00:15:17.712 --> 00:15:19.433
+section and skip the navigation.
+
+00:15:19.453 --> 00:15:23.355
+We want to, yeah, enable the
+accessibility toolbar, which has two
+
+00:15:23.393 --> 00:15:27.905
+nice gimmicks, features, including font
+size button, include contrast button.
+
+00:15:27.910 --> 00:15:28.978
+We will try it out.
+
+00:15:29.013 --> 00:15:29.603
+Why not?
+
+00:15:30.872 --> 00:15:31.932
+Other than that-
+
+00:15:34.078 --> 00:15:36.181
+What could be interesting for us
+
+00:15:39.695 --> 00:15:42.278
+For this one, I think this is it.
+
+00:15:42.393 --> 00:15:43.575
+Let's go to the next.
+
+00:15:43.592 --> 00:15:45.769
+It's the web accessibility fixes.
+
+00:15:46.201 --> 00:15:49.457
+So we could have the titles
+instead of the more links, but
+
+00:15:49.457 --> 00:15:51.807
+we do not have posts on our side.
+
+00:15:52.206 --> 00:15:55.116
+Yeah, set the language
+attribute, very important.
+
+00:15:55.189 --> 00:15:57.197
+Prevent links from opening the new window.
+
+00:15:57.290 --> 00:16:00.922
+I think it's not required, but
+it's of course nice to have.
+
+00:16:01.498 --> 00:16:04.460
+Not recap a law, force
+errors, remove tab index.
+
+00:16:04.506 --> 00:16:05.602
+That's the one we need.
+
+00:16:05.615 --> 00:16:08.271
+Ensure the viewer does not restrict zoom.
+
+00:16:08.353 --> 00:16:09.178
+It's important.
+
+00:16:09.219 --> 00:16:11.290
+Add missing labels to
+search and comment forms.
+
+00:16:11.853 --> 00:16:14.893
+Insert the play and pause button
+could be interesting, but it says
+
+00:16:14.893 --> 00:16:18.266
+it's for videos, and we have an
+animation, so maybe this does not
+
+00:16:18.303 --> 00:16:22.820
+work for our intent, for our purpose.
+
+00:16:22.824 --> 00:16:27.665
+Force underlines on links we need it
+for our paragraph with the two links.
+
+00:16:27.711 --> 00:16:30.740
+The distinguishable
+color and no additional
+
+00:16:33.364 --> 00:16:35.928
+underline and outline to
+elements on keyboard focus.
+
+00:16:36.146 --> 00:16:36.562
+Yes.
+
+00:16:37.358 --> 00:16:40.394
+I think this is it.
+
+00:16:40.948 --> 00:16:44.334
+Other things to offer, other features.
+
+00:16:44.373 --> 00:16:45.843
+Not that interesting.
+
+00:16:45.852 --> 00:16:46.101
+Yeah.
+
+00:16:47.297 --> 00:16:50.372
+Let's check out the plugin on our side.
+
+00:16:50.374 --> 00:16:52.283
+We have to refresh it, so it makes work.
+
+00:16:52.307 --> 00:17:01.706
+And we can see that on the right side
+of our website we have now these small
+
+00:17:02.921 --> 00:17:06.945
+icons to toggle the high contrast,
+which can be important for our color
+
+00:17:07.036 --> 00:17:12.667
+contrast issue, and also to resize
+the text, which is a nice to have,
+
+00:17:12.686 --> 00:17:16.030
+but not necessary for any regulations.
+
+00:17:17.856 --> 00:17:24.528
+Using Taba11y, let's see if we can even
+reach the bar, the accessibility menu.
+
+00:17:25.332 --> 00:17:31.374
+Yes, we can because I see lots of
+overlays who wants to help with
+
+00:17:31.407 --> 00:17:34.419
+accessibility with one click, and then,
+c- cannot even reach it with keyboard.
+
+00:17:34.472 --> 00:17:37.149
+But at least we can reach it with
+keyboard, and we also see that the,
+
+00:17:37.703 --> 00:17:43.060
+the skip to content link is here and
+that the Twitter icon is now not the
+
+00:17:43.060 --> 00:17:45.619
+1st element we reach, but the 9th one.
+
+00:17:45.734 --> 00:17:47.939
+So it's in line with the focus order.
+
+00:17:47.965 --> 00:17:52.848
+And also, yes, the toggle color
+button is now in focus order,
+
+00:17:53.682 --> 00:17:56.888
+which wasn't before because it's
+simply a difficult rule of button.
+
+00:17:56.924 --> 00:17:58.789
+But now it's in the focus order.
+
+00:18:00.392 --> 00:18:02.404
+Yes, let's clear the results.
+
+00:18:03.026 --> 00:18:10.664
+And I would suggest that we,
+Check out a few other things.
+
+00:18:11.123 --> 00:18:11.507
+Yeah.
+
+00:18:12.917 --> 00:18:14.475
+Here we can, we have the tap.
+
+00:18:15.380 --> 00:18:17.600
+We have the outline now
+for our navigations.
+
+00:18:17.689 --> 00:18:18.558
+It's visible.
+
+00:18:18.822 --> 00:18:22.052
+It was not that visible without
+the high contrast, but now it was.
+
+00:18:22.525 --> 00:18:25.821
+And we have the underlines in
+our links on the paragraph.
+
+00:18:26.328 --> 00:18:32.826
+We have the focus on this
+button, but yeah, it still does
+
+00:18:32.826 --> 00:18:34.744
+not work with the keyboard.
+
+00:18:34.899 --> 00:18:36.709
+So it jumps when going down.
+
+00:18:36.716 --> 00:18:38.001
+There's nothing.
+
+00:18:38.018 --> 00:18:42.714
+Unfortunately, it did not fix this
+bug as well, but now it is focusable.
+
+00:18:43.635 --> 00:18:44.814
+What else did it say?
+
+00:18:44.865 --> 00:18:49.839
+I think it's time to check it with
+the source code in the header.
+
+00:18:50.646 --> 00:18:53.866
+It added a maximum scale
+of five for some reason.
+
+00:18:53.888 --> 00:18:56.575
+User scalable, no, is still there.
+
+00:18:56.787 --> 00:18:57.481
+Interesting.
+
+00:18:57.729 --> 00:19:02.037
+And we have the lang attribute
+But focusing but zooming in
+
+00:19:02.044 --> 00:19:03.955
+and zooming out works fine.
+
+00:19:04.276 --> 00:19:09.360
+This is actually due to browsers
+nowadays not ignoring this
+
+00:19:09.373 --> 00:19:11.033
+kind of settings by default.
+
+00:19:11.070 --> 00:19:13.917
+So it's always, it should always be
+possible to zoom in and to zoom out
+
+00:19:14.448 --> 00:19:17.830
+because of the browser's default settings.
+
+00:19:19.188 --> 00:19:19.461
+Yeah.
+
+00:19:19.839 --> 00:19:23.443
+And the next thing we should
+check is with axe DevTools,
+
+00:19:23.483 --> 00:19:25.625
+how many issues do we have now?
+
+00:19:26.441 --> 00:19:28.428
+We had 19 in the beginning, now it's 14.
+
+00:19:28.739 --> 00:19:30.508
+Oh, yeah, we forgot to
+toggle the high contrast.
+
+00:19:31.003 --> 00:19:31.919
+Let's take a look.
+
+00:19:32.958 --> 00:19:34.565
+And now there are 9 issues.
+
+00:19:34.576 --> 00:19:36.815
+So there were a few issues fixed.
+
+00:19:37.913 --> 00:19:38.229
+Yeah.
+
+00:19:41.083 --> 00:19:41.611
+Seems nice.
+
+00:19:42.386 --> 00:19:44.374
+Seems nice that a few things were fixed.
+
+00:19:44.424 --> 00:19:45.756
+Let's go over them again.
+
+00:19:45.766 --> 00:19:50.480
+So with the web accessibili- WordPress
+Accessibility Plugin by Joe Dolson, we had
+
+00:19:50.548 --> 00:19:52.305
+add skip links with user-defined targets.
+
+00:19:52.562 --> 00:19:54.020
+Yes, and this worked.
+
+00:19:54.708 --> 00:19:58.121
+Add a language to your HTML
+attribute if missing worked as well.
+
+00:19:58.171 --> 00:19:59.173
+We now have English.
+
+00:19:59.402 --> 00:20:02.205
+Add an outline to the keyboard
+focus, data-focus editor elements.
+
+00:20:02.219 --> 00:20:06.008
+It, it worked, but this was not
+visible, or the contrast was not
+
+00:20:06.009 --> 00:20:13.028
+high enough for our default theme,
+only when we add the high contrast.
+
+00:20:14.427 --> 00:20:18.884
+Then we removed the tabindex from elements
+that are focusable, worked as well.
+
+00:20:18.923 --> 00:20:19.916
+This was the Twitter icon.
+
+00:20:20.064 --> 00:20:21.029
+Remove scalable.
+
+00:20:21.926 --> 00:20:26.280
+It worked already by default
+because browsers ignore this
+
+00:20:26.988 --> 00:20:28.533
+line of code by default.
+
+00:20:28.588 --> 00:20:30.865
+And force underline on
+links worked as well.
+
+00:20:31.277 --> 00:20:37.108
+And for the which errors, WCAG
+compliant errors did the plugin fix?
+
+00:20:37.882 --> 00:20:39.613
+Zooming and scaling must not be disabled.
+
+00:20:39.650 --> 00:20:41.962
+Missing focus on interactive elements.
+
+00:20:42.204 --> 00:20:45.239
+Elements must meet color
+contrast ratio threshold.
+
+00:20:45.953 --> 00:20:48.346
+HTML element must have a lang attribute.
+
+00:20:48.667 --> 00:20:51.328
+Element should not have a
+tabindex greater than zero.
+
+00:20:51.351 --> 00:20:55.282
+And toggle button as a div with
+role had no keyboard focus.
+
+00:20:55.338 --> 00:20:58.476
+It does now have a keyboard focus, but
+it's still not keyboard accessible, so
+
+00:20:58.479 --> 00:21:01.421
+I would not say it was really fixed.
+
+00:21:01.471 --> 00:21:01.863
+Yeah
+
+00:21:04.094 --> 00:21:07.029
+Now let's check out another plugin.
+
+00:21:07.834 --> 00:21:12.157
+Deactivate this one, and
+yeah, we can refresh it
+
+00:21:14.476 --> 00:21:16.812
+To start the zero and activate.
+
+00:21:17.015 --> 00:21:21.067
+The accessibility widget by OneTab
+is the next we're going to test.
+
+00:21:21.682 --> 00:21:27.078
+It says in the description yeah,
+with a simpler with a simple
+
+00:21:27.082 --> 00:21:30.022
+one-click installation, it ensures
+your site meets accessibility
+
+00:21:30.024 --> 00:21:31.677
+standards without any hassle.
+
+00:21:32.256 --> 00:21:35.683
+Yeah, built for performance providing
+an inclusive user-friendly web
+
+00:21:35.718 --> 00:21:37.239
+environment for all visitors.
+
+00:21:38.355 --> 00:21:42.798
+Let's see what they are saying
+in the more detailed description
+
+00:21:46.665 --> 00:21:49.756
+Yeah What do we have here?
+
+00:21:54.651 --> 00:21:56.984
+Yeah, no coding required.
+
+00:21:56.998 --> 00:21:58.031
+Install and start.
+
+00:21:58.118 --> 00:22:01.498
+Very catchy, I would say, for
+people who are not into coding.
+
+00:22:03.497 --> 00:22:06.920
+It also the best plugin for accessibility.
+
+00:22:06.943 --> 00:22:11.126
+Then they have a, a long list
+of features they are adding.
+
+00:22:11.832 --> 00:22:18.575
+Font size yeah, highlighting links,
+line height, readable font, big cursor.
+
+00:22:18.677 --> 00:22:23.046
+So there are many different options, but
+they seem all nice gimmicks and nothing
+
+00:22:23.277 --> 00:22:27.614
+WCAG related to meet any requirement.
+
+00:22:27.874 --> 00:22:31.285
+Color options are also a few in there.
+
+00:22:33.034 --> 00:22:33.681
+What else?
+
+00:22:33.684 --> 00:22:37.404
+Orientation options yeah,
+text-to-speech, mute sounds.
+
+00:22:37.456 --> 00:22:38.452
+Oh, desktop animation.
+
+00:22:38.818 --> 00:22:39.653
+Disable animations.
+
+00:22:39.655 --> 00:22:43.607
+This is, could be interesting
+for us for animation bar.
+
+00:22:44.004 --> 00:22:48.216
+And a few different ones for
+professional accessibility profiles,
+
+00:22:48.221 --> 00:22:51.512
+which I don't know what this is about.
+
+00:22:51.949 --> 00:22:53.998
+Yeah, we activated it.
+
+00:22:54.350 --> 00:22:56.491
+Now we have it also in our sidebar
+
+00:22:59.548 --> 00:23:00.975
+Let's do a few adjustments.
+
+00:23:00.978 --> 00:23:05.296
+So this is the adjustment we can do for
+the user when they are on our website,
+
+00:23:05.509 --> 00:23:08.887
+how they will perceive the plugin.
+
+00:23:09.802 --> 00:23:12.703
+With the icon, we can change
+the color, the language.
+
+00:23:12.731 --> 00:23:13.054
+Yeah.
+
+00:23:13.831 --> 00:23:18.870
+So for the modules itself, I
+think we should check everything.
+
+00:23:18.900 --> 00:23:21.797
+Interesting font size, suitable
+font, line height, pic- pictures.
+
+00:23:21.901 --> 00:23:22.571
+So why not?
+
+00:23:22.937 --> 00:23:27.521
+Letter spacing font weight, contrast,
+light contrast, high, and monochrome.
+
+00:23:28.631 --> 00:23:32.098
+So all the important things, all, all
+the AMP-ed things are already checked
+
+00:23:35.105 --> 00:23:35.488
+Yeah.
+
+00:23:35.693 --> 00:23:39.524
+So the user can decide what they want
+to use when they're on our website.
+
+00:23:41.863 --> 00:23:44.224
+You can also create an
+accessibility statement.
+
+00:23:45.068 --> 00:23:47.966
+The default one, I think it's a bit
+there's not that much of information
+
+00:23:47.967 --> 00:23:52.756
+which you should actually add in by
+default, but of course, you can always
+
+00:23:52.860 --> 00:23:55.690
+add as much as information as possible
+
+00:23:58.106 --> 00:23:59.041
+Alt text.
+
+00:23:59.707 --> 00:24:03.757
+This one is for you as a content
+creator yourself that you realize
+
+00:24:03.790 --> 00:24:07.062
+there's a missing alt text and
+yeah, some sort of that thing.
+
+00:24:07.064 --> 00:24:09.031
+So think this was it.
+
+00:24:09.269 --> 00:24:10.453
+Let's check out the widget.
+
+00:24:10.678 --> 00:24:14.622
+Refreshing the page, and here
+you can see our floating menu.
+
+00:24:15.125 --> 00:24:19.315
+The most important thing, let's check
+if you can reach it with keyboard.
+
+00:24:20.623 --> 00:24:21.774
+And if yes, when
+
+00:24:26.317 --> 00:24:30.611
+So we can reach it with the
+keyboard because we can see
+
+00:24:30.611 --> 00:24:31.984
+it on the red line by Taba11y.
+
+00:24:32.378 --> 00:24:34.144
+But it's the last one we reach.
+
+00:24:34.282 --> 00:24:35.048
+At least we can reach it.
+
+00:24:35.049 --> 00:24:38.950
+So as I already mentioned, most
+overlay already fail doing that,
+
+00:24:39.330 --> 00:24:40.730
+making it keyboard accessible.
+
+00:24:41.237 --> 00:24:45.003
+You can also see that the Twitter icon
+
+00:24:47.207 --> 00:24:51.606
+is still the first thing reachable.
+
+00:24:52.883 --> 00:24:53.508
+It's a bad thing.
+
+00:24:54.219 --> 00:24:58.509
+And yeah, but they did not
+promise us for the tab index
+
+00:24:58.546 --> 00:24:59.939
+and also there's no skip link
+
+00:25:03.321 --> 00:25:05.173
+So I guess I did something wrong.
+
+00:25:06.410 --> 00:25:08.424
+Or maybe it was not descriptive enough.
+
+00:25:09.412 --> 00:25:13.518
+So for the menu itself, you can see
+the different settings a user can do.
+
+00:25:13.964 --> 00:25:14.916
+Big cursor.
+
+00:25:15.226 --> 00:25:17.426
+Yeah, then the mouse will grow bigger.
+
+00:25:17.728 --> 00:25:19.307
+I don't know people who are using this.
+
+00:25:19.569 --> 00:25:20.627
+A light contrast.
+
+00:25:20.681 --> 00:25:23.773
+Oh, it can fix our contrast
+issue in the navigation bar.
+
+00:25:23.788 --> 00:25:24.702
+Sounds nice.
+
+00:25:25.656 --> 00:25:27.820
+What else can we try?
+
+00:25:28.136 --> 00:25:30.187
+Yeah, higher contrast monochrome.
+
+00:25:32.229 --> 00:25:34.925
+Does not do anything special.
+
+00:25:35.422 --> 00:25:36.689
+Ah, yeah, stop animation.
+
+00:25:36.701 --> 00:25:39.444
+This is the important
+thing for our website.
+
+00:25:39.444 --> 00:25:42.938
+So now the attention bar
+finally stopped moving.
+
+00:25:44.032 --> 00:25:47.473
+So this works, and highlighting
+links did also work.
+
+00:25:47.503 --> 00:25:52.567
+We can see now the two links
+in our paragraph which were
+
+00:25:52.567 --> 00:25:54.014
+not distinguishable before.
+
+00:26:02.182 --> 00:26:06.216
+Let's check out a few things before.
+
+00:26:06.406 --> 00:26:07.964
+Let's do the axe DevTools test.
+
+00:26:08.037 --> 00:26:11.223
+19 before, now there are 15 issues.
+
+00:26:11.223 --> 00:26:17.977
+So it decreased on 4 issues
+
+00:26:20.305 --> 00:26:25.198
+The color contrast one yeah,
+the links within a text
+
+00:26:27.927 --> 00:26:32.553
+these are the ones I
+think which are fixed.
+
+00:26:33.580 --> 00:26:37.457
+We will check it out on our
+slides afterwards as well.
+
+00:26:44.698 --> 00:26:45.001
+Yeah.
+
+00:26:45.396 --> 00:26:48.151
+So for the accessibility widget by
+one tab, links must be distinguished
+
+00:26:48.242 --> 00:26:49.494
+without relying on color.
+
+00:26:49.554 --> 00:26:49.906
+Yes.
+
+00:26:49.973 --> 00:26:51.298
+Elements meets minimum contrast.
+
+00:26:51.918 --> 00:26:52.310
+Yes.
+
+00:26:52.341 --> 00:26:54.634
+And animation longer than
+five seconds, not stoppable.
+
+00:26:54.802 --> 00:26:56.168
+Yes, it worked.
+
+00:26:56.604 --> 00:27:00.052
+So 3 in total, and for the WCAG
+compliant issues, animation
+
+00:27:00.053 --> 00:27:02.401
+longer than five seconds, and yeah
+
+00:27:08.743 --> 00:27:09.013
+Yeah.
+
+00:27:09.640 --> 00:27:11.172
+Try out the last
+
+00:27:13.253 --> 00:27:16.611
+Plugin by Acolor saying, audit
+and check your website for
+
+00:27:16.611 --> 00:27:18.467
+accessibility before you hit publish.
+
+00:27:18.669 --> 00:27:21.270
+Inpost Accessibility Scanner and Guidance.
+
+00:27:22.902 --> 00:27:26.091
+The detailed description
+what does this say?
+
+00:27:27.097 --> 00:27:31.186
+It already gives a sense of you are
+learning while you are developing,
+
+00:27:31.194 --> 00:27:33.541
+which I think it's a good thing to do.
+
+00:27:34.175 --> 00:27:36.897
+So whether you're improving compliance
+with accessibility laws, working
+
+00:27:36.898 --> 00:27:41.363
+toward web accessibility guidelines
+yeah, your practical workflow and
+
+00:27:41.386 --> 00:27:45.589
+ongoing accessibility testing and
+remediation for your team, I think
+
+00:27:45.589 --> 00:27:47.793
+this is a very good thing to do.
+
+00:27:47.819 --> 00:27:52.014
+And so also for as a statement,
+because I think you should learn how
+
+00:27:52.047 --> 00:27:56.239
+to be more accessible on a website
+and not rely on a plugin alone.
+
+00:27:57.829 --> 00:28:00.950
+So they have a few things they
+are pointing out here also
+
+00:28:00.952 --> 00:28:02.739
+that it reduces legal risk.
+
+00:28:02.791 --> 00:28:04.528
+They also mentioned the
+European Accessibility Act,
+
+00:28:04.528 --> 00:28:07.079
+the ADA, the Section 508.
+
+00:28:07.550 --> 00:28:11.074
+Yeah, these are the
+keywords people who are not
+
+00:28:13.128 --> 00:28:15.526
+familiar with accessibility will fall for.
+
+00:28:17.238 --> 00:28:19.328
+But yeah, it is what it is.
+
+00:28:19.584 --> 00:28:21.754
+At least they're also saying
+that you will learn more about
+
+00:28:21.756 --> 00:28:24.224
+accessibility, and this is a good thing.
+
+00:28:24.224 --> 00:28:26.886
+So let's see a positive,
+and activate their plugin.
+
+00:28:29.638 --> 00:28:31.997
+We have it now in our sidebar
+
+00:28:34.185 --> 00:28:36.362
+Let's go to the settings.
+
+00:28:36.396 --> 00:28:37.653
+What can we need?
+
+00:28:38.927 --> 00:28:43.141
+I think these Many things are in
+the pro version, so I did not pay
+
+00:28:43.149 --> 00:28:47.149
+anything f- while I'm testing it,
+and you should also not pay for
+
+00:28:47.229 --> 00:28:49.129
+anything accessibility related either.
+
+00:28:49.510 --> 00:28:51.169
+What kind of fixes they can do?
+
+00:28:51.214 --> 00:28:54.242
+Ah, yeah, we need the lang
+attribute removing the tab index.
+
+00:28:54.887 --> 00:28:57.340
+We need force link underline.
+
+00:28:57.362 --> 00:28:59.605
+We n- need make keyboard scalable.
+
+00:29:00.137 --> 00:29:00.974
+Yes.
+
+00:29:01.654 --> 00:29:04.775
+Then we have a few pro versions.
+
+00:29:06.481 --> 00:29:07.963
+Yeah, and enable skip link.
+
+00:29:10.219 --> 00:29:11.765
+Ah, and add focus outline.
+
+00:29:12.131 --> 00:29:17.246
+So these are the ones we are
+going for when using the plugin.
+
+00:29:19.925 --> 00:29:24.972
+So let's refresh the page, and now
+get rid of the previous plugin,
+
+00:29:25.004 --> 00:29:27.123
+and we're focusing on the last one.
+
+00:29:28.132 --> 00:29:33.533
+Let's run Taba11y because we eagerly want
+to know if it can be even bit readable.
+
+00:29:34.181 --> 00:29:38.670
+And it is appearing in the focus
+order, so this is a, a good thing.
+
+00:29:39.158 --> 00:29:43.326
+But we could also see that there
+was no skip link in the focus
+
+00:29:43.328 --> 00:29:44.413
+order, so this does not work.
+
+00:29:44.432 --> 00:29:48.771
+But the good thing is when you click
+on the toolbar, you can now learn
+
+00:29:48.799 --> 00:29:50.347
+about accessibility, as they mentioned.
+
+00:29:50.714 --> 00:29:54.524
+They provide you with the kind of
+issue it may appearing on a website,
+
+00:29:54.710 --> 00:29:59.469
+with a description which needs a
+review which severity you have.
+
+00:29:59.473 --> 00:30:02.879
+You can yeah, go through
+different kind of issues.
+
+00:30:02.961 --> 00:30:06.832
+Also which WCAG requirement it is failing.
+
+00:30:07.320 --> 00:30:09.721
+Yeah, highlighting it on the website.
+
+00:30:09.724 --> 00:30:13.113
+So it's a good tool for you
+to learn about accessibility.
+
+00:30:15.180 --> 00:30:19.619
+We can see here now that the
+two links in our paragraph are
+
+00:30:19.630 --> 00:30:21.614
+underlined, so this worked as well.
+
+00:30:22.574 --> 00:30:25.537
+Let's check again for what
+the… Yeah, for the skip link.
+
+00:30:25.918 --> 00:30:29.887
+We realize it did not appear, so I did
+something wrong maybe in the settings.
+
+00:30:30.217 --> 00:30:34.801
+And also for the Twitter, we saw it
+before, but it is now the seventh item
+
+00:30:34.801 --> 00:30:37.002
+in the focus order, not the first one.
+
+00:30:37.002 --> 00:30:39.143
+And most of the tab index did also work.
+
+00:30:40.149 --> 00:30:41.765
+Yeah, let's check for the outline.
+
+00:30:41.799 --> 00:30:42.815
+It's appearing.
+
+00:30:42.826 --> 00:30:43.782
+That's a good thing.
+
+00:30:44.602 --> 00:30:45.544
+Yes.
+
+00:30:46.093 --> 00:30:49.066
+What else did we have for this plugin?
+
+00:30:49.471 --> 00:30:51.420
+Let's inspect our source code.
+
+00:30:51.421 --> 00:30:52.509
+Yeah, the lang attribute.
+
+00:30:52.733 --> 00:30:55.912
+It has now the English lang as a value.
+
+00:30:55.968 --> 00:31:01.554
+And for the meta tags we needed
+for the viewPort scalability.
+
+00:31:01.643 --> 00:31:03.899
+Let's look if this is in there.
+
+00:31:03.901 --> 00:31:06.844
+And if it's there, yeah, they
+deleted the user scalability.
+
+00:31:06.926 --> 00:31:07.267
+Nope.
+
+00:31:07.771 --> 00:31:11.658
+So this also works that we
+can zoom in and zoom out
+
+00:31:14.132 --> 00:31:21.427
+Yeah, I think this was it for the
+fixes we, we saw in the settings,
+
+00:31:21.634 --> 00:31:23.950
+and we checked in our settings.
+
+00:31:24.590 --> 00:31:24.967
+Yeah.
+
+00:31:25.967 --> 00:31:31.257
+Let's go over our list
+and see what we can check.
+
+00:31:32.405 --> 00:31:36.264
+So for the accessibility check and
+equalize, add skip link did not work.
+
+00:31:36.709 --> 00:31:38.268
+Add focus outline, yes.
+
+00:31:38.312 --> 00:31:40.007
+Force links to be underlined, yes.
+
+00:31:40.060 --> 00:31:41.474
+Add missing lang attribute, yes.
+
+00:31:41.501 --> 00:31:44.652
+Viewport scalability and remove
+positive tab index to fix
+
+00:31:44.673 --> 00:31:46.489
+incorrect focus order, yes.
+
+00:31:46.676 --> 00:31:48.752
+These issues were fixed.
+
+00:31:50.562 --> 00:31:54.935
+Meaning for to be WCAG compliant, zooming
+and scaling must not be disabled, worked.
+
+00:31:54.956 --> 00:31:56.444
+HTML element must have a lang attribute.
+
+00:31:56.457 --> 00:31:58.074
+Links must be distinguishable.
+
+00:31:58.271 --> 00:32:01.625
+Element should not have a tab index, and
+missing focus on interactive element.
+
+00:32:02.263 --> 00:32:07.777
+These would be the issues
+to be WCAG compliant, which,
+
+00:32:08.196 --> 00:32:10.450
+yeah, were fixed by the plugin.
+
+00:32:10.961 --> 00:32:14.838
+Of course to see this as a number,
+let's run axe dev tools again.
+
+00:32:14.853 --> 00:32:17.223
+From 19 we are down to 14.
+
+00:32:17.975 --> 00:32:18.259
+Yeah.
+
+00:32:20.664 --> 00:32:21.855
+Could be worse, I would say
+
+00:32:25.303 --> 00:32:29.788
+Yeah, but let's go over through
+the issues it could not fix, which
+
+00:32:29.788 --> 00:32:32.703
+would be the heading issues we had.
+
+00:32:32.848 --> 00:32:34.528
+So they're still out of line.
+
+00:32:34.853 --> 00:32:38.848
+The landmarks yeah, don't
+have that many landmarks.
+
+00:32:39.306 --> 00:32:44.105
+Also the toggle button is still
+a div with a role of a button,
+
+00:32:44.106 --> 00:32:45.645
+so not keyboard accessible.
+
+00:32:45.904 --> 00:32:49.432
+It did not… None of these
+plugins helped us with this.
+
+00:32:49.559 --> 00:32:50.712
+It's still an A tag.
+
+00:32:51.023 --> 00:32:55.056
+This expanded widget, meaning it's
+not fully keyboard accessible, so
+
+00:32:55.059 --> 00:32:57.770
+the tab key does not work on it.
+
+00:32:58.457 --> 00:33:03.774
+So even though a few issues were
+fixed, it was most likely the same
+
+00:33:03.793 --> 00:33:07.954
+issues for every plugin but not
+for our manually created issues.
+
+00:33:07.957 --> 00:33:11.203
+And for the image true,
+we never spoke about this.
+
+00:33:11.233 --> 00:33:15.803
+It has not no alt attribute,
+which is also bad.
+
+00:33:15.867 --> 00:33:16.563
+We know that.
+
+00:33:17.561 --> 00:33:19.179
+There was no fix for this either
+
+00:33:23.928 --> 00:33:30.235
+And yeah, the click here links, the text,
+the read more text is still visible, not
+
+00:33:30.240 --> 00:33:36.094
+understandable for screen reader users
+as well as the labels for our forms.
+
+00:33:36.585 --> 00:33:37.680
+They are not connected.
+
+00:33:37.994 --> 00:33:40.031
+So these issues were also not fixed.
+
+00:33:40.916 --> 00:33:45.696
+So maybe I'm going to go out on a
+limb here, but I would say that code
+
+00:33:45.697 --> 00:33:47.530
+cannot be fixed with a single click.
+
+00:33:48.131 --> 00:33:51.019
+And the reason for this
+is technical limitations.
+
+00:33:51.386 --> 00:33:55.025
+Yeah, every browser, operating
+system, and user setting is different.
+
+00:33:55.278 --> 00:33:59.713
+So while certain changes to your DOM
+may occur, they are neither permanent
+
+00:33:59.724 --> 00:34:07.798
+nor sustainable and meaningful, and
+technical depth will increase a lot
+
+00:34:09.963 --> 00:34:17.442
+So plugins are maybe some kind of
+helpful to make it, the user experience
+
+00:34:17.444 --> 00:34:22.204
+a little bit better, but not really
+fixing any of our WCAG compliant issues.
+
+00:34:23.519 --> 00:34:23.708
+Yeah.
+
+00:34:24.238 --> 00:34:28.025
+The human element, empathy and
+skills are still irreplaceable.
+
+00:34:28.127 --> 00:34:32.247
+Sounds like a title of a thrilling
+movie, but it's simply a very obvious
+
+00:34:32.255 --> 00:34:34.518
+fact, in my opinion, of course.
+
+00:34:34.714 --> 00:34:37.581
+Technical expertise cannot
+be completely outsourced.
+
+00:34:37.586 --> 00:34:42.067
+Sure, there are automated tools, but
+they only scratch the surface, as we saw.
+
+00:34:42.470 --> 00:34:47.112
+To make it truly accessible, a
+website, you still need human empathy
+
+00:34:47.139 --> 00:34:50.193
+and critical thinking and practical
+testing that takes into account
+
+00:34:50.194 --> 00:34:51.948
+a wide range of user experience.
+
+00:34:52.326 --> 00:34:55.483
+Yeah, this is still required,
+and manually testing, of course.
+
+00:34:55.488 --> 00:34:58.216
+So the structure of a site
+and the layout this is
+
+00:34:58.290 --> 00:35:03.532
+These are things an AI cannot grab- grasp.
+
+00:35:03.691 --> 00:35:08.627
+And also writing clean, sustainable
+code, using correct ARIA attributes
+
+00:35:08.628 --> 00:35:13.418
+and, yeah, ensuring keyboard navigation,
+that this actually works seamlessly
+
+00:35:13.446 --> 00:35:16.668
+is something only a human can test.
+
+00:35:17.612 --> 00:35:20.606
+And also additionally, according
+to the latest Web One Million
+
+00:35:20.606 --> 00:35:24.587
+report, the use of images on
+websiteing has increased quite a bit.
+
+00:35:24.798 --> 00:35:29.875
+So we know that images need an
+alternative text, and this is also
+
+00:35:29.878 --> 00:35:37.351
+something AI cannot do now, to create
+an meaningful alternative text.
+
+00:35:37.980 --> 00:35:41.103
+So we still need people to write
+meaningful image descriptions.
+
+00:35:42.821 --> 00:35:46.080
+But what can you do if you
+don't know how to code at all?
+
+00:35:46.426 --> 00:35:51.163
+I understand as a content creator with no
+coding experience it's difficult to create
+
+00:35:51.165 --> 00:35:55.578
+an accessible website because you have
+to rely 100% on the tool you're using.
+
+00:35:56.369 --> 00:36:00.989
+But you cannot only hope that
+themes are getting better over time.
+
+00:36:01.880 --> 00:36:05.863
+And also without forced
+to pay for code quality.
+
+00:36:06.471 --> 00:36:09.517
+So I would say the simpler the
+website, the more likely you're
+
+00:36:09.533 --> 00:36:11.523
+able to make it WCAG compliant.
+
+00:36:11.947 --> 00:36:15.285
+Yeah, the more complicated websites
+get, the sooner you should invest
+
+00:36:15.285 --> 00:36:21.257
+in an accessibility developer to fix
+common issues Rather to rely on some
+
+00:36:21.259 --> 00:36:26.452
+plugin to do the job, or that a theme
+will become more accessible over time.
+
+00:36:27.342 --> 00:36:30.904
+How can you do… How can
+you make the most of it?
+
+00:36:31.384 --> 00:36:33.438
+There's still a few things you can do.
+
+00:36:33.490 --> 00:36:36.311
+Choose a theme that is labeled
+as accessibility ready.
+
+00:36:36.569 --> 00:36:39.525
+Yeah, stick to a correct
+heading and landmark structure.
+
+00:36:39.528 --> 00:36:41.571
+Make sure the color
+contrast is high enough.
+
+00:36:41.824 --> 00:36:44.378
+Include a good alternative
+text for your images.
+
+00:36:45.167 --> 00:36:50.039
+Yeah, make sure that your buttons
+and links are descriptive.
+
+00:36:50.745 --> 00:36:56.598
+Yeah, maybe you can do a little search
+or stick overflow and add a small line
+
+00:36:56.644 --> 00:37:01.283
+of CSS code for example, for outlines
+or hover effect, that this also meets
+
+00:37:01.283 --> 00:37:03.087
+the color contrast requirements.
+
+00:37:03.413 --> 00:37:07.323
+This could be things you may do
+with a little bit help of code.
+
+00:37:07.512 --> 00:37:09.060
+Of course, enable skip links, yeah.
+
+00:37:10.188 --> 00:37:13.469
+So we can only do our best with
+the tools we have available.
+
+00:37:13.498 --> 00:37:16.471
+I would end my presentation.
+
+00:37:16.686 --> 00:37:17.121
+Thank you.
+
+00:37:20.074 --> 00:37:20.696
+Abigail Silva: Wow.
+
+00:37:20.847 --> 00:37:23.916
+Thank you so much for that presentation.
+
+00:37:23.928 --> 00:37:27.652
+That, you are just a wealth of
+information there, and I know that you
+
+00:37:27.652 --> 00:37:30.214
+are very passionate about what you do.
+
+00:37:30.215 --> 00:37:32.747
+I can see it shine through in all you do.
+
+00:37:33.069 --> 00:37:35.728
+So thank you so much
+for that presentation.
+
+00:37:35.743 --> 00:37:41.289
+For all of our attendees, we are getting
+ready to do our Q&A session, so if you
+
+00:37:41.299 --> 00:37:48.895
+have any questions, please go ahead and
+put them in the Q&A for Julia to answer.
+
+00:37:49.243 --> 00:37:52.765
+And we do have a few questions that
+have come through the chat, and I'd like
+
+00:37:52.765 --> 00:37:55.075
+to go ahead and ask those to you now.
+
+00:37:55.446 --> 00:37:59.126
+The first is just really
+a curiosity question.
+
+00:37:59.485 --> 00:38:05.013
+Can a plugin actually be used
+as a way of obeying the EAA?
+
+00:38:09.759 --> 00:38:13.653
+Julia Undeutsch: I think I, I demonstrated
+that it's not possible to comply with the
+
+00:38:13.659 --> 00:38:16.474
+WCAG or the EAA with any of these plugins
+
+00:38:18.828 --> 00:38:19.966
+Abigail Silva: Absolutely.
+
+00:38:20.278 --> 00:38:23.007
+Okay, let's go ahead and
+move on to our next question.
+
+00:38:23.376 --> 00:38:27.069
+And this was a question that was
+coming through the chat as well.
+
+00:38:27.099 --> 00:38:33.049
+Do people find widgets that that
+use zoom text is there any zoom text
+
+00:38:33.049 --> 00:38:37.389
+widgets that you could recommend
+that might be helpful to individuals?
+
+00:38:37.746 --> 00:38:41.731
+And, what was coming through the
+chat a lot on this question was it
+
+00:38:41.745 --> 00:38:45.997
+seems like mostly people are either
+setting their settings to zoom in
+
+00:38:45.997 --> 00:38:51.054
+and out or using their browser to
+expand in and out for the zoom text.
+
+00:38:51.054 --> 00:38:53.351
+So is there anything that
+you might recommend for that?
+
+00:38:54.791 --> 00:38:57.018
+Julia Undeutsch: I would
+say that this is the case.
+
+00:38:57.237 --> 00:39:01.430
+First of all, of course everyone is
+in, individually doing their settings.
+
+00:39:01.488 --> 00:39:04.776
+I know so from a friend who is a UX
+researcher working with blind people or
+
+00:39:04.786 --> 00:39:10.710
+visually impaired people that they would
+rather use a magnifier so really installed
+
+00:39:10.724 --> 00:39:16.179
+on the computer itself because they are
+used to it for a long time, for example.
+
+00:39:16.551 --> 00:39:21.648
+I do not know anyone who uses a  widget
+for this because, yeah, as you mentioned,
+
+00:39:21.779 --> 00:39:25.203
+the browser zoom in and out is actually,
+I think what most people are going to.
+
+00:39:25.630 --> 00:39:31.097
+I think this is… I think the plugins,
+the plugin companies are advertising
+
+00:39:31.110 --> 00:39:35.043
+because they know people need it,
+and then they think, okay, they have
+
+00:39:35.043 --> 00:39:39.784
+another point on their list to say,
+"Hey, I'm that kind of a plugin that
+
+00:39:39.784 --> 00:39:41.078
+you can use this, and we're so good.
+
+00:39:41.112 --> 00:39:44.369
+We have this for people with
+visual impairment." Yeah.
+
+00:39:45.270 --> 00:39:47.000
+And also no, no other recommendation.
+
+00:39:47.002 --> 00:39:51.126
+I think if you need something,
+you are either used to screen
+
+00:39:51.129 --> 00:39:55.246
+magnifier or, yeah, use the zoom
+in and out from the browser itself.
+
+00:39:56.620 --> 00:39:57.613
+Narrator: Thank you.
+
+00:39:58.060 --> 00:40:03.562
+The next question really talks
+about your work specifically.
+
+00:40:03.638 --> 00:40:10.477
+When it comes to, using plugins
+as a part of the process or,
+
+00:40:10.579 --> 00:40:13.443
+do you do more manual creating?
+
+00:40:13.826 --> 00:40:18.334
+And then what how would you leverage both?
+
+00:40:18.386 --> 00:40:20.083
+Do you leverage both?
+
+00:40:20.702 --> 00:40:27.658
+And in addition to that, it's a two-part
+question how has im- AI impacted the tools
+
+00:40:27.659 --> 00:40:30.696
+that you use through this process as well?
+
+00:40:32.558 --> 00:40:34.560
+Julia Undeutsch: That's a
+very interesting question.
+
+00:40:34.635 --> 00:40:39.637
+Unfortunately, I cannot give a good
+answer because, first of all, I'm lucky
+
+00:40:39.637 --> 00:40:44.793
+enough that I do not have projects where
+I have to use WordPress, so I was very
+
+00:40:44.793 --> 00:40:48.345
+curious about this topic myself because
+I hear other people saying, "Ah, I use
+
+00:40:48.345 --> 00:40:49.565
+this plugin and now it's accessible."
+
+00:40:49.568 --> 00:40:52.248
+And I thought, I can actually not
+imagine that in WordPress there
+
+00:40:52.248 --> 00:40:53.589
+are plugins that are accessible.
+
+00:40:54.188 --> 00:40:56.762
+So I do not use WordPress at all.
+
+00:40:57.045 --> 00:41:03.224
+And also I was in maternity leave for
+over a year and the AI era is currently
+
+00:41:03.225 --> 00:41:09.286
+starting, me getting back in my job
+two days ago, so I will see about it,
+
+00:41:09.634 --> 00:41:12.374
+how this will influence my future work.
+
+00:41:13.875 --> 00:41:15.762
+Narrator: That's a fair answer.
+
+00:41:16.077 --> 00:41:20.239
+So it sounds like for the most
+part you're using a 50/50 when
+
+00:41:20.240 --> 00:41:23.609
+it comes to manual as well as
+plugins, or did I miss that answer?
+
+00:41:23.609 --> 00:41:24.322
+I'm sorry.
+
+00:41:25.020 --> 00:41:30.104
+Julia Undeutsch: When the question is
+about how do I measure accessibility,
+
+00:41:30.426 --> 00:41:31.686
+yeah, I do it all myself.
+
+00:41:31.728 --> 00:41:33.374
+So I'm a developer and I…
+
+00:41:33.651 --> 00:41:37.291
+The components or the testing
+is always manual testing.
+
+00:41:38.221 --> 00:41:38.497
+Narrator: Okay.
+
+00:41:38.523 --> 00:41:38.859
+Fair.
+
+00:41:39.180 --> 00:41:40.396
+Thank you for that answer.
+
+00:41:40.396 --> 00:41:41.307
+I appreciate that.
+
+00:41:41.555 --> 00:41:44.438
+And it sounds like for the most
+part you do use WordPress when it
+
+00:41:44.439 --> 00:41:47.041
+comes to checking for accessibility.
+
+00:41:47.067 --> 00:41:52.147
+Do you find that there's anything
+that you might think of like outside
+
+00:41:52.148 --> 00:41:56.921
+of the box or that you might use
+that makes it easier to remediate?
+
+00:41:57.005 --> 00:42:01.341
+And this individual gave
+specific examples like Elementor,
+
+00:42:01.359 --> 00:42:03.395
+Bricks, that type of thing.
+
+00:42:04.701 --> 00:42:09.768
+Julia Undeutsch: Yes, this would be
+a very interesting topic for next
+
+00:42:09.768 --> 00:42:11.427
+year's WordPress Accessibility Day.
+
+00:42:11.719 --> 00:42:16.397
+The Divi theme, this is the only theme
+I have worked a few years ago and I was
+
+00:42:16.399 --> 00:42:21.985
+already, yeah very disappointed after a
+year when they sold their accessibility
+
+00:42:22.047 --> 00:42:27.012
+plugin to make their (explitive) code
+accessible, or actually just a good code.
+
+00:42:27.406 --> 00:42:28.908
+Absolutely no go for me.
+
+00:42:28.942 --> 00:42:36.316
+And I heard that Elementor is maybe
+the most accessible theme builder.
+
+00:42:37.202 --> 00:42:40.946
+Yeah you would have to dive deeper,
+I would say, because in the beginning
+
+00:42:40.951 --> 00:42:46.125
+when you have just one page, then I can
+imagine it is accessible, but if you dive
+
+00:42:46.125 --> 00:42:50.773
+deeper or want to make a huge application
+or website I, I don't think so.
+
+00:42:52.201 --> 00:42:52.607
+Narrator: Yeah.
+
+00:42:52.927 --> 00:42:55.895
+And then, I have a question
+for myself because you are so
+
+00:42:55.896 --> 00:42:57.935
+passionate about what you do.
+
+00:42:58.207 --> 00:43:03.693
+How do you encourage others to really
+create with accessibility in mind?
+
+00:43:06.210 --> 00:43:09.954
+Julia Undeutsch: Do I encourage
+others would be a good question.
+
+00:43:10.004 --> 00:43:15.005
+I'm just passionate about talking
+about accessibility, so I think this
+
+00:43:15.007 --> 00:43:21.426
+is already some- something others see
+and are curious then about why is she
+
+00:43:21.426 --> 00:43:22.781
+always talking about accessibility.
+
+00:43:23.258 --> 00:43:28.474
+And I also talk to many developers,
+and I think this is what I'm praying,
+
+00:43:28.483 --> 00:43:31.975
+that accessibility is… maybe you
+should not see it only from the
+
+00:43:31.975 --> 00:43:35.702
+perspective of you do it for people
+with disabilities, but it's actually
+
+00:43:36.131 --> 00:43:41.027
+very much about good code quality, and
+you should want to be a good coder.
+
+00:43:41.695 --> 00:43:46.372
+So if you have the, the choice of creating
+a, a button with a div or a button with
+
+00:43:46.379 --> 00:43:52.637
+HTML tech, I am really not sure why you
+should would ever use the other version
+
+00:43:52.942 --> 00:43:54.959
+when there is already a button element.
+
+00:43:55.510 --> 00:43:59.666
+Yeah it's sustainable, it's read- readable
+for your colleagues, for yourself.
+
+00:43:59.705 --> 00:44:05.414
+There's actually no reasons to write
+bad code, and I think good code
+
+00:44:05.432 --> 00:44:07.666
+is already very much accessible.
+
+00:44:08.829 --> 00:44:09.143
+Narrator: Yeah.
+
+00:44:09.187 --> 00:44:10.091
+Absolutely.
+
+00:44:10.105 --> 00:44:11.736
+Thank you for answering that.
+
+00:44:12.173 --> 00:44:16.449
+And looks like we have another
+question that did come through.
+
+00:44:16.761 --> 00:44:21.872
+Based on your testing, would
+you recommend WordPress as a
+
+00:44:22.065 --> 00:44:24.268
+base for an accessible website?
+
+00:44:26.508 --> 00:44:28.689
+Julia Undeutsch: Base for
+an accessible website.
+
+00:44:29.896 --> 00:44:32.527
+How can I, Better understand the question.
+
+00:44:32.541 --> 00:44:37.081
+So do you mean it's better to start with
+WordPress when you create something?
+
+00:44:37.808 --> 00:44:38.548
+Narrator: Yes.
+
+00:44:38.582 --> 00:44:44.539
+Yeah, so would create your website,
+then utilize the WordPress to,
+
+00:44:44.706 --> 00:44:48.927
+really start as that foundational
+building block for your website?
+
+00:44:50.019 --> 00:44:52.768
+Julia Undeutsch: When
+you're a developer, why not?
+
+00:44:53.061 --> 00:44:55.645
+You can override everything.
+
+00:44:56.974 --> 00:45:00.354
+This is good code quality, I would
+say, but since, I don't know, more
+
+00:45:00.354 --> 00:45:05.047
+than 50% of websites out there are
+from Word- made out of WordPress, and
+
+00:45:08.234 --> 00:45:10.980
+I guess they are all used
+by people with disabilities.
+
+00:45:10.987 --> 00:45:16.295
+So yeah, if you have the knowledge about
+it you can use WordPress, of course.
+
+00:45:16.375 --> 00:45:22.104
+As an author, you maybe just have
+no other choice when you are not
+
+00:45:22.139 --> 00:45:24.245
+able to code to, to use this, Yeah.
+
+00:45:24.245 --> 00:45:25.290
+It sounds like really what you're
+
+00:45:25.290 --> 00:45:30.203
+Narrator: trying to say is you have to
+do what's best for you based on the tools
+
+00:45:30.215 --> 00:45:32.094
+that you currently have available- yeah
+
+00:45:32.094 --> 00:45:34.874
+And how you're building your website.
+
+00:45:34.887 --> 00:45:37.703
+So yeah, sounds like it's varies
+for everybody, but yeah, there's
+
+00:45:37.713 --> 00:45:39.940
+fantastic tools out there for everyone.
+
+00:45:40.311 --> 00:45:45.445
+And, I truly want to go ahead and wrap
+this up 'cause we are coming to time,
+
+00:45:45.446 --> 00:45:49.975
+but I do wanna thank you, Julia, for
+… everything that you offered us today.
+
+00:45:50.311 --> 00:45:53.870
+Thank you so much … and for our
+attendees, I do wanna make sure that
+
+00:45:53.871 --> 00:45:59.190
+you understand we can continue the
+conversation in the chat or on social
+
+00:45:59.197 --> 00:46:08.543
+media using #WPA11yDay and #WPAD2026.
+

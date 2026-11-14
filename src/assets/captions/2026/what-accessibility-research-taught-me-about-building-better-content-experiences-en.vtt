@@ -1,0 +1,2259 @@
+WEBVTT
+
+00:00:04.661 --> 00:00:07.523
+Narrator: WordPress
+Accessibility Day 2026.
+
+00:00:07.950 --> 00:00:12.521
+What Accessibility Research Taught Me
+About Building Better Content Experiences.
+
+00:00:12.889 --> 00:00:16.426
+Presented by Karimot
+Isiaka, Product Designer.
+
+00:00:16.933 --> 00:00:22.183
+This session was presented on
+October 8, 2026, at 11:00 UTC.
+
+00:00:28.296 --> 00:00:31.240
+WordPress Accessibility Day 2026.
+
+00:00:31.600 --> 00:00:33.326
+Thank you to our sponsors.
+
+00:00:33.691 --> 00:00:36.284
+Platinum Sponsor: Equalize Digital.
+
+00:00:36.375 --> 00:00:38.184
+Websites for Everyone.
+
+00:00:38.717 --> 00:00:42.400
+Equalize Digital's Accessibility
+Checker plugin makes real-time
+
+00:00:42.402 --> 00:00:45.813
+testing in the WordPress editor
+faster and more affordable.
+
+00:00:46.712 --> 00:00:50.922
+Auditing services and online
+courses help organizations build
+
+00:00:51.123 --> 00:00:53.102
+and maintain accessible websites.
+
+00:00:53.724 --> 00:00:55.774
+Platinum Sponsor: Gravity.
+
+00:00:56.262 --> 00:00:59.763
+Gravity Forms is the accessible
+form builder for WordPress.
+
+00:01:00.157 --> 00:01:03.741
+Trusted by millions of sites,
+it's built to create powerful
+
+00:01:03.882 --> 00:01:06.928
+WCAG-compliant forms for any project.
+
+00:01:07.461 --> 00:01:12.317
+Gold sponsors: Kinsta, Insi, WP Engine.
+
+00:01:12.931 --> 00:01:16.276
+Silver sponsors: Second Melody, Tenrec.
+
+00:01:16.439 --> 00:01:18.158
+Your website, only better.
+
+00:01:19.500 --> 00:01:23.393
+Visit sponsor pages to enter to
+win giveaways and access swag.
+
+00:01:23.806 --> 00:01:28.428
+Go to wpaccessibility.day/2026/sponsors.
+
+00:01:32.279 --> 00:01:33.841
+Don't forget to leave feedback.
+
+00:01:34.312 --> 00:01:38.728
+Go to wpaccessibility.day/2026/feedback.
+
+00:01:44.541 --> 00:01:48.497
+Gary: Welcome to WordPress
+Accessibility Day 2026.
+
+00:01:49.196 --> 00:01:52.433
+My name is Gary Morgan, and I'm
+the director of Pixelshrink.
+
+00:01:53.443 --> 00:01:56.705
+Thank you for joining us for "What
+Accessibility Research Taught
+
+00:01:56.707 --> 00:02:00.904
+Me About Building Better Content
+Experiences" with Karimot Isiaka.
+
+00:02:01.841 --> 00:02:04.643
+Karimot is a product designer
+with a strong interest in
+
+00:02:04.646 --> 00:02:06.616
+accessibility and inclusive design.
+
+00:02:07.325 --> 00:02:12.041
+As a past Outreachy intern at the
+Wikimedia Foundation, she contributed
+
+00:02:12.041 --> 00:02:16.511
+to improving accessible reading
+experiences for Wikipedia by researching
+
+00:02:16.513 --> 00:02:21.439
+accessibility needs, exploring design
+solutions, and supporting the development
+
+00:02:21.439 --> 00:02:25.422
+of features for users with cognitive,
+visual, and motor differences.
+
+00:02:26.081 --> 00:02:30.929
+With experience across humanitarian
+and SaaS platforms, she brings
+
+00:02:30.991 --> 00:02:34.803
+research-backed, user-centered
+thinking to designing interfaces
+
+00:02:34.805 --> 00:02:35.738
+that work for everyone.
+
+00:02:36.876 --> 00:02:41.269
+Please feel free to add your questions
+in the Zoom Q&A section, and we'll
+
+00:02:41.271 --> 00:02:42.648
+answer them at the end of the session.
+
+00:02:43.392 --> 00:02:45.601
+Use the chat to connect
+with other attendees.
+
+00:02:47.146 --> 00:02:48.733
+Karimot: My name is Karimot Isiaka.
+
+00:02:48.872 --> 00:02:53.915
+I am a product designer with a
+strong interest in accessibility
+
+00:02:54.267 --> 00:02:55.547
+and inclusive design.
+
+00:02:56.891 --> 00:02:58.635
+Here is the topic for the day.
+
+00:02:59.038 --> 00:03:02.985
+I will be sharing my experience,
+basically, and the topic is What
+
+00:03:03.040 --> 00:03:07.166
+Accessibility Taught Me About
+Building Better Content Experience.
+
+00:03:07.619 --> 00:03:08.727
+Let's dive right in.
+
+00:03:11.786 --> 00:03:14.073
+So this is the agenda for the day.
+
+00:03:14.686 --> 00:03:19.588
+I would be taking you through why I chose
+the topic and sharing my experience.
+
+00:03:19.632 --> 00:03:26.604
+I will talk about the research that led
+to the information I'll be sharing today.
+
+00:03:27.026 --> 00:03:33.480
+I would also be talking about the pattern
+behind the research findings, and also
+
+00:03:34.401 --> 00:03:40.700
+I'll be sliding in what- how we can
+move from that research to practice and
+
+00:03:40.700 --> 00:03:43.957
+how this can be applied to WordPress.
+
+00:03:46.655 --> 00:03:47.799
+So why this talk?
+
+00:03:48.561 --> 00:03:50.675
+You know, they say that accessibility
+
+00:03:53.149 --> 00:03:54.792
+Is it gives access.
+
+00:03:54.839 --> 00:04:00.178
+So accessibility says give access to
+everyone regardless of their ability.
+
+00:04:00.685 --> 00:04:04.441
+So this talk addresses how we
+can make the access happen.
+
+00:04:06.357 --> 00:04:08.097
+So let's talk about where it began.
+
+00:04:08.797 --> 00:04:13.302
+It started when I got into
+the contribution stage of the
+
+00:04:13.328 --> 00:04:20.765
+Outreachy internship, and the task
+we were given was to redesign a
+
+00:04:20.950 --> 00:04:25.857
+Wikipedia webpage, specifically
+the Wikipedia community portal.
+
+00:04:26.173 --> 00:04:29.784
+So we were redesigning it for
+accessibility requirement.
+
+00:04:30.437 --> 00:04:38.883
+And from designing it, what I learned
+was that it was very important
+
+00:04:38.950 --> 00:04:42.200
+that we pay attention to the
+people that we are designing for.
+
+00:04:42.650 --> 00:04:48.561
+In this case, we were designing with
+different accessibility considerations
+
+00:04:48.565 --> 00:04:51.393
+in mind, and that experience taught me.
+
+00:04:52.099 --> 00:04:58.789
+It moved me from, you know, designing
+a webpage for accessibility requirement
+
+00:04:59.248 --> 00:05:05.030
+to realizing how much empathy, you
+know, how much having empathy for your
+
+00:05:05.342 --> 00:05:10.941
+visitors, like the visitors of your
+webpage, how much it shapes good design.
+
+00:05:11.961 --> 00:05:18.006
+So let's dive right in to get more
+information about how that went.
+
+00:05:19.998 --> 00:05:21.477
+So the research stage.
+
+00:05:22.010 --> 00:05:25.653
+When I wanted to start working
+on the project, of course, I
+
+00:05:25.655 --> 00:05:27.769
+didn't just jump into designing.
+
+00:05:28.467 --> 00:05:31.293
+I started with research.
+
+00:05:32.399 --> 00:05:36.934
+First of all, there is the project,
+um, description, of course.
+
+00:05:36.997 --> 00:05:41.286
+So before we start, we've… In
+the project description, I already
+
+00:05:41.286 --> 00:05:44.844
+identified what the problem
+we, we are trying to solve is.
+
+00:05:45.514 --> 00:05:50.124
+We are trying to redesign a,
+um, a webpage, the Wikipedia
+
+00:05:50.152 --> 00:05:52.002
+Community Portal specifically.
+
+00:05:52.674 --> 00:06:00.260
+But we are designing it to better
+fit the experience of people who
+
+00:06:00.260 --> 00:06:04.154
+have different accessibility needs,
+whether they are visually impaired,
+
+00:06:04.176 --> 00:06:07.847
+whether they have cognitive disability,
+motor impairment and the likes.
+
+00:06:08.186 --> 00:06:11.658
+So I did some background digging.
+
+00:06:11.690 --> 00:06:15.984
+I read articles, I watched videos on
+how to design for people with these
+
+00:06:15.986 --> 00:06:18.370
+various access- accessibility needs.
+
+00:06:18.526 --> 00:06:28.879
+I also, um, had the… I had access
+to some… I had access to looking
+
+00:06:28.881 --> 00:06:33.941
+into the real accounts of people
+who have these experiences, and I'll
+
+00:06:33.943 --> 00:06:40.215
+be sharing those different personas
+with you as we go on in this talk.
+
+00:06:40.932 --> 00:06:47.960
+So I looked at the example of
+people who have visual impairment.
+
+00:06:48.603 --> 00:06:50.803
+So there are different
+personas that you would see.
+
+00:06:50.818 --> 00:06:54.946
+Visual, it covers visual
+impairment, non-visual, motor
+
+00:06:54.990 --> 00:06:56.608
+and cognitive disabilities.
+
+00:06:56.865 --> 00:07:02.844
+And we went a little bit deeper, um,
+with Stefan and Simone's experience,
+
+00:07:02.875 --> 00:07:08.409
+which you will get to see, because they
+have cognitive, um, impairment in their
+
+00:07:08.416 --> 00:07:14.793
+own case, which is not as, um, popularly
+discussed in the accessibility space
+
+00:07:14.993 --> 00:07:17.275
+compared to, like, the visual impairment.
+
+00:07:19.046 --> 00:07:23.606
+So the first persona we'll be
+looking at is Lexie, is an online
+
+00:07:23.614 --> 00:07:26.204
+shopper with colorblindness.
+
+00:07:26.688 --> 00:07:34.701
+So he cannot, in his case, Lexie cannot…
+In her case, Lexie cannot reliably
+
+00:07:35.187 --> 00:07:38.289
+distinguish red, green, orange, brown.
+
+00:07:38.606 --> 00:07:42.968
+These colors that many sites
+use alone to convey meaning.
+
+00:07:43.944 --> 00:07:47.511
+And she experiences some
+barriers as a result of that.
+
+00:07:47.539 --> 00:07:53.973
+For instance, mandatory field, you
+know, all those mandatory field.
+
+00:07:53.973 --> 00:07:59.079
+Let's say you are, you are… You missed
+a part… When you're filling a form
+
+00:07:59.394 --> 00:08:04.909
+and there's a part that is mandatory,
+and it's, the only way you can know
+
+00:08:04.909 --> 00:08:09.992
+that it's mandatory is that they just
+convey the message with like a color
+
+00:08:09.993 --> 00:08:17.727
+red, or they just used a color to out-
+outline To communicate that requirement.
+
+00:08:17.833 --> 00:08:22.962
+So the barrier for her is that
+the… These mandatory field errors
+
+00:08:23.010 --> 00:08:28.159
+marked in red are hard for her to
+spot at checkout, for instance.
+
+00:08:28.573 --> 00:08:33.939
+So when she's checking out and filling
+some forms, if it's just communicated
+
+00:08:34.192 --> 00:08:37.789
+via color, she finds it very difficult.
+
+00:08:37.832 --> 00:08:44.202
+So what's works for her in this case
+is that you don't rely on color alone.
+
+00:08:44.213 --> 00:08:47.424
+You pair it with icon,
+labels, and patterns.
+
+00:08:49.180 --> 00:08:52.610
+Let's look at the next persona.
+
+00:08:53.071 --> 00:08:57.043
+This is Lakshmi, is blind
+and he uses screen reader.
+
+00:08:57.403 --> 00:08:58.617
+He's a senior accountant.
+
+00:08:59.159 --> 00:09:03.658
+So he navigates a webpage
+entirely through a screen reader.
+
+00:09:04.341 --> 00:09:10.193
+So one of the… Some of the
+barriers that he faces is unlabeled
+
+00:09:10.193 --> 00:09:15.473
+images, unclear form fields, and
+deeply nested navigation menus.
+
+00:09:17.598 --> 00:09:19.439
+These are the barriers that he faces.
+
+00:09:19.912 --> 00:09:26.882
+So what works in his case, proper heading
+structure and labeled field forms.
+
+00:09:27.359 --> 00:09:29.870
+So all of these things, they
+are not just a nice-to-have.
+
+00:09:30.279 --> 00:09:32.714
+We are going to look at more personas.
+
+00:09:34.446 --> 00:09:36.377
+In this case, um, here is Ade.
+
+00:09:36.697 --> 00:09:43.731
+He's a reporter with limited use of his
+arm following his, his spinal cord injury.
+
+00:09:45.170 --> 00:09:47.305
+So Ade relies mostly on keyboard.
+
+00:09:47.402 --> 00:09:50.507
+Sometimes he just take…
+operated with his palm and
+
+00:09:50.507 --> 00:09:54.558
+increasingly speech recognition.
+
+00:09:55.337 --> 00:10:00.008
+So he switches… basically, he switches
+method depending on how tired he is.
+
+00:10:00.615 --> 00:10:04.696
+So the barrier he faces is that
+when he's tabbing through a page,
+
+00:10:04.730 --> 00:10:12.287
+he often can't tell the elements
+currently has focus since some
+
+00:10:12.381 --> 00:10:16.355
+sites lack visible focus indicators.
+
+00:10:16.789 --> 00:10:24.682
+So in his case, what works is when
+pages have, you know, visual focus
+
+00:10:24.713 --> 00:10:26.650
+indicator, and here is an example.
+
+00:10:28.184 --> 00:10:34.547
+So for you to… when you are designing
+a webpage, for instance, if your team
+
+00:10:34.548 --> 00:10:41.337
+is designing a webpage, you want to
+ensure that for people like Ade, there
+
+00:10:41.351 --> 00:10:48.241
+is a visual indica- a focus indicator
+that tells him that this is where
+
+00:10:48.241 --> 00:10:50.839
+he is at this point in the website.
+
+00:10:51.191 --> 00:10:55.936
+So let's say he has… he's on a button.
+
+00:10:57.728 --> 00:11:02.228
+He should be able to know that, yes,
+I'm on this button, as opposed to the
+
+00:11:02.239 --> 00:11:09.063
+button looking the same or staying the
+same as it was before he put, like,
+
+00:11:09.284 --> 00:11:13.438
+he put his mouse across that button.
+
+00:11:13.939 --> 00:11:16.929
+So this is what that looks like.
+
+00:11:17.651 --> 00:11:20.779
+This is just a button
+showing you different states.
+
+00:11:21.089 --> 00:11:24.903
+From the default state to hover state,
+and it's showing you, like, a different
+
+00:11:24.933 --> 00:11:29.040
+color outline for the focus indicator.
+
+00:11:32.770 --> 00:11:39.630
+So let's go in deep, deeper
+for personas who have cognitive
+
+00:11:39.959 --> 00:11:42.763
+disabilities like dyslexia and ADHD.
+
+00:11:42.839 --> 00:11:45.689
+But before then, let's look
+at the definition of both.
+
+00:11:46.785 --> 00:11:50.865
+So according to the National Institute
+of Neurological Disorders and Stroke,
+
+00:11:50.882 --> 00:11:57.664
+dyslexia is a brain-based type of learning
+disability that is… that specifically
+
+00:11:57.675 --> 00:11:59.827
+impairs a person's ability to read.
+
+00:12:00.883 --> 00:12:05.711
+ADHD, on the other hand, is a
+developmental disorder marked by
+
+00:12:05.738 --> 00:12:12.571
+persistent symptoms of inattention,
+hyperactivity, and impulsivity.
+
+00:12:13.093 --> 00:12:18.001
+So ADHD means attention
+deficit hyperactivity disorder.
+
+00:12:18.509 --> 00:12:23.046
+So I just wanted to set that
+before we move into the personas
+
+00:12:23.071 --> 00:12:26.245
+who experience these disabilities.
+
+00:12:26.962 --> 00:12:29.919
+Stefan struggles.
+
+00:12:30.250 --> 00:12:38.643
+He has ADHD and dyslexia, so he
+has difficulty recognizing and
+
+00:12:38.644 --> 00:12:43.251
+sounding out words, which affects his
+spelling and reading comprehension.
+
+00:12:44.218 --> 00:12:51.008
+So he also relies on text-to-speech so he
+can see and hear words at the same time.
+
+00:12:52.741 --> 00:12:56.434
+So this helps him focus,
+especially on long text.
+
+00:12:57.306 --> 00:13:02.292
+So it is very important to actually
+have context of the type of people
+
+00:13:02.308 --> 00:13:04.245
+that may be visiting our website.
+
+00:13:04.749 --> 00:13:08.875
+If we have the context of these
+different personas in mind, it helps
+
+00:13:08.876 --> 00:13:13.235
+to bring things into perspective,
+and it helps us also become more
+
+00:13:13.235 --> 00:13:14.799
+intentional when we are designing.
+
+00:13:15.394 --> 00:13:18.727
+So Stefan's str- is… Some of
+his struggle, he gets lost in
+
+00:13:18.738 --> 00:13:21.551
+dense, dense text with no breaks.
+
+00:13:23.251 --> 00:13:29.129
+So he also get distracted by pop-ups,
+moving ads and cluttered layouts.
+
+00:13:29.419 --> 00:13:33.288
+He struggles to nav-navigate
+sites with unclear structures.
+
+00:13:33.819 --> 00:13:39.482
+He misspells words while
+searching, and he gets no results.
+
+00:13:39.850 --> 00:13:43.113
+Sites also don't respect
+his brow- browser settings.
+
+00:13:44.714 --> 00:13:50.668
+So what works for him is plain
+language, generous white space, visual
+
+00:13:50.691 --> 00:13:58.492
+supports like icons, simple, consistent
+layouts, site maps, breadcrumb
+
+00:13:58.524 --> 00:14:01.542
+trails and search functionality.
+
+00:14:02.181 --> 00:14:06.035
+Another thing that works for
+him is design that adapts to
+
+00:14:06.047 --> 00:14:09.055
+his user setting preference.
+
+00:14:11.319 --> 00:14:14.228
+Here is another persona.
+
+00:14:14.394 --> 00:14:15.406
+Here is Simone.
+
+00:14:16.605 --> 00:14:20.703
+Simone was diagnosed with dyslexia.
+
+00:14:21.137 --> 00:14:26.738
+In her case, she uses specialist
+dyslexia software which reads out
+
+00:14:26.806 --> 00:14:31.935
+documents and webpages for her, and
+it also helps her to read and spell.
+
+00:14:32.765 --> 00:14:36.596
+Even though the website… I mean,
+the software helps her to feel more
+
+00:14:36.597 --> 00:14:40.449
+confident about her writing, she
+also asks her colleagues to helps,
+
+00:14:40.693 --> 00:14:44.895
+to help her check important emails
+before sending it, just in case.
+
+00:14:45.113 --> 00:14:49.367
+So this is a use case for another persona.
+
+00:14:50.340 --> 00:14:51.488
+So some of her struggle.
+
+00:14:51.498 --> 00:14:58.130
+Forms take a long time to fill in, and
+she often needs help checking her writing.
+
+00:14:58.680 --> 00:15:02.760
+Poor spelling, so she relies on
+tools to guess what this meant.
+
+00:15:03.145 --> 00:15:06.896
+Loses concentration around moving
+content banner and tickers.
+
+00:15:08.228 --> 00:15:12.554
+She struggles with dense
+writing and complex language.
+
+00:15:13.738 --> 00:15:19.323
+So some of the things that work for her is
+almost similar to the case of Stefan, the
+
+00:15:19.346 --> 00:15:22.549
+previous… one of the previous personas.
+
+00:15:23.343 --> 00:15:27.974
+So the save and return
+functionality, reasonable timeouts.
+
+00:15:28.928 --> 00:15:35.214
+This one is one of the WCAG,
+that's WCAG, um, success criterion.
+
+00:15:35.486 --> 00:15:40.984
+We have to actually give reasonable
+timeou- timeout for users
+
+00:15:41.550 --> 00:15:44.910
+like Simon who have dyslexia.
+
+00:15:45.266 --> 00:15:49.974
+We want to… Let's say they are
+filling a form and after 10 minutes
+
+00:15:49.978 --> 00:15:53.535
+of inactivity, the form would close.
+
+00:15:53.920 --> 00:15:59.684
+Instead of just closing the form directly,
+you can, let's say two minutes before the
+
+00:16:00.344 --> 00:16:08.150
+end of 10 minutes, you let them know that
+the form will be closing so they can click
+
+00:16:08.151 --> 00:16:10.263
+the option that allows them more time.
+
+00:16:11.094 --> 00:16:18.974
+So they also want, um, spell-tolerant
+search and input tools that, you know,
+
+00:16:19.987 --> 00:16:24.295
+that kind of allows them to, let's
+say they are spelling… Maybe they
+
+00:16:24.298 --> 00:16:31.348
+didn't get the spelling wrong, so you
+can build your site in such a way that
+
+00:16:31.348 --> 00:16:33.456
+recommends the correct spelling for them.
+
+00:16:33.885 --> 00:16:37.266
+So avoid unnecessary mes-
+um, motion on the page.
+
+00:16:38.867 --> 00:16:46.275
+Plain English, like you don't have to
+be too complicated because for people
+
+00:16:46.275 --> 00:16:50.660
+like this, you want the content on
+your website to be easy to understand.
+
+00:16:51.185 --> 00:16:55.366
+And adjustable contrast
+between text and background.
+
+00:16:55.679 --> 00:17:00.564
+You can give them different option to
+switching between light and dark mode.
+
+00:17:00.809 --> 00:17:05.665
+You can also add extra layers or
+something that looks like what I have
+
+00:17:05.675 --> 00:17:08.692
+here, like a sepia background for your…
+
+00:17:08.750 --> 00:17:10.930
+You can make that option
+available for them.
+
+00:17:11.675 --> 00:17:15.387
+So also avoid justified text and italics.
+
+00:17:16.638 --> 00:17:17.550
+So let's move on.
+
+00:17:18.315 --> 00:17:20.338
+So what the research revealed.
+
+00:17:20.418 --> 00:17:25.016
+Let's look at what all of… Because
+studying all of these personas and
+
+00:17:25.016 --> 00:17:29.771
+learning about them, the research
+revealed a couple of things.
+
+00:17:30.936 --> 00:17:33.402
+Different people, different
+barrier, one pattern.
+
+00:17:33.445 --> 00:17:37.505
+Let's, let's look at what was…
+Even though they have different
+
+00:17:37.507 --> 00:17:41.482
+experiences, let's look at the
+pattern that continued to show up.
+
+00:17:42.177 --> 00:17:46.161
+So across every story, all of these
+people that we've just read about,
+
+00:17:46.581 --> 00:17:50.717
+the specific barriers were different,
+but three things kept showing up again
+
+00:17:50.720 --> 00:17:53.427
+and again, and they were the structure
+
+00:17:55.838 --> 00:17:58.660
+The things that make, um, these
+three things are what actually
+
+00:17:58.661 --> 00:18:01.515
+make the page usable for them.
+
+00:18:01.791 --> 00:18:04.626
+The structure, clarity, and also control.
+
+00:18:05.242 --> 00:18:07.892
+Let's look at them in
+a little more detail.
+
+00:18:09.244 --> 00:18:13.456
+So what does these three
+things, what do they look like?
+
+00:18:13.572 --> 00:18:18.625
+In the case of Lakshmi, he
+navigates-- she navigates
+
+00:18:18.801 --> 00:18:21.291
+rather, she navigates by heading.
+
+00:18:21.302 --> 00:18:25.572
+So all of these structures, they
+are not just a nice-to-have.
+
+00:18:26.159 --> 00:18:32.395
+For someone that uses, um, screen readers,
+she wants to be able to navigate well.
+
+00:18:32.672 --> 00:18:41.545
+And when your headings are not properly
+cited and identified, if they are
+
+00:18:41.545 --> 00:18:47.399
+not properly structured, for someone
+that uses a screen reader, she's
+
+00:18:47.421 --> 00:18:49.823
+going to come across some challenges.
+
+00:18:49.871 --> 00:18:52.609
+So she navigates by heading.
+
+00:18:52.619 --> 00:18:58.147
+You also want to ensure that you
+are intentional about how you
+
+00:18:58.147 --> 00:19:01.991
+structure the pages of your website.
+
+00:19:02.650 --> 00:19:08.051
+In Stefan's cage… In Stefan's case,
+he needs plain language and white
+
+00:19:08.052 --> 00:19:13.208
+space to stay consistent, to stay
+with the content instead of giving up.
+
+00:19:14.892 --> 00:19:19.294
+Stefan needs plain language and
+white space to stay with the
+
+00:19:19.322 --> 00:19:20.785
+content instead of giving up.
+
+00:19:21.108 --> 00:19:27.995
+In the next, um, redesign that I
+would be sharing with you, you're
+
+00:19:27.996 --> 00:19:29.568
+going to see how this plays out.
+
+00:19:30.373 --> 00:19:33.458
+So in Simone and Ade's
+case, they need control.
+
+00:19:33.764 --> 00:19:38.818
+They want adjustable contrast, adjustable
+timeout to work on their own pace.
+
+00:19:42.030 --> 00:19:46.572
+So all of these things are
+also supported by the British
+
+00:19:46.589 --> 00:19:49.834
+Dyslexia Association's guideline.
+
+00:19:51.324 --> 00:19:55.487
+Everything that I just mentioned, the
+plain language, the consistent structure,
+
+00:19:55.725 --> 00:20:01.713
+and also giving user control over
+content, over how content is presented.
+
+00:20:02.014 --> 00:20:04.599
+We are going to see more as we go further.
+
+00:20:06.417 --> 00:20:12.045
+So from research to practice, how
+do we apply all of these things
+
+00:20:12.099 --> 00:20:18.504
+to WordPress when we are building
+websites on WordPress and when we
+
+00:20:18.507 --> 00:20:21.058
+are designing content on WordPress?
+
+00:20:25.513 --> 00:20:28.485
+So everything we've covered, the
+structure, the clarity, the control,
+
+00:20:28.518 --> 00:20:30.512
+they are not abstract ideas.
+
+00:20:30.905 --> 00:20:33.996
+This translates into
+real, buildable decisions.
+
+00:20:34.553 --> 00:20:41.283
+So what it looks like across… This
+is how it looks like across four
+
+00:20:41.297 --> 00:20:46.570
+areas: content structure, navigation,
+readability, and personalizations.
+
+00:20:46.645 --> 00:20:48.567
+Let's quickly look into that.
+
+00:20:48.824 --> 00:20:52.302
+So for content structure,
+it's not just decoration.
+
+00:20:52.650 --> 00:20:58.143
+It is how people move through pages,
+just like our previous user or
+
+00:20:58.143 --> 00:21:03.667
+persona that is visually impaired
+and works with, um, a screen reader.
+
+00:21:04.105 --> 00:21:09.080
+So using real reading hierarchy
+instead of just… Because
+
+00:21:09.081 --> 00:21:12.780
+sometimes when we, when we want to-
+
+00:21:15.454 --> 00:21:17.311
+Identify our headers.
+
+00:21:17.691 --> 00:21:22.979
+We sometimes make the mistake of just
+making the header bold, but beyond
+
+00:21:22.991 --> 00:21:27.549
+that, we need to actually name it.
+
+00:21:28.371 --> 00:21:31.021
+We need to style it as the heading.
+
+00:21:31.317 --> 00:21:34.792
+We need to style it as the heading,
+as opposed to just making it bold.
+
+00:21:35.570 --> 00:21:41.776
+So if it's just a written experience
+where you're writing a letter
+
+00:21:42.013 --> 00:21:47.747
+and you're making the heading
+part, you know, bolder, it works.
+
+00:21:47.922 --> 00:21:55.247
+But when it comes to the, the web,
+you have to really define your header
+
+00:21:55.294 --> 00:22:02.698
+and structure it properly beyond
+just making it look like it or being
+
+00:22:02.732 --> 00:22:07.372
+able to structure it in a way that
+the screen reader can catch it.
+
+00:22:07.952 --> 00:22:10.612
+So break content into short paragraphs.
+
+00:22:11.023 --> 00:22:16.522
+The British Dyslexia Association
+also recommends roughly
+
+00:22:16.579 --> 00:22:18.051
+100 characters per line.
+
+00:22:18.106 --> 00:22:21.671
+We would also see how that applied in
+the redesign project that I worked on.
+
+00:22:22.017 --> 00:22:26.866
+Use lists and short sections
+instead of dense blocks of text.
+
+00:22:28.208 --> 00:22:29.606
+So let's look at it.
+
+00:22:30.153 --> 00:22:33.069
+Before the redesign, um, the Wikipedia…
+
+00:22:33.446 --> 00:22:37.743
+Sorry, yes, the Wikipedia Community
+Portal has been linked here.
+
+00:22:37.743 --> 00:22:39.566
+You can always check it out later.
+
+00:22:41.311 --> 00:22:47.767
+So here is some of the screenshots of the
+original layout of the community portal.
+
+00:22:53.471 --> 00:22:54.223
+Yes.
+
+00:22:54.755 --> 00:22:55.569
+Let's keep going.
+
+00:22:55.819 --> 00:22:58.962
+Can we see how dense the contents look?
+
+00:22:59.826 --> 00:23:06.061
+And this, there is also not enough white
+space, especially for users like Stefan
+
+00:23:06.062 --> 00:23:16.629
+and Simone who need a lot of white space,
+and they also do not learn well when
+
+00:23:16.704 --> 00:23:21.754
+there's a lot of content that is just
+very, that are just very close together.
+
+00:23:23.047 --> 00:23:24.956
+So let's take a look at the redesign.
+
+00:23:25.629 --> 00:23:32.695
+In my case, l- just learning about
+these users and understanding their
+
+00:23:32.700 --> 00:23:40.032
+challenges, I was able to empathize with
+them and also redesign the community
+
+00:23:40.032 --> 00:23:45.889
+portal in such a way that allows for
+what I've heard them say works for them.
+
+00:23:46.164 --> 00:23:51.157
+Like, it's, for instance, the
+British dyslexia A- Association
+
+00:23:51.364 --> 00:23:56.515
+already said that we should have
+roughly 10 characters per line.
+
+00:23:56.578 --> 00:24:02.290
+I mean, s- I take that back, 100
+characters per line on a webpage.
+
+00:24:02.647 --> 00:24:06.868
+So even if it will be more than
+100, it will not be too much.
+
+00:24:06.994 --> 00:24:15.311
+It will not be far off that it's too long
+that the- That the user or the website
+
+00:24:15.329 --> 00:24:17.552
+visitor is not able to follow along.
+
+00:24:18.005 --> 00:24:19.925
+So this is what the redesign looks like.
+
+00:24:20.288 --> 00:24:25.752
+And if you look at this section
+from the original website,
+
+00:24:26.367 --> 00:24:29.131
+it was not this spaced out.
+
+00:24:29.207 --> 00:24:30.811
+Everything was joined together.
+
+00:24:31.192 --> 00:24:37.698
+So I was able to kind of categorize
+this and add some spacing to each
+
+00:24:37.908 --> 00:24:40.814
+of the, to each of, like, the boxes.
+
+00:24:42.090 --> 00:24:48.404
+And also in the event part…
+Let's quickly go back for a bit.
+
+00:24:48.485 --> 00:24:50.586
+Look at this part that talks about event.
+
+00:24:52.139 --> 00:24:59.109
+The color contrast, when I did the test,
+it was, it, it wasn't contrasting well
+
+00:24:59.111 --> 00:25:03.473
+because there's, like, a light green
+background there, and there's a blue text.
+
+00:25:03.704 --> 00:25:04.910
+It was not contrasting well.
+
+00:25:04.911 --> 00:25:09.953
+But beyond that, there are two
+columns saying for different
+
+00:25:10.466 --> 00:25:13.151
+things, and they are side by side.
+
+00:25:13.398 --> 00:25:17.143
+So this can… So they're
+also very close together.
+
+00:25:17.649 --> 00:25:19.070
+They're a bit clumsy.
+
+00:25:19.622 --> 00:25:23.548
+And for someone who has dyslexia,
+for instance, this is going to be
+
+00:25:23.552 --> 00:25:25.233
+difficult for them to navigate.
+
+00:25:27.151 --> 00:25:29.378
+So what I did was to…
+
+00:25:29.836 --> 00:25:30.343
+Yes.
+
+00:25:30.632 --> 00:25:34.147
+What I did in this part was to
+make it easy because there's,
+
+00:25:34.228 --> 00:25:38.309
+on the community portal page,
+there is a lot of information.
+
+00:25:38.325 --> 00:25:44.018
+So I grouped this information in such
+a way that I used accordion to group
+
+00:25:44.019 --> 00:25:50.918
+the information so that when a visitor
+wants to learn ab- more details about,
+
+00:25:50.937 --> 00:25:58.021
+let's say, events and projects, they can
+click on, o- on it, and it brings out
+
+00:25:58.079 --> 00:26:00.486
+the details about event and projects.
+
+00:26:00.985 --> 00:26:07.841
+If they want about another section of the,
+of the page, maybe the general notice,
+
+00:26:07.856 --> 00:26:14.783
+the signpost, they can always click on
+the accordion, and also it brings out
+
+00:26:14.783 --> 00:26:19.435
+the details, as opposed to outlining
+everything at once, and everything is
+
+00:26:19.511 --> 00:26:26.196
+in a, in like a column, in a two-column
+section, and they're seeing inform-
+
+00:26:26.280 --> 00:26:30.478
+two information staring at them at the
+same time, and it's just so clumsy.
+
+00:26:31.844 --> 00:26:38.811
+So for another section, I also used
+accordion to kind of space things out.
+
+00:26:40.681 --> 00:26:49.339
+For the footer in the original community,
+um, website, the content was… The
+
+00:26:49.371 --> 00:26:53.472
+content kind of started from the
+beginning of the page to the end of
+
+00:26:53.472 --> 00:27:00.978
+the page, and it was not… It was so
+long, and it should be easy for… It
+
+00:27:01.029 --> 00:27:05.765
+would also be easy for them to, like,
+get lost in the process of trying to
+
+00:27:06.451 --> 00:27:10.550
+fit in all of the content at once.
+
+00:27:14.909 --> 00:27:18.352
+So let's go to the next
+part, the navigation.
+
+00:27:19.400 --> 00:27:23.434
+Navigation, uh, helps people
+find their way, basically.
+
+00:27:23.467 --> 00:27:28.575
+So add a visit-a visible
+sitemap or content index.
+
+00:27:28.855 --> 00:27:34.541
+So at the top of your page, you
+can add a visible sitemap and
+
+00:27:34.589 --> 00:27:36.675
+content index that is clickable.
+
+00:27:37.113 --> 00:27:39.870
+So beyond it just being
+visible, make it clickable.
+
+00:27:40.322 --> 00:27:47.252
+If they are like something that looks like
+basically a content col- a content table
+
+00:27:47.604 --> 00:27:57.722
+where if a visitor wants to navigate to
+a different section, instead of scrolling
+
+00:27:57.745 --> 00:28:02.469
+all the way, they can just click on it
+and it takes them right to this section.
+
+00:28:03.000 --> 00:28:07.347
+You can also, to make the navigation
+easier, keep the navigation
+
+00:28:07.370 --> 00:28:09.421
+consistent a-across pages.
+
+00:28:09.689 --> 00:28:15.617
+An example of this is the menus, the
+way we label menu on our webpage.
+
+00:28:15.664 --> 00:28:23.858
+On the homepage, a lot of times you will
+see the About, um, you see maybe Blog,
+
+00:28:24.515 --> 00:28:28.762
+you would see Contact Us and the likes.
+
+00:28:28.890 --> 00:28:33.712
+So the way it is arranged on one
+page is the way it should continue
+
+00:28:33.717 --> 00:28:35.898
+to be arranged on all other pages.
+
+00:28:36.271 --> 00:28:40.972
+When you change that, you can
+confuse your website visitors.
+
+00:28:43.373 --> 00:28:44.263
+Readability.
+
+00:28:44.559 --> 00:28:49.145
+This one, this particular
+one cannot be overemphasized.
+
+00:28:50.468 --> 00:28:56.750
+Design is… You're not just designing
+the interface to make it look good.
+
+00:28:57.555 --> 00:29:00.903
+The words, the text, they
+are also part of the design.
+
+00:29:01.171 --> 00:29:04.711
+So they are not just… You're
+not just designing the layout.
+
+00:29:04.891 --> 00:29:09.753
+So the, your choice of fonts and the
+way the text come up on your webpage,
+
+00:29:09.811 --> 00:29:11.040
+they are very, very important.
+
+00:29:11.045 --> 00:29:13.794
+So left-align this text.
+
+00:29:13.844 --> 00:29:15.379
+Don't justify the text.
+
+00:29:17.253 --> 00:29:24.033
+This is also one of the recommendation
+by the British Dyslexia Association.
+
+00:29:24.543 --> 00:29:31.235
+So avoid the use of italics because you
+know that, for instance, someone with
+
+00:29:31.501 --> 00:29:37.085
+dyslexia, they find it difficult to read.
+
+00:29:38.443 --> 00:29:42.464
+So when the text also now don't
+look like what they are used to,
+
+00:29:43.087 --> 00:29:47.302
+it can cause confusion for them.
+
+00:29:47.553 --> 00:29:50.731
+So we want to make sure that we
+are making things as clear as
+
+00:29:50.732 --> 00:29:58.277
+possible and not, you know, trying
+to make things difficult because
+
+00:29:58.300 --> 00:30:00.885
+we are trying to beautify our text.
+
+00:30:01.496 --> 00:30:04.856
+So use legible sans serif for body text.
+
+00:30:05.317 --> 00:30:10.787
+Never rely on color alone to convey
+meaning, as we have seen from the
+
+00:30:10.787 --> 00:30:13.863
+experiences of, of some of our personas.
+
+00:30:14.333 --> 00:30:17.147
+Avoid moving or auto-playing content.
+
+00:30:18.061 --> 00:30:23.475
+This can be distracting for
+someone that ex- that experiences
+
+00:30:23.548 --> 00:30:25.785
+ADHD or that has ADHD.
+
+00:30:26.407 --> 00:30:32.098
+So in WordPress, avoid animated
+hero sliders or auto-rotating
+
+00:30:32.214 --> 00:30:34.881
+carousels on content-heavy pages.
+
+00:30:35.768 --> 00:30:37.609
+That can be distracting.
+
+00:30:38.241 --> 00:30:40.352
+It can be very, very distracting.
+
+00:30:40.966 --> 00:30:42.437
+This cannot be overstated.
+
+00:30:42.487 --> 00:30:49.660
+So if they, the user now decide to play
+it themselves, give them an option to be
+
+00:30:49.660 --> 00:30:53.180
+able to pause or play all these carousels.
+
+00:30:56.402 --> 00:30:57.592
+Personalization.
+
+00:30:57.732 --> 00:31:04.738
+Let users, let them, let your web page
+visitors, let them shape the page.
+
+00:31:04.833 --> 00:31:06.165
+Let them not just view it.
+
+00:31:06.610 --> 00:31:08.142
+So how can this happen?
+
+00:31:08.497 --> 00:31:12.264
+Let users adjust contrast,
+font size and background.
+
+00:31:13.731 --> 00:31:18.839
+Respect their browser level accessibility
+setting instead of overriding them.
+
+00:31:19.137 --> 00:31:26.538
+So design your website in such a
+way that it accommodates for the
+
+00:31:26.848 --> 00:31:31.854
+browser setting of, of the visitor.
+
+00:31:32.521 --> 00:31:38.476
+Let it not override the setting that they
+already have on their system or on their
+
+00:31:38.476 --> 00:31:40.470
+operating system or on their browser.
+
+00:31:40.697 --> 00:31:44.462
+So in WordPress, you can
+use accessibility plugin for
+
+00:31:44.473 --> 00:31:47.728
+reading mode or contrast toggle.
+
+00:31:48.808 --> 00:31:55.338
+So in this next step says,
+configure theme.json to respect
+
+00:31:55.353 --> 00:32:00.147
+user font size preference as a
+lower lift sta-starting point.
+
+00:32:00.295 --> 00:32:06.194
+Basically, an example is
+using flexible units like rem
+
+00:32:06.311 --> 00:32:08.629
+instead of fixed pixel values.
+
+00:32:09.222 --> 00:32:17.563
+So for your text size, use a flexible
+unit as opposed to using a fixed
+
+00:32:17.569 --> 00:32:26.397
+pixel value whereby the, the visitor,
+the website visitor is not able to,
+
+00:32:26.403 --> 00:32:31.713
+like, change the s-text size to fit
+into their own prese-preference.
+
+00:32:34.230 --> 00:32:35.313
+So how do we…
+
+00:32:35.354 --> 00:32:36.940
+Let's go back to where we started from.
+
+00:32:37.701 --> 00:32:46.011
+You have learnt about Lexie,
+Lakshmi, Ade, Stefan, Simon, and
+
+00:32:46.011 --> 00:32:48.816
+you've seen a real redesign change.
+
+00:32:51.907 --> 00:32:59.031
+So I was able to change all of this
+when I understood what they needed.
+
+00:32:59.421 --> 00:33:08.020
+So we basically moved from, "This is
+the page I am designing," to, "How do I
+
+00:33:08.040 --> 00:33:12.770
+design for these people?" It was also my
+first… It was also my first time of,
+
+00:33:12.791 --> 00:33:19.495
+you know, redesigning a page for people
+that have diverse accessibility needs.
+
+00:33:19.818 --> 00:33:27.156
+It was my first time of considering
+people who have cognitive disabilities.
+
+00:33:28.272 --> 00:33:36.284
+I was used to just focusing on color
+contrast, um, also looking at, yes,
+
+00:33:36.297 --> 00:33:41.142
+majorly color contrast for people with
+dis- disability, um, visual impairment.
+
+00:33:41.427 --> 00:33:48.564
+Also the heading labels, you know, making
+sure the heading is properly labeled.
+
+00:33:48.620 --> 00:33:55.037
+But just being able to understand that
+this is the way someone who has cognitive
+
+00:33:55.057 --> 00:34:01.017
+disability like ADHD and dyslexia
+consume content, just being able to
+
+00:34:02.186 --> 00:34:06.369
+put myself, empathize with them, put
+myself in their shoes and understand
+
+00:34:06.407 --> 00:34:10.739
+how they consume content on webpages.
+
+00:34:11.086 --> 00:34:17.735
+I was able to s- understand what their
+challenges are and think of the redesign
+
+00:34:18.426 --> 00:34:23.471
+from the angle where I'm empathizing with
+them, and I'm also researching solutions
+
+00:34:23.500 --> 00:34:28.109
+that fit into their own experience.
+
+00:34:28.822 --> 00:34:35.813
+So I applied all of these solutions
+that includes, you know, that includes
+
+00:34:37.371 --> 00:34:47.380
+using generous white space, not
+justifying my text, not using carousel
+
+00:34:47.408 --> 00:34:55.156
+anyhow on my webpage, you know, and
+all of, all, all of these things.
+
+00:34:55.458 --> 00:35:06.666
+And also not making sure, not using
+unnecessarily long characters for my text.
+
+00:35:07.574 --> 00:35:10.950
+No, n- number of characters on your,
+on my text should not be too long.
+
+00:35:10.963 --> 00:35:14.647
+It should not be too long that it's-
+
+00:35:17.086 --> 00:35:20.492
+It's hard for someone that
+has dyslexia to follow.
+
+00:35:20.978 --> 00:35:27.711
+So all of this was the things that I
+considered when I was redesigning the
+
+00:35:27.722 --> 00:35:34.434
+community portal, and I learnt that,
+you know, compliance, my key takeaway,
+
+00:35:34.722 --> 00:35:36.448
+compliance is not the finish line.
+
+00:35:38.302 --> 00:35:41.892
+A page can pass every technical
+check and still be hard to use.
+
+00:35:41.896 --> 00:35:49.739
+For instance, you can run an, a, an
+automatic accessibility check on a
+
+00:35:49.739 --> 00:35:55.578
+webpage, and it tells you, "Oh, there's
+contrast issue here. There is… Alt text
+
+00:35:55.578 --> 00:36:04.133
+is missing here." But it does not really
+tell you… It maybe in a case of the
+
+00:36:04.155 --> 00:36:10.432
+Wikipedia community portal page, it may
+not really tell you that the content are
+
+00:36:10.458 --> 00:36:13.699
+clumsy and they are very packed together.
+
+00:36:14.034 --> 00:36:20.531
+And for someone like Stefan and
+Simon, they would find it hard
+
+00:36:20.946 --> 00:36:24.135
+to actually read the content.
+
+00:36:24.163 --> 00:36:30.679
+They would find it hard to follow the
+content structure of that type of page.
+
+00:36:31.150 --> 00:36:33.673
+So compliance is not the finish line.
+
+00:36:34.134 --> 00:36:41.074
+Even after the technical checks, you
+also want to consider the experience
+
+00:36:41.198 --> 00:36:46.607
+of the people, these type of personas
+with different accessibility needs.
+
+00:36:47.110 --> 00:36:51.094
+So structure, clarity, and control,
+they matter as much as access.
+
+00:36:52.204 --> 00:36:55.538
+So these are the patterns that
+show up again and again across
+
+00:36:55.808 --> 00:37:01.318
+all of this disability, across all
+of these different disabilities.
+
+00:37:01.844 --> 00:37:07.375
+So another takeaway for me is:
+small specific changes, they count.
+
+00:37:07.575 --> 00:37:08.760
+They really, really count.
+
+00:37:09.052 --> 00:37:14.361
+So adding hierarchy, plain language,
+respecting user search settings.
+
+00:37:14.921 --> 00:37:20.526
+None of these requirements
+needs a full rebuild.
+
+00:37:20.615 --> 00:37:24.150
+None of all of this needs a full rebuild.
+
+00:37:24.231 --> 00:37:30.978
+It's just making small, small changes
+from time to time, and before you
+
+00:37:30.978 --> 00:37:40.380
+know it, you are making the experience
+of a user that might be experiencing
+
+00:37:41.006 --> 00:37:44.877
+or that might have a type of
+disability that you're not aware of.
+
+00:37:45.754 --> 00:37:49.837
+You're making that type of
+user ex- user's experience.
+
+00:37:49.848 --> 00:37:55.100
+You're improving it just by paying
+attention to all of these tiny details.
+
+00:37:56.916 --> 00:37:58.775
+So three things to check this week.
+
+00:38:00.933 --> 00:38:02.321
+Check your heading structure.
+
+00:38:02.752 --> 00:38:06.682
+Are you using real H2s, H3s and the likes?
+
+00:38:07.497 --> 00:38:13.995
+All these different heading types,
+are you using them or bold text
+
+00:38:13.995 --> 00:38:18.370
+styled to look like the real header?
+
+00:38:19.403 --> 00:38:26.408
+Check if that's what you're doing on
+your webpage or you're using bold text.
+
+00:38:27.057 --> 00:38:34.392
+Does it just look like it or it
+is actually a real header or it
+
+00:38:34.397 --> 00:38:36.355
+has a real heading structure?
+
+00:38:37.286 --> 00:38:43.877
+Turn off auto-rotating carousels or
+moving content on content-heavy pages.
+
+00:38:44.962 --> 00:38:50.923
+Again, we found out that this can
+be really distracting for different
+
+00:38:50.962 --> 00:38:58.562
+users that have dyslexia or ADHD,
+but they are not the only ones.
+
+00:38:58.652 --> 00:39:06.495
+Even users who have autism, they
+can find this very, um, triggering.
+
+00:39:07.027 --> 00:39:12.779
+So don't auto-rotate cont--
+um, carousel content, videos,
+
+00:39:12.801 --> 00:39:15.055
+images, sliding up and down.
+
+00:39:15.075 --> 00:39:18.894
+It can be very… It can make the
+user experience very difficult.
+
+00:39:19.183 --> 00:39:23.009
+So you want to pay attention when
+you are designing your web content.
+
+00:39:23.721 --> 00:39:27.279
+Zoom your site to three hundred
+percent and see what breaks so
+
+00:39:27.279 --> 00:39:28.513
+that you can start fixing it.
+
+00:39:28.567 --> 00:39:28.975
+Okay?
+
+00:39:30.498 --> 00:39:35.167
+These are important links that
+you also want to check out when…
+
+00:39:35.663 --> 00:39:45.631
+Just to learn more as you build
+better web content experiences for
+
+00:39:46.142 --> 00:39:49.502
+the users that visit your webpage.
+
+00:39:49.734 --> 00:39:55.692
+And also, as you continue to build
+websites on WordPress, you want to
+
+00:39:55.710 --> 00:40:01.765
+learn more about how you can make the
+web experience of your users better.
+
+00:40:03.690 --> 00:40:05.267
+Oh, thank you for joining me.
+
+00:40:05.321 --> 00:40:07.377
+I hope you had a great time.
+
+00:40:14.254 --> 00:40:15.734
+Gary: Thanks very much, Karimot.
+
+00:40:15.817 --> 00:40:17.495
+Yeah, that was wonderful.
+
+00:40:17.649 --> 00:40:21.834
+Um, joining you live from
+Nottingham, Robin Hood.
+
+00:40:21.961 --> 00:40:25.779
+He can't make it today because
+his internet connection is bad,
+
+00:40:25.844 --> 00:40:30.798
+but, uh, it's really nice to, uh,
+join you, and, uh, thanks very
+
+00:40:30.799 --> 00:40:32.464
+much for the going through that.
+
+00:40:32.508 --> 00:40:40.116
+Um, it's really good to see not just
+you're talking about, um, obviously we
+
+00:40:40.116 --> 00:40:44.764
+need to cater for people with visual
+disabilities, but also talking about
+
+00:40:44.768 --> 00:40:47.663
+people with, uh, motor disabilities.
+
+00:40:48.131 --> 00:40:50.447
+And, uh, I have to say, I feel seen.
+
+00:40:50.448 --> 00:40:51.393
+I've got autism.
+
+00:40:51.393 --> 00:40:52.691
+I've got ADHD.
+
+00:40:53.136 --> 00:40:57.853
+Um, I haven't got dyslexia, but I've got
+something similar called Irlen syndrome,
+
+00:40:57.853 --> 00:41:01.948
+which means I have trouble reading, and
+I wear these overlays on my glasses.
+
+00:41:01.948 --> 00:41:07.033
+And, um, so just to say the, the
+difference between the before and after
+
+00:41:07.040 --> 00:41:13.481
+with your redesign, uh, it's so much more
+relaxing to see that, uh, that website.
+
+00:41:13.560 --> 00:41:15.025
+It looks so much better.
+
+00:41:15.046 --> 00:41:17.538
+So, um, yeah, well, well done on that.
+
+00:41:17.582 --> 00:41:20.731
+Um- Thank you, Gary … someone was
+asking, uh… Oh, you're welcome.
+
+00:41:20.734 --> 00:41:24.558
+Uh, someone was asking, is the
+redesign now live of that page?
+
+00:41:26.837 --> 00:41:27.602
+Karimot: Is the what?
+
+00:41:28.272 --> 00:41:31.575
+Gary: Is the redesigned
+page, uh, is that live now?
+
+00:41:33.277 --> 00:41:34.529
+Karimot: No, it's not live.
+
+00:41:35.218 --> 00:41:35.356
+Is it not live?
+
+00:41:35.356 --> 00:41:35.366
+Mm-hmm.
+
+00:41:35.366 --> 00:41:36.354
+No, it's not live.
+
+00:41:36.394 --> 00:41:40.903
+But I, I think that, you know,
+it's a big organization and their,
+
+00:41:41.125 --> 00:41:44.811
+um, processes can be, um, in…
+
+00:41:45.686 --> 00:41:50.168
+Their design decisions, because it was an
+internship that I did, so- Mm. A couple
+
+00:41:50.174 --> 00:41:55.957
+of changes that I recommended… Okay,
+I think one change that I recommended
+
+00:41:55.957 --> 00:42:01.553
+that I didn't mention in the video was
+the placement of… So for users that
+
+00:42:01.572 --> 00:42:09.570
+are logged out, there is a particular
+icon that was initially in between
+
+00:42:09.965 --> 00:42:16.648
+the, um, log-in and I think the-
+there are, like, two primary buttons.
+
+00:42:17.005 --> 00:42:20.651
+So that particular icon
+was in between them.
+
+00:42:21.000 --> 00:42:26.815
+So I recommended during my redesign
+that it be moved to the side, because
+
+00:42:26.815 --> 00:42:28.680
+they don't belong to the same category.
+
+00:42:28.979 --> 00:42:32.537
+And by the time I actually
+resumed the internship, I saw
+
+00:42:32.538 --> 00:42:34.259
+that it, it has been moved.
+
+00:42:34.865 --> 00:42:40.769
+And so even though this is, like, a
+very simple detail, it's can go a long
+
+00:42:40.806 --> 00:42:43.338
+way in improving the user experience.
+
+00:42:43.456 --> 00:42:51.387
+So when it comes to, like, accessibility
+and just ensuring that, um, the different
+
+00:42:51.428 --> 00:42:55.144
+people with accessibility needs are
+considered, the little things matter.
+
+00:42:55.155 --> 00:42:58.524
+You don't have to, um,
+change everything at once.
+
+00:42:58.564 --> 00:43:00.423
+You can do it a step at a time.
+
+00:43:00.781 --> 00:43:02.441
+It's an ongoing process.
+
+00:43:02.714 --> 00:43:03.116
+Yeah.
+
+00:43:04.278 --> 00:43:04.793
+Gary: Absolutely.
+
+00:43:04.793 --> 00:43:08.526
+Well, I hope that they, they
+follow through with your other
+
+00:43:08.526 --> 00:43:12.126
+recommendations, 'cause it, it, it's,
+it makes a big difference there.
+
+00:43:12.612 --> 00:43:16.495
+Um, and I've just, uh, I've got,
+got loads of questions here.
+
+00:43:16.499 --> 00:43:21.072
+Um, just one, one, one really good
+question is that, um, yeah, we've
+
+00:43:21.075 --> 00:43:26.209
+talked about some users are struggling
+with, uh, pop-ups and moving items.
+
+00:43:26.799 --> 00:43:31.609
+Uh, but marketing teams are always
+really keen on that because it, you know,
+
+00:43:31.834 --> 00:43:34.387
+to drive engagement and conversions.
+
+00:43:34.864 --> 00:43:41.693
+I'm just wondering how we can advocate
+for, um, for clarity and, and, uh,
+
+00:43:41.698 --> 00:43:46.653
+white space when, when the businesses
+are insisting on, you know, let's be
+
+00:43:46.655 --> 00:43:52.517
+intrusive, let's distract people with
+this advert, this pop-up, um, 'cause
+
+00:43:52.519 --> 00:43:54.073
+they want to hit those revenue goals.
+
+00:43:54.089 --> 00:43:58.973
+How can we, um, how can we,
+uh, persuade them otherwise?
+
+00:44:00.189 --> 00:44:00.469
+Karimot: Yeah.
+
+00:44:00.687 --> 00:44:06.840
+I think that, um, you come with
+facts, especially, um, whoever is
+
+00:44:06.861 --> 00:44:09.246
+proposing that, you come with facts.
+
+00:44:09.281 --> 00:44:14.549
+You can conduct, like, some user
+research with the people who are being
+
+00:44:14.553 --> 00:44:17.706
+affected by this type of design style.
+
+00:44:18.102 --> 00:44:23.327
+And because whether you like it or
+not, there are thousands of… hundreds
+
+00:44:23.327 --> 00:44:27.011
+of thousands of people across the
+world who experience different forms
+
+00:44:27.011 --> 00:44:34.724
+of, um- impairment or disability, and
+you're counting them out when you…
+
+00:44:34.738 --> 00:44:36.128
+It also affects your business.
+
+00:44:36.139 --> 00:44:41.915
+So you can come from the angle of, you can
+come from the angle of a business case.
+
+00:44:42.459 --> 00:44:47.990
+Because- Mm. And you also have to
+say that whatever you're proposing,
+
+00:44:48.770 --> 00:44:52.559
+they still get to see it, but they
+just see it in a different way.
+
+00:44:52.869 --> 00:44:58.905
+Because I have also, even though I've not
+been diagnosed with, um, dyslexia or ADHD,
+
+00:44:59.192 --> 00:45:05.151
+when I visit a website and everything is
+moving at the same time, I start feeling,
+
+00:45:05.437 --> 00:45:07.777
+like, very uncomfortable, and I leave.
+
+00:45:07.826 --> 00:45:11.849
+I don't get to complete the task that
+I went there for in the first place.
+
+00:45:12.128 --> 00:45:20.763
+So if I was supposed to maybe, um, s-
+if I'm supposed to be converted, maybe
+
+00:45:20.777 --> 00:45:25.459
+if I, maybe if that was not the case,
+I would have been one of their, maybe
+
+00:45:25.459 --> 00:45:31.177
+I would have signed up to their mailing
+list or been able to consume whatever
+
+00:45:31.183 --> 00:45:33.245
+it is that they wanted to market to me.
+
+00:45:33.494 --> 00:45:37.999
+But because I have already left the
+webpage, they've already… I'm one
+
+00:45:38.028 --> 00:45:41.713
+of many people that they've lost.
+
+00:45:42.090 --> 00:45:46.734
+So you need to, whoever is proposing
+that to their, to their marketing
+
+00:45:46.739 --> 00:45:48.751
+team, you need to come with facts.
+
+00:45:48.781 --> 00:45:52.243
+You need to do your research
+so that you're not just talking
+
+00:45:52.299 --> 00:45:55.991
+based on, um, what you feel.
+
+00:45:56.342 --> 00:45:57.122
+So come with- Mm
+
+00:45:57.122 --> 00:46:01.444
+facts and n- your numbers so that they
+can see that there's also a business
+
+00:46:01.447 --> 00:46:03.501
+case from what you're proposing.
+
+00:46:04.918 --> 00:46:05.164
+Gary: Yeah.
+
+00:46:05.164 --> 00:46:08.793
+The previous talk, uh, talked about
+business cases and the amazing
+
+00:46:08.795 --> 00:46:14.226
+amount of, um, uh, return on in-
+investment that accessibility can have.
+
+00:46:14.233 --> 00:46:15.755
+So yeah, that's really good to hear.
+
+00:46:15.756 --> 00:46:21.480
+And, um, uh, someone's asking as
+well, do you have, uh, go-to sources?
+
+00:46:21.483 --> 00:46:26.021
+Do you have existing sources for your
+accessibility personas, or do you
+
+00:46:26.030 --> 00:46:27.646
+think it's better to build your own?
+
+00:46:29.549 --> 00:46:30.039
+Okay, yes,
+
+00:46:30.211 --> 00:46:30.828
+Karimot: there are some.
+
+00:46:31.800 --> 00:46:32.226
+Okay.
+
+00:46:32.519 --> 00:46:40.441
+So some, the personas that I actually
+highlighted during my talk, they
+
+00:46:40.445 --> 00:46:47.120
+are actually, like, on… You can
+find some of them on the gov.uk.
+
+00:46:47.657 --> 00:46:48.318
+Mm-hmm.
+
+00:46:48.318 --> 00:46:50.961
+And if you have… Okay, I
+think the slides are here.
+
+00:46:51.040 --> 00:46:53.003
+They've shared the slides
+of my talk already.
+
+00:46:53.230 --> 00:46:58.491
+You can als- you can actually
+read the interviews and real-life
+
+00:46:58.492 --> 00:47:00.951
+experiences of these personas.
+
+00:47:01.272 --> 00:47:05.109
+So instead of building yours,
+you can use them as references.
+
+00:47:05.447 --> 00:47:11.841
+And you can also use Google to just search
+the experiences of people who have talked
+
+00:47:11.841 --> 00:47:18.279
+about their own personal, you know, life
+experience on how they navigate the web
+
+00:47:18.693 --> 00:47:21.664
+and just digital interfaces in general.
+
+00:47:21.843 --> 00:47:26.486
+So you don't have to build yours, but if
+there are people that you know, you can,
+
+00:47:27.210 --> 00:47:33.457
+um, get in contact with them and ask that
+you learn about, that you're interested
+
+00:47:33.457 --> 00:47:34.856
+in learning about their experiences.
+
+00:47:34.865 --> 00:47:39.054
+But in my case, the personas I
+cited during my talk, they actually,
+
+00:47:39.440 --> 00:47:43.537
+um, I didn't know them in person,
+but they were interviewed by
+
+00:47:43.573 --> 00:47:45.989
+these platforms and they were…
+
+00:47:46.649 --> 00:47:48.958
+It allowed me to actually
+empathize with them.
+
+00:47:49.095 --> 00:47:53.187
+One of them, I was able to watch his
+video where he actually shared his
+
+00:47:53.223 --> 00:47:58.516
+own experience, so I heard from his…
+It was like a firsthand experience
+
+00:47:58.518 --> 00:48:02.525
+just watching him talk about his
+experience, how he reads through the
+
+00:48:02.527 --> 00:48:05.514
+web, and how he consumes information.
+
+00:48:05.807 --> 00:48:06.242
+Yeah.
+
+00:48:07.902 --> 00:48:08.633
+Gary: No, that's excellent.
+
+00:48:08.642 --> 00:48:12.184
+So, you know, there's so
+much material out there.
+
+00:48:12.212 --> 00:48:17.316
+Without having to come up with your own
+personas, you can still find lots of
+
+00:48:17.316 --> 00:48:23.021
+information out there and, um, you know,
+as you say, come up with some, um, some
+
+00:48:23.021 --> 00:48:29.786
+empathy and some, um, some ideas about
+all the different challenges people face.
+
+00:48:29.806 --> 00:48:31.452
+So yeah, that's brilliant.
+
+00:48:31.511 --> 00:48:33.923
+Well, thank you very much, uh, Karimot.
+
+00:48:34.066 --> 00:48:37.641
+Uh, we've, uh, run out of
+time- Yeah … but, uh, thanks
+
+00:48:37.641 --> 00:48:38.881
+very much for your talk today.
+
+00:48:38.934 --> 00:48:44.480
+Um, and thank you for attending
+this session with Karimot Isiak.
+
+00:48:45.149 --> 00:48:49.055
+You can continue the conversation
+in Slack or on social media
+
+00:48:49.059 --> 00:48:56.893
+using #WPA11YDay and #WPAD2026.
+

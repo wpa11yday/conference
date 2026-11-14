@@ -1,0 +1,2858 @@
+WEBVTT
+
+00:00:01.630 --> 00:00:05.062
+Narrator: WordPress
+Accessibility Day 2026.
+
+00:00:05.553 --> 00:00:09.033
+You didn't fix accessibility,
+you automated the problem.
+
+00:00:09.410 --> 00:00:14.076
+AI in the WordPress ecosystem,
+presented by Kevin Andrews.
+
+00:00:14.584 --> 00:00:20.313
+This session was presented on
+October 7th, 2026, at 19:00 UTC.
+
+00:00:24.419 --> 00:00:27.356
+WordPress Accessibility Day 2026.
+
+00:00:27.722 --> 00:00:29.451
+Thank you to our sponsors.
+
+00:00:29.811 --> 00:00:32.397
+Platinum Sponsor: Equalize Digital.
+
+00:00:32.496 --> 00:00:34.303
+Websites for Everyone.
+
+00:00:34.836 --> 00:00:38.522
+Equalize Digital's Accessibility
+Checker plugin makes real-time
+
+00:00:38.522 --> 00:00:41.933
+testing in the WordPress editor
+faster and more affordable.
+
+00:00:42.835 --> 00:00:47.054
+Auditing services and online
+courses help organizations build
+
+00:00:47.241 --> 00:00:49.221
+and maintain accessible websites.
+
+00:00:49.843 --> 00:00:51.890
+Platinum Sponsor: Gravity.
+
+00:00:52.382 --> 00:00:55.887
+Gravity Forms is the accessible
+form builder for WordPress.
+
+00:00:56.275 --> 00:00:59.861
+Trusted by millions of sites,
+it's built to create powerful
+
+00:01:00.001 --> 00:01:03.045
+WCAG-compliant forms for any project.
+
+00:01:03.583 --> 00:01:08.429
+Gold sponsors: Kinsta, Insi, WP Engine.
+
+00:01:09.054 --> 00:01:12.423
+Silver sponsors: Second Melody, Tenrec.
+
+00:01:12.563 --> 00:01:14.282
+Your website, only better.
+
+00:01:15.624 --> 00:01:19.507
+Visit sponsor pages to enter to
+win giveaways and access swag.
+
+00:01:19.928 --> 00:01:24.548
+Go to wpaccessibility.day/2026/sponsors.
+
+00:01:28.401 --> 00:01:29.956
+Don't forget to leave feedback.
+
+00:01:30.430 --> 00:01:34.847
+Go to wpaccessibility.day/2026/feedback.
+
+00:01:40.754 --> 00:01:44.863
+Abigail: Welcome to WordPress
+Accessibility Day 2026.
+
+00:01:45.140 --> 00:01:49.531
+My name is Abigail Silva, and I am
+a digital accessibility consultant
+
+00:01:49.543 --> 00:01:52.619
+from the state of California
+Department of Rehabilitation.
+
+00:01:53.067 --> 00:01:57.684
+Thank you for joining us for "You
+Didn't Fix Accessibility, You Automated
+
+00:01:57.684 --> 00:02:03.011
+the Problem: AI in the WordPress
+Ecosystem" with Kevin Andrews.
+
+00:02:03.260 --> 00:02:07.830
+Kevin, a certified web accessibility
+specialist through the International
+
+00:02:07.830 --> 00:02:12.344
+Association of Accessibility
+Professionals, is deeply dedicated
+
+00:02:12.376 --> 00:02:14.102
+to going beyond compliance.
+
+00:02:14.710 --> 00:02:19.468
+He possesses a robust understanding
+of internationally recognized digital
+
+00:02:19.471 --> 00:02:24.302
+accessibility standards, and with
+his genuine, enthusiastic, and
+
+00:02:24.303 --> 00:02:29.639
+collaborative approach, he tirelessly
+ensures that websites and mobile
+
+00:02:29.640 --> 00:02:34.897
+applications go beyond meeting
+standards to truly serve all users.
+
+00:02:35.260 --> 00:02:40.684
+With accessibility and usability as
+priorities, emphasizing the importance
+
+00:02:40.703 --> 00:02:45.921
+of the right approach and mindset by
+meeting stakeholders where they are.
+
+00:02:46.595 --> 00:02:50.055
+Kevin's background includes
+accessibility program management,
+
+00:02:50.107 --> 00:02:55.203
+including public speaking to various
+audiences, conducting accessibility
+
+00:02:55.226 --> 00:02:58.572
+audits, and producing detailed reports.
+
+00:02:58.970 --> 00:03:03.153
+Collaborating with diverse
+cross-functional teams to address
+
+00:03:03.159 --> 00:03:08.704
+accessibility challenges while meeting
+business requirements, delivering
+
+00:03:08.726 --> 00:03:16.145
+accessibility training and workshops for
+teams ranging from 20 to 200 people, and
+
+00:03:16.145 --> 00:03:22.769
+employing effective communication skills
+characterized by clarity and empathy.
+
+00:03:23.601 --> 00:03:27.808
+Currently based in the Washington,
+DC area, he enjoys cooking,
+
+00:03:27.875 --> 00:03:35.069
+biking, hiking, long walks, and
+extensive travel at home and abroad.
+
+00:03:35.537 --> 00:03:39.684
+Please feel free to add your questions
+in the Zoom Q&A section, and we'll
+
+00:03:39.706 --> 00:03:41.570
+answer them at the end of the session.
+
+00:03:41.982 --> 00:03:45.403
+Use the chat to connect
+with other attendees.
+
+00:03:47.582 --> 00:03:49.749
+Kevin: Hey everyone, uh,
+thanks for having me.
+
+00:03:49.867 --> 00:03:54.477
+This talk is called You Didn't Fix
+Accessibility: You Automated the Problem.
+
+00:03:55.666 --> 00:04:00.555
+It's about AI in the WordPress ecosystem,
+uh, specifically, not AI in general,
+
+00:04:00.556 --> 00:04:05.129
+and not the philosophical question of
+whether AI is good or bad in the abstract.
+
+00:04:05.593 --> 00:04:09.021
+This is about what's actually happening
+in production WordPress environments
+
+00:04:09.022 --> 00:04:13.149
+right now, where accessibility is
+not a th- a theory or anything.
+
+00:04:13.162 --> 00:04:17.628
+It's operational, it's high risk,
+and for a lot of your users, myself
+
+00:04:17.629 --> 00:04:20.757
+included, we'll get to that in a minute,
+it's the difference between being
+
+00:04:20.757 --> 00:04:22.892
+able to a- uh, to use the site or not.
+
+00:04:23.693 --> 00:04:24.980
+I want to set the frame early.
+
+00:04:25.335 --> 00:04:32.016
+Uh, so everything in the next 30 to 35
+minutes is scoped to three specific places
+
+00:04:32.048 --> 00:04:34.676
+AI shows up in a WordPress workflow.
+
+00:04:34.965 --> 00:04:40.683
+So we have auto-generated alt text,
+automated scanning tools and overlays, and
+
+00:04:40.688 --> 00:04:45.758
+plugin-based automated fixes, including
+what's happening inside Gutenberg.
+
+00:04:46.222 --> 00:04:49.464
+I'm not going to talk about large
+language models, uh, at all in this
+
+00:04:49.476 --> 00:04:54.182
+talk today and, and I'm not going to
+talk about AI ethics as a category,
+
+00:04:54.183 --> 00:04:55.851
+as important as those topics are.
+
+00:04:56.471 --> 00:04:59.936
+I'm going to talk about what happens
+when these specific tools, um,
+
+00:05:00.075 --> 00:05:03.244
+touch a real site with real disabled
+people who are trying to use it.
+
+00:05:03.789 --> 00:05:07.611
+Okay, so some quick background so
+you know from where this is coming.
+
+00:05:08.114 --> 00:05:09.323
+By the way, I'm Kevin Andrews.
+
+00:05:09.323 --> 00:05:11.629
+I… Make sure you're
+all in the right place.
+
+00:05:12.100 --> 00:05:15.364
+I'm an, uh, International Association
+of Accessibility Professionals
+
+00:05:15.415 --> 00:05:17.778
+certified web accessibility specialist.
+
+00:05:17.828 --> 00:05:19.314
+Try saying that five times fast.
+
+00:05:20.151 --> 00:05:24.363
+Uh, I'm currently at Georgetown
+University, uh, and I've held
+
+00:05:24.435 --> 00:05:27.182
+the accessibility role here
+for a little over seven years.
+
+00:05:27.665 --> 00:05:32.451
+So I audit large decentralized
+WordPress environments, uh, for a
+
+00:05:32.453 --> 00:05:36.951
+living, and so I also use a screen
+reader myself every day on the same
+
+00:05:36.953 --> 00:05:38.569
+kinds of sites that I'm auditing.
+
+00:05:39.129 --> 00:05:42.569
+So that distinction matters for how you
+should weigh what I'm about to tell you.
+
+00:05:43.243 --> 00:05:48.787
+Uh, when I say an AI tool failed, I'm
+not extrapolating from some demo video
+
+00:05:48.797 --> 00:05:50.770
+or vendor's marketing page or VPAT.
+
+00:05:50.782 --> 00:05:51.550
+More on that later.
+
+00:05:51.726 --> 00:05:56.962
+I was either the user on whom it
+failed, or I was the one who found
+
+00:05:56.962 --> 00:06:01.090
+out it failed on someone else after
+it already shipped to production.
+
+00:06:01.633 --> 00:06:06.579
+So that's a different kind of evidence
+than a case study a vendor wrote about
+
+00:06:06.585 --> 00:06:12.995
+themselves, and I want you to hold
+that distinction throughout this talk.
+
+00:06:13.501 --> 00:06:14.683
+So a quick example.
+
+00:06:14.769 --> 00:06:16.234
+A quick example just from this week.
+
+00:06:16.552 --> 00:06:20.382
+Uh, before we get into it- This
+happened within the last week or so.
+
+00:06:20.384 --> 00:06:24.517
+The speaker prep email for this
+very conference linked to a guide
+
+00:06:24.521 --> 00:06:27.199
+on how to look fabulous on a webcam.
+
+00:06:27.712 --> 00:06:33.009
+So camera at eye level, key lighting,
+ward- wardrobe, colors that pop on screen.
+
+00:06:33.615 --> 00:06:34.586
+So I use a screen reader.
+
+00:06:34.760 --> 00:06:36.692
+None of that was written for me in mind.
+
+00:06:36.901 --> 00:06:40.634
+I, I… Sorry, I don't think
+anyone really meant anything by it.
+
+00:06:41.150 --> 00:06:44.811
+Uh, that's actually the whole point I
+want to make with this example before
+
+00:06:44.812 --> 00:06:46.432
+we get into the AI content, though.
+
+00:06:46.965 --> 00:06:50.834
+So it's an easy trap to fall into,
+uh, with the best of intentions.
+
+00:06:51.207 --> 00:06:56.296
+So a template goes out to everyone on
+the speaker list because that's efficient
+
+00:06:56.320 --> 00:07:00.104
+and that's the default, and nobody
+checks whether everyone, air quotes,
+
+00:07:01.041 --> 00:07:03.044
+actually includes everyone on that list.
+
+00:07:03.198 --> 00:07:08.731
+So nobody sat down and asked
+who was receiving, uh, a-
+
+00:07:08.741 --> 00:07:09.704
+and does that serve them?
+
+00:07:10.206 --> 00:07:11.950
+So that's really the whole talk actually.
+
+00:07:12.952 --> 00:07:14.515
+Just not the AI version of this yet.
+
+00:07:15.099 --> 00:07:16.158
+So hold onto that thought.
+
+00:07:16.263 --> 00:07:20.472
+Um, we're gonna spend some time
+really dissecting the automated
+
+00:07:20.474 --> 00:07:22.955
+version of exactly that failure.
+
+00:07:23.368 --> 00:07:29.325
+And, um, uh, we just established
+the pattern of real human example.
+
+00:07:29.645 --> 00:07:34.061
+Um, so before we get into it, I wanna
+talk through how that same pattern
+
+00:07:34.128 --> 00:07:40.063
+shows up when the well-intentioned
+default Isn't a webcam guide.
+
+00:07:40.467 --> 00:07:44.599
+It's an AI tool that promises
+to solve accessibility for you.
+
+00:07:45.373 --> 00:07:47.517
+So here's the pitch,
+and you've all heard it.
+
+00:07:48.322 --> 00:07:53.199
+AI is the scalable fix for accessible
+de- uh, accessibility debt.
+
+00:07:53.787 --> 00:07:55.257
+Alt text writes itself now.
+
+00:07:55.622 --> 00:07:59.402
+Uh, scanning tools flag
+thousands of issues in seconds.
+
+00:08:00.040 --> 00:08:05.037
+One-click plugins promise compliance
+without touching your code bases.
+
+00:08:06.217 --> 00:08:10.132
+That's the sales pitch, and it is
+a genuinely compelling one because
+
+00:08:10.139 --> 00:08:16.374
+accessibility debt on a large WordPress
+site is a real expensive, unglamorous
+
+00:08:16.389 --> 00:08:18.301
+problem that nobody wants to own.
+
+00:08:19.244 --> 00:08:21.407
+Speaking from ex-
+firsthand experience here.
+
+00:08:22.009 --> 00:08:26.508
+This talk is about what happens when you
+actually run these tools against a real
+
+00:08:26.529 --> 00:08:32.957
+messy, decentralized, Georgetown WordPress
+environment instead of a demo site because
+
+00:08:34.006 --> 00:08:36.173
+those are two very different experiences.
+
+00:08:37.179 --> 00:08:41.892
+A demo site has clean, it has clean
+markup, it has a handful of templates,
+
+00:08:42.384 --> 00:08:44.425
+and a vendor who chose the examples.
+
+00:08:44.972 --> 00:08:49.429
+A real university on Enterprise
+WordPress environment has 10 years
+
+00:08:49.430 --> 00:08:54.195
+of content, 40 different content
+editors with 40 different habits and
+
+00:08:54.283 --> 00:08:56.680
+plugins nobody remembers installing.
+
+00:08:57.155 --> 00:09:01.078
+That gap between the demo and the
+production environment is really
+
+00:09:01.078 --> 00:09:02.977
+where this whole talk lives.
+
+00:09:03.651 --> 00:09:07.775
+So before I go any further, I want to be
+really clear about what this talk is not.
+
+00:09:08.212 --> 00:09:10.204
+It is not an anti-AI talk.
+
+00:09:10.415 --> 00:09:14.018
+I'm not going to stand up here or
+sit here actually and tell you AI
+
+00:09:14.021 --> 00:09:18.440
+is inherently bad because it's not
+an argument, and it doesn't hold
+
+00:09:18.441 --> 00:09:20.086
+up under any s- sort of scrutiny.
+
+00:09:20.271 --> 00:09:24.154
+I'm also not here to tell you that it's
+all, uh, that it's all doom, right?
+
+00:09:24.730 --> 00:09:28.946
+There are specific, very narrow places
+where these tools genuinely help, and
+
+00:09:28.946 --> 00:09:33.860
+I will point them out, um, sort of
+explicitly as we go through this because
+
+00:09:33.861 --> 00:09:38.080
+pretending otherwise will make this talk
+dishonest and frankly less useful to you.
+
+00:09:38.333 --> 00:09:41.664
+So what this is, is practical.
+
+00:09:41.980 --> 00:09:45.567
+Where do these tools break
+down specifically in WordPress?
+
+00:09:45.960 --> 00:09:50.967
+Why do these, uh, why do teams keep
+relying on them anyway, even after all
+
+00:09:50.978 --> 00:09:53.068
+the failure modes have been documented?
+
+00:09:53.564 --> 00:09:56.925
+And what do you actually do
+about it starting Monday morning?
+
+00:09:57.719 --> 00:10:01.330
+So that's the shape that
+we're going with here.
+
+00:10:01.345 --> 00:10:02.081
+So next slide.
+
+00:10:02.631 --> 00:10:06.020
+So we're going to walk through
+three specific places AI shows
+
+00:10:06.028 --> 00:10:07.419
+up in a WordPress workflow.
+
+00:10:07.800 --> 00:10:10.982
+First, automated generated
+alt text in the media library.
+
+00:10:11.341 --> 00:10:14.439
+Second, automated scanning tools
+and accessibility overlays.
+
+00:10:14.721 --> 00:10:19.820
+Third, plugin-based automated fixes,
+including what's happening inside
+
+00:10:19.850 --> 00:10:24.505
+Gutenberg with the block patterns
+specifically, um, because that's a real
+
+00:10:24.505 --> 00:10:29.072
+WordPress-specific risk multiplier that
+I don't think gets enough attention.
+
+00:10:29.651 --> 00:10:34.833
+So for each of the three, I'm going
+to walk, uh, uh, pardon me, I'm
+
+00:10:34.833 --> 00:10:36.113
+going to walk the same structure.
+
+00:10:36.665 --> 00:10:40.686
+So what it promises, what it actually
+does once you put it in front of a
+
+00:10:40.686 --> 00:10:44.554
+real user with a real screen reader
+or a real keyboard-only workflow,
+
+00:10:45.051 --> 00:10:48.990
+and where the gap between those
+two things puts your users at risk.
+
+00:10:49.309 --> 00:10:54.023
+Then we'll zoom out and talk about why
+this pattern keeps, uh, sort of repeating
+
+00:10:54.023 --> 00:10:58.488
+across all three, and I'll show you
+five guardrails you can put in place
+
+00:10:58.507 --> 00:11:00.996
+without ripping out any of the tools.
+
+00:11:02.578 --> 00:11:02.944
+All right.
+
+00:11:03.020 --> 00:11:05.257
+So let's get to it.
+
+00:11:06.431 --> 00:11:11.751
+Automated generated alt text, and
+then we'll move, um, straight into it.
+
+00:11:11.761 --> 00:11:12.520
+So next slide.
+
+00:11:15.233 --> 00:11:18.176
+All right, so st-start with alt text,
+uh, because it's the friendliest
+
+00:11:18.176 --> 00:11:19.366
+looking version of this problem.
+
+00:11:19.829 --> 00:11:21.044
+So the promise is simple.
+
+00:11:21.969 --> 00:11:26.952
+Upload an image, the model looks at the
+fixes, it writes you a description, done.
+
+00:11:27.646 --> 00:11:30.577
+No content editor has to sit
+there and think about it.
+
+00:11:31.697 --> 00:11:33.191
+No workflow bottleneck.
+
+00:11:33.481 --> 00:11:34.355
+And then this pitch…
+
+00:11:34.410 --> 00:11:37.709
+And this pitch works really
+because if you think about it,
+
+00:11:37.720 --> 00:11:39.173
+the backlog problem is real.
+
+00:11:39.676 --> 00:11:43.522
+I've audited, uh, a ton of these
+university libraries with tens of thou…
+
+00:11:43.553 --> 00:11:47.688
+no lie, tens of thousands of images, and
+effectively no alt text on any of them.
+
+00:11:48.367 --> 00:11:54.072
+When you're the person staring down, uh,
+a spreadsheet with that many rows, just
+
+00:11:54.072 --> 00:11:59.449
+let the AI handle it, in air quotes, is
+a genuinely appealing sentence, and I
+
+00:11:59.453 --> 00:12:01.105
+don't fault anyone for reaching for it.
+
+00:12:01.464 --> 00:12:02.119
+Really, I don't.
+
+00:12:02.595 --> 00:12:07.652
+The problem is, uh, the problem
+isn't the instinct is unreasonable.
+
+00:12:08.086 --> 00:12:13.060
+Really, the problem is what h-happens
+next, which is the next, uh, few slides.
+
+00:12:13.076 --> 00:12:14.674
+So, uh, next slide
+
+00:12:17.089 --> 00:12:17.650
+Um
+
+00:12:20.286 --> 00:12:22.723
+Okay, so here's the
+actual problem, though.
+
+00:12:23.044 --> 00:12:25.872
+AI describes, uh, it describes pixels.
+
+00:12:26.125 --> 00:12:27.784
+It does not know purpose.
+
+00:12:28.015 --> 00:12:33.129
+So take the same photo, uh, take the
+same photo of a person at a podium.
+
+00:12:33.547 --> 00:12:39.048
+On a news page, a, uh, the, the alt text,
+"A person standing at a podium," is a
+
+00:12:39.058 --> 00:12:41.722
+reasonable sort of caption, if you will.
+
+00:12:41.875 --> 00:12:42.602
+It does the job.
+
+00:12:43.102 --> 00:12:47.117
+But you put that exact same photo on
+a donation page, and it's close to
+
+00:12:47.117 --> 00:12:53.798
+useless because what a screen reader user
+actually needs there is, who is, uh, who
+
+00:12:53.799 --> 00:12:58.996
+is this, and why does it matter to ask,
+uh, what, what you're asking of them?
+
+00:12:59.610 --> 00:13:04.465
+You put it on a product page, and
+you need color, fit, material,
+
+00:13:04.807 --> 00:13:08.905
+the actual sort of decision-making
+detail a sighted user gets for free
+
+00:13:09.420 --> 00:13:12.747
+by glancing at the image or images.
+
+00:13:13.203 --> 00:13:18.608
+So the model has no idea, uh, which
+page it's on, uh, what the goal
+
+00:13:18.608 --> 00:13:23.106
+of that page is, or what decision
+the alt text is supposed to sort
+
+00:13:23.106 --> 00:13:26.913
+of support because none of that is
+encoded in the pixels themselves.
+
+00:13:27.307 --> 00:13:28.447
+It describes the scene.
+
+00:13:28.653 --> 00:13:33.806
+It cannot describe the job the image is
+doing in that partic- on that particular
+
+00:13:33.806 --> 00:13:35.555
+page for that particular reader.
+
+00:13:36.289 --> 00:13:40.884
+Uh, that's, that's not a bug that
+gets fixed with a better model.
+
+00:13:41.247 --> 00:13:45.464
+It's a structural sort of limitation,
+uh, of generating a description
+
+00:13:45.689 --> 00:13:49.069
+from an image alone with no page
+context and no understanding
+
+00:13:49.175 --> 00:13:50.956
+of the intent, of that intent.
+
+00:13:51.489 --> 00:13:55.997
+And there are places it doesn't just
+underperform, it fails outright.
+
+00:13:56.406 --> 00:13:59.018
+So you have text inside images, flyers.
+
+00:13:59.020 --> 00:14:00.665
+We see this all the
+time at the university.
+
+00:14:00.723 --> 00:14:05.276
+Text, uh, inside flyers,
+infographics, screenshots.
+
+00:14:05.661 --> 00:14:09.212
+They get summarized or dropped
+instead of transcribed, so the
+
+00:14:09.212 --> 00:14:15.548
+actual information a sighted user,
+uh, sort of would read directly just
+
+00:14:15.549 --> 00:14:17.213
+disappears for a screen reader user.
+
+00:14:18.227 --> 00:14:24.168
+Charts and data visualizations,
+they get a generic label, uh, like,
+
+00:14:24.452 --> 00:14:30.250
+quote, "a graph," when a sighted user
+glances at that same s- uh, chart and
+
+00:14:30.250 --> 00:14:35.699
+immediately sees the trend, the outlier,
+uh, the thing the chart was meant
+
+00:14:35.708 --> 00:14:37.774
+to build, uh, and, and communicate.
+
+00:14:40.670 --> 00:14:45.582
+Decorative images that should have empty
+alt text, we're all familiar with alt
+
+00:14:45.585 --> 00:14:50.994
+equals quote quote, uh, so that a screen
+reader, uh, skips past them entirely,
+
+00:14:51.189 --> 00:14:56.119
+instead get a sort of full confident
+sentence describing them, which adds
+
+00:14:56.119 --> 00:14:58.314
+noise to every single page they appear on.
+
+00:14:58.790 --> 00:15:03.880
+And anything culturally or contextually
+specific, a person, a campus
+
+00:15:03.882 --> 00:15:08.280
+building, a logo, that gets mislabeled
+with total unearned confidence.
+
+00:15:08.647 --> 00:15:11.193
+That confidence is the dangerous
+part of all this, by the way.
+
+00:15:11.596 --> 00:15:17.177
+So nobody flags a wrong caption for
+review if it reads like a correct one.
+
+00:15:17.569 --> 00:15:22.414
+A human writing bad alt text usually
+writes something that sounds, mm,
+
+00:15:22.462 --> 00:15:27.792
+kind of uncertain or incomplete,
+or sometimes eyebrows go up.
+
+00:15:28.159 --> 00:15:31.332
+But a model writing bad alt
+text sounds exactly as confident
+
+00:15:31.364 --> 00:15:32.843
+as it does when it's right.
+
+00:15:33.227 --> 00:15:36.386
+So we should all sit with that
+and think about that for a moment.
+
+00:15:37.306 --> 00:15:38.585
+So where does it actually help?
+
+00:15:39.582 --> 00:15:45.023
+As a first draft, never a final answer,
+and I want that distinction doing the
+
+00:15:45.023 --> 00:15:48.700
+real work in your head, not just as
+a caveat I'm saying to sound balanced
+
+00:15:48.700 --> 00:15:50.062
+or like I know what I'm talking about.
+
+00:15:50.549 --> 00:15:57.500
+It's genuinely useful for triage,
+telling you which of your 40,000 images,
+
+00:15:57.501 --> 00:16:02.111
+that's a bit of an exaggeration, but
+40,000 images have zero alt text at all.
+
+00:16:02.617 --> 00:16:07.760
+So a human knows where to start
+prioritizing instead of scrolling a media
+
+00:16:07.761 --> 00:16:11.390
+library, um, blind, no pun intended.
+
+00:16:11.846 --> 00:16:16.855
+It's a reasonable starting, uh,
+point for straightforward photos, um,
+
+00:16:16.888 --> 00:16:21.593
+that a content editor then edits for
+purpose before it ever gets published.
+
+00:16:21.924 --> 00:16:24.369
+Uh, not something that you
+just accept and move on from.
+
+00:16:24.903 --> 00:16:30.057
+It's useful when you need speed on
+volume for the accuracy, uh, the
+
+00:16:30.058 --> 00:16:34.044
+accuracy bar is genuinely low, uh,
+which is not your homepage, and it is
+
+00:16:34.047 --> 00:16:38.915
+not anything that's driving a decision
+a user is trying to make on your site.
+
+00:16:39.366 --> 00:16:42.780
+And I should add, it's also,
+um, you know, if you're being
+
+00:16:42.788 --> 00:16:44.919
+actively sued, I wouldn't do that.
+
+00:16:45.538 --> 00:16:49.473
+Used this way, in that narrow
+lane, it saves real time.
+
+00:16:50.358 --> 00:16:53.828
+Used outside that lane, it creates
+the failures we just walked through.
+
+00:16:54.465 --> 00:16:54.891
+All right.
+
+00:16:54.895 --> 00:17:00.255
+So now we're gonna talk about scanning
+tools and overlays, um, which have
+
+00:17:00.255 --> 00:17:01.852
+been all the rage the last few years.
+
+00:17:02.052 --> 00:17:04.782
+What are the automated scanners are
+they- what are they actually good at?
+
+00:17:05.843 --> 00:17:10.964
+I do want to give scanning tools, uh,
+their sort of, uh, their due before
+
+00:17:10.964 --> 00:17:16.558
+I, uh, what they're sort of due before
+I tear into them because- Um, they're
+
+00:17:16.558 --> 00:17:21.173
+genuinely good at a specific, well
+sort of, uh, defined category of
+
+00:17:21.174 --> 00:17:26.015
+thing, and I don't want this sort of
+section to read as dismissive of tools
+
+00:17:26.092 --> 00:17:29.892
+that a lot of you are using well,
+and we are using some of those tools.
+
+00:17:29.919 --> 00:17:32.441
+Um, so I do think that's worth mentioning.
+
+00:17:32.580 --> 00:17:34.676
+Missing alt attributes in the markup.
+
+00:17:35.003 --> 00:17:38.812
+Color contrast ratio against,
+uh, WCAG thresholds, right?
+
+00:17:39.110 --> 00:17:39.873
+These sorts of things.
+
+00:17:39.873 --> 00:17:40.895
+Missing form labels.
+
+00:17:41.188 --> 00:17:43.128
+Uh, empty link text and buttons.
+
+00:17:43.154 --> 00:17:44.806
+Missing, uh, document language.
+
+00:17:44.808 --> 00:17:46.037
+Duplicate IDs.
+
+00:17:46.477 --> 00:17:49.312
+Basic HTML structure pr- uh, problems.
+
+00:17:49.743 --> 00:17:51.393
+Even your occasional ARIA markup.
+
+00:17:52.025 --> 00:17:56.356
+These are real code-level
+machine-checkable issues, and scanners
+
+00:17:56.361 --> 00:18:01.004
+catch them fast and reliably, far faster
+than a human doing the same check by hand.
+
+00:18:01.440 --> 00:18:04.027
+So that's a real contribution
+to a real workflow, sure.
+
+00:18:04.435 --> 00:18:07.331
+Keep that in mind, because the next
+few slides are about what happens
+
+00:18:07.344 --> 00:18:12.071
+when that category, which is genuinely
+useful, gets treat- uh, treated as
+
+00:18:12.072 --> 00:18:16.524
+the whole job instead of the one slice
+of the job it actually s- um, covers.
+
+00:18:17.662 --> 00:18:20.831
+So here's the volume problem, and
+this is one people underestimate
+
+00:18:20.831 --> 00:18:22.500
+until they've lived through it.
+
+00:18:22.747 --> 00:18:28.149
+So you run a scan against a large,
+uh, decentralized university site.
+
+00:18:28.209 --> 00:18:33.802
+We have over 550 for o- excuse
+me, four-- 550 for ours, and
+
+00:18:33.802 --> 00:18:35.366
+that's just as of this recording.
+
+00:18:35.599 --> 00:18:39.384
+Think about a large decentralized
+university site, and you can get thousands
+
+00:18:39.385 --> 00:18:41.617
+of flagged issues in a single pass.
+
+00:18:42.022 --> 00:18:44.531
+A handful of those are
+genuinely high impact.
+
+00:18:45.107 --> 00:18:48.552
+So think about a broken form,
+a keyboard trap inside a modal,
+
+00:18:48.969 --> 00:18:51.383
+something that actually blocks a task.
+
+00:18:51.811 --> 00:18:54.072
+A huge share of that
+are low-value repeats.
+
+00:18:54.329 --> 00:19:00.004
+The same missing alt attribute flagged
+900 times because it's baked into a
+
+00:19:00.005 --> 00:19:01.945
+template used across the whole site.
+
+00:19:02.460 --> 00:19:09.443
+So one root cause, uh, sort of
+becomes 900 line items on a report.
+
+00:19:10.355 --> 00:19:13.312
+So what actually happens on the
+ground is the team looking at that
+
+00:19:13.312 --> 00:19:17.454
+report doesn't triage it because
+triaging a spreadsheet with 2,000
+
+00:19:17.455 --> 00:19:22.079
+rows is its own full-time job on top
+of everyone's existing full-time job.
+
+00:19:22.673 --> 00:19:26.053
+Uh, I will pause here briefly and say
+that w- some of our content editors,
+
+00:19:26.055 --> 00:19:30.092
+you know, managing, uh, a department
+website or what have you, is like maybe,
+
+00:19:30.092 --> 00:19:33.476
+I'm, I'm sorta spitballing here, two
+to five percent of their actual job.
+
+00:19:33.936 --> 00:19:37.687
+And I'm sure many of you in the higher
+ed space listening to this can relate,
+
+00:19:38.018 --> 00:19:43.030
+um, specifically in higher ed, where
+we're asked, you know, to do a, a
+
+00:19:43.030 --> 00:19:45.370
+lot w- often on very little, right?
+
+00:19:45.371 --> 00:19:49.754
+So they drown in the noise, and
+functionally, they prioritize
+
+00:19:49.754 --> 00:19:53.074
+nothing because there's no
+real obvious place to start.
+
+00:19:53.443 --> 00:19:58.483
+So a tool that surfaces 2,000 things
+and helped you act on effectively
+
+00:19:58.493 --> 00:20:03.291
+zero of them has not helped you, even
+though the report itself looks thorough
+
+00:20:03.291 --> 00:20:05.008
+and looks like progress was measured.
+
+00:20:05.743 --> 00:20:07.053
+So accessibility overlays.
+
+00:20:07.503 --> 00:20:09.744
+Um, this is the promise
+versus the pattern.
+
+00:20:10.298 --> 00:20:13.945
+So now the overlay conversation
+specifically because this deserves its
+
+00:20:13.946 --> 00:20:17.008
+own slide and its own moment of clarity.
+
+00:20:17.370 --> 00:20:20.242
+We're all pretty aligned in the
+accessibility, uh, space about these,
+
+00:20:20.245 --> 00:20:22.273
+but it does bear, uh, repeating anyway.
+
+00:20:22.692 --> 00:20:27.105
+So the promise is one line of JavaScript,
+for example, an overlay widget that
+
+00:20:27.106 --> 00:20:32.406
+scans the page in the browser and
+fixes accessibility issues live- No
+
+00:20:32.406 --> 00:20:37.116
+development work required, no code
+review, no waiting on an engineer sprint.
+
+00:20:37.645 --> 00:20:42.059
+So that's the entire pitch, and it's
+an easy one to say yes to when you have
+
+00:20:42.061 --> 00:20:44.148
+no budget and a compliance deadline.
+
+00:20:44.192 --> 00:20:45.697
+Remember when we talked
+about getting sued?
+
+00:20:46.845 --> 00:20:51.755
+The pattern, as this has been documented
+extensively across the accessibility
+
+00:20:51.757 --> 00:20:56.168
+community for years now, is that
+overlays can adjust sort of level things.
+
+00:20:56.439 --> 00:21:00.034
+Contrast, font size, maybe
+a reading mode toggle.
+
+00:21:00.456 --> 00:21:07.274
+They cannot fix excess, uh, keyboard
+traps, um, missing semantic structure, or
+
+00:21:07.274 --> 00:21:11.677
+broken sort of focus order because those
+problems live in the underlying markup.
+
+00:21:12.180 --> 00:21:15.232
+And an overlay by design is
+not touching your markup.
+
+00:21:15.637 --> 00:21:19.071
+It's layering something on
+top of it in the browser.
+
+00:21:19.700 --> 00:21:24.120
+So screen reader users, including me, as I
+mentioned, routinely report that overlays
+
+00:21:24.472 --> 00:21:30.534
+make a site harder to use, not easier,
+because n- now there's a widget actively
+
+00:21:30.540 --> 00:21:34.712
+fighting with our assistive technology
+on top of whatever accessibility
+
+00:21:34.915 --> 00:21:36.946
+problems were already underneath it.
+
+00:21:37.656 --> 00:21:40.514
+So this is where automated
+scanning does real damage.
+
+00:21:40.825 --> 00:21:44.586
+And I want to be precise about the
+mechanics because it's not that
+
+00:21:44.587 --> 00:21:48.341
+the tool is wrong, it's that the
+tool is confidently incomplete.
+
+00:21:48.918 --> 00:21:49.859
+So what do I mean by that?
+
+00:21:51.025 --> 00:21:54.413
+So you get a scan, it comes
+back clean, contrast passes, alt
+
+00:21:54.418 --> 00:21:57.273
+attributes, um, are-- they're present.
+
+00:21:57.724 --> 00:22:02.698
+The dashboard is green across the
+board, and someone writes, "WCAG 2.1
+
+00:22:02.701 --> 00:22:07.217
+AA compliant" into a VPAT, that's your
+voluntary product accessibility template.
+
+00:22:07.217 --> 00:22:11.292
+It's actually the accessibility
+conformance report when it's done in your
+
+00:22:11.293 --> 00:22:15.926
+ACR, and moves on with their day because
+the dashboard told them it was fine.
+
+00:22:17.337 --> 00:22:18.698
+So here's the actual problem.
+
+00:22:19.475 --> 00:22:24.770
+Automated tools can only reliably check a
+fraction of WCAG success criteria, roughly
+
+00:22:25.036 --> 00:22:27.419
+a third by most credible estimates.
+
+00:22:27.514 --> 00:22:29.264
+You can Google it and do your homework.
+
+00:22:29.266 --> 00:22:33.654
+Don't trust me, um, I'm just
+reporting the data and what they say.
+
+00:22:34.116 --> 00:22:37.686
+Because the rest genuinely require
+human judgment to evaluate.
+
+00:22:38.253 --> 00:22:42.141
+So a clean scan tells you nothing
+about whether a keyboard-only user can
+
+00:22:42.141 --> 00:22:46.461
+actually get through your checkout flow,
+whether your modal traps focus when it
+
+00:22:46.461 --> 00:22:52.150
+opens and returns it correctly when it
+closes, or whether the page makes any
+
+00:22:52.474 --> 00:22:56.737
+sort of coherent sense r- uh, reading
+it top to bottom with a screen reader.
+
+00:22:56.746 --> 00:22:58.671
+Screen readers read top
+to bottom, left to right.
+
+00:22:59.087 --> 00:23:02.762
+Um, and so that's very
+important to keep in mind.
+
+00:23:03.216 --> 00:23:08.183
+That green dashboard is not evidence
+that your site is accessible.
+
+00:23:09.070 --> 00:23:12.000
+It's really just evidence that nobody
+checked the other two-thirds of the
+
+00:23:12.000 --> 00:23:16.691
+standard, and a green dashboard that
+gets treated as a sort of finished
+
+00:23:16.701 --> 00:23:22.134
+checklist is worse than no dashboard
+at all because it actively discourages
+
+00:23:22.135 --> 00:23:23.396
+anyone from looking further.
+
+00:23:24.064 --> 00:23:27.310
+So now we'll talk about
+plugin-based fixes, uh, move into
+
+00:23:27.311 --> 00:23:28.681
+the Gutenberg sort of content.
+
+00:23:28.700 --> 00:23:29.276
+Next slide.
+
+00:23:29.786 --> 00:23:34.097
+So the third area, plugin-based
+automated fixes, and this is
+
+00:23:34.099 --> 00:23:36.394
+one very specific to WordPress.
+
+00:23:36.487 --> 00:23:37.695
+You came for a WordPress talk.
+
+00:23:37.979 --> 00:23:43.721
+Very specific to WordPress as a platform,
+uh, which is why it belongs in a talk
+
+00:23:43.736 --> 00:23:45.600
+aimed at this audience specifically.
+
+00:23:46.019 --> 00:23:49.973
+So the plugin ecosystem is WordPress's
+biggest strength, I will start
+
+00:23:49.973 --> 00:23:54.301
+with that, but also its biggest
+accessibility liability at the same time.
+
+00:23:54.522 --> 00:23:56.911
+And both of these things are
+true for the same reason.
+
+00:23:57.191 --> 00:23:58.844
+Anyone can build and ship one.
+
+00:23:59.523 --> 00:24:03.854
+So you search accessibility in the plugin
+repository, and you get everything from
+
+00:24:03.861 --> 00:24:09.539
+genuinely useful linting tools that flag
+issues for a developer to review, all
+
+00:24:09.540 --> 00:24:15.313
+the way to AI-driven widgets promising
+automatic remediation across your entire
+
+00:24:15.315 --> 00:24:17.773
+site with zero code, uh, development work.
+
+00:24:18.401 --> 00:24:21.171
+And Gutenberg makes this
+worse, not better, because of
+
+00:24:21.171 --> 00:24:22.862
+block patterns specifically.
+
+00:24:23.252 --> 00:24:29.152
+So one inaccessible block gets built
+once by one developer under one deadline,
+
+00:24:29.813 --> 00:24:34.331
+but then it gets reused across hundreds
+of pages by content editors who have
+
+00:24:34.331 --> 00:24:38.349
+no idea it was never tested with a
+screen reader in, in the first place.
+
+00:24:38.365 --> 00:24:40.093
+Also, the testing isn't their job.
+
+00:24:40.099 --> 00:24:43.100
+They're just trying to put it
+on the webpage and doing what
+
+00:24:43.101 --> 00:24:44.267
+they are being asked to do.
+
+00:24:45.313 --> 00:24:49.342
+Because from their side, it just looks
+like a normal block in the inserter.
+
+00:24:50.195 --> 00:24:53.369
+A single mistake doesn't stay a
+single mistake in this environment.
+
+00:24:54.336 --> 00:24:58.410
+It replicates every time that someone
+drags that block onto a new page.
+
+00:24:59.170 --> 00:25:00.100
+Uh, next slide
+
+00:25:03.057 --> 00:25:06.869
+All right, so let's be very
+specific about the actual boundary.
+
+00:25:06.936 --> 00:25:10.981
+Um, this is the part that matters
+most for your own decision, uh,
+
+00:25:11.013 --> 00:25:12.604
+this week, not just for this talk.
+
+00:25:13.158 --> 00:25:18.879
+So plug-ins can genuinely fix things like
+missing alt attributes on legacy images,
+
+00:25:18.908 --> 00:25:26.246
+color contrast values in a design system,
+uh, a missing lang attribute, and they can
+
+00:25:26.370 --> 00:25:31.928
+auto-generate, uh, basic ARIA landmarks
+on a standard predictable template
+
+00:25:32.299 --> 00:25:34.095
+where the structure is known in advance.
+
+00:25:34.477 --> 00:25:35.455
+So that's real value.
+
+00:25:36.133 --> 00:25:39.778
+I don't want, uh, you to sort of
+walk out of here dismissing plug-ins
+
+00:25:39.792 --> 00:25:42.686
+wholesale because that would just,
+uh, that would be just as wrong,
+
+00:25:42.692 --> 00:25:44.474
+frankly, as trusting them wholesale.
+
+00:25:45.664 --> 00:25:49.829
+So what they cannot touch is anything that
+requires sort of understanding intent.
+
+00:25:50.858 --> 00:25:55.629
+Whether the focus orders through a custom
+interaction actually makes sense to
+
+00:25:55.629 --> 00:26:02.212
+someone navigating it sequentially, um,
+whether a modal genuinely traps focus
+
+00:26:02.250 --> 00:26:06.822
+while it's open and returns it, uh, uh,
+to the trigger element when it closes.
+
+00:26:06.848 --> 00:26:08.227
+Getting a little bit into the weeds here.
+
+00:26:08.227 --> 00:26:13.080
+But, uh, cognitive load and whether the
+sort of reading sequence makes sense as
+
+00:26:13.081 --> 00:26:20.441
+a sort of coherent narrative rather than
+a jumble of, uh, DOM order, and whether
+
+00:26:20.442 --> 00:26:25.155
+the, uh, pattern itself is coherent
+to someone navigating with a screen
+
+00:26:25.155 --> 00:26:27.159
+reader instead of a mouse and a monitor.
+
+00:26:27.916 --> 00:26:32.799
+So those all require human, a human who
+understands that interface is actually,
+
+00:26:32.850 --> 00:26:36.215
+uh, what that interface is trying to
+accomplish for the person using it,
+
+00:26:36.458 --> 00:26:40.762
+and no plug-in, however well-built,
+is doing that reasoning for you.
+
+00:26:41.969 --> 00:26:42.876
+All right, next slide.
+
+00:26:44.222 --> 00:26:47.418
+Here's the pattern that I, uh,
+run into constantly in audits,
+
+00:26:47.819 --> 00:26:51.779
+and I want to be clear that I'm
+generalizing across dozens of specific
+
+00:26:51.801 --> 00:26:53.611
+tickets over y- uh, several years.
+
+00:26:53.940 --> 00:26:57.447
+Uh, I'm not describing one incident
+I happened to remember for this talk.
+
+00:26:57.895 --> 00:27:04.103
+So a plugin ships an accessible accordion
+or tab component, and I'm putting
+
+00:27:04.105 --> 00:27:06.181
+"accessible" in quotes deliberately.
+
+00:27:07.264 --> 00:27:09.106
+It passes an automated scan clean.
+
+00:27:09.117 --> 00:27:11.153
+The markup looks correct on paper.
+
+00:27:11.579 --> 00:27:15.225
+ARIA roles are technically present
+where the checklist expects
+
+00:27:15.226 --> 00:27:17.421
+them, and according to the spec.
+
+00:27:19.251 --> 00:27:23.211
+It gets reused across dozens of pages
+through a block pattern because that's
+
+00:27:23.213 --> 00:27:24.928
+the entire point of block patterns.
+
+00:27:25.617 --> 00:27:27.429
+Reuse at scale, right?
+
+00:27:28.013 --> 00:27:32.693
+Then a real screen reader user hits
+it in the wild, and focus never
+
+00:27:32.694 --> 00:27:36.849
+actually lands inside the expanded
+panel when they activate it.
+
+00:27:37.264 --> 00:27:40.329
+The content is sitting
+right there on the page.
+
+00:27:40.851 --> 00:27:45.241
+It is completely unreachable in the
+actual navigation order a screen
+
+00:27:45.241 --> 00:27:48.303
+reader, uh, user is-- experiences.
+
+00:27:48.706 --> 00:27:52.866
+The automated scan passed, uh, the
+plugin's marketing claimed accessibility,
+
+00:27:52.879 --> 00:27:58.620
+and a real person using the site the
+way it is actually used every day could
+
+00:27:58.620 --> 00:28:00.480
+not get to the content they came for.
+
+00:28:00.899 --> 00:28:05.572
+So that's really the whole gap that
+this-- we're, we're covering here.
+
+00:28:06.003 --> 00:28:07.369
+Just one concrete example.
+
+00:28:07.708 --> 00:28:09.114
+Why this keeps on happening.
+
+00:28:09.916 --> 00:28:14.234
+So why does this keep happening
+when the failure modes I just walked
+
+00:28:14.234 --> 00:28:18.822
+through are well documented and not
+exactly a secret in this community?
+
+00:28:19.213 --> 00:28:20.473
+Here's the answer underneath the pattern.
+
+00:28:20.702 --> 00:28:24.668
+When alt text was written
+manually, one content editor
+
+00:28:24.702 --> 00:28:26.687
+owned the outcome, full stop.
+
+00:28:27.338 --> 00:28:31.113
+If it was wrong, there was exactly
+one person to talk to about fixing it.
+
+00:28:31.402 --> 00:28:36.014
+Now, the description came from a vendor's
+AI model, the scan came from a different
+
+00:28:36.014 --> 00:28:41.235
+vendor's, uh, crawler, and the plugin
+was built by a third party nobody on your
+
+00:28:41.236 --> 00:28:48.322
+team has ever had a conversation with,
+let alone, um, a contract, um, with,
+
+00:28:48.497 --> 00:28:53.291
+uh, that sort of specifies what happens
+when their tool gets something wrong.
+
+00:28:54.114 --> 00:28:55.583
+We could have a whole
+talk about procurement.
+
+00:28:56.569 --> 00:29:01.811
+Ask after something breaks in production,
+"Who's actually responsible?" And you
+
+00:29:01.813 --> 00:29:04.936
+get three d- uh, three different vendors
+pointing in three different directions
+
+00:29:05.198 --> 00:29:09.750
+and zero people internally who s- will
+say plainly that it was theirs to catch.
+
+00:29:10.110 --> 00:29:13.897
+So that diffusion isn't really
+an accident of how these tools
+
+00:29:13.905 --> 00:29:15.826
+happened to develop independently.
+
+00:29:15.985 --> 00:29:19.255
+It is functionally really the
+business model, unfortunately.
+
+00:29:20.006 --> 00:29:24.730
+Nobody selling you an a- an automated
+fix wants to be the one who's holding
+
+00:29:24.730 --> 00:29:28.488
+the liability when it doesn't work,
+and the contract structure around
+
+00:29:28.779 --> 00:29:30.185
+most of these tools reflects that.
+
+00:29:30.850 --> 00:29:31.747
+All right, next slide.
+
+00:29:32.525 --> 00:29:37.178
+And there's a second quieter cost
+here, and it's- About the humans in
+
+00:29:37.178 --> 00:29:39.351
+the workflow, not the tools themselves.
+
+00:29:39.673 --> 00:29:45.849
+So content editors who used to have
+to understand why an image needed alt
+
+00:29:45.858 --> 00:29:50.199
+text, what actually made a description
+useful to someone who couldn't see
+
+00:29:50.199 --> 00:29:56.400
+the image, now they click accept
+on an AI sort of suggestion and
+
+00:29:56.812 --> 00:29:58.880
+move straight to the next upload.
+
+00:29:59.630 --> 00:30:04.074
+Developers who used to reason through
+focus, uh, through focus order themselves,
+
+00:30:04.372 --> 00:30:09.168
+tabbing through an interface by hand,
+now they trust a linter's green check
+
+00:30:09.168 --> 00:30:11.312
+mark and move to the next ticket.
+
+00:30:12.264 --> 00:30:16.097
+That skill doesn't vanish
+the moment it gets automated.
+
+00:30:16.592 --> 00:30:20.521
+It vanishes gradually, right,
+because it stops getting practice.
+
+00:30:20.870 --> 00:30:22.769
+Atrophy, if you, if you like.
+
+00:30:23.101 --> 00:30:28.012
+The same way any skill r-
+does without repetition.
+
+00:30:29.308 --> 00:30:35.003
+And the problem with that erosion is
+really it's not there the one time a year
+
+00:30:35.231 --> 00:30:39.582
+the automation genuinely can't handle
+the situation in front of it, which
+
+00:30:39.677 --> 00:30:43.617
+based on everything we've kinda walked
+through in this talk, is meaningfully more
+
+00:30:43.617 --> 00:30:48.831
+often than the, uh, than the marketing
+for these tools would have you believe.
+
+00:30:49.208 --> 00:30:52.866
+So you end up with a team who has
+lost the muscle right around the
+
+00:30:52.886 --> 00:30:55.135
+time it needed, they needed it most.
+
+00:30:55.415 --> 00:30:56.506
+Um, next slide.
+
+00:30:57.193 --> 00:31:02.888
+And underneath all that- This was never
+really sort of a technology problem.
+
+00:31:02.938 --> 00:31:06.678
+If you, if, uh, if you've done
+your homework, WCAG ha- uh, the
+
+00:31:06.679 --> 00:31:11.832
+standard, um, for mo- for websites,
+at least, um, the gold standard has
+
+00:31:11.833 --> 00:31:14.071
+really been around since, uh, 1999.
+
+00:31:14.326 --> 00:31:16.724
+Uh, it's gone through a few
+iterations, but the point still stands.
+
+00:31:16.729 --> 00:31:18.578
+It's been around for over
+a quarter of a century.
+
+00:31:20.008 --> 00:31:24.460
+It's an incentive problem, and I think
+naming that out loud is more useful
+
+00:31:24.461 --> 00:31:27.833
+than pretending the next model, uh,
+version of the model will fix it.
+
+00:31:28.364 --> 00:31:32.736
+AI accessibility tools get sort
+of funded and shipped fast because
+
+00:31:32.736 --> 00:31:34.471
+they solve a business problem first.
+
+00:31:34.757 --> 00:31:38.661
+Liability exposure, speed to
+market, head count you don't have
+
+00:31:38.663 --> 00:31:43.224
+to hire in a budget cycle where
+head count is hard to get approved.
+
+00:31:43.451 --> 00:31:49.202
+Disabled users are not getting, um,
+sort of faster attention because a, an
+
+00:31:49.203 --> 00:31:54.473
+organization, um, sat down and really
+decided accessibility finally mattered
+
+00:31:54.473 --> 00:31:56.786
+enough to prioritize it on its own merits.
+
+00:31:57.865 --> 00:32:01.198
+We, as a disabled people, are
+getting attention as a byproduct
+
+00:32:01.199 --> 00:32:05.431
+of somebody else's more fundable
+priority, and that is the truth, and
+
+00:32:05.432 --> 00:32:09.831
+that's worth being honest about, um,
+rather than trying to be flattering.
+
+00:32:10.679 --> 00:32:14.559
+That's genuinely, uh, fine when
+the byproduct actually works
+
+00:32:14.581 --> 00:32:16.158
+and holds up under real use.
+
+00:32:16.750 --> 00:32:20.808
+It stops being fine the moment we bought
+out to the tool, uh, bought out the
+
+00:32:20.808 --> 00:32:24.764
+tool and that quietly becomes really
+the entire organization's definition
+
+00:32:24.765 --> 00:32:26.762
+of, "We handled accessibility."
+
+00:32:27.095 --> 00:32:31.694
+Because that's exactly the moment
+nobody is checking anymore, and the
+
+00:32:31.695 --> 00:32:37.436
+checking is part of actually really
+what protects your users All right,
+
+00:32:37.437 --> 00:32:39.131
+so we're getting into the guardrails.
+
+00:32:39.497 --> 00:32:41.165
+Um, we have about 10 minutes left.
+
+00:32:41.195 --> 00:32:43.735
+So, uh, next slide, 27.
+
+00:32:44.323 --> 00:32:45.560
+All right, so let's get practical.
+
+00:32:45.916 --> 00:32:47.250
+I've told you all what's wrong with it.
+
+00:32:47.512 --> 00:32:47.849
+Great.
+
+00:32:48.718 --> 00:32:51.957
+Five guardrails, and every one of
+these is something you can start using
+
+00:32:51.957 --> 00:32:56.738
+next week without ripping anything
+out of your existing, um, sorta stack.
+
+00:32:57.127 --> 00:32:59.937
+So number one, AI produces drafts.
+
+00:33:00.253 --> 00:33:01.344
+Humans make decisions.
+
+00:33:01.762 --> 00:33:05.830
+Every single AI output in your
+accessibility workflow, generated alt
+
+00:33:05.840 --> 00:33:12.221
+text, a scan result, plug-in generated
+markup, gets a named human who reviews
+
+00:33:12.222 --> 00:33:13.750
+it before it ships to production.
+
+00:33:14.334 --> 00:33:19.707
+Not a policy d-- uh, sort of document
+somewhere in some place, nobody
+
+00:33:19.707 --> 00:33:24.487
+knows where it is, that says, "Review
+happens." An actual specific person
+
+00:33:24.680 --> 00:33:29.209
+in the actual workflow whose sign-off
+is required before it goes live.
+
+00:33:29.556 --> 00:33:35.392
+And here's the test I'd want you to take
+home, um, from this slide particularly.
+
+00:33:35.750 --> 00:33:40.543
+If you can't name right now off the
+top of your head exactly who reviews
+
+00:33:40.545 --> 00:33:45.015
+the AI's output on your team, the
+honest answer is that nobody does.
+
+00:33:46.035 --> 00:33:50.327
+And that's something worth fixing before
+you add another automated tool on top
+
+00:33:50.328 --> 00:33:52.529
+of the ones you already have unreviewed.
+
+00:33:53.195 --> 00:33:59.193
+Guardrail number two: real assistive
+technology testing stays non-negotiable.
+
+00:34:00.378 --> 00:34:03.513
+No exceptions carved
+out for tight deadlines.
+
+00:34:04.004 --> 00:34:08.434
+A clean automated scan is not a
+substitute for an actual person
+
+00:34:08.445 --> 00:34:13.449
+using a screen reader, keyboard-only
+navigation, um, or voice control,
+
+00:34:13.449 --> 00:34:17.086
+which is something that often doesn't
+get checked, um, voice control, to
+
+00:34:17.087 --> 00:34:18.871
+get through your critical workflows.
+
+00:34:19.153 --> 00:34:20.475
+And what are those critical workflows?
+
+00:34:20.488 --> 00:34:21.532
+We keep talking about that.
+
+00:34:21.846 --> 00:34:25.211
+Things like checkout,
+sign-up, contact forms.
+
+00:34:25.401 --> 00:34:28.264
+Whatever your users are actually
+on your site to accomplish.
+
+00:34:29.135 --> 00:34:33.629
+Register for classes,
+admissions, apply, whatever.
+
+00:34:34.706 --> 00:34:37.882
+Automated tools reliably catch,
+roughly, like I said, about a third
+
+00:34:37.886 --> 00:34:43.308
+of WCAG success criteria, which we
+established a little bit ago, right?
+
+00:34:43.501 --> 00:34:48.933
+So as I said, if you know math, that
+means the other two-thirds, they really
+
+00:34:48.933 --> 00:34:53.627
+do require, uh, human evaluating directly
+on a regular, uh, recurring schedule.
+
+00:34:54.178 --> 00:34:58.459
+So you've actually budgeted for it,
+not reactively the first time you hear
+
+00:34:58.460 --> 00:35:02.793
+about a problem from a support ticket,
+a complaint, or worse, like we said,
+
+00:35:02.799 --> 00:35:07.407
+a demand letter that turns a workflow
+into a legal want-- uh, legal problem.
+
+00:35:07.644 --> 00:35:07.897
+All right.
+
+00:35:07.911 --> 00:35:08.412
+Next slide.
+
+00:35:09.513 --> 00:35:11.235
+And g-guardrail number three.
+
+00:35:12.638 --> 00:35:15.542
+Interrogate the vendor before you
+install the plugin or sign the
+
+00:35:15.544 --> 00:35:17.582
+contract, not after something breaks.
+
+00:35:17.949 --> 00:35:20.395
+Four questions I'd want
+answered every single time.
+
+00:35:20.978 --> 00:35:21.603
+That's okay.
+
+00:35:21.881 --> 00:35:22.475
+Take notes.
+
+00:35:22.881 --> 00:35:25.279
+What training data was
+this model built on?
+
+00:35:25.625 --> 00:35:30.062
+And can anyone outside the company
+actually verify that claim independently?
+
+00:35:30.915 --> 00:35:34.674
+What is their published false
+positive and false negative rate,
+
+00:35:35.020 --> 00:35:36.908
+and how did they measure it?
+
+00:35:37.124 --> 00:35:40.111
+Not what the marketing page
+asserts without evidence.
+
+00:35:40.826 --> 00:35:44.799
+They won't be super thrilled that
+you're asking these, but they are worth
+
+00:35:44.801 --> 00:35:48.194
+asking because most will not ask these.
+
+00:35:48.982 --> 00:35:52.696
+Has this actually been evaluated by
+disabled users performing real tasks,
+
+00:35:53.118 --> 00:35:56.955
+or only by an internal QA team that
+already knows what the tool is supposed
+
+00:35:56.964 --> 00:35:59.821
+to do and isn't a representative test?
+
+00:36:00.491 --> 00:36:02.307
+And they should be able
+to do it on a live demo.
+
+00:36:03.721 --> 00:36:07.732
+And what happens contractually
+in writing when it gets something
+
+00:36:07.732 --> 00:36:09.609
+wrong on your production site?
+
+00:36:10.558 --> 00:36:12.308
+Who bears that cost?
+
+00:36:13.263 --> 00:36:17.634
+If a vendor can't answer these four
+questions clearly, um, that reluctance
+
+00:36:17.656 --> 00:36:21.286
+is itself an answer, and that's the
+one you should weigh most heavily.
+
+00:36:22.031 --> 00:36:26.729
+Guardrail four, track
+outcomes, not scan scores.
+
+00:36:27.151 --> 00:36:33.282
+It is very easy to report internally that
+you reduced flagged issues from 4,000 to
+
+00:36:33.284 --> 00:36:38.527
+200 and present it as measurable progress
+in a quarterly, uh, sort of review.
+
+00:36:38.919 --> 00:36:42.024
+That number on its own says
+really absolutely nothing
+
+00:36:42.037 --> 00:36:45.618
+about whether a real user could
+complete a real task on your site.
+
+00:36:46.268 --> 00:36:50.149
+The metric that actually means something
+that looks closer to this, a screen
+
+00:36:50.149 --> 00:36:54.786
+reader user completed checkout unassisted
+in roughly the same number of steps as
+
+00:36:54.786 --> 00:36:56.958
+a sighted user did on the same flow.
+
+00:36:57.360 --> 00:36:59.813
+That's harder to measure
+than a scan score.
+
+00:37:00.232 --> 00:37:03.888
+Uh, it takes actual sort of usability
+testing with actual assistive
+
+00:37:03.888 --> 00:37:07.586
+technology users, and it is the
+only version of this that tells you
+
+00:37:07.586 --> 00:37:12.211
+whether you improved something that
+touches a person's actual sort of
+
+00:37:12.211 --> 00:37:16.190
+life instead of improving a dashboard
+that only your team ever looks at.
+
+00:37:16.882 --> 00:37:21.981
+And guardrail five, keep the thinking in
+the workflow deliberately and by design.
+
+00:37:22.395 --> 00:37:27.404
+Don't let sort of accept AI
+suggestion become a pure reflex
+
+00:37:27.770 --> 00:37:29.607
+that nobody actually engages with.
+
+00:37:29.912 --> 00:37:35.516
+You wanna build in one small intentional
+point of friction where a sort of
+
+00:37:35.518 --> 00:37:39.509
+content editor, they have to write a
+single sentence of reasoning and explain
+
+00:37:39.511 --> 00:37:43.641
+why this alt text actually works with
+this specific page and this specific
+
+00:37:43.641 --> 00:37:46.029
+purpose, not just that it was generated.
+
+00:37:46.461 --> 00:37:50.372
+That one sentence is enough to keep
+the underlying skill really sort
+
+00:37:50.373 --> 00:37:54.468
+of alive in the people actually
+doing the work, um, day to day.
+
+00:37:54.795 --> 00:37:59.736
+And that one sentence is the sort of
+difference between a workflow that sort
+
+00:37:59.736 --> 00:38:04.131
+of quietly degrades over two years because
+nobody on the team is actually thinking
+
+00:38:04.415 --> 00:38:06.731
+about sort of accessibility anymore.
+
+00:38:06.993 --> 00:38:10.823
+They're just clicking accept, and a
+workflow that holds up, uh, pressure
+
+00:38:10.826 --> 00:38:15.317
+because, uh, thinking never left
+the process in the first place.
+
+00:38:16.446 --> 00:38:18.754
+Finally, we'll bring this home.
+
+00:38:18.998 --> 00:38:22.832
+Three things I want you to really look out
+for when you walk out of the room with.
+
+00:38:23.290 --> 00:38:27.931
+One, you can now identify the actual
+failure modes we covered, right?
+
+00:38:27.933 --> 00:38:31.884
+So that's with the, uh,
+items that we talked about.
+
+00:38:32.455 --> 00:38:38.736
+And you can also tell the difference, uh,
+between AI use that genuinely supports
+
+00:38:38.745 --> 00:38:44.006
+your work and AI that just manufactures
+false confidence on a dashboard.
+
+00:38:44.696 --> 00:38:46.743
+It's a draft generator and a triage tool.
+
+00:38:47.131 --> 00:38:51.614
+Remember, it is not a decision-maker, and
+it is never a substitute for an actual
+
+00:38:51.614 --> 00:38:57.386
+disabled person using your site, uh, sort
+of the way that it really should be used.
+
+00:38:57.397 --> 00:39:03.013
+And three, you have, uh, sort of five
+concrete guardrails you can start applying
+
+00:39:03.015 --> 00:39:06.013
+this week, not a five-year roadmap.
+
+00:39:06.129 --> 00:39:08.439
+That requires a budget approval cycle.
+
+00:39:09.028 --> 00:39:10.749
+Starting Monday morning, if you want.
+
+00:39:11.330 --> 00:39:14.864
+Remember, you didn't fix accessibility,
+you automated the problem, unless
+
+00:39:14.864 --> 00:39:18.734
+a human is still doing the thinking
+somewhere in that pipeline.
+
+00:39:19.004 --> 00:39:20.616
+So these tools are not going away.
+
+00:39:20.917 --> 00:39:21.821
+Let's make that clear.
+
+00:39:21.821 --> 00:39:25.421
+And honestly, they shouldn't because
+some of what they do is genuinely
+
+00:39:25.422 --> 00:39:31.038
+useful when it's scoped correctly, which
+is exactly what we spent, uh, really
+
+00:39:31.041 --> 00:39:32.487
+the last 40 minutes walking through.
+
+00:39:33.158 --> 00:39:36.477
+Um, but useful is not the same
+thing as sufficient, and fast
+
+00:39:36.477 --> 00:39:37.895
+is not the same as correct.
+
+00:39:38.484 --> 00:39:41.705
+That's really the whole, uh, what
+I want you to take away from this.
+
+00:39:41.993 --> 00:39:43.355
+Uh, thank you so much for having me.
+
+00:39:43.685 --> 00:39:46.913
+I'm around for the question and
+answer session, and I'm genuinely
+
+00:39:46.915 --> 00:39:50.731
+happy to get into the weeds on
+any of these with anyone who wants
+
+00:39:50.732 --> 00:39:52.381
+to talk, uh, specifics afterward.
+
+00:39:52.663 --> 00:39:53.013
+Thank you.
+
+00:39:56.130 --> 00:39:58.928
+Abigail: Thank you so much
+for your presentation.
+
+00:39:58.929 --> 00:40:03.471
+I gotta say, the chat, the
+Q&A just exploded as- Yes,
+
+00:40:03.471 --> 00:40:04.529
+it did … you were speaking.
+
+00:40:05.095 --> 00:40:09.695
+And I also wanna key in on something
+as we're just thanking you for
+
+00:40:09.708 --> 00:40:11.945
+giving this phenomenal presentation.
+
+00:40:11.945 --> 00:40:16.460
+I did see somebody post in the
+chat, "Kevin, this presentation is
+
+00:40:16.513 --> 00:40:21.023
+so good that I'm actively plotting
+how to get my boss, and maybe his
+
+00:40:21.063 --> 00:40:22.908
+boss, to sit down and watch it."
+
+00:40:22.919 --> 00:40:25.340
+So, um, truly, truly thank you.
+
+00:40:25.353 --> 00:40:28.761
+For those that have not already
+posted your questions in the
+
+00:40:28.764 --> 00:40:31.150
+Q&A, please go ahead and do so.
+
+00:40:31.399 --> 00:40:35.337
+Um, we do have a few minutes to
+answer those questions, so we're
+
+00:40:35.338 --> 00:40:37.882
+gonna go ahead and get right to them.
+
+00:40:37.882 --> 00:40:43.646
+And Kevin, I'm gonna give you, uh, what I
+think is maybe a, a rather easier question
+
+00:40:43.647 --> 00:40:47.742
+to answer, um, to start out our Q&A.
+
+00:40:47.758 --> 00:40:53.598
+Um, not necessarily AI generated, but,
+hey, are there any recommended guidelines
+
+00:40:53.638 --> 00:41:00.074
+for judging whether images should be
+considered decorative or informational?
+
+00:41:01.144 --> 00:41:03.073
+Kevin: Um, that's a good one.
+
+00:41:03.421 --> 00:41:05.116
+I would say… You can
+all hear me, I hope.
+
+00:41:05.152 --> 00:41:05.504
+Yes.
+
+00:41:06.205 --> 00:41:07.197
+Um, yeah.
+
+00:41:07.429 --> 00:41:14.639
+I would say think about is it contributing
+to somebody's understanding of the page?
+
+00:41:15.025 --> 00:41:19.313
+Uh, in other words, is it just,
+you know, back in the '90s or
+
+00:41:19.313 --> 00:41:22.200
+2000s we had graphic spacer, you
+know, and everybody knows them.
+
+00:41:22.313 --> 00:41:24.153
+Maybe some people are too young
+to know what I'm talking about.
+
+00:41:24.511 --> 00:41:32.575
+Um, or is it, you know, university mascot,
+um, smiles at student, like whatever.
+
+00:41:32.593 --> 00:41:38.574
+Like, would my life be better off
+if I knew it existed or, you know.
+
+00:41:38.604 --> 00:41:42.909
+So it, it is sort of a content question,
+and it's something to really think about.
+
+00:41:42.990 --> 00:41:46.373
+Um, that's, it's, it,
+it is a bit subjective.
+
+00:41:46.738 --> 00:41:49.743
+Um, so it's something for your
+content people to, to think about.
+
+00:41:50.105 --> 00:41:54.808
+Um, you know, how does it… What are you
+trying to communicate through that image?
+
+00:41:54.825 --> 00:42:01.977
+And if a blind person or somebody using
+a, a, a screen reader, um, you know,
+
+00:42:02.059 --> 00:42:03.363
+are they better off knowing about it?
+
+00:42:03.383 --> 00:42:04.287
+Should they know about it?
+
+00:42:04.534 --> 00:42:08.194
+Um, if there's text in the image,
+don't do that, but if there is
+
+00:42:08.205 --> 00:42:11.162
+then definitely have it, alt text.
+
+00:42:11.163 --> 00:42:13.819
+So thinking about intent, I
+think is, is what I would say.
+
+00:42:15.185 --> 00:42:15.562
+Abigail: Yeah.
+
+00:42:15.568 --> 00:42:16.428
+Absolutely.
+
+00:42:16.430 --> 00:42:18.492
+And, and that's exactly
+what they keyed in on.
+
+00:42:18.494 --> 00:42:21.033
+Hey, alt text is so subjective.
+
+00:42:21.299 --> 00:42:23.513
+Um, what are your thoughts on it?
+
+00:42:23.941 --> 00:42:25.719
+So yeah, fantastic answer there.
+
+00:42:25.719 --> 00:42:26.820
+I appreciate that.
+
+00:42:27.283 --> 00:42:32.938
+Um, now another individual said you
+mentioned the volume problem in higher
+
+00:42:32.939 --> 00:42:39.487
+education, and, um, they agree that this
+is a frequent problem in the area, um, on
+
+00:42:39.488 --> 00:42:42.451
+university websites, specifically in PDFs.
+
+00:42:43.270 --> 00:42:48.280
+What are your thoughts on
+tools that convert PDFs to HTML
+
+00:42:48.325 --> 00:42:50.707
+as the accessible solution?
+
+00:42:52.647 --> 00:42:52.929
+Kevin: Hmm.
+
+00:42:53.627 --> 00:42:57.143
+I get contacted almost…
+It, it's gone up lately too.
+
+00:42:57.143 --> 00:42:58.449
+It's gotten pretty, um-
+
+00:43:00.542 --> 00:43:02.627
+Pretty prolific.
+
+00:43:02.663 --> 00:43:05.562
+I, I, I get, I hear from vendors
+all the time, uh, everybody
+
+00:43:05.562 --> 00:43:07.292
+wants to remediate our PDFs.
+
+00:43:07.306 --> 00:43:12.924
+Um, I'm sure many of you out there who are
+listening now live or in the recording,
+
+00:43:13.357 --> 00:43:18.089
+um, are, are constantly being just,
+they're, they're, they're reaching out.
+
+00:43:18.201 --> 00:43:25.362
+Um, and I don't make claims about
+anything, uh, that a vendor does on here.
+
+00:43:25.623 --> 00:43:30.648
+But I would say I think it's
+important to think about what are
+
+00:43:30.649 --> 00:43:34.647
+your priorities in terms of… So we
+have, we have thousands of documents.
+
+00:43:34.657 --> 00:43:36.767
+Every university has
+thousands of PDF documents.
+
+00:43:36.772 --> 00:43:37.435
+It's no secret.
+
+00:43:37.850 --> 00:43:44.405
+So I think it's really about prioritizing,
+and I think trying the, trying out
+
+00:43:44.406 --> 00:43:50.382
+a tool and, and seeing, um, I think
+it's important, like, 'cause it begs
+
+00:43:50.384 --> 00:43:54.655
+the question, if it can turn it into
+an HTML, like maybe just it should
+
+00:43:54.666 --> 00:43:55.898
+be a webpage in the first place.
+
+00:43:56.339 --> 00:44:00.854
+Um, if you're trying to remediate
+something that already, uh, exists
+
+00:44:00.855 --> 00:44:04.287
+and, and you're trying to do it
+sort of in, in, uh, a scalable
+
+00:44:04.296 --> 00:44:05.759
+way, then that could be an option.
+
+00:44:06.087 --> 00:44:09.429
+I think it's, you have to really
+look at the documents that you have.
+
+00:44:09.732 --> 00:44:14.099
+Um, you wanna prioritize, you
+know, student and, and, uh,
+
+00:44:14.544 --> 00:44:16.542
+staff-facing, public-facing.
+
+00:44:17.049 --> 00:44:19.721
+Um, but it really does beg the
+question, and I, and I've been having
+
+00:44:19.721 --> 00:44:24.333
+this conversation for years, what,
+like, does it need to be a PDF?
+
+00:44:24.344 --> 00:44:25.412
+Sometimes it does.
+
+00:44:25.593 --> 00:44:27.095
+Uh, most often it doesn't.
+
+00:44:27.611 --> 00:44:32.489
+Um, so that's the bigger question
+is does it need to be a PDF?
+
+00:44:32.525 --> 00:44:33.869
+But try it.
+
+00:44:33.911 --> 00:44:39.741
+I, I think it's, I think it's
+worth exploring it, but, um, then
+
+00:44:39.741 --> 00:44:41.685
+it just begs the question, make
+it a webpage in the first place.
+
+00:44:43.863 --> 00:44:44.195
+Abigail: Right.
+
+00:44:44.201 --> 00:44:50.027
+So really just make sure that whatever
+you're creating the document or
+
+00:44:50.040 --> 00:44:53.908
+the webpage in is the right format
+that it should be in for our end
+
+00:44:53.908 --> 00:44:55.045
+users- Yeah … it sounds like.
+
+00:44:55.074 --> 00:44:55.271
+Mm-hmm.
+
+00:44:55.297 --> 00:44:55.629
+Kevin: Yes.
+
+00:44:56.624 --> 00:44:56.963
+Abigail: Great.
+
+00:44:56.971 --> 00:44:57.809
+Thank you, Kevin.
+
+00:44:57.815 --> 00:44:59.172
+And let's go on.
+
+00:44:59.173 --> 00:45:01.774
+We do have time for a
+couple more questions.
+
+00:45:02.183 --> 00:45:06.861
+Um, another individual said, "Hey, what
+if we can create a prompt that generates
+
+00:45:06.871 --> 00:45:10.084
+alt text based on the content of the page?
+
+00:45:10.458 --> 00:45:14.155
+Um, would that be able to tell the
+difference between both meaningful and
+
+00:45:14.156 --> 00:45:16.944
+decorative images possibly," right?
+
+00:45:16.958 --> 00:45:17.346
+Now-
+
+00:45:17.362 --> 00:45:17.587
+Kevin: Maybe
+
+00:45:17.925 --> 00:45:20.954
+…  Abigail: um, kinda what, what are
+your thoughts on something like that?
+
+00:45:21.302 --> 00:45:24.488
+Um, either way this person kinda feels
+like that might be somewhat of an
+
+00:45:24.492 --> 00:45:26.620
+improvement over the current situation.
+
+00:45:26.874 --> 00:45:28.265
+Uh, but what are your thoughts on that?
+
+00:45:28.265 --> 00:45:28.275
+I
+
+00:45:28.275 --> 00:45:28.899
+Kevin: think so.
+
+00:45:28.933 --> 00:45:30.261
+I think it could be an option.
+
+00:45:30.261 --> 00:45:34.459
+I think, I think that it's still
+critical to have a human in the loop,
+
+00:45:34.767 --> 00:45:39.456
+um, as we've, a lot of us have been
+talking about AI and how great it is,
+
+00:45:39.456 --> 00:45:42.180
+and it's gonna save us all or kill
+us all, depending on what you read.
+
+00:45:42.441 --> 00:45:45.423
+I really think that it's super
+important to have a human in the loop.
+
+00:45:45.651 --> 00:45:51.634
+So maybe you're not reviewing every
+single alt tag, um, which maybe goes
+
+00:45:51.635 --> 00:45:52.948
+against what I just said on there.
+
+00:45:52.948 --> 00:45:57.565
+But I think if you, let's say you have
+100 images and you're trying to, right,
+
+00:45:57.565 --> 00:46:03.314
+because everybody has a lot of images and
+no time, maybe you, you know, look at-
+
+00:46:03.993 --> 00:46:08.741
+A certain percentage of them, and then
+you as a collective, whomever you are,
+
+00:46:08.779 --> 00:46:11.698
+decide, okay, we're comfortable with this.
+
+00:46:11.828 --> 00:46:13.122
+It could, it could be an option.
+
+00:46:13.250 --> 00:46:14.857
+I'm not telling anyone what to do here.
+
+00:46:15.176 --> 00:46:18.365
+Um, I'm making recommendation,
+professional advisements.
+
+00:46:18.837 --> 00:46:24.303
+Um, but possibly, um, I haven't
+played enough with AI in that context
+
+00:46:24.343 --> 00:46:25.689
+to really say one way or the other
+
+00:46:27.410 --> 00:46:29.087
+Abigail: The fair, fair answer, right?
+
+00:46:29.087 --> 00:46:31.301
+We're all still figuring
+things out sometimes.
+
+00:46:31.852 --> 00:46:36.794
+Now, um, this individual is a university
+professor and w- we know that you,
+
+00:46:36.794 --> 00:46:38.689
+um, are working at a university.
+
+00:46:38.721 --> 00:46:41.913
+How do you see accessibility
+being incorporated into
+
+00:46:41.913 --> 00:46:43.600
+the university curriculum?
+
+00:46:43.935 --> 00:46:48.673
+Um, this person says, "Hey, I think
+an introductory accessibility course
+
+00:46:48.673 --> 00:46:52.051
+should be foundational when it
+comes to university, maybe something
+
+00:46:52.051 --> 00:46:54.073
+within English as well as math."
+
+00:46:54.511 --> 00:46:56.810
+Um, what are your thoughts?
+
+00:46:57.796 --> 00:47:00.828
+Kevin: On having an intro
+to accessibility course?
+
+00:47:01.435 --> 00:47:01.756
+Abigail: Mm-hmm.
+
+00:47:02.203 --> 00:47:06.522
+Kevin: Um, so where we are here
+at Georgetown, we… I often
+
+00:47:06.522 --> 00:47:09.544
+work very closely, uh, with the
+Center for New Designs in Learning
+
+00:47:09.554 --> 00:47:11.011
+and Scholarship, or CNDLS.
+
+00:47:11.547 --> 00:47:17.350
+Um, and so they work directly
+with faculty, so they will put on
+
+00:47:17.694 --> 00:47:22.250
+different institutes, different,
+um, sort of seminars, if you will.
+
+00:47:22.404 --> 00:47:26.138
+And that's one way that we've in- been
+able to interface directly with faculty
+
+00:47:26.140 --> 00:47:28.437
+and say, "Hey, this isn't so scary.
+
+00:47:28.805 --> 00:47:32.279
+Um, we know you're already being asked
+to do a lot, research, tenure track,
+
+00:47:32.700 --> 00:47:34.654
+uh, teaching three or four classes.
+
+00:47:34.765 --> 00:47:35.281
+I get that.
+
+00:47:35.281 --> 00:47:36.124
+We all get that.
+
+00:47:36.292 --> 00:47:43.600
+Um, no denying that." But I think
+it's, uh, you know, like if…
+
+00:47:44.890 --> 00:47:45.915
+Sorry, I lost my train of thought.
+
+00:47:46.513 --> 00:47:50.560
+You know, something that we could
+start doing, I think, is getting
+
+00:47:50.560 --> 00:47:54.504
+people to realize, like, you know, if
+you start doing two or three things
+
+00:47:54.807 --> 00:47:59.089
+today, it's not like… Uh, 'cause
+it's an ongoing process, and we always
+
+00:47:59.089 --> 00:48:00.747
+talk about progress over perfection.
+
+00:48:00.923 --> 00:48:06.616
+So if you have an instructional design
+group, um, at, at your university
+
+00:48:06.645 --> 00:48:10.665
+or, or if it's a, I don't know, if
+it's corporate, you know, there's a
+
+00:48:10.667 --> 00:48:12.370
+lot of materials already out there.
+
+00:48:12.622 --> 00:48:16.553
+You know, buying, um, access
+to some different curricula.
+
+00:48:16.564 --> 00:48:21.848
+I don't wanna n- like name one or
+the other, but there are resources
+
+00:48:21.865 --> 00:48:25.008
+out there, so I think it's just
+getting people access to those tools.
+
+00:48:25.040 --> 00:48:27.473
+Um, but yeah, in a higher ed
+context, I think working with your
+
+00:48:27.473 --> 00:48:31.638
+instructional design people, um, and
+maybe you start with, like, a pilot.
+
+00:48:31.638 --> 00:48:35.064
+If there's disability studies, we've
+also interfaced, uh, with those folks.
+
+00:48:35.481 --> 00:48:36.716
+So there are different ways, you know.
+
+00:48:36.716 --> 00:48:41.288
+Find your partners, I would say, and,
+uh, you know, kinda go from there.
+
+00:48:42.091 --> 00:48:43.348
+Abigail: Ah, great feedback.
+
+00:48:43.359 --> 00:48:45.979
+Baby steps, one thing at a time.
+
+00:48:46.535 --> 00:48:48.794
+Progress over perfection.
+
+00:48:49.156 --> 00:48:54.026
+You know, Kevin, I truly wanna thank you,
+um, for giving this presentation today.
+
+00:48:54.027 --> 00:48:56.343
+Like I said, it was very engaging.
+
+00:48:56.683 --> 00:48:59.906
+Um, the chat just
+exploded the entire time.
+
+00:48:59.923 --> 00:49:03.725
+And thank you, everybody, for
+attending this session with Kevin.
+
+00:49:04.057 --> 00:49:08.863
+Um, if you do wanna continue the
+chat on social media, uh, feel free
+
+00:49:08.863 --> 00:49:18.359
+to use #WPA11yDay and #WPAD2026.
+

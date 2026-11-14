@@ -1,0 +1,2738 @@
+WEBVTT
+
+00:00:01.316 --> 00:00:04.340
+Narrator: WordPress Accessibility Day 2026.
+
+00:00:04.728 --> 00:00:09.102
+Why accessibility bugs survive
+modern development workflows.
+
+00:00:09.523 --> 00:00:17.273
+Presented by Osdeibi Acurero, staff
+engineer at MSS Ltd. This session was
+
+00:00:17.299 --> 00:00:22.478
+presented on October 8, 2026 at 03:00 UTC.
+
+00:00:24.731 --> 00:00:27.672
+WordPress Accessibility Day 2026.
+
+00:00:28.035 --> 00:00:29.762
+Thank you to our sponsors.
+
+00:00:30.124 --> 00:00:34.614
+Platinum sponsor: Equalize
+Digital – Websites for everyone.
+
+00:00:35.149 --> 00:00:38.835
+Equalize Digital's Accessibility
+Checker plugin makes real-time
+
+00:00:38.835 --> 00:00:42.248
+testing in the WordPress editor
+faster and more affordable.
+
+00:00:43.147 --> 00:00:47.354
+Auditing services and online
+courses help organizations build
+
+00:00:47.559 --> 00:00:49.536
+and maintain accessible websites.
+
+00:00:50.156 --> 00:00:52.204
+Platinum sponsor: Gravity.
+
+00:00:52.694 --> 00:00:56.196
+Gravity Forms is the accessible
+form builder for WordPress.
+
+00:00:56.587 --> 00:01:00.175
+Trusted by millions of sites,
+it's built to create powerful
+
+00:01:00.315 --> 00:01:03.358
+WCAG-compliant forms for any project.
+
+00:01:03.897 --> 00:01:08.750
+Gold sponsors: Kinsta, In:si, WP Engine.
+
+00:01:09.363 --> 00:01:14.598
+Silver sponsors: Second Melody,
+Tenrec – Your website, only better.
+
+00:01:15.936 --> 00:01:19.828
+Visit sponsor pages to enter to
+win giveaways and access swag.
+
+00:01:20.240 --> 00:01:24.862
+Go to wpaccessibility.day/2026/sponsors.
+
+00:01:28.714 --> 00:01:30.272
+Don't forget to leave feedback.
+
+00:01:30.746 --> 00:01:35.160
+Go to wpaccessibility.day/2026/feedback.
+
+00:01:41.239 --> 00:01:44.036
+Welcome to WordPress
+Accessibility Day 2026.
+
+00:01:44.572 --> 00:01:48.785
+My name is David Cox, and I work on design
+systems and product accessibility at Lyft.
+
+00:01:49.608 --> 00:01:52.816
+Thank you for joining us for this
+session titled Why Accessibility Bugs
+
+00:01:52.817 --> 00:01:54.654
+Survive Modern Development Workflows.
+
+00:01:55.353 --> 00:01:58.820
+Our presenter for this session is
+Osdeibi Acurero from Venezuela.
+
+00:01:59.637 --> 00:02:03.029
+Osdeibi is a full-time technology
+enthusiast and content creator
+
+00:02:03.331 --> 00:02:07.032
+dedicated to demystifying SEO
+and WordPress for developers,
+
+00:02:07.032 --> 00:02:09.006
+designers, and UX/UI professionals.
+
+00:02:09.542 --> 00:02:13.890
+Currently, Osdeibi serves as staff
+engineer at MSS Limited, where he
+
+00:02:13.894 --> 00:02:17.965
+automates infrastructure, optimizes
+performance, and maintains reliability.
+
+00:02:18.544 --> 00:02:22.251
+He is also committed to lifelong
+learning and community growth, regularly
+
+00:02:22.256 --> 00:02:26.173
+earning cloud computing certifications
+and sharing new knowledge with peers.
+
+00:02:27.095 --> 00:02:30.284
+Please feel free to add your questions
+in the Zoom Q&A section, and we'll
+
+00:02:30.285 --> 00:02:31.761
+answer them at the end of the session.
+
+00:02:32.387 --> 00:02:35.169
+You can use the chat function
+to connect with other attendees.
+
+00:02:35.824 --> 00:02:37.720
+And without further ado, let's begin.
+
+00:02:38.420 --> 00:02:40.241
+Hello, and thank you for joining me.
+
+00:02:40.778 --> 00:02:45.157
+My name is Osdeibi Acurero, and this talk
+is about a problem that many WordPress
+
+00:02:45.170 --> 00:02:50.881
+team know well: accessibility bug that
+remain in a project even when the team
+
+00:02:50.883 --> 00:02:52.807
+follow a modern development process.
+
+00:02:53.500 --> 00:02:57.696
+These bugs do not always begin
+with a careless coding decision.
+
+00:02:58.177 --> 00:03:03.058
+Often, they begin much earlier in
+the tools we select, the default we
+
+00:03:03.058 --> 00:03:07.654
+accept, and the assumption we pass from
+one state to the project to the next.
+
+00:03:08.291 --> 00:03:12.694
+To understand how that happen,
+we need to begin in two places
+
+00:03:12.709 --> 00:03:15.269
+where most WordPress work start.
+
+00:03:15.982 --> 00:03:17.822
+The first one is a clean installation.
+
+00:03:18.095 --> 00:03:19.650
+The dashboard is empty.
+
+00:03:19.913 --> 00:03:24.217
+There are no pages, no custom block,
+no product, and no client content.
+
+00:03:24.703 --> 00:03:28.721
+It feel as if the project have
+no accessibility problems because
+
+00:03:28.941 --> 00:03:30.607
+we have not built anything yet.
+
+00:03:31.379 --> 00:03:33.438
+The second is the exact opposite.
+
+00:03:34.063 --> 00:03:38.716
+A client give us an existing si- site and
+say, "Hey, we only need a few changes."
+
+00:03:39.057 --> 00:03:43.945
+The site have a theme selected years ago,
+plugins installed by different teams,
+
+00:03:44.246 --> 00:03:50.349
+custom CSS in several location, a page
+builder, code snippet, third-party widget,
+
+00:03:50.473 --> 00:03:52.529
+and content copied from older pages.
+
+00:03:53.313 --> 00:03:55.904
+In one project, the decision
+are about to be made.
+
+00:03:56.039 --> 00:03:59.769
+In the other one, the decision are
+already embedded in the system.
+
+00:04:00.894 --> 00:04:04.940
+Accessibility bugs survive in both
+situation for the same reason.
+
+00:04:05.589 --> 00:04:09.956
+The user experience is one complete
+product, while the development
+
+00:04:09.957 --> 00:04:12.021
+process sees separate deliveries.
+
+00:04:12.222 --> 00:04:15.435
+For example, separate
+component and separate owners.
+
+00:04:15.743 --> 00:04:19.966
+This is not just a lecture about
+memorizing all the criteria.
+
+00:04:20.111 --> 00:04:23.110
+It's not a catalog of keyboard shortcut.
+
+00:04:23.387 --> 00:04:26.531
+It's a technical investigation
+of the real process failure.
+
+00:04:27.291 --> 00:04:32.169
+We will follow one life cycle where
+the accessibility bug is born, uh,
+
+00:04:32.229 --> 00:04:36.510
+and how WordPress multiply it, how
+a modern workflow allow it to reach
+
+00:04:36.519 --> 00:04:41.296
+production, why it return after being
+fixed, and how to change the workflow
+
+00:04:41.305 --> 00:04:45.465
+so the same class of bug become
+harder to create and harder to ship.
+
+00:04:46.214 --> 00:04:51.368
+By the end of this talk, you will have a
+practical way to identify where this bug
+
+00:04:51.476 --> 00:04:58.180
+enter a WordPress project by the workflow
+phase to stop them and how-- what need to
+
+00:04:58.182 --> 00:05:00.759
+change so they are less likely to return.
+
+00:05:01.865 --> 00:05:04.066
+The structure is intentionally simple.
+
+00:05:04.710 --> 00:05:07.865
+First, we will find where
+accessibility bugs are born.
+
+00:05:08.368 --> 00:05:14.313
+Theme selection, plugin procurement, block
+design, configuration, and the assumption
+
+00:05:14.405 --> 00:05:16.810
+made before custom development begins.
+
+00:05:17.484 --> 00:05:20.644
+Second, we will find why
+WordPress multiplied.
+
+00:05:21.298 --> 00:05:25.848
+A defect in a reusable block,
+template part, global style, or plugin
+
+00:05:25.849 --> 00:05:28.146
+integration does not remain local.
+
+00:05:28.693 --> 00:05:31.303
+It can be a normal
+behavior across the site.
+
+00:05:31.990 --> 00:05:35.832
+Third, we will follow a released
+defect through a modern workflow.
+
+00:05:36.354 --> 00:05:39.705
+We will focus on the moment
+where its meaning is reduced.
+
+00:05:40.331 --> 00:05:44.768
+The requirement describes appearance,
+the design represents isolated screens,
+
+00:05:45.130 --> 00:05:50.615
+QA receives incomplete acceptance
+criteria, and release have no clear
+
+00:05:50.617 --> 00:05:52.742
+authority model for the remaining risk.
+
+00:05:53.544 --> 00:05:56.593
+Four: we will find the same bug return.
+
+00:05:57.145 --> 00:06:00.900
+A visible page is repaired, but
+the theme, plugins, pattern,
+
+00:06:00.943 --> 00:06:05.410
+configuration, or process that
+generated defect remains active.
+
+00:06:06.125 --> 00:06:10.347
+Then an ordinary update or
+content changes reproduces it.
+
+00:06:10.961 --> 00:06:15.616
+Finally, we will build a workflow
+that addresses those causes directly.
+
+00:06:16.219 --> 00:06:22.179
+Behavioral requirement, safer
+reusable defaults, explicit ownership,
+
+00:06:22.553 --> 00:06:27.339
+deliberate release decisions, and
+protection when WordPress changes.
+
+00:06:28.133 --> 00:06:35.356
+The central idea is this: an accessibility
+bug is rarely only live in a line of code.
+
+00:06:36.058 --> 00:06:41.037
+More often, it's a chain of individual
+reasonable decisions that never
+
+00:06:41.037 --> 00:06:44.955
+perceive the complete behavior
+from the beginning of the project
+
+00:06:44.990 --> 00:06:47.167
+to production and maintenance.
+
+00:06:47.744 --> 00:06:52.241
+On a new WordPress project, the first
+accessibility decision often appears
+
+00:06:52.257 --> 00:06:54.541
+to be unrelated to accessibility.
+
+00:06:55.292 --> 00:06:59.748
+The team chooses a theme because
+it matches the brand and includes
+
+00:06:59.763 --> 00:07:01.690
+the layout for the client wants.
+
+00:07:02.360 --> 00:07:06.094
+It selects a form plugin because
+it's integrated with the CRM.
+
+00:07:06.594 --> 00:07:10.896
+It chooses a block library because
+it allows the content team to
+
+00:07:10.897 --> 00:07:13.063
+build the landing pages quickly.
+
+00:07:13.535 --> 00:07:18.240
+It imports a starter site because
+it shortens delivery time.
+
+00:07:18.748 --> 00:07:24.886
+It enables a set of global style
+because they make visual editing easier.
+
+00:07:25.425 --> 00:07:27.792
+So each decision is legitimate.
+
+00:07:28.287 --> 00:07:32.501
+The problem is that each decision
+also defines the behavior.
+
+00:07:33.278 --> 00:07:39.025
+The theme may own the primary navigation,
+search, template, pagination, focus
+
+00:07:39.046 --> 00:07:41.765
+style, and responsive transitions.
+
+00:07:42.452 --> 00:07:46.937
+The form plugin may own
+labels, validation, error
+
+00:07:46.937 --> 00:07:49.090
+recovery, and succeed feedback.
+
+00:07:49.766 --> 00:07:54.279
+The block library may own cards,
+accordion tabs, carousels, and buttons,
+
+00:07:54.961 --> 00:08:00.460
+and the configuration makes expose or
+hide control that allow the editors
+
+00:08:00.484 --> 00:08:02.364
+to change the structures and color.
+
+00:08:03.066 --> 00:08:09.084
+The content model may take over heading
+or meaningful links easy, or may require
+
+00:08:09.147 --> 00:08:13.557
+the, that every editor understand the
+semantic structure without support.
+
+00:08:14.654 --> 00:08:19.311
+And by the time the first custom ticket
+enter development, the project may
+
+00:08:19.369 --> 00:08:24.486
+already contain most of the patterns
+that will determine its accessibility.
+
+00:08:25.037 --> 00:08:28.871
+So this change the question we ask
+at the beginning of the project.
+
+00:08:29.397 --> 00:08:34.869
+Instead of asking, "Can this tool
+produce the design?" We also ask,
+
+00:08:35.247 --> 00:08:40.885
+"Which user behavior will this tool
+control, and what the default will
+
+00:08:41.134 --> 00:08:46.944
+establish across the site?" So the
+earlier a choice become a shared default,
+
+00:08:47.314 --> 00:08:49.710
+the larger is if the future impact.
+
+00:08:50.275 --> 00:08:52.144
+A local defect is expensive.
+
+00:08:52.611 --> 00:08:55.498
+A defective default is
+an architecture problem.
+
+00:08:56.209 --> 00:08:59.714
+A theme is often evaluated
+as a visual package.
+
+00:09:00.101 --> 00:09:05.221
+We inspect typography, spacing,
+templates, color options,
+
+00:09:05.312 --> 00:09:06.913
+WooCommerce forms, and performance.
+
+00:09:07.449 --> 00:09:11.513
+We click through the demo and
+decide whether it feel modern.
+
+00:09:12.020 --> 00:09:16.009
+But a theme is also an interaction
+and structured package.
+
+00:09:16.682 --> 00:09:21.082
+It might generate the header and
+navigation on every public page.
+
+00:09:21.683 --> 00:09:24.807
+It might decide whether
+a skip link exists.
+
+00:09:25.218 --> 00:09:28.790
+It might control which element
+become the main landmark.
+
+00:09:29.278 --> 00:09:31.673
+It might style every link and button.
+
+00:09:32.256 --> 00:09:36.268
+Also, it might determine how menus
+change at a smaller viewport.
+
+00:09:36.779 --> 00:09:40.900
+It might provide the search overlay,
+the comment form, pagination,
+
+00:09:41.194 --> 00:09:44.206
+archive heading, and error template.
+
+00:09:45.290 --> 00:09:49.559
+This is why the WordPress documentation
+tell them… the tell the theme
+
+00:09:49.635 --> 00:09:54.509
+authors to consider accessibility from
+the start of the project because the
+
+00:09:54.514 --> 00:10:00.449
+specification is say like rather to
+attend last minute adjustment, just
+
+00:10:00.691 --> 00:10:02.559
+go directly to the accessibility.
+
+00:10:03.069 --> 00:10:07.589
+And also the current WordPress
+accessibility requirement also
+
+00:10:07.591 --> 00:10:09.550
+make the important distinction.
+
+00:10:10.218 --> 00:10:14.525
+The tags apply to the theme
+foundation, not to the complete site.
+
+00:10:15.191 --> 00:10:20.148
+The final site still include content,
+plugins, configuration, and customization.
+
+00:10:20.992 --> 00:10:27.381
+The distinction is central to this
+talk because a theme can satisfy, um,
+
+00:10:27.393 --> 00:10:33.836
+the, the own review criteria and still
+participate in an inaccessible final
+
+00:10:33.925 --> 00:10:37.107
+experience after other layer modified.
+
+00:10:37.979 --> 00:10:41.238
+So the theme evaluation
+therefore need two more views.
+
+00:10:41.856 --> 00:10:46.605
+The first one is the isolated
+themes, and we need to ask like,
+
+00:10:46.993 --> 00:10:49.106
+what does it generate by default?
+
+00:10:49.541 --> 00:10:51.736
+And the second is the intended stack.
+
+00:10:52.389 --> 00:10:58.423
+Um, you should ask like, what happen
+when the required plugins, the imported
+
+00:10:58.424 --> 00:11:02.501
+starter content, the customizer,
+and the configuration are active?
+
+00:11:03.278 --> 00:11:09.284
+A theme that work in isolation but
+require an inaccessibility companion
+
+00:11:09.310 --> 00:11:10.991
+plugin is not a safe foundation.
+
+00:11:11.584 --> 00:11:17.384
+In fact, the WordPress accessibility, uh,
+guidance update is, it, it ex-explicitly
+
+00:11:17.384 --> 00:11:23.064
+say that theme using the tag must not
+be recommended or required plugin that
+
+00:11:23.103 --> 00:11:25.753
+introduce the no accessibility barriers.
+
+00:11:26.944 --> 00:11:29.578
+That requirement recognize
+a practical truth.
+
+00:11:30.370 --> 00:11:32.310
+Set two parts are part of the product.
+
+00:11:32.893 --> 00:11:37.325
+The bug can be born during
+onboarding before the site
+
+00:11:37.379 --> 00:11:39.053
+owner create the first page.
+
+00:11:39.685 --> 00:11:43.179
+Plugins are usually selected
+through feature comparison.
+
+00:11:43.867 --> 00:11:47.629
+Like for example, we start asking
+for every plugin we install, like
+
+00:11:47.635 --> 00:11:51.641
+for example, does booking plugin
+support recurring appointment?
+
+00:11:52.064 --> 00:11:55.686
+Does, uh, form plugin
+connect with the CRM?
+
+00:11:56.179 --> 00:12:00.515
+Uh, does the commerce extension
+support the payment provider?
+
+00:12:01.021 --> 00:12:04.001
+Does the pop-up tool
+include the targeting rules?
+
+00:12:04.761 --> 00:12:09.007
+Those are… question are
+necessary, but they don't reveal the
+
+00:12:09.041 --> 00:12:11.378
+accessibility risk of the dependency.
+
+00:12:12.243 --> 00:12:16.612
+A useful way to qualify the plugins
+is not by the popularity or the
+
+00:12:16.612 --> 00:12:21.624
+size of the plugin, but by the
+user behavior the plugin control.
+
+00:12:22.463 --> 00:12:26.939
+A backup plugin might be
+operationally critical because it
+
+00:12:26.987 --> 00:12:31.311
+contribute, uh, uh, very little
+to the public interaction model.
+
+00:12:32.009 --> 00:12:38.156
+But if we are using a book-- a booking
+plugin may generate only a few screen.
+
+00:12:38.180 --> 00:12:42.412
+But those screen also control the
+date selection, the validation,
+
+00:12:42.455 --> 00:12:44.794
+confirmation, and probably the payment.
+
+00:12:45.527 --> 00:12:52.157
+So, uh, also, if we use a small cookie
+banner, this can be appear before every
+
+00:12:52.158 --> 00:12:55.137
+other task and obstruct the entire site.
+
+00:12:55.936 --> 00:13:00.907
+A chat widget, widget can inject
+its own focus behavior and update
+
+00:13:01.015 --> 00:13:05.434
+in, uh, also update independently
+for the WordPress release process.
+
+00:13:06.423 --> 00:13:11.499
+So the highest risk plugin are
+generally those that generate
+
+00:13:11.511 --> 00:13:17.074
+interaction, like forms, checkout,
+authentication, calendars, dialogues,
+
+00:13:17.460 --> 00:13:22.682
+tabs, accordion search, filtering,
+table, and embedding services.
+
+00:13:23.173 --> 00:13:27.407
+So the goal is not to perform
+a complete conformance audit
+
+00:13:27.424 --> 00:13:29.261
+before installing anything.
+
+00:13:29.609 --> 00:13:33.433
+So the goal is a technical due diligence.
+
+00:13:34.161 --> 00:13:40.051
+For each high-risk dependency, we need
+to identify the critical behavior that
+
+00:13:40.082 --> 00:13:41.642
+is what's selected by the provider.
+
+00:13:42.240 --> 00:13:48.113
+Um, this examine, uh, the default output,
+the av-available configuration, the
+
+00:13:48.122 --> 00:13:53.936
+ability to override template safely, the
+vendor's update model, and the escalation
+
+00:13:53.963 --> 00:13:56.530
+path when a defect exists upstream.
+
+00:13:57.297 --> 00:14:01.638
+Uh, this avoid the common trap,
+building the entire project around
+
+00:14:01.710 --> 00:14:06.870
+a dependency and discovering late
+that the only way to a correct and
+
+00:14:06.870 --> 00:14:11.935
+fundamental interaction is to fork the
+plugin, maintain a fragile override,
+
+00:14:12.235 --> 00:14:17.491
+or replacing it after the content and
+business process already depend on it.
+
+00:14:17.933 --> 00:14:24.657
+So- Accessibility bugs are born
+when feature fits, it's evaluated,
+
+00:14:24.692 --> 00:14:27.077
+and integration quality is assumed.
+
+00:14:27.733 --> 00:14:31.065
+The block editor makes reuse
+a first-class capability.
+
+00:14:31.489 --> 00:14:35.793
+A team can create patterns, synced
+pattern, template part, custom
+
+00:14:35.795 --> 00:14:37.723
+block, and editor restriction.
+
+00:14:38.075 --> 00:14:41.943
+This is a major opportunity for
+accessibility because the system
+
+00:14:41.945 --> 00:14:46.972
+can encode good decision once and
+making them available everywhere.
+
+00:14:47.553 --> 00:14:49.237
+It's also a multiplier for defect.
+
+00:14:49.810 --> 00:14:54.895
+A custom card block that produce unclear
+link does not create an unclear link.
+
+00:14:55.195 --> 00:14:59.277
+It create the pattern every
+time an editor insert the block.
+
+00:14:59.913 --> 00:15:03.019
+A call to action pattern that
+use hidden labels for visual
+
+00:15:03.021 --> 00:15:08.193
+side can spread inconsistent
+structure across campaign pages.
+
+00:15:09.113 --> 00:15:11.638
+A shared pattern have
+an even bigger impact.
+
+00:15:12.080 --> 00:15:14.193
+WordPress updated everywhere it is used.
+
+00:15:14.861 --> 00:15:18.933
+That's a great when the pattern is
+correct, but if the pattern has a problem,
+
+00:15:19.262 --> 00:15:21.572
+the problem show up everywhere, too.
+
+00:15:22.145 --> 00:15:26.794
+The same is true of template
+parts such a header or footer.
+
+00:15:27.091 --> 00:15:30.472
+One modification can affect
+every template that use them.
+
+00:15:31.196 --> 00:15:35.214
+This lead to a practical rule:
+review the generating pattern before
+
+00:15:35.222 --> 00:15:37.776
+reviewing dozens of generated page.
+
+00:15:38.414 --> 00:15:41.389
+WordPress also provide control
+that protect good default.
+
+00:15:41.793 --> 00:15:47.150
+Block locking and content only editing
+can preserve a tested structure while
+
+00:15:47.214 --> 00:15:49.607
+allowing others to change the content.
+
+00:15:50.063 --> 00:15:54.344
+Allowed block list can reduce the
+number of uncontrolled component
+
+00:15:54.373 --> 00:15:57.265
+available in a specific editing content.
+
+00:15:57.967 --> 00:16:01.374
+Global style can constrain
+palettes and typography.
+
+00:16:02.045 --> 00:16:06.901
+These capabilities should not be used to
+remove the necessary editorial freedom.
+
+00:16:07.559 --> 00:16:12.171
+They should be used to prevent the content
+team from having to solve structural
+
+00:16:12.217 --> 00:16:14.921
+engineering problems on every page.
+
+00:16:15.774 --> 00:16:21.088
+A mature WordPress project asks two
+question about every reusable asset.
+
+00:16:21.654 --> 00:16:23.734
+What does this pattern make easy?
+
+00:16:25.127 --> 00:16:29.512
+And what mistake will I repeat
+if its default is wrong?
+
+00:16:30.391 --> 00:16:34.606
+Even when a theme or plugin begins
+with a good default, WordPress
+
+00:16:34.654 --> 00:16:37.658
+allow the later layers to modify it.
+
+00:16:38.185 --> 00:16:41.649
+The official theme documentation
+describe the hierarchy for
+
+00:16:41.682 --> 00:16:43.736
+global settings and style.
+
+00:16:44.512 --> 00:16:46.382
+WordPress provide the default.
+
+00:16:46.864 --> 00:16:48.968
+A theme also can override them.
+
+00:16:49.323 --> 00:16:51.946
+A child theme can override the parent.
+
+00:16:52.514 --> 00:16:58.063
+The user configuration saved through the
+site editor can take the pri-priority,
+
+00:16:58.495 --> 00:17:03.011
+and plugins and server-side filters
+can also modify the final data.
+
+00:17:03.823 --> 00:17:06.446
+This flexibility is one
+of the WordPress strength.
+
+00:17:07.087 --> 00:17:11.282
+It's also why reviewing a
+repository doesn't always
+
+00:17:11.292 --> 00:17:12.898
+reveal the delivery behavior.
+
+00:17:13.459 --> 00:17:18.555
+A developer can inspect the parent
+theme and find a visible focus style.
+
+00:17:19.124 --> 00:17:24.822
+A user-level global style may change
+may… or override the relevant colors.
+
+00:17:25.479 --> 00:17:28.518
+A child theme may remove the outline.
+
+00:17:28.861 --> 00:17:31.494
+A plugin may inject
+more specific selector.
+
+00:17:32.002 --> 00:17:36.581
+The custom CSS, if it's stored
+in the database, may win
+
+00:17:36.595 --> 00:17:38.129
+over all this configuration.
+
+00:17:38.634 --> 00:17:41.344
+So the same applies to
+the outside of the theme.
+
+00:17:42.076 --> 00:17:45.174
+A form plugin can
+generate a visible label.
+
+00:17:45.665 --> 00:17:48.210
+A theme option can hide
+that l- that label.
+
+00:17:48.763 --> 00:17:52.563
+Uh, a page builder can wrap the
+field in an additional markup.
+
+00:17:53.594 --> 00:17:56.108
+The JavaScript can replace
+the native control.
+
+00:17:56.641 --> 00:18:01.016
+The final browser output is the
+real result and the, the complete
+
+00:18:01.029 --> 00:18:02.612
+configuration of this chain.
+
+00:18:03.236 --> 00:18:07.002
+This is especially important when
+you have an existing project.
+
+00:18:07.793 --> 00:18:10.846
+The current thing might own
+the Git repository, but not
+
+00:18:10.857 --> 00:18:12.203
+the database configuration.
+
+00:18:12.767 --> 00:18:16.874
+It's my own, uh, custom code,
+but not the vendor dependency.
+
+00:18:17.445 --> 00:18:22.268
+It's my own, the theme, but not
+the content part that the editor
+
+00:18:22.497 --> 00:18:24.323
+have been duplicated for years.
+
+00:18:24.913 --> 00:18:30.315
+So this bug is born wherever the
+behavior is felt made unsafe.
+
+00:18:30.888 --> 00:18:35.871
+Finding that point requires more than
+reading the last file that you changed.
+
+00:18:36.524 --> 00:18:41.845
+An inherited WordPress project add one
+more problem, history without context.
+
+00:18:42.365 --> 00:18:46.006
+The theme see the current output,
+but it doesn't know why the
+
+00:18:46.018 --> 00:18:47.578
+system look and behave that way.
+
+00:18:48.287 --> 00:18:53.028
+A rule might be have added to solve
+a browser issue five years ago.
+
+00:18:53.475 --> 00:18:56.895
+A plugin might be frozen
+because a template override
+
+00:18:57.224 --> 00:18:59.074
+depends on the old markup.
+
+00:18:59.591 --> 00:19:04.652
+A block might be deprecated, but still
+it sits across hundreds of posts.
+
+00:19:05.288 --> 00:19:10.103
+A custom JavaScript file might
+compensate all this lack of the
+
+00:19:10.236 --> 00:19:12.172
+limitation that you see inside the theme.
+
+00:19:12.677 --> 00:19:17.863
+So the wrong first move is to
+treat every visible defect as
+
+00:19:17.865 --> 00:19:20.356
+an independent page problem.
+
+00:19:21.294 --> 00:19:26.943
+The better first move that we can do
+is to have a map of all the generators.
+
+00:19:27.936 --> 00:19:33.300
+So once we identify the active parent,
+like we can go to the parent theme, the
+
+00:19:33.309 --> 00:19:39.153
+child theme, we can see all the custom
+plugins, the all the most used plugins,
+
+00:19:39.487 --> 00:19:45.247
+the code snippet tool, the templates
+override, global CSS, site editor changes,
+
+00:19:45.578 --> 00:19:51.147
+saved patterns, page builder templates,
+and also for the third-party script.
+
+00:19:51.736 --> 00:19:57.136
+Then we identify which of those layers
+control each of the critical interactions.
+
+00:19:58.270 --> 00:20:04.024
+These do not require documenting the
+entire installation before work begin.
+
+00:20:04.466 --> 00:20:07.997
+It require enough shifting
+knowledge to distinguish an
+
+00:20:08.005 --> 00:20:09.908
+in-instance from the source.
+
+00:20:10.775 --> 00:20:16.627
+So if one page have a wrong heading, the
+source may be the content, not the code.
+
+00:20:17.103 --> 00:20:23.034
+And if every page, if using the same
+pattern, have the wrong heading, then
+
+00:20:23.049 --> 00:20:28.123
+the configuration probably is a plugin
+or probably is a theme st-style.
+
+00:20:28.487 --> 00:20:34.527
+So if every interaction element lost,
+uh, the, the focus indication, the,
+
+00:20:34.622 --> 00:20:38.511
+the source probably a global, uh,
+configuration we have in the theme.
+
+00:20:39.054 --> 00:20:44.368
+So accessibility remediation become
+much more durable when the team ask
+
+00:20:44.814 --> 00:20:50.637
+what generated this output before
+asking what CSS can hide the symptoms.
+
+00:20:51.431 --> 00:20:55.675
+A browser does not present the
+user with separate theme, plugins,
+
+00:20:55.706 --> 00:20:57.165
+block, and content experience.
+
+00:20:57.640 --> 00:20:59.094
+It present one page.
+
+00:20:59.781 --> 00:21:04.022
+That page may contain a core
+navigation, block styled by the
+
+00:21:04.043 --> 00:21:09.882
+theme, extended by the plugin, placed
+inside a template part, edited through
+
+00:21:09.884 --> 00:21:14.040
+the site editor, and supplemented
+by the third party chat widget.
+
+00:21:14.789 --> 00:21:18.272
+This is why component level
+claims are not enough.
+
+00:21:19.058 --> 00:21:24.072
+The theme author can correctly state that
+the theme provide a valid foundation.
+
+00:21:24.583 --> 00:21:28.286
+The plugin author can correctly
+state that the plugin default
+
+00:21:28.315 --> 00:21:30.261
+markup include the label.
+
+00:21:30.908 --> 00:21:34.772
+The agency can correctly state
+that, uh, the custom block
+
+00:21:34.772 --> 00:21:36.482
+follow the project convention.
+
+00:21:37.157 --> 00:21:42.389
+The content editor can correctly state
+that the page match the approved layout.
+
+00:21:43.145 --> 00:21:45.331
+The combined output can still fail.
+
+00:21:46.107 --> 00:21:51.546
+The correct unit of accountability is
+not only the component in isolation.
+
+00:21:52.163 --> 00:21:55.933
+Is it the behavior of
+the rendered integration?
+
+00:21:57.122 --> 00:22:01.504
+This doesn't mean every team
+must own every vendor's code.
+
+00:22:01.596 --> 00:22:06.224
+It's mean the site owner and the
+delivery team must own, own the
+
+00:22:06.225 --> 00:22:12.380
+decision to include, configure,
+override, replace, uh, or constrains
+
+00:22:12.432 --> 00:22:14.328
+the dependency in the final product.
+
+00:22:15.185 --> 00:22:19.013
+WordPress multiply accessibility
+bugs because it's make
+
+00:22:19.047 --> 00:22:21.457
+composition and reuse easy.
+
+00:22:22.233 --> 00:22:27.040
+Those same strength also give, give
+us the best place to solve them and
+
+00:22:27.062 --> 00:22:32.301
+also repair, uh, the generating layer
+instead of the visible instance.
+
+00:22:32.511 --> 00:22:37.197
+A useful diagnostic shift is to
+stop asking only which component
+
+00:22:37.291 --> 00:22:42.278
+is inaccessible, and ask which
+integration between components
+
+00:22:42.551 --> 00:22:44.262
+make the final behavior unsafe?
+
+00:22:45.181 --> 00:22:48.000
+Consider a form plugin that
+generate a visible label.
+
+00:22:48.736 --> 00:22:53.721
+The team include a utility class that
+visually hide label for a cleaner design.
+
+00:22:54.644 --> 00:22:57.744
+A project configuration applies
+that class to every field.
+
+00:22:58.354 --> 00:23:01.091
+The plugin is not m- missing any label.
+
+00:23:01.999 --> 00:23:04.512
+The theme is not necessarily
+broken in installation.
+
+00:23:04.990 --> 00:23:09.015
+The integration decision remove
+the user-facing information.
+
+00:23:09.882 --> 00:23:12.532
+Consider a native button
+generated by code.
+
+00:23:13.294 --> 00:23:15.732
+The theme define a visible focus style.
+
+00:23:16.269 --> 00:23:21.857
+Later, a global CSS reset remove
+outline from all the controls.
+
+00:23:22.465 --> 00:23:24.244
+The markup remain correct.
+
+00:23:24.768 --> 00:23:30.978
+The site-wide visual state become unusable
+for people who rely on focus indicator.
+
+00:23:32.575 --> 00:23:36.401
+Consider a plugin that generate
+valid success mes-messages.
+
+00:23:37.123 --> 00:23:39.893
+Custom JavaScript replace
+the plugin submission flow
+
+00:23:40.127 --> 00:23:44.134
+and insert a visual identical
+message in a different container.
+
+00:23:45.053 --> 00:23:48.299
+The business event succeed, but
+the feedback behavior change.
+
+00:23:49.741 --> 00:23:51.655
+These are the composition defects.
+
+00:23:52.662 --> 00:23:56.577
+They are difficult to locate through
+the ownership boundaries because every
+
+00:23:56.578 --> 00:24:01.348
+contributor can show that its own
+layer worked under different condition.
+
+00:24:02.042 --> 00:24:06.415
+The final page is a contract
+between markup, styles, JavaScript,
+
+00:24:06.812 --> 00:24:12.258
+configuration, content, browser
+behavior, and assistive technology.
+
+00:24:12.932 --> 00:24:17.747
+When any layer silently change
+the contract, the defect appears
+
+00:24:17.805 --> 00:24:19.389
+at the integration boundaries.
+
+00:24:19.977 --> 00:24:24.300
+This is why the correct repair often
+require collaboration across roles
+
+00:24:24.588 --> 00:24:29.411
+rather than sending every accessibility
+issue to the front end developer.
+
+00:24:29.971 --> 00:24:35.485
+Accessibility ownership becomes confused
+because teams use one word, owner, for
+
+00:24:35.492 --> 00:24:38.124
+several different responsibilities.
+
+00:24:38.798 --> 00:24:42.847
+The source owner is the person or
+vendor able to change the code or
+
+00:24:42.875 --> 00:24:44.636
+configuration that generate the defect.
+
+00:24:45.227 --> 00:24:50.342
+The task owner is the owner
+responsible for business outcome.
+
+00:24:50.788 --> 00:24:56.007
+For example, e-commerce team owns,
+uh, checkout completion even when a
+
+00:24:56.030 --> 00:24:58.018
+payment plugin provide the interface.
+
+00:24:58.697 --> 00:25:03.558
+The release owner has authority
+to decide whether the remaining
+
+00:25:03.558 --> 00:25:05.420
+risk is acceptable for production.
+
+00:25:06.157 --> 00:25:07.498
+This role might be different.
+
+00:25:08.114 --> 00:25:10.326
+A plugin vendor may own the source code.
+
+00:25:10.644 --> 00:25:13.244
+The agency may own the integration.
+
+00:25:13.259 --> 00:25:15.126
+The client may own the business task.
+
+00:25:15.700 --> 00:25:19.139
+A product manager may
+own the release priority.
+
+00:25:19.618 --> 00:25:22.978
+A content team may own the page
+where the problem becomes visible.
+
+00:25:23.785 --> 00:25:28.018
+When those roles are not distinguished,
+the issue move between the teams.
+
+00:25:28.520 --> 00:25:33.194
+The agency say, "The bug belongs to the
+plugin." The vendor say, "The themes
+
+00:25:33.235 --> 00:25:37.856
+modify the output." The team developer
+say, "Custom CSS can cause, cause the
+
+00:25:37.867 --> 00:25:44.320
+conflict." The client say, "The agency
+is responsible for the website." So
+
+00:25:44.359 --> 00:25:48.918
+every statement may contain part of
+the truth, but the user remains broken.
+
+00:25:49.275 --> 00:25:54.064
+Research on accessibility in software
+practice have repeatedly found that
+
+00:25:54.406 --> 00:25:59.329
+organizational factors, unclear
+requirement, limited resources, and
+
+00:25:59.339 --> 00:26:04.360
+difference between roles strongly
+affect all the responsibility outcome.
+
+00:26:05.088 --> 00:26:10.720
+All the planning guidance, they like
+recommend assigning responsibility across
+
+00:26:10.725 --> 00:26:16.742
+the production process instead of treating
+accessibility as a developer only task.
+
+00:26:17.588 --> 00:26:22.369
+The operational solution is not
+to assign every issue to the…
+
+00:26:22.639 --> 00:26:24.788
+that one accessibility specialist.
+
+00:26:25.816 --> 00:26:28.922
+It is, it is to recall
+actually form ownership.
+
+00:26:29.311 --> 00:26:33.786
+Who can change the, the source
+code, who owns the user journey,
+
+00:26:33.969 --> 00:26:35.689
+and who has the release authority.
+
+00:26:36.490 --> 00:26:40.434
+This structure make escalation
+possible even when the code
+
+00:26:40.437 --> 00:26:42.269
+live outside the organization.
+
+00:26:42.672 --> 00:26:46.670
+We now have content to follow one
+defect through another workflow.
+
+00:26:47.449 --> 00:26:50.267
+The fictional project is a
+health service WordPress site.
+
+00:26:50.982 --> 00:26:54.459
+The important user outcome
+is a booking appointment.
+
+00:26:55.801 --> 00:26:58.657
+The team provide navigation
+and page template.
+
+00:26:59.447 --> 00:27:02.720
+Our form, our form plugin generate
+the fields and validation.
+
+00:27:03.361 --> 00:27:06.740
+Custom code adds a confirmation
+dialog before submission.
+
+00:27:07.615 --> 00:27:11.316
+An integration send the
+appointment to external CRM.
+
+00:27:12.062 --> 00:27:14.100
+A success notice confirm completion.
+
+00:27:14.936 --> 00:27:19.821
+The team use a familiar delivery process,
+requirement, des-design, implementation,
+
+00:27:20.048 --> 00:27:23.057
+staging, QA, and the scheduled release.
+
+00:27:23.886 --> 00:27:25.013
+The defect is simple.
+
+00:27:25.434 --> 00:27:29.310
+The confirmation step appears
+correctly and submit correctly,
+
+00:27:29.649 --> 00:27:35.280
+but the transition into and in and
+out of that step is in-incomplete.
+
+00:27:35.963 --> 00:27:40.337
+It also disconnect some error
+feedback from the or-original form.
+
+00:27:40.795 --> 00:27:43.637
+The specific dialog is not
+the subject of this chapter.
+
+00:27:44.467 --> 00:27:51.378
+It is only the example that let us see how
+the meaning of complete becomes narrower
+
+00:27:51.461 --> 00:27:53.449
+and the feature move through the process.
+
+00:27:53.990 --> 00:27:58.365
+The discovery document includes
+the sentence, "A new appointment
+
+00:27:58.514 --> 00:28:00.201
+flow should be accessible."
+
+00:28:01.286 --> 00:28:05.447
+That sentence communicate intent,
+but it doesn't transfer behavior
+
+00:28:05.688 --> 00:28:06.882
+of the rest of the workflow.
+
+00:28:07.833 --> 00:28:12.636
+The implementation ticket said, "Display
+a confirmation modal after the user
+
+00:28:12.641 --> 00:28:18.069
+select book appointment." This included
+text, buttons, labels, and screenshot.
+
+00:28:18.844 --> 00:28:22.295
+The developer can satisfy every
+writing requirement by making
+
+00:28:22.609 --> 00:28:26.197
+central container vis-visible
+and connecting the confirmation
+
+00:28:26.199 --> 00:28:27.667
+button to the submission function.
+
+00:28:28.784 --> 00:28:31.617
+The missing behavior were never rejected.
+
+00:28:32.062 --> 00:28:33.212
+They were never requested.
+
+00:28:33.993 --> 00:28:38.096
+A stronger requirement doesn't
+need to quote a standard or
+
+00:28:38.149 --> 00:28:40.241
+contain a long checklist.
+
+00:28:40.956 --> 00:28:45.050
+It need to describe the user
+outcome across the stage change.
+
+00:28:45.470 --> 00:28:49.687
+For example, we can write like, "When
+the user review the appointment,
+
+00:28:49.767 --> 00:28:53.090
+the confirmation appears without
+losing their place in the form.
+
+00:28:53.632 --> 00:28:57.191
+The confirmation can be
+operated and dismissed through
+
+00:28:57.226 --> 00:28:59.049
+the supported input method.
+
+00:28:59.692 --> 00:29:02.868
+Closing it return the user
+to a predictable point.
+
+00:29:03.525 --> 00:29:08.882
+If submission fail, the relevant error may
+remain connected to the original fields.
+
+00:29:09.492 --> 00:29:14.306
+If submission succeed, completion
+is communicated without requiring
+
+00:29:14.313 --> 00:29:15.817
+the users to search the page."
+
+00:29:16.595 --> 00:29:21.926
+So this requirement is useful to design,
+development, review, QA, and release.
+
+00:29:22.721 --> 00:29:25.749
+The failure at this stage
+is not lacking of goodwill.
+
+00:29:26.104 --> 00:29:27.897
+It's a loss of specificity.
+
+00:29:28.761 --> 00:29:32.818
+When accessibility is stored as a
+general non-functional statement,
+
+00:29:33.216 --> 00:29:39.075
+each downstream role must reinterpret
+and independently… The design may
+
+00:29:39.088 --> 00:29:44.973
+interpret it as a contract, development
+may interpret it as semantic HTML, QA
+
+00:29:44.991 --> 00:29:47.147
+may interpret it as a running scanner.
+
+00:29:47.700 --> 00:29:52.278
+None of these, uh, interpretation
+necessarily describe the complete task.
+
+00:29:53.147 --> 00:29:57.053
+This will survive the requirement
+because the behavior that will
+
+00:29:57.066 --> 00:30:00.304
+reveal it never become part of
+the definition of the feature.
+
+00:30:00.906 --> 00:30:02.951
+The design file is professional prepared.
+
+00:30:03.545 --> 00:30:06.784
+It shows the appointment form,
+it shows the confirmation dialog,
+
+00:30:07.069 --> 00:30:08.601
+it shows the succeed state.
+
+00:30:08.962 --> 00:30:12.516
+It includes a responsive
+layout, color, spacing, button
+
+00:30:12.517 --> 00:30:14.619
+hierarchy, and error style.
+
+00:30:15.256 --> 00:30:17.455
+The screen are visually complete.
+
+00:30:17.952 --> 00:30:19.341
+The transition contract is not.
+
+00:30:19.943 --> 00:30:23.068
+The design does not describe
+what happened to the user content
+
+00:30:23.598 --> 00:30:25.180
+when the confirmation opens.
+
+00:30:25.467 --> 00:30:28.905
+It does not indicate whether
+the background remains active.
+
+00:30:29.270 --> 00:30:32.495
+It does not describe how the
+user exits the confirmation
+
+00:30:32.500 --> 00:30:34.189
+without completing the action.
+
+00:30:34.750 --> 00:30:38.969
+It doesn't show what happens when the
+external CRM rejects the appointment.
+
+00:30:39.413 --> 00:30:43.848
+It doesn't in- it does, does indicate
+whether the success message should
+
+00:30:43.848 --> 00:30:48.773
+replace the form, appear above it, or is
+announcing why the user remained in place.
+
+00:30:49.420 --> 00:30:52.355
+These are not implemented,
+implementation trivia.
+
+00:30:52.867 --> 00:30:56.794
+They determine whether the
+sequence is under- understandable.
+
+00:30:57.785 --> 00:31:00.649
+The design tools not only
+pres-represent state.
+
+00:31:01.020 --> 00:31:04.176
+Accessibility defects often
+appear during transition.
+
+00:31:04.464 --> 00:31:09.441
+Opening, closing, loading, validating,
+replacing, redirecting, and recovery.
+
+00:31:10.244 --> 00:31:13.795
+A better design handoff include a
+small interaction annotation for
+
+00:31:13.851 --> 00:31:15.619
+every meaningful state change.
+
+00:31:16.157 --> 00:31:17.011
+What triggered the change?
+
+00:31:17.428 --> 00:31:18.436
+What become active?
+
+00:31:18.463 --> 00:31:19.496
+What become inactive?
+
+00:31:19.739 --> 00:31:21.406
+What information must be communicated?
+
+00:31:22.329 --> 00:31:25.284
+Where the, the… Where
+can the user continue?
+
+00:31:25.806 --> 00:31:29.229
+This is not, it's, it's like asking
+the designer to write JavaScript.
+
+00:31:29.485 --> 00:31:33.360
+It's not asking the design to
+specify the experience rather
+
+00:31:33.387 --> 00:31:34.902
+than only that the pixel.
+
+00:31:35.639 --> 00:31:40.338
+This bug survive the design because
+every individual frame looks
+
+00:31:40.341 --> 00:31:44.705
+correct while the relationship
+between frames remain undefined.
+
+00:31:45.156 --> 00:31:46.940
+The feature moves to staging.
+
+00:31:47.781 --> 00:31:49.698
+QA follow the acceptance criteria.
+
+00:31:50.074 --> 00:31:54.450
+The tester complete the form, open the
+confirmation, submit the appointment,
+
+00:31:54.502 --> 00:31:55.910
+and see the success message.
+
+00:31:56.649 --> 00:31:59.017
+The documented business pa-part worked.
+
+00:31:59.395 --> 00:32:00.324
+The ticket is passed.
+
+00:32:01.051 --> 00:32:02.753
+This is not necessarily poor QA.
+
+00:32:03.004 --> 00:32:08.011
+QA cannot rely verifying a behavioral
+contract that never was written or
+
+00:32:08.011 --> 00:32:10.014
+represented in the material it received.
+
+00:32:10.628 --> 00:32:14.701
+If the expected results say, "The
+confirmation appear and the appointment
+
+00:32:14.726 --> 00:32:19.993
+is created," the tester can complete
+the expectation exactly why the
+
+00:32:20.004 --> 00:32:23.980
+accessibility defect remain outside
+of the definition of the succeed.
+
+00:32:24.782 --> 00:32:30.072
+Adding a va-vague final instruction
+such as check accessibility
+
+00:32:30.301 --> 00:32:31.446
+does not solve the problem.
+
+00:32:31.878 --> 00:32:36.848
+It asks QA to reconstruct at the
+end of the process behavior that
+
+00:32:37.014 --> 00:32:38.359
+earlier state never defined.
+
+00:32:39.646 --> 00:32:43.896
+The stronger approach is to place the
+specific behavior inside the acceptance
+
+00:32:43.903 --> 00:32:46.288
+criteria and the feature itself.
+
+00:32:46.872 --> 00:32:50.660
+Then QA is not performing a
+separate accessibility ritual.
+
+00:32:50.936 --> 00:32:55.937
+It's verifying the same product behavior
+the product committed to deliver, and
+
+00:32:56.063 --> 00:33:01.446
+then this, the bug survived QA because the
+acceptance criteria describe the visible
+
+00:33:01.466 --> 00:33:06.231
+business result, but omit the conditions
+required for the complete experience.
+
+00:33:06.972 --> 00:33:10.620
+Shortly before release, someone's
+noticed that the confirmation
+
+00:33:10.620 --> 00:33:12.257
+behavior is incomplete.
+
+00:33:12.867 --> 00:33:13.939
+The issue is real.
+
+00:33:14.271 --> 00:33:16.083
+The team agreed that it should be fixed.
+
+00:33:16.692 --> 00:33:17.851
+It's added to the backlog.
+
+00:33:18.422 --> 00:33:20.149
+The release is still proceed.
+
+00:33:20.718 --> 00:33:24.316
+This is where the ownership
+and authority separates.
+
+00:33:25.348 --> 00:33:29.452
+A developer may have the responsibility
+of repairing the source, but not
+
+00:33:29.466 --> 00:33:31.863
+the authority to delay the launch.
+
+00:33:32.473 --> 00:33:35.866
+QA may have the authority to fail
+a documented requirement, but
+
+00:33:35.866 --> 00:33:37.850
+not an undocumented behavior.
+
+00:33:38.492 --> 00:33:42.364
+And accessibility, especially,
+may explain the user impact,
+
+00:33:42.378 --> 00:33:45.195
+but function only as an advisor.
+
+00:33:46.228 --> 00:33:51.500
+A product manager may own the schedule,
+but l- have the lack of severity
+
+00:33:51.505 --> 00:33:57.576
+model that distinguish a minor, minor
+issue from a task-blocking barrier.
+
+00:33:58.368 --> 00:34:01.844
+Without a shared release policy,
+the decision default to schedule
+
+00:34:01.902 --> 00:34:06.344
+is a pressure, so the organization
+needs to clear the answer to
+
+00:34:06.344 --> 00:34:07.989
+three real simple questions.
+
+00:34:08.500 --> 00:34:09.999
+Who classified the severity?
+
+00:34:10.268 --> 00:34:12.289
+Who owns the affected user task?
+
+00:34:12.642 --> 00:34:15.253
+Who can block or
+explicitly accept the risk?
+
+00:34:16.438 --> 00:34:21.277
+This doesn't mean that every accessibility
+i- is finding like a stop of…
+
+00:34:21.400 --> 00:34:22.605
+for every release.
+
+00:34:22.985 --> 00:34:27.354
+It mean the decision is made
+deliberately using impact, reach,
+
+00:34:27.560 --> 00:34:32.110
+available alternative, and whether the
+current release introduce the barrier.
+
+00:34:33.453 --> 00:34:37.922
+Again, the bug survived release when
+everyone can report the problem,
+
+00:34:37.936 --> 00:34:43.131
+but nobody have that definite
+authority to add as he own severity.
+
+00:34:43.800 --> 00:34:47.631
+The root cause is not simply that
+somebody forgot an accessibility rule.
+
+00:34:48.187 --> 00:34:49.907
+The root cause is contract loss.
+
+00:34:50.630 --> 00:34:54.269
+The intended outcome entered the
+project as a broad intention.
+
+00:34:54.659 --> 00:34:57.481
+It became a ticket center,
+not visible object.
+
+00:34:57.829 --> 00:35:00.921
+It became a design made
+of isolated screen.
+
+00:35:01.555 --> 00:35:06.274
+The implementation inherit those
+omission, QA then never verify the
+
+00:35:06.275 --> 00:35:10.774
+result describing the, those, those
+material, and release have no explicit
+
+00:35:10.774 --> 00:35:12.774
+rule for acting on the remaining risk.
+
+00:35:13.520 --> 00:35:17.961
+Each hand off that shared definition
+of the feature become narrower.
+
+00:35:18.824 --> 00:35:22.234
+A stronger workflow must
+preserve the necessary behavior
+
+00:35:22.283 --> 00:35:24.770
+in form that each role can use.
+
+00:35:25.253 --> 00:35:28.558
+This is why the final chapter
+focus on the behavior requirement.
+
+00:35:29.169 --> 00:35:33.106
+Reusable default, explicit
+ownership, release authority,
+
+00:35:33.326 --> 00:35:37.254
+and protection against regression
+when the WordPress stack changes.
+
+00:35:38.490 --> 00:35:42.426
+The solution is not a large
+accessibility phase added at the end.
+
+00:35:42.756 --> 00:35:47.036
+It's preventing the behavior from
+disappearing as the work moves forward.
+
+00:35:47.521 --> 00:35:50.974
+After release, the team receive
+a report and respond quickly.
+
+00:35:51.495 --> 00:35:54.613
+A developer adds page specific CSS.
+
+00:35:55.036 --> 00:35:57.310
+All small script move the message.
+
+00:35:57.671 --> 00:36:00.354
+The reported page now appear to work.
+
+00:36:00.859 --> 00:36:01.684
+The ticket is closed.
+
+00:36:02.307 --> 00:36:06.711
+But the shared form template
+still generate the same structure.
+
+00:36:06.942 --> 00:36:10.202
+The global theme rule still
+apply to every other forms.
+
+00:36:10.815 --> 00:36:12.539
+New pages can reproduce a problem.
+
+00:36:12.575 --> 00:36:16.103
+Existing pages outside the
+report may remain unchanged.
+
+00:36:16.863 --> 00:36:21.134
+This is the difference between
+an instance fix and a source fix.
+
+00:36:21.971 --> 00:36:24.619
+The instance fixes are
+sometimes necessary.
+
+00:36:25.187 --> 00:36:29.635
+A critical user barrier may
+require an immediate patch while
+
+00:36:29.635 --> 00:36:31.369
+the durable repair is prepared.
+
+00:36:32.025 --> 00:36:36.360
+The mistake is treating the emergency
+patch as the final architecture.
+
+00:36:37.364 --> 00:36:40.380
+A WordPress site can make
+instance patch very easy.
+
+00:36:40.782 --> 00:36:43.197
+Custom CSS can be added quickly.
+
+00:36:43.496 --> 00:36:45.980
+A code snippet can target one page ID.
+
+00:36:46.289 --> 00:36:47.578
+A template can be duplicated.
+
+00:36:47.987 --> 00:36:50.508
+A plugin setting can be
+changed for one form.
+
+00:36:51.291 --> 00:36:55.539
+Those mechanic are useful, but they
+can hide the generated defect and
+
+00:36:55.819 --> 00:37:00.430
+create a maintenance layer that
+the next team doesn't understand.
+
+00:37:01.213 --> 00:37:06.808
+So the same bug return because the
+system was never taught a safer default.
+
+00:37:07.229 --> 00:37:11.102
+Even a repair applied at the code
+layer can regress if the project
+
+00:37:11.134 --> 00:37:13.524
+doesn't protect it through changes.
+
+00:37:14.814 --> 00:37:17.740
+WordPress evolved through
+more than a feature release.
+
+00:37:18.350 --> 00:37:23.839
+Core change, theme change, plugin change,
+administrator can enable automatic
+
+00:37:23.899 --> 00:37:26.488
+update for individual themes and plugins.
+
+00:37:26.933 --> 00:37:32.093
+Global style stored in database can change
+independently, uh, of the repository.
+
+00:37:32.448 --> 00:37:37.491
+Editors can create new content, sync
+patterns, update everywhere they are used.
+
+00:37:37.941 --> 00:37:42.276
+Third-party widget can change remotely
+without a WordPress deployment.
+
+00:37:42.595 --> 00:37:47.899
+So a custom plugin template override may
+start matching the, the vendor new markup.
+
+00:37:48.334 --> 00:37:51.698
+A CSS selector may no longer
+reach the generated element.
+
+00:37:52.464 --> 00:37:55.223
+A theme updated may
+change a shared component.
+
+00:37:55.705 --> 00:37:59.705
+An editor may detach a pattern
+and create a local variation.
+
+00:37:59.848 --> 00:38:03.037
+A new plugin may introduce a
+competing style or a script.
+
+00:38:03.830 --> 00:38:08.678
+The business feature may continue to work
+while the accessibility behavior regress.
+
+00:38:08.923 --> 00:38:10.250
+Nothing dramatic need to fail.
+
+00:38:10.692 --> 00:38:14.937
+The page may still load, the form
+may still submit, and the integration
+
+00:38:14.970 --> 00:38:16.348
+may still receive the data.
+
+00:38:17.339 --> 00:38:21.263
+The important point is that WordPress
+continually recompose the final product
+
+00:38:21.633 --> 00:38:26.089
+from changing version, configuration,
+content, and external services.
+
+00:38:26.645 --> 00:38:29.957
+The an- the answer is
+not to freeze the stack.
+
+00:38:30.350 --> 00:38:36.519
+The answer is to recognize which shared
+behavior is a high risk change can alter
+
+00:38:37.022 --> 00:38:39.026
+and make part of the update decision.
+
+00:38:39.584 --> 00:38:42.145
+The workflow bends differently
+depending on the project.
+
+00:38:42.848 --> 00:38:46.772
+For a new WordPress project,
+qualify the theme and the high-risk
+
+00:38:46.817 --> 00:38:49.500
+plugin before site depends on them.
+
+00:38:50.256 --> 00:38:53.749
+Define the requirement behavior for
+the component the project will repeat.
+
+00:38:54.352 --> 00:38:58.464
+Establish safe patterns and default
+before large-scale content production.
+
+00:38:59.098 --> 00:39:02.513
+Assign ownership and decide
+which failure can block release.
+
+00:39:03.247 --> 00:39:07.243
+Connect future updates to the
+behavior does dependencies control.
+
+00:39:08.051 --> 00:39:13.692
+For an inherited project, maybe mapping
+the generator, the themes, plugins,
+
+00:39:13.700 --> 00:39:19.156
+setting patterns, custom code, content
+convention, third-party services.
+
+00:39:19.653 --> 00:39:23.439
+Connect repeated effect to those
+source layer before creating
+
+00:39:23.718 --> 00:39:25.750
+the page specific patches.
+
+00:39:27.322 --> 00:39:32.393
+Correct immediate barriers that change the
+reusable source that can reproduce them.
+
+00:39:33.070 --> 00:39:38.734
+Assign the ownership and identify
+which feature they can undo the repair.
+
+00:39:39.690 --> 00:39:43.929
+The operator always ask, "Which
+default are we about to distribute?"
+
+00:39:44.595 --> 00:39:49.667
+In the inherited project, we ask, "Which
+layer are already generating the current
+
+00:39:49.690 --> 00:39:55.969
+behavior? What approaches lead to the same
+operating state?" The, the team know what
+
+00:39:56.007 --> 00:40:00.715
+generate the behavior, what the expected
+behavior is, and who can change it.
+
+00:40:01.156 --> 00:40:05.545
+Also, who own the results and who can
+act when the risk is not acceptable.
+
+00:40:05.886 --> 00:40:11.067
+A team can pin this work without
+redesigning the entire delivery process.
+
+00:40:11.490 --> 00:40:15.790
+In the first week, map the themes,
+plugin, blocks, configuration, and
+
+00:40:15.790 --> 00:40:20.177
+third-party services that control
+the site most important interaction.
+
+00:40:20.817 --> 00:40:24.723
+Identify one repeated unsafe
+default for one integration
+
+00:40:24.729 --> 00:40:26.659
+that regularly create defect.
+
+00:40:27.363 --> 00:40:30.921
+In the second week, take one
+active feature and replace the
+
+00:40:30.944 --> 00:40:34.719
+vague accessibility statement
+with behavioral requirement.
+
+00:40:35.429 --> 00:40:40.037
+Assign the source owner, the owner of
+the user code, and the release authority.
+
+00:40:40.441 --> 00:40:44.721
+In the third week, correct one
+shared resource, update rule,
+
+00:40:45.013 --> 00:40:49.205
+plugin interaction, uh, custom
+block, pattern, or content default.
+
+00:40:50.019 --> 00:40:55.821
+Keep an emer- emergency page level
+patch only when it is still needed,
+
+00:40:56.348 --> 00:40:58.299
+and document that is temporary.
+
+00:40:59.388 --> 00:41:03.281
+For the fourth week, connect one
+high-risk update to a defined
+
+00:41:03.423 --> 00:41:07.586
+re-check and add one release rule
+for the task blocking barrier.
+
+00:41:08.267 --> 00:41:13.144
+This produce a working change in the
+delivery system, not a policy documented
+
+00:41:13.533 --> 00:41:15.265
+waiting for the future project.
+
+00:41:16.006 --> 00:41:20.127
+The objective here is straightforward:
+change how the bug enters the
+
+00:41:20.127 --> 00:41:22.163
+project and how it's reproduced.
+
+00:41:23.069 --> 00:41:28.104
+Also, how it's reached the release and
+how it's prevented from returning again.
+
+00:41:28.290 --> 00:41:32.278
+Accessibility bugs survive modern
+development workflow because each
+
+00:41:32.341 --> 00:41:34.357
+state see only part of the product.
+
+00:41:35.101 --> 00:41:40.082
+The bug is born when themes, plugin,
+blocks, configuration, and content
+
+00:41:40.102 --> 00:41:43.993
+model are selected without examining
+the behavior they will control.
+
+00:41:44.834 --> 00:41:49.493
+WordPress multiply it through global
+style, template part, patterns, custom
+
+00:41:49.493 --> 00:41:52.296
+blocks, integration, and repeated content.
+
+00:41:53.229 --> 00:41:57.772
+The workflow let it pass when requirements
+reduce behavior to appearance.
+
+00:41:58.401 --> 00:42:03.542
+Design show isolated state, QA receive
+incomplete acceptance criteria,
+
+00:42:03.817 --> 00:42:07.718
+and release have the no authority
+model for the remaining risk.
+
+00:42:08.439 --> 00:42:12.531
+So this is the reason the bug return
+when the team patch because it's patching
+
+00:42:12.535 --> 00:42:16.875
+the visible instance, leaving the
+generated layer unchanged, and treat
+
+00:42:17.240 --> 00:42:22.421
+every update as a routine maintenance
+rather than change the product experience.
+
+00:42:23.256 --> 00:42:27.506
+A stronger workflow addresses
+that task, task calls directly.
+
+00:42:27.848 --> 00:42:32.912
+It write behavioral requirement,
+create a safer reusable default,
+
+00:42:33.183 --> 00:42:38.093
+separate the source ownership for
+the outcome ownership, give release
+
+00:42:38.167 --> 00:42:43.374
+authority enough information to act,
+and reconnect high-risk WordPress change
+
+00:42:43.379 --> 00:42:45.026
+to the behavior that they can affect.
+
+00:42:45.808 --> 00:42:48.281
+So the final principle is very simple.
+
+00:42:48.779 --> 00:42:53.116
+A fut- a feature is not complete
+because every internal state is passes.
+
+00:42:53.709 --> 00:42:57.288
+It is complete when the expected
+behavior survive the complete
+
+00:42:57.312 --> 00:42:59.667
+WordPress system and the next chain.
+
+00:43:00.752 --> 00:43:06.368
+This is how accessibility stop being a
+recurring repair project and become part
+
+00:43:06.399 --> 00:43:08.497
+of the professional WordPress engineering.
+
+00:43:09.214 --> 00:43:12.910
+The next time you install WordPress
+on hinder- inherited existing
+
+00:43:12.912 --> 00:43:17.109
+site, do not look only at the
+page where the problem appears.
+
+00:43:17.504 --> 00:43:23.518
+Look at the decision, component, handoff,
+and update path that allow it to survive.
+
+00:43:24.522 --> 00:43:26.292
+Thank you very much for joining me.
+
+00:43:26.486 --> 00:43:31.154
+I hope this framework, uh, helped
+you to make accessibility part of how
+
+00:43:31.183 --> 00:43:35.227
+your WordPress project are planned,
+built, released, and maintained.
+
+00:43:38.926 --> 00:43:39.560
+All right.
+
+00:43:40.118 --> 00:43:43.519
+Thanks so much, Osdeibi, and I see
+you're here in the room with us as well.
+
+00:43:43.871 --> 00:43:48.055
+Um, so without further ado, we're
+gonna shift over to Q&A time.
+
+00:43:48.402 --> 00:43:50.801
+Uh, round of applause
+for Osdeibi in the chat.
+
+00:43:50.988 --> 00:43:55.064
+Uh, you can use the reaction, uh, you
+can put comments in the chat itself.
+
+00:43:55.377 --> 00:43:59.011
+Uh, and other than that, we're gonna
+switch over to the Q&A function.
+
+00:43:59.448 --> 00:44:03.038
+And I see we've got two questions
+in there, so we'll start with those.
+
+00:44:03.092 --> 00:44:07.221
+Uh, we've got about five minutes
+total, so keep that in mind.
+
+00:44:07.240 --> 00:44:08.386
+Um, we've got two questions.
+
+00:44:08.386 --> 00:44:11.551
+I got one for my own- Okay … if
+we have another one, but we'll
+
+00:44:11.553 --> 00:44:12.683
+start with the first one here.
+
+00:44:12.761 --> 00:44:13.944
+We're gonna answer it live.
+
+00:44:14.584 --> 00:44:19.508
+Uh, with AI generating more code
+themes and even entire websites, do
+
+00:44:19.508 --> 00:44:22.989
+you think that accessibility bugs
+are gonna become better or worse?
+
+00:44:23.046 --> 00:44:25.519
+I'm assuming as far as, like,
+volume and severity goes.
+
+00:44:26.808 --> 00:44:30.272
+Oh, yeah, that, that's a good question,
+uh, because, you know, uh, actually
+
+00:44:30.272 --> 00:44:34.469
+in, in the… Every developer is using
+AI, every person using AI right now.
+
+00:44:34.471 --> 00:44:38.644
+But I think to go directly with the
+question, I think it's probably both,
+
+00:44:39.074 --> 00:44:44.038
+because AI can help the developer
+to catch the problem early, explain
+
+00:44:44.042 --> 00:44:48.348
+the accessibility requirement, uh,
+generate the better markup and great
+
+00:44:48.374 --> 00:44:50.029
+test, and also review all the codes.
+
+00:44:50.029 --> 00:44:55.631
+So, uh, the, the problem here is
+when AI start creating a enormous
+
+00:44:55.656 --> 00:44:57.134
+amount of code very quick.
+
+00:44:57.551 --> 00:45:02.621
+So th- this mean that the assumption of
+the AI can reproduce a much large problem.
+
+00:45:02.681 --> 00:45:08.415
+So, uh, for example, if you create,
+um, a, a button or an interaction with
+
+00:45:08.415 --> 00:45:13.670
+the AI and you don't give the exact
+information, uh, on what is the behavior,
+
+00:45:14.031 --> 00:45:16.296
+you, you will have a big problem on it.
+
+00:45:16.337 --> 00:45:22.098
+But I think the in- interesting chance
+here with the AI is the, is speed,
+
+00:45:22.252 --> 00:45:24.915
+uh, uh, becoming a less problem.
+
+00:45:25.077 --> 00:45:26.808
+I, I don't think the AI is a bottleneck.
+
+00:45:27.227 --> 00:45:30.616
+I think it, it depend
+how you handle the AI.
+
+00:45:31.673 --> 00:45:32.438
+I think so, yeah.
+
+00:45:34.447 --> 00:45:35.145
+All right, cool.
+
+00:45:35.616 --> 00:45:38.401
+Um, yeah, so it sounds like
+potentially it definitely changes
+
+00:45:38.403 --> 00:45:40.521
+scale, but other than that- Mm-hmm
+
+00:45:40.530 --> 00:45:42.655
+there's some, there's
+some potential pros to it.
+
+00:45:43.186 --> 00:45:44.567
+I'll move us to the next question.
+
+00:45:44.791 --> 00:45:48.977
+Um, from an anonymous attendee we've got,
+"I love the plan of taking one step at
+
+00:45:48.977 --> 00:45:53.360
+a time to improve things." Uh, and then
+the question is, "How do you deal whe-
+
+00:45:53.481 --> 00:45:57.641
+um, when this conflicts with demands from
+management or sudden changes of plan?"
+
+00:45:59.016 --> 00:46:02.964
+Oh, well, uh, I, I I think this is
+a common problem that most of the
+
+00:46:02.967 --> 00:46:05.752
+people have when, when I'm working
+with, with, you know, I mean,
+
+00:46:05.752 --> 00:46:07.703
+existing projects or even new project.
+
+00:46:08.203 --> 00:46:12.770
+Be- but I think probably one of the
+harder part, uh, is inside the, the,
+
+00:46:12.785 --> 00:46:18.594
+the project because the plan probably
+can change, the priority can move, and
+
+00:46:18.603 --> 00:46:23.218
+the management will sometimes, uh, push
+for something completely different.
+
+00:46:23.640 --> 00:46:29.002
+Um, for me, I think the key is not trying
+to protect the whole plan at all cost.
+
+00:46:29.518 --> 00:46:33.794
+Uh, I try to, to protect more
+like, uh, you know, taking the, the
+
+00:46:33.794 --> 00:46:35.974
+important things that I can fix.
+
+00:46:36.271 --> 00:46:43.329
+Um, I always ask, uh, I'm, I, I alwa- I
+always say my- myself, like, "I can't,
+
+00:46:43.459 --> 00:46:48.580
+I cannot fix everything now, but at
+least I'm going to fix this, and I'm
+
+00:46:48.583 --> 00:46:50.544
+assuming the risk of, of doing it."
+
+00:46:50.552 --> 00:46:55.628
+So, um, I think the, uh, avoiding
+the, the, the, the problem is worse.
+
+00:46:55.639 --> 00:47:01.075
+But so if you keep the small improvement
+and divisible instead of letting it
+
+00:47:01.101 --> 00:47:04.695
+disappear completely, I think you
+have something, uh, to, to work with.
+
+00:47:04.695 --> 00:47:10.472
+So sometimes accessibility, uh,
+works, uh, need to adapt to the
+
+00:47:10.474 --> 00:47:14.245
+business, so like, you know, like
+everything else inside the, the page.
+
+00:47:14.274 --> 00:47:19.716
+But I think a- adapting doesn't have to
+be like abandoning the idea or abandoning
+
+00:47:19.718 --> 00:47:21.294
+the plan or, or the website itself.
+
+00:47:23.120 --> 00:47:23.946
+All right, cool.
+
+00:47:24.154 --> 00:47:27.305
+I'm gonna ask my own question
+now, so thank you so far.
+
+00:47:27.490 --> 00:47:27.756
+Sure.
+
+00:47:27.756 --> 00:47:30.368
+Uh, and this will be the
+final question we've got.
+
+00:47:30.718 --> 00:47:34.939
+Um, so on one of your later slides,
+you mentioned six potential sources
+
+00:47:34.939 --> 00:47:38.236
+of change when it comes to, like,
+how the WordPress experience is
+
+00:47:38.236 --> 00:47:42.232
+delivered, and they were core updates,
+theme updates, plugin updates- Mm-hmm
+
+00:47:42.232 --> 00:47:46.216
+global style edits, new content,
+and then remote widget changes.
+
+00:47:46.250 --> 00:47:49.450
+And you even said, like, with the
+remote widget changes, um, that
+
+00:47:49.450 --> 00:47:52.337
+can happen without any sort of
+intentional action from the people
+
+00:47:52.337 --> 00:47:53.555
+that actually own the website.
+
+00:47:53.968 --> 00:47:57.665
+So my question with that context is, in
+your experience, are changes that come
+
+00:47:57.665 --> 00:48:02.613
+from outside of the team itself of equal
+risk to accessibility deterioration, so
+
+00:48:02.613 --> 00:48:07.189
+those sort of updates that happen, um,
+that the team doesn't do themselves, or is
+
+00:48:07.191 --> 00:48:10.176
+it sort of like one of those six sources
+is the one that you see as, like, the
+
+00:48:10.176 --> 00:48:12.596
+primary risk or, like, worse than others?
+
+00:48:12.611 --> 00:48:14.310
+Well, yeah.
+
+00:48:14.524 --> 00:48:19.756
+Yeah, th- that… It… A thing is, is,
+is, uh, is a common to, to happen in, in
+
+00:48:19.759 --> 00:48:23.250
+every WordPress because when you have,
+for example, let's, let's say that you
+
+00:48:23.254 --> 00:48:28.497
+have the option to auto-update all the
+plugins, um, you can't control that.
+
+00:48:28.517 --> 00:48:31.301
+You don't have the control
+on that when you are with the
+
+00:48:31.316 --> 00:48:33.375
+plugin itself is start updating.
+
+00:48:33.573 --> 00:48:36.884
+And even if you have the control,
+like, you are doing something
+
+00:48:36.884 --> 00:48:39.482
+new, uh, in, in a… Do you know?
+
+00:48:39.488 --> 00:48:42.638
+Like, for example, th- that happened
+to me in, in my actual work.
+
+00:48:42.859 --> 00:48:49.178
+Like, we make up, uh, our custom plugin,
+um, we make that plugin, like, two
+
+00:48:49.189 --> 00:48:53.136
+version before the, the new release
+of the WordPress, so we say, "Yeah,
+
+00:48:53.321 --> 00:48:55.015
+we are gonna update that later."
+
+00:48:56.142 --> 00:49:01.209
+And, you know, we, we have two majors
+update, uh, behind in, in that plugin,
+
+00:49:01.209 --> 00:49:05.725
+and so the, the, the, uh, the moment
+we, we do the update of the plugin,
+
+00:49:05.792 --> 00:49:08.381
+everything's go down in the page.
+
+00:49:08.410 --> 00:49:13.669
+So you know, it's like a, like a little
+emergency we have inside the work.
+
+00:49:13.673 --> 00:49:17.091
+But again, you know, it, it is, it's
+not something that you can control
+
+00:49:17.091 --> 00:49:21.490
+itself because- Sometimes you,
+you are going to broke something
+
+00:49:21.491 --> 00:49:23.089
+inside the WordPress installation.
+
+00:49:23.154 --> 00:49:27.842
+Uh, any plugin is going to go
+down or e- even, uh, CSS can broke
+
+00:49:27.857 --> 00:49:29.622
+all the, the, the, the behavior.
+
+00:49:29.919 --> 00:49:35.851
+But I think that, you know, like all the
+things that give you WordPress to work
+
+00:49:35.877 --> 00:49:39.663
+with, like you, you can do everything
+inside WordPress, and I think that is
+
+00:49:39.701 --> 00:49:44.726
+overwhelming when you are, like, doing a
+project, doing a plugin, or working on a
+
+00:49:44.764 --> 00:49:47.898
+page, uh, i- in, in, in every WordPress.
+
+00:49:48.166 --> 00:49:54.068
+So I think that you need to make,
+make, like, the internal decision
+
+00:49:54.077 --> 00:49:57.955
+like, "Okay, I'm going to fix this,
+I'm going to update this, but I'm
+
+00:49:57.961 --> 00:50:00.321
+taking the risk on everything." Yeah.
+
+00:50:01.236 --> 00:50:01.715
+Okay, yeah.
+
+00:50:01.775 --> 00:50:05.452
+So just get ready, be prepared whenever
+you're gonna go into the weeds.
+
+00:50:05.780 --> 00:50:06.296
+All right.
+
+00:50:06.385 --> 00:50:10.768
+With that, uh, another thank you to
+Osdeibi for the excellent presentation.
+
+00:50:11.004 --> 00:50:12.624
+Uh, and I'm gonna wrap us up now.
+
+00:50:12.753 --> 00:50:13.144
+So yeah.
+
+00:50:13.334 --> 00:50:15.645
+Thank you everyone for attending
+this session with Osdeibi.
+
+00:50:15.782 --> 00:50:19.834
+You can continue the conversation in
+Slack or on social media using the
+
+00:50:19.836 --> 00:50:25.936
+hashtag WPa11yday and hashtag WPAD2026.
+

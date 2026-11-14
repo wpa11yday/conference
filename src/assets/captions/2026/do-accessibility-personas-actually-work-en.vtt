@@ -1,0 +1,3281 @@
+WEBVTT
+
+00:00:01.505 --> 00:00:04.494
+Narrator: WordPress Accessibility Day 2026.
+
+00:00:04.893 --> 00:00:07.358
+Do Accessibility Personas Actually Work?
+
+00:00:07.777 --> 00:00:12.077
+Presented by Lucy Collins,
+Director at Web Usability.
+
+00:00:12.562 --> 00:00:17.793
+This session was presented
+October 8th, 2026, at 08:00 UTC.
+
+00:00:20.655 --> 00:00:23.597
+WordPress Accessibility Day 2026.
+
+00:00:23.961 --> 00:00:25.688
+Thank you to our sponsors.
+
+00:00:26.052 --> 00:00:30.542
+Platinum Sponsor: Equalize
+Digital, websites for everyone.
+
+00:00:31.077 --> 00:00:34.762
+Equalize Digital's Accessibility
+Checker plugin makes real-time
+
+00:00:34.762 --> 00:00:38.171
+testing in the WordPress editor
+faster and more affordable.
+
+00:00:39.074 --> 00:00:43.290
+Auditing services and online
+courses help organizations build
+
+00:00:43.482 --> 00:00:45.462
+and maintain accessible websites.
+
+00:00:46.086 --> 00:00:48.129
+Platinum Sponsor: Gravity.
+
+00:00:48.620 --> 00:00:52.126
+Gravity Forms is the accessible
+form builder for WordPress.
+
+00:00:52.516 --> 00:00:56.101
+Trusted by millions of sites,
+it's built to create powerful
+
+00:00:56.242 --> 00:00:59.292
+WCAG-compliant forms for any project.
+
+00:00:59.822 --> 00:01:04.670
+Gold Sponsors: Kinsta, Insi, WP Engine.
+
+00:01:05.294 --> 00:01:10.521
+Silver Sponsors: Second Melody,
+Tenrec: Your Website, Only Better.
+
+00:01:11.861 --> 00:01:15.749
+Visit sponsor pages to enter to
+win giveaways and access swag.
+
+00:01:16.166 --> 00:01:20.788
+Go to wpaccessibility.day/2026/sponsors.
+
+00:01:24.640 --> 00:01:26.195
+Don't forget to leave feedback.
+
+00:01:26.670 --> 00:01:31.086
+Go to wpaccessibility.day/2026/feedback.
+
+00:01:40.036 --> 00:01:42.803
+Danielle: Welcome to WordPress
+Accessibility Day 2026.
+
+00:01:43.062 --> 00:01:45.589
+My name is Danielle Zarcaro,
+and I'm the founder and lead
+
+00:01:45.589 --> 00:01:47.092
+developer of Kinetic Iris.
+
+00:01:47.452 --> 00:01:50.297
+Thank you for joining us for
+Do Accessibility Personas
+
+00:01:50.318 --> 00:01:52.318
+Actually Work with Lucy Collins.
+
+00:01:52.610 --> 00:01:57.378
+Lucy is the owner of Web Usability,
+a user research agency that helps
+
+00:01:57.393 --> 00:02:01.220
+organizations make fast, confident,
+and inclusive digital decisions
+
+00:02:01.375 --> 00:02:03.011
+through research with real people.
+
+00:02:03.475 --> 00:02:07.019
+She is also co-founder of
+CollectivAlly, an inclusive user
+
+00:02:07.113 --> 00:02:11.397
+testing platform combining lived
+experience and AI-powered personas
+
+00:02:11.626 --> 00:02:13.656
+to identify accessibility barriers.
+
+00:02:14.305 --> 00:02:17.947
+As the second generation of the
+Collins family to lead Web Usability,
+
+00:02:18.161 --> 00:02:22.559
+Lucy continues the vision established
+over 25 years ago, using evidence
+
+00:02:22.575 --> 00:02:25.591
+and human insight to create a
+more equitable online world.
+
+00:02:26.200 --> 00:02:28.893
+Outside work, she is a mom of
+two young daughters and has a
+
+00:02:28.893 --> 00:02:30.380
+golden retriever named Zola.
+
+00:02:31.075 --> 00:02:34.675
+Please feel free to add your questions
+in the Zoom Q&A section, and we'll
+
+00:02:34.712 --> 00:02:36.361
+answer them at the end of the session.
+
+00:02:36.653 --> 00:02:39.257
+Use the chat to connect
+with other attendees.
+
+00:02:41.242 --> 00:02:43.254
+Lucy: Well, thank you so much for
+coming along to my talk today, where
+
+00:02:43.255 --> 00:02:47.578
+we are gonna answer the question: Do
+accessibility personas actually work?
+
+00:02:49.492 --> 00:02:51.049
+I want to start with a bit of a moan.
+
+00:02:51.316 --> 00:02:52.488
+I promise I'll keep it brief.
+
+00:02:52.726 --> 00:02:55.849
+In my opinion, digital accessibility
+has a dehumanization problem.
+
+00:02:56.161 --> 00:02:59.364
+Somewhere along, along the line, a
+practice that was fundamentally about
+
+00:02:59.386 --> 00:03:02.703
+understanding how real experiences or
+real people, sorry, experience the world,
+
+00:03:02.971 --> 00:03:04.646
+got reduced to a checklist and a scanner.
+
+00:03:05.180 --> 00:03:07.320
+Automated tools are fast and affordable.
+
+00:03:07.482 --> 00:03:10.253
+They give you a score and a
+perceived sense of sec- security that
+
+00:03:10.255 --> 00:03:11.569
+you're getting accessibility done.
+
+00:03:11.930 --> 00:03:15.402
+But that focus on code-level fixes
+means that we often forget to ask
+
+00:03:15.404 --> 00:03:18.665
+the most important question: Can
+real people achieve the task that
+
+00:03:18.665 --> 00:03:20.341
+they set out to do on your website?
+
+00:03:20.862 --> 00:03:23.903
+This means that while a service can
+pass a compliance audit, it still
+
+00:03:23.903 --> 00:03:25.665
+fails the people it is meant to serve.
+
+00:03:26.090 --> 00:03:27.712
+Now, a quick caveat at this point.
+
+00:03:27.810 --> 00:03:30.180
+This is not about having a go
+at WCAG and the testing tools
+
+00:03:30.192 --> 00:03:31.239
+that exist on the market.
+
+00:03:31.620 --> 00:03:35.557
+For many, they are a great, great way
+to begin an accessibility journey.
+
+00:03:35.971 --> 00:03:39.071
+They take something that can feel
+quite emo- overwhelming and emotionally
+
+00:03:39.083 --> 00:03:42.126
+charged and, and make it feel a
+little bit easier to get started with.
+
+00:03:42.509 --> 00:03:45.515
+But the problem is that many organizations
+and many of the people that I work
+
+00:03:45.515 --> 00:03:49.676
+with over the years never progress
+beyond that checklist mentality.
+
+00:03:49.887 --> 00:03:53.365
+They see WCAG compliance and that
+score out of 100 as their, at the
+
+00:03:53.367 --> 00:03:56.777
+s- from their scanners as the end
+goal, when really it's the start.
+
+00:03:57.024 --> 00:03:58.584
+It is the floor and not the ceiling.
+
+00:03:59.247 --> 00:04:02.468
+This creates a gap in the experiences
+that we create for people.
+
+00:04:03.946 --> 00:04:07.904
+So I'm calling this the accessibility
+gap, and it's a well-known fact that those
+
+00:04:07.910 --> 00:04:11.721
+sites that pass an automated audit, uh,
+and can technically satisfy the rules
+
+00:04:12.065 --> 00:04:14.968
+still remain exhausting, confusing,
+practically unusable, something that
+
+00:04:14.968 --> 00:04:18.430
+makes you wanna tear your hair out, and
+I've seen this myself across the research
+
+00:04:18.459 --> 00:04:20.111
+sessions that we at my agency run.
+
+00:04:20.772 --> 00:04:23.447
+Some of the most common examples
+we see from a kind of technically
+
+00:04:23.447 --> 00:04:27.034
+compliant website that are still
+practically really hard for people with
+
+00:04:27.034 --> 00:04:31.387
+disabilities to use will be things like
+unhelpful or verbose, uh, alt text.
+
+00:04:31.392 --> 00:04:35.722
+So that p- that, that picture of,
+of a, of a cup of tea, you can tell
+
+00:04:35.722 --> 00:04:40.025
+I'm British, um, which just has the,
+uh, just has the alt text "tea."
+
+00:04:40.652 --> 00:04:41.340
+What's that gonna do?
+
+00:04:41.357 --> 00:04:42.585
+That's not doing anything for everyone.
+
+00:04:42.586 --> 00:04:46.272
+But technically, that satisfies
+potentially the, the WCAG checklist.
+
+00:04:46.620 --> 00:04:50.501
+Ditto, you know, we've worked for some
+brilliant hotel organizations who have
+
+00:04:50.501 --> 00:04:55.529
+these amazing photos of their hotel rooms,
+gorgeous things, but to get all of that
+
+00:04:55.544 --> 00:04:59.027
+into an alt text, they end up with these
+lengthy, lengthy things that perhaps
+
+00:04:59.028 --> 00:05:01.090
+are better communicated in other ways.
+
+00:05:02.330 --> 00:05:04.746
+We've also got dense and
+complex paragraphs of text.
+
+00:05:05.053 --> 00:05:08.180
+We know that at the level that most
+people try and achieve kind of digital
+
+00:05:08.180 --> 00:05:14.317
+accessibility, so WCAG level, uh, double
+A, really, um, readability and jargon use
+
+00:05:14.320 --> 00:05:15.539
+is not something that gets covered off.
+
+00:05:15.549 --> 00:05:19.376
+And as a result, we can end up with really
+beautifully technically designed websites
+
+00:05:19.668 --> 00:05:22.870
+that then have a dense paragraph of text
+plonked right into the middle of it,
+
+00:05:22.883 --> 00:05:26.844
+which is heavy in jargon, long sentence
+length, cognitively very demanding.
+
+00:05:27.390 --> 00:05:29.198
+The same is true for
+lengthy button labels.
+
+00:05:29.221 --> 00:05:33.058
+These might be hard for people to, to
+understand, comprehend, but actually also
+
+00:05:33.058 --> 00:05:36.441
+perhaps if you've got a speech impediment
+and you use voice-to-text s- uh,
+
+00:05:36.450 --> 00:05:39.783
+software, you might struggle to actually
+then activate those lengthy buttons.
+
+00:05:40.159 --> 00:05:43.001
+Technically, it passes, it's nice
+and descriptive, but actually
+
+00:05:43.031 --> 00:05:44.650
+practically it's hard work to use.
+
+00:05:45.164 --> 00:05:48.597
+And the same when it comes to kind of the
+tabbing and how we move through websites.
+
+00:05:49.061 --> 00:05:52.510
+We know that, again, we want everything
+to be keyboard accessible, but if
+
+00:05:52.510 --> 00:05:55.623
+you create very lengthy navigational
+journeys, that can be a fairly
+
+00:05:55.625 --> 00:05:57.089
+exhausting experience for people.
+
+00:05:58.030 --> 00:06:02.337
+So what we end up with then is something
+that technically works but practically
+
+00:06:02.361 --> 00:06:06.650
+doesn't work for the people who really are
+trying to achieve, um, their online goals.
+
+00:06:07.553 --> 00:06:11.307
+Obviously, the single best way to close
+that accessibility gap and to truly
+
+00:06:11.308 --> 00:06:15.241
+understand whether or not experience works
+for disabled people is, surprise surprise,
+
+00:06:15.405 --> 00:06:17.197
+to work directly with disabled people.
+
+00:06:17.513 --> 00:06:21.145
+What this means is that we include people
+in research, we observe real behaviors,
+
+00:06:21.308 --> 00:06:22.832
+we listen to their lived experience.
+
+00:06:23.044 --> 00:06:26.828
+We test those complete end-to-end
+tasks and journeys, not just the
+
+00:06:26.840 --> 00:06:28.477
+interaction point in isolation.
+
+00:06:28.863 --> 00:06:31.519
+We involve people throughout that
+process, not just shoehorning them
+
+00:06:31.519 --> 00:06:34.669
+in at the end as a, as a kind of
+check… an, an additional tick box.
+
+00:06:35.063 --> 00:06:38.167
+And even better, we work alongside
+disabled colleagues, which means obviously
+
+00:06:38.410 --> 00:06:39.998
+sorting out our recruitment practices.
+
+00:06:42.659 --> 00:06:47.643
+This is so powerful, and the reason
+is, is because we all have a mental
+
+00:06:47.643 --> 00:06:49.248
+model about the way the world works.
+
+00:06:49.888 --> 00:06:52.796
+The great thing about working with
+people disabilit- with disabilities is
+
+00:06:52.796 --> 00:06:55.846
+that it breaks down that mental model,
+or it gives us a different perspective
+
+00:06:55.868 --> 00:06:57.623
+on the way that people see the world.
+
+00:06:58.217 --> 00:07:00.486
+Our mental model is unique to us.
+
+00:07:00.556 --> 00:07:03.619
+My mental model will be unique to
+me, and yours will be unique to you.
+
+00:07:03.861 --> 00:07:07.705
+It's an internal understanding of,
+um, of… that we use to predict
+
+00:07:07.705 --> 00:07:11.025
+how something is gonna work, and it
+is, as I say, totally unique to you.
+
+00:07:11.344 --> 00:07:14.369
+It's shaped by our bodies and our
+senses, the previous experiences that
+
+00:07:14.369 --> 00:07:17.861
+we've had in life, the education and the
+upbringing that we've had, the language
+
+00:07:17.861 --> 00:07:21.193
+that we speak, or languages that we
+speak, the culture we've grown up in,
+
+00:07:21.193 --> 00:07:25.173
+the technology we use, our overall
+levels of confidence, and any privilege
+
+00:07:25.176 --> 00:07:28.323
+and/or exclusion that we's- we've
+experienced over the course of our life.
+
+00:07:28.762 --> 00:07:32.128
+It informs absolutely everything that
+we do, how we experience the world,
+
+00:07:32.130 --> 00:07:35.873
+and crucially for this conversation,
+how we design digital experiences.
+
+00:07:36.352 --> 00:07:39.274
+A non-disabled white male developer
+building a digital experience that
+
+00:07:39.275 --> 00:07:42.724
+supports people of color with vision
+loss cannot possibly understand the
+
+00:07:42.724 --> 00:07:44.270
+lived experience of those end users.
+
+00:07:44.782 --> 00:07:48.167
+The less experience we share with the
+person using our product, the more
+
+00:07:48.186 --> 00:07:51.931
+dangerous our untested assumptions
+become, and this is where exclusion
+
+00:07:51.948 --> 00:07:56.460
+occurs, when we solve problems using
+our own biases and experiences.
+
+00:07:57.203 --> 00:08:00.746
+An important note at this point, it's not
+because designers and dela- developers
+
+00:08:00.746 --> 00:08:04.166
+perhaps don't care, it's because no
+one can possibly feel experiences
+
+00:08:04.167 --> 00:08:05.280
+that they have never encountered.
+
+00:08:05.851 --> 00:08:09.380
+Disability and access needs often
+enlarge this experience gap, um,
+
+00:08:09.390 --> 00:08:12.116
+because the needs of someone using a
+website perhaps without vision, without
+
+00:08:12.118 --> 00:08:15.265
+fine motor control, without hearing,
+or limited cognition is so very far
+
+00:08:15.265 --> 00:08:18.765
+removed from, normally, from the per-
+experience of those people building them.
+
+00:08:19.477 --> 00:08:22.292
+The beauty about bringing
+different perspectives into the
+
+00:08:22.292 --> 00:08:24.222
+room is ei- uh, and either work…
+
+00:08:24.232 --> 00:08:27.419
+by either working alongside disabled
+people or involving them in research, is
+
+00:08:27.421 --> 00:08:30.522
+that it challenges all sorts of things:
+our assumptions, our priorities, our
+
+00:08:30.524 --> 00:08:34.394
+language, the design conventions that
+we rely on, the definitions of what
+
+00:08:34.394 --> 00:08:37.958
+is easy, and absolutely the definition
+of what we consider to be normal.
+
+00:08:38.500 --> 00:08:41.268
+It challenges your mental model, it
+changes the questions that we ask,
+
+00:08:41.270 --> 00:08:44.668
+and ultimately, it enables us to
+build experiences that work better
+
+00:08:44.952 --> 00:08:46.927
+for a much broader range of people.
+
+00:08:48.150 --> 00:08:51.415
+But, and unfortunately it is
+a big but, the world that we
+
+00:08:51.416 --> 00:08:52.597
+live in is far from ideal.
+
+00:08:52.851 --> 00:08:56.524
+And while I would simply love everyone
+to be doing inclusive research all
+
+00:08:56.528 --> 00:09:00.374
+the time throughout the development
+process and beyond, the reality is
+
+00:09:00.375 --> 00:09:02.996
+it requires a lot of things that
+many organizations don't have.
+
+00:09:03.474 --> 00:09:05.912
+The most common that we hear in
+the conversations that we have
+
+00:09:05.912 --> 00:09:10.123
+with our clients are time, budget,
+and access to participants.
+
+00:09:10.511 --> 00:09:12.544
+It's h- lack of that… It's lack of time.
+
+00:09:12.748 --> 00:09:14.883
+When are we gonna fit this
+into a development cycle?
+
+00:09:14.911 --> 00:09:15.851
+It's lack of money.
+
+00:09:15.885 --> 00:09:18.936
+We haven't put aside the money to be
+able to do this on a regular basis.
+
+00:09:19.256 --> 00:09:22.256
+And it's this perceived lack of
+access to, uh, uh, to the right
+
+00:09:22.256 --> 00:09:24.510
+people, although I often think
+that that one's a bit of a cop-out.
+
+00:09:24.928 --> 00:09:29.048
+It also might be a lack of accessibility
+expertise or knowledge that exists within
+
+00:09:29.048 --> 00:09:32.585
+the team, and therefore the confidence
+to go out to do this sort of research.
+
+00:09:32.828 --> 00:09:34.845
+It might be that you don't
+have the suitable technology
+
+00:09:34.846 --> 00:09:35.784
+that allows you to do it.
+
+00:09:36.070 --> 00:09:38.689
+And I think lastly, most
+interestingly, it might be a lack
+
+00:09:38.692 --> 00:09:40.244
+of, uh, organizational commitment.
+
+00:09:40.880 --> 00:09:44.845
+For many organizations, the desire to do
+this sort of research is absolutely there.
+
+00:09:44.889 --> 00:09:47.773
+I've had conversations with clients
+who said that they would love to be
+
+00:09:47.773 --> 00:09:51.514
+able to do more in the way of inclusive
+research, but many of them don't have
+
+00:09:51.514 --> 00:09:52.971
+the resources available to do it.
+
+00:09:53.070 --> 00:09:56.804
+Think charities, small agencies,
+freelancers, public sector bodies who
+
+00:09:56.805 --> 00:09:59.781
+perhaps just don't have the funds to
+regularly do this type of work alongside
+
+00:09:59.781 --> 00:10:02.986
+everything else that these very
+squeezed budgets are trying to cover.
+
+00:10:03.821 --> 00:10:05.948
+In contrast, and at the other
+end of the scale, of course, we
+
+00:10:05.948 --> 00:10:09.139
+do have those organizations that
+are just not prioritizing this,
+
+00:10:09.140 --> 00:10:12.314
+despite all the evidence that
+tells us that, um, prioritizing
+
+00:10:12.317 --> 00:10:13.866
+accessibility is good for business.
+
+00:10:14.495 --> 00:10:17.890
+Even if you are an individual fighting
+the good fight in one of these businesses,
+
+00:10:17.891 --> 00:10:21.888
+if you don't have that buy-in from senior
+management, it can be a real uphill battle
+
+00:10:21.926 --> 00:10:25.674
+and really hard to get the prioritization
+that this sort of research needs.
+
+00:10:26.745 --> 00:10:30.027
+So when research doesn't happen, we
+find that teams tech- typically fall
+
+00:10:30.032 --> 00:10:33.427
+back on their own experience, which
+as we know, that is your mental model,
+
+00:10:33.440 --> 00:10:35.046
+that is unique and limited to you.
+
+00:10:35.735 --> 00:10:39.184
+We look at generic assumptions or
+stereotypes, which can be very dangerous.
+
+00:10:39.543 --> 00:10:43.246
+We look at standards alone, which is why
+there is this heavy reliance on WCAG.
+
+00:10:44.061 --> 00:10:47.527
+We look at what's easiest to test and
+to get out, uh, to get out the door.
+
+00:10:47.751 --> 00:10:50.779
+Or perhaps we listen to the loudest
+internal voice, the person who has
+
+00:10:50.779 --> 00:10:54.467
+the strongest opinions, who wants
+the certain piece of information
+
+00:10:54.479 --> 00:10:56.747
+or interaction on the experience.
+
+00:10:57.141 --> 00:11:00.893
+Or we try designing for this
+mythical average user, the person
+
+00:11:00.893 --> 00:11:02.712
+we perceive that our users to be.
+
+00:11:02.936 --> 00:11:06.898
+And as a result, we forget about the
+huge spectrum and variety of people that
+
+00:11:06.899 --> 00:11:08.509
+might actually be using our services.
+
+00:11:09.510 --> 00:11:12.623
+So what tools can we use in this
+constrained environment that would help
+
+00:11:12.623 --> 00:11:14.449
+us to interrupt these mental models?
+
+00:11:15.198 --> 00:11:17.850
+And I think hopefully, given the
+na- the, the title of this talk,
+
+00:11:18.068 --> 00:11:21.420
+it will be no surprise that where
+we've been building up to is this.
+
+00:11:22.147 --> 00:11:22.682
+Personas.
+
+00:11:23.544 --> 00:11:24.492
+Enter stage left.
+
+00:11:24.819 --> 00:11:27.298
+Personas are a fictional
+representation grounded in evidence.
+
+00:11:27.593 --> 00:11:30.820
+So what we would commonly capture
+within a persona is a goal.
+
+00:11:30.821 --> 00:11:32.408
+What somebody is trying to achieve.
+
+00:11:32.604 --> 00:11:33.393
+The behaviors.
+
+00:11:33.404 --> 00:11:35.098
+Typically, how would
+they go about doing that?
+
+00:11:35.363 --> 00:11:36.260
+The motivations.
+
+00:11:36.281 --> 00:11:39.400
+What motivates them to, to engage
+with you in the first place?
+
+00:11:39.817 --> 00:11:41.247
+Some context and background.
+
+00:11:41.284 --> 00:11:44.200
+Okay, what do we need to know
+about that that is gonna inform
+
+00:11:44.201 --> 00:11:45.303
+the way they engage with us?
+
+00:11:45.832 --> 00:11:48.037
+The frustrations that they
+might have along the, the way.
+
+00:11:48.559 --> 00:11:51.895
+And importantly, personas need to
+be built on data, not guesswork.
+
+00:11:52.426 --> 00:11:55.735
+When we build digital personas for
+clients, we do a shed load of user
+
+00:11:55.746 --> 00:11:59.145
+research first to really understand
+their target customer, and then build
+
+00:11:59.147 --> 00:12:01.129
+those personas on top of that foundation.
+
+00:12:01.833 --> 00:12:04.619
+Often personas are also given
+some demographic details.
+
+00:12:04.619 --> 00:12:07.654
+No doubt people have already seen
+these, where you'll have, um,
+
+00:12:07.752 --> 00:12:10.744
+Salesperson Sally or Checkout Charlie.
+
+00:12:11.012 --> 00:12:12.475
+Uh, they often alliterate for some reason.
+
+00:12:12.477 --> 00:12:13.725
+I think it makes it more memorable.
+
+00:12:14.046 --> 00:12:17.263
+So you might include a name and
+age, a bit of a backstory, um,
+
+00:12:17.277 --> 00:12:20.180
+which is what then differate-
+differentiates personas from archetypes.
+
+00:12:21.048 --> 00:12:23.942
+But the personal- And this personalization
+is, I guess, important because it
+
+00:12:23.946 --> 00:12:27.929
+takes advantage of our human tendency
+to be more captivated by concrete
+
+00:12:27.952 --> 00:12:29.788
+instances than generalizations.
+
+00:12:29.789 --> 00:12:34.092
+And what I mean by that is that we seem
+to care more about, uh, m- more because
+
+00:12:34.092 --> 00:12:37.558
+we can imagine them as real people,
+rather than a faceless list of criteria.
+
+00:12:38.553 --> 00:12:41.560
+So the history, very quick history
+lesson around the kind of the,
+
+00:12:41.574 --> 00:12:43.101
+the, the origins of personas.
+
+00:12:43.390 --> 00:12:46.717
+The modern interaction design personas
+that I'm referencing today, the ones
+
+00:12:46.717 --> 00:12:50.417
+that you might use to help you, um,
+build your website or to write your
+
+00:12:50.443 --> 00:12:54.512
+marketing content, these are commonly
+seen, uh, as being closely associated
+
+00:12:54.513 --> 00:12:58.522
+with a chap called Alan Cooper and his
+goal-directed design work in the 1990s.
+
+00:12:58.874 --> 00:13:01.931
+So Cooper used personas to shift
+software teams array- away from
+
+00:13:01.932 --> 00:13:05.825
+designing around technical capability
+and towards user goals and behaviors.
+
+00:13:06.214 --> 00:13:08.933
+It was a really interesting time
+in, in the world of the web.
+
+00:13:09.354 --> 00:13:12.866
+At that point, back in the '90s,
+websites were built by technical people.
+
+00:13:12.875 --> 00:13:15.240
+That's what was required in
+order to build a website because
+
+00:13:15.240 --> 00:13:16.481
+they were technical by nature.
+
+00:13:16.787 --> 00:13:20.177
+Obviously, the responsibility and
+ownership of websites these days has
+
+00:13:20.180 --> 00:13:23.721
+typically moved over to a marketing
+team, a digital product team, and
+
+00:13:23.722 --> 00:13:25.753
+so this maybe seems less obvious.
+
+00:13:26.007 --> 00:13:29.064
+But at the time, when you were dealing
+from your mental model of being a
+
+00:13:29.064 --> 00:13:33.984
+technical person, a developer, that is a
+very niche, specific mental model to have.
+
+00:13:34.189 --> 00:13:37.978
+You are in the top 1% of people
+when it comes to digital literacy.
+
+00:13:38.512 --> 00:13:41.834
+And so Alan Cooper and his work
+basically was trying to get people to
+
+00:13:41.834 --> 00:13:45.360
+step out of that mental model of being
+a very digitally literate, technical
+
+00:13:45.363 --> 00:13:48.912
+person to think about what might
+those end users actually need from
+
+00:13:48.912 --> 00:13:50.136
+the experiences that we're building.
+
+00:13:50.688 --> 00:13:54.357
+And what those personas had then
+helped with was to encourage teams
+
+00:13:54.357 --> 00:13:57.666
+to ask the right questions at the
+right time in the design, development,
+
+00:13:57.694 --> 00:13:59.106
+and content creation journey.
+
+00:13:59.451 --> 00:14:02.363
+So these might be questions like,
+would this persona understand this?
+
+00:14:02.545 --> 00:14:03.547
+What might stop them?
+
+00:14:03.735 --> 00:14:05.081
+What would they need to continue?
+
+00:14:05.202 --> 00:14:06.718
+What happens when something goes wrong?
+
+00:14:06.928 --> 00:14:08.729
+And are we designing only for ourselves?
+
+00:14:08.843 --> 00:14:09.673
+So on and so forth.
+
+00:14:10.316 --> 00:14:12.773
+They can prompt us to look at a
+problem through a different lens,
+
+00:14:13.049 --> 00:14:16.103
+and this in turn can help you
+see where your own biases exist.
+
+00:14:17.015 --> 00:14:19.344
+Now, these are personas kind of generally.
+
+00:14:19.683 --> 00:14:23.201
+We often see personas get used
+for, uh, general customer segments,
+
+00:14:23.582 --> 00:14:27.057
+but we can also drill down to what
+accessibility personas look like.
+
+00:14:27.477 --> 00:14:28.426
+And these aren't new.
+
+00:14:28.663 --> 00:14:31.735
+Accessibility personas have been around
+for many years, and there's many good
+
+00:14:31.737 --> 00:14:36.353
+examples of what accessibility personas
+could look like, including, um, uh,
+
+00:14:36.375 --> 00:14:40.682
+the likes of the Government Digital
+Service here in the UK, uh, W3C, so
+
+00:14:40.683 --> 00:14:43.722
+the authors of WCAG, and Stanford
+University, which is the persona you
+
+00:14:43.724 --> 00:14:45.155
+can see on the right of the screen here.
+
+00:14:45.918 --> 00:14:50.772
+These have all been created to help, uh,
+help organizations think about what works
+
+00:14:50.775 --> 00:14:54.086
+for people with different access needs
+online and highlight the common barriers
+
+00:14:54.104 --> 00:14:58.544
+that designers and de- developers might
+be inadvertently putting in the way by the
+
+00:14:58.545 --> 00:15:00.296
+way that they design digital experiences.
+
+00:15:01.089 --> 00:15:03.738
+These have been created, um,
+in lots of different ways.
+
+00:15:04.094 --> 00:15:08.690
+Some will focus on disability
+type, some will focus, uh, on need.
+
+00:15:08.892 --> 00:15:12.465
+Some are stories based on a single
+person, some are informed by
+
+00:15:12.471 --> 00:15:16.070
+research through across kind of
+multiple people with similar, um,
+
+00:15:16.084 --> 00:15:18.091
+disability types or functional needs.
+
+00:15:18.917 --> 00:15:22.100
+The link between all of them is that
+they're providing a provocation.
+
+00:15:22.433 --> 00:15:25.495
+They're providing us an opportunity
+to consider a perspective that is
+
+00:15:25.496 --> 00:15:27.220
+different from our own mental model.
+
+00:15:30.206 --> 00:15:31.483
+And they can do a really good job of it.
+
+00:15:32.187 --> 00:15:36.944
+So research into accessibility personas
+suggests that they can raise awareness
+
+00:15:36.944 --> 00:15:39.899
+of accessibility needs and help
+teams identify accessibility issues,
+
+00:15:40.211 --> 00:15:44.379
+particularly when personas are based
+on evidence, uh, and, uh, and, uh,
+
+00:15:44.394 --> 00:15:46.102
+are co-created with disabled people.
+
+00:15:46.187 --> 00:15:48.817
+That last bit is very important,
+and I will be coming back to it.
+
+00:15:49.346 --> 00:15:50.799
+So why can they work?
+
+00:15:51.046 --> 00:15:53.738
+I think one of the first and most
+important things that personas,
+
+00:15:53.759 --> 00:15:57.851
+accessibility personas can do is that they
+make unfamiliar barriers more visible.
+
+00:15:58.259 --> 00:16:01.376
+They can simply be an awareness-raising
+tool, for want of a better word.
+
+00:16:01.960 --> 00:16:06.115
+Many people don't realize that certain
+access needs exist, not because they
+
+00:16:06.116 --> 00:16:11.280
+don't care, um, and, uh, and not, and
+not because… but it's simply because
+
+00:16:11.281 --> 00:16:12.808
+they haven't come across it in the past.
+
+00:16:13.259 --> 00:16:15.671
+Pers- personas might give them
+that moment of enlightenment.
+
+00:16:16.238 --> 00:16:19.363
+We see this all the time with clients
+when we're doing inclusive research.
+
+00:16:19.568 --> 00:16:21.591
+It might be that they've
+never seen a screen reader
+
+00:16:21.592 --> 00:16:22.978
+user interact with a website.
+
+00:16:23.007 --> 00:16:25.191
+It might be that they've never
+understood what it's like for
+
+00:16:25.191 --> 00:16:28.462
+someone who's colorblind to
+engage, um, with a visual design.
+
+00:16:28.849 --> 00:16:31.866
+As soon as they've witnessed that
+moment, it often has this real
+
+00:16:31.866 --> 00:16:34.401
+moment of enlightenment, this
+moment where they think, "Oh,
+
+00:16:34.660 --> 00:16:36.008
+we could potentially do better."
+
+00:16:36.333 --> 00:16:39.656
+And while that moment with a real
+person would be my preferred way to
+
+00:16:39.659 --> 00:16:42.347
+give them that moment of enlightenment,
+that is an option that might not
+
+00:16:42.375 --> 00:16:45.646
+always be available to everyone for
+the reasons we previously discussed.
+
+00:16:46.046 --> 00:16:50.597
+A persona, however, can be a little nudge
+to suggest, "Hey, have you considered
+
+00:16:50.597 --> 00:16:52.992
+that this might be a need that you're
+not current- currently aware of?"
+
+00:16:53.197 --> 00:16:56.574
+And get you to examine your own,
+um, existing assumptions and biases.
+
+00:16:57.573 --> 00:17:01.080
+As well as introducing kind of the
+unfamiliar barriers, it can also introduce
+
+00:17:01.092 --> 00:17:04.371
+technology, assistive technology,
+um, specifically in this context.
+
+00:17:04.737 --> 00:17:08.843
+So again, there are so many tools out
+there that enable people and empower
+
+00:17:08.846 --> 00:17:10.626
+people to engage with the online world.
+
+00:17:11.290 --> 00:17:15.069
+Screen readers, screen magnifiers,
+speech-to-text software, switch tools,
+
+00:17:15.192 --> 00:17:16.978
+ear switches, all sorts of things.
+
+00:17:17.384 --> 00:17:20.930
+And again, I think unless you're in this
+space or you've been exposed to it, you
+
+00:17:20.935 --> 00:17:23.621
+often don't know what are the different
+assistive technologies available to you.
+
+00:17:24.006 --> 00:17:27.858
+These c- personas can, uh, once again,
+do a f- fantastic job of educating
+
+00:17:27.860 --> 00:17:31.580
+people about the tools that are
+available and as a result, from a
+
+00:17:31.581 --> 00:17:35.135
+designer and developer perspective,
+what you need to be considering when
+
+00:17:35.136 --> 00:17:36.923
+you, um, take your designs forward.
+
+00:17:38.020 --> 00:17:40.644
+I think it can also connect
+requirements to a task.
+
+00:17:40.964 --> 00:17:43.329
+It allows us to therefore
+focus on outcome.
+
+00:17:43.397 --> 00:17:45.806
+So if we go back to what we were
+saying right at the very beginning
+
+00:17:45.999 --> 00:17:49.275
+with this reduction of accessibility
+down to being a checklist, we've
+
+00:17:49.286 --> 00:17:50.863
+forgotten about the outcome.
+
+00:17:50.929 --> 00:17:52.817
+Can a person achieve a task online?
+
+00:17:53.151 --> 00:17:56.936
+So instead of saying, um, "Change this
+code on this button because it fails
+
+00:17:56.941 --> 00:18:01.579
+WCAG 2.4.4," which I don't think has
+ever really excited anybody, we can
+
+00:18:01.581 --> 00:18:03.285
+describe the purpose of this button.
+
+00:18:03.592 --> 00:18:06.774
+We can say we need to describe the
+purpose of this button so a blind person
+
+00:18:06.779 --> 00:18:10.664
+can confidently click on it and achieve
+the desired task that we have set them.
+
+00:18:11.527 --> 00:18:13.693
+It then also gives
+people a shared language.
+
+00:18:13.993 --> 00:18:17.714
+There is so much fear about saying the
+wrong thing in the accessibility world.
+
+00:18:17.981 --> 00:18:21.436
+Providing a shared and approved language
+can take away some of that fear so
+
+00:18:21.438 --> 00:18:25.311
+people feel that they can talk about
+disability, they can talk about access
+
+00:18:25.313 --> 00:18:29.113
+needs in an environment where it is
+gonna then challenge the assumptions
+
+00:18:29.143 --> 00:18:33.682
+that are making us build and design- um,
+ineffective and inaccessible experiences.
+
+00:18:34.509 --> 00:18:37.138
+And finally, I think it can
+encourage questions earlier and make
+
+00:18:37.164 --> 00:18:38.800
+accessibility easier to remember.
+
+00:18:39.793 --> 00:18:43.005
+Ideally, we want to be asking the
+question, is it accessible, at
+
+00:18:43.071 --> 00:18:44.767
+every single step in the process.
+
+00:18:45.591 --> 00:18:50.101
+But the problem is, is that accessibility
+is just one part of a much bigger puzzle.
+
+00:18:50.414 --> 00:18:52.715
+Often if you are designing and
+developing, you're, uh, you're not
+
+00:18:52.763 --> 00:18:55.891
+only thinking about accessibility,
+you're thinking about budget, you're
+
+00:18:55.912 --> 00:18:59.705
+thinking about brand guidelines, you're
+thinking about interaction design.
+
+00:19:00.014 --> 00:19:03.085
+There's all sorts of things that are going
+on in your head, and often other things
+
+00:19:03.086 --> 00:19:06.716
+take precedent over accessibility because
+it gets pushed to the bottom of the list.
+
+00:19:07.073 --> 00:19:11.237
+The wonderful thing about personas is
+when used correctly, they can provide
+
+00:19:11.256 --> 00:19:15.747
+that nudge in those moments that allows
+people to remember that they need to ask
+
+00:19:15.758 --> 00:19:18.033
+that question, "Oh, is this accessible?"
+
+00:19:18.274 --> 00:19:21.542
+And instead of leaving it right to the
+very end of that process, we can make
+
+00:19:21.543 --> 00:19:25.368
+sure that we are just slowly, slowly,
+um, embedding that accessible first
+
+00:19:25.374 --> 00:19:26.961
+thinking into everything that we do.
+
+00:19:28.478 --> 00:19:34.025
+All that being said, there are, however,
+some justifiable, um, skepticism around
+
+00:19:34.026 --> 00:19:37.730
+accessibility personas, which I think is
+very, very important for us to inspect
+
+00:19:37.813 --> 00:19:39.492
+as part of this conversation today.
+
+00:19:40.103 --> 00:19:44.590
+A badly made disability or accessibility
+persona can be worse than no persona
+
+00:19:44.595 --> 00:19:48.364
+at all because it gives an assumption
+the appearance of evidence, and
+
+00:19:48.383 --> 00:19:49.616
+that can be really dangerous.
+
+00:19:50.049 --> 00:19:53.499
+The problem with these sorts of personas
+is that they, they can be at risk
+
+00:19:53.499 --> 00:19:55.433
+of reducing someone to a diagnosis.
+
+00:19:55.885 --> 00:19:59.542
+They might even in- unintentionally
+or potentially even intentionally
+
+00:19:59.547 --> 00:20:03.157
+reinforce stereotypes that can be
+harmful to the disabled community.
+
+00:20:03.741 --> 00:20:07.685
+They imply a single disability
+experience, so if you are blind, you
+
+00:20:07.690 --> 00:20:10.874
+have the same experience as every
+other blind person that exists in the
+
+00:20:10.874 --> 00:20:12.893
+planet, which we know is not the case.
+
+00:20:13.473 --> 00:20:16.096
+It might overemphasize certain
+assistive technologies.
+
+00:20:16.302 --> 00:20:19.177
+We often seen screen readers get
+pulled out as the kind of most
+
+00:20:19.307 --> 00:20:23.080
+important of assistive technologies
+because technically they can be
+
+00:20:23.080 --> 00:20:24.738
+the most complex to design for.
+
+00:20:25.116 --> 00:20:28.146
+But they shouldn't get unnecessary
+weight over other important assistive
+
+00:20:28.146 --> 00:20:32.378
+technologies that if not designed for
+could be journey stopping for those users.
+
+00:20:33.034 --> 00:20:36.982
+It ignores context and intersectionality
+and obviously all the lived experience
+
+00:20:36.982 --> 00:20:40.153
+that a s- disabled person brings
+along with them to any experience
+
+00:20:40.160 --> 00:20:41.183
+that they're having online.
+
+00:20:41.449 --> 00:20:44.789
+It's not just a person who's plopped
+into a website, it is a person who
+
+00:20:44.803 --> 00:20:48.652
+comes with all the ba- battles that
+they have fought over the period of
+
+00:20:48.656 --> 00:20:51.952
+their life to break down the barriers
+that society can put in their way.
+
+00:20:52.271 --> 00:20:54.984
+And so we've got to remember that
+lived experience, that context,
+
+00:20:55.011 --> 00:20:57.913
+and that intersectionality exists
+before they even come to our site.
+
+00:20:58.563 --> 00:21:02.188
+It can create false confidence and
+at worse, it- they can be used in
+
+00:21:02.190 --> 00:21:04.268
+replacement of research with real people.
+
+00:21:04.996 --> 00:21:08.108
+For me, the most dangerous thing
+is that they do reduce a complex
+
+00:21:08.135 --> 00:21:11.331
+intersectional and unique lived experience
+down to a single sheet of paper.
+
+00:21:12.032 --> 00:21:16.327
+I mentioned already that a single, uh,
+a single disability experience is not
+
+00:21:16.340 --> 00:21:17.697
+something that exists in the world.
+
+00:21:18.029 --> 00:21:20.215
+No s- there is no single
+blind user experience.
+
+00:21:20.240 --> 00:21:24.168
+A person may have no vision, low vision,
+or fluctuating vision that changes
+
+00:21:24.172 --> 00:21:25.275
+throughout the course of the day.
+
+00:21:25.718 --> 00:21:28.923
+They might use a screen reader,
+um, magnification or both.
+
+00:21:28.978 --> 00:21:32.642
+They might be highly experienced at
+using their technology or newly learning.
+
+00:21:32.684 --> 00:21:36.144
+They might use different forms of
+interaction, touch, keyboard, voice, or a
+
+00:21:36.144 --> 00:21:39.680
+combination of all the above, depending on
+how they're feeling or what they're doing.
+
+00:21:40.064 --> 00:21:41.552
+They might have additional access needs.
+
+00:21:41.555 --> 00:21:45.331
+We know that comorbidities within,
+um, disability are very normal, so
+
+00:21:45.333 --> 00:21:50.781
+they might also be dealing with, um,
+having dyslexia or they might have, um,
+
+00:21:50.826 --> 00:21:53.965
+additional, um, physical disabilities
+that are impacting them in a different
+
+00:21:53.967 --> 00:21:58.123
+way that are not being captured by
+having a pure, um, kind of blind persona.
+
+00:21:58.948 --> 00:22:00.840
+And they might be working in
+radically different contexts
+
+00:22:00.840 --> 00:22:02.134
+that we just are unaware of.
+
+00:22:03.001 --> 00:22:05.657
+So I think it's really important
+for us to remember that a diagnosis
+
+00:22:05.658 --> 00:22:07.003
+at this point is not a behavior.
+
+00:22:07.069 --> 00:22:10.855
+A disability type does not tell you what
+someone is trying to do, how they do it,
+
+00:22:10.869 --> 00:22:14.533
+what they know, the technology they use,
+the barriers and the environments, uh…
+
+00:22:14.551 --> 00:22:17.649
+the, the barriers the environment creates
+for them, and what lived experience
+
+00:22:17.652 --> 00:22:18.934
+they're bringing to that interaction.
+
+00:22:19.387 --> 00:22:21.810
+So we have to proceed with
+care when we think about how we
+
+00:22:21.811 --> 00:22:23.453
+create accessibility personas.
+
+00:22:24.057 --> 00:22:28.266
+But that being said, I do think despite
+these justifiable concerns that, um,
+
+00:22:28.266 --> 00:22:32.910
+they can still be a useful tool if, in
+capital letters, we use them correctly.
+
+00:22:33.570 --> 00:22:36.127
+So setting up for persona success.
+
+00:22:36.631 --> 00:22:41.061
+To create successful personas, we first
+need to be really clear about what
+
+00:22:41.128 --> 00:22:43.081
+they are, and this is that big if.
+
+00:22:43.405 --> 00:22:47.621
+We need to really be- really define
+the role that personas play within
+
+00:22:47.622 --> 00:22:50.616
+our organization, within our design
+and development process, and with
+
+00:22:50.616 --> 00:22:52.316
+the content creation process as well.
+
+00:22:52.943 --> 00:22:56.812
+The question is not, does this persona
+perfectly represent a disabled person?
+
+00:22:57.134 --> 00:22:57.850
+Of course, it doesn't.
+
+00:22:57.925 --> 00:23:01.254
+It never could, and it never
+should try, more importantly.
+
+00:23:01.687 --> 00:23:04.539
+The question is, does it reveal
+a relevant barrier that the team
+
+00:23:04.547 --> 00:23:06.124
+might otherwise fail to consider?
+
+00:23:06.751 --> 00:23:10.331
+As explored, personas can help us
+generate questions, challenge assumptions,
+
+00:23:10.332 --> 00:23:14.381
+explore scenarios, and, and maybe even
+identify research gaps that we need
+
+00:23:14.381 --> 00:23:17.662
+to go out and fill, perhaps anticipate
+barriers that people with certain
+
+00:23:17.662 --> 00:23:21.456
+disability types might experience,
+and then prioritize what we take into
+
+00:23:21.461 --> 00:23:23.385
+testing with people down the line.
+
+00:23:24.203 --> 00:23:26.189
+They are a hypothesis generator.
+
+00:23:26.200 --> 00:23:28.080
+They are not a method of testing.
+
+00:23:28.766 --> 00:23:32.293
+Finally, they can absolutely never
+replace the involvement of real people.
+
+00:23:32.335 --> 00:23:34.607
+I feel I've probably made that
+point a couple of times already,
+
+00:23:34.608 --> 00:23:36.352
+but it feels for me so important.
+
+00:23:36.861 --> 00:23:39.363
+So personas are a lens, not a likeness.
+
+00:23:39.418 --> 00:23:41.054
+They are there to be a provocation.
+
+00:23:41.504 --> 00:23:43.048
+They should provoke, not prove.
+
+00:23:43.079 --> 00:23:46.469
+They are a hypothesis generator,
+not a validation or a testing
+
+00:23:46.473 --> 00:23:49.731
+method, and they should never
+replace real people in the process.
+
+00:23:51.241 --> 00:23:52.787
+So how do we go about building them?
+
+00:23:52.867 --> 00:23:54.195
+We kind of have the principles.
+
+00:23:54.205 --> 00:23:55.488
+We know how we're framing it.
+
+00:23:55.525 --> 00:23:57.954
+We know how we're going to
+use personas potentially.
+
+00:23:58.396 --> 00:24:02.155
+But if they're going to be useful, they
+need to be built very, very carefully.
+
+00:24:02.535 --> 00:24:05.064
+Otherwise, they risk reinforcing
+exactly the assumptions that
+
+00:24:05.064 --> 00:24:06.029
+we're trying to challenge.
+
+00:24:06.554 --> 00:24:09.218
+So these are the principles
+that I believe support building
+
+00:24:09.218 --> 00:24:11.053
+effective accessibility personas.
+
+00:24:13.428 --> 00:24:15.574
+Start with outcome, not condition.
+
+00:24:16.425 --> 00:24:19.541
+My first principle, and the one that I
+think is most important to begin with.
+
+00:24:19.684 --> 00:24:22.964
+So rather than beginning with a prompt
+such as, "Let's create a persona who is
+
+00:24:22.965 --> 00:24:27.231
+blind," we start with a task or an outcome
+of what someone is trying to achieve.
+
+00:24:27.921 --> 00:24:30.824
+Let's take a shopping
+website, for example.
+
+00:24:30.907 --> 00:24:34.732
+On this shopping website, I want to
+go and successfully buy a blue jumper.
+
+00:24:35.071 --> 00:24:35.860
+That is the task.
+
+00:24:35.939 --> 00:24:37.782
+Might need, not need to be
+quite as specific as that.
+
+00:24:37.829 --> 00:24:39.339
+It might just be a shopping experience.
+
+00:24:39.634 --> 00:24:43.358
+Or if we're on a government website,
+I want to go and find out how I
+
+00:24:43.631 --> 00:24:46.729
+apply for a new driving… Uh, uh,
+that's probably not a good example.
+
+00:24:46.731 --> 00:24:50.792
+I want… I wanna find out how
+to, um, submit my tax return.
+
+00:24:50.797 --> 00:24:52.204
+Let's pick something really exciting.
+
+00:24:52.582 --> 00:24:55.529
+So we start with the task that people
+are trying to achieve rather than
+
+00:24:55.711 --> 00:24:59.820
+the, the, rather than the, the,
+the disability that somebody has
+
+00:24:59.852 --> 00:25:01.276
+or the diagnosis that somebody has.
+
+00:25:01.717 --> 00:25:02.765
+What are they trying to do?
+
+00:25:02.937 --> 00:25:05.348
+What might prevent them from
+doing that in the first place?
+
+00:25:05.592 --> 00:25:08.805
+And what assumptions has the design
+made about how they will perceive
+
+00:25:08.805 --> 00:25:12.444
+the information, understand it,
+navigate it, or provide input if it
+
+00:25:12.452 --> 00:25:14.314
+is some form of input is required.
+
+00:25:14.905 --> 00:25:17.385
+A diagnosis alone does not tell
+us how someone will behave.
+
+00:25:17.714 --> 00:25:20.371
+It does not tell us what technology
+they use, how they experience…
+
+00:25:20.418 --> 00:25:22.456
+uh, how experienced they are
+in using that technology, or
+
+00:25:22.456 --> 00:25:23.577
+what environment they are in.
+
+00:25:24.039 --> 00:25:27.431
+By focusing on the outcome, we can design
+solutions that work for people with shared
+
+00:25:27.432 --> 00:25:28.906
+needs regardless of the starting point.
+
+00:25:29.859 --> 00:25:32.968
+This means that if we p- design
+something that works for somebody who
+
+00:25:32.970 --> 00:25:36.386
+is a screen reader user, or perhaps
+we're- we're designing someone who…
+
+00:25:36.420 --> 00:25:39.177
+something that works well for people
+with different neurotypes or with low
+
+00:25:39.177 --> 00:25:42.898
+vision, then actually we're probably
+gonna be designing an experience that
+
+00:25:42.898 --> 00:25:46.659
+also works well for someone like me at
+the end of a busy workday where I've
+
+00:25:46.659 --> 00:25:48.079
+had to make an awful lot of decisions.
+
+00:25:48.109 --> 00:25:50.540
+I now have to go home and look
+after my children, which is
+
+00:25:50.540 --> 00:25:51.931
+gonna fatigue me even further.
+
+00:25:52.318 --> 00:25:55.231
+The amount of cognitive load, uh, or
+the amount of cognitive processing
+
+00:25:55.231 --> 00:25:59.184
+power that I might have at my disposal
+at the end of a long day like that is
+
+00:25:59.187 --> 00:26:03.447
+g- is, is gonna… I'm going to benefit
+from having a much simplified process.
+
+00:26:03.913 --> 00:26:07.464
+So by flipping the focus to focus on…
+Uh, sorry, by flipping the priority
+
+00:26:07.466 --> 00:26:11.495
+to focus on outcome, this means that
+we're going to be able to, um, design
+
+00:26:11.511 --> 00:26:14.798
+for that intersectionality that exists
+within disability, but also more
+
+00:26:14.798 --> 00:26:18.492
+broadly when we think about situational
+and temporary access requirements.
+
+00:26:19.168 --> 00:26:22.063
+This leads me nicely onto the
+second foc- uh, second principle,
+
+00:26:22.063 --> 00:26:25.542
+which is that we design on for, uh,
+focus on functional interaction.
+
+00:26:26.170 --> 00:26:29.062
+So the most useful pers- uh,
+ugh, losing my words now.
+
+00:26:29.063 --> 00:26:32.279
+The most useful personas are built
+around how someone interacts with that
+
+00:26:32.281 --> 00:26:34.012
+product or service as- as just mentioned.
+
+00:26:34.012 --> 00:26:35.445
+So can they perceive the information?
+
+00:26:35.494 --> 00:26:36.341
+Can they understand it?
+
+00:26:36.341 --> 00:26:37.210
+Can they navigate it?
+
+00:26:37.605 --> 00:26:40.121
+Can they enter information,
+make decisions, but can they
+
+00:26:40.127 --> 00:26:43.717
+also recover from errors and
+complete, um, the intended outcome?
+
+00:26:44.325 --> 00:26:47.196
+I do think this is where frameworks
+like the European Accessibility
+
+00:26:47.210 --> 00:26:49.884
+Act's Functional Performance
+Criteria can be really helpful.
+
+00:26:50.194 --> 00:26:54.374
+So for anyone who's not familiar with
+these already, this is, I think, 13
+
+00:26:54.386 --> 00:26:58.135
+different, uh, functional performance
+criteria that are research-backed
+
+00:26:58.200 --> 00:27:02.579
+outcomes that if we can design digital
+experiences that deliver on all of
+
+00:27:02.579 --> 00:27:06.518
+those different outcomes, then we
+will be creating inclusive experiences
+
+00:27:06.519 --> 00:27:08.364
+that work for almost everybody.
+
+00:27:09.136 --> 00:27:13.068
+They're named to encourage us to think
+beyond conditions, beyond disability
+
+00:27:13.068 --> 00:27:16.596
+types, and consider the human functions
+that interactions design on such as,
+
+00:27:16.781 --> 00:27:18.518
+can you use this service without vision?
+
+00:27:18.553 --> 00:27:20.209
+Can you use this service without hearing?
+
+00:27:20.240 --> 00:27:21.811
+Can you use this service without speech?
+
+00:27:22.072 --> 00:27:24.124
+So on and so forth down
+through the criteria.
+
+00:27:24.540 --> 00:27:27.902
+So this changes the question from
+which disability have we represented
+
+00:27:27.959 --> 00:27:32.311
+to which hu- human capabilities
+does this experience assume?
+
+00:27:33.085 --> 00:27:35.037
+But functional need is not
+the only part of the picture.
+
+00:27:35.155 --> 00:27:37.236
+A persona also needs human context.
+
+00:27:37.605 --> 00:27:40.931
+Two people with two similar access
+requirements may interact very
+
+00:27:40.931 --> 00:27:43.506
+differently because of their
+confidence, previous experience,
+
+00:27:43.533 --> 00:27:47.544
+environment, fatigue, responsibilities,
+or the consequence of failure.
+
+00:27:48.307 --> 00:27:51.266
+So the third principle is that
+we need to build from evidence.
+
+00:27:51.821 --> 00:27:54.947
+A persona may be fictional in
+character, but i- the insight
+
+00:27:54.950 --> 00:27:56.629
+behind it should not be fictional.
+
+00:27:56.678 --> 00:27:59.716
+It should be grounded in
+lots of solid research.
+
+00:27:59.966 --> 00:28:02.806
+It should draw from real research,
+observed behaviors, interviews,
+
+00:28:02.814 --> 00:28:06.342
+accessibility support data, or perhaps
+any existing user need evidence
+
+00:28:06.345 --> 00:28:10.062
+that you might have, um, within your
+organization or through collaboration
+
+00:28:10.082 --> 00:28:12.386
+with specialist or community, um, groups.
+
+00:28:12.908 --> 00:28:17.350
+Every detail should earn its place on
+your persona, um, by helping someone
+
+00:28:17.379 --> 00:28:18.792
+make a better digital decision.
+
+00:28:19.365 --> 00:28:23.329
+A stock image, an invented backstory,
+or a list of generic symptoms does
+
+00:28:23.330 --> 00:28:26.807
+not make a persona evidence-based, and
+that's where the danger really comes in.
+
+00:28:27.301 --> 00:28:30.976
+It can help to be… It can help to
+be really honest as you're creating
+
+00:28:30.986 --> 00:28:34.451
+personas about what is the evidence
+that we have, what is the evidence
+
+00:28:34.451 --> 00:28:37.413
+that we don't have, and what are the
+gaps that as a result we need to fill.
+
+00:28:37.840 --> 00:28:39.822
+So which details have
+we directly observed?
+
+00:28:39.890 --> 00:28:43.239
+Which, uh, which were reported
+by participants, or where have
+
+00:28:43.239 --> 00:28:44.934
+we inferred that information?
+
+00:28:45.264 --> 00:28:47.010
+Which still need to be tested further?
+
+00:28:47.415 --> 00:28:50.310
+They become really dangerous, or personas
+become really dangerous, and nobody
+
+00:28:50.310 --> 00:28:53.677
+remembers which part came from the
+research and which parts were added during
+
+00:28:53.678 --> 00:28:57.012
+the workshop when we were getting a bit
+carried away and giving these personas,
+
+00:28:57.249 --> 00:28:59.475
+um, a, a, a kind of a real identity.
+
+00:28:59.741 --> 00:29:03.559
+So every single point on those personas,
+be it the goals they're trying to achieve,
+
+00:29:03.572 --> 00:29:07.619
+the frustrations that they have, um,
+the, the motivations that bring them to
+
+00:29:07.620 --> 00:29:11.202
+your site, the access needs that, that,
+that we are consider- or the functional
+
+00:29:11.202 --> 00:29:14.552
+needs, sorry, that we are, that we are
+considering, the assistive technology that
+
+00:29:14.552 --> 00:29:18.768
+they might be using to, um, realize that
+functional interaction, all of that needs
+
+00:29:18.768 --> 00:29:21.062
+to be based on research with real people.
+
+00:29:21.424 --> 00:29:24.897
+Which then to make the point again,
+brings us back to this fourth and
+
+00:29:24.897 --> 00:29:27.765
+final principle that we need to involve
+real people in their development.
+
+00:29:28.259 --> 00:29:31.243
+So they sh- disabled and neurodivergent
+people should not only appear as
+
+00:29:31.243 --> 00:29:32.565
+the subjects of these personas.
+
+00:29:32.919 --> 00:29:36.508
+As well as conducting research with
+people to inform the foundations of
+
+00:29:36.508 --> 00:29:40.418
+the personas, you might want to get
+advice, uh, and feedback from personas
+
+00:29:40.454 --> 00:29:42.290
+about the final output as well.
+
+00:29:42.545 --> 00:29:46.024
+They can be- play… Uh, people can
+play a really meaningful role in shaping
+
+00:29:46.024 --> 00:29:49.435
+and reviewing and also challenging
+what you've put in there to ensure
+
+00:29:49.435 --> 00:29:52.678
+that we haven't inadvertently added
+any stereotypes, we're not missing
+
+00:29:52.691 --> 00:29:55.025
+context and assum- uh, and assumptions.
+
+00:29:55.540 --> 00:29:56.621
+Um, sorry.
+
+00:29:56.623 --> 00:29:59.221
+We're not missing context, and that
+there aren't assumptions there that
+
+00:29:59.221 --> 00:30:02.376
+may be invisible to the team creating
+the persona because, again, the lived
+
+00:30:02.376 --> 00:30:03.873
+experience isn't there in the group.
+
+00:30:04.699 --> 00:30:07.347
+They can also tell you whether the
+persona reflects a recognizable
+
+00:30:07.347 --> 00:30:09.941
+pattern of experience, or whether
+we've reduced someone to a
+
+00:30:09.943 --> 00:30:11.579
+condition or a set of barriers.
+
+00:30:12.094 --> 00:30:14.038
+That involvement should
+obviously be properly recognized,
+
+00:30:14.072 --> 00:30:15.351
+and most importantly, paid.
+
+00:30:15.873 --> 00:30:19.760
+Lived experience is an expertise, and
+it deserves appropriate remuneration.
+
+00:30:20.932 --> 00:30:23.150
+And even when real people have
+helped create the personas, it
+
+00:30:23.150 --> 00:30:26.381
+does not re- kind of then replace
+the research going forward.
+
+00:30:26.685 --> 00:30:30.419
+Its role really is to help teams ask those
+better questions, explore scenarios, and
+
+00:30:30.420 --> 00:30:32.112
+recognize where more evidence is needed.
+
+00:30:32.758 --> 00:30:35.844
+So the test of an effective
+accessibility persona is not whether
+
+00:30:35.854 --> 00:30:39.785
+it perfectly represents a group of
+per- people or a specific person.
+
+00:30:40.322 --> 00:30:42.270
+No persona can or should try to do that.
+
+00:30:42.609 --> 00:30:46.556
+The test is whether it helps the team
+notice a, a relevant barrier, challenge
+
+00:30:46.556 --> 00:30:50.385
+an assumption, and make better decisions
+that they would, uh, that they wouldn't
+
+00:30:50.385 --> 00:30:51.903
+have made without those personas.
+
+00:30:53.702 --> 00:30:59.188
+Really, a persona is a thinking
+tool, and this, if I was to re-term,
+
+00:30:59.317 --> 00:31:01.483
+um, a, a definition for personas…
+
+00:31:01.560 --> 00:31:02.121
+Or re-term?
+
+00:31:02.152 --> 00:31:03.920
+That's not a very good
+way of describing it.
+
+00:31:04.123 --> 00:31:08.606
+If I was to redefine, uh, what personas
+were, I would call them a thinking tool.
+
+00:31:08.817 --> 00:31:12.472
+They are there to provide a provocation
+that helps us ask better questions.
+
+00:31:13.338 --> 00:31:16.453
+But alone, they do not prove
+that your site is accessible.
+
+00:31:16.658 --> 00:31:21.382
+So just because you have designed your
+site to work for said persona, who,
+
+00:31:21.383 --> 00:31:25.380
+whatever we've decided to call them, that
+doesn't necessarily mean that we've proved
+
+00:31:25.534 --> 00:31:27.288
+that the site is therefore accessible.
+
+00:31:27.463 --> 00:31:29.311
+That is where your testing
+is gonna come into it.
+
+00:31:29.764 --> 00:31:32.500
+So to run through that once again,
+accessibility personas should
+
+00:31:32.513 --> 00:31:33.784
+be grounded in lived experience.
+
+00:31:34.038 --> 00:31:36.342
+They should describe patterns,
+not universal truths.
+
+00:31:36.665 --> 00:31:38.578
+They should focus on
+goals and interactions.
+
+00:31:38.843 --> 00:31:42.332
+They should make limitations
+explicit so teams know confidently
+
+00:31:42.588 --> 00:31:45.055
+where to use personas and
+where to go looking elsewhere.
+
+00:31:45.554 --> 00:31:47.204
+They should be reviewed and updated.
+
+00:31:47.506 --> 00:31:48.917
+These are not static documents.
+
+00:31:48.933 --> 00:31:52.692
+These are documents that need to be
+updated, reviewed on a regular basis,
+
+00:31:52.810 --> 00:31:54.363
+at least annually, if not more.
+
+00:31:54.798 --> 00:31:58.019
+They should lead towards research, and
+they should never be used as evidence
+
+00:31:58.066 --> 00:32:00.056
+of validation or proof of concept
+
+00:32:02.852 --> 00:32:06.111
+To finish things off, I feel
+for me that, that it's important
+
+00:32:06.130 --> 00:32:07.299
+to explore what happens next.
+
+00:32:07.393 --> 00:32:11.203
+So great, we've talked a lot about how
+do we create good, effective personas.
+
+00:32:11.453 --> 00:32:13.769
+We've talked about the principles
+that would lead us down the
+
+00:32:13.769 --> 00:32:16.447
+path of creating those personas
+that then work well for people.
+
+00:32:16.803 --> 00:32:17.916
+But what do you do with them?
+
+00:32:18.107 --> 00:32:22.258
+You've got perhaps five, six, seven, I
+don't know, you've got as many personas
+
+00:32:22.259 --> 00:32:26.985
+as you want, um, depending on, on what
+you've been trying to capture, who you've
+
+00:32:26.985 --> 00:32:29.206
+been trying to capture in those personas.
+
+00:32:29.601 --> 00:32:31.453
+But what do you do with
+them once you've got them?
+
+00:32:31.937 --> 00:32:35.040
+This, for me, and I see this all the
+time with the clients that we work
+
+00:32:35.040 --> 00:32:36.447
+with, is one of the biggest problems.
+
+00:32:36.990 --> 00:32:40.284
+It's not necessarily how they're created,
+it's what do we do with them afterwards.
+
+00:32:40.495 --> 00:32:43.222
+So you've invested time and research,
+you've produced a thoughtful,
+
+00:32:43.243 --> 00:32:44.689
+beautiful set of personas.
+
+00:32:44.895 --> 00:32:48.307
+You've launched them with enthusiasm
+and shared them across the business, and
+
+00:32:48.307 --> 00:32:53.098
+then they quietly sit in a folder or a
+slide deck or as a page on your internet
+
+00:32:53.129 --> 00:32:54.513
+and nobody ever looks at them again.
+
+00:32:54.888 --> 00:32:56.984
+And as a result, they're
+basically useless.
+
+00:32:57.610 --> 00:33:00.672
+Once this happens, they stop doing
+the job that they were designed to do.
+
+00:33:00.718 --> 00:33:03.117
+They no longer challenge the
+assumptions that we're, that
+
+00:33:03.118 --> 00:33:04.431
+we designed them to challenge.
+
+00:33:04.802 --> 00:33:06.754
+They are no longer
+prompting better questions.
+
+00:33:07.003 --> 00:33:10.497
+They simply become another piece of
+documentation that gets forgotten in
+
+00:33:10.499 --> 00:33:15.079
+the great expanse of, uh, of folders
+that exist within many organizations.
+
+00:33:15.922 --> 00:33:18.428
+Over the years, I've seen
+organizations try all sorts of
+
+00:33:18.428 --> 00:33:20.600
+things to keep these personas alive.
+
+00:33:20.992 --> 00:33:24.395
+We worked with one client who created
+cardboard cutout, full-size cardboard
+
+00:33:24.428 --> 00:33:29.929
+cutouts of, uh, of people, of their
+personas, um, who sat in their office.
+
+00:33:30.228 --> 00:33:33.973
+Uh, and so they were kind of there looking
+over the shoulder of, of customers.
+
+00:33:34.580 --> 00:33:36.659
+I've seen others who've put
+them up on the office walls or
+
+00:33:36.676 --> 00:33:38.206
+introduced them into daily meetings.
+
+00:33:38.216 --> 00:33:40.993
+So as well as obviously having the
+team, you might then make sure that
+
+00:33:40.994 --> 00:33:43.723
+you're bringing your personas into the
+conversation and saying, "Okay, well,
+
+00:33:43.974 --> 00:33:45.416
+what might Harry think about this?
+
+00:33:45.466 --> 00:33:49.197
+Or what might Susie think about this?"
+And by giving them those personalities,
+
+00:33:49.197 --> 00:33:53.217
+as we discussed previously, we can
+talk about them like they are our
+
+00:33:53.218 --> 00:33:58.783
+customers, like they are people so that
+we can, um, we can encourage people
+
+00:33:58.785 --> 00:34:01.904
+to engage more in the conversation
+rather than saying, "Oh, we need to
+
+00:34:01.906 --> 00:34:03.580
+build against this list of criteria."
+
+00:34:04.138 --> 00:34:07.626
+I've even heard of one organization
+who hired actors to play the personas,
+
+00:34:07.905 --> 00:34:11.308
+and these actors would wander around
+the office, uh, engaging with people,
+
+00:34:11.317 --> 00:34:16.344
+staying in character all the time, um,
+never, never, never, um, never changing
+
+00:34:16.344 --> 00:34:19.330
+from who they were supposed to be so
+that they really brought them to life.
+
+00:34:20.212 --> 00:34:23.509
+And all these approaches attempt to
+solve one, the same problem: How do
+
+00:34:23.511 --> 00:34:26.476
+we make the personas present in the
+moment that a decision is being made?
+
+00:34:27.640 --> 00:34:32.627
+In 2026, we have a new fun toy that might
+help this, and I'm sorry to have to bring
+
+00:34:32.781 --> 00:34:36.303
+the, uh, the AI words into things, but
+I do think that actually this is where
+
+00:34:36.304 --> 00:34:41.157
+potentially AI could play an interesting
+role when used cor- when used carefully.
+
+00:34:41.817 --> 00:34:44.771
+Perhaps instead of a static document,
+a persona could potentially become
+
+00:34:44.771 --> 00:34:48.587
+something a team can question, explore,
+and use within a design conversation.
+
+00:34:48.868 --> 00:34:51.171
+That obviously does not
+make them a real person.
+
+00:34:51.355 --> 00:34:54.399
+It does not make them a substitute
+for research with real people.
+
+00:34:54.670 --> 00:34:56.859
+All of the limitations and
+responsibilities that we've
+
+00:34:56.861 --> 00:34:59.834
+gone over and over as part of
+this talk today still apply.
+
+00:35:00.232 --> 00:35:04.175
+But it does potentially give us a way
+of interacting with these personas
+
+00:35:04.178 --> 00:35:08.391
+that we haven't previously had that
+keeps them alive, it keeps them in
+
+00:35:08.391 --> 00:35:13.549
+the conversation, and it might, um,
+might make, make them harder to forget.
+
+00:35:14.436 --> 00:35:17.048
+The challenge is not to simply
+to create better personas.
+
+00:35:17.257 --> 00:35:19.022
+It is to make sure that we are
+still in the room when they are
+
+00:35:19.022 --> 00:35:21.170
+needed, or they are still in the
+room, sorry, when they are needed.
+
+00:35:21.437 --> 00:35:25.379
+Challenging those mental models that we
+all have that are all unique to us and
+
+00:35:25.379 --> 00:35:29.653
+provoking us to ask the really important
+question: Is this accessible at the
+
+00:35:29.654 --> 00:35:33.715
+right time and frequently throughout
+the design and development process?
+
+00:35:37.191 --> 00:35:40.249
+That brings me to the
+end of our talk today.
+
+00:35:40.250 --> 00:35:43.228
+Thank you so much for choosing
+to listen to this, um, today.
+
+00:35:43.263 --> 00:35:44.309
+I am Lucy Collins.
+
+00:35:44.643 --> 00:35:48.836
+I'm owner of Web Usability, a UK-based
+user research and accessibility agency,
+
+00:35:48.852 --> 00:35:52.159
+and co-founder of CollectivAlly,
+an accessibility thinking tool that
+
+00:35:52.160 --> 00:35:55.921
+helps organizations make inclusion
+part of every digital decision.
+
+00:35:56.321 --> 00:35:58.726
+Details on- and my details
+are here on the slide.
+
+00:35:58.876 --> 00:35:59.608
+Please do connect.
+
+00:35:59.700 --> 00:36:01.269
+I'd love to continue the conversation.
+
+00:36:01.653 --> 00:36:03.707
+And now I think it's probably
+time for some questions.
+
+00:36:09.061 --> 00:36:09.326
+Danielle: Awesome.
+
+00:36:10.128 --> 00:36:10.440
+Cool.
+
+00:36:10.483 --> 00:36:11.621
+Thank you so much.
+
+00:36:11.654 --> 00:36:15.958
+Um, I love how, uh, approachable
+that you make the personas for
+
+00:36:15.960 --> 00:36:19.689
+people, something- as something
+other than just marketing use.
+
+00:36:20.017 --> 00:36:25.174
+Um, and, and changing that perspective
+from, you know, checklists to behaviors.
+
+00:36:25.494 --> 00:36:28.449
+Um, I think that's kind of a,
+a thing that we get so used
+
+00:36:28.449 --> 00:36:29.769
+to is using those checklists.
+
+00:36:29.777 --> 00:36:31.486
+So I- Yeah … uh, I really like that.
+
+00:36:32.053 --> 00:36:32.350
+Lucy: Good.
+
+00:36:32.352 --> 00:36:33.109
+Thank you.
+
+00:36:34.012 --> 00:36:34.359
+Danielle: Cool.
+
+00:36:34.369 --> 00:36:40.273
+So if we, uh, jump into some questions
+here, um, how do you decide, you know,
+
+00:36:40.274 --> 00:36:44.843
+what goes into a persona or, like, how
+many you need, you know, making sure that
+
+00:36:44.843 --> 00:36:49.163
+it covers enough, but… And, like, that
+you're checking enough things, but without
+
+00:36:49.163 --> 00:36:54.793
+it sort of just becoming this, you know,
+putting it all into one bucket persona?
+
+00:36:55.251 --> 00:36:55.677
+Lucy: Yeah.
+
+00:36:55.741 --> 00:36:59.209
+I'm gonna give that really annoying
+answer of, "It depends." Um-
+
+00:36:59.227 --> 00:36:59.442
+Danielle: Of course
+
+00:36:59.460 --> 00:37:05.065
+… Lucy: because it depends on sort of your
+customers, who you're, um, looking to
+
+00:37:05.066 --> 00:37:07.453
+represent within that group of personas.
+
+00:37:07.752 --> 00:37:11.706
+Obviously, we don't want to have so many
+that people can't hold these personas
+
+00:37:11.709 --> 00:37:14.704
+in their head because, again, that's
+part of the point of this, is that
+
+00:37:14.704 --> 00:37:18.466
+they need to be memorable in order to
+disrupt those mental models and provide
+
+00:37:18.466 --> 00:37:20.774
+that provocation that I was describing.
+
+00:37:21.053 --> 00:37:23.388
+But that being said, you know,
+particularly when we think about
+
+00:37:23.404 --> 00:37:27.702
+accessibility personas, given the,
+um, diverse and intersectional nature
+
+00:37:27.702 --> 00:37:31.438
+of disability, we can't possibly
+sort of, um, reduce that to a
+
+00:37:31.460 --> 00:37:33.731
+single, you know, disabled persona.
+
+00:37:33.732 --> 00:37:35.254
+That's, that's not appropriate.
+
+00:37:35.459 --> 00:37:38.141
+It's not right, and it obviously
+wouldn't necessarily do the job
+
+00:37:38.148 --> 00:37:41.510
+that we need these personas to
+do around that provocation piece.
+
+00:37:41.840 --> 00:37:46.811
+So when we think about, um, accessibility
+personas specifically, um, you know,
+
+00:37:46.825 --> 00:37:50.845
+this is where I find it very useful
+to lean on established research, um,
+
+00:37:50.871 --> 00:37:54.119
+and evidence bases like the European
+Accessibility and Functional Performance
+
+00:37:54.122 --> 00:37:58.817
+Criteria, also referenced in kind of, um,
+revised Section 508 in the US as well.
+
+00:37:59.194 --> 00:38:04.022
+Those are useful starting points where we
+do consider this outcome-based persona.
+
+00:38:04.348 --> 00:38:08.838
+Um, I think, I think it's 13 or 14
+functional performance criteria.
+
+00:38:08.928 --> 00:38:10.039
+That's probably too many.
+
+00:38:10.066 --> 00:38:13.523
+We can't hold that many in our heads,
+but there might be a way for us to sort
+
+00:38:13.523 --> 00:38:18.187
+of combine some of those needs, um, so
+that we can, we can create a pool of
+
+00:38:18.187 --> 00:38:21.495
+personas, six, seven, eight, something
+like that, that is still workable.
+
+00:38:22.111 --> 00:38:25.762
+I… If you don't mind, I might actually
+just pick up on a question that was in
+
+00:38:25.764 --> 00:38:28.536
+the Q&A which I think ties in really
+nice to this, and it's a, it's a really
+
+00:38:28.543 --> 00:38:33.110
+brilliant question, um, from Biljana,
+who was asking about the idea of what…
+
+00:38:33.171 --> 00:38:37.016
+You know, is it okay, like, uh…
+In fact, I can read out some of it.
+
+00:38:37.048 --> 00:38:39.420
+You know, "How do companies
+perceive accessibility personas?
+
+00:38:39.744 --> 00:38:42.173
+I have a problem with, uh, one
+accessibility persona which can
+
+00:38:42.232 --> 00:38:44.615
+cover all disabilities," which
+I would totally agree with.
+
+00:38:45.050 --> 00:38:48.979
+Uh, "I would prefer that normal, in
+inverted commas, personas cover one
+
+00:38:48.979 --> 00:38:51.908
+limitation each, not necessarily
+because this persona is disabled, but
+
+00:38:51.908 --> 00:38:55.114
+because we should start looking at how
+we build digital products with WCAG
+
+00:38:55.137 --> 00:38:59.981
+in mind as being normal and not for
+just disabled people, which is, um,
+
+00:38:59.984 --> 00:39:03.160
+discrimination, and most companies
+excuse themselves by, um, disabled
+
+00:39:03.186 --> 00:39:04.751
+people not being their target market."
+
+00:39:05.103 --> 00:39:09.406
+I completely agree with that sentiment
+and, you know, what I would love is for
+
+00:39:09.407 --> 00:39:14.301
+us to be building access requirements
+into, um, personas more generally.
+
+00:39:14.719 --> 00:39:17.932
+That being said, I know from the work
+that we've done with our clients is
+
+00:39:17.940 --> 00:39:23.332
+that because accessibility isn't baked
+into the way that a lot of organizations
+
+00:39:23.332 --> 00:39:28.207
+work, it's still something that happens
+at the end in the kinda QA testing- bit
+
+00:39:28.535 --> 00:39:30.743
+of that design and development process.
+
+00:39:31.013 --> 00:39:34.707
+We're needing to be kind of more
+forcibly interrupting the mental
+
+00:39:34.712 --> 00:39:38.011
+models and the decision-making
+processes that happen upstream
+
+00:39:38.056 --> 00:39:40.379
+earlier in those, in those processes.
+
+00:39:40.756 --> 00:39:45.390
+So while I would love, and I would
+completely agree with the sentiment
+
+00:39:45.408 --> 00:39:49.542
+of trying to ensure that we are
+representing disabled people in our
+
+00:39:49.544 --> 00:39:53.830
+kind of personas more generally, I
+think where accessibility personas
+
+00:39:53.832 --> 00:39:57.908
+specifically play a role is in
+providing that kind of more forceful
+
+00:39:57.910 --> 00:40:02.029
+disruption of thought and assumption,
+um, particularly in organizations
+
+00:40:02.031 --> 00:40:05.087
+who are lower in or earlier in their
+accessibility journey, and perhaps
+
+00:40:05.104 --> 00:40:07.457
+lower on their accessibility maturity.
+
+00:40:07.995 --> 00:40:09.162
+Um, so yeah.
+
+00:40:09.218 --> 00:40:12.319
+Sorry, I just thought I'd pick that one up
+'cause it seemed like a nice continuation.
+
+00:40:13.239 --> 00:40:13.593
+Danielle: Yeah.
+
+00:40:13.593 --> 00:40:15.236
+No, that's kind of where
+I was going with it.
+
+00:40:15.252 --> 00:40:19.319
+I was, um, sort of encompassing
+some of those, um, points.
+
+00:40:19.694 --> 00:40:25.712
+Um, so when you're starting, would
+you- I know that you mention, you know,
+
+00:40:25.723 --> 00:40:31.024
+starting from a behavior or something that
+someone's trying to do, but, um, how…
+
+00:40:31.424 --> 00:40:35.232
+What, what does that look like besides-
+Mm-hmm … like they wanna check out?
+
+00:40:35.245 --> 00:40:40.225
+I know it's like choosing a specific
+action, but how do you bring the,
+
+00:40:40.234 --> 00:40:46.250
+the data and the action together as
+sort of, uh, like a, a first step?
+
+00:40:46.294 --> 00:40:47.727
+Like what does that-
+Yeah … sort of look like?
+
+00:40:48.183 --> 00:40:50.144
+Lucy: So normally the way we'd
+start something like this is,
+
+00:40:50.234 --> 00:40:51.606
+um, is with user research.
+
+00:40:51.627 --> 00:40:55.393
+So we'd be doing deep discovery, uh,
+one-to-one interviews with people
+
+00:40:55.399 --> 00:40:58.484
+to understand what is it that they
+want to achieve on your website,
+
+00:40:58.484 --> 00:41:01.678
+and obviously that will be unique to
+your site depending on the product
+
+00:41:01.716 --> 00:41:03.375
+you offer, the service you provide.
+
+00:41:03.707 --> 00:41:06.321
+So we'll end up with kind of a
+long list of requirements, which
+
+00:41:06.323 --> 00:41:08.004
+will be general to everybody.
+
+00:41:08.337 --> 00:41:11.930
+Um, and then we might have some additional
+kind of accessibility needs in there that
+
+00:41:11.955 --> 00:41:15.515
+are specific to people who have access
+requirements, people with disabilities.
+
+00:41:15.877 --> 00:41:21.247
+So we end up with this long, long list
+of goals, and then you can do, um, kind
+
+00:41:21.247 --> 00:41:25.594
+of, uh, some additional quantitative, um,
+research practices, so perhaps something
+
+00:41:25.596 --> 00:41:30.937
+called a top task survey, um, or, um, a
+prioritization survey where effectively
+
+00:41:30.939 --> 00:41:35.707
+we work out what are the most important
+goals, and how does that vary across
+
+00:41:35.709 --> 00:41:40.026
+the different user types that we have,
+both generally and also when we consider
+
+00:41:40.026 --> 00:41:41.515
+those accessibility considerations.
+
+00:41:41.808 --> 00:41:46.296
+And what that ends up giving us is
+normally a sense of, um, uh, uh, some
+
+00:41:46.296 --> 00:41:48.212
+top tasks and then some tiny tasks.
+
+00:41:48.448 --> 00:41:51.602
+So the top tasks are the kinda key
+objectives, the key things that somebody
+
+00:41:51.602 --> 00:41:53.399
+wants to achieve on your website.
+
+00:41:53.408 --> 00:41:55.689
+So for, for me, I run an agency.
+
+00:41:55.792 --> 00:41:59.136
+I know that a top task for a client
+coming to my agency is to find out do we
+
+00:41:59.138 --> 00:42:01.973
+deliver the service that they're looking
+for, and how do I get in touch with you?
+
+00:42:02.220 --> 00:42:06.198
+Those are two key journeys I'm going
+to want to ensure that our customers
+
+00:42:06.198 --> 00:42:10.446
+can achieve easily, uh, seamlessly, and
+without any sort of accessibility barrier.
+
+00:42:11.355 --> 00:42:14.774
+Once you've got a sense of that
+prioritization, you can effectively build
+
+00:42:14.774 --> 00:42:19.555
+out a bit of a matrix which has got your
+long old list of tasks prioritized by…
+
+00:42:19.578 --> 00:42:22.863
+from that research, and then along the
+top you'll have your different customer
+
+00:42:22.863 --> 00:42:25.855
+groups depending on who they are, and
+in this case, kind of the different
+
+00:42:25.868 --> 00:42:29.143
+accessibility outcomes, the accessibility
+needs that we might be considering.
+
+00:42:29.520 --> 00:42:33.705
+That then normally allows us to start
+grouping, um, shared needs, because
+
+00:42:33.707 --> 00:42:37.462
+what we might have is not lots and
+lots of distinct personas with a
+
+00:42:37.462 --> 00:42:40.872
+single need, but we might end up with
+groups of customers who have shared
+
+00:42:40.874 --> 00:42:44.394
+needs, and th- and therefore they
+can be a single persona themselves.
+
+00:42:44.707 --> 00:42:48.759
+And that's where we can end up
+simplifying, um, the kind of the number
+
+00:42:48.828 --> 00:42:51.571
+or reducing the number of personas that
+we have so that we're not trying to
+
+00:42:51.580 --> 00:42:56.151
+hold 15, 20 different persona types in
+our heads, which as I said previously,
+
+00:42:56.152 --> 00:42:59.957
+kind of then makes them really hard work
+and, and almost a bit pointless as well.
+
+00:43:00.321 --> 00:43:03.299
+And from there, once you start… Once you
+know the need, once you know the outcome
+
+00:43:03.301 --> 00:43:06.518
+we're building toward, that's when you can
+start to kind of add, you know, the nice
+
+00:43:06.518 --> 00:43:10.133
+fluffy details around them that make them
+memorable, um, the demographic details,
+
+00:43:10.133 --> 00:43:14.381
+the backstories, the things that help us
+as human beings hold these ideas in their
+
+00:43:14.392 --> 00:43:18.294
+head be- in our heads because they're
+not an abstract list of requirements.
+
+00:43:18.294 --> 00:43:21.243
+They, they have been given, you
+know, a little bit of an identity.
+
+00:43:23.006 --> 00:43:26.127
+Danielle: Yeah, I think that, that
+sort of encompasses it really well.
+
+00:43:26.225 --> 00:43:30.841
+Um, I think it's, it's always hard to d-
+to know how to get started with a thing.
+
+00:43:30.852 --> 00:43:34.075
+You're like, "That sounds great. I wanna
+do that." But so it's, it's really nice
+
+00:43:34.075 --> 00:43:36.689
+to put it into those concrete, you know-
+
+00:43:36.700 --> 00:43:36.841
+Lucy: Yeah
+
+00:43:36.841 --> 00:43:37.417
+Danielle: ways.
+
+00:43:37.725 --> 00:43:38.078
+Um, I think-
+
+00:43:38.078 --> 00:43:38.580
+Lucy: What do we actually
+
+00:43:38.584 --> 00:43:38.794
+do?
+
+00:43:39.473 --> 00:43:40.174
+Danielle: Yeah.
+
+00:43:40.743 --> 00:43:45.700
+Um, I think, uh, it- and we're also
+talking in an ideal world, right?
+
+00:43:45.700 --> 00:43:48.211
+You're able to do that
+research and find the people.
+
+00:43:48.249 --> 00:43:56.127
+Is there a way that you can do
+some of this without, uh, can you
+
+00:43:56.127 --> 00:43:57.910
+incorporate that at a later time?
+
+00:43:57.964 --> 00:44:01.296
+Is there sort of a general way
+that you can start to think about
+
+00:44:01.296 --> 00:44:07.991
+that bef- and then maybe as a
+proof to a, an, a superior or, um-
+
+00:44:08.115 --> 00:44:08.125
+Lucy: Mm-hmm
+
+00:44:08.125 --> 00:44:10.904
+Danielle: until you have the budget to
+be able to do that as you're starting
+
+00:44:10.906 --> 00:44:14.893
+to think about those things, um, are
+there, like, sources where that you can
+
+00:44:14.893 --> 00:44:19.770
+go to find maybe popular, like, data-
+
+00:44:19.770 --> 00:44:19.788
+Lucy: Yeah
+
+00:44:19.788 --> 00:44:20.250
+… Danielle: for that?
+
+00:44:20.297 --> 00:44:20.629
+Lucy: Yeah.
+
+00:44:20.966 --> 00:44:24.368
+Yeah, and I think that's, again, the
+nice thing as well when we think about
+
+00:44:24.406 --> 00:44:27.895
+one of these accessibility personas
+specifically is I mentioned some within
+
+00:44:27.895 --> 00:44:31.721
+the presentation already, there are
+established personas out there that
+
+00:44:31.792 --> 00:44:33.383
+perhaps could be your starting point.
+
+00:44:33.386 --> 00:44:33.401
+Danielle: Mm-hmm.
+
+00:44:33.721 --> 00:44:36.961
+Lucy: And then what you want to be
+doing is overlaying what you know
+
+00:44:36.962 --> 00:44:42.453
+about your specific customers on those
+accessibility personas, um, which
+
+00:44:42.533 --> 00:44:47.500
+might be a way to kind of move you
+along, um, that development process.
+
+00:44:47.502 --> 00:44:50.393
+As you say, get proof of concept
+so then you hopefully you can get
+
+00:44:50.395 --> 00:44:52.084
+buy-in to, to then do some research.
+
+00:44:52.397 --> 00:44:55.100
+Again, I wouldn't consider this
+a kind of validation exercise.
+
+00:44:55.100 --> 00:44:59.196
+I'd still want to be open to the
+hypothesis that b- for your customer
+
+00:44:59.196 --> 00:45:00.491
+group there might be different needs.
+
+00:45:00.524 --> 00:45:03.843
+But yeah, to your point, for those
+people that don't necessarily have lots
+
+00:45:03.843 --> 00:45:07.691
+of money for a nice meaty discovery
+research project at the start of a, of
+
+00:45:07.691 --> 00:45:11.745
+a development p- piece, this could help
+them, um, kind of take that first step.
+
+00:45:11.747 --> 00:45:13.147
+So I mentioned some examples.
+
+00:45:13.191 --> 00:45:17.058
+Um, the, the, in the UK we've got
+the Government Digital Service.
+
+00:45:17.102 --> 00:45:20.856
+They have some accessibility personas that
+were developed a little while ago now.
+
+00:45:20.888 --> 00:45:23.727
+Um, but you know, I think they
+are, they're still relevant.
+
+00:45:24.026 --> 00:45:29.334
+Um, and then similarly, W3C, um, they have
+their own accessibility persona, or they,
+
+00:45:29.372 --> 00:45:30.966
+they, they kinda call them user stories.
+
+00:45:31.339 --> 00:45:34.397
+Um, and then at the final one, the
+final example I, I shared was that
+
+00:45:34.401 --> 00:45:35.738
+Stanford University one as well.
+
+00:45:35.741 --> 00:45:39.674
+So these are all obviously
+respected organizations who I hope
+
+00:45:39.826 --> 00:45:43.229
+have done their research before
+I'm here kind of promoting them.
+
+00:45:43.421 --> 00:45:46.980
+Um, but it, you know, it seems to me
+that they've given people a good place
+
+00:45:46.984 --> 00:45:51.256
+to start when you're not even sure, like,
+where to begin with what an accessibility
+
+00:45:51.256 --> 00:45:52.249
+persona look, should look like.
+
+00:45:52.263 --> 00:45:55.238
+What are the different outcomes,
+different needs I should be considering?
+
+00:45:55.435 --> 00:45:59.627
+How do I make this, the number of personas
+broad enough to be representative,
+
+00:45:59.879 --> 00:46:02.118
+but slim enough to be memorable?
+
+00:46:02.319 --> 00:46:05.046
+Um, because there is a, is,
+it is a balance to be found.
+
+00:46:05.109 --> 00:46:09.044
+Um, and it can feel quite overwhelming,
+um, at the beginning of this process.
+
+00:46:10.134 --> 00:46:10.393
+Danielle: Yeah.
+
+00:46:10.393 --> 00:46:14.218
+I th- but I think it's helpful
+to h- to even hear you say
+
+00:46:14.511 --> 00:46:15.904
+five to eight or whatever.
+
+00:46:15.906 --> 00:46:15.933
+Lucy: Yeah.
+
+00:46:15.933 --> 00:46:19.705
+Danielle: Like, that sounds at first
+like a lot, but also not enough.
+
+00:46:19.734 --> 00:46:23.857
+And so you're kind of like
+they're… You just sort of th-
+
+00:46:23.886 --> 00:46:26.899
+throw it all in a document and
+then do some organizing afterwards.
+
+00:46:26.899 --> 00:46:26.913
+Lucy: Yeah.
+
+00:46:26.913 --> 00:46:28.225
+Danielle: I like that matrix idea.
+
+00:46:28.225 --> 00:46:31.528
+Of course, with color contrast
+we're all familiar with how a
+
+00:46:31.529 --> 00:46:33.723
+matrix, you know, things look.
+
+00:46:33.725 --> 00:46:36.692
+And so I think that's a really
+cool way to, to conceptualize it.
+
+00:46:37.174 --> 00:46:37.471
+Lucy: Yeah.
+
+00:46:37.707 --> 00:46:37.973
+Yeah.
+
+00:46:39.562 --> 00:46:39.598
+Danielle: Cool.
+
+00:46:39.598 --> 00:46:44.062
+Um, well, um, I want to thank
+everyone for joining us, uh, for
+
+00:46:44.062 --> 00:46:45.651
+this session with Lucy Collins.
+
+00:46:45.671 --> 00:46:50.084
+You can absolutely continue this
+conversation and continue to ask
+
+00:46:50.085 --> 00:46:52.960
+questions in Slack or on social media.
+
+00:46:53.252 --> 00:47:00.966
+Um, we're using #WPA11YDay and #WPAD2026.
+

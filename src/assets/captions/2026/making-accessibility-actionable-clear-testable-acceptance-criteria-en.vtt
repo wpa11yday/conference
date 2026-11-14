@@ -1,0 +1,2857 @@
+WEBVTT
+
+00:00:00.928 --> 00:00:03.889
+Narrator: WordPress Accessibility Day 2026.
+
+00:00:04.335 --> 00:00:09.450
+Making Accessibility Actionable:
+Clear, Testable Acceptance Criteria.
+
+00:00:09.940 --> 00:00:15.240
+Presented by Russ Weakley, head of
+inclusive training at Intopia Learn.
+
+00:00:15.711 --> 00:00:21.121
+This session was presented on
+October 8th, 2026 at 5 o'clock UTC.
+
+00:00:24.000 --> 00:00:26.916
+WordPress Accessibility Day 2026.
+
+00:00:27.280 --> 00:00:29.005
+Thank you to our sponsors.
+
+00:00:29.371 --> 00:00:33.862
+Platinum Sponsor: Equalize
+Digital - websites for everyone.
+
+00:00:34.397 --> 00:00:38.082
+Equalize Digital's Accessibility
+Checker plugin makes real-time
+
+00:00:38.082 --> 00:00:41.495
+testing in the WordPress editor
+faster and more affordable.
+
+00:00:42.391 --> 00:00:46.604
+Auditing services and online
+courses help organizations build
+
+00:00:46.805 --> 00:00:48.784
+and maintain accessible websites.
+
+00:00:49.402 --> 00:00:51.454
+Platinum Sponsor: Gravity.
+
+00:00:51.943 --> 00:00:55.447
+Gravity Forms is the accessible
+form builder for WordPress.
+
+00:00:55.835 --> 00:00:59.426
+Trusted by millions of sites,
+it's built to create powerful
+
+00:00:59.563 --> 00:01:02.605
+WCAG-compliant forms for any project.
+
+00:01:03.143 --> 00:01:07.981
+Gold sponsors: Kinsta, Insi, WP Engine.
+
+00:01:08.611 --> 00:01:13.839
+Silver sponsors: Second Melody,
+Tenrec - your website only better.
+
+00:01:15.183 --> 00:01:19.071
+Visit sponsor pages to enter to
+win giveaways and access swag.
+
+00:01:19.487 --> 00:01:24.108
+Go to wpaccessibility.day/2026/sponsors.
+
+00:01:27.959 --> 00:01:29.520
+Don't forget to leave feedback.
+
+00:01:29.991 --> 00:01:34.405
+Go to wpaccessibility.day/2026/feedback.
+
+00:01:40.316 --> 00:01:43.212
+Welcome to WordPress
+Accessibility Day 2026.
+
+00:01:43.619 --> 00:01:47.492
+My name is David Cox, and I work on design
+systems and product accessibility at Lyft.
+
+00:01:48.198 --> 00:01:51.670
+Thank you for joining this session
+titled Making Accessibility Actionable:
+
+00:01:52.005 --> 00:01:53.862
+Clear Testable Acceptance Criteria.
+
+00:01:54.469 --> 00:01:57.230
+Our presenter for this session
+is Russ Weakley from Australia.
+
+00:01:57.966 --> 00:02:01.462
+Russ has over 30 years of experience
+in design and development as a user
+
+00:02:01.462 --> 00:02:05.135
+experience professional, front-end
+developer, author, and trainer.
+
+00:02:05.751 --> 00:02:09.324
+He has a deep focus on accessibility
+and inclusion, and has spent much of
+
+00:02:09.324 --> 00:02:13.354
+his career helping organizations build
+digital experiences that are usable and
+
+00:02:13.355 --> 00:02:15.501
+inclusive for people of all abilities.
+
+00:02:16.235 --> 00:02:19.534
+Russ has extensive experience planning
+and conducting user research and
+
+00:02:19.534 --> 00:02:23.632
+usability testing with people with
+disabilities, helping organizations
+
+00:02:23.655 --> 00:02:27.259
+gain direct insight into the barriers
+and opportunities experienced by
+
+00:02:27.260 --> 00:02:29.103
+people with diverse access needs.
+
+00:02:29.799 --> 00:02:33.377
+Please feel free to add your questions
+in the Zoom Q&A section, and we'll
+
+00:02:33.378 --> 00:02:34.817
+answer them at the end of the session.
+
+00:02:35.439 --> 00:02:38.097
+You can use the chat function
+to connect with other attendees.
+
+00:02:38.834 --> 00:02:40.275
+And with that, let's begin.
+
+00:02:41.330 --> 00:02:41.846
+Hey, everyone.
+
+00:02:41.899 --> 00:02:43.325
+Welcome to my session.
+
+00:02:43.326 --> 00:02:47.376
+My name's Russ Weakley, and I'm gonna
+be talking about making accessibility
+
+00:02:47.376 --> 00:02:51.645
+actionable, and we're looking at
+clear testable acceptance criteria.
+
+00:02:52.847 --> 00:02:54.225
+So let's start with an introduction.
+
+00:02:54.440 --> 00:02:55.328
+What's the problem?
+
+00:02:55.853 --> 00:02:59.600
+So I do a lot of training and working
+with teams across different countries
+
+00:02:59.618 --> 00:03:03.326
+and different organizations, and there's
+one common problem that I see a lot.
+
+00:03:04.042 --> 00:03:09.116
+And that is that teams often tack on
+statements to their definition of done,
+
+00:03:09.450 --> 00:03:15.144
+and it's something like, "Must be WCAG
+2.2 compliant," this incredibly broad
+
+00:03:15.144 --> 00:03:17.469
+statement, um, just tacked on at the end.
+
+00:03:17.902 --> 00:03:22.829
+And it's too broad and too vague, uh,
+to test in, uh, any sort of criteria.
+
+00:03:23.255 --> 00:03:25.435
+Uh, it's the opposite of good practice.
+
+00:03:25.996 --> 00:03:28.173
+Um, so what is this session about then?
+
+00:03:28.194 --> 00:03:31.519
+Well, I'm gonna t- uh, walk
+you through how to write
+
+00:03:31.844 --> 00:03:36.510
+clear, precise, and meaningful
+acceptance criteria, particularly
+
+00:03:36.708 --> 00:03:39.060
+accessibility acceptance criteria.
+
+00:03:39.786 --> 00:03:43.950
+And these criteria are designed
+so they can work on pages,
+
+00:03:44.194 --> 00:03:46.216
+uh, flows, and components.
+
+00:03:47.656 --> 00:03:49.676
+So I'm just gonna start at the
+very beginning for some people
+
+00:03:49.676 --> 00:03:50.620
+that may not be aware of it.
+
+00:03:51.096 --> 00:03:52.800
+What are acceptance criteria?
+
+00:03:52.826 --> 00:03:54.526
+Forgetting about the accessibility ones.
+
+00:03:55.155 --> 00:04:00.489
+So they're basically clear, specificul,
+sp- specific testable conditions
+
+00:04:00.855 --> 00:04:05.827
+that any sort of product you build or
+user story, et cetera, um, in order
+
+00:04:05.828 --> 00:04:10.005
+to determine that they're complete,
+or in Sprint te- uh, terminology,
+
+00:04:10.237 --> 00:04:13.718
+they're done And what do they do?
+
+00:04:14.110 --> 00:04:16.382
+Well, they give us a lot of things.
+
+00:04:16.392 --> 00:04:19.840
+So the first one is that we all have a
+shared understanding of what's going on.
+
+00:04:21.450 --> 00:04:26.676
+They define what done is, as I said, and
+they set, set the scope very clearly.
+
+00:04:26.869 --> 00:04:29.674
+If you have something broad
+like must be WCAG 2., 2.2
+
+00:04:29.675 --> 00:04:31.817
+compliant, it's incredibly broad.
+
+00:04:32.001 --> 00:04:35.541
+What we want is to have f-
+very clear, very defined scope.
+
+00:04:36.467 --> 00:04:37.794
+They help guide the team.
+
+00:04:39.544 --> 00:04:42.221
+And they, if you're done
+well, support testing.
+
+00:04:42.585 --> 00:04:46.194
+A lot of the discuss- discussions I'm
+gonna be s- going through today will not
+
+00:04:46.194 --> 00:04:51.273
+only help teams, but will be really useful
+for QAs who are at the other end of this,
+
+00:04:51.493 --> 00:04:55.073
+because they're the poor people that
+have to test against whatever you write.
+
+00:04:55.329 --> 00:04:59.407
+So our job is to make it easier for
+developers and designers, but more
+
+00:04:59.408 --> 00:05:01.567
+importantly for QAs at the other end.
+
+00:05:02.704 --> 00:05:04.857
+So let's talk about some
+key characteristics of
+
+00:05:04.857 --> 00:05:07.059
+good acceptance criteria.
+
+00:05:08.372 --> 00:05:10.608
+We've said this a couple of times,
+but they've gotta be clear and
+
+00:05:10.608 --> 00:05:13.060
+concise and understandable by anyone.
+
+00:05:13.220 --> 00:05:14.852
+They should be unambiguous.
+
+00:05:16.335 --> 00:05:20.831
+The most important point we're gonna talk
+about throughout these criteria, a lot
+
+00:05:20.831 --> 00:05:22.156
+of people write these vague statements.
+
+00:05:22.480 --> 00:05:24.977
+They should be 100% testable.
+
+00:05:25.301 --> 00:05:29.261
+That means that a QA who's not even
+knowledgeable about accessibility
+
+00:05:29.440 --> 00:05:33.365
+should be able to get that criteria
+and understand what they have to do.
+
+00:05:33.693 --> 00:05:37.050
+And ideally, the way we write
+them in this session, every single
+
+00:05:37.052 --> 00:05:39.171
+statement should be a pass or a fail.
+
+00:05:40.547 --> 00:05:41.710
+They should be user-focused.
+
+00:05:41.765 --> 00:05:45.546
+They should be working not on some
+abstract concept, but especially
+
+00:05:45.550 --> 00:05:49.557
+for acce-- uh, uh, accessibility
+ones, they should be user-focused.
+
+00:05:50.774 --> 00:05:52.258
+And they should be very specific.
+
+00:05:52.529 --> 00:05:55.709
+A lot of people bundle these broad
+concepts together, but you'll see that
+
+00:05:55.709 --> 00:05:57.672
+when we talk about it, it's one-to-one.
+
+00:05:59.094 --> 00:06:02.796
+So that's just general acceptance
+criteria, but what about
+
+00:06:02.812 --> 00:06:04.545
+accessibility versions of that?
+
+00:06:04.918 --> 00:06:08.875
+So these are just a subset of
+the broader acceptance criteria.
+
+00:06:09.451 --> 00:06:14.689
+But the one difference is they define
+accessibility requirements along the same
+
+00:06:14.689 --> 00:06:20.121
+lines so that that product, when it's
+done, it's also considered accessible.
+
+00:06:21.851 --> 00:06:25.109
+So where can all these accessibility
+acceptance criteria be used?
+
+00:06:25.455 --> 00:06:28.310
+Well, as we said, the most
+important place that I see them
+
+00:06:28.315 --> 00:06:30.085
+used is definition of done.
+
+00:06:30.287 --> 00:06:33.999
+That is the, the home for these
+acceptance criteria, and they allow
+
+00:06:34.004 --> 00:06:38.707
+to confirm whether, as we said before,
+that thing is accessible or complete.
+
+00:06:39.461 --> 00:06:43.316
+They can also be added to user stories
+a slightly level before, so they
+
+00:06:43.316 --> 00:06:48.274
+help dictate how that thing, um, is
+gonna work before it even begins.
+
+00:06:49.182 --> 00:06:53.485
+They can be moved back in the process
+to design requirements, so you can write
+
+00:06:53.485 --> 00:06:58.082
+acceptance criteria that designers do as
+part of their checks before, you know,
+
+00:06:58.098 --> 00:07:01.929
+th-they, they consider it complete and
+before they hand over to developers.
+
+00:07:03.278 --> 00:07:07.125
+Really important for developers as well
+when they're building products, um,
+
+00:07:07.349 --> 00:07:11.149
+either way, way back, um, when they're
+building design system components
+
+00:07:11.415 --> 00:07:13.302
+or during sprint cycles, et cetera.
+
+00:07:13.584 --> 00:07:17.378
+Um, they provide developers with clear
+guidelines on how they've gotta be built.
+
+00:07:18.453 --> 00:07:22.377
+And as I said before, the most
+important people are QAs and testers,
+
+00:07:22.655 --> 00:07:24.583
+that it helps support them as well.
+
+00:07:25.544 --> 00:07:29.512
+But a few places that they, they use
+that I find them really valuable sit
+
+00:07:29.534 --> 00:07:34.466
+beyond that normal sprint cycle, and
+the first one is I grew up in a world of
+
+00:07:34.466 --> 00:07:39.548
+design systems, and, uh, they're really
+valuable in the design system world.
+
+00:07:39.819 --> 00:07:45.237
+So you can help, um, use acceptance
+criteria to define exactly how components
+
+00:07:45.237 --> 00:07:49.992
+need to be built so that they're testable
+and robust before they're released out
+
+00:07:50.006 --> 00:07:52.151
+to developers throughout your teams.
+
+00:07:53.096 --> 00:07:55.904
+But they can also be used
+in this joyous world of AI.
+
+00:07:56.256 --> 00:08:00.692
+You can use acceptance criteria to
+push into a prompt, and then you've
+
+00:08:00.705 --> 00:08:06.259
+got very specific ways that your AI,
+um, knows how to build components.
+
+00:08:06.435 --> 00:08:08.259
+So they're very, very valuable there.
+
+00:08:09.143 --> 00:08:12.963
+And, um, a lot of you probably do this
+anyway, but you can add them to-- as
+
+00:08:12.972 --> 00:08:17.807
+part of your skills.md files, and they
+will actually be pushed in directly,
+
+00:08:17.991 --> 00:08:20.873
+and they can be brought in and out as
+needed, depending on the components,
+
+00:08:20.879 --> 00:08:24.755
+et cetera, so they can help AI build,
+um, you know, whenever they're,
+
+00:08:24.783 --> 00:08:26.053
+they're building any sort of component.
+
+00:08:27.546 --> 00:08:29.144
+So that's how they can be used.
+
+00:08:29.473 --> 00:08:32.058
+Now, during this session, we're
+gonna talk about two different
+
+00:08:32.058 --> 00:08:34.126
+levels of acceptance criteria.
+
+00:08:35.063 --> 00:08:41.203
+Um, and they are page and user flow level,
+and the second one is component level.
+
+00:08:41.750 --> 00:08:45.002
+Now, I grew up in a world of
+building components with developers
+
+00:08:45.002 --> 00:08:46.496
+and building design systems.
+
+00:08:46.797 --> 00:08:50.874
+So for most people, they think
+about it as a second level down,
+
+00:08:51.128 --> 00:08:55.240
+and that is on a component level,
+you know, like on a dropdown or
+
+00:08:55.240 --> 00:08:56.902
+on a form field or on a button.
+
+00:08:57.748 --> 00:09:01.234
+But often in the world that I've
+done when I've gone into training
+
+00:09:01.533 --> 00:09:04.484
+is that there's that broader
+level that's completely missing.
+
+00:09:05.114 --> 00:09:08.003
+So we're gonna be talking about
+that higher level as well, which
+
+00:09:08.004 --> 00:09:10.000
+is page or user flow level.
+
+00:09:10.375 --> 00:09:12.799
+So you'll see throughout this thing,
+we're gonna talk about those two.
+
+00:09:12.799 --> 00:09:16.792
+And in fact, we're gonna look right
+through page and user flow and then down
+
+00:09:16.792 --> 00:09:18.664
+through component level ones as well.
+
+00:09:19.809 --> 00:09:23.707
+So let's start with page or user
+flow level acceptance criteria.
+
+00:09:24.395 --> 00:09:25.178
+And so what are they?
+
+00:09:25.465 --> 00:09:27.906
+Well, pages-- I'm just gonna
+define them in very basic.
+
+00:09:27.906 --> 00:09:31.199
+I mean, this sounds very obvious, but
+a page is basically anything that's
+
+00:09:31.205 --> 00:09:36.069
+put together, um, a screen or a page
+where, uh, a concept is put together,
+
+00:09:36.338 --> 00:09:40.696
+um, in a digital product, and they
+often bring multiple components
+
+00:09:40.696 --> 00:09:42.302
+together into a single layout.
+
+00:09:43.179 --> 00:09:47.524
+So it could be something like a contact
+form, a dashboard screen, search
+
+00:09:47.524 --> 00:09:49.193
+results screen, those sort of things.
+
+00:09:50.016 --> 00:09:54.481
+A user flow is a much broader concept,
+and that's an end-to-end sequence
+
+00:09:54.482 --> 00:09:57.309
+of pages or states, depending on
+whether it's a single-page app.
+
+00:09:58.136 --> 00:10:01.893
+And these, uh, guide users
+through some sort of process.
+
+00:10:02.902 --> 00:10:06.151
+And each step, there might be
+multiple screens along the way, or
+
+00:10:06.151 --> 00:10:07.698
+there could be just a tiny number.
+
+00:10:08.411 --> 00:10:11.393
+So a lot of people think, oh, well,
+a login sc-- uh, process is just
+
+00:10:11.395 --> 00:10:14.393
+one screen, but often it's got
+different states, and it might have
+
+00:10:14.393 --> 00:10:15.788
+an end screen, which is different.
+
+00:10:16.007 --> 00:10:18.918
+So a login process is
+actually still a flow.
+
+00:10:19.437 --> 00:10:20.834
+The same with submitting a complaint.
+
+00:10:20.834 --> 00:10:23.710
+It looks like it's a form, but in
+reality, there might be different
+
+00:10:23.712 --> 00:10:25.400
+states to it or different steps.
+
+00:10:25.805 --> 00:10:29.308
+Um, and I worked in insurance,
+uh, for a long while, so getting
+
+00:10:29.309 --> 00:10:31.527
+a quote is a full process.
+
+00:10:31.753 --> 00:10:35.574
+So it might start with, do you wanna
+get house insurance today, and takes
+
+00:10:35.575 --> 00:10:39.410
+you through that quote flow until
+you've, you know, got a quote for
+
+00:10:39.410 --> 00:10:41.428
+insurance or you've purchased insurance.
+
+00:10:42.062 --> 00:10:46.167
+And even something like reset password, a
+very simple one, that might take multiple
+
+00:10:46.177 --> 00:10:49.444
+screens or a, a full flow to get there.
+
+00:10:51.110 --> 00:10:54.415
+So what's the purpose of these
+user flow, uh, uh, the page
+
+00:10:54.418 --> 00:10:55.769
+or user flow level components?
+
+00:10:55.951 --> 00:11:00.460
+Is to ensure that acce-accessibility
+is considered and tested, um,
+
+00:11:00.528 --> 00:11:03.704
+up at this higher level, not
+just down at a component level.
+
+00:11:04.409 --> 00:11:09.602
+And an example might be all interactions,
+including navigation, opening and closing
+
+00:11:09.602 --> 00:11:15.328
+elements, entering data, and submissions
+must be completed only using a keyboard.
+
+00:11:17.214 --> 00:11:18.007
+So where do they fit?
+
+00:11:18.271 --> 00:11:20.649
+Well, these ones are very broad
+and high, so they fit in user
+
+00:11:20.649 --> 00:11:22.367
+stories, definition of done.
+
+00:11:22.656 --> 00:11:24.269
+Um, we talked about these before.
+
+00:11:24.420 --> 00:11:28.366
+Um, but they can also be pushed into
+backlog, et cetera, to review backlog.
+
+00:11:28.872 --> 00:11:32.710
+And, um, you'll see there's a slight
+difference between, uh, page user
+
+00:11:32.711 --> 00:11:37.626
+flow to component because these
+are often owned by POs or BAs, uh,
+
+00:11:37.664 --> 00:11:40.063
+designers, developers, and QAs.
+
+00:11:41.925 --> 00:11:44.116
+So why do we need this higher level?
+
+00:11:45.451 --> 00:11:49.653
+Well, many teams focus on making
+sure that each of the components are
+
+00:11:49.653 --> 00:11:53.405
+accessible, or they assume they're
+ac-accessible coming from their
+
+00:11:53.406 --> 00:11:54.997
+design system, and that's great.
+
+00:11:55.266 --> 00:11:57.322
+Um, and we were gonna
+talk about them soon.
+
+00:11:57.741 --> 00:12:03.218
+But there's also critical accessibility
+that happens outside of your components.
+
+00:12:03.579 --> 00:12:07.669
+And working design systems for years,
+the analogy I used to use, regardless of
+
+00:12:07.669 --> 00:12:13.095
+accessibility, is our job was to build the
+most beautiful, robust building blocks.
+
+00:12:13.598 --> 00:12:18.055
+But teams could still put them together
+poorly, and the analogy might be
+
+00:12:18.058 --> 00:12:19.822
+that you've got Lego building blocks.
+
+00:12:20.169 --> 00:12:23.377
+And as you know, each Lego building
+block is beautifully robust.
+
+00:12:23.568 --> 00:12:24.574
+It's consistent.
+
+00:12:24.920 --> 00:12:27.905
+But you could build a brick
+wall with Lego that's beautiful
+
+00:12:27.905 --> 00:12:29.278
+and robust and overlapping.
+
+00:12:29.525 --> 00:12:31.918
+You could build a brick wall,
+which is terrible and, you know,
+
+00:12:31.920 --> 00:12:33.412
+you push it over and it collapses.
+
+00:12:33.602 --> 00:12:37.156
+So even with the best beautiful
+building blocks, there's gonna
+
+00:12:37.156 --> 00:12:40.838
+be issues at a higher level,
+and the same with accessibility.
+
+00:12:42.122 --> 00:12:45.386
+So, um, it's-- it-- because-- and
+the main reason is because you're
+
+00:12:45.386 --> 00:12:47.056
+dealing with the product as a whole
+
+00:12:50.125 --> 00:12:55.242
+So let's talk about some common issues the
+first one that only ah appears sort of at
+
+00:12:55.242 --> 00:13:00.385
+this high level is poor heading hierarchy
+and you only notice that when you put
+
+00:13:00.385 --> 00:13:02.180
+a page together or a flow together.
+
+00:13:02.358 --> 00:13:05.792
+You wanna make sure that the headings
+are meaningful and follow a logical
+
+00:13:05.797 --> 00:13:11.537
+order focus management is the most
+important thing that designers and
+
+00:13:11.538 --> 00:13:14.905
+developers forget, and it might
+be something like when a modal
+
+00:13:14.906 --> 00:13:17.042
+fires, where do you send focus?
+
+00:13:17.365 --> 00:13:21.327
+When a user travels through a form
+and hit submit, where does focus go?
+
+00:13:21.604 --> 00:13:23.985
+Uh, does it go to a, um, a form field?
+
+00:13:24.161 --> 00:13:26.719
+Does it go to a message above
+that helps people understand it?
+
+00:13:26.997 --> 00:13:30.587
+Does it sit down on the button and
+not do anything and confuse users?
+
+00:13:31.727 --> 00:13:33.194
+Um, incorrect focus order.
+
+00:13:33.393 --> 00:13:36.718
+So does the page move around
+and jar in a different way?
+
+00:13:36.955 --> 00:13:41.358
+So some keyboard users need to know
+exactly where that page is and what's
+
+00:13:41.359 --> 00:13:45.471
+going on and don't want focus to
+suddenly jump across to the other end
+
+00:13:45.472 --> 00:13:47.447
+of the page where they might lose it.
+
+00:13:48.729 --> 00:13:50.301
+Inconsistent navigation patterns.
+
+00:13:50.323 --> 00:13:52.988
+These are things that only
+exist up at that higher level.
+
+00:13:53.800 --> 00:13:56.555
+Uh, insufficient feedback and
+instructions, things like that.
+
+00:13:56.752 --> 00:14:00.187
+So for example, when user
+submits a form, are there errors?
+
+00:14:00.222 --> 00:14:01.579
+Are they clearly defined?
+
+00:14:01.901 --> 00:14:04.238
+And again, when people are
+focusing on small components,
+
+00:14:04.238 --> 00:14:05.482
+they sometimes miss these.
+
+00:14:06.540 --> 00:14:08.286
+Missing or unclear page titles.
+
+00:14:08.286 --> 00:14:10.921
+This is a really important
+thing for single-page apps.
+
+00:14:11.281 --> 00:14:14.535
+A lot of developers build beautiful
+single-page apps, but they forget that the
+
+00:14:14.535 --> 00:14:20.092
+document title can and should change as
+you're moving through these pseudo-pages.
+
+00:14:20.378 --> 00:14:20.870
+Why?
+
+00:14:21.108 --> 00:14:24.217
+Because some screen readers get lost,
+and one of the most common things they'll
+
+00:14:24.217 --> 00:14:29.098
+do is just use a command to hear the
+page title to understand where they are.
+
+00:14:30.223 --> 00:14:32.117
+Keyboard traps and things like that.
+
+00:14:32.310 --> 00:14:35.370
+Now, they exist at a component
+level, but they also exist when
+
+00:14:35.370 --> 00:14:37.045
+you put a whole page together.
+
+00:14:38.045 --> 00:14:40.341
+And then there's just broader
+things like cognitive load.
+
+00:14:40.341 --> 00:14:41.955
+Is the page too complicated?
+
+00:14:42.536 --> 00:14:43.670
+Uh, timeouts.
+
+00:14:43.699 --> 00:14:46.670
+Again, timeouts very rarely
+exist at a component level,
+
+00:14:46.944 --> 00:14:48.550
+but they exist at a page level.
+
+00:14:49.469 --> 00:14:53.454
+So all these types of things, in
+almost every case, some keyboard traps
+
+00:14:53.459 --> 00:14:57.266
+could exist down at the component
+level, but almost all these only exist
+
+00:14:57.426 --> 00:15:00.086
+up at that page or user flow level.
+
+00:15:01.453 --> 00:15:04.435
+And that's why we have to write
+this level com- of compliance.
+
+00:15:05.176 --> 00:15:09.690
+So let's now zoom down to the world
+that I grew up in, which is testing, um,
+
+00:15:09.786 --> 00:15:11.663
+and building tight little components.
+
+00:15:12.161 --> 00:15:15.295
+So what for these are,
+is for UI components.
+
+00:15:15.529 --> 00:15:18.179
+And if you've ever heard the term,
+hopefully you have, but they're
+
+00:15:18.236 --> 00:15:23.732
+distinct, um, interface elements that
+are used to do a specific function.
+
+00:15:24.476 --> 00:15:27.388
+And like we talked about
+before, like Lego, they're the
+
+00:15:27.401 --> 00:15:29.201
+building blocks of websites.
+
+00:15:30.111 --> 00:15:31.892
+And they could be tiny ones.
+
+00:15:31.930 --> 00:15:34.022
+Like they're-- to me,
+they're all components.
+
+00:15:34.332 --> 00:15:37.194
+I don't know if you grew up in the
+world of Atomic where we had, you know,
+
+00:15:37.531 --> 00:15:38.973
+um, all these different variations.
+
+00:15:39.144 --> 00:15:42.280
+But broadly speaking, there are
+just simple ones and complex ones.
+
+00:15:42.281 --> 00:15:44.010
+But they're still basically components.
+
+00:15:44.230 --> 00:15:49.680
+So it could be tiny things like a form
+field or a label or a button, but it
+
+00:15:49.683 --> 00:15:55.329
+could be broader, complex things like
+autocomplete dropdowns, modals, date
+
+00:15:55.332 --> 00:15:57.155
+pickers, in-page tabs, et cetera.
+
+00:15:58.576 --> 00:16:02.259
+So what's the purpose of
+component-level acceptance criteria?
+
+00:16:02.579 --> 00:16:07.191
+It's just to make sure that any component
+that's used by a team or by multiple
+
+00:16:07.191 --> 00:16:10.391
+teams, um, is accessible and compliant.
+
+00:16:11.372 --> 00:16:14.253
+So it could be something like
+the dropdown can easily be
+
+00:16:14.254 --> 00:16:16.036
+opened using keyboard controls.
+
+00:16:16.289 --> 00:16:18.651
+And that should be something that a
+tester can quickly go and check and
+
+00:16:18.651 --> 00:16:25.026
+go, "Yes, it can. No, it can't." So
+the owners here are slightly different.
+
+00:16:25.478 --> 00:16:30.122
+Notice before, for the page and,
+and c- uh, user flow level, it was
+
+00:16:30.131 --> 00:16:32.247
+POs and BAs were the primary owner.
+
+00:16:32.646 --> 00:16:36.596
+But down at this level, it's design
+system leads are the one that should
+
+00:16:36.608 --> 00:16:38.153
+be building and writing these.
+
+00:16:38.557 --> 00:16:42.050
+And then they're useful for designers,
+developers, and testers again.
+
+00:16:44.345 --> 00:16:48.435
+So let's now jump into the, the
+purpose of this is how do we write
+
+00:16:48.654 --> 00:16:53.609
+these, um, component level, uh,
+d- uh, um, page level versions?
+
+00:16:54.306 --> 00:16:57.500
+So there are many ways you
+could write acceptance criteria.
+
+00:16:57.675 --> 00:17:00.795
+And by the way, this model that
+I'm gonna teach you can be used for
+
+00:17:00.819 --> 00:17:02.555
+any type of acceptance criteria.
+
+00:17:02.733 --> 00:17:05.450
+You could probably take out a few
+steps, but the rigor that we're
+
+00:17:05.453 --> 00:17:07.235
+talking about could be useful anywhere.
+
+00:17:08.383 --> 00:17:11.540
+I'm gonna show you some steps, but I
+should warn you, you're gonna be shocked
+
+00:17:11.561 --> 00:17:15.602
+by how many steps there are on the next
+screen, uh, because there's quite a lot.
+
+00:17:16.456 --> 00:17:18.349
+So there's actually eight steps here.
+
+00:17:18.790 --> 00:17:23.174
+Um, and so we're gonna start with
+you choose a thing you wanna review.
+
+00:17:23.351 --> 00:17:27.040
+Now, if you're in a sprint cycle, you
+already know what it is, but it might be
+
+00:17:27.257 --> 00:17:29.509
+a, a login screen or something like that.
+
+00:17:29.835 --> 00:17:34.168
+Um, so you need to work out what the thing
+is that you're going to be reviewing,
+
+00:17:34.739 --> 00:17:36.687
+and then you pick a type of people.
+
+00:17:36.858 --> 00:17:41.214
+Now, we're gonna have about six different
+broad groups, and so you choose one
+
+00:17:41.215 --> 00:17:42.947
+of those groups to roll through first.
+
+00:17:43.143 --> 00:17:47.281
+And you'll see by the time we get to step
+eight, we go back through each group, but
+
+00:17:47.281 --> 00:17:51.196
+we do one group of people at a time, and
+I'll explain why we do that in a second.
+
+00:17:51.764 --> 00:17:55.850
+Then we think about how that group
+of people might be interacting
+
+00:17:55.892 --> 00:17:57.447
+with this thing you're building.
+
+00:17:57.897 --> 00:17:59.046
+Are they using a screen reader?
+
+00:17:59.076 --> 00:18:00.127
+Are they using keyboard?
+
+00:18:00.331 --> 00:18:01.792
+Are they using voice control?
+
+00:18:02.094 --> 00:18:04.359
+Um, are they using any other mechanism?
+
+00:18:04.546 --> 00:18:06.634
+Are they blowing the screen up
+so they could see it because
+
+00:18:06.635 --> 00:18:07.578
+they've got low vision?
+
+00:18:07.971 --> 00:18:11.493
+There are multiple ways that
+they might be using technology or
+
+00:18:11.493 --> 00:18:13.596
+settings to interact with your page.
+
+00:18:14.065 --> 00:18:16.821
+And from that we can list
+barriers that they might face.
+
+00:18:17.059 --> 00:18:22.059
+This group of people using this technology
+might face these types of barriers.
+
+00:18:22.674 --> 00:18:24.234
+Then we do something odd.
+
+00:18:24.540 --> 00:18:29.568
+We turn them into test questions
+And from the questions we
+
+00:18:29.568 --> 00:18:31.180
+write acceptance criteria.
+
+00:18:31.400 --> 00:18:33.243
+It sounds like a long, long way around it.
+
+00:18:33.558 --> 00:18:38.050
+And then we just add some simple tests so
+that when we hand them over to QAs, they
+
+00:18:38.051 --> 00:18:42.185
+already have the acceptance criteria,
+a question, which is the opposite
+
+00:18:42.186 --> 00:18:45.714
+of the test criteria, and some steps
+that, so that they know how to test it.
+
+00:18:46.264 --> 00:18:50.042
+And then we just repeat that
+through each group, u- user group.
+
+00:18:50.289 --> 00:18:52.985
+And the reason is so we can
+focus on one group at a time.
+
+00:18:53.454 --> 00:18:56.223
+Now, some of you might be saying,
+"What the hell? Why are there so many
+
+00:18:56.223 --> 00:19:01.100
+steps?" Well, as you get confident, you
+can move through these very quickly.
+
+00:19:01.317 --> 00:19:05.786
+But when you're first doing this, it, it's
+a really good exercise to build them out.
+
+00:19:06.014 --> 00:19:07.514
+So I run this as a workshop.
+
+00:19:07.575 --> 00:19:11.649
+Um, it's a big workshop that we run
+for teams around the world, and we
+
+00:19:11.649 --> 00:19:16.639
+do this, um, as big activities where
+either in person or on whiteboards
+
+00:19:16.644 --> 00:19:21.447
+or on, uh, Figma boards, et cetera,
+people, um, build out these activities.
+
+00:19:21.628 --> 00:19:25.560
+And at first it's hard, it's flexing
+a muscle, but as you get better at
+
+00:19:25.561 --> 00:19:27.327
+it, um, you can skip over steps.
+
+00:19:27.328 --> 00:19:30.250
+And so, um, you can either
+combine steps or skip over them
+
+00:19:30.256 --> 00:19:31.840
+because you know what's going on.
+
+00:19:32.128 --> 00:19:34.966
+But when you're first, first doing
+it, it's really important to build
+
+00:19:34.966 --> 00:19:36.385
+them out as a series of steps.
+
+00:19:37.247 --> 00:19:41.418
+The most important reason, though, it
+helps make sure that we're focusing
+
+00:19:41.418 --> 00:19:45.629
+on different types of users as we
+go through, and that, so that w-
+
+00:19:45.651 --> 00:19:47.242
+we don't forget any type of group.
+
+00:19:48.361 --> 00:19:53.270
+So the other thing is that I put testing
+questions before acceptance criteria.
+
+00:19:53.420 --> 00:19:54.344
+So why do that?
+
+00:19:54.822 --> 00:19:59.158
+Well, I found after a long time
+of teaching this, that it was
+
+00:19:59.223 --> 00:20:02.748
+easier to people think about
+a question than a statement.
+
+00:20:02.931 --> 00:20:06.558
+Now, I know that sounds odd, but
+naturally when we're thinking through
+
+00:20:06.559 --> 00:20:10.966
+this process, we would do something
+like, "Can that user do this?"
+
+00:20:11.400 --> 00:20:15.522
+So it's actually easier to frame
+it as a question to start with, and
+
+00:20:15.524 --> 00:20:19.149
+then once you've written all the
+questions, just reverse them into
+
+00:20:19.149 --> 00:20:21.347
+acceptance criteria statements.
+
+00:20:21.524 --> 00:20:22.322
+It's more natural.
+
+00:20:23.454 --> 00:20:27.012
+It also adds rigor, 'cause as
+we'll see, we need both versions.
+
+00:20:27.012 --> 00:20:31.195
+We need the acceptance criteria
+and as a question so that the,
+
+00:20:31.241 --> 00:20:33.841
+uh, QAs can test against it.
+
+00:20:35.032 --> 00:20:36.806
+Uh, and yeah, it supports QAs.
+
+00:20:37.351 --> 00:20:40.458
+So let's go through this, and
+we'll take a look as we go.
+
+00:20:40.822 --> 00:20:43.334
+So the first one is we're gonna
+ch- uh, choose your component.
+
+00:20:43.571 --> 00:20:46.031
+Uh, could be a contact form,
+dashboard screen, et cetera.
+
+00:20:46.242 --> 00:20:47.712
+All these things we talked about.
+
+00:20:47.984 --> 00:20:52.428
+Now for our activity, I'm just
+gonna show you, we're going to
+
+00:20:52.569 --> 00:20:54.940
+just use a simple contact form.
+
+00:20:55.364 --> 00:20:59.619
+And as we travel through, you
+can see it's got different states
+
+00:21:04.670 --> 00:21:06.802
+Now this will be available
+in slides as you go through.
+
+00:21:07.159 --> 00:21:07.991
+So that's our thing.
+
+00:21:08.161 --> 00:21:09.773
+Now we've got to pick a group of people.
+
+00:21:10.375 --> 00:21:13.212
+So there are a bunch of different
+groups of people that we
+
+00:21:13.212 --> 00:21:14.825
+bundle together into groups.
+
+00:21:15.157 --> 00:21:19.011
+And so you can choose, uh, and
+obviously all these people need to be
+
+00:21:19.013 --> 00:21:20.830
+checked, but let's go through them.
+
+00:21:20.969 --> 00:21:25.205
+There's people with no vision, people
+with reduced vision, people with reduced
+
+00:21:25.225 --> 00:21:29.761
+color vision, sometimes called color
+blindness, people with reduced movement,
+
+00:21:30.305 --> 00:21:34.896
+people with varied learning or cognition,
+and people with reduced or no hearing.
+
+00:21:35.068 --> 00:21:38.479
+And in some cases, people can
+take out the last group if there
+
+00:21:38.480 --> 00:21:41.458
+are no, um, audio or video files.
+
+00:21:41.675 --> 00:21:45.383
+I still think it's useful to include
+them anyway, but, um, that's up to you.
+
+00:21:46.235 --> 00:21:48.316
+Why focus on these
+groups of people though?
+
+00:21:48.898 --> 00:21:52.165
+Because what it means is that we
+don't leave groups of people out.
+
+00:21:52.540 --> 00:21:56.322
+A lot of times when I work with
+teams, they focus on screen
+
+00:21:56.322 --> 00:21:57.725
+reader users, which is great.
+
+00:21:57.867 --> 00:21:58.951
+They're an important user.
+
+00:21:59.205 --> 00:22:01.587
+But all these other groups
+of people get forgotten.
+
+00:22:01.800 --> 00:22:06.673
+So it means that all groups are,
+are included and no group is
+
+00:22:06.681 --> 00:22:10.804
+forgotten, especially people with
+varied learning or cognition.
+
+00:22:12.573 --> 00:22:14.980
+It also means that it's
+not as overwhelming.
+
+00:22:15.410 --> 00:22:19.403
+Thinking about accessibility is very
+overwhelming for, you know, when you're
+
+00:22:19.406 --> 00:22:21.083
+looking at a page or a user flow.
+
+00:22:21.507 --> 00:22:24.766
+And what it means is we're just
+talking about a subset of people on
+
+00:22:24.780 --> 00:22:30.121
+this thing, this page, this contact
+form, this group of people, how are
+
+00:22:30.136 --> 00:22:31.864
+they gonna have run into problems?
+
+00:22:33.176 --> 00:22:34.868
+Um, it also shifts the mindset.
+
+00:22:35.371 --> 00:22:38.319
+I actually don't really
+care about WCAG compliance.
+
+00:22:38.321 --> 00:22:41.788
+I care about people, and WCAG
+is there just to help people.
+
+00:22:41.939 --> 00:22:45.408
+So it actually is a better framing
+for teams because you're thinking
+
+00:22:45.409 --> 00:22:47.791
+about people, not just compliance.
+
+00:22:49.050 --> 00:22:51.940
+And there's something really important,
+which is the order we write them.
+
+00:22:52.225 --> 00:22:53.769
+The order's really important.
+
+00:22:54.249 --> 00:22:58.319
+So ideally, we wanna focus on
+appearance first, and then work
+
+00:22:58.320 --> 00:23:00.510
+down to deep technology last.
+
+00:23:01.183 --> 00:23:04.590
+So the order that I run them
+through is I start with people
+
+00:23:04.600 --> 00:23:06.950
+with varied learning or cognition.
+
+00:23:07.306 --> 00:23:12.180
+So these could be people with, uh,
+ADHD, autism, dyslexia, also learning
+
+00:23:12.181 --> 00:23:17.398
+conditions, English as a second language,
+people, um, with learning disabilities and
+
+00:23:17.398 --> 00:23:21.461
+all sorts of other things, uh, including,
+um, uh, short-term memory issues.
+
+00:23:21.793 --> 00:23:25.964
+All these broad groups of people need the
+same sort of thing, which is consistency,
+
+00:23:25.971 --> 00:23:28.293
+clarity, plain language, et cetera.
+
+00:23:28.451 --> 00:23:30.478
+So they're a good group
+of people to start with.
+
+00:23:30.822 --> 00:23:31.258
+Why?
+
+00:23:31.663 --> 00:23:35.538
+Because if you build a component and
+it doesn't work f- work for these
+
+00:23:35.540 --> 00:23:39.728
+group of people, it's gonna fail
+for everyone because they're gonna
+
+00:23:39.760 --> 00:23:42.102
+bring up three types of issues.
+
+00:23:42.588 --> 00:23:45.254
+It's something to do with the content,
+which means it's not understandable.
+
+00:23:45.437 --> 00:23:49.981
+It's something that means it's not
+clear, or it's a fundamental UX problem.
+
+00:23:50.422 --> 00:23:53.672
+And if it fails here,
+you've wasted your time.
+
+00:23:53.990 --> 00:23:57.977
+Often what I've done is people have asked
+me to bring in people with disabilities,
+
+00:23:58.253 --> 00:24:03.607
+like screen reader users, and test on
+a component, but it fails basic UX.
+
+00:24:03.879 --> 00:24:07.904
+And so we've wasted everyone's
+time because it, it didn't even
+
+00:24:07.907 --> 00:24:10.638
+work from a UX perspective, let
+alone a screen reader perspective.
+
+00:24:10.875 --> 00:24:15.198
+So doing this group of people first
+is really valuable And they resolve
+
+00:24:15.198 --> 00:24:16.550
+big issues before we move on.
+
+00:24:16.851 --> 00:24:20.425
+And then we work with people with
+reduced color vision and reduced
+
+00:24:20.425 --> 00:24:24.432
+vision because we're talking about
+the exterior design of the concept.
+
+00:24:24.634 --> 00:24:26.505
+Can it be, uh, enlarged?
+
+00:24:26.506 --> 00:24:28.303
+Does it have good color
+contrast, et cetera?
+
+00:24:29.041 --> 00:24:32.308
+And these help you understand
+i- does it have good contrast?
+
+00:24:32.389 --> 00:24:33.434
+Is the layout clear?
+
+00:24:33.697 --> 00:24:37.050
+What happens when it zooms, et
+cetera, or it gets inverted?
+
+00:24:37.972 --> 00:24:41.457
+And then finally, we focus on the
+technology ones, which are people
+
+00:24:41.457 --> 00:24:45.155
+with reduced movement, and the very
+last group is people with no vision.
+
+00:24:45.449 --> 00:24:50.149
+So these groups help you uncover
+techn- uh, techn- know- knowledge
+
+00:24:51.304 --> 00:24:54.015
+technical or structural sort of issues.
+
+00:24:54.226 --> 00:24:58.262
+So can it be operated with a
+keyboard, focus order, screen reader
+
+00:24:58.263 --> 00:25:00.029
+compliance, semantics, et cetera?
+
+00:25:00.338 --> 00:25:03.483
+So you'll see that we're getting more
+and more technical, and that should
+
+00:25:03.491 --> 00:25:05.024
+be the last group of people you do it.
+
+00:25:05.976 --> 00:25:09.819
+Uh, now for our example, let's pretend
+we're doing that contact form we
+
+00:25:09.821 --> 00:25:13.407
+talked about, and we're gonna just
+choose people with reduced movement,
+
+00:25:13.574 --> 00:25:15.096
+'cause it's a good group to focus on.
+
+00:25:15.722 --> 00:25:19.736
+And a lot of the things we need for
+people with reduced movement also affect
+
+00:25:19.753 --> 00:25:22.611
+screen reader users So let's click on.
+
+00:25:22.967 --> 00:25:25.440
+So now we have our form,
+and we have our group.
+
+00:25:25.934 --> 00:25:29.014
+We need to consider how that group
+might interact with the page.
+
+00:25:29.682 --> 00:25:34.953
+Um, how do they… Uh, so each group is
+gonna rely on different technologies.
+
+00:25:35.366 --> 00:25:37.757
+So it could be a keyboard
+or keyboard equivalent.
+
+00:25:37.965 --> 00:25:39.075
+It could be a screen reader.
+
+00:25:39.300 --> 00:25:40.679
+It could be voice control.
+
+00:25:40.720 --> 00:25:43.894
+I work with people who have no
+movement at all, use their voice.
+
+00:25:44.244 --> 00:25:45.582
+It could be magnification.
+
+00:25:45.621 --> 00:25:49.838
+I work with people with low vision
+who have Firefox set to 500%, or
+
+00:25:49.838 --> 00:25:53.251
+they use ZoomText or something
+like that to zoom in on the page.
+
+00:25:53.642 --> 00:25:57.310
+Um, user settings, they might just have
+font size set to larger, et cetera.
+
+00:25:57.735 --> 00:26:01.425
+They might need captions or
+simplified layouts if in case
+
+00:26:01.425 --> 00:26:02.921
+they just wanna focus on the page.
+
+00:26:03.784 --> 00:26:07.208
+So for our example, people with
+reduced movement and technologies,
+
+00:26:07.794 --> 00:26:10.148
+we-it's gonna be three types of things.
+
+00:26:10.449 --> 00:26:14.413
+It's gonna be just using the keyboard,
+no mouse, or the equivalent of a
+
+00:26:14.413 --> 00:26:16.078
+keyboard, a keyboard alternative.
+
+00:26:16.432 --> 00:26:19.222
+I work with people who use mouth
+sticks or head pointers, where they
+
+00:26:19.222 --> 00:26:20.776
+tap the keyboard to move through.
+
+00:26:21.146 --> 00:26:24.745
+It could be sip-and-puff device,
+where those sips and puffs, uh,
+
+00:26:24.766 --> 00:26:29.960
+mirror keystrokes, or even switches
+on the sides of their wheelchair,
+
+00:26:29.960 --> 00:26:34.689
+et cetera, or some sort of voice
+control, like Dragon or built straight
+
+00:26:34.776 --> 00:26:37.242
+into, um, operating systems now.
+
+00:26:37.465 --> 00:26:39.925
+There's a bunch of great,
+uh, voice controls.
+
+00:26:41.228 --> 00:26:41.472
+Okay.
+
+00:26:41.475 --> 00:26:44.480
+The next thing is list potential
+barriers they may face.
+
+00:26:44.918 --> 00:26:49.209
+So on our contact form, we can look
+through that and think about how those
+
+00:26:49.224 --> 00:26:50.950
+groups of people might need to operate.
+
+00:26:51.234 --> 00:26:55.766
+The simplest thing you can do is use the
+Tab key and just tab through the page.
+
+00:26:56.144 --> 00:27:00.111
+So we're looking for things like a
+logical tab order, keyboard traps
+
+00:27:00.112 --> 00:27:03.484
+where they get stuck, custom controls
+that aren't operated with keyboard,
+
+00:27:03.789 --> 00:27:05.438
+no visual indicators, et cetera.
+
+00:27:05.760 --> 00:27:09.315
+All these things are common, uh,
+issues that that group would have.
+
+00:27:10.170 --> 00:27:14.077
+Step five, now we need to
+turn them into questions.
+
+00:27:15.009 --> 00:27:19.612
+So what we need to do is write
+them out as clear pass and fail
+
+00:27:19.634 --> 00:27:21.320
+outcomes, but as a question.
+
+00:27:21.962 --> 00:27:26.307
+So each test question, you should be
+able to ask, uh, the question and say,
+
+00:27:26.598 --> 00:27:29.960
+"Yes, it passes," or, "No, it fails."
+
+00:27:30.168 --> 00:27:32.195
+A lot of people mix and match these.
+
+00:27:32.492 --> 00:27:35.695
+Every single thing should start
+with it's gotta be yes, so you're
+
+00:27:35.695 --> 00:27:38.757
+not writing them in the negative,
+'cause then everyone else has to
+
+00:27:38.918 --> 00:27:40.436
+reverse engineer them in their head.
+
+00:27:40.765 --> 00:27:45.945
+Every single question, the answer should
+be, "Yes, it passes." And if it's no,
+
+00:27:46.109 --> 00:27:48.325
+that means it's a clear sign of failure.
+
+00:27:49.455 --> 00:27:56.217
+So an example might be, are instructions,
+labels, and feedback easy to understand?
+
+00:27:56.915 --> 00:28:01.687
+And the answer should be, "Yes,
+on this contact form, instructions
+
+00:28:01.687 --> 00:28:06.607
+and labels are easy to understand,"
+or, "No, there's a problem here.
+
+00:28:06.910 --> 00:28:12.781
+Instructions and labels on this form
+aren't easy understand." So tips for when
+
+00:28:12.781 --> 00:28:19.084
+writing these always phrases a question,
+it must be testable, one statement only.
+
+00:28:19.092 --> 00:28:24.139
+So a lot of people go, "It's gotta do X
+and Y to do this." Now, suddenly you've
+
+00:28:24.139 --> 00:28:27.094
+got two concepts that the QA has to test.
+
+00:28:27.427 --> 00:28:28.542
+But here's the problem.
+
+00:28:28.766 --> 00:28:32.554
+If you put two things in one
+question, what happens if one
+
+00:28:32.554 --> 00:28:34.033
+of them passes and one fails?
+
+00:28:34.208 --> 00:28:35.341
+What does the QA do?
+
+00:28:35.656 --> 00:28:38.244
+So we want one thing per question.
+
+00:28:38.534 --> 00:28:39.947
+We never bundle them together.
+
+00:28:40.110 --> 00:28:43.798
+Even if there's more of these, we want
+it so that everyone in the team can go,
+
+00:28:44.010 --> 00:28:49.955
+"Oh, we're testing this one thing, and
+it passes or it fails." Uh, and we should
+
+00:28:49.966 --> 00:28:51.850
+be simple, simple and user-focused.
+
+00:28:53.187 --> 00:28:56.258
+Common mistakes are too
+broad, are too vague.
+
+00:28:56.367 --> 00:28:59.399
+Everyone looks at the team and goes,
+"What the hell does that mean?" Um, as
+
+00:28:59.399 --> 00:29:03.706
+we said before, multiple concepts in
+a question, uh, not actually phrased
+
+00:29:03.706 --> 00:29:05.735
+as a question and not testable.
+
+00:29:05.879 --> 00:29:11.433
+If it's not testable, how is your QA gonna
+say, "Yes, it's passes," or, "It's done"?
+
+00:29:11.697 --> 00:29:14.180
+So everything must be
+testable at some level.
+
+00:29:14.315 --> 00:29:17.330
+It doesn't have to be machine testable,
+but a human should be able to look
+
+00:29:17.330 --> 00:29:23.413
+at that and go, "Yes, it passes,"
+or, or, "No, it fails." Okay, so, uh,
+
+00:29:23.416 --> 00:29:26.128
+normally I do this as a bit of activity,
+but we're gonna do this on screen.
+
+00:29:26.397 --> 00:29:29.273
+So I'll just do the- these,
+and we can run through them.
+
+00:29:29.655 --> 00:29:33.810
+So the first one is, what do
+we do if there is a barrier
+
+00:29:34.321 --> 00:29:36.308
+called incorrect focus order?
+
+00:29:36.947 --> 00:29:40.687
+Well, the way we write that is
+think about it and go, does f- uh,
+
+00:29:40.729 --> 00:29:45.305
+keyboard focus move through the page
+in a logical and meaningful order?
+
+00:29:45.556 --> 00:29:47.364
+And so then we go, yes, it does.
+
+00:29:48.017 --> 00:29:48.668
+No, it doesn't.
+
+00:29:49.873 --> 00:29:53.371
+Another one is keyboard traps, meaning
+the keyboard gets stuck somewhere
+
+00:29:53.551 --> 00:29:55.554
+and a keyboard user can't proceed.
+
+00:29:56.522 --> 00:30:01.516
+Can keyboard users move to
+and away from all interactive
+
+00:30:01.517 --> 00:30:03.746
+elements without becoming trapped?
+
+00:30:04.053 --> 00:30:08.962
+Yes, they can move through them all, or
+no, they get stuck here, so it's a fail.
+
+00:30:09.949 --> 00:30:11.683
+What about missing skip mechanisms?
+
+00:30:11.693 --> 00:30:16.129
+So this means that there's some way
+to bypass over complex navigations, et
+
+00:30:16.129 --> 00:30:18.470
+cetera, and get straight to the main page.
+
+00:30:19.101 --> 00:30:22.730
+Is there a way for keyboard users
+to skip readed content, uh, uh,
+
+00:30:22.769 --> 00:30:26.121
+to skip repeated content and move
+directly to the main content?
+
+00:30:26.281 --> 00:30:28.357
+Yes, there is, or no, there's not.
+
+00:30:28.999 --> 00:30:30.170
+Auto focus issues.
+
+00:30:30.384 --> 00:30:32.585
+Uh, does focus remain
+stable and consistent?
+
+00:30:33.187 --> 00:30:36.036
+Uh, custom controls that
+are not keyboard accessible.
+
+00:30:36.176 --> 00:30:37.865
+Like you might have a
+date picker in there.
+
+00:30:38.247 --> 00:30:42.592
+Um, can all custom controls like your
+date picker be accessed and operated
+
+00:30:42.592 --> 00:30:44.081
+using the keyboard or voice control?
+
+00:30:44.119 --> 00:30:45.011
+Yes, it can.
+
+00:30:45.125 --> 00:30:45.860
+No, it can't.
+
+00:30:46.446 --> 00:30:47.359
+Capture barriers.
+
+00:30:47.567 --> 00:30:49.587
+Can they move through them with keyboard?
+
+00:30:50.422 --> 00:30:51.539
+Uh, timeouts.
+
+00:30:51.911 --> 00:30:55.121
+Uh, does the user have enough
+time to complete that task?
+
+00:30:56.363 --> 00:30:58.569
+Um, so they're just a
+bunch of different ones.
+
+00:30:58.570 --> 00:31:00.248
+I might skip over a
+couple at the end there.
+
+00:31:00.662 --> 00:31:04.793
+Um, these are just a bunch of different
+ways that we could do to test it.
+
+00:31:05.716 --> 00:31:09.976
+And then now what we need to do
+is reframe every single one of
+
+00:31:09.976 --> 00:31:11.569
+these back at a positive statement.
+
+00:31:11.943 --> 00:31:15.387
+So we've taken our beautiful
+questions, which is much easier to
+
+00:31:15.389 --> 00:31:19.738
+think about, and we've reframed them
+as positive statements, and they
+
+00:31:19.738 --> 00:31:22.389
+become our final acceptance criteria.
+
+00:31:23.291 --> 00:31:27.108
+So we have at the top the question
+we've just built, which is, does
+
+00:31:27.377 --> 00:31:31.691
+keyboard focus move through the page
+in a logical and meaningful order?
+
+00:31:32.281 --> 00:31:36.046
+And all you need to do is look at
+it and just change it slightly,
+
+00:31:36.401 --> 00:31:37.598
+and it becomes a question.
+
+00:31:37.757 --> 00:31:40.949
+So the trick is, it's
+normally the first word, does.
+
+00:31:41.431 --> 00:31:45.238
+If we take out does, it moves from
+being a question to a statement.
+
+00:31:45.610 --> 00:31:50.109
+So you could literally take off the
+word does and put an S on moves, and
+
+00:31:50.109 --> 00:31:55.127
+we've gone from does keyboard, uh, uh,
+focus move through to keyboard focus
+
+00:31:55.128 --> 00:31:57.067
+moves through, and now it's a statement.
+
+00:31:57.262 --> 00:31:58.023
+And here's the thing.
+
+00:31:58.023 --> 00:32:00.022
+We want them to be an exact match.
+
+00:32:00.790 --> 00:32:03.717
+So can keyboard users
+move to and away from?
+
+00:32:04.106 --> 00:32:04.648
+Yes.
+
+00:32:04.897 --> 00:32:06.672
+Keyboard focus moves to and away from.
+
+00:32:07.507 --> 00:32:09.203
+Um, ooh, that one wasn't
+quite right before.
+
+00:32:09.421 --> 00:32:11.678
+Um, is there a way for
+keyboard users to skip?
+
+00:32:12.153 --> 00:32:14.911
+Yes, there is a way for
+keyboard users to skip.
+
+00:32:15.596 --> 00:32:18.236
+So they much match directly
+one to one, and the, one of the
+
+00:32:18.236 --> 00:32:19.703
+examples before didn't quite match.
+
+00:32:19.941 --> 00:32:22.299
+Um, use clear, uh, language.
+
+00:32:22.541 --> 00:32:25.517
+Keep ex- again, keep
+to one thing per slide.
+
+00:32:26.010 --> 00:32:28.191
+Um, simple and clear.
+
+00:32:29.271 --> 00:32:33.671
+Um, and common mistakes that I see are
+that it doesn't match the test questions.
+
+00:32:33.672 --> 00:32:35.163
+That's the weirdest one that I've seen.
+
+00:32:35.481 --> 00:32:38.687
+Um, uh, there's, uh, it's,
+it's written in a negative way.
+
+00:32:38.862 --> 00:32:40.932
+This is a very common thing
+when beginning, by the way.
+
+00:32:41.174 --> 00:32:44.248
+A lot of people I see write
+them n- in a negative way.
+
+00:32:44.525 --> 00:32:48.160
+Uh, we want everything to be,
+yes, it passes, but just, it's
+
+00:32:48.161 --> 00:32:49.525
+just simpler for everyone.
+
+00:32:49.779 --> 00:32:52.694
+That is the b-- whenever I run
+these activities, the most common
+
+00:32:52.696 --> 00:32:54.410
+thing people have to struggle with.
+
+00:32:54.657 --> 00:33:00.612
+Um, multiple concepts in a statement are
+very common, and just not outcome-based So
+
+00:33:00.613 --> 00:33:02.740
+let's go and do some activities on this.
+
+00:33:03.340 --> 00:33:05.106
+So here's our test question.
+
+00:33:05.386 --> 00:33:09.371
+Does focus remain stable and
+predictable when moving, uh,
+
+00:33:09.384 --> 00:33:11.036
+while interacting with a page?
+
+00:33:11.283 --> 00:33:12.629
+And we just change it around.
+
+00:33:12.993 --> 00:33:17.059
+Yes, focus remains stable and
+predictable when interacting with a page.
+
+00:33:17.655 --> 00:33:20.585
+Can all use-- all custom controls
+be accessed by the keyboard?
+
+00:33:20.797 --> 00:33:23.497
+Yes, all custom controls can be used.
+
+00:33:23.676 --> 00:33:27.532
+By the way, it helps to say yes,
+because that helps you understand that
+
+00:33:27.533 --> 00:33:29.211
+it should be written in the positive.
+
+00:33:29.855 --> 00:33:34.580
+Um, so adding a, a, in your head, the
+word yes as you go through means that you
+
+00:33:34.580 --> 00:33:36.359
+know that's what the end goal should be.
+
+00:33:36.956 --> 00:33:40.581
+Can capture or verification steps
+be completed using the keyboard?
+
+00:33:40.858 --> 00:33:43.299
+Yes, capture can be done with a keyboard.
+
+00:33:44.154 --> 00:33:46.738
+Is there enough time to
+complete tasks without timeouts?
+
+00:33:46.948 --> 00:33:48.822
+Yes, there's enough time
+to complete timeouts.
+
+00:33:48.999 --> 00:33:52.744
+Now, for keyboard users, that means
+that they need to be able to be-- have a
+
+00:33:52.745 --> 00:33:57.580
+notification pop up, be able to navigate
+to that, uh, that pop up and go, "I
+
+00:33:57.581 --> 00:34:01.757
+want to pause for more time. I want
+to extend so I can get to more time."
+
+00:34:02.077 --> 00:34:05.185
+So for them, it's being able
+to navigate to your messages.
+
+00:34:06.537 --> 00:34:09.197
+Is the currently focused
+element clearly visible?
+
+00:34:09.665 --> 00:34:12.161
+Yes, the currently focused
+element is clearly visible.
+
+00:34:12.413 --> 00:34:13.335
+This is critical.
+
+00:34:13.375 --> 00:34:15.132
+I work with a woman called Judith.
+
+00:34:15.484 --> 00:34:18.241
+She uses a head pointer, so she
+taps to get through the screen.
+
+00:34:18.571 --> 00:34:22.635
+And sometimes, if the design hasn't done
+a good job, she can't see what's in focus.
+
+00:34:22.837 --> 00:34:23.752
+Very important.
+
+00:34:24.610 --> 00:34:28.487
+Do all interactive, uh, elements
+follow expected keyboard behaviors?
+
+00:34:28.572 --> 00:34:29.443
+Yes, they follow.
+
+00:34:30.714 --> 00:34:34.991
+So now that we've got them in place we're
+gonna do something a little bit extra.
+
+00:34:35.207 --> 00:34:37.424
+Now, you don't have to do
+this step, but this helps
+
+00:34:37.435 --> 00:34:39.630
+everyone, and it helps your QAs.
+
+00:34:40.016 --> 00:34:44.925
+Um, so we have our test criteria
+and our acceptance criteria, the
+
+00:34:44.926 --> 00:34:46.521
+test questions, acceptance criteria.
+
+00:34:46.766 --> 00:34:51.382
+We actually reverse the order now, and
+the final step is just to write some
+
+00:34:51.393 --> 00:34:53.220
+simple ways that people could test them.
+
+00:34:53.506 --> 00:34:56.469
+So we just write some very simple ways.
+
+00:34:56.621 --> 00:34:58.463
+Now I'm gonna just do
+one here to show you.
+
+00:34:58.991 --> 00:35:00.995
+Acceptance criteria, so we flip the order.
+
+00:35:01.314 --> 00:35:04.681
+Keyboard focus moves through the page
+in a logical and meaningful order,
+
+00:35:04.987 --> 00:35:06.474
+and here's our original test question.
+
+00:35:06.714 --> 00:35:08.870
+Does keyboard mo-focus
+move through the page?
+
+00:35:08.872 --> 00:35:09.947
+That's for the QA.
+
+00:35:10.212 --> 00:35:12.827
+And then we, we write how do they test it.
+
+00:35:13.099 --> 00:35:18.110
+Well, you could do something simple like
+use a keyboard, use Tab to move through
+
+00:35:18.110 --> 00:35:22.696
+the page, um, use Shift+Tab to move
+backwards, and check that focus moves
+
+00:35:22.697 --> 00:35:24.652
+through the page in a logical order.
+
+00:35:25.203 --> 00:35:27.889
+That's all we need to do, and we just
+need to write them for each of them.
+
+00:35:28.140 --> 00:35:30.421
+And now what you actually have,
+I'm gonna skip over a bunch of
+
+00:35:30.435 --> 00:35:32.422
+these, they're just examples, um,
+
+00:35:34.510 --> 00:35:37.185
+um, ooh, sorry.
+
+00:35:37.446 --> 00:35:43.131
+Um, once we've done that, we now
+have, um, all of our seven steps done.
+
+00:35:43.504 --> 00:35:45.746
+We have, uh, talked about the page.
+
+00:35:45.977 --> 00:35:48.134
+We've talked about the type of
+user we're gonna roll through.
+
+00:35:48.397 --> 00:35:49.899
+We've talked about their barriers.
+
+00:35:50.158 --> 00:35:52.632
+We've talked about also their
+technologies and the barriers they
+
+00:35:52.633 --> 00:35:54.171
+may face with their technologies.
+
+00:35:54.585 --> 00:35:59.043
+And we've talked about how, uh,
+their, the, the questions and then the
+
+00:35:59.045 --> 00:36:01.382
+statements, and finally how to test them.
+
+00:36:01.584 --> 00:36:06.297
+And so eight is just going back,
+uh, uh, through all that again.
+
+00:36:06.567 --> 00:36:10.007
+So we've got acceptance crit-criteria,
+test questions, and simple tests,
+
+00:36:10.276 --> 00:36:14.254
+and now we just go back and do step
+seven, two to seven again as we go.
+
+00:36:15.558 --> 00:36:19.471
+So, we just move through, consider how
+this new group works through it, think
+
+00:36:19.481 --> 00:36:23.942
+about their barriers, test questions
+just for them, statements just for them,
+
+00:36:24.365 --> 00:36:26.076
+and simple test steps just for them.
+
+00:36:26.499 --> 00:36:26.918
+Excuse me.
+
+00:36:27.770 --> 00:36:31.976
+So that's just it, and it sounds really
+cumbersome when you first begin it,
+
+00:36:32.241 --> 00:36:35.013
+but as you get better at this, you can
+move through them much more quickly.
+
+00:36:35.223 --> 00:36:38.555
+And when I run this as activities,
+by the time we run through the first
+
+00:36:38.555 --> 00:36:41.782
+group of people, everyone's really
+stuck and they, they find it hard.
+
+00:36:42.052 --> 00:36:45.700
+But by the t-time we go from round
+again, people are often very good at it.
+
+00:36:46.420 --> 00:36:50.310
+Okay, so there's a criteria library
+here, which I'll put in chat, and
+
+00:36:50.311 --> 00:36:52.717
+that's a page where you can go
+and see a bunch of these ready.
+
+00:36:53.201 --> 00:36:55.883
+Um, but I'm just gonna jump
+onto our last point here, which
+
+00:36:55.884 --> 00:36:58.161
+is what about component level?
+
+00:36:58.720 --> 00:37:01.593
+And in reality, um… Oh,
+let me just jump over that.
+
+00:37:01.837 --> 00:37:02.981
+Uh, is it the same steps?
+
+00:37:03.004 --> 00:37:03.440
+Yes.
+
+00:37:03.644 --> 00:37:07.192
+We're gonna go through exactly the
+same steps as last time, but we're
+
+00:37:07.192 --> 00:37:10.288
+gonna look quickly at the steps
+because there's a couple of changes.
+
+00:37:10.572 --> 00:37:13.638
+So for the first one, we
+used user flow level things.
+
+00:37:13.916 --> 00:37:15.848
+We just now use component level things.
+
+00:37:16.500 --> 00:37:18.796
+For step two, same as before.
+
+00:37:18.839 --> 00:37:20.633
+Go through the, the
+different groups of people.
+
+00:37:21.625 --> 00:37:23.296
+Um, consider how they interact with it.
+
+00:37:23.441 --> 00:37:27.572
+Well, this is the same, but you have to be
+more precise now because they are using,
+
+00:37:27.755 --> 00:37:30.185
+uh, technologies that directly impact it.
+
+00:37:30.390 --> 00:37:36.207
+So we need to look at, uh, things like
+what component's expected to do, how users
+
+00:37:36.209 --> 00:37:40.202
+operate using different input devices, and
+what's the expected sequence of events.
+
+00:37:40.337 --> 00:37:42.581
+So you need to know
+where tabs go, et cetera.
+
+00:37:43.737 --> 00:37:46.636
+Um, and so you need to know a
+little bit more about how the
+
+00:37:46.636 --> 00:37:48.307
+users travel through components.
+
+00:37:48.624 --> 00:37:52.134
+Then we need to list barriers,
+and it's sort of similar for
+
+00:37:52.136 --> 00:37:53.553
+component level as page level.
+
+00:37:53.895 --> 00:37:55.874
+Um, and we'll just skip
+over some of these.
+
+00:37:55.874 --> 00:37:57.473
+There are a bunch of different things.
+
+00:37:57.567 --> 00:37:58.946
+It's all in slides if you need it.
+
+00:37:59.163 --> 00:38:00.770
+But here's the ones we
+need to worry about.
+
+00:38:01.112 --> 00:38:03.840
+Components are reachable,
+focus order, a lot of these
+
+00:38:03.842 --> 00:38:05.207
+things we talked about before.
+
+00:38:06.220 --> 00:38:10.506
+So then we turn them into test questions,
+and they are sort of the same as before.
+
+00:38:10.992 --> 00:38:15.103
+Each one needs to be a pass or a fail,
+but there's a bit of additional rigor
+
+00:38:15.103 --> 00:38:19.400
+we need because for most of them,
+we need to be far more rigorous at
+
+00:38:19.400 --> 00:38:21.563
+a component level than a page level.
+
+00:38:22.295 --> 00:38:26.884
+And the reason is they have clear
+objectives, uh, color contrast,
+
+00:38:26.884 --> 00:38:31.600
+keyboard, ARIA roles, announcements,
+so they're much, much more specific.
+
+00:38:31.933 --> 00:38:35.636
+So you should be explicit and
+measurable in the way you test these.
+
+00:38:36.145 --> 00:38:38.980
+Now, the only group where it doesn't
+count is for people with varied
+
+00:38:38.981 --> 00:38:42.490
+learning or cognition, 'cause they're
+a little bit more vague, and you can't
+
+00:38:42.490 --> 00:38:44.241
+write them in the same precise way.
+
+00:38:45.605 --> 00:38:48.841
+Um, and once you've done that, uh,
+six, seven, and eight remains the
+
+00:38:48.841 --> 00:38:54.928
+same as well So basically, um, to
+wrap up, um, hopefully when you do
+
+00:38:54.929 --> 00:38:57.615
+this and you-- if you do activities
+with your team, you'll learn how to
+
+00:38:57.615 --> 00:39:01.190
+apply this, this process as you go
+through with the six groups of people.
+
+00:39:01.449 --> 00:39:04.087
+Um, and then, uh, what can you do next?
+
+00:39:04.087 --> 00:39:05.796
+Apply this out in the real world.
+
+00:39:06.207 --> 00:39:07.542
+So hopefully this is useful.
+
+00:39:07.864 --> 00:39:11.034
+It's just a what looks like a
+very cumbersome process when you
+
+00:39:11.035 --> 00:39:14.738
+first begin it, but it adds rigor,
+and as you get better at it, you
+
+00:39:14.741 --> 00:39:16.103
+move through it very quickly.
+
+00:39:16.518 --> 00:39:18.085
+As I said, I run this as a big workshop.
+
+00:39:18.094 --> 00:39:21.265
+By the time people get to the end of the
+workshop, they're just zooming through it.
+
+00:39:21.496 --> 00:39:26.132
+And I've had POs and QAs say, "This
+is really valuable, much more than
+
+00:39:26.132 --> 00:39:29.892
+just for accessibility, but just
+writing robust acceptance criteria
+
+00:39:29.899 --> 00:39:33.118
+for any team." So that's it for me.
+
+00:39:33.299 --> 00:39:36.624
+Thank you very much for listening,
+and I'll be available for Q&A.
+
+00:39:44.830 --> 00:39:45.368
+All right.
+
+00:39:45.413 --> 00:39:45.926
+Awesome.
+
+00:39:46.303 --> 00:39:49.107
+Thank you so much, Russ, uh,
+for presenting and sharing your
+
+00:39:49.107 --> 00:39:52.210
+accessibility expertise with the
+WordPress community and all the
+
+00:39:52.212 --> 00:39:53.827
+attendees that are gathered here today.
+
+00:39:54.308 --> 00:39:58.529
+Uh, I don't see anything in the Q&A
+chat right now, so I'm gonna plug
+
+00:39:58.536 --> 00:40:00.502
+that and then we'll come back to it.
+
+00:40:00.546 --> 00:40:04.571
+If anyone has any questions, feel
+free to go to the more dots if it's
+
+00:40:04.573 --> 00:40:06.312
+in there, and go to the Q&A section.
+
+00:40:06.326 --> 00:40:09.031
+It- I'm not sure where it'll,
+it'll be on your specific Zoom.
+
+00:40:09.424 --> 00:40:11.654
+But in the meantime, I saw
+some reactions come in.
+
+00:40:11.922 --> 00:40:16.788
+Everyone feel free to add reactions
+to, to thank Russ for their time.
+
+00:40:17.106 --> 00:40:19.968
+And yeah, if it's okay with you,
+Russ, I've got one question.
+
+00:40:20.548 --> 00:40:20.558
+Mm-hmm.
+
+00:40:20.558 --> 00:40:21.464
+Uh, and then we'll go from there.
+
+00:40:22.850 --> 00:40:23.479
+All right.
+
+00:40:23.897 --> 00:40:26.989
+So near the end of your
+presentation, you covered converting
+
+00:40:26.990 --> 00:40:30.982
+those positive statements, um,
+into test questions instead.
+
+00:40:31.361 --> 00:40:35.754
+So I noticed that sort of leaves you with
+a question acceptance criteria pair for,
+
+00:40:35.881 --> 00:40:40.261
+for each piece, um, where I think you
+n- mentioned that like the, the question
+
+00:40:40.263 --> 00:40:44.768
+piece is really good for QA, and then
+the AC piece is good for teams that are
+
+00:40:44.768 --> 00:40:46.354
+actually going out and building products.
+
+00:40:46.705 --> 00:40:50.752
+Uh, so the question I had of that as
+someone who is in the business of building
+
+00:40:50.777 --> 00:40:54.819
+things like design systems documentation
+is, which is better to record?
+
+00:40:54.915 --> 00:40:56.749
+Do you record the question?
+
+00:40:57.147 --> 00:40:59.522
+Um, do you record the
+acceptance criterion?
+
+00:40:59.567 --> 00:41:01.113
+Or do you record both?
+
+00:41:01.866 --> 00:41:02.825
+It's great thing, isn't it?
+
+00:41:03.254 --> 00:41:04.988
+I think it depends where
+it's happening, isn't it?
+
+00:41:05.008 --> 00:41:08.993
+Because in definition of done, it's
+the acceptance criteria itself.
+
+00:41:09.498 --> 00:41:13.232
+Uh, when, when QAs are reporting
+it, it would be the pass
+
+00:41:13.234 --> 00:41:15.240
+or fail of the actual test.
+
+00:41:15.490 --> 00:41:16.033
+Does it make sense?
+
+00:41:16.033 --> 00:41:18.727
+Like it depends on who's doing
+it and where it's happening.
+
+00:41:18.973 --> 00:41:21.970
+'Cause a lot of my work, I work in design
+systems as well, and that's where I
+
+00:41:21.970 --> 00:41:27.069
+started it, trying to actually pr- provide
+robust answers to people that all these
+
+00:41:27.071 --> 00:41:28.805
+components are completely accessible.
+
+00:41:29.047 --> 00:41:33.665
+So we had to have frameworks to show we'd
+tested them fully, and you want to be able
+
+00:41:33.665 --> 00:41:35.815
+to say, "Yes, it passes all those things."
+
+00:41:36.044 --> 00:41:40.047
+So for the, the end output, it, it's
+not only is the acceptance criteria
+
+00:41:40.558 --> 00:41:45.147
+a, a way to determine how it pa-
+pass or fails, but the actual test
+
+00:41:45.149 --> 00:41:47.582
+themselves are the end, uh, result.
+
+00:41:47.587 --> 00:41:49.696
+So a pass or a fail is the old one thing.
+
+00:41:50.138 --> 00:41:50.973
+Does that answer your question?
+
+00:41:52.612 --> 00:41:53.739
+Uh, I don't know if it did.
+
+00:41:53.749 --> 00:41:55.249
+But I, I think it said basically…
+
+00:41:56.672 --> 00:42:00.913
+What I took away is, uh, documenting
+it, and especially the processes on
+
+00:42:00.913 --> 00:42:04.683
+a design systems side, any amount of
+information you can give people is good.
+
+00:42:04.797 --> 00:42:07.006
+Uh, and then it's a different
+consideration when it comes
+
+00:42:07.006 --> 00:42:10.252
+to teaching people, whether
+they're QA or product, sort of.
+
+00:42:10.264 --> 00:42:10.524
+Yeah.
+
+00:42:10.527 --> 00:42:11.369
+That's sort of what I took away.
+
+00:42:11.555 --> 00:42:11.838
+Yeah.
+
+00:42:12.132 --> 00:42:13.012
+Apologies for that.
+
+00:42:13.988 --> 00:42:14.960
+No, no, that's good.
+
+00:42:14.977 --> 00:42:18.694
+Answering live is one of the
+most exciting things to do.
+
+00:42:19.167 --> 00:42:21.518
+Uh, and also asking live, 'cause
+I've run out of questions.
+
+00:42:21.544 --> 00:42:23.870
+Um, was there anything that you
+wanted to add from your side?
+
+00:42:23.882 --> 00:42:28.068
+Any extra context for people, um, who
+are in the room today, um, or anything
+
+00:42:28.069 --> 00:42:32.571
+specific to, like, your experience with
+WordPress when it comes to, um, acceptance
+
+00:42:32.571 --> 00:42:34.103
+criteria, testing, anything like that?
+
+00:42:34.798 --> 00:42:37.592
+Yeah, I used to work in Wor- WordPress
+for many, many years, but I've mo-
+
+00:42:37.657 --> 00:42:40.952
+I've sort of moved away from it
+recently, so I'm less in that space.
+
+00:42:41.239 --> 00:42:43.452
+But to me, I was always agnostic.
+
+00:42:43.673 --> 00:42:45.441
+I mean, WordPress was a great tool.
+
+00:42:45.441 --> 00:42:46.937
+I used it for a lot of
+my sites for many years.
+
+00:42:47.238 --> 00:42:50.898
+But I was always agnostic, 'cause
+when I train, I come into teams using
+
+00:42:50.965 --> 00:42:55.431
+any sort of system, so I've tried to
+make that work in any environment.
+
+00:42:55.723 --> 00:43:00.325
+And even within Scrums, um, I found
+that people would, uh, produce sprint
+
+00:43:00.325 --> 00:43:04.433
+cycles in different ways, so I try
+not to make it sort of WordPress or
+
+00:43:04.433 --> 00:43:09.690
+React, uh, direct, or even specific
+to a way a sprint might work.
+
+00:43:10.014 --> 00:43:12.300
+Um, I don't… You've probably
+noticed this as well, but have you
+
+00:43:12.301 --> 00:43:14.967
+s- Have you noticed every team that
+runs a sprint runs it in different
+
+00:43:14.967 --> 00:43:16.138
+ways, no matter what you say.
+
+00:43:16.422 --> 00:43:19.652
+And so, yeah, the, the way it's
+built should be completely agnostic.
+
+00:43:19.653 --> 00:43:22.735
+It shouldn't… I mean, regardless,
+it, it should work in React,
+
+00:43:22.767 --> 00:43:24.268
+Word- WordPress, whatever.
+
+00:43:24.475 --> 00:43:25.188
+If that makes sense.
+
+00:43:26.419 --> 00:43:26.795
+For sure.
+
+00:43:26.824 --> 00:43:27.147
+Yeah.
+
+00:43:27.206 --> 00:43:31.686
+Um, every version of Agile is in itself
+agile in the way it implements Agile.
+
+00:43:31.963 --> 00:43:35.691
+Uh, and the same can be said for, um,
+WordPress implementations as well.
+
+00:43:35.697 --> 00:43:35.725
+Yes.
+
+00:43:35.847 --> 00:43:38.406
+The number of different plugins
+and themes and all that.
+
+00:43:38.795 --> 00:43:41.621
+Um, thank you for attending
+this session with Russ.
+
+00:43:41.665 --> 00:43:44.909
+You can continue the conversation
+in Slack or on social media using
+
+00:43:44.910 --> 00:43:50.346
+the hashtag WPA11YDay and WPAD2026.
+

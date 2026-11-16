@@ -2441,7 +2441,7 @@ function wpad_add_custom_quick_edit( $field_name, $post_type ) {
 		<fieldset class="inline-edit-col-right">
 			<div class="inline-edit-col">
 				<label id="edit_youtube_id"><span class="title"><?php esc_html_e( 'YouTube ID', 'wpa-conference' ); ?></span></label>
-				<input type="text" id="edit_youtube_id" name="wpad_youtube_id" value="">
+				<input class="widefat" type="text" id="edit_youtube_id" name="wpad_youtube_id" value="">
 			</div>
 		</fieldset>
 		<?php
@@ -2451,7 +2451,7 @@ function wpad_add_custom_quick_edit( $field_name, $post_type ) {
 		<fieldset class="inline-edit-col-right">
 			<div class="inline-edit-col">
 				<label id="edit_asl_id"><span class="title"><?php esc_html_e( 'ASL ID', 'wpa-conference' ); ?></span></label>
-				<input type="text" id="edit_youtube_id" name="wpad_asl_id" value="">
+				<input class="widefat" type="text" id="edit_asl_id" name="wpad_asl_id" value="">
 			</div>
 		</fieldset>
 		<?php
